@@ -11,9 +11,9 @@ abstract class AbstractItems : AbstractWords0
     public int itemID;
     /// <summary>物品对应战场形象？</summary>
     public GameObject obj;
-    /// <summary>物品目标阵营(如某些物品不能给敌方)</summary>
+    /// <summary>物品目标阵营(如某些物品不能给敌方)【不用】</summary>
     public CampEnum camp;
-    /// <summary>物品目标身份限制（谁能使用） </summary>
+    /// <summary>物品目标身份限制（谁能使用）【不用】 </summary>
     public List<AbstractRole> whoCanUse;
     /// <summary>持有方式</summary>
     public HoldEnum holdEnum;
@@ -23,9 +23,9 @@ abstract class AbstractItems : AbstractWords0
     public AbstractVerbs withSkill;
     /// <summary>物品提供的状态</summary>
     public AbstractAdjectives withAdj;
-    /// <summary>物品每次使用时提供的经验值</summary>
+    /// <summary>物品每次使用时提供的经验值【不用】</summary>
     public int provideExp;
-    /// <summary>物品等级</summary>
+    /// <summary>物品等级【不用】</summary>
     public int level;
     //基础属性，成长属性？
 }

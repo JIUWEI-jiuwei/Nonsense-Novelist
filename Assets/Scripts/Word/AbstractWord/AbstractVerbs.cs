@@ -22,6 +22,7 @@ abstract class AbstractVerbs : AbstractWords0
 
 
     /// <summary>技能类型 </summary>
+<<<<<<< HEAD
     public AbstractSkillMode skillMode;
     /// <summary>射程</summary>
     public float attackDistance;
@@ -29,6 +30,9 @@ abstract class AbstractVerbs : AbstractWords0
     public AbstractAttackRange attackRange;
     /// <summary>攻击次数（比如三连击）</summary>
     public int attacktimes=1;
+=======
+    public AbstractSkillMode skillMode;   
+>>>>>>> master
     /// <summary>技能强度(在这两数间取随机)，或额外造成 某值 的n%伤害</summary>
     public float skillMinStrength, skillMaxStrength;
 
@@ -43,11 +47,11 @@ abstract class AbstractVerbs : AbstractWords0
 
     /// <summary>技能持续时长（已持续时间变量现场声明） </summary>
     public float skillTime;
-    /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）</summary>
+    /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）【不用】</summary>
     public float prepareTime,afterTime;
-    /// <summary>是否允许打断 </summary>
+    /// <summary>是否允许打断 【不用】</summary>
     public bool allowInterrupt;
-    /// <summary>技能概率（能量满后，有概率释放）</summary>
+    /// <summary>技能概率（能量满后，有概率释放）【不用】</summary>
     public float possibility;
 
     /// <summary>
