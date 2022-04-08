@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// 技能类型
 /// </summary>
-public class AbstractSkillMode : MonoBehaviour
+abstract public class AbstractSkillMode : MonoBehaviour
 {
     /// <summary>技能类型序号</summary>
     public int skillModeID;
@@ -20,11 +21,25 @@ public class AbstractSkillMode : MonoBehaviour
     /// <summary>是否优先选择低血量</summary>
     private bool chooseMinHp;
 
-    /// <summary>射程</summary>
-    public float attackDistance;
+    
+    /// <summary>额外值（影响区域相关）</summary>
+    public float extra;
     /// <summary>影响区域（直线、扇形、圆形）</summary>
-    public AbstractAttackRange attackRange;
+    public IAttackRange attackRange ;
     /// <summary>攻击次数（比如三连击）</summary>
     public int attacktimes=1;
-    
+
+
+    /// <summary>
+    /// 再次计算锁定的目标
+    /// </summary>
+    /// <param name="character">使用者位置</param>
+    /// <returns></returns>
+    virtual public GameObject[] CaculateAgain(float attackDistance,Transform ownTrans)
+    {
+        GameObject[] a=attackRange.AttackRange(attackDistance,ownTrans,extra);
+
+
+        return a;
+    }
 }

@@ -10,7 +10,7 @@ abstract class AbstractTrait : MonoBehaviour
     /// <summary>性格ID </summary>
     public int traitID;
     /// <summary>性格名 </summary>
-    public string name;
+    public string traitName;
     /// <summary>性格描述 </summary>
     public string description;
     /// <summary>克制的?????二阶段再说</summary>

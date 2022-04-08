@@ -7,4 +7,6 @@
 {
     /// <summary>È«Êé¼® </summary>
     allBooks = 0,
+    /// <summary>ºìÂ¥ÃÎ </summary>
+    HongLouMeng = 1,
 };
