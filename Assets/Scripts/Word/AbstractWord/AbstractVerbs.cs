@@ -29,7 +29,7 @@ abstract class AbstractVerbs : AbstractWords0
     public AbstractAttackRange attackRange;
     /// <summary>攻击次数（比如三连击）</summary>
     public int attacktimes=1;
-    /// <summary>技能强度(在这两数间取随机)</summary>
+    /// <summary>技能强度(在这两数间取随机)，或额外造成 某值 的n%伤害</summary>
     public float skillMinStrength, skillMaxStrength;
 
 
