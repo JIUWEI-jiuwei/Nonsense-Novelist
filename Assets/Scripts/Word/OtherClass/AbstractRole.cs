@@ -8,9 +8,9 @@ using UnityEngine;
 abstract class AbstractRole : MonoBehaviour
 {
     /// <summary>身份序号 </summary>
-    public int rooleID;
+    public int roleID;
     /// <summary>身份名称 </summary>
-    public string name;
+    public string roleName;
     /// <summary>身份描述 </summary>
     public string description;
     /// <summary>克制的?????二阶段再说 </summary>

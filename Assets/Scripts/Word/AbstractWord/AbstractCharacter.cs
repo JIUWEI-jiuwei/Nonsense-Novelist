@@ -11,8 +11,8 @@ abstract class AbstractCharacter : AbstractWords0
     public int characterID;
     /// <summary>性别</summary>
     public GenderEnum gender;
-    /// <summary>形象序号</summary>
-    public Dictionary<string,GameObject> appearance;
+    /// <summary>形象（形象名，形象）</summary>
+    public Dictionary<string,int> appearance;
 
 
     /// <summary>时代（用于文本）</summary>
@@ -32,6 +32,8 @@ abstract class AbstractCharacter : AbstractWords0
     //人物的身份的类型可以不断扩充，不同的身份在战斗时对实体敌人单位的攻防加权会有影响，如大小姐，受到经济问题，社会问题的伤害较低，收到家庭问题的伤害较高
     /// <summary>性格【不用】</summary>
     public AbstractTrait trait;
+    /// <summary>自带技能</summary>
+    public List<AbstractVerbs> skill;
     /// <summary>血量</summary>
     public int hp = 0;
     /// <summary>总血量</summary>

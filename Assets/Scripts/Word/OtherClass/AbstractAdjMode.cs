@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ×´Ì¬ÀàÐÍ
 /// </summary>
-class AbstractAdjMode : MonoBehaviour
+abstract class AbstractAdjMode : MonoBehaviour
 {
 
 }
