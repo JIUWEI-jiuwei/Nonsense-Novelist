@@ -42,7 +42,7 @@ abstract class AbstractVerbs : AbstractWords0
     public float prepareTime,afterTime;
     /// <summary>是否允许打断 【不用】</summary>
     public bool allowInterrupt;
-    /// <summary>技能概率（能量满后，有概率释放）【不用】</summary>
+    /// <summary>技能概率（平A时有概率释放）【不用】</summary>
     public float possibility;
 
     /// <summary>

@@ -20,7 +20,7 @@ class WritePoem : AbstractVerbs
         prepareTime = 2;
         afterTime = 0;
         allowInterrupt = true;
-        possibility = 1;
+        possibility = 0;
     }
 
     public override void Ability()

@@ -8,6 +8,7 @@ using UnityEngine;
     {
         characterID = 1;
         gender = GenderEnum.girl;
+        appearance = 1;
         wordName = "¡÷˜Ï”Ò";
         bookName = BookNameEnum.HongLouMeng;
         nickname = "¡÷√√√√";

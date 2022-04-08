@@ -11,8 +11,8 @@ abstract class AbstractCharacter : AbstractWords0
     public int characterID;
     /// <summary>性别</summary>
     public GenderEnum gender;
-    /// <summary>形象（形象名，形象）</summary>
-    public Dictionary<string,int> appearance;
+    /// <summary>形象序号（美术发的文件名）</summary>
+    public int appearance;
 
 
     /// <summary>时代（用于文本）</summary>
