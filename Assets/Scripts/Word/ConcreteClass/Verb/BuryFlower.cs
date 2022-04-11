@@ -16,6 +16,7 @@ class BuryFlower : AbstractVerbs
         //技能强度搁置
         attackDistance = 0;
         skillTime = 7;
+        skillEffectsTime = 0;
         comsumeSP = 15;
         prepareTime = 1f;
         afterTime = 0;

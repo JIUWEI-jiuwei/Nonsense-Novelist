@@ -15,7 +15,8 @@ class FallBadly : AbstractVerbs
         skillMode = new Damage();
         //技能强度搁置
         attackDistance = 6;
-        skillTime = 1.5f;
+        skillTime = 0f;
+        skillEffectsTime = 1.5f;
         comsumeSP = 0;
         prepareTime = 0.5f;
         afterTime = 0;

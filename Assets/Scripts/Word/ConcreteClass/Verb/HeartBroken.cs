@@ -15,7 +15,8 @@ class HeartBroken : AbstractVerbs
         skillMode = new Damage();
         //技能强度搁置
         attackDistance = Mathf.Infinity;
-        skillTime = 3;
+        skillTime = 0;
+        skillEffectsTime = 3;
         comsumeSP = 5;
         prepareTime = 0.5f;
         afterTime = 1;

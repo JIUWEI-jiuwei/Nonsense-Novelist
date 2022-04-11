@@ -15,7 +15,8 @@ class WritePoem : AbstractVerbs
         skillMode = new StatusUp();
         //技能强度搁置
         attackDistance = 5;
-        skillTime = 5;
+        skillTime = 0;
+        skillEffectsTime = 5;
         comsumeSP = 10;
         prepareTime = 2;
         afterTime = 0;

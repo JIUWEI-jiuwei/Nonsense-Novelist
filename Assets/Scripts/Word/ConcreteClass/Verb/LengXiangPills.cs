@@ -16,6 +16,7 @@ class LengXiangPills : AbstractVerbs
         //技能强度搁置
         attackDistance = 2;
         skillTime = 0f;
+        skillEffectsTime = 0;
         comsumeSP = 0;
         prepareTime = 0.5f;
         afterTime = 0;
