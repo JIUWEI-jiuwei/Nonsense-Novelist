@@ -55,9 +55,9 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>暴击倍数</summary>
     public float multipleCriticalStrike = 0;
     /// <summary>攻击速度(检定攻击的次序，以及每两次攻击间隔时长)</summary>
-    public int attackSpeed = 0;
+    public float attackSpeed = 0;
     /// <summary>技能速度(用于减少该人物所有技能的CD，尽量不要这个值)</summary>
-    public int skillSpeed = 0;
+    public float skillSpeed = 0;
     /// <summary>闪避几率(完全无视攻击的概率)</summary>
     public float dodgeChance = 0;
     /// <summary>幸运值</summary>

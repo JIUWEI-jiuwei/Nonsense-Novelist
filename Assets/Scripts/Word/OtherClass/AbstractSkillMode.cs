@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 技能类型
 /// </summary>
-abstract public class AbstractSkillMode : MonoBehaviour
+abstract class AbstractSkillMode : MonoBehaviour
 {
     /// <summary>技能类型序号</summary>
     public int skillModeID;
