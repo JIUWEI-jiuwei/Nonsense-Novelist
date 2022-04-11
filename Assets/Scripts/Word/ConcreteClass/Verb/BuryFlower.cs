@@ -17,6 +17,8 @@ class BuryFlower : AbstractVerbs
         attackDistance = 0;
         skillTime = 7;
         skillEffectsTime = 0;
+        cd=0;
+        maxCD=40;
         comsumeSP = 15;
         prepareTime = 1f;
         afterTime = 0;

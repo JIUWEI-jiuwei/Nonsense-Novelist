@@ -17,6 +17,8 @@ class WritePoem : AbstractVerbs
         attackDistance = 5;
         skillTime = 0;
         skillEffectsTime = 5;
+        cd=0;
+        maxCD=18;
         comsumeSP = 10;
         prepareTime = 2;
         afterTime = 0;

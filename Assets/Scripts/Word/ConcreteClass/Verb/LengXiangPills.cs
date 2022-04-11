@@ -17,6 +17,8 @@ class LengXiangPills : AbstractVerbs
         attackDistance = 2;
         skillTime = 0f;
         skillEffectsTime = 0;
+        cd=0;
+        maxCD=6;
         comsumeSP = 0;
         prepareTime = 0.5f;
         afterTime = 0;

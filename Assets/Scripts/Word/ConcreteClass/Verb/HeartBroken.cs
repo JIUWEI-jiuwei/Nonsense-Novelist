@@ -17,6 +17,8 @@ class HeartBroken : AbstractVerbs
         attackDistance = Mathf.Infinity;
         skillTime = 0;
         skillEffectsTime = 3;
+        cd=0;
+        maxCD=5;
         comsumeSP = 5;
         prepareTime = 0.5f;
         afterTime = 1;
