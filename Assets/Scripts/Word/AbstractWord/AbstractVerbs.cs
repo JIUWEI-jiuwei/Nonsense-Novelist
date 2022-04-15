@@ -38,6 +38,8 @@ abstract class AbstractVerbs : AbstractWords0
 
     /// <summary>技能持续时长（已持续时间变量现场声明） </summary>
     public float skillTime;
+    /// <summary>技能效果持续时长 </summary>
+    public float skillEffectsTime;
     /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）【不用】</summary>
     public float prepareTime,afterTime;
     /// <summary>是否允许打断 【不用】</summary>

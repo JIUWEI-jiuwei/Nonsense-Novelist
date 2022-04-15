@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 抽象词类
 /// </summary>
-class AbstractWords0 : MonoBehaviour
+abstract class AbstractWords0 : MonoBehaviour
 {
     /// <summary>所属书（全书籍为0） </summary>
     public BookNameEnum bookName;

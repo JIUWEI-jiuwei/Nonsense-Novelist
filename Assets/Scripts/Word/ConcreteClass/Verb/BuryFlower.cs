@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 赋诗
+/// 葬花
 /// </summary>
-class WritePoem : AbstractVerbs
+class BuryFlower : AbstractVerbs
 {
-    public WritePoem ()
+    public BuryFlower()
     {
-        wordName = "赋诗";
+        wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
-        description = "吟诗作对，好不快活";
-        nickname = "作诗";
+        description = "……";
+        nickname = "平生葬花杀人，我以落花剑葬你，不枉你异人之名。";
         skillMode = new StatusUp();
         //技能强度搁置
-        attackDistance = 5;
-        skillTime = 0;
-        skillEffectsTime = 5;
+        attackDistance = 0;
+        skillTime = 7;
+        skillEffectsTime = 0;
         cd=0;
-        maxCD=18;
-        comsumeSP = 10;
-        prepareTime = 2;
+        maxCD=40;
+        comsumeSP = 15;
+        prepareTime = 1f;
         afterTime = 0;
         allowInterrupt = true;
         possibility = 0;
     }
-
     public override void Ability()
     {
-       
+
     }
 }
