@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 抽象动词类（技能）
 /// </summary>
-abstract class AbstractVerbs : AbstractWords0 
+abstract class AbstractVerbs : AbstractWords0 ,ICD
 {
     /// <summary>技能序号</summary>
     public int skillID;
@@ -47,6 +47,11 @@ abstract class AbstractVerbs : AbstractWords0
     /// <summary>技能概率（平A时有概率释放）【不用】</summary>
     public float possibility;
 
+    /// <summary>是否为开局</summary>
+    public bool isFirst;
+    /// <summary>技能CD是否冷却完成</summary>
+    public bool b_CdCooled;
+
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
@@ -65,5 +70,30 @@ abstract class AbstractVerbs : AbstractWords0
         AbstractCharacter  characterStatus=character.GetComponent<AbstractCharacter>();
         characterStatus.sp -= comsumeSP;
 
+    }
+    /// <summary>
+    /// 技能CD冷却
+    /// </summary>
+    /// <param name="cd"></param>
+    /// <param name="maxCD"></param>
+    /// <param name="b_CDCooled"></param>
+    virtual public void CDTime(float cd,float maxCD,bool isFirst,bool b_CDCooled)//只有开局摇盒子时，isFirst=true，其他时候为false
+    {
+        //开局
+        if (isFirst) b_CDCooled = true;
+
+        //局中
+        else
+        {
+            b_CDCooled = false;
+            cd += Time.deltaTime;
+
+            //CD已好
+            if (cd == maxCD)
+            {
+                b_CDCooled = true;
+
+            }
+        }
     }
 }
