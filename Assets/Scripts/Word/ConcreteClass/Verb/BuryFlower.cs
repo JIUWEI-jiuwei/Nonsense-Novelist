@@ -12,7 +12,7 @@ class BuryFlower : AbstractVerbs
         bookName = BookNameEnum.HongLouMeng;
         description = "……";
         nickname = "平生葬花杀人，我以落花剑葬你，不枉你异人之名。";
-        skillMode = new StatusUp();
+        skillMode = new DamageMode();  
         //技能强度搁置
         attackDistance = 0;
         skillTime = 7;

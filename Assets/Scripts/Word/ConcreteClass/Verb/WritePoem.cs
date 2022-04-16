@@ -12,7 +12,7 @@ class WritePoem : AbstractVerbs
         bookName = BookNameEnum.HongLouMeng;
         description = "吟诗作对，好不快活";
         nickname = "作诗";
-        skillMode = new StatusUp();
+        skillMode = new ChangeATKMode();
         //技能强度搁置
         attackDistance = 5;
         skillTime = 0;

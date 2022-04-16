@@ -25,5 +25,6 @@ using UnityEngine;
         attackSpeed = 0;
         skillSpeed = 0;
         luckyValue = 0;
+        
     }
 }

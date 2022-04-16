@@ -42,4 +42,5 @@ abstract class AbstractSkillMode : MonoBehaviour
 
         return a;
     }
+    abstract public void UseMode(int value,AbstractCharacter character);    
 }

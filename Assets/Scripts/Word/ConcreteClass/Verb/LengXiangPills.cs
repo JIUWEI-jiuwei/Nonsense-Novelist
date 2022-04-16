@@ -12,7 +12,7 @@ class LengXiangPills : AbstractVerbs
         bookName = BookNameEnum.HongLouMeng;
         description = "……";
         nickname = "……";
-        skillMode = new ReturnBlood();
+        skillMode = new CureMode();
         //技能强度搁置
         attackDistance = 2;
         skillTime = 0f;

@@ -12,7 +12,7 @@ class FallBadly : AbstractVerbs
         bookName = BookNameEnum.HongLouMeng;
         description = "将东西用力的摔向对方";
         nickname = "砸，甩，投掷";
-        skillMode = new Damage();
+        skillMode = new DamageMode();
         //技能强度搁置
         attackDistance = 6;
         skillTime = 0f;

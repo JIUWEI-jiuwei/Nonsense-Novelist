@@ -12,7 +12,7 @@ class HeartBroken : AbstractVerbs
         bookName = BookNameEnum.allBooks;
         description = "令目标心如刀绞。";
         nickname = "刺痛";
-        skillMode = new Damage();
+        skillMode = new DamageMode();
         //技能强度搁置
         attackDistance = Mathf.Infinity;
         skillTime = 0;
