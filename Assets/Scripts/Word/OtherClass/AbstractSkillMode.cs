@@ -35,7 +35,7 @@ abstract class AbstractSkillMode : MonoBehaviour
     /// </summary>
     /// <param name="character">使用者位置</param>
     /// <returns></returns>
-    virtual public GameObject[] CaculateAgain(float attackDistance,Transform ownTrans)
+    virtual public GameObject[] CaculateAgain(float attackDistance,Transform ownTrans,CampEnum camp)
     {
         GameObject[] a=attackRange.AttackRange(attackDistance,ownTrans,extra);
 
