@@ -38,7 +38,7 @@ class BuryFlower : AbstractVerbs
         this.maxCD = maxCD;
         this.isFirst = isFirst;
         this.b_CdCooled = b_CDCooled;
-
+        
         //¿ª¾Ö
         if (isFirst) b_CDCooled = true;
 
