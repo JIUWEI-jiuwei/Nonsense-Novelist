@@ -11,8 +11,8 @@ abstract class AbstractCharacter : AbstractWords0
     public int characterID;
     /// <summary>性别</summary>
     public GenderEnum gender;
-    /// <summary>形象序号（美术发的文件名）</summary>
-    public int appearance;
+    /// <summary>形象</summary>
+    public Animator appearance;
 
 
     /// <summary>时代（用于文本）</summary>
@@ -54,12 +54,47 @@ abstract class AbstractCharacter : AbstractWords0
     public float criticalChance = 0;
     /// <summary>暴击倍数</summary>
     public float multipleCriticalStrike = 0;
-    /// <summary>攻击速度(检定攻击的次序，以及每两次攻击间隔时长)</summary>
-    public float attackSpeed = 0;
+    /// <summary>攻击间隔(检定攻击的次序，以及每两次攻击间隔时长)</summary>
+    public float attackInterval = 0;
     /// <summary>技能速度(用于减少该人物所有技能的CD，尽量不要这个值)</summary>
     public float skillSpeed = 0;
     /// <summary>闪避几率(完全无视攻击的概率)</summary>
     public float dodgeChance = 0;
+    /// <summary>攻击范围</summary>
+    public int attackDistance = 0;
     /// <summary>幸运值</summary>
     public int luckyValue = 0;
+
+
+    /// <summary>平A模式</summary>
+    private AbstractSkillMode attackA;
+    /// <summary>目标（其实就最近的一个）</summary>
+    private GameObject[] aim;
+    private void Start()
+    {
+       attackA=new DamageMode();
+       attackA.attackRange = new SectorAttackSelector();
+        attackA.extra = 120;
+    }
+
+    private float time;
+    private void Update()
+    {
+        //防止溢出
+        if (hp > maxHP)
+            hp = maxHP;
+        if(sp>maxSP)
+            sp = maxSP;
+
+        //平A
+        time += Time.deltaTime;
+        if(time>=attackInterval )
+        {
+            time = 0;
+            aim = attackA.CalculateAgain(attackDistance, this.gameObject);
+            if(aim!=null)
+            aim[0].GetComponent<AbstractCharacter>().hp -= (int)(atk - def * 0.6f);
+        }
+    }
 }
+

@@ -11,16 +11,10 @@ abstract class AbstractSkillMode : MonoBehaviour
     public int skillModeID;
     /// <summary>技能类型名称</summary>
     public string skillModeName;
-    /// <summary>目标阵营优先级</summary>
-    private List<CampEnum> campOrder;
     /// <summary>目标身份优先级(和↓二选一）</summary>
     private List<AbstractRole> roleOrder;
     /// <summary>目标性格优先级(和↑二选一）【不用】</summary>
     private List<AbstractTrait> traitOrder;
-
-    /// <summary>是否优先选择低血量</summary>
-    private bool chooseMinHp;
-
     
     /// <summary>额外值（影响区域相关）</summary>
     public float extra;
@@ -29,15 +23,14 @@ abstract class AbstractSkillMode : MonoBehaviour
     /// <summary>攻击次数（比如三连击）</summary>
     public int attacktimes=1;
 
-
     /// <summary>
     /// 再次计算锁定的目标
     /// </summary>
-    /// <param name="character">使用者位置</param>
+    /// <param name="character">施法者</param>
     /// <returns></returns>
-    virtual public GameObject[] CaculateAgain(float attackDistance,Transform ownTrans,CampEnum camp)
+    virtual public GameObject[] CalculateAgain(float attackDistance,GameObject character)
     {
-        GameObject[] a=attackRange.AttackRange(attackDistance,ownTrans,extra);
+        GameObject[] a=attackRange.AttackRange(attackDistance,character.transform,extra);
 
 
         return a;

@@ -11,8 +11,6 @@ abstract class AbstractItems : AbstractWords0
     public int itemID;
     /// <summary>物品名称</summary>
     public string itemName; 
-    /// <summary>图标</summary>
-    public int appearence;
     /// <summary>物品对应战场形象？</summary>
     public GameObject obj;
     /// <summary>物品目标阵营(如某些物品不能给敌方)【不用】</summary>

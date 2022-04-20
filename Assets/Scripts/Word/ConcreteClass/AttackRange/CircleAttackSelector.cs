@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-namespace ARPGSimpleDemo.Skill
-{
     /// <summary>
     /// 圆形（球形）区域
     /// </summary>
@@ -36,4 +34,3 @@ namespace ARPGSimpleDemo.Skill
 
         }
     }
-}

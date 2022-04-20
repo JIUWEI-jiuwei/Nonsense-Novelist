@@ -11,21 +11,25 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>技能序号</summary>
     public int skillID;
 
-    //施法者技能特效序号
 
-    //作用者技能特效序号
+    /// <summary>施法者特效</summary>
+    public Animation userAnim;
+    /// <summary>作用者特效</summary>
+    public Animation aimAnim;
+    /// <summary>弹道特效</summary>
+    public Animation bulletAnim;
 
     /// <summary>技能使用者身份限制（谁不能使用）</summary>
-    public List<AbstractRole> banUse;
+    public List<AbstractRoleLimit> banUse;
     /// <summary>目标限制（不能向谁使用）</summary>
-    public List<AbstractRole> banAim;
+    public List<AbstractRoleLimit> banAim;
 
     /// <summary>射程</summary>
     public float attackDistance;
     /// <summary>技能类型 </summary>
     public AbstractSkillMode skillMode;
-    /// <summary>技能强度(在这两数间取随机)，或额外造成 某值 的n%伤害</summary>
-    public float skillMinStrength, skillMaxStrength,additional;
+    /// <summary>技能强度(在这两数间取随机)，或造成 某值n%（percentage写小数） 的伤害</summary>
+    public float skillMinStrength, skillMaxStrength,percentage;
 
 
     /// <summary>消耗蓝量</summary>
@@ -47,53 +51,47 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>技能概率（平A时有概率释放）【不用】</summary>
     public float possibility;
 
-    /// <summary>是否为开局</summary>
-    public bool isFirst;
-    /// <summary>技能CD是否冷却完成</summary>
-    public bool b_CdCooled;
+    /// <summary>特殊效果持续时长</summary>
+    public int abilitySustainTime;
 
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    abstract public void Ability();
+    virtual  public void Ability()
+    {
 
+    }
+
+    /// <summary>
+    /// 仅用于↓（目标数组）
+    /// </summary>
+    protected GameObject[] aims;
     /// <summary>
     /// 使用技能
     /// </summary>
     /// <param name="character"></param>
+    /// <param name="camp">使用者阵营</param>
     virtual public void UseVerbs(GameObject character)
     {
-        Ability();
         cd = 0;
-        skillMode.CaculateAgain(attackDistance,character.transform);
-
+        aims=skillMode.CalculateAgain(attackDistance,character);
         AbstractCharacter  characterStatus=character.GetComponent<AbstractCharacter>();
         characterStatus.sp -= comsumeSP;
-
+        Ability();
     }
     /// <summary>
-    /// 技能CD冷却
+    /// 冷却（UseVerbs将cd重置为0）
     /// </summary>
-    /// <param name="cd"></param>
-    /// <param name="maxCD"></param>
-    /// <param name="b_CDCooled"></param>
-    virtual public void CDTime(float cd,float maxCD,bool isFirst,bool b_CDCooled)//只有开局摇盒子时，isFirst=true，其他时候为false
+    /// <returns>是否冷却完毕</returns>
+    virtual public bool CalculateCD()
     {
-        //开局
-        if (isFirst) b_CDCooled = true;
-
-        //局中
-        else
+        if(cd<maxCD)
         {
-            b_CDCooled = false;
             cd += Time.deltaTime;
-
-            //CD已好
-            if (cd == maxCD)
-            {
-                b_CDCooled = true;
-
-            }
         }
+        if (cd >= maxCD)
+            return true;
+        else 
+            return false;
     }
 }

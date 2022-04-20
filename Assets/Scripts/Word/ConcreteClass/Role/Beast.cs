@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 大小姐身份
+/// 野兽
 /// </summary>
-class Lady : AbstractRole
+class Beast : AbstractRole
 {
-    public Lady ()
+    public Beast()
     {
-        roleID = 1;
-        roleName = "大小姐";
+        roleID = 7;
+        roleName = "野兽";
 
     }
 }

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ARPGSimpleDemo.Skill
-{
+
     /// <summary>
     /// 扇形区域
     /// </summary>
@@ -38,4 +37,3 @@ namespace ARPGSimpleDemo.Skill
            
         }
     }
-}

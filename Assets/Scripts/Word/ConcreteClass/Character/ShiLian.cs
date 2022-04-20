@@ -1,29 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 失恋（2级怪）
+/// </summary>
 class ShiLian : AbstractCharacter
 {
   public ShiLian()
     {
         characterID = 2;
         gender = GenderEnum.noGender;
-        appearance = 2;
         wordName = "失恋";
+        description = "爱而不得之苦，对于性格脆弱之人更为致命";
         bookName = BookNameEnum.allBooks;
-        nickname = "爱情之苦";
+        nickname.Add( "爱情之苦");
+        nickname.Add("令人心碎的爱情");
         criticalSpeak = "抱歉，但我们不合适。";
         deadSpeak = "你竟然丝毫不在乎？";
-        maxHP = 50;
-        maxSP = 20;
-        atk = 7;
+        camp = CampEnum.enemy;
+        role = new Noble();
+        skill.Add(new HeartBroken());
+        hp=maxHP = 40;
+        sp=maxSP = 20;
+        atk = 5;
         def = 1;
         psy = 13;
         san = 3;
         criticalChance = 0;
-        multipleCriticalStrike = 2f;
-        attackSpeed = 1.5f;
+        multipleCriticalStrike = 2;
+        attackInterval = 1.3f;
         skillSpeed = 0;
+        dodgeChance = 0;
+        attackDistance = 7;
         luckyValue = 0;
     }
 }

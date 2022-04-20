@@ -5,7 +5,7 @@
 /// </summary>
 public enum GenderEnum
 {
-    boy = 0,
+    noGender = 0,
     girl = 1,
-    noGender=2,
+    boy = 2,
 };

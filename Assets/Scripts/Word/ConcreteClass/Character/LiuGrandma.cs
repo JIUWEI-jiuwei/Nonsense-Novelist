@@ -8,22 +8,24 @@ class LiuGrandma : AbstractCharacter
     {
         characterID = 3;
         gender = GenderEnum.girl;
-        appearance = 3;
         wordName = "ÁõÀÑÀÑ";
         bookName = BookNameEnum.HongLouMeng;
-        nickname = "Ä¸»È³æ";
-        criticalSpeak = "¡­¡­";
+        nickname.Add( "Ä¸»È³æ");
         deadSpeak = "Õâ¾ÍÊÇ´ó¹ÛÔ°Âð£¿";
-        maxHP = 70;
-        maxSP = 10;
-        atk = 7;
-        def = 1;
+        camp = CampEnum.friend;
+        role = new Country();
+        hp=maxHP = 70;
+        sp=maxSP = 10;
+        atk = 5;
+        def = 5;
         psy = 5;
         san = 10;
         criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackSpeed = 2;
+        attackInterval = 2;
         skillSpeed = 0;
+        dodgeChance = 0;
+        attackDistance = 2;
         luckyValue = 0;
     }
 }

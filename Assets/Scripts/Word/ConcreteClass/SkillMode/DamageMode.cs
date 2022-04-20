@@ -6,32 +6,35 @@ using UnityEngine;
 /// </summary>
 class DamageMode : AbstractSkillMode
 {
-   public DamageMode()
+    public DamageMode()
     {
         skillModeID = 2;
         skillModeName = "伤害技能";
     }
     public override void UseMode(int value, AbstractCharacter character)
     {
-        character.hp-=value-(int)(character.def*0.6f);
-        
+        character.hp -= value - (int)(character.def * 0.6f);
+
     }
-     /// <summary>
+    /// <summary>
     /// 再次计算锁定的目标
     /// </summary>
-    /// <param name="character">使用者位置</param>
+    /// <param name="character">施法者</param>
     /// <returns></returns>
-    override public GameObject[] CaculateAgain(float attackDistance,Transform ownTrans,CampEnum camp)
+    override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
     {
-        GameObject[] a=attackRange.AttackRange(attackDistance,ownTrans,extra);
-        if(a!=null)
+        CampEnum camp = character.GetComponent<AbstractCharacter>().camp;
+        GameObject[] a = attackRange.AttackRange(attackDistance, character.transform, extra);
+        if (a != null)
         {
-        if(CampEnum.enemy){
-            a=CollectionHelper.FindAll<GameObject>(a,p=> p.GetComponent<AbstractCharacter>.CampEnum==CampEnum.friend);
-        }
-        else if(CampEnum.friend){
-            a=CollectionHelper.FindAll<GameObject>(a,p=>p.GetComponent<AbstractCharacter>.CampEnum==CampEnum.enemy);
-        }
+            if (camp == CampEnum.enemy)
+            {
+                a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.friend);
+            }
+            else if (camp == CampEnum.friend)
+            {
+                a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.enemy);
+            }
         }
         return a;
     }

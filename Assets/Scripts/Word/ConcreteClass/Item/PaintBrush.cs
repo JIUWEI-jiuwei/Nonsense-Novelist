@@ -11,10 +11,9 @@ class PaintBrush : AbstractItems
         itemID = 3;
         itemName = "ª≠± ";
         bookName = BookNameEnum.HuaShi;
-        appearence = 3;
-        nickname = "± À¢";
-        VoiceEnum = MaterialVoiceEnum.materialSoft;
-
+        nickname.Add("± À¢");
+        VoiceEnum = MaterialVoiceEnum.Soft;
+        level = 1;
 
     }
 }
