@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Parents : AbstractRole
 {
-    public Parents ()
+    public void Awake()
     {
         roleID = 4;
         roleName = "¼Ò³¤";

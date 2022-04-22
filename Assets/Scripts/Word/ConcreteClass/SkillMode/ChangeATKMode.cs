@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class ChangeATKMode : AbstractSkillMode
 {
-    public ChangeATKMode()
+    public void Awake()
     {
         skillModeID = 3;
         skillModeName = "ÌáÉý¹¥»÷";

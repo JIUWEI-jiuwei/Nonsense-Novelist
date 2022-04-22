@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class OldEnemy : AbstractRole
 {
-    public OldEnemy  ()
+    public void Awake()
     {
         roleID = 5;
         roleName = "ËÞµÐ";

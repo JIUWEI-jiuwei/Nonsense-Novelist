@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class BuryFlower : AbstractVerbs
 {
-    public BuryFlower()
+    public void Awake()
     {
         skillID = 3;
         wordName = "Τα»¨";

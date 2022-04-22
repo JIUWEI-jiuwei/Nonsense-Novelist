@@ -4,7 +4,7 @@ using UnityEngine;
 
 class WangXiFeng : AbstractCharacter
 {
-    public WangXiFeng()
+    public void Awake()
     {
         characterID = 4;
         gender = GenderEnum.girl;
@@ -25,7 +25,7 @@ class WangXiFeng : AbstractCharacter
         attackInterval = 1.3f;
         skillSpeed = 0;
         dodgeChance = 0;
-
+        attackDistance = 2;
         luckyValue = 0;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Noble : AbstractRole
 {
-    public Noble ()
+    public void Awake()
     {
         roleID = 1;
         roleName = "æýç«";

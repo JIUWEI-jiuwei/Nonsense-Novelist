@@ -4,7 +4,7 @@ using UnityEngine;
 
 class FamilyConflict : AbstractCharacter
 {
-    public FamilyConflict()
+    public void Awake()
     {
         characterID = 5;
         gender = GenderEnum.noGender;
@@ -26,7 +26,7 @@ class FamilyConflict : AbstractCharacter
         attackInterval = 1.3f;
         skillSpeed = 0;
         dodgeChance = 0;
-
+        attackDistance = 2;
         luckyValue = 0;
     }
 }

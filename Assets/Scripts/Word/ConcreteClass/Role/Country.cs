@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Country : AbstractRole
 {
-    public Country  ()
+    public void Awake()
     {
         roleID = 3;
         roleName = "ÏçÏÂÈË";

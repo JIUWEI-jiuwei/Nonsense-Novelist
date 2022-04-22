@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class DamageMode : AbstractSkillMode
 {
-    public DamageMode()
+    public void Awake()
     {
         skillModeID = 2;
         skillModeName = "ÉËº¦¼¼ÄÜ";

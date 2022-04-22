@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Sense : AbstractRoleLimit
 {
-    public Sense()
+    public void Awake()
     {
         thisName = "¿Ì÷«";
         ban.Add(new Beast());

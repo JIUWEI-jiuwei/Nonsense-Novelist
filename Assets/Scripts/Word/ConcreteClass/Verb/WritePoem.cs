@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class WritePoem : AbstractVerbs
 {
-    public WritePoem ()
+    public void Awake()
     {
         skillID = 1;
         wordName = "¸³Ê«";

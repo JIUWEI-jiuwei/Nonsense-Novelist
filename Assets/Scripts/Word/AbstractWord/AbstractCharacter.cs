@@ -72,9 +72,9 @@ abstract class AbstractCharacter : AbstractWords0
     private GameObject[] aim;
     private void Start()
     {
-       attackA=new DamageMode();
+       attackA=new DamageMode();//平A是伤害类型
        attackA.attackRange = new SectorAttackSelector();
-        attackA.extra = 120;
+       attackA.extra = 120;
     }
 
     private float time;

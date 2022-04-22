@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class ChangeDEFMode : AbstractSkillMode
 {
-    public ChangeDEFMode()
+    public void Awake()
     {
         skillModeID = 4;
         skillModeName = "ÌáÉı·ÀÓù";

@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class LengXiangPill : AbstractItems
 {
-  public LengXiangPill()
+    public void Awake()
     {
         itemID = 2;
         itemName = "¿‰œ„ÕË";

@@ -17,12 +17,12 @@ using UnityEngine;
         /// <returns>返回区域内目标数组</returns>
         public GameObject[] AttackRange(float attackDistance, Transform ownTrans,float angle)
         {
-            //发一个球形射线，找出所有角色碰撞体
-            Collider[] colliders = Physics.OverlapSphere(ownTrans.position, attackDistance, LayerMask.NameToLayer("Character"));
-            if (colliders == null || colliders.Length == 0)
+        //发一个球形射线，找出所有角色碰撞体
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(ownTrans.position, attackDistance, LayerMask.NameToLayer("Character"));
+        if (colliders == null || colliders.Length == 0)
                 return null;
             //取GameObject
-            GameObject[] result = CollectionHelper.Select<Collider, GameObject>(colliders, p => p.gameObject);
+            GameObject[] result = CollectionHelper.Select<Collider2D, GameObject>(colliders, p => p.gameObject);
 
             
             //筛选目标

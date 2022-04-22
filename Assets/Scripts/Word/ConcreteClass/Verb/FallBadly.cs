@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class FallBadly : AbstractVerbs
 {
-    public FallBadly()
+    public void Awake()
     {
         skillID = 4;
         wordName = "ˤ";

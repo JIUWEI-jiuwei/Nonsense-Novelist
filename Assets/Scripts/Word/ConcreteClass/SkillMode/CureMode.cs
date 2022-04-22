@@ -4,7 +4,7 @@ using UnityEngine;
 
 class CureMode : AbstractSkillMode
 {
-    public CureMode()
+    public void Awake()
     {
         skillModeID = 1;
         skillModeName = "÷Œ¡∆ººƒ‹";

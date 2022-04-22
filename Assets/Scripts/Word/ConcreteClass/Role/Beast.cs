@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Beast : AbstractRole
 {
-    public Beast()
+    public void Awake()
     {
         roleID = 7;
         roleName = "р╟йч";

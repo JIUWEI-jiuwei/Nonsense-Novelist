@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class LengXiangPillSkill : AbstractVerbs
 {
-    public LengXiangPillSkill()
+    public void Awake()
     {
         skillID = 5;
         wordName = "¿‰œ„ÕË";

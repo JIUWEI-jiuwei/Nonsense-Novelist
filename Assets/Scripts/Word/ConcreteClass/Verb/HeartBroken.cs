@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class HeartBroken : AbstractVerbs
 {
-    public HeartBroken()
+    public void Awake()
     {
         skillID = 2;
         wordName = "ÐÄËé";

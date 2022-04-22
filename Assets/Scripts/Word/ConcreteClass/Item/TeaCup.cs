@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class TeaCup : AbstractItems
 {
-  public TeaCup()
+    public void Awake()
     {
         itemID = 1;
         itemName = "²è±­";

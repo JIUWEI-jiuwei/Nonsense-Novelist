@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class PaintBrush : AbstractItems
 {
-  public PaintBrush()
+    public void Awake()
     {
         itemID = 3;
         itemName = "»­±Ê";

@@ -4,7 +4,7 @@ using UnityEngine;
 
  class LinDaiYu : AbstractCharacter
 {
-    public LinDaiYu ()
+    public void Awake()
     {
         characterID = 1;
         gender = GenderEnum.girl;
@@ -29,7 +29,7 @@ using UnityEngine;
         attackInterval = 1.5f;
         skillSpeed = 0;
         dodgeChance = 0;
-        attackDistance = 7;
+        attackDistance = 6;
         luckyValue = 0;
         
     }

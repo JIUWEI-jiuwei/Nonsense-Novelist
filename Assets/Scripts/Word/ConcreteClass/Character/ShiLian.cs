@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class ShiLian : AbstractCharacter
 {
-  public ShiLian()
+  public void Awake()
     {
         characterID = 2;
         gender = GenderEnum.noGender;
@@ -31,7 +31,7 @@ class ShiLian : AbstractCharacter
         attackInterval = 1.3f;
         skillSpeed = 0;
         dodgeChance = 0;
-        attackDistance = 7;
+        attackDistance = 6;
         luckyValue = 0;
     }
 }

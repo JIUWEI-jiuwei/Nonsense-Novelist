@@ -15,16 +15,14 @@ class straightAttackSelector : IAttackRange
     /// <returns>返回区域内目标数组</returns>
     public GameObject[] AttackRange(float attackDistance, Transform ownTrans, float extra = 1)
     {
-        //向前的射线
-        Ray ray = new Ray(ownTrans.position, ownTrans.forward);
         //发出射线，找出所有角色碰撞体
-        RaycastHit[] hit = Physics.RaycastAll(ray, attackDistance, LayerMask.NameToLayer("Character"));
+        RaycastHit2D[] hit = Physics2D.RaycastAll(ownTrans.position, ownTrans.forward, attackDistance, LayerMask.NameToLayer("Character"));
 
         if (hit == null || hit.Length == 0)
             return null;
 
         //取GameObject
-        GameObject[] result = CollectionHelper.Select<RaycastHit, GameObject>(hit, p => p.collider.gameObject);
+        GameObject[] result = CollectionHelper.Select<RaycastHit2D, GameObject>(hit, p => p.collider.gameObject);
 
         //筛选目标
         result = CollectionHelper.FindAll<GameObject>(result,

@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class ChangePSYMode : AbstractSkillMode
 {
-    public ChangePSYMode()
+    public void Awake()
     {
         skillModeID = 5;
         skillModeName = "改变精神力";

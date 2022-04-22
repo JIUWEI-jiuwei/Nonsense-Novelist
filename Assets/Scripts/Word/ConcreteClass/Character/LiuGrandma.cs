@@ -4,7 +4,7 @@ using UnityEngine;
 
 class LiuGrandma : AbstractCharacter
 {
-    public LiuGrandma()
+    public void Awake()
     {
         characterID = 3;
         gender = GenderEnum.girl;

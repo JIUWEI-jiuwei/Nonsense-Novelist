@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Bank : AbstractRole
 {
-    public Bank()
+    public void Awake()
     {
         roleID = 6;
         roleName = "ÒøÐÐ";

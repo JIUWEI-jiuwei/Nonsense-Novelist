@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class Biology : AbstractRoleLimit
 {
-    public Biology()
+    public void Awake()
     {
         thisName = "СЄИв";
         ban.Add(new Bank());
