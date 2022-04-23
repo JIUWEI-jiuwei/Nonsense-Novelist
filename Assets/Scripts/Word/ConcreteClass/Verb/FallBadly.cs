@@ -37,13 +37,14 @@ class FallBadly : AbstractVerbs
         base.UseVerbs(character);
         foreach (GameObject aim in aims)
         {
-            aim.GetComponent<AbstractCharacter>().hp -= (int)(aim.GetComponent<AbstractCharacter>().atk * percentage);
+            skillMode.UseMode((int)(aim.GetComponent<AbstractCharacter>().atk * percentage), aim.GetComponent<AbstractCharacter>());
         }
+        SpecialAbility();
     }
     /// <summary>
     /// ‘Œ—£1.5√Î
     /// </summary>
-    public override void Ability()
+    public override void SpecialAbility()
     {
 
     }

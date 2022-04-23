@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 防御力改变
+/// 攻击力提升
 /// </summary>
-class ChangeDEFMode : AbstractSkillMode
+class UpATKMode : AbstractSkillMode
 {
     public void Awake()
     {
-        skillModeID = 4;
-        skillModeName = "提升防御";
+        skillModeID = 2;
+        skillModeName = "状态提升";
     }
     public override void UseMode(int value, AbstractCharacter character)
     {
-        character.def += value;
+        character.atk += value;
+
     }
     /// <summary>
     /// 再次计算锁定的目标

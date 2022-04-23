@@ -26,12 +26,12 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     public List<AbstractRoleLimit> banAim;
 
 
-    /// <summary>射程</summary>
-    public float attackDistance;
     /// <summary>技能类型 </summary>
     public AbstractSkillMode skillMode;
     /// <summary>技能强度(在这两数间取随机)，或造成 某值n%（percentage写小数） 的伤害</summary>
     public float skillMinStrength, skillMaxStrength,percentage;
+    /// <summary>射程</summary>
+    public float attackDistance;
 
 
     /// <summary>技能持续时长（已持续时间变量现场声明） </summary>
@@ -54,7 +54,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    virtual  public void Ability()
+    virtual  public void SpecialAbility()
     {
 
     }
@@ -74,7 +74,6 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
         aims=skillMode.CalculateAgain(attackDistance,character);
         AbstractCharacter  characterStatus=character.GetComponent<AbstractCharacter>();
         characterStatus.sp -= comsumeSP;
-        Ability();
     }
     /// <summary>
     /// 冷却（UseVerbs将cd重置为0）

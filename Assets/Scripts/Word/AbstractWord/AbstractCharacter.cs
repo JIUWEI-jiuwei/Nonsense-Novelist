@@ -97,8 +97,8 @@ abstract class AbstractCharacter : AbstractWords0
         {
             time = 0;
             aim = attackA.CalculateAgain(attackDistance, this.gameObject);
-            if(aim!=null)
-            aim[0].GetComponent<AbstractCharacter>().hp -= (int)(atk - def * 0.6f);
+            if (aim != null)
+                attackA.UseMode((int)(atk-def*0.6f), aim[0].GetComponent<AbstractCharacter>());
         }
     }
 }
