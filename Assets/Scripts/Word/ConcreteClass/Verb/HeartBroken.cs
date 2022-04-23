@@ -52,7 +52,7 @@ class HeartBroken : AbstractVerbs
             aims[i].GetComponent<AbstractCharacter>().psy-=records [i];
         }
         now += Time.deltaTime;
-        if (now>= 3)
+        if (now>= skillEffectsTime)
         {
             now = 0;
             for (int i = 0; i < aims.Length; i++)

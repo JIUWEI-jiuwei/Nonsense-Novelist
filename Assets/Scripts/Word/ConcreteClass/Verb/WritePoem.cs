@@ -24,7 +24,6 @@ class WritePoem : AbstractVerbs
         afterTime = 0;
         allowInterrupt = true;
         possibility = 0;
-        abilitySustainTime = 5;
     }
 
     private float now = 0;//¼ÆÊ±
@@ -38,7 +37,7 @@ class WritePoem : AbstractVerbs
             aim.GetComponent<AbstractCharacter>().atk += (int)(aim.GetComponent<AbstractCharacter>().psy * 0.3f);
         }
         now += Time.deltaTime;
-        if (now> 5)
+        if (now> skillEffectsTime)
         {
             foreach (GameObject aim in aims)
             {

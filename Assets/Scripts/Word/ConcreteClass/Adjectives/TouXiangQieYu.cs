@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¿Ì÷«
+/// Õµœ„«‘”Ò
 /// </summary>
-class Sense : AbstractRoleLimit
+class TouXiangQieYu : AbstractAdjectives
 {
     public void Awake()
     {
-        thisName = "¿Ì÷«";
-        banRole.Add(new Beast());
+        adjID = 1;
+        wordName = "Õµœ„«‘”Ò";
 
     }
-
 }

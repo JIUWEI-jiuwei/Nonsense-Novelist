@@ -28,5 +28,6 @@ class FamilyConflict : AbstractCharacter
         dodgeChance = 0;
         attackDistance = 2;
         luckyValue = 0;
+        enemyLevel = 2;
     }
 }

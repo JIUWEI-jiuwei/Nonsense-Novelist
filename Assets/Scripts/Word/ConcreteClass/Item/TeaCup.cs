@@ -9,7 +9,7 @@ class TeaCup : AbstractItems
     public void Awake()
     {
         itemID = 1;
-        itemName = "茶杯";
+        wordName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
         description = "一个相当精致的茶杯";
         VoiceEnum = MaterialVoiceEnum.Ceram;

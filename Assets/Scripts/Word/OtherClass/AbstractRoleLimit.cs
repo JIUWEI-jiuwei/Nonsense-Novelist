@@ -11,7 +11,11 @@ using UnityEngine;
     /// </summary>
     public string thisName;
     /// <summary>
-    /// 限制的身份
+    /// 禁止的身份
     /// </summary>
-    public List<AbstractRole> ban;
+    public List<AbstractRole> banRole;
+    /// <summary>
+    /// 禁止的性别
+    /// </summary>
+    public List<GenderEnum> banGender;
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(CharaAnim))]
 /// <summary>
 /// 抽象角色类
 /// </summary>
@@ -26,7 +26,7 @@ abstract class AbstractCharacter : AbstractWords0
 
 
     /// <summary>阵营</summary>
-    public CampEnum camp;
+    public CampEnum camp=CampEnum.all;
     /// <summary>身份</summary>
     public AbstractRole role;
     //人物的身份的类型可以不断扩充，不同的身份在战斗时对实体敌人单位的攻防加权会有影响，如大小姐，受到经济问题，社会问题的伤害较低，收到家庭问题的伤害较高
@@ -64,17 +64,22 @@ abstract class AbstractCharacter : AbstractWords0
     public int attackDistance = 0;
     /// <summary>幸运值</summary>
     public int luckyValue = 0;
+    /// <summary>怪级别（友方为0）</summary>
+    public int enemyLevel = 0;
 
+    /// <summary>角色动画</summary>
+    public CharaAnim charaAnim;
 
     /// <summary>平A模式</summary>
     private AbstractSkillMode attackA;
     /// <summary>目标（其实就最近的一个）</summary>
     private GameObject[] aim;
-    private void Start()
+    private void Awake()
     {
        attackA=new DamageMode();//平A是伤害类型
        attackA.attackRange = new SectorAttackSelector();
        attackA.extra = 120;
+        charaAnim=GetComponent<CharaAnim>();
     }
 
     private float time;

@@ -5,18 +5,19 @@ using UnityEngine;
 /// <summary>
 /// 角色动画组件（不要用Play用这个）
 /// </summary>
-public class CharaAnim : MonoBehaviour
+class CharaAnim : MonoBehaviour
 {
     /// <summary>实际动画组件</summary>
     public Animator anim;
     /// <summary>当前动画名</summary>
-    public string currentAnim = "idle";
+    public AnimEnum currentAnim = AnimEnum.idle;
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
     }
 
     private string newAnimName;//新动画字符串(仅用于↓）
+    private string currentAnimName;//当前动画字符串(仅用于↓）
     /// <summary>
     /// 播放动画用这个
     /// </summary>
@@ -24,8 +25,9 @@ public class CharaAnim : MonoBehaviour
     public void Play(AnimEnum newAnimEnum)
     {
         newAnimName = Enum.GetName(typeof(AnimEnum),newAnimEnum);
-        anim.SetBool(currentAnim, false);
+        currentAnimName = Enum.GetName(typeof(AnimEnum), currentAnim);
+        anim.SetBool(currentAnimName, false);
         anim.SetBool(newAnimName, true);
-        currentAnim = newAnimName;
+        currentAnim = newAnimEnum;
     }
 }
