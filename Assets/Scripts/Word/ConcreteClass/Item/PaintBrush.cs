@@ -6,15 +6,14 @@ using UnityEngine;
 /// </summary>
 class PaintBrush : AbstractItems
 {
-  public PaintBrush()
+    public void Awake()
     {
         itemID = 3;
         itemName = "ª≠± ";
         bookName = BookNameEnum.HuaShi;
-        appearence = 3;
-        nickname = "± À¢";
-        VoiceEnum = MaterialVoiceEnum.materialSoft;
-
+        nickname.Add("± À¢");
+        VoiceEnum = MaterialVoiceEnum.Soft;
+        level = 1;
 
     }
 }

@@ -6,15 +6,14 @@ using UnityEngine;
 /// </summary>
 class TeaCup : AbstractItems
 {
-  public TeaCup()
+    public void Awake()
     {
         itemID = 1;
         itemName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
-        appearence = 1;
-        nickname = null;
-        VoiceEnum = MaterialVoiceEnum.materialCeram;
-
+        description = "一个相当精致的茶杯";
+        VoiceEnum = MaterialVoiceEnum.Ceram;
+        level = 1;
 
     }
 }

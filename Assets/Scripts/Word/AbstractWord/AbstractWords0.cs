@@ -17,5 +17,5 @@ abstract class AbstractWords0 : MonoBehaviour
     /// <summary>词汇描述</summary>
     public string description;
     /// <summary>别称（导出文本时替代使用）</summary>
-    public string nickname;
+    public List<string> nickname;
 }

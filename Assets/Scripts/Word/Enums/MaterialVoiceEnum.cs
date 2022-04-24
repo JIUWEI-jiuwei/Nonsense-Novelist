@@ -9,7 +9,7 @@ enum MaterialVoiceEnum
     /// <summary>Œﬁ </summary>
     materialNull = 0,
     /// <summary>Ã’¥…¿‡ </summary>
-    materialCeram = 1,
+    Ceram = 1,
     /// <summary>»·»Ì </summary>
-    materialSoft = 2,
+    Soft = 2,
 };

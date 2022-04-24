@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-namespace ARPGSimpleDemo.Skill
-{
     /// <summary>
     /// 圆形（球形）区域
     /// </summary>
@@ -18,12 +16,12 @@ namespace ARPGSimpleDemo.Skill
         public GameObject[] AttackRange(float attackDistance, Transform ownTrans,float extra=0)
         {
             //发一个球形射线，找出所有角色碰撞体
-            Collider[] colliders = Physics.OverlapSphere(ownTrans.position, attackDistance,LayerMask.NameToLayer("Character"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(ownTrans.position, attackDistance,LayerMask.NameToLayer("Character"));
             if (colliders == null || colliders.Length == 0)
                 return null;
 
             //取GameObject
-            GameObject[] result=CollectionHelper.Select<Collider, GameObject>(colliders, p => p.gameObject);
+            GameObject[] result=CollectionHelper.Select<Collider2D, GameObject>(colliders, p => p.gameObject);
 
             //筛选目标
             result = CollectionHelper.FindAll<GameObject>(result,
@@ -36,4 +34,3 @@ namespace ARPGSimpleDemo.Skill
 
         }
     }
-}

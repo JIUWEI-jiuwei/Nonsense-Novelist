@@ -6,28 +6,25 @@ using UnityEngine;
 /// </summary>
 class BuryFlower : AbstractVerbs
 {
-    public BuryFlower()
+    public void Awake()
     {
+        skillID = 3;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
-        description = "……";
-        nickname = "平生葬花杀人，我以落花剑葬你，不枉你异人之名。";
+        description = "平生葬花杀人，我以落花剑葬你，不枉你异人之名";
         skillMode = new DamageMode();  
-        //技能强度搁置
         attackDistance = 0;
         skillTime = 7;
         skillEffectsTime = 0;
-        cd=0;
-        maxCD=40;
+        cd=maxCD=40;
         comsumeSP = 15;
         prepareTime = 1f;
         afterTime = 0;
         allowInterrupt = true;
         possibility = 0;
 
-        isFirst = true;
-        b_CdCooled = false;
     }
+
     public override void Ability()
     {
 

@@ -8,11 +8,8 @@ using UnityEngine;
 public interface ICD
 {
     /// <summary>
-    /// 词条CD冷却
+    /// 冷却（外部使用此方法时，将cd重置为0）
     /// </summary>
-    /// <param name="cd"></param>
-    /// <param name="maxCD"></param>
-    /// <param name="isFirst"></param>
-    /// <param name="b_CDCooled"></param>
-   abstract public void CDTime(float cd, float maxCD,bool isFirst, bool b_CDCooled);
+    /// <returns>是否冷却完毕</returns>
+    abstract public bool CalculateCD();
 }
