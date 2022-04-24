@@ -16,7 +16,7 @@ class straightAttackSelector : IAttackRange
     public GameObject[] AttackRange(float attackDistance, Transform ownTrans, float extra = 1)
     {
         //发出射线，找出所有角色碰撞体
-        RaycastHit2D[] hit = Physics2D.RaycastAll(ownTrans.position, ownTrans.forward, attackDistance, LayerMask.NameToLayer("Character"));
+        RaycastHit2D[] hit = Physics2D.RaycastAll(ownTrans.position, ownTrans.forward, attackDistance, 1 << LayerMask.NameToLayer("Character"));
 
         if (hit == null || hit.Length == 0)
             return null;

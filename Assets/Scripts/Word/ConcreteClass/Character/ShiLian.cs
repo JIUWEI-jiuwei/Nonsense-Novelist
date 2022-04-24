@@ -33,5 +33,6 @@ class ShiLian : AbstractCharacter
         dodgeChance = 0;
         attackDistance = 6;
         luckyValue = 0;
+        enemyLevel = 2;
     }
 }

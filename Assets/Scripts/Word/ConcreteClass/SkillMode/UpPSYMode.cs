@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 攻击力改变
+/// 精神力提升
 /// </summary>
-class ChangeATKMode : AbstractSkillMode
+class UpPSYMode : AbstractSkillMode
 {
     public void Awake()
     {
-        skillModeID = 3;
-        skillModeName = "提升攻击";
+        skillModeID = 2;
+        skillModeName = "状态提升";
     }
     public override void UseMode(int value, AbstractCharacter character)
     {
-        character.atk += value;
+        character.psy += value;
 
     }
     /// <summary>
@@ -36,6 +36,7 @@ class ChangeATKMode : AbstractSkillMode
                 a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.enemy);
             }
         }
+
         return a;
     }
 }

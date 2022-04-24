@@ -12,9 +12,9 @@ abstract class AbstractSkillMode : MonoBehaviour
     /// <summary>技能类型名称</summary>
     public string skillModeName;
     /// <summary>目标身份优先级(和↓二选一）</summary>
-    private List<AbstractRole> roleOrder;
+    public List<AbstractRole> roleOrder;
     /// <summary>目标性格优先级(和↑二选一）【不用】</summary>
-    private List<AbstractTrait> traitOrder;
+    public List<AbstractTrait> traitOrder;
     
     /// <summary>额外值（影响区域相关）</summary>
     public float extra;
@@ -31,9 +31,12 @@ abstract class AbstractSkillMode : MonoBehaviour
     virtual public GameObject[] CalculateAgain(float attackDistance,GameObject character)
     {
         GameObject[] a=attackRange.AttackRange(attackDistance,character.transform,extra);
-
-
         return a;
     }
+    /// <summary>
+    /// 对目标实际影响
+    /// </summary>
+    /// <param name="value">值</param>
+    /// <param name="character">目标（来自目标数组）</param>
     abstract public void UseMode(int value,AbstractCharacter character);    
 }

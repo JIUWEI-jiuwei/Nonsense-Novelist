@@ -9,8 +9,7 @@ class Biology : AbstractRoleLimit
     public void Awake()
     {
         thisName = "СЄИв";
-        ban.Add(new Bank());
+        banRole.Add(new Bank());
+    }
 
-}
-    
 }

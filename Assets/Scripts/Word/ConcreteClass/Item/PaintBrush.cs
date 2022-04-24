@@ -9,9 +9,11 @@ class PaintBrush : AbstractItems
     public void Awake()
     {
         itemID = 3;
-        itemName = "画笔";
+        wordName = "画笔";
         bookName = BookNameEnum.HuaShi;
+        description = "一支平平无奇的画笔";
         nickname.Add("笔刷");
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Soft;
         level = 1;
 

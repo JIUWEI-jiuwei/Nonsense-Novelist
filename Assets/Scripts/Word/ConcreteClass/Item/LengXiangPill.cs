@@ -9,9 +9,12 @@ class LengXiangPill : AbstractItems
     public void Awake()
     {
         itemID = 2;
-        itemName = "冷香丸";
+        wordName = "冷香丸";
         bookName = BookNameEnum.HongLouMeng;
         description = "一个和尚传来的“海上仙方”，是制作相当复杂的药丸";
+        camp = CampEnum.all;
+        banUse.Add(new Biology());
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         withSkill = new LengXiangPillSkill();
         level = 1;

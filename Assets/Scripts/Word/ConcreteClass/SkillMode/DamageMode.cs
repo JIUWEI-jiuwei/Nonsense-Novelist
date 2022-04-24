@@ -8,13 +8,18 @@ class DamageMode : AbstractSkillMode
 {
     public void Awake()
     {
-        skillModeID = 2;
-        skillModeName = "伤害技能";
+        skillModeID = 1;
+        skillModeName = "伤害";
     }
+
+    /// <summary>
+    /// 对目标实际影响
+    /// </summary>
+    /// <param name="value">实际伤害</param>
+    /// <param name="character">目标（来自目标数组）</param>
     public override void UseMode(int value, AbstractCharacter character)
     {
-        character.hp -= value - (int)(character.def * 0.6f);
-
+        character.hp -= value;
     }
     /// <summary>
     /// 再次计算锁定的目标

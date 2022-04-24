@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 回血
+/// 防御力提升
 /// </summary>
-class CureMode : AbstractSkillMode
+class UpDEFMode : AbstractSkillMode
 {
     public void Awake()
     {
-        skillModeID = 3;
-        skillModeName = "回血";
+        skillModeID = 2;
+        skillModeName = "状态提升";
     }
     public override void UseMode(int value, AbstractCharacter character)
     {
-        character.hp += value;
+        character.def += value;
     }
     /// <summary>
-    /// 再次计算锁定的目标(低血量友方）
+    /// 再次计算锁定的目标
     /// </summary>
     /// <param name="character">施法者</param>
     /// <returns></returns>
@@ -35,8 +35,6 @@ class CureMode : AbstractSkillMode
                 a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.enemy);
             }
         }
-        CollectionHelper.OrderBy<GameObject, int>(a, p => p.GetComponent<AbstractCharacter>().hp);
-
         return a;
     }
 }

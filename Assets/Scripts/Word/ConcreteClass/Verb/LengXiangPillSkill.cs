@@ -35,11 +35,12 @@ class LengXiangPillSkill : AbstractVerbs
         {
             aim.GetComponent<AbstractCharacter>().hp = aim.GetComponent<AbstractCharacter>().maxHP;
         }
+        SpecialAbility();
     }
     /// <summary>
     /// 解除所有负面状态
     /// </summary>
-    public override void Ability()
+    public override void SpecialAbility()
     {
 
     }
