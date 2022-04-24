@@ -12,7 +12,7 @@ class LiuGrandma : AbstractCharacter
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add( "母蝗虫");
         deadSpeak = "这就是大观园吗？";
-        camp = CampEnum.friend;
+        camp = CampEnum.friend  ;
         role = new Country();
         hp=maxHP = 70;
         sp=maxSP = 10;

@@ -16,7 +16,7 @@ class HeartBroken : AbstractVerbs
         banAim.Add( new Sense());
         skillMode = new DamageMode();
         percentage = 1.5f;
-        attackDistance = Mathf.Infinity;
+        attackDistance = 999;
         skillTime = 0;
         skillEffectsTime = 3;
         cd=maxCD=5;
@@ -35,15 +35,16 @@ class HeartBroken : AbstractVerbs
         base.UseVerbs(character);
         foreach (GameObject aim in aims)
         {
-            aim.GetComponent<AbstractCharacter>().hp -= (int)(aim.GetComponent<AbstractCharacter>().psy * percentage);
+            skillMode.UseMode((int)(aim.GetComponent<AbstractCharacter>().psy * percentage), aim.GetComponent<AbstractCharacter>());
         }
+        SpecialAbility();
     }
 
     private float now = 0;//计时
     /// <summary>
     /// 降低30%精神力,持续3秒
     /// </summary>
-    public override void Ability()
+    public override void SpecialAbility()
     {
         int[] records=new int[aims.Length];//记录降低的精神力值
         for(int i=0;i<aims.Length;i++)
@@ -52,7 +53,7 @@ class HeartBroken : AbstractVerbs
             aims[i].GetComponent<AbstractCharacter>().psy-=records [i];
         }
         now += Time.deltaTime;
-        if (now>= 3)
+        if (now>= skillEffectsTime)
         {
             now = 0;
             for (int i = 0; i < aims.Length; i++)

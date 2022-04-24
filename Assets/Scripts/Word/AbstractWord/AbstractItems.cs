@@ -9,14 +9,12 @@ abstract class AbstractItems : AbstractWords0
 {
     /// <summary>物品序号</summary>
     public int itemID;
-    /// <summary>物品名称</summary>
-    public string itemName; 
-    /// <summary>物品对应战场形象？</summary>
+    /// <summary>物品对应战场形象</summary>
     public GameObject obj;
     /// <summary>物品目标阵营(如某些物品不能给敌方)【不用】</summary>
     public CampEnum camp;
-    /// <summary>物品目标身份限制（谁能使用）【不用】 </summary>
-    public List<AbstractRole> whoCanUse;
+    /// <summary>物品目标身份限制（谁不能使用） </summary>
+    public List<AbstractRoleLimit> banUse;
     /// <summary>持有方式</summary>
     public HoldEnum holdEnum;
     /// <summary>物品材质，对应音效种类 </summary>
