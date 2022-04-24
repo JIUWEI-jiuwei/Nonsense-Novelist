@@ -29,28 +29,5 @@ class BuryFlower : AbstractVerbs
     {
 
     }
-    override public void CDTime(float cd, float maxCD, bool isFirst, bool b_CDCooled)//只有开局摇盒子时，isFirst=true，其他时候为false
-    {
-        this.cd = cd;
-        this.maxCD = maxCD;
-        this.isFirst = isFirst;
-        this.b_CdCooled = b_CDCooled;
-        
-        //开局
-        if (isFirst) b_CDCooled = true;
-
-        //局中
-        else
-        {
-            b_CDCooled = false;
-            cd += Time.deltaTime;
-
-            //CD已好
-            if (cd == maxCD)
-            {
-                b_CDCooled = true;
-
-            }
-        }
-    }
+    
 }
