@@ -13,6 +13,6 @@ abstract class AbstractRole : MonoBehaviour
     public string roleName;
     /// <summary>身份描述 </summary>
     public string description;
-    /// <summary>克制的?????二阶段再说 </summary>
-    public Dictionary<int, int> restrainRole;
+    /// <summary>克制的身份，克制强度（小数） </summary>
+    public Dictionary<AbstractRole, float> restrainRole;
 }

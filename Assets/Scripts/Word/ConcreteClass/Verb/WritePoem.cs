@@ -14,7 +14,7 @@ class WritePoem : AbstractVerbs
         description = "吟诗作对，好不快活";
         nickname.Add("作诗");
         attackDistance = 5;
-        skillMode = new ChangeATKMode();
+        skillMode = new UpATKMode();
         attackDistance = 5;
         skillTime = 0;
         skillEffectsTime = 5;
@@ -24,26 +24,31 @@ class WritePoem : AbstractVerbs
         afterTime = 0;
         allowInterrupt = true;
         possibility = 0;
-        abilitySustainTime = 5;
     }
 
     private float now = 0;//计时
     /// <summary>
     /// 提升30%精神力的攻击力,持续5秒
     /// </summary>
-    public override void Ability()
+    public override void SpecialAbility()
     {
         foreach (GameObject aim in aims)
         {
-            aim.GetComponent<AbstractCharacter>().atk += (int)(aim.GetComponent<AbstractCharacter>().psy * 0.3f);
+            skillMode.UseMode((int)(aim.GetComponent<AbstractCharacter>().psy * 0.3f), aim.GetComponent<AbstractCharacter>());
         }
         now += Time.deltaTime;
-        if (now> 5)
+        if (now> skillEffectsTime)
         {
             foreach (GameObject aim in aims)
             {
-                aim.GetComponent<AbstractCharacter>().atk -= (int)(aim.GetComponent<AbstractCharacter>().psy * 0.3f);
+                skillMode.UseMode((int)(-aim.GetComponent<AbstractCharacter>().psy * 0.3f), aim.GetComponent<AbstractCharacter>());
             }
         }
+    }
+
+    public override void UseVerbs(GameObject character)
+    {
+        base.UseVerbs(character);
+        SpecialAbility();
     }
 }
