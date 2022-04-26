@@ -6,9 +6,10 @@ using UnityEngine;
 /// </summary>
 class Inexorability : AbstractTrait
 {
-    public Inexorability()
+    public void Awake()
     {
         traitID = 2;
         traitName = "冷酷";
+        description = "内心冰冷但对热情的人感到头疼";
     }
 }

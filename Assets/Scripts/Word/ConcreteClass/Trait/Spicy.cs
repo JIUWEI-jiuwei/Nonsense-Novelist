@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 野兽
+/// 辣性格
 /// </summary>
-class Beast : AbstractRole
+class Spicy : AbstractTrait
 {
     public void Awake()
     {
-        roleID = 7;
-        roleName = "野兽";
-        description = "没有理智的动物";
+        traitID = 4;
+        traitName = "辣";
+        description = "咄咄逼人绝不会吃一点亏，容易伤到他人";
     }
 }

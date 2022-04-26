@@ -6,9 +6,10 @@ using UnityEngine;
 /// </summary>
 class Sentimental :AbstractTrait
 {
-    public Sentimental()
+    public void Awake()
     {
         traitID = 1;
         traitName = "敏感";
+        description = "容易受伤却又极富有洞察力的性格";
     }
 }

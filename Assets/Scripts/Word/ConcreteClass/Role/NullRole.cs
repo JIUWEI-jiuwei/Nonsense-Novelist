@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 野兽
+/// 无身份
 /// </summary>
-class Beast : AbstractRole
+class NullRole : AbstractRole
 {
     public void Awake()
     {
-        roleID = 7;
-        roleName = "野兽";
-        description = "没有理智的动物";
+        roleID = 0;
+        roleName = "无身份";
+        description = "难以定义的身份";
     }
 }

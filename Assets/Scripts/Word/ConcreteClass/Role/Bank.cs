@@ -10,6 +10,6 @@ class Bank : AbstractRole
     {
         roleID = 6;
         roleName = "银行";
-
+        description = "总是伴随着金融和债务问题";
     }
 }

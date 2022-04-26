@@ -28,4 +28,9 @@ abstract class AbstractItems : AbstractWords0
     /// <summary>物品等级【不用】</summary>
     public int level;
     //基础属性，成长属性？
+
+    virtual public void UseItem(GameObject character)
+    {
+        withSkill.UseVerbs(character); 
+    }
 }

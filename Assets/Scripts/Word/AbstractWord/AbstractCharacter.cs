@@ -64,6 +64,10 @@ abstract class AbstractCharacter : AbstractWords0
     public int attackDistance = 0;
     /// <summary>幸运值</summary>
     public int luckyValue = 0;
+    /// <summary>等级</summary>
+    public int level = 1;
+    /// <summary>经验（0-100）</summary>
+    public int exp = 0;
     /// <summary>怪级别（友方为0）</summary>
     public int enemyLevel = 0;
 

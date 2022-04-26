@@ -10,6 +10,6 @@ class Noble : AbstractRole
     {
         roleID = 1;
         roleName = "纨绔";
-
+        description = "游手好闲的子弟";
     }
 }

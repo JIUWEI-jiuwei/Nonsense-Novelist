@@ -2,31 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class WangXiFeng : AbstractCharacter
+class JiaGrandma : AbstractCharacter
 {
     public void Awake()
     {
-        characterID = 4;
+        characterID = 10;
         gender = GenderEnum.girl;
-        wordName = "王熙凤";
+        wordName = "贾母";
         bookName = BookNameEnum.HongLouMeng;
-        criticalSpeak = "你这赖狗扶不上墙的种子";
-        deadSpeak = "纵我机关算尽……";
+        nickname.Add( "史太君");
         camp = CampEnum.all;
-        trait = new Spicy();
         role = new Parents();
-        hp=maxHP = 50;
-        sp=maxSP = 15;
-        atk = 10;
-        def = 1;
-        psy = 10;
-        san = 3;
+        trait=new Mercy();
+        hp=maxHP = 40;
+        sp=maxSP = 10;
+        atk = 7;
+        def = 5;
+        psy = 7;
+        san = 7;
         criticalChance = 0;
         multipleCriticalStrike = 2;
         attackInterval = 1.3f;
         skillSpeed = 0;
         dodgeChance = 0;
-        attackDistance = 2;
+        attackDistance = 5;
         luckyValue = 0;
     }
 }

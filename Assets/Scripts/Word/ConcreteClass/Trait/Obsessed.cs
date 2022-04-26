@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 野兽
+/// 痴性格
 /// </summary>
-class Beast : AbstractRole
+class Obsessed : AbstractTrait
 {
     public void Awake()
     {
-        roleID = 7;
-        roleName = "野兽";
-        description = "没有理智的动物";
+        traitID = 6;
+        traitName = "痴";
+        description = "对贪恋的事物如痴如醉";
     }
 }

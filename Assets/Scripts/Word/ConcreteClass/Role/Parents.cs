@@ -10,6 +10,6 @@ class Parents : AbstractRole
     {
         roleID = 4;
         roleName = "家长";
-
+        description = "喋喋不休的家长";
     }
 }

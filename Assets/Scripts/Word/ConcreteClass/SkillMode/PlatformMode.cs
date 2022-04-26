@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 回血
+/// 场地
 /// </summary>
 class PlatformMode : AbstractSkillMode
 {
@@ -13,6 +13,16 @@ class PlatformMode : AbstractSkillMode
     }
     public override void UseMode(int value, AbstractCharacter character)
     {
-       
+
+    }
+    /// <summary>
+    /// 全选（射程999）
+    /// </summary>
+    /// <param name="attackDistance">射程填0即可</param>
+    /// <returns></returns>
+    override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
+    {
+        GameObject[] a = attackRange.AttackRange(999, character.transform, extra);
+        return a;
     }
 }

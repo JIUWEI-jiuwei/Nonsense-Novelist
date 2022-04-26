@@ -6,9 +6,10 @@ using UnityEngine;
 /// </summary>
 class Pride :AbstractTrait
 {
-    public Pride()
+    public void Awake()
     {
         traitID = 5;
         traitName = "傲";
+        description = "刚愎自用瞧不起他人";
     }
 }

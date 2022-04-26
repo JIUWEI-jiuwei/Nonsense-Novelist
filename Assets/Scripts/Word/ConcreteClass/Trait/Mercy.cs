@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 野兽
+/// 慈悲性格
 /// </summary>
-class Beast : AbstractRole
+class Mercy :AbstractTrait
 {
     public void Awake()
     {
-        roleID = 7;
-        roleName = "野兽";
-        description = "没有理智的动物";
+        traitID = 7;
+        traitName = "慈悲";
+        description = "珍惜生命且善待他人";
     }
 }
