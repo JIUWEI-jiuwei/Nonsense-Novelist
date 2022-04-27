@@ -11,7 +11,7 @@ class SpecialMode : AbstractSkillMode
         skillModeID = 4;
         skillModeName = "¸³Óè×´Ì¬";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
     }
 }

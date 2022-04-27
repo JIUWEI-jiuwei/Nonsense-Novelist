@@ -11,5 +11,10 @@ class NullRole : AbstractRole
         roleID = 0;
         roleName = "无身份";
         description = "难以定义的身份";
+        growHP = 5;
+        growATK = 1.2f;
+        growDEF = 1;
+        restrainRole.Add(3, 0.1f);
+        restrainRole.Add(6, 0.3f);
     }
 }

@@ -43,13 +43,13 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>总蓝量</summary>
     public int maxSP = 0;
     /// <summary>攻击力(伤害=攻击力-防御力*0.6)</summary>
-    public int atk = 0;
+    public float atk = 0;
     /// <summary>防御力</summary>
-    public int def = 0;
+    public float def = 0;
     /// <summary>精神力</summary>psychic force
-    public int psy = 0;
+    public float psy = 0;
     /// <summary>意志力</summary>
-    public int san = 0;
+    public float san = 0;
     /// <summary>暴击几率</summary>
     public float criticalChance = 0;
     /// <summary>暴击倍数</summary>
@@ -102,7 +102,28 @@ abstract class AbstractCharacter : AbstractWords0
             time = 0;
             aim = attackA.CalculateAgain(attackDistance, this.gameObject);
             if (aim != null)
-                attackA.UseMode((int)(atk-def*0.6f), aim[0].GetComponent<AbstractCharacter>());
+                attackA.UseMode(this,atk-def*0.6f, aim[0].GetComponent<AbstractCharacter>());
+        }
+    }
+    /// <summary>
+    /// 升级
+    /// </summary>
+    /// <returns></returns>
+    public bool LevelUp()
+    {
+        if (exp < 100)
+            return false;
+        else
+        {
+            level++;
+            exp -= 100;
+            hp += role.growHP;
+            atk += role.growATK;
+            def += role.growDEF;
+            sp+=trait.growSP;
+            psy += trait.growPSY;
+            san += trait.growSAN;
+            return true;
         }
     }
 }

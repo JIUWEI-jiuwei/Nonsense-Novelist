@@ -29,7 +29,7 @@ abstract class AbstractItems : AbstractWords0
     public int level;
     //基础属性，成长属性？
 
-    virtual public void UseItem(GameObject character)
+    virtual public void UseItem(AbstractCharacter character)
     {
         withSkill.UseVerbs(character); 
     }

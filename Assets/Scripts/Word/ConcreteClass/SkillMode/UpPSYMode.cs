@@ -11,9 +11,9 @@ class UpPSYMode : AbstractSkillMode
         skillModeID = 2;
         skillModeName = "×´Ì¬ÌáÉý";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        character.psy += value;
+        aimCharacter.psy += value;
 
     }
     /// <summary>

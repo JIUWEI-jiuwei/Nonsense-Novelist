@@ -11,5 +11,9 @@ class Mercy :AbstractTrait
         traitID = 7;
         traitName = "´È±¯";
         description = "ÕäÏ§ÉúÃüÇÒÉÆ´ıËûÈË";
+        growSP = 3;
+        growPSY = 0.9f;
+        growSAN = 1.2f;
+        restrainRole.Add(4, 0.3f);
     }
 }

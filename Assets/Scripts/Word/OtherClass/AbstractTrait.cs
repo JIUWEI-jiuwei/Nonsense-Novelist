@@ -13,6 +13,12 @@ abstract class AbstractTrait : MonoBehaviour
     public string traitName;
     /// <summary>性格描述 </summary>
     public string description;
-    /// <summary>克制的?????二阶段再说</summary>
-    public Dictionary<int, int> restrainRole;
+    /// <summary>蓝量成长 </summary>
+    public int growSP;
+    /// <summary>精神力成长 </summary>
+    public float growPSY;
+    /// <summary>意志力成长 </summary>
+    public float growSAN;
+    /// <summary>受克制的性格序号，克制强度（小数）</summary>
+    public Dictionary<int, float> restrainRole;
 }

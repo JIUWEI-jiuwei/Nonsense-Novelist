@@ -17,7 +17,7 @@ class TouXiangQieYu : AbstractAdjectives
     }
 
     
-    override public void UseVerbs(GameObject character)
+    override public void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         character.GetComponent<AbstractCharacter>().psy -= 20;

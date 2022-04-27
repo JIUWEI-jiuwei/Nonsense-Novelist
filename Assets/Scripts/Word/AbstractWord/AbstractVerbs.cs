@@ -68,12 +68,12 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// </summary>
     /// <param name="character"></param>
     /// <param name="camp">使用者阵营</param>
-    virtual public void UseVerbs(GameObject character)
+    virtual public void UseVerbs(AbstractCharacter character)
     {
         cd = 0;
-        aims=skillMode.CalculateAgain(attackDistance,character);
-        AbstractCharacter  characterStatus=character.GetComponent<AbstractCharacter>();
-        characterStatus.sp -= comsumeSP;
+        aims=skillMode.CalculateAgain(attackDistance,character.gameObject);
+        character.charaAnim.Play(AnimEnum.attack);
+        character.sp -= comsumeSP;
     }
     /// <summary>
     /// 冷却（UseVerbs将cd重置为0）

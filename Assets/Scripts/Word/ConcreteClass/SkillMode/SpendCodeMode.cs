@@ -11,9 +11,9 @@ class SpendCodeMode : AbstractSkillMode
         skillModeID = 5;
         skillModeName = "消耗金币";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        character.hp -= value - (int)(character.def * 0.6f);
+        
     }
     /// <summary>
     /// 再次计算锁定的目标

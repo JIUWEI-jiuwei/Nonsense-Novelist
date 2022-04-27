@@ -11,7 +11,7 @@ class PlatformMode : AbstractSkillMode
         skillModeID = 6;
         skillModeName = "³¡µØÄ§·¨";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
 
     }

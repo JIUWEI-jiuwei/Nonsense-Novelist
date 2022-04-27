@@ -45,9 +45,9 @@ abstract class AbstractAdjectives : AbstractWords0
     /// </summary>
     /// <param name="character"></param>
     /// <param name="camp">使用者阵营</param>
-    virtual public void UseVerbs(GameObject character)
+    virtual public void UseVerbs(AbstractCharacter character)
     {
-        aims = skillMode.CalculateAgain(attackDistance, character);
+        aims = skillMode.CalculateAgain(attackDistance, character.gameObject);
         foreach (GameObject aim in aims)
         {
             AbstractCharacter chara = aim.GetComponent<AbstractCharacter>();

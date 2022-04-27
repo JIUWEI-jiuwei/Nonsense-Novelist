@@ -15,6 +15,7 @@ class HeartBroken : AbstractVerbs
         nickname.Add( "刺痛");
         banAim.Add( new Sense());
         skillMode = new DamageMode();
+        skillMode.attackRange = new CircleAttackSelector();//
         percentage = 1.5f;
         attackDistance = 999;
         skillTime = 0;
@@ -26,16 +27,19 @@ class HeartBroken : AbstractVerbs
         allowInterrupt = false;
         possibility = 0;
     }
+
+    private AbstractCharacter aimState;//目标的抽象角色类
     /// <summary>
     /// 造成150%精神力的伤害
     /// </summary>
     /// <param name="character">施法者</param>
-    public override void UseVerbs(GameObject character)
+    public override void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         foreach (GameObject aim in aims)
         {
-            skillMode.UseMode((int)(aim.GetComponent<AbstractCharacter>().psy * percentage), aim.GetComponent<AbstractCharacter>());
+            aimState = aim.GetComponent<AbstractCharacter>();
+            skillMode.UseMode(character,aim.GetComponent<AbstractCharacter>().psy * percentage - aimState.def * 0.6f, aim.GetComponent<AbstractCharacter>());
         }
         SpecialAbility();
     }

@@ -25,7 +25,7 @@ class TaiXuHuanJing : AbstractAdjectives
 
     }
 
-    override public void UseVerbs(GameObject character)
+    override public void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         foreach (GameObject aim in aims)

@@ -11,9 +11,9 @@ class UpATKMode : AbstractSkillMode
         skillModeID = 2;
         skillModeName = "×´Ì¬ÌáÉý";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        character.atk += value;
+        aimCharacter.atk += value;
 
     }
     /// <summary>

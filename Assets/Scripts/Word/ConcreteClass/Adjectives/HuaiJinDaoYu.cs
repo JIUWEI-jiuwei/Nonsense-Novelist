@@ -27,7 +27,7 @@ class HuaiJinDaoYu : AbstractAdjectives
 
     }
 
-    override public void UseVerbs(GameObject character)
+    override public void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         SpecialAbility();

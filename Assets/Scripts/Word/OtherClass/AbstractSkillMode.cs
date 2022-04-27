@@ -36,7 +36,8 @@ abstract class AbstractSkillMode : MonoBehaviour
     /// <summary>
     /// 对目标实际影响
     /// </summary>
+    /// <param name="useCharacter">发起者</param>
     /// <param name="value">值</param>
-    /// <param name="character">目标（来自目标数组）</param>
-    abstract public void UseMode(int value,AbstractCharacter character);    
+    /// <param name="aimCharacter">目标（来自目标数组）</param>
+    abstract public void UseMode(AbstractCharacter useCharacter ,float value,AbstractCharacter aimCharacter);    
 }

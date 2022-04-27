@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 直线攻击
 /// </summary>
-class straightAttackSelector : IAttackRange
+class StraightAttackSelector : IAttackRange
 {
     /// <summary>
     /// 计算影响区域

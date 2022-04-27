@@ -11,9 +11,9 @@ class CureMode : AbstractSkillMode
         skillModeID = 3;
         skillModeName = "回血";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter,float value, AbstractCharacter aimCharacter)
     {
-        character.hp += value;
+        aimCharacter.hp +=(int) value;
     }
     /// <summary>
     /// 再次计算锁定的目标(低血量友方）
