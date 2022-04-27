@@ -4,8 +4,9 @@ using UnityEngine;
 
 class LiuGrandma : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 3;
         gender = GenderEnum.girl;
         wordName = "刘姥姥";
@@ -13,9 +14,9 @@ class LiuGrandma : AbstractCharacter
         nickname.Add( "母蝗虫");
         deadSpeak = "这就是大观园吗？";
         camp = CampEnum.friend  ;
-        trait = new Enthusiasm();
-        role = new Country();
-        hp=maxHP = 70;
+        role = gameObject.AddComponent<Country>();
+        trait = gameObject.AddComponent<Enthusiasm>();
+        hp =maxHP = 70;
         sp=maxSP = 10;
         atk = 5;
         def = 5;

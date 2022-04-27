@@ -4,8 +4,9 @@ using UnityEngine;
 
 class WangXiFeng : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 4;
         gender = GenderEnum.girl;
         wordName = "王熙凤";
@@ -13,8 +14,8 @@ class WangXiFeng : AbstractCharacter
         criticalSpeak = "你这赖狗扶不上墙的种子";
         deadSpeak = "纵我机关算尽……";
         camp = CampEnum.all;
-        trait = new Spicy();
-        role = new Parents();
+        trait = gameObject.AddComponent<Spicy>();
+        role = gameObject.AddComponent<Parents>();
         hp=maxHP = 50;
         sp=maxSP = 15;
         atk = 10;

@@ -13,8 +13,8 @@ class HeartBroken : AbstractVerbs
         bookName = BookNameEnum.allBooks;
         description = "令目标心如刀绞。";
         nickname.Add( "刺痛");
-        banAim.Add( new Sense());
-        skillMode = new DamageMode();
+        banAim.Add(gameObject.AddComponent<Sense>());
+        skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         percentage = 1.5f;
         attackDistance = 999;
@@ -39,7 +39,7 @@ class HeartBroken : AbstractVerbs
         foreach (GameObject aim in aims)
         {
             aimState = aim.GetComponent<AbstractCharacter>();
-            skillMode.UseMode(character,aim.GetComponent<AbstractCharacter>().psy * percentage - aimState.def * 0.6f, aim.GetComponent<AbstractCharacter>());
+            skillMode.UseMode(character,aim.GetComponent<AbstractCharacter>().psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
         }
         SpecialAbility();
     }

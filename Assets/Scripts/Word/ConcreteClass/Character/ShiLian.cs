@@ -6,8 +6,9 @@ using UnityEngine;
 /// </summary>
 class ShiLian : AbstractCharacter
 {
-  public void Awake()
+  override public void Awake()
     {
+        base.Awake();
         characterID = 2;
         gender = GenderEnum.noGender;
         wordName = "失恋";
@@ -18,9 +19,9 @@ class ShiLian : AbstractCharacter
         criticalSpeak = "抱歉，但我们不合适。";
         deadSpeak = "你竟然丝毫不在乎？";
         camp = CampEnum.enemy;
-        trait = new Inexorability();
-        role = new Noble();
-        skill.Add(new HeartBroken());
+        trait = gameObject.AddComponent<Inexorability>();
+        role = gameObject.AddComponent<Noble>();
+        skill.Add(gameObject.AddComponent<HeartBroken>());
         hp=maxHP = 40;
         sp=maxSP = 20;
         atk = 5;

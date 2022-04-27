@@ -11,16 +11,17 @@ class TouXiangQieYu : AbstractAdjectives
         adjID = 1;
         wordName = "Õµœ„«‘”Ò";
         chooseWay = ChooseWayEnum.canChoose;
-        banAim.Add(new Girl());
-        skillMode=new DamageMode();
+        banAim.Add(gameObject.AddComponent<Girl>());
+        skillMode=gameObject.AddComponent<DamageMode>();
         useAtFirst = false;
     }
 
     
-    override public void UseVerbs(AbstractCharacter character)
+    
+    override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(character);
-        character.GetComponent<AbstractCharacter>().psy -= 20;
+        base.UseVerbs(aimCharacter);
+        skillMode.UseMode(null, 20 *(1- aimCharacter.san/(aimCharacter.san+20)), aimCharacter);
         SpecialAbility();
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 class FamilyConflict : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 5;
         gender = GenderEnum.noGender;
         wordName = "家庭矛盾";
@@ -14,8 +15,8 @@ class FamilyConflict : AbstractCharacter
         criticalSpeak = "我怎么养了你这么个东西";
         deadSpeak = "孩子究竟是长大了";
         camp = CampEnum.enemy;
-        role = new Parents();
-        trait = new Pride();
+        role = gameObject.AddComponent<Parents>();
+        trait = gameObject.AddComponent<Pride>();
         hp =maxHP = 40;
         sp=maxSP = 10;
         atk = 7;

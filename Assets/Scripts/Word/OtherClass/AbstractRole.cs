@@ -20,5 +20,6 @@ abstract class AbstractRole : MonoBehaviour
     /// <summary>防御成长 </summary>
     public float growDEF;
     /// <summary>受克制的身份序号，克制强度（小数） </summary>
-    public Dictionary<int, float> restrainRole;
+    public Dictionary<int, float> restrainRole=new Dictionary<int, float>();
+
 }

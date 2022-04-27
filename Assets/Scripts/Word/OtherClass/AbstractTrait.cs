@@ -20,5 +20,5 @@ abstract class AbstractTrait : MonoBehaviour
     /// <summary>意志力成长 </summary>
     public float growSAN;
     /// <summary>受克制的性格序号，克制强度（小数）</summary>
-    public Dictionary<int, float> restrainRole;
+    public Dictionary<int, float> restrainRole=new  Dictionary<int, float>();
 }

@@ -4,15 +4,16 @@ using UnityEngine;
 
  class JiaBaoYu : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 8;
         gender = GenderEnum.boy;
         wordName = "¼Ö±¦Óñ";
         bookName = BookNameEnum.HongLouMeng;
         camp = CampEnum.friend;
-        role = new Noble();
-        trait = new Obsessed();
+        role = gameObject.AddComponent<Noble>();
+        trait = gameObject.AddComponent<Obsessed>();
         hp=maxHP  = 60;
         sp=maxSP = 10;
         atk = 7;

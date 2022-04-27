@@ -12,9 +12,9 @@ abstract class AbstractSkillMode : MonoBehaviour
     /// <summary>技能类型名称</summary>
     public string skillModeName;
     /// <summary>目标身份优先级(和↓二选一）</summary>
-    public List<AbstractRole> roleOrder;
+    public List<AbstractRole> roleOrder=new List<AbstractRole>();
     /// <summary>目标性格优先级(和↑二选一）【不用】</summary>
-    public List<AbstractTrait> traitOrder;
+    public List<AbstractTrait> traitOrde=new List<AbstractTrait>();
     
     /// <summary>额外值（影响区域相关）</summary>
     public float extra;

@@ -12,7 +12,7 @@ class TaiXuHuanJing : AbstractAdjectives
         wordName = "太虚幻境";
         description = "进入太虚幻境";
         chooseWay = ChooseWayEnum.allChoose;
-        skillMode = new PlatformMode();
+        skillMode = gameObject.AddComponent<PlatformMode>();
         attackDistance = 999;
         skillEffectsTime = 10;
         useAtFirst = true;
@@ -25,9 +25,9 @@ class TaiXuHuanJing : AbstractAdjectives
 
     }
 
-    override public void UseVerbs(AbstractCharacter character)
+    override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(character);
+        base.UseVerbs(aimCharacter);
         foreach (GameObject aim in aims)
         {
             

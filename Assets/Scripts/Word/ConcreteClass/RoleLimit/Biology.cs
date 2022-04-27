@@ -9,7 +9,7 @@ class Biology : AbstractRoleLimit
     public void Awake()
     {
         thisName = "СЄИв";
-        banRole.Add(new Bank());
+        banRole.Add(gameObject.AddComponent<Bank>());
     }
 
 }

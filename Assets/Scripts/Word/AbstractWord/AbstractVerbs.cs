@@ -21,9 +21,9 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
 
 
     /// <summary>技能使用者身份限制（谁不能使用）</summary>
-    public List<AbstractRoleLimit> banUse;
+    public List<AbstractRoleLimit> banUse=new List<AbstractRoleLimit>();
     /// <summary>目标限制（不能向谁使用）</summary>
-    public List<AbstractRoleLimit> banAim;
+    public List<AbstractRoleLimit> banAim=new List<AbstractRoleLimit>();
 
 
     /// <summary>技能类型 </summary>
@@ -54,7 +54,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    virtual  public void SpecialAbility()
+    virtual public void SpecialAbility()
     {
 
     }
@@ -66,14 +66,14 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>
     /// 使用技能
     /// </summary>
-    /// <param name="character"></param>
+    /// <param name="useCharacter"></param>
     /// <param name="camp">使用者阵营</param>
-    virtual public void UseVerbs(AbstractCharacter character)
+    virtual public void UseVerbs(AbstractCharacter useCharacter)
     {
         cd = 0;
-        aims=skillMode.CalculateAgain(attackDistance,character.gameObject);
-        character.charaAnim.Play(AnimEnum.attack);
-        character.sp -= comsumeSP;
+        aims=skillMode.CalculateAgain(attackDistance,useCharacter.gameObject);
+        useCharacter.charaAnim.Play(AnimEnum.attack);
+        useCharacter.sp -= comsumeSP;
     }
     /// <summary>
     /// 冷却（UseVerbs将cd重置为0）

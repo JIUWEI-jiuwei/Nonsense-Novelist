@@ -13,7 +13,10 @@ class CureMode : AbstractSkillMode
     }
     public override void UseMode(AbstractCharacter useCharacter,float value, AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp +=(int) value;
+        if (value > 0)
+        {
+            aimCharacter.hp += (int)value;
+        }
     }
     /// <summary>
     /// 再次计算锁定的目标(低血量友方）
