@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 辣性格
+/// 无性格
 /// </summary>
-class Hot : AbstractTrait
+class NullTrait : AbstractTrait
 {
-    public Hot()
+    public void Awake()
     {
-        traitID = 4;
-        traitName = "辣";
+        traitID = 0;
+        traitName = "无性格";
     }
 }

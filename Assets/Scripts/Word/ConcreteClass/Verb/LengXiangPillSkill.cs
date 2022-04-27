@@ -13,6 +13,7 @@ class LengXiangPillSkill : AbstractVerbs
         bookName = BookNameEnum.HongLouMeng;
         banUse.Add(new Biology());
         skillMode = new CureMode();
+        skillMode.attackRange = new CircleAttackSelector();//
         percentage = Mathf.Infinity;//回满(不用此变量）
         attackDistance = 2;
         skillTime = 0f;
@@ -28,7 +29,7 @@ class LengXiangPillSkill : AbstractVerbs
     /// 回满血
     /// </summary>
     /// <param name="character">施法者</param>
-    public override void UseVerbs(GameObject character)
+    public override void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         foreach (GameObject aim in aims)

@@ -16,6 +16,7 @@ class FallBadly : AbstractVerbs
         nickname.Add("甩");
         nickname.Add("投掷");
         skillMode = new DamageMode();
+        skillMode.attackRange =new CircleAttackSelector();//
         percentage = 1.5f;
         attackDistance = 6;
         skillTime = 0f;
@@ -28,16 +29,19 @@ class FallBadly : AbstractVerbs
         allowInterrupt = false;
         possibility = 0;
     }
+
+    private AbstractCharacter aimState;//目标的抽象角色类
     /// <summary>
     /// 造成150%攻击力的伤害
     /// </summary>
     /// <param name="character">施法者</param>
-    public override void UseVerbs(GameObject character)
+    public override void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         foreach (GameObject aim in aims)
         {
-            skillMode.UseMode((int)(aim.GetComponent<AbstractCharacter>().atk * percentage), aim.GetComponent<AbstractCharacter>());
+            aimState = aim.GetComponent<AbstractCharacter>();
+           skillMode.UseMode(character, character.atk * percentage - aimState.def * 0.6f, aimState);
         }
         SpecialAbility();
     }

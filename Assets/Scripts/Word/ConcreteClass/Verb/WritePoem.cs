@@ -15,6 +15,7 @@ class WritePoem : AbstractVerbs
         nickname.Add("×÷Ê«");
         attackDistance = 5;
         skillMode = new UpATKMode();
+        skillMode.attackRange = new CircleAttackSelector();//
         attackDistance = 5;
         skillTime = 0;
         skillEffectsTime = 5;
@@ -34,19 +35,19 @@ class WritePoem : AbstractVerbs
     {
         foreach (GameObject aim in aims)
         {
-            skillMode.UseMode((int)(aim.GetComponent<AbstractCharacter>().psy * 0.3f), aim.GetComponent<AbstractCharacter>());
+            skillMode.UseMode(null,aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
         }
         now += Time.deltaTime;
         if (now> skillEffectsTime)
         {
             foreach (GameObject aim in aims)
             {
-                skillMode.UseMode((int)(-aim.GetComponent<AbstractCharacter>().psy * 0.3f), aim.GetComponent<AbstractCharacter>());
+                skillMode.UseMode(null,-aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
             }
         }
     }
 
-    public override void UseVerbs(GameObject character)
+    public override void UseVerbs(AbstractCharacter character)
     {
         base.UseVerbs(character);
         SpecialAbility();

@@ -11,9 +11,9 @@ class UpDEFMode : AbstractSkillMode
         skillModeID = 2;
         skillModeName = "状态提升";
     }
-    public override void UseMode(int value, AbstractCharacter character)
+    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        character.def += value;
+        aimCharacter.def += value;
     }
     /// <summary>
     /// 再次计算锁定的目标

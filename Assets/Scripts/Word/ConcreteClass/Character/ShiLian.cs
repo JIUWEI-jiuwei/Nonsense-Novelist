@@ -18,6 +18,7 @@ class ShiLian : AbstractCharacter
         criticalSpeak = "抱歉，但我们不合适。";
         deadSpeak = "你竟然丝毫不在乎？";
         camp = CampEnum.enemy;
+        trait = new Inexorability();
         role = new Noble();
         skill.Add(new HeartBroken());
         hp=maxHP = 40;
