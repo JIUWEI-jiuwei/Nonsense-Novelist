@@ -16,7 +16,6 @@ class HuaiJinDaoYu : AbstractAdjectives
         skillMode = gameObject.AddComponent<SpendCodeMode>();
         percentage = 0.05f;
         useAtFirst = false;
-
     }
 
     /// <summary>
@@ -27,9 +26,9 @@ class HuaiJinDaoYu : AbstractAdjectives
 
     }
 
-    override public void UseVerbs(AbstractCharacter character)
+    override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(character);
+        base.UseVerbs(aimCharacter);
         SpecialAbility();
     }
 

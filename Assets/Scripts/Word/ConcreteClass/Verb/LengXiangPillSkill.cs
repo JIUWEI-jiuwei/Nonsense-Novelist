@@ -34,7 +34,8 @@ class LengXiangPillSkill : AbstractVerbs
         base.UseVerbs(character);
         foreach (GameObject aim in aims)
         {
-            aim.GetComponent<AbstractCharacter>().hp = aim.GetComponent<AbstractCharacter>().maxHP;
+            AbstractCharacter aimState= aim.GetComponent<AbstractCharacter>();
+            aimState.hp = aimState.maxHP;
         }
         SpecialAbility();
     }

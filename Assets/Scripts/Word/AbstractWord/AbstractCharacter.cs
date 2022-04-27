@@ -77,7 +77,7 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>平A模式</summary>
     private AbstractSkillMode attackA;
     /// <summary>目标（其实就最近的一个）</summary>
-    private GameObject[] aim;
+    private GameObject[] aims;
     virtual public void Awake()
     {
        attackA=gameObject.AddComponent <DamageMode>();//平A是伤害类型
@@ -100,9 +100,12 @@ abstract class AbstractCharacter : AbstractWords0
         if(time>=attackInterval )
         {
             time = 0;
-            aim = attackA.CalculateAgain(attackDistance, this.gameObject);
-            if (aim != null)
-                attackA.UseMode(this,atk-def*0.6f, aim[0].GetComponent<AbstractCharacter>());
+            aims = attackA.CalculateAgain(attackDistance, this.gameObject);
+            if (aims != null)
+            {
+                AbstractCharacter aim = aims[0].GetComponent<AbstractCharacter>();
+                attackA.UseMode(this,this.atk*(1-aim.san/(aim.san+20)), aim);
+            }
         }
     }
     /// <summary>

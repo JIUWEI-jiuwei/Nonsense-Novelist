@@ -17,10 +17,11 @@ class TouXiangQieYu : AbstractAdjectives
     }
 
     
-    override public void UseVerbs(AbstractCharacter character)
+    
+    override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(character);
-        character.GetComponent<AbstractCharacter>().psy -= 20;
+        base.UseVerbs(aimCharacter);
+        skillMode.UseMode(null, 20 *(1- aimCharacter.san/(aimCharacter.san+20)), aimCharacter);
         SpecialAbility();
     }
 }

@@ -39,7 +39,7 @@ class HeartBroken : AbstractVerbs
         foreach (GameObject aim in aims)
         {
             aimState = aim.GetComponent<AbstractCharacter>();
-            skillMode.UseMode(character,aim.GetComponent<AbstractCharacter>().psy * percentage - aimState.def * 0.6f, aim.GetComponent<AbstractCharacter>());
+            skillMode.UseMode(character,aim.GetComponent<AbstractCharacter>().psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
         }
         SpecialAbility();
     }

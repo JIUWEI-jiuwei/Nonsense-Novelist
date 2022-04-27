@@ -19,16 +19,19 @@ class DamageMode : AbstractSkillMode
     /// <param name="character">目标（来自目标数组）</param>
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        if(useCharacter.role.restrainRole.ContainsKey(aimCharacter.role.roleID))//攻击者克被攻击者
+        if (useCharacter != null)//玩家使用不进入判断
         {
-            aimCharacter.hp -= (int)(value*(1- useCharacter.role.restrainRole[aimCharacter.role.roleID]));
-        }
-        else if(aimCharacter.role.restrainRole.ContainsKey(useCharacter.role.roleID))//被攻击者克制攻击者
-        {
-            aimCharacter.hp -= (int)(value *(1+ aimCharacter.role.restrainRole[aimCharacter.role.roleID]));
+            if (useCharacter.role.restrainRole.ContainsKey(aimCharacter.role.roleID))//攻击者克被攻击者
+            {
+                aimCharacter.hp -= (int)(value * (1 + useCharacter.role.restrainRole[aimCharacter.role.roleID]));
+            }
+            else if (aimCharacter.role.restrainRole.ContainsKey(useCharacter.role.roleID))//被攻击者克制攻击者
+            {
+                aimCharacter.hp -= (int)(value * (1 - aimCharacter.role.restrainRole[aimCharacter.role.roleID]));
+            }
         }
         else
-        aimCharacter.hp -=(int)value;
+            aimCharacter.hp -= (int)value;
     }
     /// <summary>
     /// 再次计算锁定的目标
