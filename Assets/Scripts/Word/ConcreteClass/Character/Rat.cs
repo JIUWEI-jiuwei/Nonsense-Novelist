@@ -4,15 +4,16 @@ using UnityEngine;
 
  class Rat : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 9;
         gender = GenderEnum.noGender;
         wordName = "¿œ Û";
         bookName = BookNameEnum.allBooks;
         camp = CampEnum.enemy ;
-        role = new Beast ();
-        trait=new NullTrait ();
+        role = gameObject.AddComponent<Beast>();
+        trait=gameObject.AddComponent<NullTrait>();
         hp=maxHP  = 20;
         sp=maxSP = 0;
         atk = 7;

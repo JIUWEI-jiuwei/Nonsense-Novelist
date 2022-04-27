@@ -14,7 +14,7 @@ class WritePoem : AbstractVerbs
         description = "吟诗作对，好不快活";
         nickname.Add("作诗");
         attackDistance = 5;
-        skillMode = new UpATKMode();
+        skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         attackDistance = 5;
         skillTime = 0;

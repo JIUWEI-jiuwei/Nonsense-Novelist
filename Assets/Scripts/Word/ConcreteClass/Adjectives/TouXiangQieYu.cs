@@ -11,8 +11,8 @@ class TouXiangQieYu : AbstractAdjectives
         adjID = 1;
         wordName = "Õµœ„«‘”Ò";
         chooseWay = ChooseWayEnum.canChoose;
-        banAim.Add(new Girl());
-        skillMode=new DamageMode();
+        banAim.Add(gameObject.AddComponent<Girl>());
+        skillMode=gameObject.AddComponent<DamageMode>();
         useAtFirst = false;
     }
 

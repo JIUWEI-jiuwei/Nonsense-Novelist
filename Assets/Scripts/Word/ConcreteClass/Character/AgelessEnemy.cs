@@ -4,8 +4,9 @@ using UnityEngine;
 
 class AgelessEnemy : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 6;
         gender = GenderEnum.noGender;
         wordName = "宿敌";
@@ -14,8 +15,8 @@ class AgelessEnemy : AbstractCharacter
         criticalSpeak = "你比我弱太多了";
         deadSpeak = "输给你？怎么可能！";
         camp = CampEnum.enemy;
-        role = new OldEnemy();
-        trait=new Pride();
+        role = gameObject.AddComponent<OldEnemy>();
+        trait = gameObject.AddComponent<Pride>();
         hp=maxHP = 70;
         sp=maxSP = 20;
         atk = 15;

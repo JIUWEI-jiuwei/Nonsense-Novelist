@@ -12,7 +12,7 @@ class BuryFlower : AbstractVerbs
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
         description = "平生葬花杀人，我以落花剑葬你，不枉你异人之名";
-        skillMode = new DamageMode();
+        skillMode = gameObject.AddComponent<UpPSYMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         attackDistance = 0;
         skillTime = 7;

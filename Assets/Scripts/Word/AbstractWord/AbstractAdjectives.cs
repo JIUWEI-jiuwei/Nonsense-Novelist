@@ -14,7 +14,7 @@ abstract class AbstractAdjectives : AbstractWords0
     /// <summary>作用范围类型（具体实现在UI脚本判断此字段）</summary>
     public ChooseWayEnum chooseWay;
     /// <summary>目标限制（不能向谁使用）</summary>
-    public List<AbstractRoleLimit> banAim;
+    public List<AbstractRoleLimit> banAim=new List<AbstractRoleLimit>();
     /// <summary>技能类型 </summary>
     public AbstractSkillMode skillMode;
     /// <summary>技能强度(在这两数间取随机)，或造成 某值n%（percentage写小数） 的伤害</summary>

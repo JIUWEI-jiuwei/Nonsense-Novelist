@@ -16,6 +16,5 @@ class Noble : AbstractRole
         growDEF = 0.4f;
         restrainRole.Add(3, 0.1f);
         restrainRole.Add(6, 0.3f);
-
     }
 }

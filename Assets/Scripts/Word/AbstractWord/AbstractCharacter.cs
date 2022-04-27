@@ -33,7 +33,7 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>性格【不用】</summary>
     public AbstractTrait trait;
     /// <summary>自带技能</summary>
-    public List<AbstractVerbs> skill;
+    public List<AbstractVerbs> skill=new List<AbstractVerbs>();
     /// <summary>血量</summary>
     public int hp = 0;
     /// <summary>总血量</summary>
@@ -78,16 +78,16 @@ abstract class AbstractCharacter : AbstractWords0
     private AbstractSkillMode attackA;
     /// <summary>目标（其实就最近的一个）</summary>
     private GameObject[] aim;
-    private void Awake()
+    virtual public void Awake()
     {
-       attackA=new DamageMode();//平A是伤害类型
+       attackA=gameObject.AddComponent <DamageMode>();//平A是伤害类型
        attackA.attackRange = new SectorAttackSelector();
        attackA.extra = 120;
         charaAnim=GetComponent<CharaAnim>();
     }
 
-    private float time;
-    private void Update()
+    public float time;
+    virtual public void Update()
     {
         //防止溢出
         if (hp > maxHP)
@@ -109,7 +109,7 @@ abstract class AbstractCharacter : AbstractWords0
     /// 升级
     /// </summary>
     /// <returns></returns>
-    public bool LevelUp()
+    virtual public bool LevelUp()
     {
         if (exp < 100)
             return false;

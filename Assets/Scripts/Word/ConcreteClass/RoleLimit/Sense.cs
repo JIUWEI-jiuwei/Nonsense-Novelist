@@ -9,7 +9,7 @@ class Sense : AbstractRoleLimit
     public void Awake()
     {
         thisName = "¿Ì÷«";
-        banRole.Add(new Beast());
+        banRole.Add(gameObject.AddComponent<Beast>());
 
     }
 

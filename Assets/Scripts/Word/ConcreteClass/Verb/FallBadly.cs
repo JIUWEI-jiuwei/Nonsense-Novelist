@@ -15,7 +15,7 @@ class FallBadly : AbstractVerbs
         nickname.Add("‘“");
         nickname.Add("À¶");
         nickname.Add("Õ∂÷¿");
-        skillMode = new DamageMode();
+        skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange =new CircleAttackSelector();//
         percentage = 1.5f;
         attackDistance = 6;

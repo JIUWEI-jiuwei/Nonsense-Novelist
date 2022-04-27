@@ -13,10 +13,10 @@ class LengXiangPill : AbstractItems
         bookName = BookNameEnum.HongLouMeng;
         description = "一个和尚传来的“海上仙方”，是制作相当复杂的药丸";
         camp = CampEnum.all;
-        banUse.Add(new Biology());
+        banUse.Add(gameObject.AddComponent<Biology>());
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
-        withSkill = new LengXiangPillSkill();
+        withSkill = gameObject.AddComponent<LengXiangPillSkill>();
         level = 1;
     }
 }

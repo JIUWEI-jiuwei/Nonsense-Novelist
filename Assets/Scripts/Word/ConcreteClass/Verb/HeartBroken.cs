@@ -13,8 +13,8 @@ class HeartBroken : AbstractVerbs
         bookName = BookNameEnum.allBooks;
         description = "令目标心如刀绞。";
         nickname.Add( "刺痛");
-        banAim.Add( new Sense());
-        skillMode = new DamageMode();
+        banAim.Add(gameObject.AddComponent<Sense>());
+        skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         percentage = 1.5f;
         attackDistance = 999;

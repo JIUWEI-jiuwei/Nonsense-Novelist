@@ -11,8 +11,8 @@ class LengXiangPillSkill : AbstractVerbs
         skillID = 5;
         wordName = "冷香丸";
         bookName = BookNameEnum.HongLouMeng;
-        banUse.Add(new Biology());
-        skillMode = new CureMode();
+        banUse.Add(gameObject.AddComponent<Biology>());
+        skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         percentage = Mathf.Infinity;//回满(不用此变量）
         attackDistance = 2;

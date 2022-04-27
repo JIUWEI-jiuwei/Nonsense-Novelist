@@ -4,16 +4,17 @@ using UnityEngine;
 
 class FinancialDifficulty : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 7;
         gender = GenderEnum.noGender;
         wordName = "宿敌";
         bookName = BookNameEnum.allBooks;
         deadSpeak = "输给你？怎么可能！";
         camp = CampEnum.enemy;
-        role = new Bank();
-        trait=new NullTrait();
+        role = gameObject.AddComponent<Bank>();
+        trait=gameObject.AddComponent<NullTrait>();
         hp=maxHP = 40;
         sp=maxSP = 10;
         atk = 10;

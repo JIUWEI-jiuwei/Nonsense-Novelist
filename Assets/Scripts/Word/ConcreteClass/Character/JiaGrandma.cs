@@ -4,16 +4,17 @@ using UnityEngine;
 
 class JiaGrandma : AbstractCharacter
 {
-    public void Awake()
+    override public void Awake()
     {
+        base.Awake();
         characterID = 10;
         gender = GenderEnum.girl;
         wordName = "¼ÖÄ¸";
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add( "Ê·Ì«¾ý");
         camp = CampEnum.all;
-        role = new Parents();
-        trait=new Mercy();
+        role = gameObject.AddComponent<Parents>();
+        trait=gameObject.AddComponent<Mercy>();
         hp=maxHP = 40;
         sp=maxSP = 10;
         atk = 7;

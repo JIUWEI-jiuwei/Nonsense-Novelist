@@ -15,6 +15,5 @@ class Bank : AbstractRole
         growATK = 1;
         growDEF = 0.7f;
         restrainRole.Add(3, 0.3f);
-
     }
 }

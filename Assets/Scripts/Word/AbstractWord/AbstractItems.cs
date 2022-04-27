@@ -14,7 +14,7 @@ abstract class AbstractItems : AbstractWords0
     /// <summary>物品目标阵营(如某些物品不能给敌方)【不用】</summary>
     public CampEnum camp;
     /// <summary>物品目标身份限制（谁不能使用） </summary>
-    public List<AbstractRoleLimit> banUse;
+    public List<AbstractRoleLimit> banUse=new List<AbstractRoleLimit>();
     /// <summary>持有方式</summary>
     public HoldEnum holdEnum;
     /// <summary>物品材质，对应音效种类 </summary>

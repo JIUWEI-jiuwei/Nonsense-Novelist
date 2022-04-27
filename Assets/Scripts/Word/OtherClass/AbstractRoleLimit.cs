@@ -13,9 +13,9 @@ using UnityEngine;
     /// <summary>
     /// 禁止的身份
     /// </summary>
-    public List<AbstractRole> banRole;
+    public List<AbstractRole> banRole=new List<AbstractRole>();
     /// <summary>
     /// 禁止的性别
     /// </summary>
-    public List<GenderEnum> banGender;
+    public List<GenderEnum> banGender=new List<GenderEnum>();
 }

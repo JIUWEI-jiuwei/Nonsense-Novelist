@@ -13,7 +13,7 @@ class HuaiJinDaoYu : AbstractAdjectives
         description = "富贵转瞬即逝，怀念当初的荣华富贵";
         nickname.Add("富贵浮云");
         chooseWay = ChooseWayEnum.canChoose;
-        skillMode = new SpendCodeMode();
+        skillMode = gameObject.AddComponent<SpendCodeMode>();
         percentage = 0.05f;
         useAtFirst = false;
 
