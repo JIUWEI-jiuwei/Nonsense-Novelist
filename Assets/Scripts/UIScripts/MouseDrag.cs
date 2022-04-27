@@ -37,6 +37,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     public void OnDrag(PointerEventData eventData)
     {
         rectTrans.anchoredPosition += eventData.delta/canvas.scaleFactor;
+        
     }
     /// <summary>
     /// ÍÏ×§½áÊø
