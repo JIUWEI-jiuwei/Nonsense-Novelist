@@ -3876,8 +3876,11 @@ MonoBehaviour:
   dodgeChance: 0
   attackDistance: 0
   luckyValue: 0
+  level: 1
+  exp: 0
   enemyLevel: 0
   charaAnim: {fileID: 0}
+  time: 0
 --- !u!114 &827705167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6225,6 +6228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LinDaiYu
       objectReference: {fileID: 0}
+    - target: {fileID: 7036250989111057930, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7036250989111057933, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6533,7 +6540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660f807e6d5a2c14392863dc78ae3b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyPanelPrefab: {fileID: 8786045709348849541, guid: e27699853760a264e9f113e9358a894c, type: 3}
+  propertyPanelPrefab: {fileID: 5024742632179151203, guid: 36fbee17b28574042a2258e9a16c94a0, type: 3}
   UIcanvas: {fileID: 115735965}
 --- !u!1 &1300764116
 GameObject:
@@ -6693,6 +6700,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365653237}
   m_CullTransparentMesh: 1
+--- !u!1 &1369844645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7036250989111057930, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
+  m_PrefabInstance: {fileID: 1171866623}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1373041103
 GameObject:
   m_ObjectHideFlags: 0
@@ -7870,7 +7882,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1619820213}
   - component: {fileID: 1619820214}
-  m_Layer: 0
+  - component: {fileID: 1619820215}
+  m_Layer: 3
   m_Name: LIuGrandma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7942,6 +7955,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1619820215
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619820212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1651577104
 GameObject:
   m_ObjectHideFlags: 0
@@ -10802,6 +10841,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 827705163}
     m_Modifications:
+    - target: {fileID: -8896641528289894886, guid: c5204466b5b70b64294853b0a2a7d39e, type: 3}
+      propertyPath: Lin
+      value: 
+      objectReference: {fileID: 1369844645}
+    - target: {fileID: -8896641528289894886, guid: c5204466b5b70b64294853b0a2a7d39e, type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 1767680887}
     - target: {fileID: -8896641528289894886, guid: c5204466b5b70b64294853b0a2a7d39e, type: 3}
       propertyPath: canvas
       value: 

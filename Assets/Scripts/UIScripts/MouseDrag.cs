@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 ///<summary>
 ///鼠标拖拽
@@ -14,6 +15,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     [SerializeField] private Canvas canvas;
     /// <summary>最初的位置</summary>
     private Vector2 startpos;
+    private AbstractWords0 absWord;
 
     private void Start()
     {
@@ -51,6 +53,25 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         if (rectTrans != null)
         {
             rectTrans.anchoredPosition = startpos;
+        }        
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.name);
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
+            {
+                if (absWord.GetType() == typeof(AbstractVerbs))
+                {
+                    hit.collider.gameObject.GetComponent<AbstractCharacter>().skill.Add(this.GetComponent<AbstractVerbs>());
+
+                }
+                else if (absWord.GetType() == typeof(AbstractAdjectives))
+                {
+                    this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
+                }
+                Destroy(this.gameObject);
+            }
         }
+             
     }
 }

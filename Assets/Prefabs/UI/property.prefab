@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2059930530641378055, guid: d9613af8c41caec4db3ed3633b622f9f, type: 3}
         m_TargetAssemblyTypeName: MouseDown, Assembly-CSharp
         m_MethodName: propertyButtonDown
         m_Mode: 1
