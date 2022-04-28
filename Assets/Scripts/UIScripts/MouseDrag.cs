@@ -22,6 +22,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         rectTrans = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         startpos= rectTrans.anchoredPosition;
+        absWord = GetComponent<AbstractWords0>();
     }
     /// <summary>
     /// 开始拖拽
@@ -53,11 +54,11 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         if (rectTrans != null)
         {
             rectTrans.anchoredPosition = startpos;
-        }        
+        }
+        //将UI词条拖拽到角色身上
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
                 if (absWord.GetType() == typeof(AbstractVerbs))
