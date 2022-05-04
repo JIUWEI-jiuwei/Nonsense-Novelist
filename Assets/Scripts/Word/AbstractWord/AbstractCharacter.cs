@@ -89,11 +89,6 @@ abstract class AbstractCharacter : AbstractWords0
     public float time;
     virtual public void Update()
     {
-        //·ÀÖ¹Òç³ö
-        if (hp > maxHP)
-            hp = maxHP;
-        if(sp>maxSP)
-            sp = maxSP;
 
         //Æ½A
         time += Time.deltaTime;
