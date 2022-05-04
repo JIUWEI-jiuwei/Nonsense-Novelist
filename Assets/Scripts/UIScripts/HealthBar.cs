@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 ///<summary>
 ///血条UI
@@ -12,30 +9,33 @@ class HealthBar : MonoBehaviour
     /// <summary>血条预制体 </summary>
     public GameObject healthBarPrefab;
     /// <summary>角色头顶血条的位置 </summary>
-    public Transform barPoint;
+    private Transform barPoint;
     /// <summary>剩余血量数值 </summary>
     private Image healthSlider;
     /// <summary>角色位置 </summary>
-    private Transform UIbar;
+    private GameObject UIbar;
+    /// <summary>获取该角色 </summary>
+    private AbstractCharacter charaComponent;
 
-    private void OnEnable()
+    public void Start()
     {
-        foreach(Canvas canvas in FindObjectsOfType<Canvas>())
+        charaComponent = gameObject.GetComponent<AbstractCharacter>();
+        barPoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
+        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "UIcanvas")
             {
-                UIbar = Instantiate(healthBarPrefab, canvas.transform).transform;
-                healthSlider = UIbar.GetChild(0).GetComponent<Image>();
-            }   
-        }        
+                UIbar = Instantiate(healthBarPrefab, canvas.transform);
+                healthSlider = UIbar.transform.GetChild(0).GetComponent<Image>();
+            }
+        }
     }
-    private void Update()
+    public void Update()
     {
-        var charaComponent = gameObject.GetComponent<AbstractCharacter>();
         UpdateHealthBar(charaComponent.hp, charaComponent.maxHP);
         if (UIbar != null)
         {
-            UIbar.position = barPoint.position;
+            UIbar.transform.position = barPoint.position;
         }
     }
     /// <summary>
@@ -43,10 +43,14 @@ class HealthBar : MonoBehaviour
     /// </summary>
     /// <param name="currentHP">当前血量</param>
     /// <param name="maxHP">总血量</param>
-    private void UpdateHealthBar(int currentHP,int maxHP)
+    public void UpdateHealthBar(int currentHP, int maxHP)
     {
-        if (currentHP <= 0) Destroy(UIbar.gameObject);
+        if (currentHP <= 0) {
+            Destroy(gameObject); 
+            Destroy(UIbar.gameObject);
+        }       
         float sliderPercent = (float)currentHP / maxHP;
+        if(healthSlider!=null)
         healthSlider.fillAmount = sliderPercent;
-    }    
+    }
 }
