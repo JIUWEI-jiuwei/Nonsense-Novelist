@@ -36,7 +36,6 @@ class MouseDown : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
             if(hit.collider!=null)
             {
-                Debug.Log(hit.collider.name);
                 a = Instantiate(propertyPanelPrefab, UIcanvas.transform);
                 abschara = hit.collider.GetComponent<AbstractCharacter>();
                 absRole = hit.collider.GetComponent<AbstractRole>();

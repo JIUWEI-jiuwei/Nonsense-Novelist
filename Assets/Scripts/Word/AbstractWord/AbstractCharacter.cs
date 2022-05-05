@@ -76,6 +76,10 @@ abstract class AbstractCharacter : AbstractWords0
 
     /// <summary>平A模式</summary>
     private AbstractSkillMode attackA;
+    /// <summary>血条</summary>
+    public HealthBar healthBar;
+    /// <summary>蓝条</summary>
+    public SPbar SPBar;
     /// <summary>目标（其实就最近的一个）</summary>
     private GameObject[] aims;
     virtual public void Awake()
@@ -83,7 +87,9 @@ abstract class AbstractCharacter : AbstractWords0
        attackA=gameObject.AddComponent <DamageMode>();//平A是伤害类型
        attackA.attackRange = new SectorAttackSelector();
        attackA.extra = 120;
-        charaAnim=GetComponent<CharaAnim>();
+       charaAnim=GetComponent<CharaAnim>();
+       SPBar = gameObject.AddComponent<SPbar>();
+       healthBar = gameObject.AddComponent<HealthBar>();                  
     }
 
     public float time;
