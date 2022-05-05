@@ -51,7 +51,6 @@ abstract class AbstractAdjectives : AbstractWords0
         foreach (GameObject aim in aims)
         {
             AbstractCharacter chara = aim.GetComponent<AbstractCharacter>();
-
         }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 ///<summary>
 ///鼠标拖拽
@@ -9,20 +10,24 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
 {
     /// <summary>图像位置</summary>
     private RectTransform rectTrans;
+    /// <summary>卡槽父物体位置</summary>
+    private Transform gridPanel;
+    /// <summary>词条父物体位置</summary>
+    private Transform wordPanel;
     /// <summary>CanvasGroup组件</summary>
     private CanvasGroup canvasGroup;
-    /// <summary>画布大小（防止鼠标跑偏）</summary>
-    [SerializeField] private Canvas canvas;
-    /// <summary>最初的位置</summary>
-    private Vector2 startpos;
+    /// <summary>词条身上的技能脚本</summary>
     private AbstractWords0 absWord;
 
+    private void Awake()
+    {
+    }
     private void Start()
     {
         rectTrans = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        startpos= rectTrans.anchoredPosition;
         absWord = GetComponent<AbstractWords0>();
+        FindGrid();
     }
     /// <summary>
     /// 开始拖拽
@@ -39,8 +44,13 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     /// <param name="eventData"></param>
     public void OnDrag(PointerEventData eventData)
     {
-        rectTrans.anchoredPosition += eventData.delta/canvas.scaleFactor;
-        
+        foreach(Canvas canvas in FindObjectsOfType<Canvas>())
+        {
+            if (canvas.name == "MainCanvas")
+            {
+                rectTrans.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            }
+        }
     }
     /// <summary>
     /// 拖拽结束
@@ -53,12 +63,13 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         //若未使用，则回到最初位置
         if (rectTrans != null)
         {
-            rectTrans.anchoredPosition = startpos;
+            FindGrid();
         }
         //将UI词条拖拽到角色身上
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null)
         {
+            Debug.Log(hit.collider.name);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
                 if (absWord.GetType() == typeof(AbstractVerbs))
@@ -74,5 +85,23 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             }
         }
              
+    }
+    /// <summary>
+    /// 将词条位置与卡槽位置相匹配
+    /// </summary>
+    public void FindGrid()
+    {
+        foreach(Canvas canvas in FindObjectsOfType<Canvas>())
+        {
+            if (canvas.name == "MainCanvas" )
+            {
+                gridPanel = canvas.transform.Find("GridPanel");
+                wordPanel = canvas.transform.Find("WordPanel");
+            }
+        }
+        for(int i = 0; i < wordPanel.childCount; i++)
+        {
+           wordPanel.GetChild(i).position = gridPanel.GetChild(i).position;
+        }
     }
 }
