@@ -17,6 +17,6 @@ public enum AnimEnum
     readyAtk = 5,
     /// <summary>出场</summary>
     standOut = 6,
-    /// <summary>晕</summary>
+    /// <summary>晕(用不上)</summary>
     dizzy = 7
 }

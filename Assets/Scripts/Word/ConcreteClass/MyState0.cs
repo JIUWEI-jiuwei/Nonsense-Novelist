@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+namespace AI
+{
+    /// <summary>
+    /// 自己状态（抽象角色脚本挂上时，此脚本自动跟着挂上）
+    /// </summary>
+    class MyState0 : MonoBehaviour
+    {
+        /// <summary>角色</summary>
+        [HideInInspector] public AbstractCharacter character;
+        /// <summary>拥有的所有状态</summary>
+        private List<AbstractState> allState = new List<AbstractState>();
+        /// <summary>当前状态</summary>
+         public AbstractState nowState;
+        /// <summary>默认状态</summary>
+        [HideInInspector] public AbstractState defaultState;
+
+
+        /// <summary>关注的目标</summary>
+        public AbstractCharacter aim;
+        /// <summary>扇形搜索（用于调用其中方法）</summary>
+        public SectorAttackSelector sectorSearch = new SectorAttackSelector();
+        /// <summary>移速</summary>
+        public float speed=1;
+
+        public void Awake()
+        {
+            allState.Add(gameObject.AddComponent<IdleState>());
+            allState.Add(gameObject.AddComponent<AttackState>());
+            allState.Add(gameObject.AddComponent<DeadState>());
+            allState.Add(gameObject.AddComponent<DizzyState>());
+            allState.Add(gameObject.AddComponent<WalkState>());
+        }
+        public void Start()
+        {
+            character = this.GetComponent<AbstractCharacter>();
+            nowState = defaultState = allState.Find(p => p.id == StateID.idle);
+            nowState.EnterState(this);
+
+
+            aim = FindAim();
+        }
+        public void Update()
+        {
+            if(nowState.id==StateID.walk)
+            {
+                Debug.Log(0);
+            }
+            nowState.Action(this);
+            nowState.CheckTrigger(this);
+            //aim = FindAim();每隔一段时间重新寻找目标+++++++++++++++++++++++++++++++++
+        }
+        /// <summary>
+        /// 寻找目标
+        /// </summary>
+        public AbstractCharacter FindAim()
+        {
+
+            GameObject[] a = sectorSearch.AttackRange(999, character.transform, character.attackAngle);
+            if (character.camp == CampEnum.friend)
+            {
+                return CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp ==CampEnum.enemy|| p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger)
+                    .GetComponent<AbstractCharacter>();
+            }
+            if (character.camp == CampEnum.enemy)
+            {
+                return CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.friend || p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger)
+                    .GetComponent<AbstractCharacter>();
+            }
+            else
+                return null;
+        }
+        /// <summary>
+        /// 状态切换
+        /// </summary> 
+        public void ChangeActiveState(StateID stateID)
+        {
+            nowState.Exit(this);
+            nowState=allState.Find(p=>p.id == stateID);
+            nowState.EnterState(this);
+        }
+    }
+
+}

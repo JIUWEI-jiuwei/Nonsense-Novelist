@@ -19,7 +19,7 @@ class FallBadly : AbstractVerbs
         skillMode.attackRange =new CircleAttackSelector();//
         percentage = 1.5f;
         attackDistance = 6;
-        skillTime = 0f;
+        skillTime = 0;
         skillEffectsTime = 1.5f;
         cd=0;
         maxCD=6;
@@ -34,22 +34,25 @@ class FallBadly : AbstractVerbs
     /// <summary>
     /// 造成150%攻击力的伤害
     /// </summary>
-    /// <param name="character">施法者</param>
-    public override void UseVerbs(AbstractCharacter character)
+    /// <param name="useCharacter">施法者</param>
+    public override void UseVerbs(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(character);
+        base.UseVerbs(useCharacter);
         foreach (GameObject aim in aims)
         {
             aimState = aim.GetComponent<AbstractCharacter>();
-           skillMode.UseMode(character, character.atk * percentage *(1-aimState.def/(aimState.def+20)), aimState);
+           skillMode.UseMode(useCharacter, useCharacter.atk * percentage *(1-aimState.def/(aimState.def+20)), aimState);
         }
-        SpecialAbility();
+        SpecialAbility(useCharacter);
     }
     /// <summary>
     /// 晕眩1.5秒
     /// </summary>
-    public override void SpecialAbility()
+    public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-
+        foreach(GameObject aim in aims)
+        {
+            aim.GetComponent<AbstractCharacter>().dizzyTime = 1.5f;
+        }
     }
 }

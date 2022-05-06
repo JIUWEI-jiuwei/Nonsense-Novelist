@@ -16,7 +16,7 @@ class LengXiangPillSkill : AbstractVerbs
         skillMode.attackRange = new CircleAttackSelector();//
         percentage = Mathf.Infinity;//回满(不用此变量）
         attackDistance = 2;
-        skillTime = 0f;
+        skillTime = 0;
         skillEffectsTime = 0;
         cd=maxCD=6;
         comsumeSP = 0;
@@ -28,22 +28,21 @@ class LengXiangPillSkill : AbstractVerbs
     /// <summary>
     /// 回满血
     /// </summary>
-    /// <param name="character">施法者</param>
-    public override void UseVerbs(AbstractCharacter character)
+    /// <param name="useCharacter">施法者</param>
+    public override void UseVerbs(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(character);
+        base.UseVerbs(useCharacter);
         foreach (GameObject aim in aims)
         {
             AbstractCharacter aimState= aim.GetComponent<AbstractCharacter>();
             aimState.hp = aimState.maxHP;
         }
-        SpecialAbility();
+        SpecialAbility(useCharacter);
     }
     /// <summary>
     /// 解除所有负面状态
     /// </summary>
-    public override void SpecialAbility()
+    public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-
     }
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(CharaAnim))]
+[RequireComponent(typeof(AI.MyState0))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(BoxCollider2D))]
 /// <summary>
 /// 抽象角色类
 /// </summary>
@@ -33,7 +36,7 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>性格【不用】</summary>
     public AbstractTrait trait;
     /// <summary>自带技能</summary>
-    public List<AbstractVerbs> skill=new List<AbstractVerbs>();
+    public List<AbstractVerbs> skills=new List<AbstractVerbs>();
     /// <summary>血量</summary>
     public int hp = 0;
     /// <summary>总血量</summary>
@@ -60,8 +63,10 @@ abstract class AbstractCharacter : AbstractWords0
     public float skillSpeed = 0;
     /// <summary>闪避几率(完全无视攻击的概率)</summary>
     public float dodgeChance = 0;
-    /// <summary>攻击范围</summary>
+    /// <summary>攻击射程</summary>
     public int attackDistance = 0;
+    /// <summary>视野角度</summary>
+    public float attackAngle=120;
     /// <summary>幸运值</summary>
     public int luckyValue = 0;
     /// <summary>等级</summary>
@@ -73,40 +78,27 @@ abstract class AbstractCharacter : AbstractWords0
 
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;
+    /// <summary>剩余眩晕时间</summary>
+    public float dizzyTime;
 
-    /// <summary>平A模式</summary>
-    private AbstractSkillMode attackA;
+    
     /// <summary>血条</summary>
     public HealthBar healthBar;
     /// <summary>蓝条</summary>
     public SPbar SPBar;
-    /// <summary>目标（其实就最近的一个）</summary>
-    private GameObject[] aims;
     virtual public void Awake()
     {
-       attackA=gameObject.AddComponent <DamageMode>();//平A是伤害类型
-       attackA.attackRange = new SectorAttackSelector();
-       attackA.extra = 120;
        charaAnim=GetComponent<CharaAnim>();
        SPBar = gameObject.AddComponent<SPbar>();
        healthBar = gameObject.AddComponent<HealthBar>();                  
     }
 
-    public float time;
     virtual public void Update()
     {
-
-        //平A
-        time += Time.deltaTime;
-        if(time>=attackInterval )
+            if(dizzyTime>0)
         {
-            time = 0;
-            aims = attackA.CalculateAgain(attackDistance, this.gameObject);
-            if (aims != null)
-            {
-                AbstractCharacter aim = aims[0].GetComponent<AbstractCharacter>();
-                attackA.UseMode(this,this.atk*(1-aim.san/(aim.san+20)), aim);
-            }
+            dizzyTime-= Time.deltaTime;
+            //负数归零写在DizzyState的Exit中
         }
     }
     /// <summary>
