@@ -1,0 +1,25 @@
+namespace AI
+{
+    /// <summary>
+    /// 触发器枚举
+    /// </summary>
+    public enum TriggerID
+    {
+        /// <summary>开始走路</summary>
+        IdleToWalk,
+        /// <summary>停止走路</summary>
+        WalkToIdle,
+        /// <summary>进入攻击范围</summary>
+        IntoAttack,
+        /// <summary>离开攻击范围</summary>
+        OutAttack,
+        /// <summary>生命值为0</summary>
+        NoHealth,
+        /// <summary>消灭对方</summary>
+        KilledAim,
+        /// <summary>被晕</summary>
+        BeDizzy,
+        /// <summary>解除眩晕状态</summary>
+        OutDizzy,
+    }
+}

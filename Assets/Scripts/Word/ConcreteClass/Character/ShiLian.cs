@@ -21,7 +21,7 @@ class ShiLian : AbstractCharacter
         camp = CampEnum.enemy;
         trait = gameObject.AddComponent<Inexorability>();
         role = gameObject.AddComponent<Noble>();
-        skill.Add(gameObject.AddComponent<HeartBroken>());
+        skills.Add(gameObject.AddComponent<HeartBroken>());
         hp=maxHP = 40;
         sp=maxSP = 20;
         atk = 5;

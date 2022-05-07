@@ -74,7 +74,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             {
                 if (absWord.GetType() == typeof(AbstractVerbs))
                 {
-                    hit.collider.gameObject.GetComponent<AbstractCharacter>().skill.Add(this.GetComponent<AbstractVerbs>());
+                    hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(this.GetComponent<AbstractVerbs>());
 
                 }
                 else if (absWord.GetType() == typeof(AbstractAdjectives))

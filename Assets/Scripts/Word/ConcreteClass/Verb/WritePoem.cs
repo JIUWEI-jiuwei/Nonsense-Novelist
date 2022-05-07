@@ -31,25 +31,34 @@ class WritePoem : AbstractVerbs
     /// <summary>
     /// 提升30%精神力的攻击力,持续5秒
     /// </summary>
-    public override void SpecialAbility()
+    public override void SpecialAbility(AbstractCharacter useCharacter)
     {
         foreach (GameObject aim in aims)
         {
             skillMode.UseMode(null,aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
         }
-        now += Time.deltaTime;
-        if (now> skillEffectsTime)
+        
+    }
+    override public void Update()
+    {
+        base.Update();
+        if (now < skillEffectsTime)
+        {
+            now += Time.deltaTime;
+        }
+        else if (now > skillEffectsTime)
         {
             foreach (GameObject aim in aims)
             {
-                skillMode.UseMode(null,-aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
+                skillMode.UseMode(null, -aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
             }
+
         }
     }
 
-    public override void UseVerbs(AbstractCharacter character)
+    public override void UseVerbs(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(character);
-        SpecialAbility();
+        base.UseVerbs(useCharacter);
+        SpecialAbility(useCharacter);
     }
 }

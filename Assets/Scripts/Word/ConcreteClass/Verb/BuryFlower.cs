@@ -26,9 +26,8 @@ class BuryFlower : AbstractVerbs
 
     }
 
-    public override void SpecialAbility()
+    public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-
     }
     
 }

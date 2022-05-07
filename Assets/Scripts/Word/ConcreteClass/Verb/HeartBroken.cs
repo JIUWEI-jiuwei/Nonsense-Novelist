@@ -32,34 +32,42 @@ class HeartBroken : AbstractVerbs
     /// <summary>
     /// 造成150%精神力的伤害
     /// </summary>
-    /// <param name="character">施法者</param>
-    public override void UseVerbs(AbstractCharacter character)
+    /// <param name="useCharacter">施法者</param>
+    public override void UseVerbs(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(character);
+        base.UseVerbs(useCharacter);
         foreach (GameObject aim in aims)
         {
             aimState = aim.GetComponent<AbstractCharacter>();
-            skillMode.UseMode(character,aim.GetComponent<AbstractCharacter>().psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
+            skillMode.UseMode(useCharacter,aim.GetComponent<AbstractCharacter>().psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
         }
-        SpecialAbility();
+        SpecialAbility(useCharacter);
     }
 
     private float now = 0;//计时
+    private int[] records;//记录降低的精神力值
     /// <summary>
     /// 降低30%精神力,持续3秒
     /// </summary>
-    public override void SpecialAbility()
+    public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-        int[] records=new int[aims.Length];//记录降低的精神力值
-        for(int i=0;i<aims.Length;i++)
+        records = new int[aims.Length];
+        now = 0;
+        for (int i=0;i<aims.Length;i++)
         {
             records[i] = (int)(aims[i].GetComponent<AbstractCharacter>().psy * 0.3f);
             aims[i].GetComponent<AbstractCharacter>().psy-=records [i];
         }
-        now += Time.deltaTime;
-        if (now>= skillEffectsTime)
+    }
+    override public  void Update()
+    {
+        base.Update();
+        if (now < skillEffectsTime)
         {
-            now = 0;
+            now += Time.deltaTime;
+        }
+        else if (now >= skillEffectsTime)//时间到
+        {
             for (int i = 0; i < aims.Length; i++)
             {
                 aims[i].GetComponent<AbstractCharacter>().psy += records[i];

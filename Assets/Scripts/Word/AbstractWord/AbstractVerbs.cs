@@ -38,6 +38,8 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     public float skillTime;
     /// <summary>技能效果(特殊后续效果）持续时长 </summary>
     public float skillEffectsTime;
+    /// <summary>是否正在使用该技能 </summary>
+    public bool isUsing;
     /// <summary>当前能量（不用CD，改为随着时间和平A次数增长，到满可以释放）</summary>
     public float cd;//一阶段用CD
     /// <summary>总能量</summary>
@@ -50,44 +52,54 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     public bool allowInterrupt;
     /// <summary>技能概率（平A时有概率释放）【不用】</summary>
     public float possibility;
+    /// <summary>目标数组 </summary>
+    protected GameObject[] aims;
 
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    virtual public void SpecialAbility()
+    virtual public void SpecialAbility(AbstractCharacter useCharacter)
     {
 
     }
-
-    /// <summary>
-    /// 仅用于↓（目标数组）
-    /// </summary>
-    protected GameObject[] aims;
     /// <summary>
     /// 使用技能
     /// </summary>
-    /// <param name="useCharacter"></param>
     /// <param name="camp">使用者阵营</param>
     virtual public void UseVerbs(AbstractCharacter useCharacter)
     {
+        isUsing = true;
         cd = 0;
         aims=skillMode.CalculateAgain(attackDistance,useCharacter.gameObject);
         useCharacter.charaAnim.Play(AnimEnum.attack);
         useCharacter.sp -= comsumeSP;
     }
+
+    virtual public void Update()
+    {
+        if (cd < maxCD)
+        {
+            cd += Time.deltaTime;
+        }
+        if(isUsing && !userAnim.isPlaying )//播放完特效即为使用完毕
+        {
+            isUsing=false;
+        }
+    }
+
     /// <summary>
     /// 冷却（UseVerbs将cd重置为0）
     /// </summary>
     /// <returns>是否冷却完毕</returns>
     virtual public bool CalculateCD()
     {
-        if(cd<maxCD)
-        {
-            cd += Time.deltaTime;
-        }
+
         if (cd >= maxCD)
+        {
+            cd = maxCD;
             return true;
-        else 
+        }
+        else
             return false;
     }
 }
