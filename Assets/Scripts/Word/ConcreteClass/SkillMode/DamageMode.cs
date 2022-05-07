@@ -27,7 +27,7 @@ class DamageMode : AbstractSkillMode
             }
             else if (aimCharacter.role.restrainRole.ContainsKey(useCharacter.role.roleID))//被攻击者克制攻击者
             {
-                aimCharacter.hp -= (int)(value * (1 - aimCharacter.role.restrainRole[aimCharacter.role.roleID]));
+                aimCharacter.hp -= (int)(value * (1 - aimCharacter.role.restrainRole[useCharacter.role.roleID]));
             }
         }
         else

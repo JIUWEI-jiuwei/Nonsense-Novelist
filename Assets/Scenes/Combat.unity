@@ -8937,7 +8937,7 @@ MonoBehaviour:
   nowState: {fileID: 0}
   defaultState: {fileID: 0}
   aim: {fileID: 0}
-  speed: 1
+  speed: 0.5
 --- !u!95 &1651577110
 Animator:
   serializedVersion: 3
@@ -9415,7 +9415,7 @@ MonoBehaviour:
   nowState: {fileID: 0}
   defaultState: {fileID: 0}
   aim: {fileID: 0}
-  speed: 1
+  speed: 0.5
 --- !u!114 &1692046517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12557,6 +12557,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8387646651057993244, guid: c8455510b3ce93844aebc96aca28d05c, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8455510b3ce93844aebc96aca28d05c, type: 3}
 --- !u!1001 &8792533846233301930
@@ -12566,6 +12570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 288792581}
     m_Modifications:
+    - target: {fileID: 8792533845088263377, guid: 32a3c3de17364f840973d1d7c6e21d6f, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8792533845088263388, guid: 32a3c3de17364f840973d1d7c6e21d6f, type: 3}
       propertyPath: m_RootOrder
       value: 0

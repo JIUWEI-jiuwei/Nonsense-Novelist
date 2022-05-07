@@ -23,7 +23,7 @@ namespace AI
         /// <summary>扇形搜索（用于调用其中方法）</summary>
         public SectorAttackSelector sectorSearch = new SectorAttackSelector();
         /// <summary>移速</summary>
-        public float speed=1;
+        public float speed=0.1f;
 
         public void Awake()
         {
@@ -44,10 +44,6 @@ namespace AI
         }
         public void Update()
         {
-            if(nowState.id==StateID.walk)
-            {
-                Debug.Log(0);
-            }
             nowState.Action(this);
             nowState.CheckTrigger(this);
             //aim = FindAim();每隔一段时间重新寻找目标+++++++++++++++++++++++++++++++++
