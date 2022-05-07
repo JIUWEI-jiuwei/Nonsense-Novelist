@@ -16,11 +16,15 @@ class SPbar : MonoBehaviour
     private Transform UIbar;
     /// <summary>获取该角色 </summary>
     private AbstractCharacter chara;
+    /// <summary>条位置 </summary>
+    private Transform[] barPoint;
 
     public void Start()
     {
         chara = gameObject.GetComponent<AbstractCharacter>();
-        SPbarPoint = gameObject.transform.GetChild(1).GetComponent<Transform>();
+        //SPbarPoint = gameObject.transform.GetChild(1).GetComponent<Transform>();
+        barPoint= gameObject.GetComponentsInChildren<Transform>();
+        SPbarPoint = barPoint[2];
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "UIcanvas")

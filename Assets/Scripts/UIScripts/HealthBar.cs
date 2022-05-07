@@ -9,18 +9,22 @@ class HealthBar : MonoBehaviour
     /// <summary>血条预制体 </summary>
     public GameObject healthBarPrefab;
     /// <summary>角色头顶血条的位置 </summary>
-    private Transform barPoint;
+    private Transform hpBarPoint;
     /// <summary>剩余血量数值 </summary>
     private Image healthSlider;
     /// <summary>角色位置 </summary>
     private GameObject UIbar;
     /// <summary>获取该角色 </summary>
     private AbstractCharacter charaComponent;
+    /// <summary>条位置 </summary>
+    private Transform[] barPoint;
 
     public void Start()
     {
         charaComponent = gameObject.GetComponent<AbstractCharacter>();
-        barPoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
+        //hpBarPoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
+        barPoint = gameObject.GetComponentsInChildren<Transform>();
+        hpBarPoint = barPoint[1];
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "UIcanvas")
@@ -35,7 +39,7 @@ class HealthBar : MonoBehaviour
         UpdateHealthBar(charaComponent.hp, charaComponent.maxHP);
         if (UIbar != null)
         {
-            UIbar.transform.position = barPoint.position;
+            UIbar.transform.position = hpBarPoint.position;
         }
     }
     /// <summary>
