@@ -28,14 +28,18 @@ class WritePoem : AbstractVerbs
     }
 
     private float now = 0;//计时
+    private float[] records;//记录提升的攻击力
     /// <summary>
     /// 提升30%精神力的攻击力,持续5秒
     /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-        foreach (GameObject aim in aims)
+        records=new float[aims.Length];
+        now = 0;
+        for(int i=0;i<aims.Length;i++)
         {
-            skillMode.UseMode(null,aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
+            records[i] = aims[i].GetComponent<AbstractCharacter>().psy * 0.3f;
+            skillMode.UseMode(null,records[i], aims[i].GetComponent<AbstractCharacter>());
         }
         
     }
@@ -46,13 +50,13 @@ class WritePoem : AbstractVerbs
         {
             now += Time.deltaTime;
         }
-        else if (now > skillEffectsTime)
+        else if (now >= skillEffectsTime &&records!=null)
         {
-            foreach (GameObject aim in aims)
+            for (int i = 0; i < aims.Length; i++)
             {
-                skillMode.UseMode(null, -aim.GetComponent<AbstractCharacter>().psy * 0.3f, aim.GetComponent<AbstractCharacter>());
+                aims[i].GetComponent<AbstractCharacter>().atk -=records[i];
             }
-
+            records = null;
         }
     }
 

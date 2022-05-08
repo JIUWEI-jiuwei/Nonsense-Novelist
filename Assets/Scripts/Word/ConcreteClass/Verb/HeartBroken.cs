@@ -66,12 +66,13 @@ class HeartBroken : AbstractVerbs
         {
             now += Time.deltaTime;
         }
-        else if (now >= skillEffectsTime)//时间到
+        else if (now >= skillEffectsTime && records!=null)//时间到
         {
             for (int i = 0; i < aims.Length; i++)
             {
                 aims[i].GetComponent<AbstractCharacter>().psy += records[i];
             }
+            records = null;
         }
     }
 }

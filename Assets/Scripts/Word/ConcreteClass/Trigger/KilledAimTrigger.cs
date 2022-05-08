@@ -15,7 +15,13 @@ namespace AI
         }
         public override bool Satisfy(MyState0 myState)
         {
-            return (myState.aim.hp<=0);
+            if (myState.aim.hp <= 0)
+            {
+                myState.FindAim();
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

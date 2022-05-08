@@ -23,6 +23,7 @@ namespace AI
         public override void EnterState(MyState0 myState)
         {
             myState.character.charaAnim.Play(AnimEnum.dead);
+            Destroy(this.gameObject);
         }
 
         public override void Exit(MyState0 myState)

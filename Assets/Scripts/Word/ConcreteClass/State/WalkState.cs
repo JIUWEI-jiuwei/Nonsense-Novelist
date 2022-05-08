@@ -20,8 +20,11 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
-            //ÒÆ¶¯
-            myState.character.transform.position = Vector3.MoveTowards(myState.transform.position,myState.aim.transform.position,myState.speed*Time.deltaTime);
+            if (myState.aim != null)
+            {
+                //ÒÆ¶¯
+                myState.character.transform.position = Vector3.MoveTowards(myState.transform.position, myState.aim.transform.position, myState.speed * Time.deltaTime);
+            }
         }
 
 

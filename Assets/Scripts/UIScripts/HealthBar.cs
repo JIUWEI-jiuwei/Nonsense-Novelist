@@ -50,7 +50,6 @@ class HealthBar : MonoBehaviour
     public void UpdateHealthBar(int currentHP, int maxHP)
     {
         if (currentHP <= 0) {
-            Destroy(gameObject); 
             Destroy(UIbar.gameObject);
         }       
         float sliderPercent = (float)currentHP / maxHP;
