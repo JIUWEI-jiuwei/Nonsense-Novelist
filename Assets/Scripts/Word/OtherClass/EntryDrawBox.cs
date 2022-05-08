@@ -7,13 +7,16 @@ using System;
 /// </summary>
 class EntryDrawBox : MonoBehaviour
 {
+    /// <summary>词条预制体</summary>
     public GameObject wordPrefab;
+    /// <summary>父物体变换组件</summary>
     public Transform parentTF;
+    /// <summary>战斗界面词条最大数量</summary>
+    private int wordNum = 10;
     private void Start()
     {
         
-    }
-    
+    }  
     /// <summary>
     /// 点击抽奖盒，生成词条
     /// </summary>
@@ -23,7 +26,7 @@ class EntryDrawBox : MonoBehaviour
         {
             if (canvas.name == "MainCanvas")
             {
-                if (parentTF.childCount <= 9) {
+                if (parentTF.childCount < wordNum) {
                     GameObject word = Instantiate(wordPrefab, canvas.transform);
                     Type absWord = AllSkills.OnDrawBox();
                     word.AddComponent(absWord);

@@ -22,7 +22,7 @@ public static class AllSkills
     /// </summary>
     public static Type OnDrawBox()
     {
-        UnityEngine.Random.InitState((int)Time.time);
+        //UnityEngine.Random.InitState((int)Time.unscaledTime);
         int number = UnityEngine.Random.Range(0, list.Count);
         return list[number];
     }

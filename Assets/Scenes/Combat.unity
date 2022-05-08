@@ -8820,143 +8820,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602679155}
   m_CullTransparentMesh: 1
---- !u!1 &1651577104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4121046542023419678, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
-  m_PrefabInstance: {fileID: 4121046540449576462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1651577105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121046542023419679, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
   m_PrefabInstance: {fileID: 4121046540449576462}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1651577106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651577104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d04b13235789104418cdcca033136510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bookName: 0
-  wordName: 
-  pattern: {fileID: 0}
-  description: 
-  nickname: []
-  characterID: 0
-  gender: 0
-  appearance: {fileID: 0}
-  epoch: 
-  area: 
-  criticalSpeak: 
-  deadSpeak: 
-  camp: 1
-  role: {fileID: 0}
-  trait: {fileID: 0}
-  skills: []
-  hp: 0
-  maxHP: 0
-  sp: 0
-  maxSP: 0
-  atk: 0
-  def: 0
-  psy: 0
-  san: 0
-  criticalChance: 0
-  multipleCriticalStrike: 0
-  attackInterval: 0
-  skillSpeed: 0
-  dodgeChance: 0
-  attackDistance: 0
-  attackAngle: 120
-  luckyValue: 0
-  level: 1
-  exp: 0
-  enemyLevel: 0
-  charaAnim: {fileID: 0}
-  dizzyTime: 0
-  healthBar: {fileID: 0}
-  SPBar: {fileID: 0}
---- !u!114 &1651577107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651577104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6e908473309d24abf8212e935898f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  currentAnim: 0
---- !u!61 &1651577108
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651577104}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1651577109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651577104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a471f06be8a910a4b9beb4f20ca303d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  nowState: {fileID: 0}
-  defaultState: {fileID: 0}
-  aim: {fileID: 0}
-  speed: 0.5
---- !u!95 &1651577110
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651577104}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5b5872673711a9b41bbda1ceecd7c15d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1665890517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9352,8 +9220,6 @@ MonoBehaviour:
   enemyLevel: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  healthBar: {fileID: 0}
-  SPBar: {fileID: 0}
 --- !u!61 &1692046514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12338,10 +12204,6 @@ PrefabInstance:
     - target: {fileID: 4121046542023419678, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
       propertyPath: m_Name
       value: LInDaiYu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4121046542023419678, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4121046542023419679, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
       propertyPath: m_RootOrder

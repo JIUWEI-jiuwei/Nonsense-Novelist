@@ -43,6 +43,10 @@ GameObject:
   - component: {fileID: 6732867781080517573}
   - component: {fileID: 6732867781080517570}
   - component: {fileID: 6732867781080517571}
+  - component: {fileID: 8387646651057993244}
+  - component: {fileID: 624369215321173320}
+  - component: {fileID: -7836424751702201250}
+  - component: {fileID: 1664154902103423336}
   m_Layer: 0
   m_Name: LiuGrandma
   m_TagString: Untagged
@@ -183,7 +187,7 @@ MonoBehaviour:
   camp: 1
   role: {fileID: 0}
   trait: {fileID: 0}
-  skill: []
+  skills: []
   hp: 0
   maxHP: 0
   sp: 0
@@ -198,9 +202,72 @@ MonoBehaviour:
   skillSpeed: 0
   dodgeChance: 0
   attackDistance: 0
+  attackAngle: 120
   luckyValue: 0
   level: 1
   exp: 0
   enemyLevel: 0
   charaAnim: {fileID: 0}
-  time: 0
+  dizzyTime: 0
+--- !u!114 &8387646651057993244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732867781080517569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a471f06be8a910a4b9beb4f20ca303d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  nowState: {fileID: 0}
+  defaultState: {fileID: 0}
+  aim: {fileID: 0}
+  speed: 0.1
+--- !u!95 &624369215321173320
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732867781080517569}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7836424751702201250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732867781080517569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
+--- !u!114 &1664154902103423336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732867781080517569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618ba97d141392141aa55c7f7eba7f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}

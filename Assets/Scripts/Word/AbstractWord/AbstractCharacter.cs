@@ -83,14 +83,14 @@ abstract class AbstractCharacter : AbstractWords0
 
     
     /// <summary>ÑªÌõ</summary>
-    public HealthBar healthBar;
+    //public HealthBar healthBar;
     /// <summary>À¶Ìõ</summary>
-    public SPbar SPBar;
+    //public SPbar SPBar;
     virtual public void Awake()
     {
        charaAnim=GetComponent<CharaAnim>();
-       SPBar = gameObject.AddComponent<SPbar>();
-       healthBar = gameObject.AddComponent<HealthBar>();                  
+       //SPBar = gameObject.AddComponent<SPbar>();
+       //healthBar = gameObject.AddComponent<HealthBar>();                  
     }
 
     virtual public void Update()
