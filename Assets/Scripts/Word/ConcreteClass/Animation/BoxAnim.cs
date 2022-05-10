@@ -27,6 +27,7 @@ class BoxAnim : MonoBehaviour
     public Transform parentTF;
     /// <summary>父物体变换组件</summary>
     private Type[] absWords=new Type [6];
+
     private void Awake()
     {
         animActor = new AnimationActor(GetComponent<Animation>());
@@ -109,7 +110,7 @@ class BoxAnim : MonoBehaviour
                     absWords[i] = absWord;
                     word.AddComponent(absWord);
                     //让button的text显示技能文字
-                    word.GetComponentInChildren<Text>().text=word.GetComponent<AbstractWords0>().wordName;
+                    word.GetComponentInChildren<Image>().sprite = Resources.Load(word.GetComponent<AbstractWords0>().wordName)as Sprite;
                     word.transform.SetParent(parentTF);
                 }
             }

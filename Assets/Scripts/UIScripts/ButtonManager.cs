@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 ///<summary>
-///UI管理器
+///全局按钮管理
 ///</summary>
-class UIManager  : MonoBehaviour
+class ButtonManager : MonoBehaviour
 {
-
+    
 }
