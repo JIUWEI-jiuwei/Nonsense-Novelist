@@ -75,7 +75,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
         useCharacter.sp -= comsumeSP;
     }
 
-    virtual public void Update()
+    virtual public void FixedUpdate()
     {
         if (cd < maxCD)
         {
