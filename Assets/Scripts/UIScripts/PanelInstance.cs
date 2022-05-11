@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 ///<summary>
-///UIπ‹¿Ì∆˜
+///
 ///</summary>
-class UIManager  : MonoBehaviour
+class PanelInstance : MonoBehaviour
 {
-  
+    public PanelInstance PanelBefore;
 }

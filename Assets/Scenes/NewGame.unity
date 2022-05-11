@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 40326877}
   - component: {fileID: 40326876}
   - component: {fileID: 40326875}
+  - component: {fileID: 40326878}
   m_Layer: 5
   m_Name: "\u6545\u4E8B\u5BFC\u5165"
   m_TagString: Untagged
@@ -600,7 +601,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 40326876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 40326878}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonTranslateUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &40326876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +652,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40326873}
   m_CullTransparentMesh: 1
+--- !u!114 &40326878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40326873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbefcce5a7518b346b1aa5729b559a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pages: []
+  currentPanel: {fileID: 0}
 --- !u!1 &63818293
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,6 +4002,7 @@ GameObject:
   - component: {fileID: 654587021}
   - component: {fileID: 654587020}
   - component: {fileID: 654587019}
+  - component: {fileID: 654587022}
   m_Layer: 5
   m_Name: "\u68C0\u9605\u8BCD\u6761"
   m_TagString: Untagged
@@ -4044,7 +4072,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 654587020}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 654587022}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonTranslateUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &654587020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4083,6 +4123,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654587017}
   m_CullTransparentMesh: 1
+--- !u!114 &654587022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654587017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbefcce5a7518b346b1aa5729b559a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pages: []
+  currentPanel: {fileID: 0}
 --- !u!1 &678385237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,6 +4295,7 @@ GameObject:
   - component: {fileID: 691150489}
   - component: {fileID: 691150488}
   - component: {fileID: 691150487}
+  - component: {fileID: 691150490}
   m_Layer: 5
   m_Name: "\u65B0\u4F5C\u5B9A\u4F4D"
   m_TagString: Untagged
@@ -4310,7 +4365,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 691150488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691150490}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonTranslateUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &691150488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4349,6 +4416,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691150485}
   m_CullTransparentMesh: 1
+--- !u!114 &691150490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691150485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbefcce5a7518b346b1aa5729b559a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pages: []
+  currentPanel: {fileID: 0}
 --- !u!1 &697961964
 GameObject:
   m_ObjectHideFlags: 0
@@ -9901,6 +9982,7 @@ GameObject:
   - component: {fileID: 1852072373}
   - component: {fileID: 1852072372}
   - component: {fileID: 1852072371}
+  - component: {fileID: 1852072374}
   m_Layer: 5
   m_Name: "\u4E66\u672C\u9009\u62E9"
   m_TagString: Untagged
@@ -9970,7 +10052,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1852072372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1852072374}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonTranslateUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1852072372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10009,6 +10103,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852072369}
   m_CullTransparentMesh: 1
+--- !u!114 &1852072374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852072369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbefcce5a7518b346b1aa5729b559a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pages: []
+  currentPanel: {fileID: 0}
 --- !u!1 &1894052550
 GameObject:
   m_ObjectHideFlags: 0
