@@ -9,7 +9,7 @@ namespace AI
     abstract class AbstractState : MonoBehaviour
     {
         [HideInInspector] public StateID id;
-        /// <summary>触发条件对应关系</summary>
+        /// <summary>所有触发条件</summary>
         protected List<AbstractTrigger> triggers=new List<AbstractTrigger>();
         /// <summary>触发条件对应关系</summary>
         protected Dictionary<TriggerID,StateID> map=new Dictionary<TriggerID, StateID>();
