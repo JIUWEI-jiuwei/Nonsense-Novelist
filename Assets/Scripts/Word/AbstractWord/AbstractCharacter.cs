@@ -93,7 +93,7 @@ abstract class AbstractCharacter : AbstractWords0
        //healthBar = gameObject.AddComponent<HealthBar>();                  
     }
 
-    virtual public void Update()
+    virtual public void FixedUpdate()
     {
             if(dizzyTime>0)
         {

@@ -42,7 +42,7 @@ namespace AI
 
             aim = FindAim();
         }
-        public void Update()
+        public void FixedUpdate()
         {
             nowState.Action(this);
             nowState.CheckTrigger(this);

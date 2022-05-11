@@ -59,9 +59,9 @@ class HeartBroken : AbstractVerbs
             aims[i].GetComponent<AbstractCharacter>().psy-=records [i];
         }
     }
-    override public  void Update()
+    override public  void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         if (now < skillEffectsTime)
         {
             now += Time.deltaTime;

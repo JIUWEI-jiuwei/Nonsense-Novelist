@@ -43,9 +43,9 @@ class WritePoem : AbstractVerbs
         }
         
     }
-    override public void Update()
+    override public void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         if (now < skillEffectsTime)
         {
             now += Time.deltaTime;

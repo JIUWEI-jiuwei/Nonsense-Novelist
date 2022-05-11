@@ -15,7 +15,12 @@ namespace AI
         }
         public override bool Satisfy(MyState0 myState)
         {
-            return (myState.aim!=null);
+            if (myState.aim != null)
+            {
+                return true;
+            }
+            else 
+                return false;
         }
     }
 }
