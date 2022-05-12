@@ -11,6 +11,7 @@ class FamilyConflict : AbstractCharacter
         gender = GenderEnum.noGender;
         wordName = "家庭矛盾";
         bookName = BookNameEnum.allBooks;
+        brief = "因与家人关系恶化而导致的苦恼";
         description = "因与家人关系恶化而导致的苦恼";
         criticalSpeak = "我怎么养了你这么个东西";
         deadSpeak = "孩子究竟是长大了";

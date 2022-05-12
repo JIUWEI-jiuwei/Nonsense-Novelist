@@ -9,6 +9,8 @@
     allBooks = 0,
     /// <summary>红楼梦 </summary>
     HongLouMeng = 1,
+    /// <summary>女巫学徒 </summary>
+    StudentOfWitch = 2,
     /// <summary>画室-现代小说 </summary>
-    HuaShi = 2,
+    HuaShi = 3,
 };

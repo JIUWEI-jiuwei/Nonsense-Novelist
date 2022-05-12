@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 怀金悼玉
+/// 活死人汤剂
 /// </summary>
 class HuaiJinDaoYu : AbstractAdjectives
 {
@@ -10,11 +10,9 @@ class HuaiJinDaoYu : AbstractAdjectives
     {
         adjID = 2;
         wordName = "怀金悼玉";
-        description = "富贵转瞬即逝，怀念当初的荣华富贵";
-        nickname.Add("富贵浮云");
+        description = "饮下活死人汤剂能让其能够在死后重新获得一次生命，代价是灵魂变得干枯。";
         chooseWay = ChooseWayEnum.canChoose;
-        skillMode = gameObject.AddComponent<SpendCodeMode>();
-        percentage = 0.05f;
+        skillMode = gameObject.AddComponent<SpecialMode>();
         useAtFirst = false;
     }
 
@@ -23,7 +21,7 @@ class HuaiJinDaoYu : AbstractAdjectives
     /// </summary>
     override public void SpecialAbility()
     {
-
+        
     }
 
     override public void UseVerbs(AbstractCharacter aimCharacter)

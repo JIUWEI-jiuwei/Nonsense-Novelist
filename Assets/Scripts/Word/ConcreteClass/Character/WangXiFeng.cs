@@ -11,6 +11,7 @@ class WangXiFeng : AbstractCharacter
         gender = GenderEnum.girl;
         wordName = "王熙凤";
         bookName = BookNameEnum.HongLouMeng;
+        brief = "《红楼梦》中一位泼辣且极具备能力的女人。";
         criticalSpeak = "你这赖狗扶不上墙的种子";
         deadSpeak = "纵我机关算尽……";
         camp = CampEnum.all;

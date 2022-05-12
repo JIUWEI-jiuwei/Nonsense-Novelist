@@ -26,7 +26,7 @@ namespace AI
         /// <summary>平A模式</summary>
         private AbstractSkillMode attackA;
         /// <summary>平A计时器（累加）</summary>
-        private float attackAtime;
+        [HideInInspector]public float attackAtime;
         public override void Action(MyState0 myState)
         {
             attackA.extra = myState.character.attackAngle;
@@ -35,7 +35,7 @@ namespace AI
             
             foreach(AbstractVerbs skill in myState.character.skills)
             {
-                //如果能量已满&&有目标
+                //如果能量已满&&有目标,使用技能
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character.gameObject)!=null)
                 {
                     skill.UseVerbs(myState.character); 
