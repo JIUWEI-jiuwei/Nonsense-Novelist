@@ -67,7 +67,7 @@ abstract class AbstractCharacter : AbstractWords0
     public int attackDistance = 0;
     /// <summary>视野角度</summary>
     public float attackAngle=120;
-    /// <summary>幸运值</summary>
+    /// <summary>幸运值()</summary>
     public int luckyValue = 0;
     /// <summary>等级</summary>
     public int level = 1;
