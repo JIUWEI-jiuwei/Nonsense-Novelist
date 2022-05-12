@@ -26,8 +26,46 @@ class BuryFlower : AbstractVerbs
 
     }
 
+    /// <summary>
+    /// 开启技能后，每次被本角色攻击的单位将产生1朵落花，可以无限叠加，直到持续时间结束，结束时所有花飞到本角色手中，并将其埋葬，每朵收集的花提升1点精神力
+    /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
+       attackState= useCharacter.gameObject.GetComponent<AI.AttackState>();
+       timer = 0;
     }
-    
+
+    private AI.AttackState attackState;//
+    private int flowerNum;//花数量
+    private float timer;//计时器
+
+
+    /// <summary>
+    /// 攻击产生落花
+    /// </summary>
+    public void Update()
+    {
+        //没暂停游戏&&处于释放期间&&平A了,增加落花
+        if (Time.deltaTime!=0 && attackState!=null && attackState.attackAtime == 0)
+            flowerNum++;
+    }
+
+    /// <summary>
+    /// 计时
+    /// </summary>
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (timer < skillTime)
+        {
+            timer += Time.deltaTime;
+        }
+        else if (timer >= skillTime)
+        {
+            attackState = null;
+            this.GetComponent<AbstractCharacter>().psy += flowerNum;
+            flowerNum = 0;
+        }
+    }
+
 }

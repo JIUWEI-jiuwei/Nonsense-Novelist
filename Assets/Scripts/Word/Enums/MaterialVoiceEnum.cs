@@ -10,6 +10,9 @@ enum MaterialVoiceEnum
     materialNull = 0,
     /// <summary>Ã’¥…¿‡ </summary>
     Ceram = 1,
+    /// <summary> È </summary>
+    Book = 2,
     /// <summary>»·»Ì </summary>
-    Soft = 2,
+    Soft = 3,
+
 };

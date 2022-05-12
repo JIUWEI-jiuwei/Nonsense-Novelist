@@ -10,6 +10,7 @@ using UnityEngine;
         characterID = 1;
         gender = GenderEnum.girl;
         wordName = "林黛玉";
+        brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
         description = "《红楼梦》中的角色";
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add("林妹妹");

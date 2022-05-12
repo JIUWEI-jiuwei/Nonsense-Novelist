@@ -45,7 +45,7 @@ abstract class AbstractCharacter : AbstractWords0
     public int sp = 0;
     /// <summary>总蓝量</summary>
     public int maxSP = 0;
-    /// <summary>攻击力(伤害=攻击力-防御力*0.6)</summary>
+    /// <summary>攻击力</summary>
     public float atk = 0;
     /// <summary>防御力</summary>
     public float def = 0;
@@ -75,6 +75,8 @@ abstract class AbstractCharacter : AbstractWords0
     public int exp = 0;
     /// <summary>怪级别（友方为0）</summary>
     public int enemyLevel = 0;
+    /// <summary>主属性</summary>
+    public MainSortEnum mainSort = 0;
 
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;

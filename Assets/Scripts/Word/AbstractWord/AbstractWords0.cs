@@ -14,7 +14,9 @@ abstract class AbstractWords0 : MonoBehaviour
     public string wordName;
     /// <summary>图标/头像 </summary>
     public Image pattern;
-    /// <summary>词汇描述</summary>
+    /// <summary>简短描述（如果有）</summary>
+    public string brief;
+    /// <summary>详细描述</summary>
     public string description;
     /// <summary>别称（导出文本时替代使用）</summary>
     public List<string> nickname=new List<string>();    
