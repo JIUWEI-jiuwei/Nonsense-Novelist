@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 宿敌
+/// 沉默者
 /// </summary>
-class AgelessEnemy : AbstractCharacter
+class SilenceOne : AbstractCharacter
 {
     override public void Awake()
     {
@@ -13,18 +13,20 @@ class AgelessEnemy : AbstractCharacter
         gender = GenderEnum.noGender;
         wordName = "宿敌";
         bookName = BookNameEnum.allBooks;
-        description = "长期与你过不去，并且不知为何总是会不断遇到对方";
-        criticalSpeak = "你比我弱太多了";
-        deadSpeak = "输给你？怎么可能！";
+        brief = "一个强大的，无法绕开的敌人";
+        description = "一个强大的，无法绕开的敌人";
+        criticalSpeak = "嗯……";
+        deadSpeak = "嗯……？！";
         camp = CampEnum.enemy;
         role = gameObject.AddComponent<OldEnemy>();
-        trait = gameObject.AddComponent<Pride>();
+        trait=gameObject.AddComponent<Pride>();
         hp=maxHP = 70;
         sp=maxSP = 20;
         atk = 15;
         def = 2;
         psy = 7;
-        san = 2;
+        san = 5;
+        mainSort = MainSortEnum.atk;
         criticalChance = 0;
         multipleCriticalStrike = 2;
         attackInterval = 1.3f;

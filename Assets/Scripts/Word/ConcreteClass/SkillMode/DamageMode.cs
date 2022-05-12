@@ -19,8 +19,20 @@ class DamageMode : AbstractSkillMode
     /// <param name="character">目标（来自目标数组）</param>
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        if (useCharacter != null)//玩家使用不进入判断
+        if (useCharacter != null)//角色使用
         {
+            float a = Random.Range(0, 100);//暴击抽奖
+            if (a <= useCharacter.criticalChance * 100)//暴击
+            {
+                value *= useCharacter.multipleCriticalStrike;
+            }
+
+            float b=Random.Range(0, 100);//闪避抽奖
+            if(b<=aimCharacter.dodgeChance*100)//闪避
+            {
+                return; 
+            }
+
             if (useCharacter.role.restrainRole.ContainsKey(aimCharacter.role.roleID))//攻击者克被攻击者
             {
                 aimCharacter.hp -= (int)(value * (1 + useCharacter.role.restrainRole[aimCharacter.role.roleID]));
@@ -30,7 +42,7 @@ class DamageMode : AbstractSkillMode
                 aimCharacter.hp -= (int)(value * (1 - aimCharacter.role.restrainRole[useCharacter.role.roleID]));
             }
         }
-        else
+        else//玩家使用（形容词）
             aimCharacter.hp -= (int)value;
     }
     /// <summary>

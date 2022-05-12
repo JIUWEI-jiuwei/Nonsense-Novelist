@@ -9,6 +9,8 @@ abstract class AbstractItems : AbstractWords0
 {
     /// <summary>物品序号</summary>
     public int itemID;
+    /// <summary>获取方式</summary>
+    public GetWayEnum getWay;
     /// <summary>物品对应战场形象</summary>
     public GameObject obj;
     /// <summary>物品目标阵营(如某些物品不能给敌方)【不用】</summary>
@@ -23,14 +25,35 @@ abstract class AbstractItems : AbstractWords0
     public AbstractVerbs withSkill;
     /// <summary>物品提供的状态</summary>
     public AbstractAdjectives withAdj;
-    /// <summary>物品每次使用时提供的经验值【不用】</summary>
-    public int provideExp;
-    /// <summary>物品等级【不用】</summary>
-    public int level;
-    //基础属性，成长属性？
 
-    virtual public void UseItem(AbstractCharacter character)
+    /// <summary>提供的攻击力</summary>
+    public float atk = 0;
+    /// <summary>提供的防御力</summary>
+    public float def = 0;
+    /// <summary>提供的精神力</summary>psychic force
+    public float psy = 0;
+    /// <summary>提供的意志力</summary>
+    public float san = 0;
+
+    /// <summary>
+    /// 使用物品
+    /// </summary>
+    virtual public void UseItem(AbstractCharacter useCharacter)
     {
-        withSkill.UseVerbs(character); 
+        withSkill.UseVerbs(useCharacter);
+        //物品提供的属性
+        useCharacter.atk += atk;
+        useCharacter.def += def;
+        useCharacter.psy += psy;
+        useCharacter.san += san;
+    }
+
+    virtual public void LoseItem(AbstractCharacter useCharacter)
+    {
+        //失去物品提供的属性
+        useCharacter.atk -= atk;
+        useCharacter.def -= def;
+        useCharacter.psy -= psy;
+        useCharacter.san -= san;
     }
 }

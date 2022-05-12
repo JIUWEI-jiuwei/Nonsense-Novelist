@@ -12,6 +12,7 @@ class ShiLian : AbstractCharacter
         characterID = 2;
         gender = GenderEnum.noGender;
         wordName = "失恋";
+        brief = "爱而不得之苦，对于性格脆弱之人更为致命";
         description = "爱而不得之苦，对于性格脆弱之人更为致命";
         bookName = BookNameEnum.allBooks;
         nickname.Add( "爱情之苦");

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 经济压力
+/// </summary>
 class FinancialDifficulty : AbstractCharacter
 {
     override public void Awake()
@@ -9,9 +11,8 @@ class FinancialDifficulty : AbstractCharacter
         base.Awake();
         characterID = 7;
         gender = GenderEnum.noGender;
-        wordName = "宿敌";
+        wordName = "经济压力";
         bookName = BookNameEnum.allBooks;
-        deadSpeak = "输给你？怎么可能！";
         camp = CampEnum.enemy;
         role = gameObject.AddComponent<Bank>();
         trait=gameObject.AddComponent<NullTrait>();
@@ -20,7 +21,7 @@ class FinancialDifficulty : AbstractCharacter
         atk = 10;
         def = 12;
         psy = 0;
-        san = 0;
+        san = 2;
         criticalChance = 0;
         multipleCriticalStrike = 2;
         attackInterval = 1.3f;

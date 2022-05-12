@@ -11,9 +11,9 @@ class TeaCup : AbstractItems
         itemID = 1;
         wordName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
+        getWay = GetWayEnum.NormalWord;
         description = "一个相当精致的茶杯";
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        level = 1;
-
+        san = 3;
     }
 }

@@ -45,7 +45,7 @@ abstract class AbstractCharacter : AbstractWords0
     public int sp = 0;
     /// <summary>总蓝量</summary>
     public int maxSP = 0;
-    /// <summary>攻击力(伤害=攻击力-防御力*0.6)</summary>
+    /// <summary>攻击力</summary>
     public float atk = 0;
     /// <summary>防御力</summary>
     public float def = 0;
@@ -67,7 +67,7 @@ abstract class AbstractCharacter : AbstractWords0
     public int attackDistance = 0;
     /// <summary>视野角度</summary>
     public float attackAngle=120;
-    /// <summary>幸运值</summary>
+    /// <summary>幸运值()</summary>
     public int luckyValue = 0;
     /// <summary>等级</summary>
     public int level = 1;
@@ -75,6 +75,8 @@ abstract class AbstractCharacter : AbstractWords0
     public int exp = 0;
     /// <summary>怪级别（友方为0）</summary>
     public int enemyLevel = 0;
+    /// <summary>主属性</summary>
+    public MainSortEnum mainSort = 0;
 
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;
@@ -95,11 +97,37 @@ abstract class AbstractCharacter : AbstractWords0
 
     virtual public void FixedUpdate()
     {
-            if(dizzyTime>0)
+        if(dizzyTime>0)
         {
             dizzyTime-= Time.deltaTime;
             //负数归零写在DizzyState的Exit中
         }
+        #region 数值限制
+        if (hp < 0)
+        {
+            hp = 0;
+        }
+        if (sp < 0)
+        {
+            sp = 0;
+        }
+        if(hp>maxHP)
+        {
+            hp=maxHP;
+        }
+        if(sp>maxSP)
+        {
+            sp=maxSP;
+        }
+        if(def<-19)
+        {
+            def = -19;
+        }
+        if(san<-19)
+        {
+            san= -19;
+        }
+        #endregion
     }
     /// <summary>
     /// 升级

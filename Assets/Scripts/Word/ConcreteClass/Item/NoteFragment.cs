@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 冷香丸
+/// 德拉瑞斯的笔记碎片
 /// </summary>
-class LengXiangPill : AbstractItems
+class NoteFragment : AbstractItems
 {
     public void Awake()
     {
-        itemID = 2;
+        itemID = 3;
         wordName = "冷香丸";
-        bookName = BookNameEnum.HongLouMeng;
+        bookName = BookNameEnum.StudentOfWitch;
         getWay = GetWayEnum.NormalWord;
-        description = "一个和尚传来的“海上仙方”，是制作相当复杂的药丸";
+        description = "记载了一些德洛瑞斯写着玩的杂耍魔法，但对普通人来说足具威力了";
+        nickname.Add("笔记本");
         camp = CampEnum.all;
-        banUse.Add(gameObject.AddComponent<Biology>());
         holdEnum = HoldEnum.handSingle;
-        VoiceEnum = MaterialVoiceEnum.materialNull;
+        VoiceEnum = MaterialVoiceEnum.Book;
         withSkill = gameObject.AddComponent<LengXiangPillSkill>();
+        psy = 5;
     }
 }
