@@ -95,11 +95,37 @@ abstract class AbstractCharacter : AbstractWords0
 
     virtual public void FixedUpdate()
     {
-            if(dizzyTime>0)
+        if(dizzyTime>0)
         {
             dizzyTime-= Time.deltaTime;
             //负数归零写在DizzyState的Exit中
         }
+        #region 数值限制
+        if (hp < 0)
+        {
+            hp = 0;
+        }
+        if (sp < 0)
+        {
+            sp = 0;
+        }
+        if(hp>maxHP)
+        {
+            hp=maxHP;
+        }
+        if(sp>maxSP)
+        {
+            sp=maxSP;
+        }
+        if(def<-19)
+        {
+            def = -19;
+        }
+        if(san<-19)
+        {
+            san= -19;
+        }
+        #endregion
     }
     /// <summary>
     /// 升级
