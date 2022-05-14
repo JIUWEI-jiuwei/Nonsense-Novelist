@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 活死人汤剂
+/// 活死人汤剂(复活甲）
 /// </summary>
 class HuoSiRenTangJi : AbstractAdjectives
 {
+    /// <summary>作用目标</summary>
+    public AI.MyState0 aimState;
     public void Awake()
     {
         adjID = 2;
@@ -14,11 +16,19 @@ class HuoSiRenTangJi : AbstractAdjectives
         chooseWay = ChooseWayEnum.canChoose;
         skillMode = gameObject.AddComponent<SpecialMode>();
         useAtFirst = false;
+
+
+        aimState=this.GetComponent<AI.MyState0>();//2.获取目标（挂在目标上时）
+        if (aimState != null)
+        {
+            //删掉触发死亡的条件
+            foreach(AI.AbstractState state in aimState.allState)
+            {
+                state.triggers.Remove(state.triggers.Find(p=>p.id==AI.TriggerID.NoHealth));
+            }
+        }
     }
 
-    /// <summary>
-    /// 复活
-    /// </summary>
     override public void SpecialAbility()
     {
         
@@ -26,9 +36,25 @@ class HuoSiRenTangJi : AbstractAdjectives
 
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
-        SpecialAbility();
+        //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
+        aimCharacter.gameObject.AddComponent<HuoSiRenTangJi>();
     }
 
-
+    private void Update()
+    {
+        //3.只用于挂在角色上的活汤脚本（已穿复活甲）
+        if(aimState!=null)
+        {
+            if(aimState.character.hp<=0)
+            {
+                aimState.character.hp = aimState.character.maxHP;
+                //添加回触发死亡的条件
+                foreach (AI.AbstractState state in aimState.allState)
+                {
+                    state.triggers.Add(this.GetComponent<AI.NoHealthTrigger>());
+                }
+                Destroy(this);//销毁自己（脚本组件）
+            }
+        }
+    }
 }

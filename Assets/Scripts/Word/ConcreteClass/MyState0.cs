@@ -11,7 +11,7 @@ namespace AI
         /// <summary>角色</summary>
         [HideInInspector] public AbstractCharacter character;
         /// <summary>拥有的所有状态</summary>
-        private List<AbstractState> allState = new List<AbstractState>();
+        public List<AbstractState> allState = new List<AbstractState>();
         /// <summary>当前状态</summary>
          public AbstractState nowState;
         /// <summary>默认状态</summary>

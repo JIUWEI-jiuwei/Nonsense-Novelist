@@ -10,9 +10,9 @@ namespace AI
     {
         [HideInInspector] public StateID id;
         /// <summary>所有触发条件</summary>
-        protected List<AbstractTrigger> triggers=new List<AbstractTrigger>();
+        public List<AbstractTrigger> triggers=new List<AbstractTrigger>();
         /// <summary>触发条件对应关系</summary>
-        protected Dictionary<TriggerID,StateID> map=new Dictionary<TriggerID, StateID>();
+        public Dictionary<TriggerID,StateID> map=new Dictionary<TriggerID, StateID>();
 
         virtual public void Awake()
         {
@@ -39,7 +39,7 @@ namespace AI
         /// </summary>
         public virtual void CheckTrigger(MyState0 myState)
         {
-            for(int i=0;i<map.Count;i++)
+            for(int i=0;i<triggers.Count;i++)
             {
                 if(triggers[i].Satisfy(myState))
                 {
