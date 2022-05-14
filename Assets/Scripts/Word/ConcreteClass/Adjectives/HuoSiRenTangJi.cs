@@ -4,12 +4,12 @@ using UnityEngine;
 /// <summary>
 /// 活死人汤剂
 /// </summary>
-class HuaiJinDaoYu : AbstractAdjectives
+class HuoSiRenTangJi : AbstractAdjectives
 {
     public void Awake()
     {
         adjID = 2;
-        wordName = "怀金悼玉";
+        wordName = "活死人汤剂";
         description = "饮下活死人汤剂能让其能够在死后重新获得一次生命，代价是灵魂变得干枯。";
         chooseWay = ChooseWayEnum.canChoose;
         skillMode = gameObject.AddComponent<SpecialMode>();

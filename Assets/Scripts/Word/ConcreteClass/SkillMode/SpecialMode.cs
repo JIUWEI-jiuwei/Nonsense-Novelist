@@ -9,7 +9,7 @@ class SpecialMode : AbstractSkillMode
     public void Awake()
     {
         skillModeID = 4;
-        skillModeName = "¸³Óè×´Ì¬";
+        skillModeName = "¸³ÓèÌØÊâ×´Ì¬";
     }
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {

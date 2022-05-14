@@ -8,7 +8,7 @@ class PaintBrush : AbstractItems
 {
     public void Awake()
     {
-        itemID = 3;
+        itemID = -1;
         wordName = "画笔";
         bookName = BookNameEnum.HuaShi;
         description = "一支平平无奇的画笔";

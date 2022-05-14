@@ -14,7 +14,5 @@ class NullRole : AbstractRole
         growHP = 5;
         growATK = 1.2f;
         growDEF = 1;
-        restrainRole.Add(3, 0.1f);
-        restrainRole.Add(6, 0.3f);
     }
 }

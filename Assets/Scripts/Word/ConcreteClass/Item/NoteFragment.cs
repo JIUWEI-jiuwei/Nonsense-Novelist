@@ -9,7 +9,7 @@ class NoteFragment : AbstractItems
     public void Awake()
     {
         itemID = 3;
-        wordName = "冷香丸";
+        wordName = "德洛瑞斯的笔记碎片";
         bookName = BookNameEnum.StudentOfWitch;
         getWay = GetWayEnum.NormalWord;
         description = "记载了一些德洛瑞斯写着玩的杂耍魔法，但对普通人来说足具威力了";

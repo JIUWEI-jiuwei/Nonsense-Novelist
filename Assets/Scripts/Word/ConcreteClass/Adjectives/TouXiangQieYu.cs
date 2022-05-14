@@ -10,6 +10,7 @@ class TouXiangQieYu : AbstractAdjectives
     {
         adjID = 1;
         wordName = "偷香窃玉";
+        description = "与女性偷情，并不负责的离去，留下独自神伤";
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Girl>());
         skillMode=gameObject.AddComponent<DamageMode>();

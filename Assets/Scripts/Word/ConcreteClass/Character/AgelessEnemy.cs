@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ËÞµÐ
+/// ËÞµÐ£¨ÔÝÊ±ÆúÓÃ£©
 /// </summary>
 class AgelessEnemy : AbstractCharacter
 {
     override public void Awake()
     {
         base.Awake();
-        characterID = 6;
+        characterID = -1;
         gender = GenderEnum.noGender;
         wordName = "ËÞµÐ";
         bookName = BookNameEnum.allBooks;
