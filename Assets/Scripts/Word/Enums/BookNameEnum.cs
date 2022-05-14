@@ -5,6 +5,8 @@
 /// </summary>
  enum BookNameEnum
 {
+    /// <summary>画室（已弃用）</summary>
+    HuaShi=-1,
     /// <summary>全书籍 </summary>
     allBooks = 0,
     /// <summary>红楼梦 </summary>

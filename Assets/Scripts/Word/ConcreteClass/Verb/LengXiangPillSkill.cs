@@ -44,5 +44,9 @@ class LengXiangPillSkill : AbstractVerbs
     /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
+        useCharacter.dizzyTime = 0;
     }
+
+    Dictionary<string, int> a;
+    
 }

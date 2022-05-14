@@ -55,8 +55,10 @@ class HeartBroken : AbstractVerbs
         now = 0;
         for (int i=0;i<aims.Length;i++)
         {
-            records[i] = (int)(aims[i].GetComponent<AbstractCharacter>().psy * 0.3f);
-            aims[i].GetComponent<AbstractCharacter>().psy-=records [i];
+            AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
+            records[i] = (int)(a.psy * 0.3f);
+            a.psy -= records [i];
+            a.AddBuff(2);
         }
     }
     override public  void FixedUpdate()
@@ -70,7 +72,9 @@ class HeartBroken : AbstractVerbs
         {
             for (int i = 0; i < aims.Length; i++)
             {
-                aims[i].GetComponent<AbstractCharacter>().psy += records[i];
+                AbstractCharacter a=aims[i].GetComponent<AbstractCharacter>();
+               a.psy += records[i];
+                a.RemoveBuff(2);
             }
             records = null;
         }

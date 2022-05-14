@@ -52,7 +52,9 @@ class FallBadly : AbstractVerbs
     {
         foreach(GameObject aim in aims)
         {
-            aim.GetComponent<AbstractCharacter>().dizzyTime = 1.5f;
+            AbstractCharacter a = aim.GetComponent<AbstractCharacter>();
+            a.dizzyTime = 1.5f;
+            a.AddBuff(4);
         }
     }
 }

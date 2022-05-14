@@ -33,7 +33,7 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>身份</summary>
     public AbstractRole role;
     //人物的身份的类型可以不断扩充，不同的身份在战斗时对实体敌人单位的攻防加权会有影响，如大小姐，受到经济问题，社会问题的伤害较低，收到家庭问题的伤害较高
-    /// <summary>性格【不用】</summary>
+    /// <summary>性格</summary>
     public AbstractTrait trait;
     /// <summary>自带技能</summary>
     public List<AbstractVerbs> skills=new List<AbstractVerbs>();
@@ -82,8 +82,9 @@ abstract class AbstractCharacter : AbstractWords0
     public CharaAnim charaAnim;
     /// <summary>剩余眩晕时间</summary>
     public float dizzyTime;
+    /// <summary>所有buff《buffID，是否有buff》</summary>
+    public Dictionary<int,int> buffs;
 
-    
     /// <summary>血条</summary>
     //public HealthBar healthBar;
     /// <summary>蓝条</summary>
@@ -149,6 +150,40 @@ abstract class AbstractCharacter : AbstractWords0
             san += trait.growSAN;
             return true;
         }
+    }
+
+    /// <summary>
+    /// 判断该角色是否有该buff
+    /// </summary>
+    public bool HasBuff(int buffID)
+    {
+        if (!buffs.ContainsKey(buffID))
+            return false;
+        else if(buffs[buffID] <= 0)
+            return false;
+        else
+            return true;
+    }
+
+    /// <summary>
+    /// 加个buff
+    /// </summary>
+    /// <param name="buffID"></param>
+    public void AddBuff(int buffID)
+    {
+        if (!buffs.ContainsKey(buffID))
+            buffs.Add(buffID, 1);
+        else
+            buffs[buffID]++;
+    }
+
+    /// <summary>
+    /// 去个buff
+    /// </summary>
+    /// <param name="buffID"></param>
+    public void RemoveBuff(int buffID)
+    {
+            buffs[buffID]--;
     }
 }
 

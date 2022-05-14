@@ -38,8 +38,10 @@ class WritePoem : AbstractVerbs
         now = 0;
         for(int i=0;i<aims.Length;i++)
         {
-            records[i] = aims[i].GetComponent<AbstractCharacter>().psy * 0.3f;
-            skillMode.UseMode(null,records[i], aims[i].GetComponent<AbstractCharacter>());
+            AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
+            records[i] = a.psy * 0.3f;
+            skillMode.UseMode(null,records[i], a);
+            a.AddBuff(1);
         }
         
     }
@@ -54,7 +56,9 @@ class WritePoem : AbstractVerbs
         {
             for (int i = 0; i < aims.Length; i++)
             {
-                aims[i].GetComponent<AbstractCharacter>().atk -=records[i];
+                AbstractCharacter a=aims[i].GetComponent<AbstractCharacter>();
+                a.atk -=records[i];
+                a.RemoveBuff(1);
             }
             records = null;
         }

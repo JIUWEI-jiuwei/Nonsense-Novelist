@@ -38,6 +38,9 @@ class HuoSiRenTangJi : AbstractAdjectives
     {
         //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
         aimCharacter.gameObject.AddComponent<HuoSiRenTangJi>();
+        aimCharacter.trait = null;//行尸走肉：将性格变为空
+        aimCharacter.AddBuff(7);
+        aimCharacter.AddBuff(9);
     }
 
     private void Update()
@@ -53,6 +56,7 @@ class HuoSiRenTangJi : AbstractAdjectives
                 {
                     state.triggers.Add(this.GetComponent<AI.NoHealthTrigger>());
                 }
+                aimState.character.RemoveBuff(7);
                 Destroy(this);//销毁自己（脚本组件）
             }
         }
