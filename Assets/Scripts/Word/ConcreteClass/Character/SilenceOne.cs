@@ -11,7 +11,7 @@ class SilenceOne : AbstractCharacter
         base.Awake();
         characterID = 6;
         gender = GenderEnum.noGender;
-        wordName = "宿敌";
+        wordName = "沉默者";
         bookName = BookNameEnum.allBooks;
         brief = "一个强大的，无法绕开的敌人";
         description = "一个强大的，无法绕开的敌人";
