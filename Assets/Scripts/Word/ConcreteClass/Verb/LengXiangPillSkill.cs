@@ -47,6 +47,5 @@ class LengXiangPillSkill : AbstractVerbs
         useCharacter.dizzyTime = 0;
     }
 
-    Dictionary<string, int> a;
     
 }

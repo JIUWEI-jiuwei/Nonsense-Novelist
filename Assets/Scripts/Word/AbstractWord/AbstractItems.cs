@@ -34,6 +34,14 @@ abstract class AbstractItems : AbstractWords0
     public float psy = 0;
     /// <summary>提供的意志力</summary>
     public float san = 0;
+    /// <summary>提高的暴击几率</summary>
+    public float criticalChance = 0;
+    /// <summary>提高的暴击倍数</summary>
+    public float multipleCriticalStrike=1;
+    /// <summary>提高的闪避几率</summary>
+    public float dodgeChance = 0;
+    /// <summary>提高的攻击间隔</summary>
+    public float attackInterval = 0;
 
     /// <summary>
     /// 使用物品
@@ -46,6 +54,10 @@ abstract class AbstractItems : AbstractWords0
         useCharacter.def += def;
         useCharacter.psy += psy;
         useCharacter.san += san;
+        useCharacter.criticalChance += criticalChance;
+        useCharacter.multipleCriticalStrike += multipleCriticalStrike;
+        useCharacter.dodgeChance+=dodgeChance;
+        useCharacter.attackInterval += attackInterval;
     }
 
     virtual public void LoseItem(AbstractCharacter useCharacter)
@@ -55,5 +67,9 @@ abstract class AbstractItems : AbstractWords0
         useCharacter.def -= def;
         useCharacter.psy -= psy;
         useCharacter.san -= san;
+        useCharacter.criticalChance += criticalChance;
+        useCharacter.multipleCriticalStrike-=multipleCriticalStrike;
+        useCharacter.dodgeChance-=dodgeChance;
+        useCharacter.attackInterval -= attackInterval;
     }
 }

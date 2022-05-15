@@ -43,7 +43,7 @@ class HuoSiRenTangJi : AbstractAdjectives
         aimCharacter.AddBuff(9);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //3.只用于挂在角色上的活汤脚本（已穿复活甲）
         if(aimState!=null)

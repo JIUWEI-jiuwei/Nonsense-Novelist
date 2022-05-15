@@ -14,5 +14,9 @@ enum MaterialVoiceEnum
     Book = 2,
     /// <summary>ÈáÈí </summary>
     Soft = 3,
+    /// <summary>ÑªÈâ </summary>
+    Meat = 4,
+
+
 
 };

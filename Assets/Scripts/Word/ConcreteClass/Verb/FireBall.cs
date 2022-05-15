@@ -2,28 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// À§
+/// ‘”À£ª«Ú
 /// </summary>
-class FallBadly : AbstractVerbs
+class FireBall : AbstractVerbs
 {
     public void Awake()
     {
-        skillID = 4;
-        wordName = "À§";
-        bookName = BookNameEnum.HongLouMeng;
-        description = "Ω´∂´Œ˜”√¡¶µƒÀ§œÚ∂‘∑Ω";
-        nickname.Add("‘“");
-        nickname.Add("À¶");
-        nickname.Add("Õ∂÷¿");
+        skillID = 10;
+        wordName = " ‘”À£ª«Ú";
+        bookName = BookNameEnum.StudentOfWitch;
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange =new CircleAttackSelector();//
         percentage = 1.5f;
-        attackDistance = 6;
+        attackDistance = 999;
         skillTime = 0;
-        skillEffectsTime = 1.5f;
+        skillEffectsTime = 0.3f;
         cd=0;
-        maxCD=6;
-        comsumeSP = 0;
+        maxCD=5;
+        comsumeSP = 5;
         prepareTime = 0.5f;
         afterTime = 0;
         allowInterrupt = false;
@@ -46,7 +42,7 @@ class FallBadly : AbstractVerbs
         SpecialAbility(useCharacter);
     }
     /// <summary>
-    /// ‘Œ—£1.5√Î
+    /// ‘Œ—£0.3√Î
     /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
