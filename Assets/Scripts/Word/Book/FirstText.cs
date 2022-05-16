@@ -65,7 +65,7 @@ public class FirstText : MonoBehaviour
     public string FirstFight()
     {
         string[] a = File.ReadAllLines("Assets/StreamingAssets/Å®Î×Ñ§Í½/1_1_2.txt");
-        FindLeadingChara();
+        AbstractCharacter[] charas=fatherObject.GetComponentsInChildren<AbstractCharacter>();
         string result = a[0];
         return result;
     }
