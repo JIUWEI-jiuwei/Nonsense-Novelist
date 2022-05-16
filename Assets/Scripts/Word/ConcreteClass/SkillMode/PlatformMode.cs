@@ -18,11 +18,11 @@ class PlatformMode : AbstractSkillMode
     /// <summary>
     /// 全选（射程999）
     /// </summary>
-    /// <param name="attackDistance">射程填0即可</param>
+    /// <param name="attackDistance"></param>
     /// <returns></returns>
     override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
     {
-        GameObject[] a = attackRange.AttackRange(999, character.transform, extra);
+        GameObject[] a = attackRange.AttackRange(attackDistance, character.transform, extra);
         return a;
     }
 }

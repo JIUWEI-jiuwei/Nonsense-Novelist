@@ -2,32 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 偷香窃玉
+/// 淋球菌
 /// </summary>
-class TouXiangQieYu : AbstractAdjectives
+class LinQiuJun : AbstractAdjectives
 {
+    
     public void Awake()
     {
-        adjID = 1;
-        wordName = "偷香窃玉";
-        bookName = BookNameEnum.HongLouMeng;
-        description = "与女性偷情，并不负责的离去，留下独自神伤";
+        adjID = 6;
+        wordName = "淋球菌";
+        bookName = BookNameEnum.Epidemiology;
         chooseWay = ChooseWayEnum.canChoose;
-        banAim.Add(gameObject.AddComponent<Girl>());
+        banAim.Add(gameObject.AddComponent<Biology>());
         skillMode=gameObject.AddComponent<DamageMode>();
+        percentage = 10;
+        skillEffectsTime = 3;
         useAtFirst = false;
+
     }
 
-    
-    
+
+    /// <summary>
+    /// 10固定物理伤害
+    /// </summary>
+    /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        
-        skillMode.UseMode(null, 20 *(1- aimCharacter.san/(aimCharacter.san+20)), aimCharacter);
+        aimCharacter.hp-=(int)percentage; 
     }
 
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
        
     }
+
+        
 }

@@ -31,10 +31,7 @@ abstract class AbstractAdjectives : AbstractWords0
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    virtual public void SpecialAbility()
-    {
-
-    }
+    abstract public void SpecialAbility(AbstractCharacter aimCharacter);
 
     /// <summary>
     /// 仅用于↓（目标数组）
@@ -44,8 +41,5 @@ abstract class AbstractAdjectives : AbstractWords0
     /// 使用技能
     /// </summary>
     /// <param name="aimCharacter">目标</param>
-    virtual public void UseVerbs(AbstractCharacter aimCharacter)
-    {
-        
-    }
+    abstract public void UseVerbs(AbstractCharacter aimCharacter);
 }
