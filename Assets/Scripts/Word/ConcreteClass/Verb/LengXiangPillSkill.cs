@@ -47,5 +47,13 @@ class LengXiangPillSkill : AbstractVerbs
         useCharacter.dizzyTime = 0;
     }
 
-    
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "曾从一海上来的僧人学得一仙方，给名字2服下了这仙方，名为冷香丸。";
+
+    }
 }

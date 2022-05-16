@@ -20,4 +20,14 @@ class NoteFragment : AbstractItems
         withSkill = gameObject.AddComponent<LengXiangPillSkill>();
         psy = 5;
     }
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "从地上捡起了一个纸片，“这上面写的是……一个魔法咒语？”";
+
+    }
 }

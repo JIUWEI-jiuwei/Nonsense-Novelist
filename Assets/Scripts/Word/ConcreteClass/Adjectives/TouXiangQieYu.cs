@@ -30,4 +30,14 @@ class TouXiangQieYu : AbstractAdjectives
     {
        
     }
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "说“琏二爷，这样不好吧。”";
+
+    }
 }

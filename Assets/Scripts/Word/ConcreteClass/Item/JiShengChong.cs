@@ -13,7 +13,7 @@ class JiShengChong : AbstractItems
         bookName = BookNameEnum.Epidemiology;
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handSingle;
-        //*************************************在父类写身份限制*************************************
+        banUse.Add(gameObject.AddComponent<Biology>());
         VoiceEnum = MaterialVoiceEnum.Meat;
         def=-3;
         attackInterval = -0.3f;

@@ -19,5 +19,13 @@ abstract class AbstractWords0 : MonoBehaviour
     /// <summary>详细描述</summary>
     public string description;
     /// <summary>别称（导出文本时替代使用）</summary>
-    public List<string> nickname=new List<string>();    
+    public List<string> nickname=new List<string>();
+
+    /// <summary>
+    /// 导出范文
+    /// </summary>
+    virtual public string PlaySentence()
+    {
+        return null;
+    }
 }

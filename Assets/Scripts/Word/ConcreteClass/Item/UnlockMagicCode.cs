@@ -14,4 +14,13 @@ class UnlockMagicCode : AbstractItems
         getWay = GetWayEnum.FromStory;
         withSkill=gameObject.AddComponent<FireBall>();
     }
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "“喂喂，你可得好好拿着！”魔典对" + character.wordName + "说道。";
+
+    }
 }

@@ -16,4 +16,14 @@ class TeaCup : AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
         san = 3;
     }
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+            return character.wordName+"拿出了一个上大下小的碧绿方形茶杯。";
+        
+    }
 }

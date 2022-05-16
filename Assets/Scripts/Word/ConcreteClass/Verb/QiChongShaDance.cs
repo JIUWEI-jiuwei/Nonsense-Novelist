@@ -38,6 +38,14 @@ class QiChongShaDance : AbstractVerbs
             skillMode.UseMode(useCharacter,percentage, aimState);
         }
     }
-    
-    
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "伴着轻风与身上挂坠碰撞的金属声，" + character.wordName + "开始蹁跹起舞。周围的人们都纷纷被这翩若惊鸿的舞姿激励了，并且感觉充满了力量。";
+
+    }
 }

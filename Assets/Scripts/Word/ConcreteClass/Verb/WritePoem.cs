@@ -69,4 +69,14 @@ class WritePoem : AbstractVerbs
         base.UseVerbs(useCharacter);
         SpecialAbility(useCharacter);
     }
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "被身边的美景所震撼，不由得诗性大起，颂唱起了诗歌。";
+
+    }
 }

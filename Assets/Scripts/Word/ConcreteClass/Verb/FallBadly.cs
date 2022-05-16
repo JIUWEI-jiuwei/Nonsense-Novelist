@@ -57,4 +57,13 @@ class FallBadly : AbstractVerbs
             a.AddBuff(5);
         }
     }
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return  character.wordName + "胡乱捡起东西砸了出去。";
+
+    }
 }

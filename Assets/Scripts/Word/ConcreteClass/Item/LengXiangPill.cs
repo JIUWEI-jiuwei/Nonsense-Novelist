@@ -18,5 +18,16 @@ class LengXiangPill : AbstractItems
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         withSkill = gameObject.AddComponent<LengXiangPillSkill>();
+
+
+    }
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "“花蕊，露水，蜂蜜……冷香丸的配方怎么这么复杂？”" + character.wordName + "说道。";
+
     }
 }

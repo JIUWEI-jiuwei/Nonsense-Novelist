@@ -53,4 +53,14 @@ class FireBall : AbstractVerbs
             a.AddBuff(5);
         }
     }
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null || aimState==null)
+            return null;
+
+        return character.wordName + "动了动手指，几个火球伴随着低声吟唱的咒语从之间跃出，以花哨的动作旋转着并朝"+aimState.wordName+"冲了过去。";
+
+    }
 }

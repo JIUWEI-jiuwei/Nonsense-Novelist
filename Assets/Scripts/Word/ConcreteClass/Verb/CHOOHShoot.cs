@@ -67,4 +67,14 @@ class CHOOHShoot : AbstractVerbs
         base.UseVerbs(useCharacter);
         SpecialAbility(useCharacter);
     }
+
+    public override string PlaySentence()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "鼓动着自己腹部的腺体，突然收缩腹部，喷射出了一道酸性的液体，正好命中了名字2的脸部。";
+
+    }
 }
