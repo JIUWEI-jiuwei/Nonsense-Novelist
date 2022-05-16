@@ -13,7 +13,6 @@ class Nexus6Arm : AbstractItems
         bookName = BookNameEnum.ElectronicGoal;
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handDouble;
-
         VoiceEnum = MaterialVoiceEnum.Meat;
         atk=10;
         criticalChance = 0.1f;

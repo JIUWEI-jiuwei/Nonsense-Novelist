@@ -12,6 +12,7 @@ class TouXiangQieYu : AbstractAdjectives
         wordSort = WordSortEnum.adj;
         adjID = 1;
         wordName = "偷香窃玉";
+        bookName = BookNameEnum.HongLouMeng;
         description = "与女性偷情，并不负责的离去，留下独自神伤";
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Girl>());
@@ -23,8 +24,12 @@ class TouXiangQieYu : AbstractAdjectives
     
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        
         skillMode.UseMode(null, 20 *(1- aimCharacter.san/(aimCharacter.san+20)), aimCharacter);
-        SpecialAbility();
+    }
+
+    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    {
+       
     }
 }

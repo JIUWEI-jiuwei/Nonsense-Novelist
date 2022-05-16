@@ -14,6 +14,7 @@ class HuoSiRenTangJi : AbstractAdjectives
         wordSort = WordSortEnum.adj;
         adjID = 2;
         wordName = "活死人汤剂";
+        bookName = BookNameEnum.StudentOfWitch;
         description = "饮下活死人汤剂能让其能够在死后重新获得一次生命，代价是灵魂变得干枯。";
         chooseWay = ChooseWayEnum.canChoose;
         skillMode = gameObject.AddComponent<SpecialMode>();
@@ -31,18 +32,16 @@ class HuoSiRenTangJi : AbstractAdjectives
         }
     }
 
-    override public void SpecialAbility()
-    {
-        
-    }
-
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
-        aimCharacter.gameObject.AddComponent<HuoSiRenTangJi>();
-        aimCharacter.trait = null;//行尸走肉：将性格变为空
-        aimCharacter.AddBuff(7);
-        aimCharacter.AddBuff(9);
+        if (aimCharacter.buffs[7] < 5)//最高叠5层
+        {
+            //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
+            aimCharacter.gameObject.AddComponent<HuoSiRenTangJi>();
+            aimCharacter.trait = null;//行尸走肉：将性格变为空
+            aimCharacter.AddBuff(7);
+            aimCharacter.AddBuff(9);
+        }
     }
 
     private void FixedUpdate()
@@ -62,5 +61,10 @@ class HuoSiRenTangJi : AbstractAdjectives
                 Destroy(this);//销毁自己（脚本组件）
             }
         }
+    }
+
+    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    {
+        
     }
 }
