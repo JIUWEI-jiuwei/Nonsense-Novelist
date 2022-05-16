@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class TouXiangQieYu : AbstractAdjectives
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.adj;
         adjID = 1;
         wordName = "偷香窃玉";
         description = "与女性偷情，并不负责的离去，留下独自神伤";

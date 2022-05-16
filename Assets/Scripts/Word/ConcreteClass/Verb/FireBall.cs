@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class FireBall : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 10;
         wordName = " ‘”À£ª«Ú";
         bookName = BookNameEnum.StudentOfWitch;

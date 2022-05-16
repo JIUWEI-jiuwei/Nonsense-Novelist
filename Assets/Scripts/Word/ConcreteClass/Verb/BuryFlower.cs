@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class BuryFlower : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 3;
         wordName = "Τα»¨";
         bookName = BookNameEnum.HongLouMeng;

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÍµÏãÇÔÓñ
+/// Ì«Ðé»Ã¾³
 /// </summary>
 class TaiXuHuanJing : AbstractAdjectives
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.adj;
         adjID = 3;
         wordName = "Ì«Ðé»Ã¾³";
         description = "½øÈëÌ«Ðé»Ã¾³";

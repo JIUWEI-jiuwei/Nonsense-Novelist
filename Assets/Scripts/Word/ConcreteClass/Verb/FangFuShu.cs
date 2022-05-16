@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class FangFuShu : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 7;
         wordName = "∑¿∏Ø ı";
         bookName = BookNameEnum.EgyptMyth;

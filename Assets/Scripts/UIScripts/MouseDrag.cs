@@ -14,6 +14,8 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     private Transform gridPanel;
     /// <summary>词条父物体位置</summary>
     private Transform wordPanel;
+    /// <summary>词条父物体位置</summary>
+    private Transform testPanel;
     /// <summary>CanvasGroup组件</summary>
     private CanvasGroup canvasGroup;
     /// <summary>词条身上的技能脚本</summary>
@@ -72,13 +74,15 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             Debug.Log(hit.collider.name);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
-                if (absWord.GetType() == typeof(AbstractVerbs))
+                if (absWord.wordSort==WordSortEnum.verb)
                 {
+                    
                     hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(this.GetComponent<AbstractVerbs>());
 
                 }
-                else if (absWord.GetType() == typeof(AbstractAdjectives))
+                else if (absWord.wordSort==WordSortEnum.adj)
                 {
+                    
                     this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
                 }
                 Destroy(this.gameObject);
@@ -97,11 +101,16 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             {
                 gridPanel = canvas.transform.Find("GridPanel");
                 wordPanel = canvas.transform.Find("WordPanel");
+                testPanel = canvas.transform.Find("TestPanel");
             }
         }
         for(int i = 0; i < wordPanel.childCount; i++)
         {
            wordPanel.GetChild(i).position = gridPanel.GetChild(i).position;
+        }
+        for(int i = 0; i < testPanel.childCount; i++)
+        {
+            testPanel.GetChild(i).position = gridPanel.GetChild(i).position;
         }
     }
 }

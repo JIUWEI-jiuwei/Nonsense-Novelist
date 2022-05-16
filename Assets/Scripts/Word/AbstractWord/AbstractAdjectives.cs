@@ -28,6 +28,10 @@ abstract class AbstractAdjectives : AbstractWords0
     /// <summary>是否抽到时释放</summary>
     public bool useAtFirst;
 
+    public virtual void Awake()
+    {
+        wordSort = WordSortEnum.adj;
+    }
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>

@@ -25,8 +25,6 @@ class BoxAnim : MonoBehaviour
     public GameObject wordPrefab;
     /// <summary>父物体变换组件</summary>
     public Transform parentTF;
-    /// <summary>父物体变换组件</summary>
-    private Type[] absWords=new Type [6];
 
     private void Awake()
     {
@@ -107,10 +105,10 @@ class BoxAnim : MonoBehaviour
                     GameObject word = Instantiate(wordPrefab, canvas.transform);
                     Type absWord = AllSkills.OnDrawBox();
                     //将技能储存，加载到下一个场景
-                    absWords[i] = absWord;
+                    AllSkills.absWords[i] = absWord;
                     word.AddComponent(absWord);
                     //让button的text显示技能文字
-                    word.GetComponent<Image>().sprite = Resources.Load(word.GetComponent<AbstractWords0>().wordName)as Sprite;
+                    word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);                    
                     word.transform.SetParent(parentTF);
                 }
             }
