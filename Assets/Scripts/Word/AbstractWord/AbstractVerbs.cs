@@ -55,6 +55,10 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>目标数组 </summary>
     protected GameObject[] aims;
 
+    public virtual void Awake()
+    {
+        wordSort =WordSortEnum.verb;
+    }
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>

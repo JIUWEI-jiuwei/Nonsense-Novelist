@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class LengXiangPillSkill : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 5;
         wordName = "¿‰œ„ÕË";
         bookName = BookNameEnum.HongLouMeng;

@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class HeartBroken : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 2;
         wordName = "ÐÄËé";
         bookName = BookNameEnum.allBooks;

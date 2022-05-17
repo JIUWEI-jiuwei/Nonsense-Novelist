@@ -8,6 +8,8 @@ using System;
 public static class AllSkills
 {
     public static List<Type> list = new List<Type>();
+    /// <summary>6个初始词条</summary>
+    public static Type[] absWords = new Type[6];
     /// <summary>
     /// 静态构造函数
     /// </summary>
@@ -25,5 +27,9 @@ public static class AllSkills
         //UnityEngine.Random.InitState((int)Time.unscaledTime);
         int number = UnityEngine.Random.Range(0, list.Count);
         return list[number];
+    }
+    public static Type TestBox(int i)
+    {
+        return list[i];
     }
 }

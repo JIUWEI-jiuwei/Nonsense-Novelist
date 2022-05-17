@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class WritePoem : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 1;
         wordName = "¸³Ê«";
         bookName = BookNameEnum.HongLouMeng;

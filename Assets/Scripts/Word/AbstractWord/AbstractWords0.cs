@@ -4,28 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ³éÏó´ÊÀà
+/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 abstract class AbstractWords0 : MonoBehaviour
 {
-    /// <summary>ËùÊôÊé£¨È«Êé¼®Îª0£© </summary>
+    /// <summary>ï¿½ï¿½ï¿½ï¿½ï¿½é£¨È«ï¿½é¼®Îª0ï¿½ï¿½ </summary>
     public BookNameEnum bookName;
-    /// <summary>´ÊµÄÃû×Ö(±¾Ìå£©</summary>
+    /// <summary>ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½å£©</summary>
     public string wordName;
-    /// <summary>Í¼±ê/Í·Ïñ </summary>
+    /// <summary>Í¼ï¿½ï¿½/Í·ï¿½ï¿½ </summary>
     public Image pattern;
-    /// <summary>¼ò¶ÌÃèÊö£¨Èç¹ûÓÐ£©</summary>
+    /// <summary>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½</summary>
     public string brief;
-    /// <summary>ÏêÏ¸ÃèÊö</summary>
+    /// <summary>ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½</summary>
     public string description;
-    /// <summary>±ð³Æ£¨µ¼³öÎÄ±¾Ê±Ìæ´úÊ¹ÓÃ£©</summary>
+    /// <summary>ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ê±ï¿½ï¿½ï¿½Ê¹ï¿½Ã£ï¿½</summary>
     public List<string> nickname=new List<string>();
-
-    /// <summary>
-    /// µ¼³ö·¶ÎÄ
-    /// </summary>
-    virtual public string PlaySentence()
-    {
-        return null;
-    }
+    /// <summary>ï¿½ï¿½ï¿½ï¿½</summary>
+    public WordSortEnum wordSort;
 }

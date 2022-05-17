@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class TongPinGongZhen: AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 9;
         wordName = "Í¬Æµ¹²Õñ";
         bookName = BookNameEnum.CrystalEnergy;

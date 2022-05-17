@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class FallBadly : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 4;
         wordName = "ˤ";
         bookName = BookNameEnum.HongLouMeng;

@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 偷香窃玉
+/// 太虚幻境
 /// </summary>
 class TaiXuHuanJing : AbstractAdjectives
 {
     private AbstractCharacter aimState;//如果挂在角色身上时，获取的抽象角色
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.adj;
         adjID = 3;
         wordName = "太虚幻境";
         bookName = BookNameEnum.HongLouMeng;

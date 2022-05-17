@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 class QiChongShaDance : AbstractVerbs
 {
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.verb;
         skillID = 6;
         wordName = "∆ﬂ÷ÿ…¥÷ÆŒË";
         bookName = BookNameEnum.Salome;

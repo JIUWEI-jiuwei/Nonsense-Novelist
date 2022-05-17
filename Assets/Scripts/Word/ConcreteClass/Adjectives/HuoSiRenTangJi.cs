@@ -8,8 +8,10 @@ class HuoSiRenTangJi : AbstractAdjectives
 {
     /// <summary>作用目标</summary>
     public AI.MyState0 aimState;
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        wordSort = WordSortEnum.adj;
         adjID = 2;
         wordName = "活死人汤剂";
         bookName = BookNameEnum.StudentOfWitch;
