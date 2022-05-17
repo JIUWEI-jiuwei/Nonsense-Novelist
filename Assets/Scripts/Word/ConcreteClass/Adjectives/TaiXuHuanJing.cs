@@ -31,7 +31,7 @@ class TaiXuHuanJing : AbstractAdjectives
     /// </summary>
     override public void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        if (aimCharacter.buffs[8] < 1)//最高叠1层
+        if (aimCharacter.buffs.ContainsKey(8) && aimCharacter.buffs[8] < 1)//最高叠1层
         {
             aimCharacter.AddBuff(8);
             swap = aimCharacter.atk;

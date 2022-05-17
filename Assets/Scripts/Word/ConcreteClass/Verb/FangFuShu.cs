@@ -45,11 +45,11 @@ class FangFuShu : AbstractVerbs
     {
         foreach(GameObject aim in aims)
         {
-            if (aim.GetComponent<AbstractCharacter>().buffs[7] < 5)//最高叠5层
+            AbstractCharacter a = aim.GetComponent<AbstractCharacter>();
+            if (a.buffs.ContainsKey(7) && a.buffs[7] < 5)//最高叠5层
             {
                 //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
                 aim.AddComponent<FangFuShu>();
-                AbstractCharacter a = aim.GetComponent<AbstractCharacter>();
                 a.AddBuff(7);
             }
         }

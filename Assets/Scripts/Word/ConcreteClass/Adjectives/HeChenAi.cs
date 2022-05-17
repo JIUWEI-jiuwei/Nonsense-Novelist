@@ -31,7 +31,7 @@ class HeChenAi : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        if (aimCharacter.buffs[14] < 1)
+        if (aimCharacter.buffs.ContainsKey(14) && aimCharacter.buffs[14] < 1)
         {
             aimCharacter.AddBuff(14);
 

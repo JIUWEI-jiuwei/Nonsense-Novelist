@@ -77,7 +77,6 @@ abstract class AbstractCharacter : AbstractWords0
     public int enemyLevel = 0;
     /// <summary>主属性</summary>
     public MainSortEnum mainSort = 0;
-
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;
     /// <summary>剩余眩晕时间</summary>
@@ -91,6 +90,7 @@ abstract class AbstractCharacter : AbstractWords0
     //public SPbar SPBar;
     virtual public void Awake()
     {
+        buffs= new Dictionary<int,int>();
        charaAnim=GetComponent<CharaAnim>();
        //SPBar = gameObject.AddComponent<SPbar>();
        //healthBar = gameObject.AddComponent<HealthBar>();                  

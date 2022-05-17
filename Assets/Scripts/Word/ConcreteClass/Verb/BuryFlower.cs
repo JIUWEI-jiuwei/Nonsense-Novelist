@@ -34,13 +34,14 @@ class BuryFlower : AbstractVerbs
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
        attackState= useCharacter.gameObject.GetComponent<AI.AttackState>();
+        useChara = useCharacter;
        timer = 0;
     }
 
     private AI.AttackState attackState;//
     private int flowerNum;//花数量
     private float timer;//计时器
-
+    private AbstractCharacter useChara;
 
     /// <summary>
     /// 攻击产生落花
@@ -52,6 +53,7 @@ class BuryFlower : AbstractVerbs
             flowerNum++;
     }
 
+    
     /// <summary>
     /// 计时
     /// </summary>
@@ -62,10 +64,13 @@ class BuryFlower : AbstractVerbs
         {
             timer += Time.deltaTime;
         }
-        else if (timer >= skillTime)
+        else if (timer >= skillTime)//相当于落花数量的精神力提高
         {
             attackState = null;
-            this.GetComponent<AbstractCharacter>().psy += flowerNum;
+            if (useChara != null)
+            {
+                useChara.psy += flowerNum;
+            }
             flowerNum = 0;
         }
     }

@@ -20,6 +20,16 @@ abstract class AbstractWords0 : MonoBehaviour
     public string description;
     /// <summary>��ƣ������ı�ʱ���ʹ�ã�</summary>
     public List<string> nickname=new List<string>();
+
+    /// <summary>
+    /// ��������
+    /// </summary>
+    virtual public string PlaySentence()
+    {
+        return null;
+    }
+
+
     /// <summary>����</summary>
     public WordSortEnum wordSort;
 }

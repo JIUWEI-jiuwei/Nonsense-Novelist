@@ -10,6 +10,7 @@ class PlatformMode : AbstractSkillMode
     {
         skillModeID = 6;
         skillModeName = "³¡µØÄ§·¨";
+        attackRange = new CircleAttackSelector();
     }
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
