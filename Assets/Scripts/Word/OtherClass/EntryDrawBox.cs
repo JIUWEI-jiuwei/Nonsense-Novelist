@@ -13,7 +13,13 @@ class EntryDrawBox : MonoBehaviour
     public Transform parentTF;
     /// <summary>战斗界面词条最大数量</summary>
     private int wordNum = 10;
-   /* private void Start()
+    /// <summary>词条盒子加载的三颗星</summary>
+    public Image threeStar;
+    public float oneWordTimer = 0f;
+    public float oneWordTime = 20f;
+
+    //加载初始六个词条
+    private void Start()
     {
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
@@ -31,11 +37,27 @@ class EntryDrawBox : MonoBehaviour
                 }
             }
         }
-    }*/
+    }
+    private void Update()
+    {
+        oneWordTimer += Time.deltaTime;
+        if (oneWordTimer <= oneWordTime)
+        {
+            threeStar.GetComponent<Image>().fillAmount = (float)(oneWordTimer / oneWordTime);
+            return;
+        }
+        CreateOneWord();
+        oneWordTimer = 0f;
+    }
     /// <summary>
     /// 点击抽奖盒，生成词条
     /// </summary>
-    public void OnDrawBox()
+    /*public void OnDrawBox()
+    {
+        CreateOneWord();
+    }*/
+
+    private void CreateOneWord()
     {
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
@@ -52,6 +74,7 @@ class EntryDrawBox : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// 测试用的全部技能面板
     /// </summary>

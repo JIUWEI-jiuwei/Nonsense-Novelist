@@ -16,8 +16,10 @@ public static class AllSkills
     static AllSkills()
     {
         //添加脚本类元素
-        list.AddRange(new Type[] { typeof(BuryFlower), typeof(FallBadly), typeof(HeartBroken), typeof(LengXiangPillSkill), typeof(WritePoem) });
-        list.AddRange(new Type[] { typeof(HuoSiRenTangJi), typeof(TaiXuHuanJing), typeof(TouXiangQieYu) });
+        list.AddRange(new Type[] { typeof(BuryFlower), typeof(FallBadly), typeof(HeartBroken), typeof(LengXiangPillSkill), 
+            typeof(WritePoem) ,typeof(CHOOHShoot) ,typeof(FangFuShu) ,typeof(FireBall) ,typeof(QiChongShaDance),typeof(TongPinGongZhen) });
+        list.AddRange(new Type[] { typeof(HuoSiRenTangJi), typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
+            typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
     }
     /// <summary>
     /// 静态随机生成技能
