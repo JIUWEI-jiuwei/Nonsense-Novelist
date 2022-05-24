@@ -12,6 +12,8 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     private RectTransform rectTrans;
     /// <summary>卡槽父物体位置</summary>
     private Transform gridPanel;
+    /// <summary>卡槽父物体位置（用于测试）</summary>
+    private Transform gridPanelForTest;
     /// <summary>词条父物体位置</summary>
     private Transform wordPanel;
     /// <summary>词条父物体位置</summary>
@@ -102,6 +104,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 gridPanel = canvas.transform.Find("GridPanel");
                 wordPanel = canvas.transform.Find("WordPanel");
                 testPanel = canvas.transform.Find("TestPanel");
+                gridPanelForTest = canvas.transform.Find("GridPanelForTest");
             }
         }
         for(int i = 0; i < wordPanel.childCount; i++)
@@ -110,7 +113,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         }
         for(int i = 0; i < testPanel.childCount; i++)
         {
-            testPanel.GetChild(i).position = gridPanel.GetChild(i).position;
+            testPanel.GetChild(i).position = gridPanelForTest.GetChild(i).position;
         }
     }
 }

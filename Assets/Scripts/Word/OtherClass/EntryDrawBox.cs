@@ -21,7 +21,7 @@ class EntryDrawBox : MonoBehaviour
     //加载初始六个词条
     private void Start()
     {
-        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+        /*foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "MainCanvas")
             {
@@ -36,18 +36,18 @@ class EntryDrawBox : MonoBehaviour
                     word.transform.SetParent(parentTF);
                 }
             }
-        }
+        }*/
     }
     private void Update()
     {
-        oneWordTimer += Time.deltaTime;
+        /*oneWordTimer += Time.deltaTime;
         if (oneWordTimer <= oneWordTime)
         {
             threeStar.GetComponent<Image>().fillAmount = (float)(oneWordTimer / oneWordTime);
             return;
         }
         CreateOneWord();
-        oneWordTimer = 0f;
+        oneWordTimer = 0f;*/
     }
     /// <summary>
     /// 点击抽奖盒，生成词条
