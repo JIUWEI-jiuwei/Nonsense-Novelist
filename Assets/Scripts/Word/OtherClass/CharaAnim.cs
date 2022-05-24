@@ -30,4 +30,25 @@ class CharaAnim : MonoBehaviour
         anim.SetBool(newAnimName, true);
         currentAnim = newAnimEnum;
     }
+    /// <summary>
+    /// 判断是否播放完毕
+    /// </summary>
+    /// <param name="animEnum"></param>
+    /// <returns></returns>
+    public bool IsEnd(AnimEnum animEnum)
+    {
+        AnimatorStateInfo animatorInfo = anim.GetCurrentAnimatorStateInfo(0);
+        //播放的不是该动画
+        if(!animatorInfo.IsName(Enum.GetName(typeof(AnimEnum), animEnum)))
+        {
+            return true;
+        }
+        //播放超过1次
+        else if ((animatorInfo.normalizedTime > 1.0f) )
+        {
+            return true;
+        }
+        else
+            return false;
+    }
 }

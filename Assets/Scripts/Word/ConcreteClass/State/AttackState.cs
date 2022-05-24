@@ -68,7 +68,7 @@ namespace AI
 
         public override void EnterState(MyState0 myState)
         {
-            
+            myState.character.charaAnim.Play(AnimEnum.attack);
         }
 
         public override void Exit(MyState0 myState)

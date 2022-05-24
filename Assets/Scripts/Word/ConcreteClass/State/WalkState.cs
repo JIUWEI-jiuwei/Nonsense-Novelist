@@ -30,7 +30,7 @@ namespace AI
 
         public override void EnterState(MyState0 myState)
         {
-            //myState.character.charaAnim.Play(AnimEnum.walk);++++++++++++++++++++++++++++++++++++++++++++++==
+            //myState.character.charaAnim.Play(AnimEnum.walk);
         }
 
         public override void Exit(MyState0 myState)
