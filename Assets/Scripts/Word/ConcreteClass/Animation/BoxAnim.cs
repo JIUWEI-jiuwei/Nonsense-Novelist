@@ -25,7 +25,8 @@ class BoxAnim : MonoBehaviour
     public GameObject wordPrefab;
     /// <summary>父物体变换组件</summary>
     public Transform parentTF;
-
+    /// <summary>判断是否是第一次点击</summary>
+    public bool isFirst=false;
     private void Awake()
     {
         animActor = new AnimationActor(GetComponent<Animation>());
@@ -96,22 +97,26 @@ class BoxAnim : MonoBehaviour
     /// </summary>
     public void CreateWord()
     {
-        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+        if (!isFirst)
         {
-            if (canvas.name == "MainCanvas")
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                for (int i = 0; i < nums.Length; i++)
+                if (canvas.name == "MainCanvas")
                 {
-                    GameObject word = Instantiate(wordPrefab, canvas.transform);
-                    Type absWord = AllSkills.OnDrawBox();
-                    //将技能储存，加载到下一个场景
-                    AllSkills.absWords[i] = absWord;
-                    word.AddComponent(absWord);
-                    //让button的text显示技能文字
-                    word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);                    
-                    word.transform.SetParent(parentTF);
+                    for (int i = 0; i < nums.Length; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.OnDrawBox();
+                        //将技能储存，加载到下一个场景
+                        AllSkills.absWords[i] = absWord;
+                        word.AddComponent(absWord);
+                        //让button的text显示技能文字
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(parentTF);
+                    }
                 }
+                isFirst = true;
             }
-        }
+        }       
     }
 }
