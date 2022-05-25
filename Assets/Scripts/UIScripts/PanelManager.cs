@@ -9,8 +9,11 @@ class PanelManager : MonoBehaviour
     /// <summary>面板及按钮</summary>
     public PanelInstance[] Pages1;
     public PanelInstance[] Pages2;
+    public PanelInstance[] Pages3;
     public Button[] buttons1;
     public Button[] buttons2;
+    public Button[] buttons3;
+   
     /// <summary>按钮原始Y及按钮向上的Y数值</summary>
     public float btnUpY = 390f;
     public float originalY = 359f;
@@ -121,6 +124,13 @@ class PanelManager : MonoBehaviour
     public void TestPanelChange2()
     {
         OpenPanelByButtonName(buttons2, Pages2);
+    }
+    /// <summary>
+    /// 第二组panel
+    /// </summary>
+    public void TestPanelChange3()
+    {
+        OpenPanelByButtonName(buttons3, Pages3);
     }
 
 }
