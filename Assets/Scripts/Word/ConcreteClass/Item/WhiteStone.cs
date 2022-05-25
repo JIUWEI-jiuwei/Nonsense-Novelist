@@ -14,6 +14,7 @@ class WhiteStone: AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
+        camp = CampEnum.friend;
         atk = 1;
         def = 1;
         psy = 1;

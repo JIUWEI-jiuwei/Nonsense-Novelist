@@ -20,12 +20,12 @@ class SilenceOne : AbstractCharacter
         camp = CampEnum.enemy;
         role = gameObject.AddComponent<OldEnemy>();
         trait=gameObject.AddComponent<Pride>();
-        hp=maxHP = 70;
+        hp=maxHP = 200;
         sp=maxSP = 20;
         atk = 15;
         def = 2;
         psy = 7;
-        san = 5;
+        san = 30;
         mainSort = MainSortEnum.atk;
         criticalChance = 0;
         multipleCriticalStrike = 2;
@@ -35,5 +35,7 @@ class SilenceOne : AbstractCharacter
         attackDistance = 6;
         luckyValue = 0;
         enemyLevel = 3;
+        bg_text = "一个强大的，无法绕开的敌人";
+        mainSort = MainSortEnum.atk;
     }
 }

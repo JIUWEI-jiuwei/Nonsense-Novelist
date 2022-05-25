@@ -15,7 +15,8 @@ class JiShengChong : AbstractItems
         holdEnum = HoldEnum.handSingle;
         banUse.Add(gameObject.AddComponent<Biology>());
         VoiceEnum = MaterialVoiceEnum.Meat;
-        def=-3;
+        camp = CampEnum.all;
+        def =-3;
         attackInterval = -0.3f;
     }
 }

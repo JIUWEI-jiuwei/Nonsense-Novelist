@@ -12,7 +12,8 @@ class UnlockMagicCode : AbstractItems
         wordName = "未解锁的《密特拉魔典》";
         bookName = BookNameEnum.StudentOfWitch;
         getWay = GetWayEnum.FromStory;
-        withSkill=gameObject.AddComponent<FireBall>();
+        camp = CampEnum.friend;
+        withSkill =gameObject.AddComponent<FireBall>();
     }
     public override string PlaySentence()
     {

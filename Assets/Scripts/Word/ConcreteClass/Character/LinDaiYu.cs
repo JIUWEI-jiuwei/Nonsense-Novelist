@@ -35,5 +35,8 @@ using UnityEngine;
         attackDistance = 6;
         luckyValue = 0;
         importantNum.AddRange(new int[] { 8 });
+        bg_text = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
+                  "道是：可叹停机德，堪怜咏絮才。玉带林中挂，金簪雪里埋。";
+        mainSort = MainSortEnum.psy;
     }
 }

@@ -14,6 +14,7 @@ class PinkStone: AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
+        camp = CampEnum.friend;
         psy = 3;
         dodgeChance += 0.15f;
     }

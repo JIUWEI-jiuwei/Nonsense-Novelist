@@ -14,6 +14,7 @@ class TigerStone: AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
+        camp = CampEnum.friend;
         atk = 3;
         multipleCriticalStrike = 0.5f;
     }

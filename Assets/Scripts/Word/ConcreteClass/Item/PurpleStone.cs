@@ -14,6 +14,7 @@ class PurpleStone: AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
+        camp = CampEnum.friend;
         psy = 3;
         multipleCriticalStrike = 0.5f;
     }

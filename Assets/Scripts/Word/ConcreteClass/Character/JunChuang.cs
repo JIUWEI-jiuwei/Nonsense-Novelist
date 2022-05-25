@@ -10,25 +10,25 @@ using UnityEngine;
     {
         base.Awake();
         characterID = 8;
-        gender = GenderEnum.boy;
-        wordName = "¼Ö±¦Óñ";
-        bookName = BookNameEnum.HongLouMeng;
-        camp = CampEnum.friend;
-        role = gameObject.AddComponent<Noble>();
-        trait = gameObject.AddComponent<Obsessed>();
-        hp=maxHP  = 60;
-        sp=maxSP = 10;
-        atk = 7;
+        gender = GenderEnum.noGender;
+        wordName = "¾ú´²";
+        bookName = BookNameEnum.Epidemiology;
+        camp = CampEnum.stranger;
+        role = gameObject.AddComponent<NullRole>();
+        trait = gameObject.AddComponent<NullTrait>();
+        hp = maxHP = 30;
+        sp=maxSP = 0;
+        atk = 0;
         def = 3;
-        psy = 8;
-        san = 0;
+        psy = 0;
+        san = 999;
         criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 1.3f;
+        attackInterval = 2f;
         skillSpeed = 0;
         dodgeChance = 0;
-        attackDistance = 6;
+        attackDistance = 0;
         luckyValue = 0;
-        
+        mainSort = MainSortEnum.def;
     }
 }
