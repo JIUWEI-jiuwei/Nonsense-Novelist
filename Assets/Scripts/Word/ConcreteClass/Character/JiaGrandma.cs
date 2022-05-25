@@ -28,5 +28,7 @@ class JiaGrandma : AbstractCharacter
         dodgeChance = 0;
         attackDistance = 5;
         luckyValue = 0;
+        importantNum.AddRange(new int[] { 8, 3 });
+
     }
 }

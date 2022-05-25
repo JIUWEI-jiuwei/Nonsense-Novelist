@@ -83,17 +83,15 @@ abstract class AbstractCharacter : AbstractWords0
     public float dizzyTime;
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
+    /// <summary>重要之人序号</summary>
+    public List<int> importantNum;
+    /// <summary>生平描述</summary>
+    public string bg_text; 
 
-    /// <summary>血条</summary>
-    //public HealthBar healthBar;
-    /// <summary>蓝条</summary>
-    //public SPbar SPBar;
     virtual public void Awake()
     {
         buffs= new Dictionary<int,int>();
-       charaAnim=GetComponent<CharaAnim>();
-       //SPBar = gameObject.AddComponent<SPbar>();
-       //healthBar = gameObject.AddComponent<HealthBar>();                  
+       charaAnim=GetComponent<CharaAnim>();                 
     }
 
     virtual public void FixedUpdate()

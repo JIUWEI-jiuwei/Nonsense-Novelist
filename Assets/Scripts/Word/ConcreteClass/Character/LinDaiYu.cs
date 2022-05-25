@@ -34,6 +34,6 @@ using UnityEngine;
         dodgeChance = 0;
         attackDistance = 6;
         luckyValue = 0;
-        
+        importantNum.AddRange(new int[] { 8 });
     }
 }

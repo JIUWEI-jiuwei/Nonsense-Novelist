@@ -6,12 +6,20 @@ using UnityEngine.UI;
 ///</summary>
 class CharacterTranslateAndCamera : MonoBehaviour
 {
+    /// <summary>当前关卡所有角色</summary>
     private GameObject[] characters1;
+    /// <summary>移动的摄像机</summary>
     private Camera camera_;
+    /// <summary>移动速度</summary>
     public float moveSpeed = 0.1f;
+    /// <summary>暂停的点</summary>
     private GameObject[] targets;
+    /// <summary>当前关卡序号</summary>
     private int guanQiaNum = 0;
+    /// <summary>装饰品</summary>
     public GameObject[] zhuangShiPin;
+    /// <summary>关卡图片</summary>
+    public GameObject[] chapterName;
 
     private void Start()
     {
@@ -49,8 +57,12 @@ class CharacterTranslateAndCamera : MonoBehaviour
         {
             camera_.transform.position = targets[guanQiaNum+1].transform.position;
             UIManager.nextQuanQia = false;
+            //装饰品和关卡名图片切换
             zhuangShiPin[guanQiaNum + 1].SetActive(true);
             zhuangShiPin[guanQiaNum].SetActive(false);
+            chapterName[guanQiaNum + 1].SetActive(true);
+            chapterName[guanQiaNum].SetActive(false);
+
             guanQiaNum++;//这一行永远放在最后面
         }
     }

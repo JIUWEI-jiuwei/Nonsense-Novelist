@@ -29,5 +29,6 @@ class LiuGrandma : AbstractCharacter
         dodgeChance = 0;
         attackDistance = 2;
         luckyValue = 0;
+        importantNum.AddRange(new int[] { 4, 10 });
     }
 }

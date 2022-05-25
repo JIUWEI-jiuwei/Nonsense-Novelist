@@ -57,6 +57,9 @@ class CharacterDetails : MonoBehaviour
         texts3[0].text = "身份："+mouseDown.absRole.roleName;
         texts3[1].text = "性格：" + mouseDown.absTrait.traitName;
         texts3[2].text = mouseDown.abschara.brief;
+
+        //获取重要之人
+
     }
     /// <summary>
     /// 属性面板的关闭按钮（用预制体挂脚本来赋值）
