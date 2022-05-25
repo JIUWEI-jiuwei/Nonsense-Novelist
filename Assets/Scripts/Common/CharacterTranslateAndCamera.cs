@@ -20,6 +20,12 @@ class CharacterTranslateAndCamera : MonoBehaviour
     public GameObject[] zhuangShiPin;
     /// <summary>关卡图片</summary>
     public GameObject[] chapterName;
+    /// <summary>剧情标题</summary>
+    public Text headline;
+    /// <summary>关卡剧情</summary>
+    public Text levelText;
+    /// <summary>剧情脚本</summary>
+    public FirstText firstText;
 
     private void Start()
     {
@@ -27,6 +33,11 @@ class CharacterTranslateAndCamera : MonoBehaviour
         targets = new GameObject[3];
         targets[1] = GameObject.Find("target2");
         targets[2] = GameObject.Find("target3");
+        if (guanQiaNum == 0)
+        {
+            //剧本标题TODO
+            //剧本内容
+        }
     }
     private void FixedUpdate()
     {

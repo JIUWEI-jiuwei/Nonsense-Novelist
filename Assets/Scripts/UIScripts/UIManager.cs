@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 ///<summary>
 ///UI管理器
 ///</summary>
 class UIManager  : MonoBehaviour
 {
+    /// <summary>是否进入下一关</summary>
     public static bool nextQuanQia;
+    /// <summary>脚本</summary>
     private CharacterTranslateAndCamera charaTransAndCamera;
-    private static GameObject endPanel;
+    /// <summary>获取关卡结束面板</summary>
+    private static GameObject endPanel;    
 
     private void Awake()
     {
         charaTransAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
         endPanel = GameObject.Find("endPanel");
+        
     }
     /// <summary>
     /// 每一章的下一关按钮

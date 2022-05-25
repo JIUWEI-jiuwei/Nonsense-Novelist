@@ -1,4 +1,4 @@
-
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +10,9 @@ class CharacterDetails : MonoBehaviour
     public Text[] texts1;
     public Text[] texts2;
     public Text[] texts3;
+    public GameObject importantPanel;
+    private List<GameObject> importantImage=new List<GameObject>();
+    public GameObject imagePrefab;
 
     /// <summary>获取mousedown脚本 </summary>
     private MouseDown mouseDown;
@@ -17,7 +20,20 @@ class CharacterDetails : MonoBehaviour
     private void Start()
     {
         mouseDown= GameObject.Find("MainCamera").GetComponent<MouseDown>();
-        
+        //获取重要之人
+        for (int i = 0; i < mouseDown.abschara.importantNum.Count; i++)
+        {
+            GameObject a = Instantiate(imagePrefab);
+            importantImage.Add(a);
+            importantImage[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("head" + mouseDown.abschara.importantNum[i].ToString());
+            importantImage[i].transform.SetParent(importantPanel.transform);
+            a.transform.localScale = new Vector3(1, 1, 1);//必须放在SetParent后面
+        }
+        //背景信息面板
+        texts3[0].text = "身份：" + mouseDown.absRole.roleName;
+        texts3[1].text = "性格：" + mouseDown.absTrait.traitName;
+        texts3[2].text = mouseDown.abschara.brief;
+
     }
     private void Update()
     {
@@ -53,13 +69,7 @@ class CharacterDetails : MonoBehaviour
             texts2[0].text = mouseDown.absVerbs.wordName;
             texts2[1].text = mouseDown.absVerbs.description;
         }
-        //背景信息面板
-        texts3[0].text = "身份："+mouseDown.absRole.roleName;
-        texts3[1].text = "性格：" + mouseDown.absTrait.traitName;
-        texts3[2].text = mouseDown.abschara.brief;
-
-        //获取重要之人
-
+               
     }
     /// <summary>
     /// 属性面板的关闭按钮（用预制体挂脚本来赋值）

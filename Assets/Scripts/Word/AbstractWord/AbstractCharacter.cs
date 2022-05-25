@@ -84,14 +84,14 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
     /// <summary>重要之人序号</summary>
-    public List<int> importantNum;
+    public List<int> importantNum=new List<int>();
     /// <summary>生平描述</summary>
     public string bg_text; 
 
     virtual public void Awake()
     {
         buffs= new Dictionary<int,int>();
-       charaAnim=GetComponent<CharaAnim>();                 
+        charaAnim=GetComponent<CharaAnim>();                 
     }
 
     virtual public void FixedUpdate()
