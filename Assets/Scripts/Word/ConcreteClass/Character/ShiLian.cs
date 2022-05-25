@@ -37,5 +37,6 @@ class ShiLian : AbstractCharacter
         attackDistance = 6;
         luckyValue = 0;
         enemyLevel = 2;
+        mainSort = MainSortEnum.psy;
     }
 }

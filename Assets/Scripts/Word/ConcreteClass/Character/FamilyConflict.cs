@@ -32,5 +32,7 @@ class FamilyConflict : AbstractCharacter
         attackDistance = 2;
         luckyValue = 0;
         enemyLevel = 2;
+        bg_text = "因与家人关系恶化而导致的苦恼";
+        mainSort = MainSortEnum.san;
     }
 }

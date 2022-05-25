@@ -19,7 +19,7 @@ using UnityEngine;
         atk = 7;
         def = 1;
         psy = 0;
-        san = 999;
+        san = 3;
         criticalChance = 0;
         multipleCriticalStrike = 2;
         attackInterval = 1.3f;
@@ -28,5 +28,6 @@ using UnityEngine;
         attackDistance = 1;
         luckyValue = 0;
         enemyLevel = 1;
+        mainSort = MainSortEnum.atk;
     }
 }

@@ -30,5 +30,6 @@ class FinancialDifficulty : AbstractCharacter
         attackDistance = 7;
         luckyValue = 0;
         enemyLevel = 2;
+        mainSort = MainSortEnum.def;
     }
 }

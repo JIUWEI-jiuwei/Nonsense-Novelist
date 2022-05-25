@@ -17,6 +17,7 @@ class NoteFragment : AbstractItems
         camp = CampEnum.all;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Book;
+        camp = CampEnum.friend;
         withSkill = gameObject.AddComponent<LengXiangPillSkill>();
         psy = 5;
     }

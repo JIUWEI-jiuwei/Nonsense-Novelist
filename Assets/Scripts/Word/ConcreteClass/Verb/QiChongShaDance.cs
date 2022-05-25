@@ -20,7 +20,7 @@ class QiChongShaDance : AbstractVerbs
         attackDistance = 7;
         skillTime = 0;
         skillEffectsTime = 0;
-        cd=maxCD=5;
+        cd=maxCD=3;
         comsumeSP = 0;
         prepareTime = 0;
         afterTime = 0;

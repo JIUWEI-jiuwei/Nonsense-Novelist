@@ -17,6 +17,7 @@ class LengXiangPill : AbstractItems
         banUse.Add(gameObject.AddComponent<Biology>());
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
+        camp = CampEnum.all;
         withSkill = gameObject.AddComponent<LengXiangPillSkill>();
 
 

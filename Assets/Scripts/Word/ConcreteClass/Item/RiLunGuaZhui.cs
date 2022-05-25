@@ -14,6 +14,7 @@ class RiLunGuaZhui : AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
+        camp = CampEnum.friend;
         psy = 7;
         multipleCriticalStrike = 1;
     }

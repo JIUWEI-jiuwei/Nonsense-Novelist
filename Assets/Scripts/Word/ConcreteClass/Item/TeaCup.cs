@@ -14,6 +14,7 @@ class TeaCup : AbstractItems
         getWay = GetWayEnum.NormalWord;
         description = "一个相当精致的茶杯";
         VoiceEnum = MaterialVoiceEnum.Ceram;
+        camp = CampEnum.all;
         san = 3;
     }
 

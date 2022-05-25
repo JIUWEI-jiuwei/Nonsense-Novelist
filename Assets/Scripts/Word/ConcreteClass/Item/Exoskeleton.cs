@@ -14,6 +14,7 @@ class Exoskeleton : AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.clothes;
         VoiceEnum = MaterialVoiceEnum.Meat;
+        camp = CampEnum.friend;
         def=3;
         dodgeChance = 0.15f;
     }

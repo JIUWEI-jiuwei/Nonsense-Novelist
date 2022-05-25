@@ -14,7 +14,8 @@ class Nexus6Arm : AbstractItems
         getWay = GetWayEnum.NormalWord;
         holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
-        atk=10;
+        camp = CampEnum.friend;
+        atk =10;
         criticalChance = 0.1f;
     }
 }
