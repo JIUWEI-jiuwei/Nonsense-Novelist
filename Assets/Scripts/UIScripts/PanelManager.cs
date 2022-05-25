@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 ///<summary>
 ///panel管理器
@@ -13,7 +14,7 @@ class PanelManager : MonoBehaviour
     public Button[] buttons1;
     public Button[] buttons2;
     public Button[] buttons3;
-   
+  
     /// <summary>按钮原始Y及按钮向上的Y数值</summary>
     public float btnUpY = 390f;
     public float originalY = 359f;
@@ -22,7 +23,14 @@ class PanelManager : MonoBehaviour
 
     private void Start()
     {
-        OpenPanel(Pages1,Pages1[0], buttons1[0].GetComponent<RectTransform>(),btnUpY);
+        if (SceneManager.GetActiveScene().name == "NewGame")
+        {
+            OpenPanel(Pages1, Pages1[0], buttons1[0].GetComponent<RectTransform>(), btnUpY);
+        }
+        if (SceneManager.GetActiveScene().name == "Combat")
+        {
+            OpenPanelOnly(Pages3, Pages3[0]);
+        }
     }
     /// <summary>
     /// 打开第一个panel+第一个按钮上移
@@ -37,6 +45,19 @@ class PanelManager : MonoBehaviour
         }
         page.gameObject.SetActive(true);
         btn0RT.localPosition = new Vector3(btn0RT.localPosition.x, bttnUpY, btn0RT.localPosition.z);
+    }
+    /// <summary>
+    /// 打开第一个panel
+    /// </summary>
+    /// <param name="pages">当前panel数组</param>
+    /// <param name="page">第一个panel</param>
+    public void OpenPanelOnly(PanelInstance[] pages, PanelInstance page)
+    {
+        for (int i = 0; i < pages.Length; i++)
+        {
+            pages[i].gameObject.SetActive(false);
+        }
+        page.gameObject.SetActive(true);
     }
     /// <summary>
     /// 根据buttoni顺序打开相对应的panel
@@ -55,10 +76,13 @@ class PanelManager : MonoBehaviour
                     pages[i].gameObject.SetActive(true);
             }
             //打开故事导入面板时，打开第二组面板
-            if (buttons[i].name == buttons1[3].name)
+            if (SceneManager.GetActiveScene().name == "NewGame")
             {
-                OpenPanel(Pages2, Pages2[0], buttons2[0].GetComponent<RectTransform>(), g_btnUpY);
-            }
+                if (buttons[i].name == buttons1[3].name)
+                {
+                    OpenPanel(Pages2, Pages2[0], buttons2[0].GetComponent<RectTransform>(), g_btnUpY);
+                }
+            }            
         }
     }
     /// <summary>
@@ -126,11 +150,10 @@ class PanelManager : MonoBehaviour
         OpenPanelByButtonName(buttons2, Pages2);
     }
     /// <summary>
-    /// 第二组panel
+    /// 第三组panel(按钮的响应函数)
     /// </summary>
     public void TestPanelChange3()
     {
         OpenPanelByButtonName(buttons3, Pages3);
-    }
-
+    }  
 }

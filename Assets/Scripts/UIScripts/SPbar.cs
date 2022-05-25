@@ -34,7 +34,7 @@ class SPbar : MonoBehaviour
             }
         }
     }
-    public void Update()
+    public void FixedUpdate()
     {
         UpdateSPBar(chara.sp, chara.maxSP,chara.hp);
         if (UIbar != null)

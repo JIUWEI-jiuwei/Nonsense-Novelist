@@ -34,7 +34,7 @@ class HealthBar : MonoBehaviour
             }
         }
     }
-    public void Update()
+    public void FixedUpdate()
     {
         UpdateHealthBar(charaComponent.hp, charaComponent.maxHP);
         if (UIbar != null)

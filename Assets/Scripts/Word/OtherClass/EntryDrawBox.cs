@@ -38,7 +38,7 @@ class EntryDrawBox : MonoBehaviour
             }
         }*/
     }
-    private void Update()
+    private void FixedUpdate()
     {
         /*oneWordTimer += Time.deltaTime;
         if (oneWordTimer <= oneWordTime)

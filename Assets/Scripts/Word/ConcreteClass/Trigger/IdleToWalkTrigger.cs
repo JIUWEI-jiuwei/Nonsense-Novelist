@@ -15,7 +15,7 @@ namespace AI
         }
         public override bool Satisfy(MyState0 myState)
         {
-            if (myState.aim != null)
+            if (myState.aim != null||UIManager.nextQuanQia==true)
             {
                 return true;
             }

@@ -17,10 +17,22 @@ class MouseDown : MonoBehaviour
     /// <summary>预制体中的文字</summary>
     private Text[] texts=new Text[2];
     /// <summary>抽象角色</summary>
-    private AbstractCharacter abschara;
-    /// <summary>抽象角色</summary>
-    private AbstractRole absRole;
-
+    [HideInInspector]
+    public AbstractCharacter abschara;
+    /// <summary>抽象角色身份</summary>
+    [HideInInspector]
+    public AbstractRole absRole;
+    /// <summary>抽象形容词</summary>
+    [HideInInspector]
+    public AbstractAdjectives absAdj;
+    /// <summary>抽象动词</summary>
+    [HideInInspector]
+    public AbstractVerbs absVerbs;
+    /// <summary>抽象性格</summary>
+    [HideInInspector]
+    public AbstractTrait absTrait;
+    /// <summary>判断当前是否有角色信息展示面板</summary>
+    public bool isShow = false;
  
     private void Update()
     {
@@ -34,40 +46,24 @@ class MouseDown : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
-            if(hit.collider!=null)
+            if(hit.collider!=null&&hit.collider.gameObject.layer==3&&isShow==false)
             {
+                Debug.Log(hit.collider.name);
                 a = Instantiate(propertyPanelPrefab, UIcanvas.transform);
+                isShow = true;
                 abschara = hit.collider.GetComponent<AbstractCharacter>();
                 absRole = hit.collider.GetComponent<AbstractRole>();
-                //将texts数组获取子物体Text组件
-                for (int i = 0; i < texts.Length ; i++)
+                absTrait = hit.collider.GetComponent<AbstractTrait>();
+                if (hit.collider.GetComponent<AbstractAdjectives>())
                 {
-                   texts[i] = a.transform.GetChild(i + 2).GetComponent<Text>();
+                    absAdj = hit.collider.GetComponent<AbstractAdjectives>();
                 }
-                texts[0].text = "人物身份   " + absRole.roleName;
-                texts[1].text = "血量       " + abschara.maxHP.ToString();
-                //texts[2].text = "蓝量       " + abschara.maxSP.ToString();
-                //texts[3].text = "攻击力     " + abschara.atk.ToString();
-                //texts[4].text = "防御力     " + abschara.def.ToString();
-                //texts[5].text = "精神力     " + abschara.san.ToString();
-                //texts[6].text = "意志力     " + abschara.psy.ToString();
-                //texts[7].text = "人物性格   " + abschara.trait.ToString();
-                //texts[8].text = "暴击几率   " + abschara.criticalChance.ToString();
-                //texts[9].text = "暴击倍数   " + abschara.multipleCriticalStrike.ToString();
-                //texts[10].text = "攻击速度  " + abschara.attackInterval.ToString();
-                //texts[11].text = "技能速度  " + abschara.skillSpeed.ToString();
-                //texts[12].text = "闪避几率  " + abschara.dodgeChance.ToString();
-                //texts[13].text = "幸运值  " + abschara.luckyValue.ToString();
+                else if (hit.collider.GetComponent<AbstractVerbs>())
+                {
+                    absVerbs = hit.collider.GetComponent<AbstractVerbs>();
+                }
             }
 
         }
-    }
-    /// <summary>
-    /// 属性面板的关闭按钮（用预制体挂脚本来赋值）
-    /// </summary>
-    public void propertyButtonDown()
-    {
-        Destroy(a);
-        Debug.Log("button"+a.name);
-    }
+    }    
 }

@@ -28,10 +28,6 @@ class ButtonManager : MonoBehaviour
     {
         libraryHLM = GameObject.Find("AllWordPanelF");
     }
-    private void Update()
-    {
-       
-    }
     /// <summary>
     /// �ʿⰴť
     /// </summary>

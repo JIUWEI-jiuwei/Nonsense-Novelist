@@ -12,7 +12,7 @@ public static class IntToString
     /// <summary>
     /// 攻击
     /// </summary>
-   public static string SwitchATK(int data)
+   public static string SwitchATK(float data)
     {
        if(data>=0&&data<3)
         {
@@ -43,7 +43,7 @@ public static class IntToString
     /// <summary>
     /// 防御
     /// </summary>
-    public static string SwitchDEF(int data)
+    public static string SwitchDEF(float data)
     {
         if (data >= 0 && data < 3)
         {
@@ -74,7 +74,7 @@ public static class IntToString
     /// <summary>
     /// 精神
     /// </summary>
-    public static string SwitchPSY(int data)
+    public static string SwitchPSY(float data)
     {
         if (data >= 0 && data < 3)
         {
@@ -105,7 +105,7 @@ public static class IntToString
     /// <summary>
     /// 意志
     /// </summary>
-    public static string SwitchSAN(int data)
+    public static string SwitchSAN(float data)
     {
         if (data >= 0 && data < 3)
         {
@@ -136,7 +136,7 @@ public static class IntToString
     /// <summary>
     /// 暴击几率
     /// </summary>
-    public static string SwitchCriticalChance(int data)
+    public static string SwitchCriticalChance(float data)
     {
         if (data== 0)
         {
