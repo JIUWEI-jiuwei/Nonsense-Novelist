@@ -25,7 +25,7 @@ class CharacterTranslateAndCamera : MonoBehaviour
     /// <summary>关卡剧情</summary>
     public Text levelText;
     /// <summary>剧情脚本</summary>
-    public FirstText firstText;
+    public BookNvWuXueTu firstText;
 
     private void Start()
     {

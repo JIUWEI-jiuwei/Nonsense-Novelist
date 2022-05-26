@@ -23,7 +23,7 @@ class PlatformMode : AbstractSkillMode
     /// <returns></returns>
     override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
     {
-        GameObject[] a = attackRange.AttackRange(attackDistance, character.transform, extra);
+        GameObject[] a = base.CalculateAgain(attackDistance, character);
         return a;
     }
 }

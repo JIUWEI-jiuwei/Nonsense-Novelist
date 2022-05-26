@@ -26,7 +26,7 @@ class CureMode : AbstractSkillMode
     override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
     {
         CampEnum camp = character.GetComponent<AbstractCharacter>().camp;
-        GameObject[] a = attackRange.AttackRange(attackDistance, character.transform, extra);
+        GameObject[] a = base.CalculateAgain(attackDistance, character);
         if (a != null)
         {
             if (camp == CampEnum.friend)
