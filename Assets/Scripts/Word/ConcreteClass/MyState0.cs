@@ -53,7 +53,7 @@ namespace AI
         /// </summary>
         public AbstractCharacter FindAim()
         {
-
+            //所有目标
             GameObject[] a = sectorSearch.AttackRange(999, character.transform, character.attackAngle);
             if (character.camp == CampEnum.friend)
             {
