@@ -11,7 +11,7 @@ class FireBall : AbstractVerbs
         base.Awake();
         wordSort = WordSortEnum.verb;
         skillID = 10;
-        wordName = " ‘”À£ª«Ú";
+        wordName = "‘”À£ª«Ú";
         bookName = BookNameEnum.StudentOfWitch;
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange =new CircleAttackSelector();//
