@@ -7,8 +7,9 @@ using UnityEngine;
 class HunFei : AbstractAdjectives
 {
     private AbstractCharacter aimState;//如果挂在角色身上时，获取的抽象角色
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         adjID = 9;
         wordName = "婚飞";
         bookName = BookNameEnum.PHXTwist;

@@ -7,8 +7,9 @@ using UnityEngine;
 class KeBanXingWei : AbstractAdjectives
 {
     private AbstractCharacter aimState;//如果挂在角色身上时，获取的抽象角色
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         adjID = 4;
         wordName = "刻板行为";
         bookName = BookNameEnum.ZooManual;
@@ -29,7 +30,7 @@ class KeBanXingWei : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        if (aimCharacter.buffs[2] < 5)//最高叠5层
+        if (!aimCharacter.buffs.ContainsKey(2) || aimCharacter.buffs[2] < 5)//最高叠5层
         {
             aimCharacter.san -= 3;
         

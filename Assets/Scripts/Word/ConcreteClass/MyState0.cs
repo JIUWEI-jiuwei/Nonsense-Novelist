@@ -55,15 +55,22 @@ namespace AI
         {
             //所有目标
             GameObject[] a = sectorSearch.AttackRange(999, character.transform, character.attackAngle);
+            GameObject result;
             if (character.camp == CampEnum.friend)
             {
-                return CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp ==CampEnum.enemy|| p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger)
-                    .GetComponent<AbstractCharacter>();
+                result= CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp ==CampEnum.enemy|| p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger);
+                if (result != null)
+                    return result.GetComponent<AbstractCharacter>();
+                else
+                    return null;
             }
             if (character.camp == CampEnum.enemy)
             {
-                return CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.friend || p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger)
-                    .GetComponent<AbstractCharacter>();
+                result = CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.friend || p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger);
+                if (result != null)
+                    return result.GetComponent<AbstractCharacter>();
+                else
+                    return null;
             }
             else
                 return null;

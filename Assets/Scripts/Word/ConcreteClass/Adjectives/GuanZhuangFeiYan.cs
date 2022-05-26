@@ -6,9 +6,10 @@ using UnityEngine;
 /// </summary>
 class GuanZhuangFeiYan : AbstractAdjectives
 {
-    
-    public void Awake()
+
+    public override void Awake()
     {
+        base.Awake();
         adjID = 8;
         wordName = "¹Ú×´·ÎÑ×";
         bookName = BookNameEnum.Epidemiology;

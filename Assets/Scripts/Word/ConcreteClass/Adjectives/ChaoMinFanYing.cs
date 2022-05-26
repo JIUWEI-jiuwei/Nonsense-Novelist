@@ -7,8 +7,9 @@ using UnityEngine;
 class ChaoMinFanYing : AbstractAdjectives
 {
     private AbstractCharacter aimState;//如果挂在角色身上时，获取的抽象角色
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         adjID = 7;
         wordName = "超敏反应";
         bookName = BookNameEnum.Epidemiology;

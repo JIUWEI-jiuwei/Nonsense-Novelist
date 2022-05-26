@@ -6,9 +6,10 @@ using UnityEngine;
 /// </summary>
 class LinQiuJun : AbstractAdjectives
 {
-    
-    public void Awake()
+
+    public override void Awake()
     {
+        base.Awake();
         adjID = 6;
         wordName = "ÁÜÇò¾ú";
         bookName = BookNameEnum.Epidemiology;

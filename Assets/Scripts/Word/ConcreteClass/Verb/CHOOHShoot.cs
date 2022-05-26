@@ -38,7 +38,7 @@ class CHOOHShoot : AbstractVerbs
         for (int i = 0; i < aims.Length; i++)
         {
             AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
-            if (a.buffs[10] < 9)
+            if (!a.buffs.ContainsKey(9) || a.buffs[10] < 9)
             {
                 a.def -= 2;
                 a.AddBuff(10);
@@ -53,7 +53,7 @@ class CHOOHShoot : AbstractVerbs
         {
             now += Time.deltaTime;
         }
-        else if (now >= skillEffectsTime)
+        else if (now >= skillEffectsTime && aims!=null)
         {
             for (int i = 0; i < aims.Length; i++)
             {

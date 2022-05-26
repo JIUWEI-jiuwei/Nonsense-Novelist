@@ -34,7 +34,7 @@ class HuoSiRenTangJi : AbstractAdjectives
 
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        if (aimCharacter.buffs.ContainsKey(7) && aimCharacter.buffs[7] < 5)//最高叠5层
+        if (!aimCharacter.buffs.ContainsKey(7) || aimCharacter.buffs[7] < 5)//最高叠5层
         {
             //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
             aimCharacter.gameObject.AddComponent<HuoSiRenTangJi>();

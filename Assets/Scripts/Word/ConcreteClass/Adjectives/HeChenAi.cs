@@ -7,8 +7,9 @@ using UnityEngine;
 class HeChenAi : AbstractAdjectives
 {
     private AbstractCharacter aimState;//如果挂在角色身上时，获取的抽象角色
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         adjID = 5;
         wordName = "核尘埃";
         bookName = BookNameEnum.ElectronicGoal;
@@ -31,7 +32,7 @@ class HeChenAi : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        if (aimCharacter.buffs.ContainsKey(14) && aimCharacter.buffs[14] < 1)
+        if (!aimCharacter.buffs.ContainsKey(14) || aimCharacter.buffs[14] < 1)
         {
             aimCharacter.AddBuff(14);
 
