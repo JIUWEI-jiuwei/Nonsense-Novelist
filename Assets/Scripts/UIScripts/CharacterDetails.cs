@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 ///<summary>
-///角色信息面板
+///角色信息面板（挂在该面板的预制体本身）
 ///</summary>
 class CharacterDetails : MonoBehaviour
 {

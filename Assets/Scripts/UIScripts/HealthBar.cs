@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 ///<summary>
 ///血条UI
+///血条和蓝条的制作方法
+///在角色预制体下面建立两个空物体HP和SP，设置HP和SP的位置
+///然后将脚本healthbar和SPbar拖拽给角色预制体
 ///</summary>
 class HealthBar : MonoBehaviour
 {

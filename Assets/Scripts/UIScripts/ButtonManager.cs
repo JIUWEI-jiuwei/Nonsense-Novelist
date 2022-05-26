@@ -2,7 +2,8 @@ using UnityEngine.UI;
 using UnityEngine;
 
 ///<summary>
-///全局按钮管理
+///全局按钮管理（挂在摄像机上）
+///主要用于新游戏界面的下一页按钮管理
 ///</summary>
 class ButtonManager : MonoBehaviour
 {
@@ -36,6 +37,9 @@ class ButtonManager : MonoBehaviour
         libraryHLM.transform.GetChild(0).gameObject.SetActive(true);
         isLibraryHLM = true;
     }
+    /// <summary>
+    /// 背后的黑幕按钮
+    /// </summary>
     public void BlackPanelButton()
     {
         if (isLibraryHLM)

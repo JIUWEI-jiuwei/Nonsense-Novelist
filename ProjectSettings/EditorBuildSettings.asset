@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: 9ce536731651a4c49bdb34f85c629052
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TheStudy.unity
     guid: 00a2ec1721979c14eb7c39e6e9282885
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BookCase.unity
     guid: 0c244bba0ce0d9849b2b300a627e18cc
   - enabled: 1

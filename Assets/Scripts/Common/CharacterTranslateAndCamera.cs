@@ -15,17 +15,14 @@ class CharacterTranslateAndCamera : MonoBehaviour
     /// <summary>暂停的点</summary>
     private GameObject[] targets;
     /// <summary>当前关卡序号</summary>
-    private int guanQiaNum = 0;
+    public int guanQiaNum = 0;
+    /// <summary>当前章节序号</summary>需要在inspector界面根据当前章节赋值
+    public int chapterNum = 2;
     /// <summary>装饰品</summary>
     public GameObject[] zhuangShiPin;
     /// <summary>关卡图片</summary>
     public GameObject[] chapterName;
-    /// <summary>剧情标题</summary>
-    public Text headline;
-    /// <summary>关卡剧情</summary>
-    public Text levelText;
-    /// <summary>剧情脚本</summary>
-    public BookNvWuXueTu firstText;
+    
 
     private void Start()
     {
@@ -33,11 +30,7 @@ class CharacterTranslateAndCamera : MonoBehaviour
         targets = new GameObject[3];
         targets[1] = GameObject.Find("target2");
         targets[2] = GameObject.Find("target3");
-        if (guanQiaNum == 0)
-        {
-            //剧本标题TODO
-            //剧本内容
-        }
+        
     }
     private void FixedUpdate()
     {

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5441901368545656832
+--- !u!1 &3093821317411004379
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 868530992078502258}
+  - component: {fileID: 7876140884799532346}
   m_Layer: 0
-  m_Name: barPoint
+  m_Name: HP (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &868530992078502258
+--- !u!4 &7876140884799532346
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5441901368545656832}
+  m_GameObject: {fileID: 3093821317411004379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0.732, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6732867781080517568}
@@ -44,10 +44,10 @@ GameObject:
   - component: {fileID: 6732867781080517570}
   - component: {fileID: 6732867781080517571}
   - component: {fileID: 8387646651057993244}
-  - component: {fileID: 624369215321173320}
   - component: {fileID: -7836424751702201250}
   - component: {fileID: 1664154902103423336}
-  m_Layer: 0
+  - component: {fileID: 86071925}
+  m_Layer: 3
   m_Name: LiuGrandma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,8 @@ Transform:
   m_LocalPosition: {x: -3.6, y: 1.36, z: 10.5001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 868530992078502258}
+  - {fileID: 7876140884799532346}
+  - {fileID: 5353306981748515288}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -175,8 +176,10 @@ MonoBehaviour:
   bookName: 0
   wordName: 
   pattern: {fileID: 0}
+  brief: 
   description: 
   nickname: []
+  wordSort: 0
   characterID: 0
   gender: 0
   appearance: {fileID: 0}
@@ -207,8 +210,11 @@ MonoBehaviour:
   level: 1
   exp: 0
   enemyLevel: 0
+  mainSort: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
+  importantNum: 
+  bg_text: 
 --- !u!114 &8387646651057993244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,29 +228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  allState: []
   nowState: {fileID: 0}
   defaultState: {fileID: 0}
   aim: {fileID: 0}
-  speed: 0.1
---- !u!95 &624369215321173320
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732867781080517569}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  speed: 0.5
 --- !u!114 &-7836424751702201250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +259,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}
+--- !u!95 &86071925
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732867781080517569}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b5872673711a9b41bbda1ceecd7c15d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &7414845254901463033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5353306981748515288}
+  m_Layer: 0
+  m_Name: SP (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5353306981748515288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414845254901463033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6732867781080517568}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

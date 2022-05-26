@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 ///<summary>
-///UI管理器
+///UI管理器(建立一个UIManager空物体，挂在上面)
 ///</summary>
 class UIManager  : MonoBehaviour
 {
-    /// <summary>是否进入下一关</summary>
+    /// <summary>战斗场景是否进入下一关</summary>
     public static bool nextQuanQia;
     /// <summary>脚本</summary>
     private CharacterTranslateAndCamera charaTransAndCamera;
@@ -31,7 +31,7 @@ class UIManager  : MonoBehaviour
         nextQuanQia = true;
     }
     /// <summary>
-    /// 判断是否结束
+    /// 判断当前关卡是否结束
     /// </summary>
     /// <returns></returns>
     public static bool isEnd()

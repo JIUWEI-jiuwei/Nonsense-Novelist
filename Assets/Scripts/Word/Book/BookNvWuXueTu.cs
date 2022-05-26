@@ -469,7 +469,6 @@ public class BookNvWuXueTu : MonoBehaviour
     /// </summary>
     private string Second_1_End()
     {
-        string[] a = File.ReadAllLines("Assets/StreamingAssets/女巫学徒/2_1_3.txt");
         string result = "杂技火球在接触到老鼠的一瞬间，那只肥老鼠就因身体内部的油脂被快速气化膨胀，从而变得肿胀，最终因皮囊被撕扯到了极限而炸裂开来。\n";
         result += "“不错不错，这些老鼠死有余辜”密特拉兴奋地说“带上我出去走走吧，去森林里面。”\n";
 
@@ -482,7 +481,6 @@ public class BookNvWuXueTu : MonoBehaviour
     private string Second_2_Start()
     {
         string[] a = File.ReadAllLines("Assets/StreamingAssets/女巫学徒/2_2_1.txt");
-        FindLeadingChara();
         string result = "“嗯…居然还有些老鼠也溜进来了吗？”密特拉发现几个银行职员鬼鬼祟祟地溜进了小屋里“"+leadingChara.wordName+ "，就拿刚才的法术击败他们！”“可恶，被发现了…”银行职员正准备伸手去拿水晶球“"+leadingChara.wordName+ "，那就别怪我们动手了！”银行职员们围了上来。\n";
         return result;
     }
