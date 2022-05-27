@@ -23,6 +23,15 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     /// <summary>词条身上的技能脚本</summary>
     private AbstractWords0 absWord;
 
+    /// <summary>形容词的加载圆圈</summary>
+    public GameObject adjCircle;
+    /// <summary>动词的加载圆圈</summary>
+    public GameObject verbCircle;
+    /// <summary>形容词圆圈加载的位置</summary>
+    private Transform parentCircleTF;
+    /// <summary>动词圆圈加载的位置</summary>
+    //public Transform verbCircleTF;
+
     private void Awake()
     {
     }
@@ -77,15 +86,28 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
                 if (absWord.wordSort==WordSortEnum.verb)
-                {
-                    
+                {                    
                     hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(this.GetComponent<AbstractVerbs>());
 
+                    parentCircleTF = hit.collider.gameObject.transform.GetChild(2);
+                    //生成技能加载圆圈
+                    Image loadingCircle = Instantiate(verbCircle.GetComponent<Image>());
+                    loadingCircle.transform.SetParent(parentCircleTF);
+                    //fillAmount赋值
+                    float percent = absWord.GetComponent<AbstractVerbs>().cd / absWord.GetComponent<AbstractVerbs>().maxCD;
+                    loadingCircle.fillAmount = percent;
                 }
                 else if (absWord.wordSort==WordSortEnum.adj)
-                {
-                    
+                {                    
                     this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
+
+                    /*parentCircleTF = hit.collider.gameObject.transform.GetChild(2);
+                    //生成技能加载圆圈
+                    Image loadingCircle2 = Instantiate(adjCircle.GetComponent<Image>());
+                    loadingCircle2.transform.SetParent(parentCircleTF);
+                    //fillAmount赋值
+                    float percent2 = absWord.GetComponent<AbstractAdjectives>().cd / absWord.GetComponent<AbstractVerbs>().maxCD;
+                    loadingCircle2.fillAmount = percent2;*/
                 }
                 Destroy(this.gameObject);
             }

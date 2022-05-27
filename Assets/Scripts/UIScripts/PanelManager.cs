@@ -29,7 +29,14 @@ class PanelManager : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Combat")
         {
-            OpenPanelOnly(Pages3, Pages3[0]);
+            if (Pages3.Length>=2)
+            {
+                OpenPanelOnly(Pages3, Pages3[0]);
+            }
+            if (Pages1 .Length>=2)
+            {
+                OpenPanel(Pages1, Pages1[0], buttons1[0].GetComponent<RectTransform>(), btnUpY);
+            }
         }
     }
     /// <summary>

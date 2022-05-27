@@ -46,7 +46,7 @@ public class BookNvWuXueTu : MonoBehaviour
          if (character==1)
             {
                 if (part == 0)
-                    return "不速之客";
+                    return "第一章 不速之客";
                 if(part == 1)
                 {
                     switch(phase)
@@ -81,7 +81,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 2)
         {
             if (part == 0)
-                return "密特拉";
+                return "第二章 密特拉";
             if (part == 1)
             {
                 switch (phase)
@@ -130,7 +130,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 3)
         {
             if (part == 0)
-                return "沉默的森林";
+                return "第三章 沉默的森林";
             if (part == 1)
             {
                 switch (phase)
@@ -165,7 +165,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 4)
         {
             if (part == 0)
-                return "梦境探索";
+                return "第四章 梦境探索";
             if (part == 1)
             {
                 switch (phase)
@@ -186,7 +186,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 5)
         {
             if (part == 0)
-                return "初临尖塔";
+                return "第五章 初临尖塔";
             if (part == 1)
             {
                 switch (phase)
@@ -207,7 +207,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 6)
         {
             if (part == 0)
-                return "书塔修炼";
+                return "第六章 书塔修炼";
             if (part == 1)
             {
                 switch (phase)
@@ -228,7 +228,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 7)
         {
             if (part == 0)
-                return "德洛瑞斯的归来";
+                return "第七章 德洛瑞斯的归来";
             if (part == 1)
             {
                 switch (phase)
@@ -249,7 +249,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 8)
         {
             if (part == 0)
-                return "大闹金库";
+                return "第八章 大闹金库";
             if (part == 1)
             {
                 switch (phase)
@@ -270,7 +270,7 @@ public class BookNvWuXueTu : MonoBehaviour
         if (character == 9)
         {
             if (part == 0)
-                return "缄口地窖";
+                return "第九章 缄口地窖";
             if (part == 1)
             {
                 switch (phase)

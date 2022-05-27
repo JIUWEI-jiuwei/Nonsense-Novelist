@@ -1,4 +1,4 @@
-
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
@@ -18,36 +18,65 @@ class EntryDrawBox : MonoBehaviour
     public float oneWordTimer = 0f;
     public float oneWordTime = 20f;
 
+    /// <summary>书桌界面父panel</summary>
+    public Transform bookDeskPanel;
+    /// <summary>书桌界面名词父panel</summary>
+    public Transform bookDeskNounPanel;
+    /// <summary>书桌界面动词父panel</summary>
+    public Transform bookDeskVerbPanel;
+    /// <summary>书桌界面形容词父panel</summary>
+    public Transform bookDeskAdjPanel;
+    /// <summary>书桌界面形容词父panel</summary>
+    public Transform hlmbookDeskPanel;
+
+    /// <summary>名词按钮第一次点击</summary>
+    private bool nounFirst = false;
+    /// <summary>动词按钮第一次点击</summary>
+    private bool verbFirst = false;
+    /// <summary>形容词按钮第一次点击</summary>
+    private bool adjFirst = false;
+    /// <summary>box按钮第一次点击</summary>
+    private bool boxFirst = false;
+    /// <summary>box按钮第一次点击</summary>
+    private bool hlmFirst = false;
+
     //加载初始六个词条
     private void Start()
     {
-        /*foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+        /*if (SceneManager.GetActiveScene().name == "Combat")
         {
-            if (canvas.name == "MainCanvas")
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                for (int i = 0; i < AllSkills.absWords.Length; i++)
+                if (canvas.name == "MainCanvas")
                 {
-                    GameObject word = Instantiate(wordPrefab, canvas.transform);
-                    word.AddComponent(AllSkills.absWords[i]);
-                    if (word.GetComponent<AbstractWords0>() != null)
+                    for (int i = 0; i < AllSkills.absWords.Length; i++)
                     {
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        word.AddComponent(AllSkills.absWords[i]);
+                        if (word.GetComponent<AbstractWords0>() != null)
+                        {
+                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        }
+                        word.transform.SetParent(parentTF);
                     }
-                    word.transform.SetParent(parentTF);
                 }
             }
-        }*/
+        } */       
     }
     private void FixedUpdate()
     {
-        /*oneWordTimer += Time.deltaTime;
-        if (oneWordTimer <= oneWordTime)
+        //缓冲词条盒子的CD，CD满了生成一个词条
+        /*if (SceneManager.GetActiveScene().name == "Combat")
         {
-            threeStar.GetComponent<Image>().fillAmount = (float)(oneWordTimer / oneWordTime);
-            return;
-        }
-        CreateOneWord();
-        oneWordTimer = 0f;*/
+            oneWordTimer += Time.deltaTime;
+            if (oneWordTimer <= oneWordTime)
+            {
+                threeStar.GetComponent<Image>().fillAmount = (float)(oneWordTimer / oneWordTime);
+                return;
+            }
+            CreateOneWord();
+            oneWordTimer = 0f;
+        }   */     
     }
     /// <summary>
     /// 点击抽奖盒，生成词条
@@ -76,7 +105,7 @@ class EntryDrawBox : MonoBehaviour
     }
 
     /// <summary>
-    /// 测试用的全部技能面板
+    /// 测试用的全部技能面板（动词+形容词）
     /// </summary>
     public void TestDrawBox()
     {
@@ -94,5 +123,126 @@ class EntryDrawBox : MonoBehaviour
                 }
             }
         }
+    }
+    /// <summary>
+    /// 书桌界面全部词条
+    /// </summary>
+    public void BookDeskDrawBox()
+    {
+        if (boxFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "Canvas")
+                {
+                    for (int i = 0; i < AllSkills.list_all.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.AllWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskPanel);
+                    }
+                }
+                boxFirst = true;
+            }
+        }       
+    }
+    /// <summary>
+    /// 书桌界面全部名词词条
+    /// </summary>
+    public void BookDeskNounWords()
+    {
+        if (nounFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "Canvas")
+                {
+                    for (int i = 0; i < AllSkills.list_noun.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.AllNounWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskNounPanel);
+                    }
+                }
+                nounFirst = true;
+            }
+        }       
+    }
+    /// <summary>
+    /// 书桌界面全部动词词条
+    /// </summary>
+    public void BookDeskVerbWords()
+    {
+        if (verbFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "Canvas")
+                {
+                    for (int i = 0; i < AllSkills.list_verb.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.AllVerbWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskVerbPanel);
+                    }
+                }
+                verbFirst = true;
+            }
+        }       
+    }
+    /// <summary>
+    /// 书桌界面全部形容词词条
+    /// </summary>
+    public void BookDeskAdjWords()
+    {
+        if (adjFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "Canvas")
+                {
+                    for (int i = 0; i < AllSkills.list_adj.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.AllAdjWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskAdjPanel);
+                    }
+                }
+                adjFirst = true;
+            }
+        }        
+    }
+
+    /// <summary>
+    /// 书桌界面《红楼梦》词条
+    /// </summary>
+    public void BookDeskHLMWords()
+    {
+        if (hlmFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "Canvas")
+                {
+                    for (int i = 0; i < AllSkills.hlmList_all.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.HLMWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(hlmbookDeskPanel);
+                    }
+                }
+                hlmFirst = true;
+            }
+        }        
     }
 }
