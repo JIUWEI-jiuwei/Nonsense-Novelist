@@ -13,10 +13,13 @@ namespace AI
         {
             base.Awake();
             id = StateID.dead;
+            triggers.Add(gameObject.AddComponent<ReLifeTrigger>());
+            map.Add(TriggerID.ReLife, StateID.idle);
         }
         public override void Action(MyState0 myState)
         {
-            
+            //播放完动画后销毁
+            Destroy(this.gameObject);
         }
 
 
@@ -27,7 +30,7 @@ namespace AI
             {
                 UIManager.isEnd();
             }
-            Destroy(this.gameObject);
+            
         }
 
         public override void Exit(MyState0 myState)

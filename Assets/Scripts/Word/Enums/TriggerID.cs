@@ -21,5 +21,7 @@ namespace AI
         BeDizzy,
         /// <summary>½â³ýÑ£ÔÎ×´Ì¬</summary>
         OutDizzy,
+        /// <summary>¸´»î</summary>
+        ReLife,
     }
 }
