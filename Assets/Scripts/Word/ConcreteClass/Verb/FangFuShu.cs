@@ -79,7 +79,7 @@ class FangFuShu : AbstractVerbs
             }
         }
         //4.超时（20秒）
-        if (now >= skillEffectsTime)
+        if (aimState!=null && now >= skillEffectsTime)
         {
             //添加回触发死亡的条件
             foreach (AI.AbstractState state in aimState.allState)
