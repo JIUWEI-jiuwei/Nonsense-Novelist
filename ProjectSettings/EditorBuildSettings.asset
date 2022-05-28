@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndBook.unity
     guid: bba202735ae1ebf43b342427dad06af6
+  - enabled: 1
+    path: Assets/Scenes/Loading_Combat.unity
+    guid: aa49e46bb40cd104b8d91c8b754a1859
   m_configObjects: {}

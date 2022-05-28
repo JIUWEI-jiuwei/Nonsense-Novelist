@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 /// <summary>
 /// 加载场景脚本（所有场景通用，挂摄像机上）
+/// 用法：所有场景都挂摄像机，在加载界面拖拽滑动条+enabled，其他场景unenabled
+/// 缺点：loading场景需复制多个使用，可以修改为使用一个脚本设定全局变量，将loading场景改为全局通用
+/// 跳转场景方法：在button响应函数里面将脚本设置为enabled
 ///</summary>
 public class LoadingScript : MonoBehaviour
 {

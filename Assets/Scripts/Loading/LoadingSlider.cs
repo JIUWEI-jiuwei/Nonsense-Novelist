@@ -23,7 +23,7 @@ public class LoadingSlider : MonoBehaviour
         {
             if(showValue < realValue )//产生进度条匀速假象(你被骗辣）
             {
-                showValue += 0.001f;
+                showValue += 0.0065f;
                 loadingSlider.value  = showValue;
             }
             

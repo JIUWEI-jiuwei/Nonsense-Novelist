@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 ///<summary>
-///加载场景测试
+///加载场景测试（仅供开发测试使用）
 ///</summary>
 class LoadingTest : MonoBehaviour
 {

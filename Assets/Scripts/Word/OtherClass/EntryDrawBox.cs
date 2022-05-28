@@ -133,7 +133,7 @@ class EntryDrawBox : MonoBehaviour
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                if (canvas.name == "Canvas")
+                if (canvas.name == "MainCanvas")
                 {
                     for (int i = 0; i < AllSkills.list_all.Count; i++)
                     {
@@ -157,7 +157,7 @@ class EntryDrawBox : MonoBehaviour
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                if (canvas.name == "Canvas")
+                if (canvas.name == "MainCanvas")
                 {
                     for (int i = 0; i < AllSkills.list_noun.Count; i++)
                     {
@@ -181,7 +181,7 @@ class EntryDrawBox : MonoBehaviour
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                if (canvas.name == "Canvas")
+                if (canvas.name == "MainCanvas")
                 {
                     for (int i = 0; i < AllSkills.list_verb.Count; i++)
                     {
@@ -205,7 +205,7 @@ class EntryDrawBox : MonoBehaviour
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                if (canvas.name == "Canvas")
+                if (canvas.name == "MainCanvas")
                 {
                     for (int i = 0; i < AllSkills.list_adj.Count; i++)
                     {
@@ -230,7 +230,7 @@ class EntryDrawBox : MonoBehaviour
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                if (canvas.name == "Canvas")
+                if (canvas.name == "MainCanvas")
                 {
                     for (int i = 0; i < AllSkills.hlmList_all.Count; i++)
                     {
