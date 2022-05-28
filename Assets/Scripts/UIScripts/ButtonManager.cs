@@ -24,6 +24,7 @@ class ButtonManager : MonoBehaviour
     /// <summary>Ñ¡ÔñÕÂ½Ú</summary>
     public Button selectChapter;
     public PanelManager panelManager;
+    public Image guide;
 
     private void Start()
     {
@@ -196,5 +197,10 @@ class ButtonManager : MonoBehaviour
                     panelManager.Pages2[i].gameObject.SetActive(true);
             }
         }
+    }
+
+    public void DestroyGuide()
+    {
+        Destroy(guide);
     }
 }

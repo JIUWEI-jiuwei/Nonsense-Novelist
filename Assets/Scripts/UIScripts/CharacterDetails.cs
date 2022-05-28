@@ -10,9 +10,12 @@ class CharacterDetails : MonoBehaviour
     public Text[] texts1;
     public Text[] texts2;
     public Text[] texts3;
+    public Text[] texts4;
     public GameObject importantPanel;
     private List<GameObject> importantImage=new List<GameObject>();
     public GameObject imagePrefab;
+    public Image charaName;
+    public Image charaImage;
 
     /// <summary>获取mousedown脚本 </summary>
     private MouseDown mouseDown;
@@ -33,6 +36,14 @@ class CharacterDetails : MonoBehaviour
         texts3[0].text = "身份：" + mouseDown.absRole.roleName;
         texts3[1].text = "性格：" + mouseDown.absTrait.traitName;
         texts3[2].text = mouseDown.abschara.brief;
+
+        //角色名和图片
+        charaName.sprite = Resources.Load<Sprite>("Character_"+mouseDown.abschara.wordName);
+        charaImage.sprite = Resources.Load<Sprite>(mouseDown.abschara.wordName);
+
+        //状态面板
+        texts4[0].text= mouseDown.absTrait.traitName;
+        texts4[1].text = mouseDown.absRole.roleName;
 
     }
     private void Update()
@@ -61,15 +72,13 @@ class CharacterDetails : MonoBehaviour
         if (mouseDown.absAdj)
         {
             texts2[0].text = mouseDown.absAdj.wordName;
-            texts2[1].text = mouseDown.absAdj.description;
-            
+            texts2[1].text = mouseDown.absAdj.description;            
         }
         else if (mouseDown.absVerbs)
         {
             texts2[0].text = mouseDown.absVerbs.wordName;
             texts2[1].text = mouseDown.absVerbs.description;
-        }
-               
+        }               
     }
     /// <summary>
     /// 属性面板的关闭按钮（用预制体挂脚本来赋值）
@@ -77,6 +86,7 @@ class CharacterDetails : MonoBehaviour
     public void CloseCharaPanel()
     {
         Destroy(this.transform.parent.gameObject);
+        Time.timeScale = 1f;
         mouseDown.isShow = false;
     }
 }

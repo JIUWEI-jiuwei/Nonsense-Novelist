@@ -11,7 +11,7 @@ class MouseDown : MonoBehaviour
     /// <summary>属性面板预制体</summary>
     public GameObject propertyPanelPrefab;
     /// <summary>UIcanvas</summary>
-    public Canvas UIcanvas;
+    public Canvas otherCanvas;
     /// <summary>预制体的克隆体</summary>
     private static GameObject a;
     /// <summary>预制体中的文字</summary>
@@ -48,9 +48,11 @@ class MouseDown : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
             if(hit.collider!=null&&hit.collider.gameObject.layer==3&&isShow==false)
             {
-                Debug.Log(hit.collider.name);
-                a = Instantiate(propertyPanelPrefab, UIcanvas.transform);
+                //生成角色信息面板
+                a = Instantiate(propertyPanelPrefab, otherCanvas.transform);
                 isShow = true;
+                
+                //获取点击角色的脚本信息
                 abschara = hit.collider.GetComponent<AbstractCharacter>();
                 absRole = hit.collider.GetComponent<AbstractRole>();
                 absTrait = hit.collider.GetComponent<AbstractTrait>();
@@ -62,6 +64,7 @@ class MouseDown : MonoBehaviour
                 {
                     absVerbs = hit.collider.GetComponent<AbstractVerbs>();
                 }
+                Time.timeScale = 0f;
             }
 
         }

@@ -14,50 +14,46 @@ class SkillsLoadingCircle : MonoBehaviour
     /// <summary>剩余加载时间数值 </summary>
     private List<Image> verbCD = new List<Image>();
     /// <summary>角色位置 </summary>
-    private GameObject UIbar;
+    private List<GameObject> UIbar = new List<GameObject>();
     /// <summary>获取该角色 </summary>
     private AbstractCharacter charaComponent;
     /// <summary>条位置 </summary>
     private Transform[] barPoint;
-
+    private int count;
+    private AbstractVerbs[] absverbs;
 
     public void Start()
     {
         charaComponent = gameObject.GetComponent<AbstractCharacter>();
         barPoint = gameObject.GetComponentsInChildren<Transform>();
         verbLoadingPoints = barPoint[3];
+        count = charaComponent.skills.Count;
+    }
+    public void FixedUpdate()
+    {
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "UIcanvas")
             {
-                for (int i = 0; i < charaComponent.skills.Count; i++)
+                if(charaComponent.skills.Count>count)
                 {
-                    UIbar = Instantiate(verbLoadingPrefab, canvas.transform);
-                    verbCD[i] = UIbar.transform.GetChild(i).GetComponent<Image>();
-                    UIbar.transform.position = verbLoadingPoints.GetChild(i).position;
-                }                   
+                    absverbs = charaComponent.GetComponents<AbstractVerbs>();
+                    count = charaComponent.skills.Count;
+                    UIbar.Add(Instantiate(verbLoadingPrefab, canvas.transform));
+                    verbCD.Add(UIbar[count - 1].transform.GetChild(0).GetComponent<Image>()) ;
+                    UIbar[count - 1].transform.position = verbLoadingPoints.GetChild(count - 1).position;                    
+                }
             }
-        }
-    }
-    public void FixedUpdate()
-    {
-        UpdateHealthBar();
+        }      
         if (UIbar != null)
-        {
-            for (int i = 0; i < charaComponent.skills.Count; i++)
-            {                
-                UIbar.transform.position = verbLoadingPoints.GetChild(i).position;
+        {            
+            for (int i = 0; i < count; i++)
+            {
+                //获取到该角色身上的skills库中的动词技能
+                float percent = absverbs[i].cd / absverbs[i].maxCD;
+                verbCD[i].fillAmount = percent;
+                UIbar[count - 1].transform.position = verbLoadingPoints.GetChild(count - 1).position;
             }
-        }
-    }
-    /// <summary>
-    /// 技能CD进度
-    /// </summary>
-    public void UpdateHealthBar()
-    {
-        for (int i = 0; i < charaComponent.skills.Count; i++)
-        {//获取到该角色身上的skills库中的动词技能
-            verbCD[i].fillAmount = charaComponent.skills[i].cd / charaComponent.skills[i].maxCD;
         }
     }
 }

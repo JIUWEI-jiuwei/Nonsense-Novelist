@@ -30,9 +30,6 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     public GameObject verbCircle;
     /// <summary>形容词圆圈加载的位置</summary>
     private Transform parentCircleTF;
-    /// <summary>动词圆圈加载的位置</summary>
-    //public Transform verbCircleTF;
-    public static List<AbstractVerbs> skills;
 
     private void Start()
     {
@@ -86,11 +83,11 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             {
                 if (absWord.wordSort==WordSortEnum.verb)
                 {
-                    skills = hit.collider.gameObject.GetComponent<AbstractCharacter>().skills;
-                    skills.Add(this.GetComponent<AbstractVerbs>());
+                    
                     //将词条身上的动词技能组件添加到角色身上
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                     hit.collider.gameObject.AddComponent(b.GetType());
+                    hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(b);
                 }
                 else if (absWord.wordSort==WordSortEnum.adj)
                 {                    

@@ -73,4 +73,5 @@ class LoadingButtonManager : MonoBehaviour
         settingNum++;
         Time.timeScale = settingNum%2;
     }
+
 }
