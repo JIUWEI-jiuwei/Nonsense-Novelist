@@ -417,7 +417,7 @@ public class BookNvWuXueTu : MonoBehaviour
     }
 
     /// <summary>
-    /// 第二章第一幕剧情
+    /// 第二章第一幕开场
     /// </summary>
     private string Second_1_Start()
     {
@@ -425,7 +425,7 @@ public class BookNvWuXueTu : MonoBehaviour
         //二号友方
         AbstractCharacter secondChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();
         string result;
-        if (secondChara == null) //防止空
+        if (secondChara == null && secondChara==leadingChara) //防止空
             result = leadingChara.wordName;
         else
             result = leadingChara.wordName + "和" + secondChara.wordName;
@@ -438,6 +438,9 @@ public class BookNvWuXueTu : MonoBehaviour
         result += "“尊敬的密特拉，莱宁城银行的人要来找我们的麻烦，竟敢扬言要推平咱们的房子呢”" + leadingChara.wordName + "气愤地说道。\n";
         result += "“害，那破银行还没倒闭啊”密特拉听完十分扫兴“你可别告诉我，是要学我的魔法来对付他们。”密特拉哈哈大笑起来。" + leadingChara.wordName + "皱了皱眉头，因被看扁了而稍有些生气。“尊敬的密特拉，那请问除了你那些玄奥的魔法以外，能否告诉我一些简单的魔法呢？”\n";
         result += "“嗯…你还别说”密特拉来回扭了扭，从书本中飞出来了一张小纸条“可恶的德洛瑞丝竟然把一个颇为碍眼的简单法术当做书签夹在了我这里，我怎么弄都弄不出来，卡得我痒死了！”\n";
+
+        result += "#";
+
         result += "“要不是你把我从那拥挤的书架里弄出来，我还得难受好久”密特拉看起来生气极了“这个垃圾小杂技应该够你用了，赶紧拿的离我越远越好！”" + leadingChara.wordName + "从地上捡起那张小纸片，是德洛瑞丝从笔记本里撕下来的一个不用的小法术，稍作研修就可以学会。“感谢尊敬的密特拉”林黛玉对其施礼，并准备伸手去拿它“那我将您放回书架？”\n";
         result += "“不不不不，怎么可能！”密特拉急躁地说道“你带着我出去玩一玩，我现在不要回去”“啊，密特拉果然好麻烦啊…”" + leadingChara.wordName + "苦恼地想着“那就先放着它吧，我先练一下这个小法术，这还是我第一个学会的咒语呢！”想到这里" + leadingChara.wordName + "又开始激动起来。\n";
         result += "“阿侬依～阿鼻西～诺依塔撒！”" + leadingChara.wordName + "拿着纸片读着，并且试着将魔法的力量引导出身体“诺伊塔拉～西碧拉～西碧撒！”说完从手中就蹦出了三个小火球，互相旋绕着。林黛玉将手一挥，火球便飞出将一大堆药罐打碎了。\n";
@@ -480,7 +483,6 @@ public class BookNvWuXueTu : MonoBehaviour
     /// </summary>
     private string Second_2_Start()
     {
-        string[] a = File.ReadAllLines("Assets/StreamingAssets/女巫学徒/2_2_1.txt");
         string result = "“嗯…居然还有些老鼠也溜进来了吗？”密特拉发现几个银行职员鬼鬼祟祟地溜进了小屋里“"+leadingChara.wordName+ "，就拿刚才的法术击败他们！”“可恶，被发现了…”银行职员正准备伸手去拿水晶球“"+leadingChara.wordName+ "，那就别怪我们动手了！”银行职员们围了上来。\n";
         return result;
     }
@@ -540,7 +542,6 @@ public class BookNvWuXueTu : MonoBehaviour
     /// </summary>
     private string Second_3_End()
     {
-
         string result = "一群西装革履的银行职员们挤破头从小屋往外钻“快跑，这小学徒也会魔法！”\n";
         result += "“哈哈哈哈，这些银行的就只有这副德行吗？”密特拉发出了尖锐的笑“林黛玉，追上去把他们干掉吧。”“这……这就没必要了吧。”林黛玉苦笑着：“没必要把事情闹大吧，教训一下他们就好了吧。”“那就再追上去给他们屁股上再来一下，快！”密特拉坏笑着：“你要是能让那些假正经的捂着屁股跑，我就指点你两招。”“真的嘛，好耶。”林黛玉听到了两眼放光，便抱着《密特拉魔典》冲出了小屋“别跑！”\n";
 
@@ -551,13 +552,12 @@ public class BookNvWuXueTu : MonoBehaviour
     /// </summary>
     private string Third_1_Start()
     {
-        string[] a = File.ReadAllLines("Assets/StreamingAssets/女巫学徒/3_1_1.txt");
         FindLeadingChara();
         //二号友方
         AbstractCharacter secondChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();
         
         string result = "在苍绿的林间小道里，"+leadingChara.wordName+ "追着用杂技火球砸向狼狈逃走的银行职员们。“哈哈哈，你看到前面那个家伙了吗，他的屁股都着火了！”密特拉开心地说：“喂喂喂，你的屁股都烧焦啦！””那里那里，那个家伙，给他一下！”"+leadingChara.wordName+ "便瞄准了一个格外滑稽姿势的银行职员扔去了一个小焰火球，结果打歪了，把他抹的油光的头发炸成了蘑菇状。“尊敬的密特拉，您满意了吗？”林黛玉问道：“我可不想用这火焰魔法把林子点着啦。”“好啦好啦，行吧。让他们逃吧，我们回去。”密特拉突然脸色凝重：“是谁？”";
-        if (secondChara != null)
+        if (secondChara != null && secondChara == leadingChara)
             result += leadingChara.wordName + "和" + secondChara.wordName;
         else
             result+=leadingChara.wordName;
@@ -597,7 +597,6 @@ public class BookNvWuXueTu : MonoBehaviour
     /// </summary>
     private string Third_1_End()
     {
-        string[] a = File.ReadAllLines("Assets/StreamingAssets/女巫学徒/3_1_3.txt");
         FindLeadingChara();
         //二号友方
         AbstractCharacter secondChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();

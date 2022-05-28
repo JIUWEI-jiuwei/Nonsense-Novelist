@@ -12,7 +12,9 @@ class GaiZhangAnim : MonoBehaviour
     /// <summary>选关的动画</summary>
     public Animator level;
     /// <summary>是否第一次点击按钮</summary>
-    private bool isFirst = false;
+    private bool isGZFirst = false;
+    /// <summary>是否第一次点击按钮</summary>
+    private bool isLevelFirst = false;
 
     private void Start()
     {
@@ -24,17 +26,18 @@ class GaiZhangAnim : MonoBehaviour
 
     public void GZ1_2()
     {
-        if (isFirst == false)
+        if (isGZFirst == false)
         {
             gaizhang.SetBool("GZ1_2", true);
+            isGZFirst = true;
         }
     }
     public void Level1_2()
     {
-        if(isFirst == false)
+        if(isLevelFirst == false)
         {
-            level.Play("level1_2");
-            isFirst = true;
+            level.SetBool("level1_2", true);
+            isLevelFirst = true;
         }
     }
 }

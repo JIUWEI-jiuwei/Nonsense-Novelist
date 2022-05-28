@@ -14,6 +14,8 @@ class LoadingButtonManager : MonoBehaviour
     public string newGame = "NewGame";
     public string combat = "Combat";
 
+    private int settingNum = 1;
+
     private void Start()
     {
         /* 如果使用同一个loading场景
@@ -29,6 +31,7 @@ class LoadingButtonManager : MonoBehaviour
     {
         loadingScript.enabled = true;
     }
+    /// 返回开始游戏界面
     public void BackToStartGame()
     {
         SceneManager.LoadSceneAsync(startGame);
@@ -46,12 +49,28 @@ class LoadingButtonManager : MonoBehaviour
         loadingScript.enabled = true;
     }
     /// <summary>
-    /// 新游戏界面开始按钮 
+    /// 新游戏界面开始按钮 →战斗界面
     /// </summary>
     public void StartCombat()
     {
         //播放盖章动画
         gaiZhangAnim.gaizhang.SetBool("gaizhang", true);
         Invoke("LoadingScript", 4.6f);
+    }
+    /// <summary>
+    /// 返回新游戏界面
+    /// </summary>
+    public void BackNewGame()
+    {
+        SceneManager.LoadSceneAsync(newGame);
+    }
+
+    /// <summary>
+    /// 游戏暂停
+    /// </summary>
+    public void GameSetting()
+    {
+        settingNum++;
+        Time.timeScale = settingNum%2;
     }
 }

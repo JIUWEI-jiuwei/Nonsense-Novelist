@@ -20,9 +20,9 @@ class HealthCircleBar : MonoBehaviour
     private void Start()
     {
         linDaiYu = GameObject.Find("LinDaiYu").GetComponent<AbstractCharacter>();
-        jiaBaoYu = GameObject.Find("JiaBaoYu").GetComponent<AbstractCharacter>();
-        jiaMu = GameObject.Find("JiaMu").GetComponent<AbstractCharacter>();
-        liuLaoLao = GameObject.Find("LiuLaoLao").GetComponent<AbstractCharacter>();
+        //jiaBaoYu = GameObject.Find("JiaBaoYu").GetComponent<AbstractCharacter>();
+        //jiaMu = GameObject.Find("JiaMu").GetComponent<AbstractCharacter>();
+        //liuLaoLao = GameObject.Find("LiuLaoLao").GetComponent<AbstractCharacter>();
         wangXiFeng = GameObject.Find("WangXiFeng").GetComponent<AbstractCharacter>();
     }
     private void FixedUpdate()

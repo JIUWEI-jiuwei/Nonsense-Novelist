@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
+using System.Collections;
 ///<summary>
 ///鼠标拖拽
 ///</summary>
@@ -31,10 +32,8 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     private Transform parentCircleTF;
     /// <summary>动词圆圈加载的位置</summary>
     //public Transform verbCircleTF;
+    public static List<AbstractVerbs> skills;
 
-    private void Awake()
-    {
-    }
     private void Start()
     {
         rectTrans = GetComponent<RectTransform>();
@@ -86,28 +85,16 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
                 if (absWord.wordSort==WordSortEnum.verb)
-                {                    
-                    hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(this.GetComponent<AbstractVerbs>());
-
-                    parentCircleTF = hit.collider.gameObject.transform.GetChild(2);
-                    //生成技能加载圆圈
-                    Image loadingCircle = Instantiate(verbCircle.GetComponent<Image>());
-                    loadingCircle.transform.SetParent(parentCircleTF);
-                    //fillAmount赋值
-                    float percent = absWord.GetComponent<AbstractVerbs>().cd / absWord.GetComponent<AbstractVerbs>().maxCD;
-                    loadingCircle.fillAmount = percent;
+                {
+                    skills = hit.collider.gameObject.GetComponent<AbstractCharacter>().skills;
+                    skills.Add(this.GetComponent<AbstractVerbs>());
+                    //将词条身上的动词技能组件添加到角色身上
+                    AbstractVerbs b = this.GetComponent<AbstractVerbs>();
+                    hit.collider.gameObject.AddComponent(b.GetType());
                 }
                 else if (absWord.wordSort==WordSortEnum.adj)
                 {                    
-                    this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
-
-                    /*parentCircleTF = hit.collider.gameObject.transform.GetChild(2);
-                    //生成技能加载圆圈
-                    Image loadingCircle2 = Instantiate(adjCircle.GetComponent<Image>());
-                    loadingCircle2.transform.SetParent(parentCircleTF);
-                    //fillAmount赋值
-                    float percent2 = absWord.GetComponent<AbstractAdjectives>().cd / absWord.GetComponent<AbstractVerbs>().maxCD;
-                    loadingCircle2.fillAmount = percent2;*/
+                    this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());                   
                 }
                 Destroy(this.gameObject);
             }

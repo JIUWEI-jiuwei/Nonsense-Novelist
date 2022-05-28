@@ -22,7 +22,6 @@ class SPbar : MonoBehaviour
     public void Start()
     {
         chara = gameObject.GetComponent<AbstractCharacter>();
-        //SPbarPoint = gameObject.transform.GetChild(1).GetComponent<Transform>();
         barPoint= gameObject.GetComponentsInChildren<Transform>();
         SPbarPoint = barPoint[2];
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())

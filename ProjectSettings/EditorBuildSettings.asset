@@ -26,10 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: d8395af6db7669041ae64f65bc7534d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EndBook.unity
     guid: bba202735ae1ebf43b342427dad06af6
-  - enabled: 1
-    path: Assets/Scenes/Loading_Combat.unity
-    guid: aa49e46bb40cd104b8d91c8b754a1859
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

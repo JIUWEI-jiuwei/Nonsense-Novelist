@@ -28,11 +28,13 @@ namespace AI
             myState.character.charaAnim.Play(AnimEnum.dead);
             if (myState.character.camp == CampEnum.enemy)
             {
-                UIManager.isEnd();
+                UIManager.WinEnd();
             }
-            
+            else if (myState.character.camp == CampEnum.friend)
+            {
+                UIManager.LoseEnd();
+            }
         }
-
         public override void Exit(MyState0 myState)
         {
             

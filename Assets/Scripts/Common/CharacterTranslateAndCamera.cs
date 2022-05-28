@@ -57,7 +57,7 @@ class CharacterTranslateAndCamera : MonoBehaviour
     }
     public void EndMove()
     {
-        if (Vector3.Distance(camera_.transform.position, targets[guanQiaNum+1].transform.position) <= 1f)
+        if (guanQiaNum<=1&&Vector3.Distance(camera_.transform.position, targets[guanQiaNum+1].transform.position) <= 0.5f)
         {
             camera_.transform.position = targets[guanQiaNum+1].transform.position;
             UIManager.nextQuanQia = false;
