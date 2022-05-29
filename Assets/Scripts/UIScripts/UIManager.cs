@@ -17,19 +17,20 @@ class UIManager  : MonoBehaviour
     public static GameObject bookEndPanel;
     public static LoadingScript loadingScript;
     public static AudioSource audioSource_write;
-    private  AudioSource audioSource_BGM;
+    private AudioSource audioSource_BGM;
     public AudioClip[] audioClips;
     private CharacterTranslateAndCamera transAndCamera;
 
     private void Awake()
     {
         charaTransAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
-        transAndCamera= GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
         endPanel = GameObject.Find("endPanel");
         bookEndPanel = GameObject.Find("BookEndPanel");
         loadingScript = GameObject.Find("MainCamera").GetComponent<LoadingScript>();
         audioSource_write = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
-        audioSource_BGM= GameObject.Find("AudioSource_BGM").GetComponent<AudioSource>();
+        transAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
+        audioSource_BGM = GameObject.Find("AudioSource_BGM").GetComponent<AudioSource>();
+
     }
     /// <summary>
     /// 每一章的下一关按钮
@@ -40,12 +41,8 @@ class UIManager  : MonoBehaviour
         endPanel.transform.GetChild(0).gameObject.SetActive(false);
         charaTransAndCamera.BeginMove();
         nextQuanQia = true;
-        audioSource_BGM.clip = audioClips[transAndCamera.guanQiaNum+1];
+        audioSource_BGM.clip = audioClips[transAndCamera.guanQiaNum + 1];
         audioSource_BGM.Play();
-    }
-    public void InvokeNextQuanQia()
-    {
-        Invoke("NextQuanQia",105f);
     }
     /// <summary>
     /// 判断当前关卡是否结束

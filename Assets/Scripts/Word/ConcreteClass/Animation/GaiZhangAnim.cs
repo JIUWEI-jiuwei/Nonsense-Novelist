@@ -15,15 +15,16 @@ class GaiZhangAnim : MonoBehaviour
     private bool isGZFirst = false;
     /// <summary>是否第一次点击按钮</summary>
     private bool isLevelFirst = false;
+    public AudioSource gzAudio;
 
     private void Start()
     {
+        
         if (SceneManager.GetActiveScene().name == "Combat")
         {
             gaizhang.SetBool("start", true);
         }
     }
-
     public void GZ1_2()
     {
         if (isGZFirst == false)
@@ -31,6 +32,7 @@ class GaiZhangAnim : MonoBehaviour
             gaizhang.SetBool("GZ1_2", true);
             isGZFirst = true;
         }
+        Invoke("PlayGZClip", 1.5f);
     }
     public void Level1_2()
     {
@@ -39,5 +41,9 @@ class GaiZhangAnim : MonoBehaviour
             level.SetBool("level1_2", true);
             isLevelFirst = true;
         }
+    }
+    public void PlayGZClip()
+    {
+        gzAudio.Play();
     }
 }
