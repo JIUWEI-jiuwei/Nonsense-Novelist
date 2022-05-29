@@ -28,6 +28,8 @@ namespace AI
             myState.character.charaAnim.Play(AnimEnum.dead);
             if (myState.character.camp == CampEnum.enemy)
             {
+                UIManager.charaTransAndCamera.BeginMove();
+                UIManager.nextQuanQia = true;
                 UIManager.WinEnd();
             }
             else if (myState.character.camp == CampEnum.friend)

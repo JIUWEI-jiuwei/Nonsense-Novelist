@@ -35,11 +35,10 @@ public static class AllSkills
     static AllSkills()
     {       
         //添加动词词条
-        list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),typeof(FangFuShu) , 
-            typeof(FireBall) ,typeof(LengXiangPillSkill), 
+        list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),           
            typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen) });
         //添加形容词词条
-        list_adj.AddRange(new Type[] { typeof(HuoSiRenTangJi), typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
+        list_adj.AddRange(new Type[] {  typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
             typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
         //添加名词词条
         list_noun.AddRange(new Type[] { typeof(Exoskeleton), typeof(JiShengChong), typeof(LengXiangPill), typeof(Nexus6Arm),
