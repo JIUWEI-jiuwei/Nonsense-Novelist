@@ -52,7 +52,7 @@ class SPbar : MonoBehaviour
             currentSP = 0;
         }
         if (currentHP <= 0) {
-            Destroy(UIbar.gameObject);
+           Destroy(UIbar.gameObject);
         }       
         float sliderPercent = (float)currentSP / maxSP;
         if(SPSlider!=null)SPSlider.fillAmount = sliderPercent;

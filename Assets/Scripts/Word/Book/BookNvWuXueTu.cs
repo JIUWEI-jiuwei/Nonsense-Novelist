@@ -366,7 +366,10 @@ public class BookNvWuXueTu : MonoBehaviour
         string[] a = File.ReadAllLines("Assets/StreamingAssets/女巫学徒/1_2_1.txt");
         FindLeadingChara();
         //二号友方
-        AbstractCharacter secondChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();
+        AbstractCharacter[] z = fatherObject.transform.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
+        AbstractCharacter secondChara = null;
+        if (a.Length >= 2) secondChara = z[1];
+
         if (secondChara == null) leadingChara = secondChara;//防止空
         string result = "同" +secondChara.wordName + a[0]+leadingChara.wordName+a[1]+leadingChara.name+a[2];
         if (secondChara.trait.traitName != "敏感")
@@ -423,9 +426,12 @@ public class BookNvWuXueTu : MonoBehaviour
     {
         FindLeadingChara();
         //二号友方
-        AbstractCharacter secondChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();
+        AbstractCharacter[] a = fatherObject.transform.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
+        AbstractCharacter secondChara=null;
+        if(a.Length >=2)secondChara = a[1];
+
         string result;
-        if (secondChara == null && secondChara==leadingChara) //防止空
+        if (secondChara == null || secondChara == leadingChara) //防止空
             result = leadingChara.wordName;
         else
             result = leadingChara.wordName + "和" + secondChara.wordName;
@@ -554,8 +560,10 @@ public class BookNvWuXueTu : MonoBehaviour
     {
         FindLeadingChara();
         //二号友方
-        AbstractCharacter secondChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();
-        
+        AbstractCharacter[] a = fatherObject.transform.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
+        AbstractCharacter secondChara = null;
+        if (a.Length >= 2) secondChara = a[1];
+
         string result = "在苍绿的林间小道里，"+leadingChara.wordName+ "追着用杂技火球砸向狼狈逃走的银行职员们。“哈哈哈，你看到前面那个家伙了吗，他的屁股都着火了！”密特拉开心地说：“喂喂喂，你的屁股都烧焦啦！””那里那里，那个家伙，给他一下！”"+leadingChara.wordName+ "便瞄准了一个格外滑稽姿势的银行职员扔去了一个小焰火球，结果打歪了，把他抹的油光的头发炸成了蘑菇状。“尊敬的密特拉，您满意了吗？”林黛玉问道：“我可不想用这火焰魔法把林子点着啦。”“好啦好啦，行吧。让他们逃吧，我们回去。”密特拉突然脸色凝重：“是谁？”";
         if (secondChara != null && secondChara == leadingChara)
             result += leadingChara.wordName + "和" + secondChara.wordName;
@@ -566,7 +574,7 @@ public class BookNvWuXueTu : MonoBehaviour
             + leadingChara.wordName + "虽然不解，也察觉到了对方绝非善类：“看来今天找我们麻烦的不止银行。”\n"
             + leadingChara.wordName + "说完便试图用全力释放出一颗火球，但发现自己的体内虽翻涌着力量，却一逸出指尖便化为乌有。”"
             + leadingChara.wordName + "，抱着我快跑。”密特拉严肃地说：“现在的你无法打败它，若非足够强大的魔法在它面前是不会奏效的。”“好。”林黛玉抱紧了《密特拉魔典》准备转身跑回小屋，却突然发现它已经到了回到小屋的路上“哼哼？”沉默者低声发出了嘲讽的声音。“看来我们没有退路了，只能和他拼了！”";
-        if (secondChara != null)
+        if (secondChara != null && secondChara == leadingChara)
             result += leadingChara.wordName + "和" + secondChara.wordName;
         else
             result += leadingChara.wordName;

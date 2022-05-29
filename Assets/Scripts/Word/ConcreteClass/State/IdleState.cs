@@ -24,7 +24,7 @@ namespace AI
 
         public override void EnterState(MyState0 myState)
         {
-           // myState.character.charaAnim.Play(AnimEnum.idle);
+           myState.character.charaAnim.Play(AnimEnum.idle);
         }
 
         public override void Exit(MyState0 myState)

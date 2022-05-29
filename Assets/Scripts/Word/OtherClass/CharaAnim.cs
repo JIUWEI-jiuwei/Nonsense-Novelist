@@ -10,10 +10,11 @@ class CharaAnim : MonoBehaviour
     /// <summary>实际动画组件</summary>
     public Animator anim;
     /// <summary>当前动画名</summary>
-    public AnimEnum currentAnim = AnimEnum.idle;
+    public AnimEnum currentAnim;
     void Start()
     {
         anim = this.GetComponent<Animator>();
+        currentAnim=AnimEnum.idle;
     }
 
     private string newAnimName;//新动画字符串(仅用于↓）

@@ -23,7 +23,7 @@ class HealthCircleBar : MonoBehaviour
         //jiaBaoYu = GameObject.Find("JiaBaoYu").GetComponent<AbstractCharacter>();
         //jiaMu = GameObject.Find("JiaMu").GetComponent<AbstractCharacter>();
         //liuLaoLao = GameObject.Find("LiuLaoLao").GetComponent<AbstractCharacter>();
-        wangXiFeng = GameObject.Find("WangXiFeng").GetComponent<AbstractCharacter>();
+        //wangXiFeng = GameObject.Find("WangXiFeng").GetComponent<AbstractCharacter>();
     }
     private void FixedUpdate()
     {
@@ -47,11 +47,11 @@ class HealthCircleBar : MonoBehaviour
             float hpPercent=(float)liuLaoLao.hp / liuLaoLao.maxHP;
             this.GetComponent<Image>().fillAmount = hpPercent;
         }
-        if (this.transform.GetChild(0).gameObject.name== "WangXiFeng_Circle" && wangXiFeng != null)
+        /*if (this.transform.GetChild(0).gameObject.name== "WangXiFeng_Circle" && wangXiFeng != null)
         {
             float hpPercent=(float)wangXiFeng.hp / wangXiFeng.maxHP;
             this.GetComponent<Image>().fillAmount = hpPercent;
-        }
+        }*/
 
     }
 }
