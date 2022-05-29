@@ -13,7 +13,6 @@ class UnlockMagicCode : AbstractItems
         bookName = BookNameEnum.StudentOfWitch;
         getWay = GetWayEnum.FromStory;
         camp = CampEnum.friend;
-        withSkill =gameObject.AddComponent<FireBall>();
     }
     public override string PlaySentence()
     {
