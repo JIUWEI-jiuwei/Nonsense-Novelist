@@ -20,6 +20,8 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     public Animation bulletAnim;
 
 
+
+
     /// <summary>技能使用者身份限制（谁不能使用）</summary>
     public List<AbstractRoleLimit> banUse=new List<AbstractRoleLimit>();
     /// <summary>目标限制（不能向谁使用）</summary>
