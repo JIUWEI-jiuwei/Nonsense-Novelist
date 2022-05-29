@@ -35,11 +35,15 @@ class DamageMode : AbstractSkillMode
 
             if (useCharacter.role.restrainRole.ContainsKey(aimCharacter.role.roleID))//攻击者克被攻击者
             {
-                aimCharacter.hp -= (int)(value * (1 + useCharacter.role.restrainRole[aimCharacter.role.roleID]));
+                aimCharacter.hp -= value * (1 + useCharacter.role.restrainRole[aimCharacter.role.roleID]);
             }
             else if (aimCharacter.role.restrainRole.ContainsKey(useCharacter.role.roleID))//被攻击者克制攻击者
             {
-                aimCharacter.hp -= (int)(value * (1 - aimCharacter.role.restrainRole[useCharacter.role.roleID]));
+                aimCharacter.hp -= value * (1 - aimCharacter.role.restrainRole[useCharacter.role.roleID]);
+            }
+            else//一般
+            {
+                aimCharacter.hp -= value;
             }
         }
         else//玩家使用（形容词）

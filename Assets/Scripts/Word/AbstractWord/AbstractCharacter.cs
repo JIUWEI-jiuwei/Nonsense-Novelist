@@ -38,13 +38,13 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>自带技能</summary>
     public List<AbstractVerbs> skills=new List<AbstractVerbs>();
     /// <summary>血量</summary>
-    public int hp = 0;
+    public float hp = 0;
     /// <summary>总血量</summary>
-    public int maxHP = 0;
+    public float maxHP = 0;
     /// <summary>蓝量</summary>
-    public int sp = 0;
+    public float sp = 0;
     /// <summary>总蓝量</summary>
-    public int maxSP = 0;
+    public float maxSP = 0;
     /// <summary>攻击力</summary>
     public float atk = 0;
     /// <summary>防御力</summary>

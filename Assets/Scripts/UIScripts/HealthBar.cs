@@ -50,7 +50,7 @@ class HealthBar : MonoBehaviour
     /// </summary>
     /// <param name="currentHP">当前血量</param>
     /// <param name="maxHP">总血量</param>
-    public void UpdateHealthBar(int currentHP, int maxHP)
+    public void UpdateHealthBar(float currentHP, float maxHP)
     {
         if (currentHP <= 0) {
             Destroy(UIbar.gameObject);

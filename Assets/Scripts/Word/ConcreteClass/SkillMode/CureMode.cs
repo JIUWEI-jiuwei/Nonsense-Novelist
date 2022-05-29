@@ -38,7 +38,7 @@ class CureMode : AbstractSkillMode
                 a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.enemy);
             }
         }
-        CollectionHelper.OrderBy<GameObject, int>(a, p => p.GetComponent<AbstractCharacter>().hp);
+        CollectionHelper.OrderBy<GameObject, float>(a, p => p.GetComponent<AbstractCharacter>().hp);
 
         return a;
     }

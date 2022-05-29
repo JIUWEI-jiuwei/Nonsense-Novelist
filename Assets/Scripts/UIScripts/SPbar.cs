@@ -46,7 +46,7 @@ class SPbar : MonoBehaviour
     /// </summary>
     /// <param name="currentHP">当前蓝量</param>
     /// <param name="maxHP">总蓝量</param>currentHP=当前血量
-    private void UpdateSPBar(int currentSP, int maxSP,int currentHP)
+    private void UpdateSPBar(float currentSP, float maxSP,float currentHP)
     {
         if (currentSP <= 0) {
             currentSP = 0;
