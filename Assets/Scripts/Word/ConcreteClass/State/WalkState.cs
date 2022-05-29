@@ -22,6 +22,9 @@ namespace AI
         {
             if (myState.aim != null)
             {
+                myState.character.source.clip = myState.character.walkAudio;
+                myState.character.source.loop = true;
+                myState.character.source.Play();
                 //ÒÆ¶¯
                 myState.character.transform.position = Vector3.MoveTowards(myState.transform.position, myState.aim.transform.position, myState.speed * Time.deltaTime);
             }
@@ -35,6 +38,7 @@ namespace AI
 
         public override void Exit(MyState0 myState)
         {
+            myState.character.source.loop = false;
         }
     }
 

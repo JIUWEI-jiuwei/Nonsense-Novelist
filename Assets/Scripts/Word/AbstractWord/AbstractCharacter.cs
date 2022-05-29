@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AI.MyState0))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(AudioSource))]
 /// <summary>
 /// 抽象角色类
 /// </summary>
@@ -16,7 +17,12 @@ abstract class AbstractCharacter : AbstractWords0
     public GenderEnum gender;
     /// <summary>形象</summary>
     public Animator appearance;
-
+    /// <summary>AudioSource</summary>
+    public AudioSource source;
+    /// <summary>平A音效(手动拖拽）</summary>
+    public AudioClip aAttackAudio;
+    /// <summary>走路音效（手动拖拽）</summary>
+    public AudioClip walkAudio;
 
     /// <summary>时代（用于文本）</summary>
     public string epoch;
@@ -90,6 +96,7 @@ abstract class AbstractCharacter : AbstractWords0
 
     virtual public void Awake()
     {
+        source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
         charaAnim=GetComponent<CharaAnim>();                 
     }

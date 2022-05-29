@@ -47,6 +47,8 @@ namespace AI
                 attackAtime = 0;
                 if (myState.aim != null)
                 {
+                    myState.character.source.clip = myState.character.aAttackAudio;
+                    myState.character.source.Play();
                     attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.san / (myState.aim.san + 20)), myState.aim);
                 }
             }
