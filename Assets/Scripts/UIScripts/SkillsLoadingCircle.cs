@@ -55,5 +55,12 @@ class SkillsLoadingCircle : MonoBehaviour
                 UIbar[count - 1].transform.position = verbLoadingPoints.GetChild(count - 1).position;
             }
         }
+        if (charaComponent.hp <= 0)
+        {
+            for(int i = 0; i < UIbar.Count; i++)
+            {
+                Destroy(UIbar[i]);
+            }
+        }
     }
 }
