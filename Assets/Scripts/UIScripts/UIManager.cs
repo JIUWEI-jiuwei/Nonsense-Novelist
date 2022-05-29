@@ -10,7 +10,7 @@ class UIManager  : MonoBehaviour
     /// <summary>战斗场景是否进入下一关</summary>
     public static bool nextQuanQia;
     /// <summary>脚本</summary>
-    private static CharacterTranslateAndCamera charaTransAndCamera;
+    public static CharacterTranslateAndCamera charaTransAndCamera;
     /// <summary>获取关卡结束面板</summary>
     private static GameObject endPanel;
     /// <summary>获取章节结束面板</summary>
@@ -39,25 +39,23 @@ class UIManager  : MonoBehaviour
     {
         //打开关卡结束面板
         endPanel.transform.GetChild(0).gameObject.SetActive(false);
-        charaTransAndCamera.BeginMove();
-        nextQuanQia = true;
         audioSource_BGM.clip = audioClips[transAndCamera.guanQiaNum + 1];
         audioSource_BGM.Play();
     }
     /// <summary>
-    /// 判断当前关卡是否结束
+    /// 关卡战斗胜利
     /// </summary>
     /// <returns></returns>
     public static bool WinEnd()
     {
        
 
-            if (GameObject.Find("EnemyCharacter").transform.childCount <= 1 && charaTransAndCamera.guanQiaNum <= 1)
+            /*if (GameObject.Find("EnemyCharacter").transform.childCount <= 1 && charaTransAndCamera.guanQiaNum <= 1)
             {
                 //打开关卡结束面板
                 endPanel.transform.GetChild(0).gameObject.SetActive(true);
                 return true;
-            }
+            }*/
             if (GameObject.Find("EnemyCharacter").transform.childCount <= 1 && charaTransAndCamera.guanQiaNum == 2)
             {
                 //打开章节结束面板
@@ -70,7 +68,7 @@ class UIManager  : MonoBehaviour
     }
 
     /// <summary>
-    /// 判断当前关卡是否结束
+    /// 关卡战斗失败
     /// </summary>
     /// <returns></returns>
     public static bool LoseEnd()
