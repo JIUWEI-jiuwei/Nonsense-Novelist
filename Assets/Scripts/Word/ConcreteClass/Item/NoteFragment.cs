@@ -11,14 +11,14 @@ class NoteFragment : AbstractItems
         itemID = 3;
         wordName = "德洛瑞斯的笔记碎片";
         bookName = BookNameEnum.StudentOfWitch;
-        getWay = GetWayEnum.NormalWord;
+        getWay = GetWayEnum.FromStory;
         description = "记载了一些德洛瑞斯写着玩的杂耍魔法，但对普通人来说足具威力了";
         nickname.Add("笔记本");
         camp = CampEnum.all;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Book;
         camp = CampEnum.friend;
-        withSkill = gameObject.AddComponent<LengXiangPillSkill>();
+        withSkill = gameObject.AddComponent<FireBall>();
         psy = 5;
     }
 
