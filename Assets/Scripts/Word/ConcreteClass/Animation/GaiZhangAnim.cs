@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 ///<summary>
-///盖章动画
+///盖章动画(战斗界面的关卡和章节结束panel里面的start)
 ///</summary>
 class GaiZhangAnim : MonoBehaviour
 {

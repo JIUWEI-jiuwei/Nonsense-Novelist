@@ -12,9 +12,11 @@ class LoadingTest : MonoBehaviour
     {        
         SceneManager.LoadSceneAsync(sceneName);
     }
+    /// <summary>
+    /// 新游戏界面的start按钮
+    /// </summary>
     public void StartCombat()
     {
-        //gaiZhangAnim.gaizhang.Play("GaiZhang");
         gaiZhangAnim.gaizhang.SetBool("gaizhang",true);
         Invoke("NextLayer", 2.8f);
     }

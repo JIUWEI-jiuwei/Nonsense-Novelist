@@ -15,6 +15,7 @@ class LoadingButtonManager : MonoBehaviour
     public string combat = "Combat";
 
     private int settingNum = 1;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ class LoadingButtonManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        loadingScript.enabled = true;
+        Invoke("LoadingScript", 1f);
     }
     /// 返回开始游戏界面
     public void BackToStartGame()
@@ -44,6 +45,9 @@ class LoadingButtonManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(bookDesk);
     }
+    /// <summary>
+    /// 启用加载场景脚本
+    /// </summary>
     public void LoadingScript()
     {
         loadingScript.enabled = true;
@@ -55,6 +59,7 @@ class LoadingButtonManager : MonoBehaviour
     {
         //播放盖章动画
         gaiZhangAnim.gaizhang.SetBool("gaizhang", true);
+        audioSource.Play();
         Invoke("LoadingScript", 4.6f);
     }
     /// <summary>
@@ -73,5 +78,11 @@ class LoadingButtonManager : MonoBehaviour
         settingNum++;
         Time.timeScale = settingNum%2;
     }
-
+    /// <summary>
+    /// 退出游戏
+    /// </summary>
+    public void GameQuit()
+    {
+        Application.Quit();
+    }
 }

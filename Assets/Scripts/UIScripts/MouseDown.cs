@@ -33,7 +33,9 @@ class MouseDown : MonoBehaviour
     public AbstractTrait absTrait;
     /// <summary>判断当前是否有角色信息展示面板</summary>
     public bool isShow = false;
- 
+    /// <summary>音效</summary>
+    public AudioSource audioSource;
+    
     private void Update()
     {
         MouseDownView();
@@ -48,6 +50,9 @@ class MouseDown : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
             if(hit.collider!=null&&hit.collider.gameObject.layer==3&&isShow==false)
             {
+                //播放点击音效
+                audioSource.Play();
+
                 //生成角色信息面板
                 a = Instantiate(propertyPanelPrefab, otherCanvas.transform);
                 isShow = true;

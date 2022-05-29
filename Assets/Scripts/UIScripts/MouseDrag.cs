@@ -30,6 +30,9 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     public GameObject verbCircle;
     /// <summary>形容词圆圈加载的位置</summary>
     private Transform parentCircleTF;
+    /// <summary>音效summary>
+    private AudioSource audioSource;
+
 
     private void Start()
     {
@@ -37,6 +40,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         canvasGroup = GetComponent<CanvasGroup>();
         absWord = GetComponent<AbstractWords0>();
         FindGrid();
+        audioSource = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
     }
     /// <summary>
     /// 开始拖拽
@@ -53,7 +57,8 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     /// <param name="eventData"></param>
     public void OnDrag(PointerEventData eventData)
     {
-        foreach(Canvas canvas in FindObjectsOfType<Canvas>())
+        //矫正鼠标位置偏移
+        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "MainCanvas")
             {
@@ -78,34 +83,36 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
-                if (absWord.wordSort==WordSortEnum.verb)
+                //播放词条拖拽上去的音效
+                audioSource.Play();
+                
+                //判断该词条是形容词还是动词
+                if (absWord.wordSort == WordSortEnum.verb)
                 {
-                    
                     //将词条身上的动词技能组件添加到角色身上
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                     hit.collider.gameObject.AddComponent(b.GetType());
                     hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(b);
                 }
-                else if (absWord.wordSort==WordSortEnum.adj)
-                {                    
-                    this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());                   
+                else if (absWord.wordSort == WordSortEnum.adj)
+                {
+                    this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
                 }
                 Destroy(this.gameObject);
             }
         }
-             
+
     }
     /// <summary>
     /// 将词条位置与卡槽位置相匹配
     /// </summary>
     public void FindGrid()
     {
-        foreach(Canvas canvas in FindObjectsOfType<Canvas>())
+        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
-            if (canvas.name == "MainCanvas" )
+            if (canvas.name == "MainCanvas")
             {
                 gridPanel = canvas.transform.Find("GridPanel");
                 wordPanel = canvas.transform.Find("WordPanel");
@@ -113,11 +120,11 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 gridPanelForTest = canvas.transform.Find("GridPanelForTest");
             }
         }
-        for(int i = 0; i < wordPanel.childCount; i++)
+        for (int i = 0; i < wordPanel.childCount; i++)
         {
-           wordPanel.GetChild(i).position = gridPanel.GetChild(i).position;
+            wordPanel.GetChild(i).position = gridPanel.GetChild(i).position;
         }
-        for(int i = 0; i < testPanel.childCount; i++)
+        for (int i = 0; i < testPanel.childCount; i++)
         {
             testPanel.GetChild(i).position = gridPanelForTest.GetChild(i).position;
         }
