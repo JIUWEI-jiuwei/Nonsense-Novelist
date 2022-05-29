@@ -13,7 +13,7 @@ class SPbar : MonoBehaviour
     /// <summary>剩余蓝量数值 </summary>
     private Image SPSlider;
     /// <summary>角色位置 </summary>
-    private Transform UIbar;
+    private GameObject UIbar;
     /// <summary>获取该角色 </summary>
     private AbstractCharacter chara;
     /// <summary>条位置 </summary>
@@ -28,17 +28,17 @@ class SPbar : MonoBehaviour
         {
             if (canvas.name == "UIcanvas")
             {
-                UIbar = Instantiate(SPBarPrefab, canvas.transform).transform;
-                SPSlider = UIbar.GetChild(0).GetComponent<Image>();
+                UIbar = Instantiate(SPBarPrefab, canvas.transform);
+                SPSlider = UIbar.transform.GetChild(0).GetComponent<Image>();
             }
         }
     }
     public void FixedUpdate()
     {
-        UpdateSPBar(chara.sp, chara.maxSP,chara.hp);
+        UpdateSPBar(chara.sp, chara.maxSP);
         if (UIbar != null)
         {
-            UIbar.position = SPbarPoint.position;
+            UIbar.transform.position = SPbarPoint.position;
         }
     }
     /// <summary>
@@ -46,12 +46,9 @@ class SPbar : MonoBehaviour
     /// </summary>
     /// <param name="currentHP">当前蓝量</param>
     /// <param name="maxHP">总蓝量</param>currentHP=当前血量
-    private void UpdateSPBar(float currentSP, float maxSP,float currentHP)
+    private void UpdateSPBar(float currentSP, float maxSP)
     {
-        if (currentSP <= 0) {
-            currentSP = 0;
-        }
-        if (currentHP <= 0) {
+        if (HealthBar.isDead&&UIbar!=null) {
            Destroy(UIbar.gameObject);
         }       
         float sliderPercent = (float)currentSP / maxSP;

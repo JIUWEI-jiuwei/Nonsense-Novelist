@@ -8,7 +8,12 @@ namespace AI
     /// </summary>
     class DeadState :AbstractState
     {
+        private UIManager uIManager;
 
+        private void Start()
+        {
+            uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        }
         override public void Awake()
         {
             base.Awake();
@@ -21,12 +26,30 @@ namespace AI
             //播放完动画后销毁
             Destroy(this.gameObject);
         }
-
-
         public override void EnterState(MyState0 myState)
         {
             myState.character.charaAnim.Play(AnimEnum.dead);
-            if (myState.character.camp == CampEnum.enemy)
+            if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[0].transform.childCount <= 1)
+            {
+                UIManager.charaTransAndCamera.BeginMove();
+                UIManager.nextQuanQia = true;
+                UIManager.WinEnd();
+                for(int i=0;i< UIManager.enemyParentF[1].transform.childCount; i++)
+                {
+                    UIManager.enemyParentF[1].transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+            else if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[1].transform.childCount <= 1)
+            {
+                UIManager.charaTransAndCamera.BeginMove();
+                UIManager.nextQuanQia = true;
+                UIManager.WinEnd();
+                for (int i = 0; i < UIManager.enemyParentF[2].transform.childCount; i++)
+                {
+                    UIManager.enemyParentF[2].transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+            else if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[2].transform.childCount <= 1)
             {
                 UIManager.charaTransAndCamera.BeginMove();
                 UIManager.nextQuanQia = true;

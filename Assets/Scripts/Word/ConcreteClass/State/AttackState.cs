@@ -65,7 +65,7 @@ namespace AI
             foreach (AbstractVerbs skill in myState.character.skills)
             {
                 if (skill.isUsing)
-                    return false;
+                    return true;
             }
             return true;
         }

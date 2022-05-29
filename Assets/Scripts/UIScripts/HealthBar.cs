@@ -21,11 +21,11 @@ class HealthBar : MonoBehaviour
     private AbstractCharacter charaComponent;
     /// <summary>ÃıŒª÷√ </summary>
     private Transform[] barPoint;
+    public static bool isDead = false;
 
     public void Start()
     {
         charaComponent = gameObject.GetComponent<AbstractCharacter>();
-        //hpBarPoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
         barPoint = gameObject.GetComponentsInChildren<Transform>();
         hpBarPoint = barPoint[1];
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
@@ -54,6 +54,7 @@ class HealthBar : MonoBehaviour
     {
         if (currentHP <= 0) {
             Destroy(UIbar.gameObject);
+            isDead = true;
         }       
         float sliderPercent = (float)currentHP / maxHP;
         if(healthSlider!=null)

@@ -144,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5795739062272767385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1056255967854612165}
@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7157372326734581484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.55, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8792533845088263388}
@@ -232,9 +232,9 @@ GameObject:
   - component: {fileID: 8792533845088263378}
   - component: {fileID: 8414490356962856464}
   - component: {fileID: 2357813420043696241}
-  - component: {fileID: 7813373795055179565}
   - component: {fileID: 3087079198526402295}
   - component: {fileID: 6102042650773589938}
+  - component: {fileID: 6809282098047087258}
   m_Layer: 3
   m_Name: Mouse
   m_TagString: Untagged
@@ -382,7 +382,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.6442032, y: -1.5116061}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -393,7 +393,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.712718, y: 3.4928238}
   m_EdgeRadius: 0
 --- !u!114 &8792533845088263378
 MonoBehaviour:
@@ -561,19 +561,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}
---- !u!114 &7813373795055179565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792533845088263391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
 --- !u!114 &3087079198526402295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,9 +580,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8792533845088263391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44c28474b9167a54e88ce187a15a8ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   verbLoadingPrefab: {fileID: 6806686265833367326, guid: 756f52404dda4ef43afb026bc41a98d2, type: 3}
+--- !u!114 &6809282098047087258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792533845088263391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}

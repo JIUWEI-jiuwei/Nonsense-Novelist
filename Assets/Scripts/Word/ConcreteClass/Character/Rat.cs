@@ -15,7 +15,7 @@ using UnityEngine;
         role = gameObject.AddComponent<Beast>();
         trait=gameObject.AddComponent<NullTrait>();
         hp=maxHP  = 20;
-        sp=maxSP = 0;
+        sp=maxSP = 20;
         atk = 7;
         def = 1;
         psy = 0;

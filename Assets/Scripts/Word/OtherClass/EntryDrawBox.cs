@@ -43,7 +43,7 @@ class EntryDrawBox : MonoBehaviour
     //加载初始六个词条
     private void Start()
     {
-        /*if (SceneManager.GetActiveScene().name == "Combat")
+        if (SceneManager.GetActiveScene().name == "Combat")
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
@@ -61,12 +61,12 @@ class EntryDrawBox : MonoBehaviour
                     }
                 }
             }
-        } */       
+        }
     }
     private void FixedUpdate()
     {
         //缓冲词条盒子的CD，CD满了生成一个词条
-        /*if (SceneManager.GetActiveScene().name == "Combat")
+        if (SceneManager.GetActiveScene().name == "Combat")
         {
             oneWordTimer += Time.deltaTime;
             if (oneWordTimer <= oneWordTime)
@@ -76,7 +76,7 @@ class EntryDrawBox : MonoBehaviour
             }
             CreateOneWord();
             oneWordTimer = 0f;
-        }   */     
+        }
     }
     /// <summary>
     /// 点击抽奖盒，生成词条

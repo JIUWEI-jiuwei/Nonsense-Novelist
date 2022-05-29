@@ -21,6 +21,14 @@ class UIManager  : MonoBehaviour
     public AudioClip[] audioClips;
     private CharacterTranslateAndCamera transAndCamera;
 
+    /// <summary>友方父物体数组</summary>
+    public static GameObject[] friendParentF=new GameObject[1];
+    /// <summary>敌方父物体数组</summary>
+    public static GameObject[] enemyParentF= new GameObject[3];
+    /// <summary>敌方父物体数组</summary>
+    public GameObject[] friendParentUseless;
+    public GameObject[] enemyParentsUseless;
+
     private void Awake()
     {
         charaTransAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
@@ -30,6 +38,15 @@ class UIManager  : MonoBehaviour
         audioSource_write = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
         transAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
         audioSource_BGM = GameObject.Find("AudioSource_BGM").GetComponent<AudioSource>();
+
+        for(int i = 0; i < friendParentUseless.Length; i++)
+        {
+            friendParentF[i] = friendParentUseless[i];
+        }
+        for(int i = 0; i < enemyParentsUseless.Length; i++)
+        {
+            enemyParentF[i] = enemyParentsUseless[i];
+        }
 
     }
     /// <summary>
@@ -48,15 +65,13 @@ class UIManager  : MonoBehaviour
     /// <returns></returns>
     public static bool WinEnd()
     {
-       
-
             /*if (GameObject.Find("EnemyCharacter").transform.childCount <= 1 && charaTransAndCamera.guanQiaNum <= 1)
             {
                 //打开关卡结束面板
                 endPanel.transform.GetChild(0).gameObject.SetActive(true);
                 return true;
             }*/
-            if (GameObject.Find("EnemyCharacter").transform.childCount <= 1 && charaTransAndCamera.guanQiaNum == 2)
+            if (enemyParentF[2].transform.childCount <= 1 && charaTransAndCamera.guanQiaNum == 2)
             {
                 //打开章节结束面板
                 bookEndPanel.transform.GetChild(0).gameObject.SetActive(true);
@@ -73,7 +88,7 @@ class UIManager  : MonoBehaviour
     /// <returns></returns>
     public static bool LoseEnd()
     {
-        if (GameObject.Find("SelfCharacter").transform.childCount <= 1 )
+        if (friendParentF[0].transform.childCount <= 1)
         {
             //失败先跳转到loading界面，再跳转到startgame界面
             loadingScript.enabled = true;

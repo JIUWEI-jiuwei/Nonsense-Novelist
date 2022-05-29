@@ -984,7 +984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &453518466
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3486,7 +3486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1a2c6acef0fba4da5601d46989bf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordPrefab: {fileID: 6353631512975227779, guid: 7a474d7ee635bf841a93171586d8fc06, type: 3}
+  wordPrefab: {fileID: 6353631512975227779, guid: 5a49c89a8e6d7244991159aefdcc0c05, type: 3}
   parentTF: {fileID: 453518466}
   isFirst: 0
 --- !u!1 &1125946704
@@ -6939,7 +6939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8069619673735329937, guid: ee60ebe311397544aae8cd2173f8a2c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8069619675048461165, guid: ee60ebe311397544aae8cd2173f8a2c8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

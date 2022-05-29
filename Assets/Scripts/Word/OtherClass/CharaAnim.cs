@@ -13,7 +13,6 @@ class CharaAnim : MonoBehaviour
     public AnimEnum currentAnim;
     void Start()
     {
-        anim = this.GetComponent<Animator>();
         currentAnim=AnimEnum.idle;
     }
 

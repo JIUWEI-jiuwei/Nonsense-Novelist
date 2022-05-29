@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using System;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Collections;
+using UnityEngine.SceneManagement;
 ///<summary>
 ///Êó±êÍÏ×§
 ///</summary>
@@ -40,7 +37,10 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         canvasGroup = GetComponent<CanvasGroup>();
         absWord = GetComponent<AbstractWords0>();
         FindGrid();
-        audioSource = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().name == "Combat")
+        {
+            audioSource = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
+        }
     }
     /// <summary>
     /// ¿ªÊ¼ÍÏ×§
@@ -120,13 +120,16 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 gridPanelForTest = canvas.transform.Find("GridPanelForTest");
             }
         }
-        for (int i = 0; i < wordPanel.childCount; i++)
+        if (wordPanel!=null)
         {
-            wordPanel.GetChild(i).position = gridPanel.GetChild(i).position;
-        }
-        for (int i = 0; i < testPanel.childCount; i++)
-        {
-            testPanel.GetChild(i).position = gridPanelForTest.GetChild(i).position;
-        }
+            for (int i = 0; i < wordPanel.childCount; i++)
+            {
+                wordPanel.GetChild(i).position = gridPanel.GetChild(i).position;
+            }
+            for (int i = 0; i < testPanel.childCount; i++)
+            {
+                testPanel.GetChild(i).position = gridPanelForTest.GetChild(i).position;
+            }
+        }       
     }
 }

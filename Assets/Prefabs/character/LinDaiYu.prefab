@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3168979296242265610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.6, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4121046542023419679}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3250895939561262068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 349739082773883311}
@@ -140,10 +140,10 @@ GameObject:
   - component: {fileID: 1651577107}
   - component: {fileID: 1651577109}
   - component: {fileID: 3188989653568521272}
-  - component: {fileID: 6304236709616777173}
   - component: {fileID: 2505877989201598145}
   - component: {fileID: 1325448661096280039}
   - component: {fileID: 30666123}
+  - component: {fileID: 3244917562023780831}
   m_Layer: 3
   m_Name: LinDaiYu
   m_TagString: Untagged
@@ -205,8 +205,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 626459831
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 96b66feb908b7be469bab0743829169a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -366,19 +366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}
---- !u!114 &6304236709616777173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121046542023419678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
 --- !u!114 &2505877989201598145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +487,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1067f2512016e3d43a30319d235621b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3244917562023780831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121046542023419678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
 --- !u!1 &4604492067895554314
 GameObject:
   m_ObjectHideFlags: 0
