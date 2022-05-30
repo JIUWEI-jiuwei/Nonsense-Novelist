@@ -53,7 +53,6 @@ namespace AI
                 }
                 if(uIManager.transAndCamera.guanQiaNum == 2)
                 {
-                    UIManager.nextQuanQia = true;
                     UIManager.WinEnd();
                 }
             }
