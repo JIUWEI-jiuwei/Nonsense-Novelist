@@ -43,6 +43,8 @@ abstract class AbstractCharacter : AbstractWords0
     public AbstractTrait trait;
     /// <summary>自带技能</summary>
     public List<AbstractVerbs> skills=new List<AbstractVerbs>();
+    /// <summary>实际自带技能（所挂组件）</summary>
+    public AbstractVerbs[] realSkills;
     /// <summary>血量</summary>
     public float hp = 0;
     /// <summary>总血量</summary>

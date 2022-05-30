@@ -19,7 +19,7 @@ class UIManager  : MonoBehaviour
     public static AudioSource audioSource_write;
     private AudioSource audioSource_BGM;
     public AudioClip[] audioClips;
-    private CharacterTranslateAndCamera transAndCamera;
+    public CharacterTranslateAndCamera transAndCamera;
 
     /// <summary>友方父物体数组</summary>
     public static GameObject[] friendParentF=new GameObject[1];

@@ -94,7 +94,9 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                     //将词条身上的动词技能组件添加到角色身上
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                     hit.collider.gameObject.AddComponent(b.GetType());
-                    hit.collider.gameObject.GetComponent<AbstractCharacter>().skills.Add(b);
+                    AbstractCharacter character = hit.collider.gameObject.GetComponent<AbstractCharacter>();
+                    character.skills.Add(b);
+                    character.realSkills = character.GetComponents<AbstractVerbs>();
                 }
                 else if (absWord.wordSort == WordSortEnum.adj)
                 {

@@ -20,7 +20,6 @@ class SkillsLoadingCircle : MonoBehaviour
     /// <summary>条位置 </summary>
     private Transform[] barPoint;
     private int count;
-    private AbstractVerbs[] absverbs;
 
     public void Start()
     {
@@ -37,7 +36,7 @@ class SkillsLoadingCircle : MonoBehaviour
             {
                 if(charaComponent.skills.Count>count)
                 {
-                    absverbs = charaComponent.GetComponents<AbstractVerbs>();
+                    charaComponent.realSkills = charaComponent.GetComponents<AbstractVerbs>();
                     count = charaComponent.skills.Count;
                     skillUIbar.Add(Instantiate(verbLoadingPrefab, canvas.transform));
                     verbCD.Add(skillUIbar[count - 1].transform.GetChild(0).GetComponent<Image>()) ;
@@ -50,7 +49,7 @@ class SkillsLoadingCircle : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 //获取到该角色身上的skills库中的动词技能
-                float percent = absverbs[i].cd / absverbs[i].maxCD;
+                float percent = charaComponent.realSkills[i].cd / charaComponent.realSkills[i].maxCD;
                 verbCD[i].fillAmount = percent;
                 skillUIbar[count - 1].transform.position = verbLoadingPoints.GetChild(count - 1).position;
             }

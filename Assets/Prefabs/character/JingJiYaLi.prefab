@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 7813373795055179565}
   - component: {fileID: 3087079198526402295}
   - component: {fileID: 6102042650773589938}
+  - component: {fileID: 841774588081080553}
   m_Layer: 3
   m_Name: JingJiYaLi
   m_TagString: Untagged
@@ -428,6 +429,7 @@ MonoBehaviour:
   role: {fileID: 0}
   trait: {fileID: 0}
   skills: []
+  realSkills: []
   hp: 0
   maxHP: 0
   sp: 0
@@ -599,3 +601,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verbLoadingPrefab: {fileID: 6806686265833367326, guid: 756f52404dda4ef43afb026bc41a98d2, type: 3}
+--- !u!114 &841774588081080553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792533845088263391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f5113b053a35c40bf7ea554aa3aff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: 0
+  wordName: 
+  pattern: {fileID: 0}
+  brief: 
+  description: 
+  nickname: []
+  wordSort: 0
+  characterID: 0
+  gender: 0
+  appearance: {fileID: 0}
+  source: {fileID: 0}
+  aAttackAudio: {fileID: 0}
+  walkAudio: {fileID: 0}
+  epoch: 
+  area: 
+  criticalSpeak: 
+  deadSpeak: 
+  camp: 1
+  role: {fileID: 0}
+  trait: {fileID: 0}
+  skills: []
+  realSkills: []
+  hp: 0
+  maxHP: 0
+  sp: 0
+  maxSP: 0
+  atk: 0
+  def: 0
+  psy: 0
+  san: 0
+  criticalChance: 0
+  multipleCriticalStrike: 0
+  attackInterval: 0
+  skillSpeed: 0
+  dodgeChance: 0
+  attackDistance: 0
+  attackAngle: 120
+  luckyValue: 0
+  level: 1
+  exp: 0
+  enemyLevel: 0
+  mainSort: 0
+  charaAnim: {fileID: 0}
+  dizzyTime: 0
+  importantNum: 
+  bg_text: 

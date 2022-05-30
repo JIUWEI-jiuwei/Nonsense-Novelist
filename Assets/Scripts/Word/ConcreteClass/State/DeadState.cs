@@ -29,31 +29,33 @@ namespace AI
         public override void EnterState(MyState0 myState)
         {
             myState.character.charaAnim.Play(AnimEnum.dead);
-            if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[0].transform.childCount <= 1)
+            if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[uIManager.transAndCamera.guanQiaNum].transform.childCount <= 1)
             {
-                UIManager.charaTransAndCamera.BeginMove();
-                UIManager.nextQuanQia = true;
-                UIManager.WinEnd();
-                for(int i=0;i< UIManager.enemyParentF[1].transform.childCount; i++)
+                if (uIManager.transAndCamera.guanQiaNum == 0)
                 {
-                    UIManager.enemyParentF[1].transform.GetChild(i).gameObject.SetActive(true);
+                    UIManager.charaTransAndCamera.BeginMove();
+                    UIManager.nextQuanQia = true;
+                    UIManager.WinEnd();
+                    for (int i = 0; i < UIManager.enemyParentF[1].transform.childCount; i++)
+                    {
+                        UIManager.enemyParentF[1].transform.GetChild(i).gameObject.SetActive(true);
+                    }
                 }
-            }
-            else if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[1].transform.childCount <= 1)
-            {
-                UIManager.charaTransAndCamera.BeginMove();
-                UIManager.nextQuanQia = true;
-                UIManager.WinEnd();
-                for (int i = 0; i < UIManager.enemyParentF[2].transform.childCount; i++)
+                if(uIManager.transAndCamera.guanQiaNum == 1)
                 {
-                    UIManager.enemyParentF[2].transform.GetChild(i).gameObject.SetActive(true);
+                    UIManager.charaTransAndCamera.BeginMove();
+                    UIManager.nextQuanQia = true;
+                    UIManager.WinEnd();
+                    for (int i = 0; i < UIManager.enemyParentF[2].transform.childCount; i++)
+                    {
+                        UIManager.enemyParentF[2].transform.GetChild(i).gameObject.SetActive(true);
+                    }
                 }
-            }
-            else if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[2].transform.childCount <= 1)
-            {
-                UIManager.charaTransAndCamera.BeginMove();
-                UIManager.nextQuanQia = true;
-                UIManager.WinEnd();
+                if(uIManager.transAndCamera.guanQiaNum == 2)
+                {
+                    UIManager.nextQuanQia = true;
+                    UIManager.WinEnd();
+                }
             }
             else if (myState.character.camp == CampEnum.friend)
             {

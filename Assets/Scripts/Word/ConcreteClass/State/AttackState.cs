@@ -33,14 +33,16 @@ namespace AI
 
             attackAtime += Time.deltaTime;
             
-            foreach(AbstractVerbs skill in myState.character.skills)
+            foreach(AbstractVerbs skill in myState.character.realSkills)
             {
                 //如果能量已满&&有目标,使用技能
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character.gameObject)!=null)
                 {
+                    myState.character.charaAnim.Play(AnimEnum.attack);
                     skill.UseVerbs(myState.character); 
                 }
             }
+            a = canA(myState);
             //如果没有技能在使用&&平A冷却完毕
             if ( canA(myState) && attackAtime >= myState.character.attackInterval)
             {
@@ -52,19 +54,22 @@ namespace AI
                         myState.character.source.clip = myState.character.aAttackAudio;
                         myState.character.source.Play();
                     }
+                    myState.character.charaAnim.Play(AnimEnum.attack);
                     attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.san / (myState.aim.san + 20)), myState.aim);
                 }
             }
         }
+
+        public bool a;
         /// <summary>
         /// 是否能平A
         /// </summary>
         /// <returns></returns>
         private bool canA(MyState0 myState)
         {
-            foreach (AbstractVerbs skill in myState.character.skills)
+            foreach (AbstractVerbs skill in myState.character.realSkills)
             {
-                if (skill.isUsing)
+                if (!skill.isUsing)
                     return true;
             }
             return true;
@@ -78,7 +83,6 @@ namespace AI
 
         public override void Exit(MyState0 myState)
         {
-            
         }
     }
 

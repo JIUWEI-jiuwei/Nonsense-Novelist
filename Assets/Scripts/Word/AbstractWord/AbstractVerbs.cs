@@ -57,6 +57,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>目标数组 </summary>
     protected GameObject[] aims;
 
+
     public virtual void Awake()
     {
         wordSort =WordSortEnum.verb;
@@ -77,9 +78,12 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
         isUsing = true;
         cd = 0;
         aims=skillMode.CalculateAgain(attackDistance,useCharacter.gameObject);
-        useCharacter.charaAnim.Play(AnimEnum.attack);
+        
         useCharacter.sp -= comsumeSP;
+        stateInfo=useCharacter.charaAnim.anim.GetCurrentAnimatorStateInfo(0);
     }
+
+    private AnimatorStateInfo stateInfo;
 
     virtual public void FixedUpdate()
     {
@@ -87,7 +91,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
         {
             cd += Time.deltaTime;
         }
-        if(isUsing && !userAnim.isPlaying )//播放完特效即为使用完毕
+        if(isUsing && stateInfo.normalizedTime>= 0.9f )//播放完特效即为使用完毕
         {
             isUsing=false;
         }

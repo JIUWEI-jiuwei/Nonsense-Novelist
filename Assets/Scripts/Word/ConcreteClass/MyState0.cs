@@ -46,7 +46,9 @@ namespace AI
         {
             nowState.Action(this);
             nowState.CheckTrigger(this);
-            //aim = FindAim();每隔一段时间重新寻找目标+++++++++++++++++++++++++++++++++
+            if (aim == null)
+                aim=FindAim();
+            //aim = FindAim();离开AttackState时重新寻找目标+++++++++++++++++++++++++++++++++
         }
         /// <summary>
         /// 寻找目标
