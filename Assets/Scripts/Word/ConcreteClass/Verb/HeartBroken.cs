@@ -13,7 +13,7 @@ class HeartBroken : AbstractVerbs
         skillID = 2;
         wordName = "心碎";
         bookName = BookNameEnum.allBooks;
-        description = "令目标心如刀绞。";
+        description = "爱情中的痛苦令对方心如刀绞，并精疲力竭。";
         nickname.Add( "刺痛");
         banAim.Add(gameObject.AddComponent<Sense>());
         skillMode = gameObject.AddComponent<DamageMode>();
@@ -82,5 +82,14 @@ class HeartBroken : AbstractVerbs
         }
     }
 
-    
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "的心爱之人对其说：“闻君有两意，故来相决绝”，因而悲痛欲绝。";
+
+    }
+
 }

@@ -31,4 +31,23 @@ using UnityEngine;
         luckyValue = 0;
         mainSort = MainSortEnum.def;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
 }

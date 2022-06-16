@@ -13,7 +13,7 @@ class FallBadly : AbstractVerbs
         skillID = 4;
         wordName = "摔";
         bookName = BookNameEnum.HongLouMeng;
-        description = "将东西用力的摔向对方";
+        description = "将东西用力的摔向对方，短暂地将其砸晕";
         nickname.Add("砸");
         nickname.Add("甩");
         nickname.Add("投掷");
@@ -59,7 +59,7 @@ class FallBadly : AbstractVerbs
             a.AddBuff(5);
         }
     }
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)

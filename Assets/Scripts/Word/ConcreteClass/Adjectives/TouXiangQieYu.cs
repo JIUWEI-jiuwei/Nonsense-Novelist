@@ -24,7 +24,7 @@ class TouXiangQieYu : AbstractAdjectives
     
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        
+        base.UseVerbs(aimCharacter);
         skillMode.UseMode(null, 20 *(1- aimCharacter.san/(aimCharacter.san+20)), aimCharacter);
     }
 
@@ -33,7 +33,7 @@ class TouXiangQieYu : AbstractAdjectives
        
     }
 
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)

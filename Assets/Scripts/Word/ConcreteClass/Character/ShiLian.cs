@@ -39,4 +39,23 @@ class ShiLian : AbstractCharacter
         enemyLevel = 2;
         mainSort = MainSortEnum.psy;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
 }

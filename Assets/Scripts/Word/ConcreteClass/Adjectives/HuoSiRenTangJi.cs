@@ -34,6 +34,7 @@ class HuoSiRenTangJi : AbstractAdjectives
 
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         if (!aimCharacter.buffs.ContainsKey(7) || aimCharacter.buffs[7] < 5)//最高叠5层
         {
             //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
@@ -66,5 +67,13 @@ class HuoSiRenTangJi : AbstractAdjectives
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
         
+    }
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "一位驼背的老女人从口袋里拿出了这瓶绿色的药剂“"+character.wordName+"既然你想获得永生，就试试它吧”说罢便发出如快散架的木椅子的笑声“只是要付出的代价也是相同的。”";
     }
 }

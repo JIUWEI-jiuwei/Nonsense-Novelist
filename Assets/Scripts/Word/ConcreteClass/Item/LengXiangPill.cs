@@ -22,7 +22,7 @@ class LengXiangPill : AbstractItems
 
 
     }
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)

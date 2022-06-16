@@ -32,6 +32,7 @@ class HeChenAi : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         if (!aimCharacter.buffs.ContainsKey(14) || aimCharacter.buffs[14] < 1)
         {
             aimCharacter.AddBuff(14);
@@ -67,5 +68,12 @@ class HeChenAi : AbstractAdjectives
                 Destroy(this);
             }
         }
+    }
+
+    public override string UseText()
+    {
+
+        return "一阵从北方而来的气流将核泄露禁区的放射性尘埃带了过来，顿时这片区域陷入了核污染中。";
+
     }
 }

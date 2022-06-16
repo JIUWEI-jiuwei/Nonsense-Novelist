@@ -45,5 +45,8 @@ abstract class AbstractAdjectives : AbstractWords0
     /// 使用技能
     /// </summary>
     /// <param name="aimCharacter">目标</param>
-    abstract public void UseVerbs(AbstractCharacter aimCharacter);
+    virtual public void UseVerbs(AbstractCharacter aimCharacter)
+    {
+        AbstractBook.afterFightText += UseText();
+    }
 }

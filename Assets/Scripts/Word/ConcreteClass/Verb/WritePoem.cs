@@ -13,7 +13,7 @@ class WritePoem : AbstractVerbs
         skillID = 1;
         wordName = "赋诗";
         bookName = BookNameEnum.HongLouMeng;
-        description = "吟诗作对，好不快活";
+        description = "观花修竹，酌酒吟诗，好不快活。让周围的同伴受到鼓舞";
         nickname.Add("作诗");
         attackDistance = 5;
         skillMode = gameObject.AddComponent<UpATKMode>();
@@ -73,13 +73,13 @@ class WritePoem : AbstractVerbs
         SpecialAbility(useCharacter);
     }
 
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)
             return null;
 
-        return character.wordName + "被身边的美景所震撼，不由得诗性大起，颂唱起了诗歌。";
+        return character.wordName + "被身边的美景所震撼，不由得诗性大发，颂唱起了诗歌。（登山则情满于山，观海则情溢于海，吟咏之间，吐纳珠玉之声）";
 
     }
 }

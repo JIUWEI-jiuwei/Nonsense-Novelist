@@ -93,14 +93,18 @@ abstract class AbstractCharacter : AbstractWords0
     public Dictionary<int,int> buffs;
     /// <summary>重要之人序号</summary>
     public List<int> importantNum=new List<int>();
-    /// <summary>生平描述</summary>
+    /// <summary>生平详细描述</summary>
     public string bg_text; 
 
     virtual public void Awake()
     {
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
-        charaAnim=GetComponent<CharaAnim>();                 
+        charaAnim=GetComponent<CharaAnim>();
+
+        AbstractCharacter[] a= GameObject.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
+        AbstractCharacter b=CollectionHelper.Find(a,p=>p.wordName!=wordName); 
+        AbstractBook.beforeFightText += ShowText(b);
     }
 
     virtual public void FixedUpdate()
@@ -192,5 +196,24 @@ abstract class AbstractCharacter : AbstractWords0
     {
             buffs[buffID]--;
     }
+    /// <summary>
+    /// 人物出场文本(加到AbstractBook.beforeFightText)
+    /// </summary>
+    abstract public string ShowText(AbstractCharacter otherChara);
+
+    /// <summary>
+    /// 暴击文本(加到AbstractBook.afterFightText)
+    /// </summary>
+    abstract public string CriticalText(AbstractCharacter otherChara);
+
+    /// <summary>
+    /// 低血量文本(加到AbstractBook.afterFightText)
+    /// </summary>
+    abstract public string LowHPText();
+
+    /// <summary>
+    /// 死亡文本(加到AbstractBook.afterFightText)
+    /// </summary>
+    abstract public string DieText();
 }
 

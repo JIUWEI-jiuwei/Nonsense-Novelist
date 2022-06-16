@@ -34,4 +34,23 @@ class AgelessEnemy : AbstractCharacter
         luckyValue = 0;
         enemyLevel = 3;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
 }

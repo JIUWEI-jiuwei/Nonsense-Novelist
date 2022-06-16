@@ -29,6 +29,7 @@ class GuanZhuangFeiYan : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         aimCharacter.hp-=(int)percentage; 
     }
 
@@ -37,5 +38,13 @@ class GuanZhuangFeiYan : AbstractAdjectives
        
     }
 
-        
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "一场突如其来的疫病突然降临到了" + character.wordName + "身上，他开始呼吸衰竭，身体的各方面功能也都急剧下降。";
+
+    }
 }

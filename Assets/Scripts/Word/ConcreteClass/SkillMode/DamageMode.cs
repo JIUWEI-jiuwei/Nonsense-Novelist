@@ -25,6 +25,7 @@ class DamageMode : AbstractSkillMode
             if (a <= useCharacter.criticalChance * 100)//±©»÷
             {
                 value *= useCharacter.multipleCriticalStrike;
+                AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
             }
 
             float b=Random.Range(0, 100);//ÉÁ±Ü³é½±

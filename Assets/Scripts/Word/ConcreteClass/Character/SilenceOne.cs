@@ -20,16 +20,16 @@ class SilenceOne : AbstractCharacter
         camp = CampEnum.enemy;
         role = gameObject.AddComponent<OldEnemy>();
         trait=gameObject.AddComponent<Pride>();
-        hp=maxHP = 200;
+        hp=maxHP = 300;
         sp=maxSP = 20;
-        atk = 15;
-        def = 2;
-        psy = 7;
+        atk = 13;
+        def = 5;
+        psy = 10;
         san = 30;
         mainSort = MainSortEnum.atk;
         criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 1.3f;
+        attackInterval = 1.5f;
         skillSpeed = 0;
         dodgeChance = 0;
         attackDistance = 6;
@@ -38,4 +38,25 @@ class SilenceOne : AbstractCharacter
         bg_text = "一个强大的，无法绕开的敌人";
         mainSort = MainSortEnum.atk;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
+
+
 }

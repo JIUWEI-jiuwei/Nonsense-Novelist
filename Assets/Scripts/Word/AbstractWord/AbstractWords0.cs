@@ -22,9 +22,9 @@ abstract class AbstractWords0 : MonoBehaviour
     public List<string> nickname=new List<string>();
 
     /// <summary>
-    /// ��������
+    /// 使用时文本
     /// </summary>
-    virtual public string PlaySentence()
+    virtual public string UseText()
     {
         return null;
     }

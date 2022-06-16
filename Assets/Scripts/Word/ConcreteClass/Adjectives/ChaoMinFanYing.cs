@@ -29,6 +29,7 @@ class ChaoMinFanYing : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         aimCharacter.hp-=(int)percentage; 
     }
 
@@ -37,5 +38,13 @@ class ChaoMinFanYing : AbstractAdjectives
        
     }
 
-        
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "突然"+character.wordName + "不知是吸入了什么花粉或是其他颗粒物，开始变得全身起红疹子，并嘶喊着将自己抓至血肉模糊。";
+
+    }
 }

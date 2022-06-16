@@ -30,6 +30,7 @@ class KeBanXingWei : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         if (!aimCharacter.buffs.ContainsKey(2) || aimCharacter.buffs[2] < 5)//最高叠5层
         {
             aimCharacter.san -= 3;
@@ -62,5 +63,15 @@ class KeBanXingWei : AbstractAdjectives
                 Destroy(this);
             }
         }
+    }
+
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "由于长期生活在与栖息地完全不符的环境中，饱受观光者的注视和压力，"+character.wordName+"产生了严重的刻板行为，只能不断重复着一些最基本的行动。";
+
     }
 }

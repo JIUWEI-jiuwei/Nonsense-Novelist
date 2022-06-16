@@ -13,7 +13,7 @@ class BuryFlower : AbstractVerbs
         skillID = 3;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
-        description = "平生葬花杀人，我以落花剑葬你，不枉你异人之名";
+        description = "将纷纷落英聚拢于一团，并埋葬至土壤中。此举能让自己的精神更强大";
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         attackDistance = 0;
@@ -75,13 +75,13 @@ class BuryFlower : AbstractVerbs
         }
     }
 
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)
             return null;
 
-        return "林间盛开的桃花随轻风飘落在地。\n" + character.wordName + "将飘落在地的桃花聚拢成团，并将其埋葬，为其哀悼。";
+        return "林间盛开的桃花随轻风飘落在地。\n"+character.wordName+"将飘落在地的桃花聚拢成团，并将其埋葬，为其哀悼。“花谢花飞花满天，红香消断有谁怜？”";
 
     }
 

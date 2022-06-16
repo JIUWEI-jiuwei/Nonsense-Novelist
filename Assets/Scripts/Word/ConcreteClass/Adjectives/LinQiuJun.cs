@@ -29,6 +29,7 @@ class LinQiuJun : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         aimCharacter.hp-=(int)percentage; 
     }
 
@@ -37,5 +38,13 @@ class LinQiuJun : AbstractAdjectives
        
     }
 
-        
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return character.wordName + "的身体开始产生一些令人作呕的分泌物，而这似乎会传播至其他人。";
+
+    }
 }

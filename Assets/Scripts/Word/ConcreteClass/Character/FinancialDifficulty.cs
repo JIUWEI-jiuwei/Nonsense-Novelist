@@ -16,7 +16,7 @@ class FinancialDifficulty : AbstractCharacter
         camp = CampEnum.enemy;
         role = gameObject.AddComponent<Bank>();
         trait=gameObject.AddComponent<NullTrait>();
-        hp=maxHP = 40;
+        hp=maxHP = 100;
         sp=maxSP = 10;
         atk = 10;
         def = 12;
@@ -24,12 +24,31 @@ class FinancialDifficulty : AbstractCharacter
         san = 2;
         criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 1.3f;
+        attackInterval = 2f;
         skillSpeed = 0;
         dodgeChance = 0;
-        attackDistance = 7;
+        attackDistance = 6;
         luckyValue = 0;
         enemyLevel = 2;
         mainSort = MainSortEnum.def;
+    }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
     }
 }

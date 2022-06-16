@@ -49,7 +49,7 @@ class LengXiangPillSkill : AbstractVerbs
         useCharacter.dizzyTime = 0;
     }
 
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)

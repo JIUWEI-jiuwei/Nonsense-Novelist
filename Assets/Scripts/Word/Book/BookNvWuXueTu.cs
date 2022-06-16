@@ -5,32 +5,8 @@ using UnityEngine;
 /// <summary>
 /// 女巫学徒转范文（挂摄像机上,每次打斗结束后调用）
 /// </summary>
-public class BookNvWuXueTu : MonoBehaviour
+class BookNvWuXueTu : AbstractBook
 {
-    /// <summary>
-    /// 主角
-    /// </summary>
-    private AbstractCharacter leadingChara;
-
-    /// <summary>
-    /// 所有角色的父物体
-    /// </summary>
-    private GameObject fatherObject;
-
-    private void Start()
-    {
-        fatherObject = GameObject.Find("panel");
-        FindLeadingChara();
-    }
-
-    /// <summary>
-    /// 获取主角
-    /// </summary>
-    private void FindLeadingChara()
-    {
-        if (leadingChara == null)
-            leadingChara = fatherObject.transform.Find("SelfCharacter").GetComponentInChildren<AbstractCharacter>();
-    }
 
     /// <summary>
     /// 调用此方法即可
@@ -39,7 +15,7 @@ public class BookNvWuXueTu : MonoBehaviour
     /// <param name="part">第1.2.幕(0为章节标题)</param>
     /// <param name="phase">1开场2战场3结束</param>
     /// <returns></returns>
-    public string GetText(int character,int part,int phase)
+    public override string GetText(int character,int part,int phase)
     {
          if (character == 0)
                 return StartText();
@@ -329,12 +305,14 @@ public class BookNvWuXueTu : MonoBehaviour
         string result = a[0];
         foreach(AbstractVerbs verb in verbs)
         {
-            if (string.IsNullOrEmpty(verb.PlaySentence())) 
+            if (string.IsNullOrEmpty(verb.UseText())) 
                 continue;
             else
-            result+=verb.PlaySentence();
+            result+=verb.UseText();
         }
         result += a[1];
+        result = beforeFightText + result + afterFightText;
+        beforeFightText = afterFightText ="";
         return result;
     }
     /// <summary>
@@ -400,11 +378,13 @@ public class BookNvWuXueTu : MonoBehaviour
         string result="";
         foreach (AbstractVerbs verb in verbs)
         {
-            if (string.IsNullOrEmpty(verb.PlaySentence()))
+            if (string.IsNullOrEmpty(verb.UseText()))
                 continue;
             else
-                result += verb.PlaySentence();
+                result += verb.UseText();
         }
+        result = beforeFightText + result + afterFightText;
+        beforeFightText = afterFightText = "";
         return result;
     }
 
@@ -465,11 +445,13 @@ public class BookNvWuXueTu : MonoBehaviour
         string result = "";
         foreach (AbstractVerbs verb in verbs)
         {
-            if (string.IsNullOrEmpty(verb.PlaySentence()))
+            if (string.IsNullOrEmpty(verb.UseText()))
                 continue;
             else
-                result += verb.PlaySentence();
+                result += verb.UseText();
         }
+        result = beforeFightText + result + afterFightText;
+        beforeFightText = afterFightText = "";
         return result;
     }
 
@@ -501,11 +483,13 @@ public class BookNvWuXueTu : MonoBehaviour
         string result = "";
         foreach (AbstractVerbs verb in verbs)
         {
-            if (string.IsNullOrEmpty(verb.PlaySentence()))
+            if (string.IsNullOrEmpty(verb.UseText()))
                 continue;
             else
-                result += verb.PlaySentence();
+                result += verb.UseText();
         }
+        result = beforeFightText + result + afterFightText;
+        beforeFightText = afterFightText = "";
         return result;
     }
 
@@ -536,11 +520,13 @@ public class BookNvWuXueTu : MonoBehaviour
         string result = "";
         foreach (AbstractVerbs verb in verbs)
         {
-            if (string.IsNullOrEmpty(verb.PlaySentence()))
+            if (string.IsNullOrEmpty(verb.UseText()))
                 continue;
             else
-                result += verb.PlaySentence();
+                result += verb.UseText();
         }
+        result = beforeFightText + result + afterFightText;
+        beforeFightText = afterFightText = "";
         return result;
     }
     /// <summary>
@@ -592,12 +578,14 @@ public class BookNvWuXueTu : MonoBehaviour
             string result = "";
             foreach (AbstractVerbs verb in verbs)
             {
-                if (string.IsNullOrEmpty(verb.PlaySentence()))
+                if (string.IsNullOrEmpty(verb.UseText()))
                     continue;
                 else
-                    result += verb.PlaySentence();
+                    result += verb.UseText();
             }
-            return result;
+        result = beforeFightText + result + afterFightText;
+        beforeFightText = afterFightText = "";
+        return result;
     }
 
     /// <summary>

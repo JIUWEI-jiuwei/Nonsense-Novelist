@@ -23,12 +23,14 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
+            AbstractBook.afterFightText += myState.character.DieText();
             //播放完动画后销毁
             Destroy(this.gameObject);
         }
         public override void EnterState(MyState0 myState)
         {
             myState.character.charaAnim.Play(AnimEnum.dead);
+            AbstractBook.afterFightText += myState.character.LowHPText();
             if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[uIManager.transAndCamera.guanQiaNum].transform.childCount <= 1)
             {
                 if (uIManager.transAndCamera.guanQiaNum == 0)

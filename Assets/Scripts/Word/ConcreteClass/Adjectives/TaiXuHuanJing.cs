@@ -49,7 +49,8 @@ class TaiXuHuanJing : AbstractAdjectives
 
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
-        aims=skillMode.CalculateAgain(attackDistance, aimCharacter.gameObject);
+        base.UseVerbs(aimCharacter);
+        aims =skillMode.CalculateAgain(attackDistance, aimCharacter.gameObject);
         foreach (GameObject aim in aims)
         {
             SpecialAbility(aim.GetComponent<AbstractCharacter>());
@@ -77,5 +78,11 @@ class TaiXuHuanJing : AbstractAdjectives
                 aimState.RemoveBuff(8);
             }
         }
+    }
+
+    public override string UseText()
+    {
+        return "只见天空中云雾大起，众人一阵恍惚，竟突然到了太虚幻境之中。";
+
     }
 }

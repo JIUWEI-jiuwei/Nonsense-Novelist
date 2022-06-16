@@ -32,4 +32,23 @@ class JiaGrandma : AbstractCharacter
         bg_text = "贾母，又称史老太君，贾府上下尊称她为“老太太”、“老祖宗”，是曹雪芹所著中国古典小说《红楼梦》中的主要角色之一，是贾府名义上的最高统治者，一生享尽荣华富贵。";
         mainSort = MainSortEnum.san;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
 }

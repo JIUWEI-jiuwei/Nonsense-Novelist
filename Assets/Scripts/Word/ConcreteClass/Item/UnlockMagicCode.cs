@@ -14,7 +14,7 @@ class UnlockMagicCode : AbstractItems
         getWay = GetWayEnum.FromStory;
         camp = CampEnum.friend;
     }
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null)

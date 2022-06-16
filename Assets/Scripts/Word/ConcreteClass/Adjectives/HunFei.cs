@@ -30,6 +30,7 @@ class HunFei : AbstractAdjectives
     /// <param name="aimCharacter"></param>
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
+        base.UseVerbs(aimCharacter);
         record = aimCharacter.psy * 0.3f;
         skillMode.UseMode(null,record,aimCharacter);
         aimCharacter.AddBuff(1);
@@ -59,4 +60,13 @@ class HunFei : AbstractAdjectives
         
     }
 
+    public override string UseText()
+    {
+        AbstractCharacter character = this.GetComponent<AbstractCharacter>();
+        if (character == null)
+            return null;
+
+        return "一阵淅淅沥沥的春雨毫无征兆地降下了，在结束后的半小时内，大群的白蚁雄性成虫飞出巢穴进行婚飞" + character.wordName + "也加入了这场盛会中。";
+
+    }
 }

@@ -99,7 +99,7 @@ class FangFuShu : AbstractVerbs
         SpecialAbility(useCharacter);
     }
 
-    public override string PlaySentence()
+    public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();
         if (character == null || aimState==null)

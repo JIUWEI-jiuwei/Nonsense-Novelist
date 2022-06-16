@@ -33,4 +33,23 @@ class LiuGrandma : AbstractCharacter
         bg_text = "刘姥姥，是曹雪芹所著中国古典文学名著《红楼梦》中人物。是一位来自乡下贫农家庭的谙于世故的老婆婆，见证了贾府兴衰荣辱的全过程。";
         mainSort = MainSortEnum.san;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
 }

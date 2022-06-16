@@ -35,4 +35,23 @@ class FamilyConflict : AbstractCharacter
         bg_text = "因与家人关系恶化而导致的苦恼";
         mainSort = MainSortEnum.san;
     }
+
+    public override string ShowText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string CriticalText(AbstractCharacter otherChara)
+    {
+        return "";
+    }
+
+    public override string LowHPText()
+    {
+        return "";
+    }
+    public override string DieText()
+    {
+        return "";
+    }
 }
