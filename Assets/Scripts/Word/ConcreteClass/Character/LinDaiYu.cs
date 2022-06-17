@@ -29,7 +29,7 @@ using UnityEngine;
         san = 3;
         criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 1.7f;
+        attackInterval = 1.3f;//ԭ1.7
         skillSpeed = 0;
         dodgeChance = 0;
         attackDistance = 7;
