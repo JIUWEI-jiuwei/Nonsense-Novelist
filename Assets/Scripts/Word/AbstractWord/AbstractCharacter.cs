@@ -32,6 +32,12 @@ abstract class AbstractCharacter : AbstractWords0
     public string criticalSpeak;
     /// <summary>人物死亡默认台词（死亡时所说的台词）</summary>
     public string deadSpeak;
+    /// <summary>特效</summary>
+    public TeXiao teXiao;
+    /// <summary>子弹(手动挂）</summary>
+    public GameObject bullet;
+    /// <summary>发出子弹 </summary>
+    public virtual void CreateBullet(GameObject aimChara) { }
 
 
     /// <summary>阵营</summary>
@@ -98,6 +104,7 @@ abstract class AbstractCharacter : AbstractWords0
 
     virtual public void Awake()
     {
+        teXiao=GetComponentInChildren<TeXiao>();
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
         charaAnim=GetComponent<CharaAnim>();

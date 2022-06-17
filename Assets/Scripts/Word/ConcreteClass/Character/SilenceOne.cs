@@ -39,6 +39,15 @@ class SilenceOne : AbstractCharacter
         mainSort = MainSortEnum.atk;
     }
 
+    public override void CreateBullet(GameObject aimChara)
+    {
+        base.CreateBullet(aimChara);
+        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject,this.transform.position,aimChara.transform.rotation );
+        DanDao danDao = bullet.GetComponent<DanDao>();
+        danDao.aim = aimChara;
+        danDao.birthTransform = this.transform;
+    }
+
     public override string ShowText(AbstractCharacter otherChara)
     {
         return "";

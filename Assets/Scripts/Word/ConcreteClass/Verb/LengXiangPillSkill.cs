@@ -33,6 +33,7 @@ class LengXiangPillSkill : AbstractVerbs
     /// <param name="useCharacter">Ê©·¨Õß</param>
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
+        useCharacter.teXiao.PlayTeXiao("LengXiangWan");
         base.UseVerbs(useCharacter);
         foreach (GameObject aim in aims)
         {

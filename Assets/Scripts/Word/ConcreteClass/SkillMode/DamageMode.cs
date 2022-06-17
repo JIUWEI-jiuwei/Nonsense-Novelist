@@ -25,6 +25,7 @@ class DamageMode : AbstractSkillMode
             if (a <= useCharacter.criticalChance * 100)//±©»÷
             {
                 value *= useCharacter.multipleCriticalStrike;
+                aimCharacter.teXiao.PlayTeXiao("BaoJi");
                 AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
             }
 

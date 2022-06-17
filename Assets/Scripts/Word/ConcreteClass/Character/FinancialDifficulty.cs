@@ -33,6 +33,15 @@ class FinancialDifficulty : AbstractCharacter
         mainSort = MainSortEnum.def;
     }
 
+    public override void CreateBullet(GameObject aimChara)
+    {
+        base.CreateBullet(aimChara);
+        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, aimChara.transform.position, aimChara.transform.rotation);
+        DanDao danDao=bullet.GetComponent<DanDao>();
+        danDao.aim = this.gameObject ;
+        danDao.birthTransform= aimChara.transform;
+    }
+
     public override string ShowText(AbstractCharacter otherChara)
     {
         return "";
