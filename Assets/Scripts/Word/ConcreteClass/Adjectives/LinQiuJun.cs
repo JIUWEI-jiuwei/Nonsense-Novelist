@@ -19,7 +19,7 @@ class LinQiuJun : AbstractAdjectives
         percentage = 10;
         skillEffectsTime = 3;
         useAtFirst = false;
-
+        description = "全称为淋病奈瑟球菌，仅寄生于人类，以性传播为主。";
     }
 
 

@@ -25,6 +25,7 @@ class CHOOHShoot : AbstractVerbs
         afterTime = 0;
         allowInterrupt = false;
         possibility = 0;
+        description = "以全力将毒腺挤压，喷射出的毒液可以腐蚀护甲。";
     }
 
 

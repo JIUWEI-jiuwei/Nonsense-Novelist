@@ -19,7 +19,7 @@ class GuanZhuangFeiYan : AbstractAdjectives
         percentage = 25;
         skillEffectsTime = 7;
         useAtFirst = true;
-
+        description = "由一种广泛存在于自然界的RNA病毒导致的肺炎，这种病毒在电子显微镜下有着如日冕般的外围，因此被称为冠状病毒。";
     }
 
 

@@ -19,7 +19,7 @@ class ChaoMinFanYing : AbstractAdjectives
         percentage = 15;
         skillEffectsTime = 1;
         useAtFirst = false;
-
+        description = "是指机体受到某些抗原刺激，如吸入性颗粒、药物、酶类物质等，出现如生理功能紊乱的异常适应性免疫应答。";
     }
 
 

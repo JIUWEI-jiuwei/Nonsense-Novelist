@@ -26,6 +26,7 @@ class TongPinGongZhen: AbstractVerbs
         afterTime = 0;
         allowInterrupt = false;
         possibility = 0;
+        description = "通过磁场的共振让周围的敌人晕眩。";
     }
 
     private AbstractCharacter aimState;//目标的抽象角色类

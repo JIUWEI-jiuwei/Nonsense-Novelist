@@ -26,6 +26,7 @@ class LengXiangPillSkill : AbstractVerbs
         afterTime = 0;
         allowInterrupt = false;
         possibility = 0;
+        description = "";
     }
     /// <summary>
     /// »ØÂúÑª
