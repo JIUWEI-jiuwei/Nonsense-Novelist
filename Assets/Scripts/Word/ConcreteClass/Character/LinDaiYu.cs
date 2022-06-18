@@ -40,6 +40,17 @@ using UnityEngine;
         mainSort = MainSortEnum.psy;
     }
 
+    public override void CreateBullet(GameObject aimChara)
+    {
+        base.CreateBullet(aimChara);
+        DanDao danDao = bullet.GetComponent<DanDao>();
+        danDao.aim = aimChara;
+        danDao.bulletSpeed = 0.5f;
+        danDao.birthTransform = this.transform;
+        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
+
+    }
+
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
