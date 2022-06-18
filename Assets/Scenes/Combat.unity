@@ -1009,6 +1009,8 @@ MonoBehaviour:
   threeStar: {fileID: 1138027071}
   oneWordTimer: 0
   oneWordTime: 20
+  oneWordTimer2: 0
+  oneWordTime2: 20
   bookDeskPanel: {fileID: 0}
   bookDeskNounPanel: {fileID: 0}
   bookDeskVerbPanel: {fileID: 0}
@@ -2411,7 +2413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -180.84003, y: -288}
+  m_AnchoredPosition: {x: -180.84009, y: -288}
   m_SizeDelta: {x: -1162.33, y: -916.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373496236
@@ -7848,6 +7850,8 @@ MonoBehaviour:
   threeStar: {fileID: 0}
   oneWordTimer: 0
   oneWordTime: 20
+  oneWordTimer2: 0
+  oneWordTime2: 20
   bookDeskPanel: {fileID: 0}
   bookDeskNounPanel: {fileID: 0}
   bookDeskVerbPanel: {fileID: 0}
@@ -9188,7 +9192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -752.99994, y: 64.65497}
+  m_AnchoredPosition: {x: -753, y: 64.65497}
   m_SizeDelta: {x: -1481.15, y: -486.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591204922
