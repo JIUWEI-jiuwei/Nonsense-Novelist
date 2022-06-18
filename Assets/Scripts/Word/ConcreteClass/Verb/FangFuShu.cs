@@ -13,6 +13,7 @@ class FangFuShu : AbstractVerbs
         skillID = 7;
         wordName = "防腐术";
         bookName = BookNameEnum.EgyptMyth;
+        description = "学会防腐术，让队友获得复活的机会，持续20秒。";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new CircleAttackSelector();
         percentage = 0;

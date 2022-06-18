@@ -12,7 +12,8 @@ class RiLunGuaZhui : AbstractItems
         wordName = "日轮挂坠";
         bookName = BookNameEnum.EgyptMyth;
         getWay = GetWayEnum.NormalWord;
-        holdEnum = HoldEnum.handSingle;
+        description = "一枚熠熠生辉的宝石，提升7点精神，增强暴击倍数。";
+        holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         camp = CampEnum.friend;
         psy = 7;

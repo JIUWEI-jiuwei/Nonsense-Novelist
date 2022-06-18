@@ -12,7 +12,7 @@ class TeaCup : AbstractItems
         wordName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
         getWay = GetWayEnum.NormalWord;
-        description = "一个相当精致的茶杯";
+        description = "一个相当精致的茶杯，提升3点意志";
         VoiceEnum = MaterialVoiceEnum.Ceram;
         camp = CampEnum.all;
         san = 3;

@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 冷香丸
+/// 服药
 /// </summary>
-class LengXiangPillSkill : AbstractVerbs
+class FuYao : AbstractVerbs
 {
     public override void Awake()
     {
         base.Awake();
         wordSort = WordSortEnum.verb;
         skillID = 5;
-        wordName = "冷香丸";
+        wordName = "服药";
         bookName = BookNameEnum.HongLouMeng;
+        description = "学会服药，恢复20点生命，解除负面效果。";
         banUse.Add(gameObject.AddComponent<Biology>());
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new CircleAttackSelector();//

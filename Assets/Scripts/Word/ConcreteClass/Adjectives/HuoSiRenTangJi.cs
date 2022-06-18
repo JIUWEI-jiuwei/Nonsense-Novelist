@@ -15,7 +15,7 @@ class HuoSiRenTangJi : AbstractAdjectives
         adjID = 2;
         wordName = "活死人汤剂";
         bookName = BookNameEnum.StudentOfWitch;
-        description = "饮下活死人汤剂能让其能够在死后重新获得一次生命，代价是灵魂变得干枯。";
+        description = "让角色获得一次复活的机会，但会失去身份和性格";
         chooseWay = ChooseWayEnum.canChoose;
         skillMode = gameObject.AddComponent<SpecialMode>();
         useAtFirst = false;

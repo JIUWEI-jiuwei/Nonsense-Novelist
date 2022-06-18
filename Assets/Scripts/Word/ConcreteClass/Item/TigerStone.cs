@@ -12,6 +12,7 @@ class TigerStone: AbstractItems
         wordName = "虎眼石";
         bookName = BookNameEnum.CrystalEnergy;
         getWay = GetWayEnum.NormalWord;
+        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
         camp = CampEnum.friend;

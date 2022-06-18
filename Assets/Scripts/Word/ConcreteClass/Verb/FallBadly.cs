@@ -13,7 +13,7 @@ class FallBadly : AbstractVerbs
         skillID = 4;
         wordName = "摔";
         bookName = BookNameEnum.HongLouMeng;
-        description = "将东西用力的摔向对方，短暂地将其砸晕";
+        description = "学会摔，造成150%攻击力的伤害，晕眩1.5秒。";
         nickname.Add("砸");
         nickname.Add("甩");
         nickname.Add("投掷");

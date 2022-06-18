@@ -12,6 +12,7 @@ class PurpleStone: AbstractItems
         wordName = "紫水晶";
         bookName = BookNameEnum.CrystalEnergy;
         getWay = GetWayEnum.NormalWord;
+        description= "一颗深紫色高洁的水晶，提升3点精神，少量增强暴击倍数。"
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
         camp = CampEnum.friend;

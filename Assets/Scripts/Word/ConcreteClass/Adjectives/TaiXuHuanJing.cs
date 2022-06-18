@@ -14,7 +14,7 @@ class TaiXuHuanJing : AbstractAdjectives
         adjID = 3;
         wordName = "太虚幻境";
         bookName = BookNameEnum.HongLouMeng;
-        description = "进入太虚幻境";
+        description = "改变场地，将攻击与精神对调，防御与意志对调，持续10秒";
         chooseWay = ChooseWayEnum.allChoose;
         skillMode = gameObject.AddComponent<PlatformMode>();
         attackDistance = 999;

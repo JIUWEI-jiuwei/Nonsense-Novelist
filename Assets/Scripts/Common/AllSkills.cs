@@ -54,7 +54,7 @@ public static class AllSkills
         
 
         //《红楼梦》添加动词词条
-        hlmList_verb.AddRange(new Type[] { typeof(BuryFlower), typeof(WritePoem), typeof(FallBadly), typeof(LengXiangPillSkill) });
+        hlmList_verb.AddRange(new Type[] { typeof(BuryFlower), typeof(WritePoem), typeof(FallBadly), typeof(FuYao) });
         //《红楼梦》添加形容词词条
         hlmList_adj.AddRange(new Type[] { typeof(TaiXuHuanJing), typeof(TouXiangQieYu)});
         //《红楼梦》添加名词词条

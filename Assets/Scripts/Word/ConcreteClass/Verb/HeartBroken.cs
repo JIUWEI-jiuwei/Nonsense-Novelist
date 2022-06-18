@@ -13,7 +13,7 @@ class HeartBroken : AbstractVerbs
         skillID = 2;
         wordName = "心碎";
         bookName = BookNameEnum.allBooks;
-        description = "爱情中的痛苦令对方心如刀绞，并精疲力竭。";
+        description = "学会心碎，造成150%精神力的魔法伤害，并让目标沮丧。";
         nickname.Add( "刺痛");
         banAim.Add(gameObject.AddComponent<Sense>());
         skillMode = gameObject.AddComponent<DamageMode>();

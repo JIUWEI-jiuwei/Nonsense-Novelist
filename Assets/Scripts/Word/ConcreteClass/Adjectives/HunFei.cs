@@ -18,7 +18,7 @@ class HunFei : AbstractAdjectives
         percentage = 0;
         skillEffectsTime = 10;
         useAtFirst = true;
-        description = "为了增强性兴奋以及雌性昆虫接受的信号，低等的双翅目昆虫会进行婚飞的群体繁殖行为。";
+        description = "提升目标30%精神力的攻击，持续10秒";
         aimState = this.GetComponent<AbstractCharacter>();//2.获取目标（挂在目标上时）
     }
 

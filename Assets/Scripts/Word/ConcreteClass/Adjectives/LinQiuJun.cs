@@ -12,6 +12,7 @@ class LinQiuJun : AbstractAdjectives
         base.Awake();
         adjID = 6;
         wordName = "淋球菌";
+        nickname.Add("淋病");
         bookName = BookNameEnum.Epidemiology;
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Biology>());
@@ -19,7 +20,7 @@ class LinQiuJun : AbstractAdjectives
         percentage = 10;
         skillEffectsTime = 3;
         useAtFirst = false;
-        description = "全称为淋病奈瑟球菌，仅寄生于人类，以性传播为主。";
+        description = "造成10点伤害";
     }
 
 

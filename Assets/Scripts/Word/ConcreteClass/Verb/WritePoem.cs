@@ -13,7 +13,7 @@ class WritePoem : AbstractVerbs
         skillID = 1;
         wordName = "赋诗";
         bookName = BookNameEnum.HongLouMeng;
-        description = "观花修竹，酌酒吟诗，好不快活。让周围的同伴受到鼓舞";
+        description = "学会赋诗，可让周围的友军亢奋，获得30%精神力的攻击加成。";
         nickname.Add("作诗");
         attackDistance = 5;
         skillMode = gameObject.AddComponent<UpATKMode>();
@@ -79,7 +79,7 @@ class WritePoem : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "被身边的美景所震撼，不由得诗性大发，颂唱起了诗歌。（登山则情满于山，观海则情溢于海，吟咏之间，吐纳珠玉之声）";
+        return character.wordName + "被身边的美景所震撼，不由得诗性大发，颂唱起了诗歌“登山则情满于山，观海则情溢于海，吟咏之间，吐纳珠玉之声”。";
 
     }
 }

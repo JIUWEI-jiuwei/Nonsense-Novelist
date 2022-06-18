@@ -18,7 +18,7 @@ class KeBanXingWei : AbstractAdjectives
         percentage = 10;
         skillEffectsTime = 7;
         useAtFirst = false;
-        description = "动物若持续处于某种环境，而这种环境无法适应它的天性，就出现一些异常行为，它们被称为刻板行为。";
+        description = "造成10点伤害，并让角色陷入沮丧，降低意志力，持续7秒";
         aimState = this.GetComponent<AbstractCharacter>();//2.获取目标（挂在目标上时）
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 冷香丸
+/// 服药
 /// </summary>
 class LengXiangPill : AbstractItems
 {
@@ -12,13 +12,13 @@ class LengXiangPill : AbstractItems
         wordName = "冷香丸";
         bookName = BookNameEnum.HongLouMeng;
         getWay = GetWayEnum.NormalWord;
-        description = "一个和尚传来的“海上仙方”，是制作相当复杂的药丸";
+        description = "一枚制作相当复杂的药丸，提升3点防御。";
         camp = CampEnum.all;
         banUse.Add(gameObject.AddComponent<Biology>());
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         camp = CampEnum.all;
-        withSkill = gameObject.AddComponent<LengXiangPillSkill>();
+        withSkill = gameObject.AddComponent<FuYao>();
 
 
     }
@@ -28,7 +28,7 @@ class LengXiangPill : AbstractItems
         if (character == null)
             return null;
 
-        return "“花蕊，露水，蜂蜜……冷香丸的配方怎么这么复杂？”" + character.wordName + "说道。";
+        return "白牡丹花蕊、白荷花花蕊、白芙蓉花蕊、白梅花花蕊......等十年未必都这样巧能做出这冷香丸呢！”" + character.wordName + "说道。";
 
     }
 }

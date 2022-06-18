@@ -12,6 +12,7 @@ class ChaoMinFanYing : AbstractAdjectives
         base.Awake();
         adjID = 7;
         wordName = "超敏反应";
+        nickname.Add ("过敏");
         bookName = BookNameEnum.Epidemiology;
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Biology>());
@@ -19,7 +20,7 @@ class ChaoMinFanYing : AbstractAdjectives
         percentage = 15;
         skillEffectsTime = 1;
         useAtFirst = false;
-        description = "是指机体受到某些抗原刺激，如吸入性颗粒、药物、酶类物质等，出现如生理功能紊乱的异常适应性免疫应答。";
+        description = "造成15点伤害";
     }
 
 

@@ -13,6 +13,7 @@ class FireBall : AbstractVerbs
         skillID = 10;
         wordName = "杂耍火球";
         bookName = BookNameEnum.StudentOfWitch;
+        description = "学会杂耍火球，造成150%精神力的伤害，晕眩0.3秒。";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange =new CircleAttackSelector();//
         percentage = 1.5f;

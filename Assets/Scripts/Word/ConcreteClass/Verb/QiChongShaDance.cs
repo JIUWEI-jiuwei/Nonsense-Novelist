@@ -13,6 +13,7 @@ class QiChongShaDance : AbstractVerbs
         skillID = 6;
         wordName = "七重纱之舞";
         bookName = BookNameEnum.Salome;
+        description = "学会七重纱之舞，让周围所有友军恢复5点魔法。";
         banUse.Add(gameObject.AddComponent<Girl>());
         skillMode = gameObject.AddComponent<SpecialMode>();
         skillMode.attackRange = new CircleAttackSelector();

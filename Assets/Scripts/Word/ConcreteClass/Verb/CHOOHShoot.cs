@@ -13,6 +13,7 @@ class CHOOHShoot : AbstractVerbs
         skillID = 7;
         wordName = "蚁酸喷射";
         bookName = BookNameEnum.PHXTwist;
+        description = "学会蚁酸喷射，造成150%攻击力的伤害，减少2点防御力。";
         attackDistance = 5;
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new CircleAttackSelector();//

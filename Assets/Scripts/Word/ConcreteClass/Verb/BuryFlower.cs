@@ -13,7 +13,7 @@ class BuryFlower : AbstractVerbs
         skillID = 3;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
-        description = "将纷纷落英聚拢于一团，并埋葬至土壤中。此举能让自己的精神更强大";
+        description = "学会葬花，释放时每次攻击都会在目标周围掉落花瓣，每瓣花提升角色1点精神。";
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillMode.attackRange = new CircleAttackSelector();//
         attackDistance = 0;

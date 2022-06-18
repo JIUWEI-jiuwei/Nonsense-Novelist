@@ -12,6 +12,7 @@ class GuanZhuangFeiYan : AbstractAdjectives
         base.Awake();
         adjID = 8;
         wordName = "冠状肺炎";
+        nickname.Add("肺炎");
         bookName = BookNameEnum.Epidemiology;
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Biology>());
@@ -19,7 +20,7 @@ class GuanZhuangFeiYan : AbstractAdjectives
         percentage = 25;
         skillEffectsTime = 7;
         useAtFirst = true;
-        description = "由一种广泛存在于自然界的RNA病毒导致的肺炎，这种病毒在电子显微镜下有着如日冕般的外围，因此被称为冠状病毒。";
+        description = "造成25点伤害";
     }
 
 

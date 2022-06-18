@@ -12,6 +12,7 @@ class WhiteStone: AbstractItems
         wordName = "白水晶";
         bookName = BookNameEnum.CrystalEnergy;
         getWay = GetWayEnum.NormalWord;
+        description = "一颗纯洁无暇的白色水晶，提升四维属性各1点。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
         camp = CampEnum.friend;

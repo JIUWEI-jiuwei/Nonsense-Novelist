@@ -12,6 +12,7 @@ class HeChenAi : AbstractAdjectives
         base.Awake();
         adjID = 5;
         wordName = "核尘埃";
+        nickname.Add("核污染");
         bookName = BookNameEnum.ElectronicGoal;
         chooseWay = ChooseWayEnum.canChoose;
         skillMode=gameObject.AddComponent<PlatformMode>();
@@ -19,7 +20,7 @@ class HeChenAi : AbstractAdjectives
         percentage = 0;
         skillEffectsTime = 10;
         useAtFirst = true;
-        description = "在发生核爆炸的地方,空气中的尘埃沾染上放射性元素,这些尘埃就被称为核尘埃，对于吸入的任何生物都将产生致命的危害。";
+        description = "改变场地，让所有人每秒受到5点伤害，持续10秒";
         aimState = this.GetComponent<AbstractCharacter>();//2.获取目标（挂在目标上时）
     }
 

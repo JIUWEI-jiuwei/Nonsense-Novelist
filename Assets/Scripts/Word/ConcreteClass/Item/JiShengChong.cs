@@ -12,6 +12,7 @@ class JiShengChong : AbstractItems
         wordName = "寄生虫";
         bookName = BookNameEnum.Epidemiology;
         getWay = GetWayEnum.NormalWord;
+        description = "寄生虫让其宿主颇为焦躁不安，降低3点防御，减少攻击速度。";
         holdEnum = HoldEnum.handSingle;
         banUse.Add(gameObject.AddComponent<Biology>());
         VoiceEnum = MaterialVoiceEnum.Meat;
