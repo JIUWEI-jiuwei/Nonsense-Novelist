@@ -48,7 +48,7 @@ class MouseDown : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
-            if(hit.collider!=null&&hit.collider.gameObject.layer==3&&isShow==false)
+            if(hit.collider!=null&&hit.collider.gameObject.tag=="character"&&isShow==false)
             {
                 //²¥·Åµã»÷ÒôÐ§
                 audioSource.Play();

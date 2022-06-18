@@ -15,6 +15,8 @@ class UIManager  : MonoBehaviour
     private static GameObject endPanel;
     /// <summary>获取章节结束面板</summary>
     public static GameObject bookEndPanel;
+    /// <summary>碰撞体射线遮挡面板</summary>
+    public static GameObject boxColliderF;
     public static LoadingScript loadingScript;
     public static AudioSource audioSource_write;
     private AudioSource audioSource_BGM;
@@ -29,6 +31,7 @@ class UIManager  : MonoBehaviour
     public GameObject[] friendParentUseless;
     public GameObject[] enemyParentsUseless;
 
+    private GameObject chapterEndPanel;
     private void Awake()
     {
         charaTransAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
@@ -38,8 +41,10 @@ class UIManager  : MonoBehaviour
         audioSource_write = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
         transAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
         audioSource_BGM = GameObject.Find("AudioSource_BGM").GetComponent<AudioSource>();
+        chapterEndPanel = GameObject.Find("ChapterEndPanel");
+        boxColliderF = GameObject.Find("boxColliderF");
 
-        for(int i = 0; i < friendParentUseless.Length; i++)
+        for (int i = 0; i < friendParentUseless.Length; i++)
         {
             friendParentF[i] = friendParentUseless[i];
         }
@@ -75,6 +80,7 @@ class UIManager  : MonoBehaviour
             {
                 //打开章节结束面板
                 bookEndPanel.transform.GetChild(0).gameObject.SetActive(true);
+                boxColliderF.transform.GetChild(0).gameObject.SetActive(true);
                 audioSource_write.Play();
                 return true;
             }
@@ -95,5 +101,12 @@ class UIManager  : MonoBehaviour
             return true;
         }
         return false;
+    }
+    /// <summary>
+    /// 章节结束界面的接下来的start按钮
+    /// </summary>
+    public void ShowEndBook()
+    {
+        chapterEndPanel.SetActive(false);
     }
 }

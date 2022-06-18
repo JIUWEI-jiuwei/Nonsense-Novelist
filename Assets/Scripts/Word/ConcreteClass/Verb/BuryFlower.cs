@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 /// <summary>
 /// 葬花
 /// </summary>
 class BuryFlower : AbstractVerbs
 {
+    private GameObject buryFlower;
     public override void Awake()
     {
         base.Awake();
@@ -26,6 +26,7 @@ class BuryFlower : AbstractVerbs
         allowInterrupt = true;
         possibility = 0;
 
+        buryFlower = GameObject.Find("BuryFlowerF").transform.GetChild(0).gameObject;
     }
 
     /// <summary>
@@ -34,10 +35,16 @@ class BuryFlower : AbstractVerbs
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
        attackState= useCharacter.gameObject.GetComponent<AI.AttackState>();
-        useChara = useCharacter;
+       useChara = useCharacter;
+        buryFlower.SetActive(true);
+        buryFlower.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(useCharacter.wordName+"大招");
+        Invoke("DaZhaoUIFalse", 2f);
        timer = 0;
+    }    
+    public void DaZhaoUIFalse()
+    {
+        buryFlower.SetActive(false);
     }
-
     private AI.AttackState attackState;//
     private int flowerNum;//花数量
     private float timer;//计时器

@@ -22,6 +22,7 @@ class TextManager : MonoBehaviour
 
     private void Start()
     {
+        //每关的文本
         //剧本标题+剧本内容
         if (characterTranslateAndCamera.chapterNum == 1 && characterTranslateAndCamera.guanQiaNum == 0)
         {//第一章第一关
@@ -49,10 +50,14 @@ class TextManager : MonoBehaviour
             levelText.text = firstText.GetText(2, 3, 1) + firstText.GetText(2, 3, 2) + firstText.GetText(2, 3, 3);
         }
 
-
+        //每章的文本
+        headline.text = firstText.GetText(2, 0, 1);
+        bookContent.text = "第二章第一幕\n\n" + firstText.GetText(2, 1, 1) +"\n"+ firstText.GetText(2, 1, 2) + "\n" + firstText.GetText(2, 1, 3)+ "\n\n"
+            + "第二章第二幕\n\n" + firstText.GetText(2, 2, 1) + "\n" + firstText.GetText(2, 2, 2) + "\n" + firstText.GetText(2, 2, 3) + "\n\n" +
+            "第二章第三幕\n\n" + firstText.GetText(2, 3, 1) + "\n" + firstText.GetText(2, 3, 2) + "\n" + firstText.GetText(2, 3, 3);
 
     }
-    private void FixedUpdate()
+   /* private void FixedUpdate()
     {
         if (num == 0)//目录
         {
@@ -74,7 +79,7 @@ class TextManager : MonoBehaviour
             back.interactable = true;
         }
 
-    }
+    }*/
     public void RightButton()
     {
         if (num < 3)

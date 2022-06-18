@@ -23,6 +23,10 @@ class ButtonManager : MonoBehaviour
     public Button getLuckyValue;
     /// <summary>选择章节</summary>
     public Button selectChapter;
+    /// <summary>第二章选择书本</summary>
+    public Button two_selectBook;
+    /// <summary>第二章接下来</summary>
+    public Button two_nextNext;
     public PanelManager panelManager;
     public Image guide;
 
@@ -202,5 +206,51 @@ class ButtonManager : MonoBehaviour
     public void DestroyGuide()
     {
         Destroy(guide);
+    }
+    /// <summary>
+    /// 选择书本按钮
+    /// </summary>
+    public void Next_SelectBook()
+    {
+        two_selectBook.interactable = true;
+        //向上动画
+        RectTransform rectTransform = two_selectBook.GetComponent<RectTransform>();
+        panelManager.AllButtonsDown(panelManager.buttons2, panelManager.g_originalY);
+        rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, panelManager.g_btnUpY, rectTransform.localPosition.z);
+
+        //panel
+        for (int i = 0; i < panelManager.buttons2.Length; i++)
+        {
+            if (panelManager.buttons2[i].name == two_selectBook.name)
+            {
+                panelManager.CloseAllPanels(panelManager.Pages2);
+                if (panelManager.Pages2[i].gameObject.activeSelf == false)
+                    panelManager.Pages2[i].gameObject.SetActive(true);
+            }
+
+        }
+    }
+    /// <summary>
+    /// 接下来按钮
+    /// </summary>
+    public void Next_NextChapter()
+    {
+        two_nextNext.interactable = true;
+        //向上动画
+        RectTransform rectTransform = two_nextNext.GetComponent<RectTransform>();
+        panelManager.AllButtonsDown(panelManager.buttons2, panelManager.g_originalY);
+        rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, panelManager.g_btnUpY, rectTransform.localPosition.z);
+
+        //panel
+        for (int i = 0; i < panelManager.buttons2.Length; i++)
+        {
+            if (panelManager.buttons2[i].name == two_nextNext.name)
+            {
+                panelManager.CloseAllPanels(panelManager.Pages2);
+                if (panelManager.Pages2[i].gameObject.activeSelf == false)
+                    panelManager.Pages2[i].gameObject.SetActive(true);
+            }
+
+        }
     }
 }

@@ -2322,31 +2322,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4608883685015147387, guid: 51d54f67ecbc08f4dbe11f085790b3ec, type: 3}
   m_PrefabInstance: {fileID: 727210754}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &727210756 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4608883685015147384, guid: 51d54f67ecbc08f4dbe11f085790b3ec, type: 3}
-  m_PrefabInstance: {fileID: 727210754}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &727210757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727210756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 1
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &761250770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4574,11 +4549,14 @@ MonoBehaviour:
   threeStar: {fileID: 0}
   oneWordTimer: 0
   oneWordTime: 20
+  oneWordTimer2: 0
+  oneWordTime2: 20
   bookDeskPanel: {fileID: 907107787}
   bookDeskNounPanel: {fileID: 0}
   bookDeskVerbPanel: {fileID: 0}
   bookDeskAdjPanel: {fileID: 0}
   hlmbookDeskPanel: {fileID: 1410707637}
+  wordNumm: 0
 --- !u!114 &1251680862
 MonoBehaviour:
   m_ObjectHideFlags: 0
