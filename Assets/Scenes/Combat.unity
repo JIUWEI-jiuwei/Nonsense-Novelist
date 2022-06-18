@@ -7319,6 +7319,7 @@ GameObject:
   - component: {fileID: 1251680858}
   - component: {fileID: 1251680859}
   - component: {fileID: 1251680860}
+  - component: {fileID: 1251680861}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -7449,6 +7450,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingSceneName: Loading_StartGame
   loadingSlider: {fileID: 0}
+--- !u!114 &1251680861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251680854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f713f3fe86951c340b0bd47884a0dadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitPanel: {fileID: 8620734904342618748, guid: f10c35ae4d542834da60aa91198b873e, type: 3}
+  canvas: {fileID: 436608657}
 --- !u!82 &1252113310 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4689650396012424966, guid: a5d51ebd7e9290c4d9065f77e37073ca, type: 3}
@@ -9114,7 +9129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -752.99994, y: 64.65497}
+  m_AnchoredPosition: {x: -753, y: 64.65497}
   m_SizeDelta: {x: -1481.15, y: -486.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591204922

@@ -464,7 +464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &266323822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &434746630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1060,7 +1060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &453518466
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4431,6 +4431,7 @@ GameObject:
   - component: {fileID: 1251680860}
   - component: {fileID: 1251680859}
   - component: {fileID: 1251680861}
+  - component: {fileID: 1251680862}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4578,6 +4579,20 @@ MonoBehaviour:
   bookDeskVerbPanel: {fileID: 0}
   bookDeskAdjPanel: {fileID: 0}
   hlmbookDeskPanel: {fileID: 1410707637}
+--- !u!114 &1251680862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251680854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f713f3fe86951c340b0bd47884a0dadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitPanel: {fileID: 8620734904342618748, guid: f10c35ae4d542834da60aa91198b873e, type: 3}
+  canvas: {fileID: 901299220}
 --- !u!1 &1254407765
 GameObject:
   m_ObjectHideFlags: 0
