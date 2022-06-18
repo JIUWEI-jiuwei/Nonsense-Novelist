@@ -36,10 +36,11 @@ class FinancialDifficulty : AbstractCharacter
     public override void CreateBullet(GameObject aimChara)
     {
         base.CreateBullet(aimChara);
+        DanDao danDao = bullet.GetComponent<DanDao>();
+        danDao.aim = this.gameObject;
+        danDao.bulletSpeed = 0.5f;
+        danDao.birthTransform = aimChara.transform;
         ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, aimChara.transform.position, aimChara.transform.rotation);
-        DanDao danDao=bullet.GetComponent<DanDao>();
-        danDao.aim = this.gameObject ;
-        danDao.birthTransform= aimChara.transform;
     }
 
     public override string ShowText(AbstractCharacter otherChara)

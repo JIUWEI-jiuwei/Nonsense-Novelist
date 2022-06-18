@@ -28,10 +28,10 @@ class DanDao: MonoBehaviour
         {
             a = false;
             StartCoroutine(Wait());
-            this.transform.LookAt( this.transform.position- aim.transform.position );
-            this.transform.Translate((aim.transform.position-this.transform.position).normalized*bulletSpeed);
+            this.transform.right=  aim.transform.position- this.transform.position;
+            this.transform.Translate((aim.transform.position-this.transform.position).normalized*bulletSpeed,Space.World);
         }
-        if(aim!=null && Vector3.Distance(this.transform.position, aim.transform.position)<2)
+        if(aim!=null && Vector3.Distance(this.transform.position, aim.transform.position)<1)
         {
             this.gameObject.SetActive(false);
         }
