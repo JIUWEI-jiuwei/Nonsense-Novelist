@@ -42,10 +42,10 @@ namespace AI
                     skill.UseVerbs(myState.character); 
                 }
             }
-            a = canA(myState);
             //如果没有技能在使用&&平A冷却完毕
             if ( canA(myState) && attackAtime >= myState.character.attackInterval)
             {
+                myState.character.CreateBullet(myState.aim.gameObject);
                 attackAtime = 0;
                 if (myState.aim != null)
                 {
@@ -60,7 +60,6 @@ namespace AI
             }
         }
 
-        public bool a;
         /// <summary>
         /// 是否能平A
         /// </summary>
