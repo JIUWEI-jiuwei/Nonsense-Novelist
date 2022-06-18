@@ -16,7 +16,9 @@ class EntryDrawBox : MonoBehaviour
     /// <summary>词条盒子加载的三颗星</summary>
     public Image threeStar;
     public float oneWordTimer = 0f;
-    public float oneWordTime = 20f;
+    public float oneWordTime = 6f;
+    public float oneWordTimer2 = 0f;
+    public float oneWordTime2 = 20f;
 
     /// <summary>书桌界面父panel</summary>
     public Transform bookDeskPanel;
@@ -39,6 +41,9 @@ class EntryDrawBox : MonoBehaviour
     private bool boxFirst = false;
     /// <summary>box按钮第一次点击</summary>
     private bool hlmFirst = false;
+    /// <summary>CD加载满，点击能否生成词条</summary>
+    //public bool isCreateWord = false;
+    public int wordNumm = 0;
 
     //加载初始六个词条
     private void Start()
@@ -71,37 +76,48 @@ class EntryDrawBox : MonoBehaviour
             oneWordTimer += Time.deltaTime;
             if (oneWordTimer <= oneWordTime)
             {
-                threeStar.GetComponent<Image>().fillAmount = (float)(oneWordTimer / oneWordTime);
+                if (wordNumm == 0)
+                {
+                    threeStar.GetComponent<Image>().fillAmount = (float)(oneWordTimer / oneWordTime);
+                }
+                else
+                {
+                    threeStar.GetComponent<Image>().fillAmount = 1;
+                }
                 return;
             }
-            CreateOneWord();
-            oneWordTimer = 0f;
+            else
+            {
+                if (wordNumm < 3)
+                {
+                    wordNumm++;
+                }
+                oneWordTimer = 0f;
+            }
+            
         }
     }
-    /// <summary>
-    /// 点击抽奖盒，生成词条
-    /// </summary>
-    /*public void OnDrawBox()
-    {
-        CreateOneWord();
-    }*/
 
-    private void CreateOneWord()
+    public void CreateOneWord()
     {
-        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+        if (wordNumm>0)
         {
-            if (canvas.name == "MainCanvas")
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
-                if (parentTF.childCount < wordNum)
+                if (canvas.name == "MainCanvas")
                 {
-                    GameObject word = Instantiate(wordPrefab, canvas.transform);
-                    Type absWord = AllSkills.OnDrawBox();
-                    word.AddComponent(absWord);
-                    word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
-                    word.transform.SetParent(parentTF);
+                    if (parentTF.childCount < wordNum)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.OnDrawBox();
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(parentTF);
+                    }
                 }
             }
-        }
+            wordNumm--;
+        }        
     }
 
     /// <summary>
