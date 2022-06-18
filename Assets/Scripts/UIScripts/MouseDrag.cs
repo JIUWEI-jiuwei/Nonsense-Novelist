@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 ///<summary>
 ///鼠标拖拽
 ///</summary>
@@ -29,13 +30,16 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     private Transform parentCircleTF;
     /// <summary>音效summary>
     private AudioSource audioSource;
-
+    /// <summary>词条详情</summary>
+    public GameObject wordDetail;
+    private GameObject otherCanvas;
 
     private void Start()
     {
         rectTrans = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         absWord = GetComponent<AbstractWords0>();
+        otherCanvas = GameObject.Find("MainCanvas");
         FindGrid();
         if (SceneManager.GetActiveScene().name == "Combat")
         {
@@ -134,4 +138,16 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             }
         }       
     }
+    /// <summary>
+    /// 查看词条详细信息
+    /// </summary>
+    public void ShowDetails()
+    {
+        //获取背景板
+        Transform a = Instantiate(wordDetail, otherCanvas.transform).transform.GetChild(0).GetChild(0);
+        a.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().wordName;
+        a.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().description;
+        Time.timeScale = 0;
+    }
+    
 }

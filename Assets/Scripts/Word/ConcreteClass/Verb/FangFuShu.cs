@@ -25,6 +25,7 @@ class FangFuShu : AbstractVerbs
         afterTime = 0;
         allowInterrupt = false;
         possibility = 0;
+        description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
 
         aimState = this.GetComponent<AI.MyState0>();//2.获取目标（挂在目标上时）
         if (aimState != null)

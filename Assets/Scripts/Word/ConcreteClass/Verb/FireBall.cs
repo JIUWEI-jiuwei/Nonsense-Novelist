@@ -26,6 +26,7 @@ class FireBall : AbstractVerbs
         afterTime = 0;
         allowInterrupt = false;
         possibility = 0;
+        description = "花哨且伤害不俗的杂技把戏。";
     }
 
     private AbstractCharacter aimState;//目标的抽象角色类

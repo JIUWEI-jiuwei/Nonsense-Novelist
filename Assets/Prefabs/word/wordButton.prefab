@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1521130098290264856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1411279180504818101}
+        m_TargetAssemblyTypeName: MouseDrag, Assembly-CSharp
+        m_MethodName: ShowDetails
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-1411279180504818101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjCircle: {fileID: 4779722991591403582, guid: 21a802c9a8cd17c43a80dc4b79ca5350, type: 3}
   verbCircle: {fileID: 5853230062163265091, guid: cd31f47e1cf727e45a2c2a7f4beb6a5f, type: 3}
-  audioSource: {fileID: 6738959010499471553, guid: 07b133d76ad82624eaf93e6c8b26b013, type: 3}
+  wordDetail: {fileID: 2319299451587575612, guid: 25978335775c86c42a57b582327aa2b0, type: 3}
 --- !u!225 &-6948586656844970443
 CanvasGroup:
   m_ObjectHideFlags: 0

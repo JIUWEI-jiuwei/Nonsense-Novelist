@@ -26,6 +26,7 @@ class QiChongShaDance : AbstractVerbs
         afterTime = 0;
         allowInterrupt = false;
         possibility = 0;
+        description = "每一重都会卸下一层薄纱的迷人舞蹈，让周围的友军充满力量。";
     }
     /// <summary>
     /// 让所有友军回复5点SP

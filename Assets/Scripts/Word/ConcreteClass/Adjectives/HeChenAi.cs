@@ -19,7 +19,7 @@ class HeChenAi : AbstractAdjectives
         percentage = 0;
         skillEffectsTime = 10;
         useAtFirst = true;
-
+        description = "在发生核爆炸的地方,空气中的尘埃沾染上放射性元素,这些尘埃就被称为核尘埃，对于吸入的任何生物都将产生致命的危害。";
         aimState = this.GetComponent<AbstractCharacter>();//2.获取目标（挂在目标上时）
     }
 
