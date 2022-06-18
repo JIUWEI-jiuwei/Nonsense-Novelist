@@ -35,6 +35,10 @@ class DanDao: MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+        if(!a && aim==null)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     IEnumerator Wait()
