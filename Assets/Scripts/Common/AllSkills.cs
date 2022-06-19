@@ -27,6 +27,18 @@ public static class AllSkills
     /// <summary>红楼梦全部词条</summary>
     public static List<Type> hlmList_all = new List<Type>();
 
+    /// <summary>动物园全部词条</summary>
+    public static List<Type> animalList_all = new List<Type>();
+    /// <summary>仿生人全部词条</summary>
+    public static List<Type> humanList_all = new List<Type>();
+    /// <summary>水晶能量全部词条</summary>
+    public static List<Type> crystalList_all = new List<Type>();
+    /// <summary>女巫学徒全部词条</summary>
+    public static List<Type> nvwuList_all = new List<Type>();
+    /// <summary>战斗界面全部词条</summary>
+    public static List<Type> combatList_all = new List<Type>();
+
+
     /// <summary>6个初始词条</summary>
     public static Type[] absWords = new Type[6];
     /// <summary>
@@ -36,7 +48,7 @@ public static class AllSkills
     {       
         //添加动词词条
         list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),           
-           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen) });
+           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen),typeof(FireBall) });
         //添加形容词词条
         list_adj.AddRange(new Type[] {  typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
             typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
@@ -52,9 +64,10 @@ public static class AllSkills
         list.AddRange(list_verb);
         list.AddRange(list_adj);
         
+        
 
         //《红楼梦》添加动词词条
-        hlmList_verb.AddRange(new Type[] { typeof(BuryFlower), typeof(WritePoem), typeof(FallBadly), typeof(FuYao) });
+        hlmList_verb.AddRange(new Type[] { typeof(BuryFlower), typeof(WritePoem), typeof(FallBadly)});
         //《红楼梦》添加形容词词条
         hlmList_adj.AddRange(new Type[] { typeof(TaiXuHuanJing), typeof(TouXiangQieYu)});
         //《红楼梦》添加名词词条
@@ -63,7 +76,18 @@ public static class AllSkills
         hlmList_all.AddRange(hlmList_verb);
         hlmList_all.AddRange(hlmList_adj);
         hlmList_all.AddRange(hlmList_noun);
+        
+        /// <summary>动物园全部词条</summary>
+        animalList_all.AddRange(new Type[] { typeof(KeBanXingWei) });
+        /// <summary>仿生人全部词条</summary>
+        humanList_all.AddRange(new Type[] { typeof(HeChenAi) });// typeof(Nexus6Arm),
+        /// <summary>水晶能量全部词条</summary>
+        crystalList_all.AddRange(new Type[] { typeof(TongPinGongZhen) });//, typeof(PinkStone), typeof(PurpleStone), typeof(TigerStone), typeof(WhiteStone)
+        /// <summary>女巫学徒全部词条</summary>
+        nvwuList_all.AddRange(new Type[] { typeof(FireBall)});//, typeof(UnlockMagicCode), typeof(NoteFragment) 
 
+        /// <summary>战斗界面全部词条</summary>
+        combatList_all.AddRange(nvwuList_all);
     }
     /// <summary>
     /// 静态随机生成技能
@@ -125,6 +149,33 @@ public static class AllSkills
     public static Type HLMWords(int i)
     {
         return hlmList_all[i];
+    }
+    /// <summary>
+    /// 返回《仿生人》中的全部词条
+    /// </summary>
+    /// <param name="i"></param>
+    /// <returns></returns>
+    public static Type HumanWords(int i)
+    {
+        return humanList_all[i];
+    }
+    /// <summary>
+    /// 返回《动物园》中的全部词条
+    /// </summary>
+    /// <param name="i"></param>
+    /// <returns></returns>
+    public static Type AnimalZooWords(int i)
+    {
+        return animalList_all[i];
+    }
+    /// <summary>
+    /// 返回《水晶能量》中的全部词条
+    /// </summary>
+    /// <param name="i"></param>
+    /// <returns></returns>
+    public static Type CrystalWords(int i)
+    {
+        return crystalList_all[i];
     }
 
 }

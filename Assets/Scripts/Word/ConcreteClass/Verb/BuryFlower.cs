@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /// <summary>
 /// 葬花
 /// </summary>
@@ -25,8 +26,10 @@ class BuryFlower : AbstractVerbs
         afterTime = 0;
         allowInterrupt = true;
         possibility = 0;
-
-        buryFlower = GameObject.Find("BuryFlowerF").transform.GetChild(0).gameObject;
+        if (SceneManager.GetActiveScene().name == "Combat")
+        {
+            buryFlower = GameObject.Find("BuryFlowerF").transform.GetChild(0).gameObject;
+        }
     }
 
     /// <summary>
@@ -91,5 +94,13 @@ class BuryFlower : AbstractVerbs
         return "林间盛开的桃花随轻风飘落在地。\n"+character.wordName+"将飘落在地的桃花聚拢成团，并将其埋葬，为其哀悼。“花谢花飞花满天，红香消断有谁怜？”";
 
     }
-
+    /// <summary>
+    /// 造成150%攻击力的伤害
+    /// </summary>
+    /// <param name="useCharacter">施法者</param>
+    public override void UseVerbs(AbstractCharacter useCharacter)
+    {
+        base.UseVerbs(useCharacter);
+        SpecialAbility(useCharacter);
+    }
 }

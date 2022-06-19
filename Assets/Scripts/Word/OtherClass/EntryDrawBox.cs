@@ -30,6 +30,14 @@ class EntryDrawBox : MonoBehaviour
     public Transform bookDeskAdjPanel;
     /// <summary>书桌界面形容词父panel</summary>
     public Transform hlmbookDeskPanel;
+    /// <summary>书桌界面仿生人父panel</summary>
+    public Transform bookDeskHumanPanel;
+    /// <summary>书桌界面动物园父panel</summary>
+    public Transform bookDeskAnimalPanel;
+    /// <summary>书桌界面水晶能量父panel</summary>
+    public Transform bookDeskCrystalPanel;
+    /// <summary>书桌界面查看词库父panel</summary>
+    public Transform bookDeskCombatPanel;
 
     /// <summary>名词按钮第一次点击</summary>
     private bool nounFirst = false;
@@ -39,8 +47,16 @@ class EntryDrawBox : MonoBehaviour
     private bool adjFirst = false;
     /// <summary>box按钮第一次点击</summary>
     private bool boxFirst = false;
-    /// <summary>box按钮第一次点击</summary>
+    /// <summary>红楼梦按钮第一次点击</summary>
     private bool hlmFirst = false;
+    /// <summary>仿生人按钮第一次点击</summary>
+    private bool humanFirst = false;
+    /// <summary>动物园按钮第一次点击</summary>
+    private bool animalFirst = false;
+    /// <summary>水晶能量按钮第一次点击</summary>
+    private bool crystalFirst = false;
+    /// <summary>水晶能量按钮第一次点击</summary>
+    private bool combatAllFirst = false;
     /// <summary>CD加载满，点击能否生成词条</summary>
     //public bool isCreateWord = false;
     public int wordNumm = 0;
@@ -261,4 +277,101 @@ class EntryDrawBox : MonoBehaviour
             }
         }        
     }
+    /// <summary>
+    /// 书桌界面《仿生人》词条
+    /// </summary>
+    public void BookDeskHumanWords()
+    {
+        if (humanFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
+                {
+                    for (int i = 0; i < AllSkills.humanList_all.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.HumanWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskHumanPanel);
+                    }
+                }
+                humanFirst = true;
+            }
+        }        
+    }
+    /// <summary>
+    /// 书桌界面《动物园》词条
+    /// </summary>
+    public void BookDeskAnimalWords()
+    {
+        if (animalFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
+                {
+                    for (int i = 0; i < AllSkills.animalList_all.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.AnimalZooWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskAnimalPanel);
+                    }
+                }
+                animalFirst = true;
+            }
+        }        
+    }
+    /// <summary>
+    /// 书桌界面《水晶能量》词条
+    /// </summary>
+    public void BookDeskCrystalWords()
+    {
+        if (crystalFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
+                {
+                    for (int i = 0; i < AllSkills.crystalList_all.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.CrystalWords(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskCrystalPanel);
+                    }
+                }
+                crystalFirst = true;
+            }
+        }        
+    }
+    /// <summary>
+    /// 书桌界面查看战斗词库的全部词条
+    /// </summary>
+    public void BookDeskCombatAllWords()
+    {
+        if (combatAllFirst == false)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
+                {
+                    for (int i = 0; i < AllSkills.list.Count; i++)
+                    {
+                        GameObject word = Instantiate(wordPrefab, canvas.transform);
+                        Type absWord = AllSkills.TestBox(i);
+                        word.AddComponent(absWord);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.transform.SetParent(bookDeskCombatPanel);
+                    }
+                }
+                combatAllFirst = true;
+            }
+        }        
+    }
+
 }

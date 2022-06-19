@@ -30,6 +30,8 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     private Transform parentCircleTF;
     /// <summary>音效summary>
     private AudioSource audioSource;
+    /// <summary>音效summary>
+    private AudioSource audioSource_cantuse;
     /// <summary>词条详情</summary>
     public GameObject wordDetail;
     private GameObject otherCanvas;
@@ -44,6 +46,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         if (SceneManager.GetActiveScene().name == "Combat")
         {
             audioSource = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
+            audioSource_cantuse = GameObject.Find("AudioSource_CantUse").GetComponent<AudioSource>();
         }
     }
     /// <summary>
@@ -91,26 +94,81 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
             {
                 //播放词条拖拽上去的音效
                 audioSource.Play();
-                
+                AbstractCharacter character = hit.collider.gameObject.GetComponent<AbstractCharacter>();
+
                 //判断该词条是形容词还是动词
                 if (absWord.wordSort == WordSortEnum.verb)
                 {
-                    //将词条身上的动词技能组件添加到角色身上
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
-                    hit.collider.gameObject.AddComponent(b.GetType());
-                    AbstractCharacter character = hit.collider.gameObject.GetComponent<AbstractCharacter>();
-                    character.skills.Add(b);
-                    character.realSkills = character.GetComponents<AbstractVerbs>();
+                    
+                    if(CanUseVerb(character, b))//如果能够使用到角色身上
+                    {
+                        hit.collider.gameObject.AddComponent(b.GetType());
+                        character.skills.Add(b);
+                        character.realSkills = character.GetComponents<AbstractVerbs>();
+                        Destroy(this.gameObject);
+                    }
+                    else//不能
+                    {
+                        audioSource_cantuse.Play();
+                    }
                 }
                 else if (absWord.wordSort == WordSortEnum.adj)
                 {
-                    this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
+                    if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
+                    {
+                        this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
+                        Destroy(this.gameObject);
+                    }
+                    else
+                    {
+                        audioSource_cantuse.Play();
+                    }
                 }
-                Destroy(this.gameObject);
             }
         }
-
     }
+    /// <summary>
+    /// 检查目标角色限制（动词）
+    /// </summary>
+    public bool CanUseVerb(AbstractCharacter aimChara,AbstractVerbs verb)
+    {
+        foreach(AbstractRoleLimit roleLimit in verb.banUse)
+        {
+            foreach(AbstractRole role in roleLimit.banRole)
+            {
+                if (aimChara.role == role)
+                    return false;
+            }
+            foreach (GenderEnum gender in roleLimit.banGender)
+            {
+                if (aimChara.gender == gender)
+                    return false;
+            }
+        }
+        return true;
+    }
+    /// <summary>
+    /// 检查目标角色限制（形容词）
+    /// </summary>
+    public bool CanUseAdj(AbstractCharacter aimChara, AbstractAdjectives adj)
+    {
+        foreach(AbstractRoleLimit roleLimit in adj.banAim)
+        {
+            foreach (AbstractRole role in roleLimit.banRole)
+            {
+                if (aimChara.role == role)
+                    return false;
+            }
+            foreach (GenderEnum gender in roleLimit.banGender)
+            {
+                if (aimChara.gender == gender)
+                    return false;
+            }
+        }
+        return true;
+    }
+
     /// <summary>
     /// 将词条位置与卡槽位置相匹配
     /// </summary>
