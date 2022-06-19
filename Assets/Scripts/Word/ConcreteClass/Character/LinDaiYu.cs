@@ -21,7 +21,7 @@ using UnityEngine;
         camp = CampEnum.friend;
         role = gameObject.AddComponent<Noble>();
         trait = gameObject.AddComponent<Sentimental>();
-        hp =maxHP  = 800;
+        hp =maxHP  = 80;
         sp=maxSP = 40;
         atk = 7;
         def = 2;
