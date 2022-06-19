@@ -241,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8792533845088263388
 Transform:
   m_ObjectHideFlags: 0
@@ -613,6 +613,14 @@ PrefabInstance:
     - target: {fileID: 6051212354406734208, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_Name
       value: HumanTeXIao
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_Size.x
+      value: 4.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_Size.y
+      value: 8.14
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_RootOrder

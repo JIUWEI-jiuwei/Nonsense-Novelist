@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 2412674331984132232}
   m_Layer: 3
   m_Name: LinDaiYu
-  m_TagString: Untagged
+  m_TagString: character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   criticalSpeak: 
   deadSpeak: 
   teXiao: {fileID: 0}
+  bullet: {fileID: 7617887590883620401, guid: c53e15fe0150c9d428a6254f04e23faf, type: 3}
   camp: 1
   role: {fileID: 0}
   trait: {fileID: 0}
@@ -688,6 +689,14 @@ PrefabInstance:
       value: HumanTeXIao
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_Size.x
+      value: 4.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_Size.y
+      value: 8.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
@@ -696,12 +705,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.29
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalPosition.z

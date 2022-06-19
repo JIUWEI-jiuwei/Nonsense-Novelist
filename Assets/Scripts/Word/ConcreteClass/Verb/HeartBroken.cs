@@ -41,6 +41,7 @@ class HeartBroken : AbstractVerbs
         foreach (GameObject aim in aims)
         {
             aimState = aim.GetComponent<AbstractCharacter>();
+            aimState.teXiao.PlayTeXiao("LengXiangWan");
             skillMode.UseMode(useCharacter,aim.GetComponent<AbstractCharacter>().psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
         }
         SpecialAbility(useCharacter);

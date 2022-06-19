@@ -35,6 +35,7 @@ class QiChongShaDance : AbstractVerbs
     /// <param name="useCharacter">Ê©·¨Õß</param>
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
+        useCharacter.teXiao.PlayTeXiao("QiChongShaZhiWu");
         base.UseVerbs(useCharacter);
         foreach (GameObject aim in aims)
         {
