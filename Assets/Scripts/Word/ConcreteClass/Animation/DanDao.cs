@@ -35,7 +35,7 @@ class DanDao: MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        if(!a && aim==null)
+        if( aim==null)
         {
             this.gameObject.SetActive(false);
         }

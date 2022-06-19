@@ -31,7 +31,7 @@ class UIManager  : MonoBehaviour
     public GameObject[] friendParentUseless;
     public GameObject[] enemyParentsUseless;
 
-    private GameObject chapterEndPanel;
+    public GameObject chapterEndPanel;
     private void Awake()
     {
         charaTransAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
@@ -41,7 +41,7 @@ class UIManager  : MonoBehaviour
         audioSource_write = GameObject.Find("AudioSource_wirte").GetComponent<AudioSource>();
         transAndCamera = GameObject.Find("MainCamera").GetComponent<CharacterTranslateAndCamera>();
         audioSource_BGM = GameObject.Find("AudioSource_BGM").GetComponent<AudioSource>();
-        chapterEndPanel = GameObject.Find("ChapterEndPanel");
+        //chapterEndPanel = GameObject.Find("ChapterEndPanel");
         boxColliderF = GameObject.Find("boxColliderF");
 
         for (int i = 0; i < friendParentUseless.Length; i++)
