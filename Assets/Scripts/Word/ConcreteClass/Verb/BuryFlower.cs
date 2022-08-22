@@ -40,7 +40,7 @@ class BuryFlower : AbstractVerbs
        attackState= useCharacter.gameObject.GetComponent<AI.AttackState>();
        useChara = useCharacter;
         buryFlower.SetActive(true);
-        buryFlower.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(useCharacter.wordName+"¥Û’–");
+        buryFlower.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + useCharacter.wordName+"¥Û’–");
         Invoke("DaZhaoUIFalse", 2f);
        timer = 0;
     }    

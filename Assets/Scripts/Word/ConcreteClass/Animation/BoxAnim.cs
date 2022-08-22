@@ -111,7 +111,7 @@ class BoxAnim : MonoBehaviour
                         AllSkills.absWords[i] = absWord;
                         word.AddComponent(absWord);
                         //让button的text显示技能文字
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(parentTF);
                     }
                 }
