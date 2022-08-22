@@ -8,17 +8,17 @@ using UnityEngine.UI;
 /// </summary>
 abstract class AbstractWords0 : MonoBehaviour
 {
-    /// <summary>�����飨ȫ�鼮Ϊ0�� </summary>
+    /// <summary>所属数目</summary>
     public BookNameEnum bookName;
-    /// <summary>�ʵ�����(���壩</summary>
+    /// <summary>名称（词汇本体）</summary>
     public string wordName;
-    /// <summary>ͼ��/ͷ�� </summary>
+    /// <summary>图标/头像</summary>
     public Image pattern;
-    /// <summary>�������������У�</summary>
+    /// <summary>简介</summary>
     public string brief;
-    /// <summary>��ϸ����</summary>
+    /// <summary>详细描述</summary>
     public string description;
-    /// <summary>��ƣ������ı�ʱ���ʹ�ã�</summary>
+    /// <summary>别称</summary>
     public List<string> nickname=new List<string>();
 
     /// <summary>

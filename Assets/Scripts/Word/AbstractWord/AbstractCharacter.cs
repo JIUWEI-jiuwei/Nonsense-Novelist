@@ -24,6 +24,8 @@ abstract class AbstractCharacter : AbstractWords0
     /// <summary>走路音效（手动拖拽）</summary>
     public AudioClip walkAudio;
 
+    /// <summary>生平详细描述</summary>
+    public string bg_text;
     /// <summary>时代（用于文本）</summary>
     public string epoch;
     /// <summary>地区（用于文本）</summary>
@@ -99,8 +101,7 @@ abstract class AbstractCharacter : AbstractWords0
     public Dictionary<int,int> buffs;
     /// <summary>重要之人序号</summary>
     public List<int> importantNum=new List<int>();
-    /// <summary>生平详细描述</summary>
-    public string bg_text; 
+    
 
     virtual public void Awake()
     {
