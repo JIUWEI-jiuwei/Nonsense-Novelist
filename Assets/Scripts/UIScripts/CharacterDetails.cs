@@ -28,7 +28,7 @@ class CharacterDetails : MonoBehaviour
         {
             GameObject a = Instantiate(imagePrefab);
             importantImage.Add(a);
-            importantImage[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("head" + mouseDown.abschara.importantNum[i].ToString());
+            importantImage[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + "head" + mouseDown.abschara.importantNum[i].ToString());
             importantImage[i].transform.SetParent(importantPanel.transform);
             a.transform.localScale = new Vector3(1, 1, 1);//必须放在SetParent后面
         }
@@ -38,8 +38,8 @@ class CharacterDetails : MonoBehaviour
         texts3[2].text = mouseDown.abschara.brief;
 
         //角色名和图片
-        charaName.sprite = Resources.Load<Sprite>("Character_"+mouseDown.abschara.wordName);
-        charaImage.sprite = Resources.Load<Sprite>(mouseDown.abschara.wordName);
+        charaName.sprite = Resources.Load<Sprite>("FirstStageLoad/" + "Character_" + mouseDown.abschara.wordName);
+        charaImage.sprite = Resources.Load<Sprite>("FirstStageLoad/" + mouseDown.abschara.wordName);
 
         //状态面板
         texts4[0].text= mouseDown.absTrait.traitName;

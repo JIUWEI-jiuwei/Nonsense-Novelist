@@ -76,7 +76,7 @@ class EntryDrawBox : MonoBehaviour
                         word.AddComponent(AllSkills.absWords[i]);
                         if (word.GetComponent<AbstractWords0>() != null)
                         {
-                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         }
                         word.transform.SetParent(parentTF);
                     }
@@ -127,7 +127,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.OnDrawBox();
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(parentTF);
                     }
                 }
@@ -150,7 +150,7 @@ class EntryDrawBox : MonoBehaviour
                     GameObject word = Instantiate(wordPrefab, canvas.transform);
                     Type absWord = AllSkills.TestBox(i);
                     word.AddComponent(absWord);
-                    word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                    word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                     word.transform.SetParent(parentTF);
                 }
             }
@@ -172,7 +172,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.AllWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskPanel);
                     }
                 }
@@ -196,7 +196,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.AllNounWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskNounPanel);
                     }
                 }
@@ -220,7 +220,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.AllVerbWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskVerbPanel);
                     }
                 }
@@ -244,7 +244,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.AllAdjWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskAdjPanel);
                     }
                 }
@@ -269,7 +269,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.HLMWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(hlmbookDeskPanel);
                     }
                 }
@@ -293,7 +293,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.HumanWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskHumanPanel);
                     }
                 }
@@ -317,7 +317,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.AnimalZooWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskAnimalPanel);
                     }
                 }
@@ -341,7 +341,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.CrystalWords(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskCrystalPanel);
                     }
                 }
@@ -365,7 +365,7 @@ class EntryDrawBox : MonoBehaviour
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.TestBox(i);
                         word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>(word.GetComponent<AbstractWords0>().wordName);
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
                         word.transform.SetParent(bookDeskCombatPanel);
                     }
                 }

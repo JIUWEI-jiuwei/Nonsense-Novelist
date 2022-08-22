@@ -31,7 +31,7 @@ class FireBall : AbstractVerbs
         possibility = 0;
         description = "花哨且伤害不俗的杂技把戏。";
 
-        bullet = Resources.Load<GameObject>("bullet/Fireball_bullet");
+        bullet = Resources.Load<GameObject>("FirstStageLoad/" + "bullet/Fireball_bullet");
     }
 
     private AbstractCharacter aimState;//目标的抽象角色类
