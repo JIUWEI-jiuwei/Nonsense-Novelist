@@ -15,7 +15,6 @@ class Exoskeleton : AbstractItems
         description = "厚厚的几丁质外壳能保护其主人，提升3点防御，15%闪避几率。";
         holdEnum = HoldEnum.clothes;
         VoiceEnum = MaterialVoiceEnum.Meat;
-        camp = CampEnum.friend;
         def=3;
         dodgeChance = 0.15f;
     }

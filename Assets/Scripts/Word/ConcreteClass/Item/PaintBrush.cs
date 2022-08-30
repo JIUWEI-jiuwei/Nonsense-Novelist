@@ -15,6 +15,5 @@ class PaintBrush : AbstractItems
         nickname.Add("± À¢");
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Soft;
-        camp = CampEnum.all;
     }
 }

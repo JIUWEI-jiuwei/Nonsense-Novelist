@@ -17,7 +17,6 @@ class SilenceOne : AbstractCharacter
         description = "一个强大的，无法绕开的敌人";
         criticalSpeak = "嗯……";
         deadSpeak = "嗯……？！";
-        camp = CampEnum.enemy;
         role = gameObject.AddComponent<OldEnemy>();
         trait=gameObject.AddComponent<Pride>();
         hp=maxHP = 300;

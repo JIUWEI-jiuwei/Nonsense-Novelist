@@ -14,10 +14,8 @@ class NoteFragment : AbstractItems
         getWay = GetWayEnum.FromStory;
         description = "记载了一些德洛瑞斯写的笔记，提升5点精神。";
         nickname.Add("笔记本");
-        camp = CampEnum.all;
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Book;
-        camp = CampEnum.friend;
         withSkill = gameObject.AddComponent<FireBall>();
         psy = 5;
     }

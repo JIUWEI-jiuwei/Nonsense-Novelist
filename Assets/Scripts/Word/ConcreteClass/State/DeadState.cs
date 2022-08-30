@@ -27,10 +27,13 @@ namespace AI
             //播放完动画后销毁
             Destroy(this.gameObject);
         }
+
         public override void EnterState(MyState0 myState)
         {
             myState.character.charaAnim.Play(AnimEnum.dead);
             AbstractBook.afterFightText += myState.character.LowHPText();
+            //结束
+            /*
             if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[uIManager.transAndCamera.guanQiaNum].transform.childCount <= 1)
             {
                 if (uIManager.transAndCamera.guanQiaNum == 0)
@@ -57,8 +60,9 @@ namespace AI
                 {
                     UIManager.WinEnd();
                 }
-            }
-            else if (myState.character.camp == CampEnum.friend)
+            }*/
+            if (myState.character.camp == CampEnum.friend)
+            // if (myState.character.camp == CampEnum.friend)
             {
                 UIManager.LoseEnd();
             }

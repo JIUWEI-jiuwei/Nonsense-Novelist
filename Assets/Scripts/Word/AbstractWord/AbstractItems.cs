@@ -13,8 +13,6 @@ abstract class AbstractItems : AbstractWords0
     public GetWayEnum getWay;
     /// <summary>物品对应战场形象</summary>
     public GameObject obj;
-    /// <summary>物品目标阵营(如某些物品不能给敌方)【不用】</summary>
-    public CampEnum camp;
     /// <summary>物品目标身份限制（谁不能使用） </summary>
     public List<AbstractRoleLimit> banUse=new List<AbstractRoleLimit>();
     /// <summary>持有方式</summary>

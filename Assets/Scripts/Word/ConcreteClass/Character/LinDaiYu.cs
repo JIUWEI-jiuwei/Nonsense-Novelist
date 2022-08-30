@@ -18,7 +18,6 @@ using UnityEngine;
         nickname.Add("林姑娘");
         criticalSpeak = "花谢花飞花满天";
         deadSpeak = "红消香断有谁怜？";
-        camp = CampEnum.friend;
         role = gameObject.AddComponent<Noble>();
         trait = gameObject.AddComponent<Sentimental>();
         hp =maxHP  = 80;

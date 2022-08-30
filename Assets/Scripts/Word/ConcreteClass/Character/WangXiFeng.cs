@@ -14,7 +14,6 @@ class WangXiFeng : AbstractCharacter
         brief = "《红楼梦》中一位泼辣且极具备能力的女人。";
         criticalSpeak = "你这赖狗扶不上墙的种子";
         deadSpeak = "纵我机关算尽……";
-        camp = CampEnum.all;
         trait = gameObject.AddComponent<Spicy>();
         role = gameObject.AddComponent<Parents>();
         hp=maxHP = 120;
@@ -61,8 +60,4 @@ class WangXiFeng : AbstractCharacter
             return null;
     }
 
-    private void Start()
-    {
-        camp = CampEnum.friend;
-    }
 }

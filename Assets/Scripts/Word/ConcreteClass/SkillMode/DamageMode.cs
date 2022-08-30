@@ -62,14 +62,7 @@ class DamageMode : AbstractSkillMode
         GameObject[] a = base.CalculateAgain(attackDistance, character);
         if (a != null)
         {
-            if (camp == CampEnum.enemy)
-            {
-                a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.friend);
-            }
-            else if (camp == CampEnum.friend)
-            {
-                a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.enemy);
-            }
+                a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp != camp);
         }
         return a;
     }

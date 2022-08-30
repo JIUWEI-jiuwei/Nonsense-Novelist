@@ -11,7 +11,6 @@ using UnityEngine;
         gender = GenderEnum.noGender;
         wordName = "¿œ Û";
         bookName = BookNameEnum.allBooks;
-        camp = CampEnum.enemy ;
         role = gameObject.AddComponent<Beast>();
         trait=gameObject.AddComponent<NullTrait>();
         hp=maxHP  = 60;

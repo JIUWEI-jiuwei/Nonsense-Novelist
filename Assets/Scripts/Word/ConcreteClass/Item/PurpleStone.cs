@@ -15,7 +15,6 @@ class PurpleStone: AbstractItems
         description = "一颗深紫色高洁的水晶，提升3点精神，少量增强暴击倍数。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        camp = CampEnum.friend;
         psy = 3;
         multipleCriticalStrike = 0.5f;
     }

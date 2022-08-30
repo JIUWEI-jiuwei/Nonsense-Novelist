@@ -13,7 +13,6 @@ class FinancialDifficulty : AbstractCharacter
         gender = GenderEnum.noGender;
         wordName = "¾­¼ÃÑ¹Á¦";
         bookName = BookNameEnum.allBooks;
-        camp = CampEnum.enemy;
         role = gameObject.AddComponent<Bank>();
         trait=gameObject.AddComponent<NullTrait>();
         hp=maxHP = 100;

@@ -12,7 +12,6 @@ class JiaGrandma : AbstractCharacter
         wordName = "¼ÖÄ¸";
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add( "Ê·Ì«¾ý");
-        camp = CampEnum.all;
         role = gameObject.AddComponent<Parents>();
         trait=gameObject.AddComponent<Mercy>();
         hp=maxHP = 40;

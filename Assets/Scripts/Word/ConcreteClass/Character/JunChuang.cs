@@ -13,7 +13,6 @@ using UnityEngine;
         gender = GenderEnum.noGender;
         wordName = "¾ú´²";
         bookName = BookNameEnum.Epidemiology;
-        camp = CampEnum.stranger;
         role = gameObject.AddComponent<NullRole>();
         trait = gameObject.AddComponent<NullTrait>();
         hp = maxHP = 30;

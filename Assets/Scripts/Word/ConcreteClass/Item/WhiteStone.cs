@@ -15,7 +15,7 @@ class WhiteStone: AbstractItems
         description = "一颗纯洁无暇的白色水晶，提升四维属性各1点。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        camp = CampEnum.friend;
+        
         atk = 1;
         def = 1;
         psy = 1;

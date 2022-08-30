@@ -15,7 +15,6 @@ class FamilyConflict : AbstractCharacter
         description = "因与家人关系恶化而导致的苦恼";
         criticalSpeak = "我怎么养了你这么个东西";
         deadSpeak = "孩子究竟是长大了";
-        camp = CampEnum.enemy;
         role = gameObject.AddComponent<Parents>();
         trait = gameObject.AddComponent<Pride>();
         hp =maxHP = 40;

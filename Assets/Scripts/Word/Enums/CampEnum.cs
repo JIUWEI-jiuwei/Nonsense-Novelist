@@ -4,13 +4,14 @@
 /// </summary>
 public enum CampEnum
 {
-
     /// <summary>中立</summary>
-    stranger = 0,
-    /// <summary>全部(方便自己使用，不对外)</summary>
-    all = 1,
+    stranger,
+    left,
+    right,
     /// <summary>友方</summary>
-    friend = 2,
+    friend ,
     /// <summary>敌人</summary>
-    enemy = 3,
+    enemy ,
+
+    
 };

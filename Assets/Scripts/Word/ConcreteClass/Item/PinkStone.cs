@@ -15,7 +15,6 @@ class PinkStone: AbstractItems
         description = "一枚粉色柔和的水晶，提升3点意志，15%闪避几率。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        camp = CampEnum.friend;
         psy = 3;
         dodgeChance += 0.15f;
     }

@@ -43,7 +43,7 @@ abstract class AbstractCharacter : AbstractWords0
 
 
     /// <summary>阵营</summary>
-    public CampEnum camp=CampEnum.all;
+    public CampEnum camp;
     /// <summary>身份</summary>
     public AbstractRole role;
     //人物的身份的类型可以不断扩充，不同的身份在战斗时对实体敌人单位的攻防加权会有影响，如大小姐，受到经济问题，社会问题的伤害较低，收到家庭问题的伤害较高

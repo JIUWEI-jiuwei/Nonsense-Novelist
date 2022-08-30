@@ -13,7 +13,7 @@ namespace AI
         /// <summary>拥有的所有状态</summary>
         public List<AbstractState> allState = new List<AbstractState>();
         /// <summary>当前状态</summary>
-         public AbstractState nowState;
+        public AbstractState nowState;
         /// <summary>默认状态</summary>
         [HideInInspector] public AbstractState defaultState;
 
@@ -23,7 +23,7 @@ namespace AI
         /// <summary>扇形搜索（用于调用其中方法）</summary>
         public SectorAttackSelector sectorSearch = new SectorAttackSelector();
         /// <summary>移速</summary>
-        public float speed=0.1f;
+        public float speed = 0.1f;
 
         public void Awake()
         {
@@ -47,7 +47,7 @@ namespace AI
             nowState.Action(this);
             nowState.CheckTrigger(this);
             if (aim == null)
-                aim=FindAim();
+                aim = FindAim();
             //aim = FindAim();离开AttackState时重新寻找目标+++++++++++++++++++++++++++++++++
         }
         /// <summary>
@@ -58,24 +58,13 @@ namespace AI
             //所有目标
             GameObject[] a = sectorSearch.AttackRange(999, character.transform, character.attackAngle);
             GameObject result;
-            if (character.camp == CampEnum.friend)
-            {
-                result= CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp ==CampEnum.enemy|| p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger);
-                if (result != null)
-                    return result.GetComponent<AbstractCharacter>();
-                else
-                    return null;
-            }
-            if (character.camp == CampEnum.enemy)
-            {
-                result = CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == CampEnum.friend || p.GetComponent<AbstractCharacter>().camp == CampEnum.stranger);
-                if (result != null)
-                    return result.GetComponent<AbstractCharacter>();
-                else
-                    return null;
-            }
+
+            result = CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp !=character.camp);
+            if (result != null)
+                return result.GetComponent<AbstractCharacter>();
             else
                 return null;
+
         }
         /// <summary>
         /// 状态切换
@@ -83,7 +72,7 @@ namespace AI
         public void ChangeActiveState(StateID stateID)
         {
             nowState.Exit(this);
-            nowState=allState.Find(p=>p.id == stateID);
+            nowState = allState.Find(p => p.id == stateID);
             nowState.EnterState(this);
         }
     }

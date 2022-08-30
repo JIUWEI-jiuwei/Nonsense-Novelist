@@ -11,7 +11,6 @@ using UnityEngine;
         gender = GenderEnum.boy;
         wordName = "¼Ö±¦Óñ";
         bookName = BookNameEnum.HongLouMeng;
-        camp = CampEnum.friend;
         role = gameObject.AddComponent<Noble>();
         trait = gameObject.AddComponent<Obsessed>();
         hp=maxHP  = 60;

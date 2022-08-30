@@ -15,7 +15,6 @@ class Nexus6Arm : AbstractItems
         description = "一种已经停产的强大机械臂，提升10点攻击，10%暴击几率。";
         holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
-        camp = CampEnum.friend;
         atk =10;
         criticalChance = 0.1f;
     }

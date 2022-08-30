@@ -15,8 +15,7 @@ class AgelessEnemy : AbstractCharacter
         bookName = BookNameEnum.allBooks;
         description = "长期与你过不去，并且不知为何总是会不断遇到对方";
         criticalSpeak = "你比我弱太多了";
-        deadSpeak = "输给你？怎么可能！";
-        camp = CampEnum.enemy;
+        deadSpeak = "输给你？怎么可能！";     
         role = gameObject.AddComponent<OldEnemy>();
         trait = gameObject.AddComponent<Pride>();
         hp=maxHP = 70;

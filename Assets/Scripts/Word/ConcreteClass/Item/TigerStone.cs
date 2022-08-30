@@ -15,7 +15,6 @@ class TigerStone: AbstractItems
         description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        camp = CampEnum.friend;
         atk = 3;
         multipleCriticalStrike = 0.5f;
     }
