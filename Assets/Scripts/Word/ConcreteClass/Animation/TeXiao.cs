@@ -5,7 +5,7 @@ using UnityEngine.UI;
 ///<summary>
 ///ÌØÐ§
 ///</summary>
-class TeXiao: MonoBehaviour
+public class TeXiao: MonoBehaviour
 {
     private Animator animator;
 

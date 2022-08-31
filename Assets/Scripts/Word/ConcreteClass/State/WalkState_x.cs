@@ -4,19 +4,19 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// 走路状态
+    /// 走路状态(弃用）
     /// </summary>
-    class WalkState :AbstractState
+    class WalkState_x :AbstractState
     {
 
         override public void Awake()
         {
             base.Awake();
             id = StateID.walk;
-            triggers.Add(gameObject.AddComponent<WalkToIdleTrigger>());
-            map.Add(TriggerID.WalkToIdle,StateID.idle);
-            triggers.Add(gameObject.AddComponent<IntoAttackTrigger>());
-            map.Add(TriggerID.IntoAttack, StateID.attack);
+            triggers.Add(gameObject.AddComponent<WalkToIdleTrigger_x>());
+            //map.Add(TriggerID.WalkToIdle,StateID.idle);
+            triggers.Add(gameObject.AddComponent<WalkToAttackTrigger_x>());
+            //map.Add(TriggerID.IntoAttack, StateID.attack);
         }
         public override void Action(MyState0 myState)
         {

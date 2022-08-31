@@ -4,26 +4,23 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// 结束走路
+    /// 开始攻击
     /// </summary>
-    class WalkToIdleTrigger : AbstractTrigger
+    class IdleToAttackTrigger : AbstractTrigger
     {
         override public void Awake()
         {
             base.Awake();
-            id = TriggerID.WalkToIdle;
+            id = TriggerID.IdleToAttack;
         }
         public override bool Satisfy(MyState0 myState)
         {
-            
-            if (myState.aim == null)
+            if (myState.aim != null)
             {
                 return true;
             }
-            else
-            {
+            else 
                 return false;
-            }
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 抽象动词类（技能）
 /// </summary>
-abstract class AbstractVerbs : AbstractWords0 ,ICD
+abstract public class AbstractVerbs : AbstractWords0 ,ICD
 {
     /// <summary>技能序号</summary>
     public int skillID;
@@ -33,7 +33,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>技能强度(在这两数间取随机)，或造成 某值n%（percentage写小数） 的伤害</summary>
     public float skillMinStrength, skillMaxStrength,percentage;
     /// <summary>射程</summary>
-    public float attackDistance;
+    public int attackDistance;
 
 
     /// <summary>技能持续时长（已持续时间变量现场声明） </summary>
@@ -55,7 +55,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>技能概率（平A时有概率释放）【不用】</summary>
     public float possibility;
     /// <summary>目标数组 </summary>
-    protected GameObject[] aims;
+    protected AbstractCharacter[] aims;
 
 
     public virtual void Awake()
@@ -77,7 +77,7 @@ abstract class AbstractVerbs : AbstractWords0 ,ICD
     {
         isUsing = true;
         cd = 0;
-        aims=skillMode.CalculateAgain(attackDistance,useCharacter.gameObject);
+        aims=skillMode.CalculateAgain(attackDistance,useCharacter);
         
         useCharacter.sp -= comsumeSP;
         stateInfo=useCharacter.charaAnim.anim.GetCurrentAnimatorStateInfo(0);

@@ -16,7 +16,7 @@ class QiChongShaDance : AbstractVerbs
         description = "学会七重纱之舞，让周围所有友军恢复5点魔法。";
         banUse.Add(gameObject.AddComponent<Girl>());
         skillMode = gameObject.AddComponent<SpecialMode>();
-        skillMode.attackRange = new CircleAttackSelector();
+        skillMode.attackRange = new SingleSelector();
         percentage = 5;// 让所有友军回复5点SP
         attackDistance = 7;
         skillTime = 0;
@@ -37,10 +37,9 @@ class QiChongShaDance : AbstractVerbs
     {
         useCharacter.teXiao.PlayTeXiao("QiChongShaZhiWu");
         base.UseVerbs(useCharacter);
-        foreach (GameObject aim in aims)
+        foreach (AbstractCharacter aim in aims)
         {
-            AbstractCharacter aimState= aim.GetComponent<AbstractCharacter>();
-            skillMode.UseMode(useCharacter,percentage, aimState);
+            skillMode.UseMode(useCharacter,percentage, aim);
         }
     }
 

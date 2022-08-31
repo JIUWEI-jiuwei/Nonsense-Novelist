@@ -20,7 +20,7 @@ abstract class AbstractAdjectives : AbstractWords0
     /// <summary>技能强度(在这两数间取随机)，或造成 某值n%（percentage写小数） 的伤害</summary>
     public float skillMinStrength, skillMaxStrength, percentage;
     /// <summary>射程</summary>
-    public float attackDistance;
+    public int attackDistance;
     /// <summary>技能持续时长（已持续时间变量现场声明） </summary>
     public float skillTime;
     /// <summary>技能效果(特殊后续效果）持续时长 </summary>
@@ -40,7 +40,7 @@ abstract class AbstractAdjectives : AbstractWords0
     /// <summary>
     /// 仅用于↓（目标数组）
     /// </summary>
-    protected GameObject[] aims;
+    protected AbstractCharacter[] aims;
     /// <summary>
     /// 使用技能
     /// </summary>

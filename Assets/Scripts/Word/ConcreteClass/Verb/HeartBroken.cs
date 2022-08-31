@@ -17,7 +17,7 @@ class HeartBroken : AbstractVerbs
         nickname.Add( "ดฬอด");
         banAim.Add(gameObject.AddComponent<Sense>());
         skillMode = gameObject.AddComponent<DamageMode>();
-        skillMode.attackRange = new CircleAttackSelector();//
+        skillMode.attackRange = new SingleSelector();
         percentage = 1.5f;
         attackDistance = 999;
         skillTime = 0;
@@ -38,11 +38,10 @@ class HeartBroken : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        foreach (GameObject aim in aims)
+        foreach (AbstractCharacter aim in aims)
         {
-            aimState = aim.GetComponent<AbstractCharacter>();
-            aimState.teXiao.PlayTeXiao("LengXiangWan");
-            skillMode.UseMode(useCharacter,aim.GetComponent<AbstractCharacter>().psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
+            aim.teXiao.PlayTeXiao("LengXiangWan");
+            skillMode.UseMode(useCharacter,aim.psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
         }
         SpecialAbility(useCharacter);
     }
@@ -58,10 +57,10 @@ class HeartBroken : AbstractVerbs
         now = 0;
         for (int i=0;i<aims.Length;i++)
         {
-            AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
-            records[i] = (int)(a.psy * 0.3f);
-            a.psy -= records [i];
-            a.AddBuff(2);
+           
+            records[i] = (int)(aims[i].psy * 0.3f);
+            aims[i].psy -= records [i];
+            aims[i].AddBuff(2);
         }
     }
     override public  void FixedUpdate()
@@ -75,9 +74,8 @@ class HeartBroken : AbstractVerbs
         {
             for (int i = 0; i < aims.Length; i++)
             {
-                AbstractCharacter a=aims[i].GetComponent<AbstractCharacter>();
-               a.psy += records[i];
-                a.RemoveBuff(2);
+                aims[i].psy += records[i];
+                aims[i].RemoveBuff(2);
             }
             records = null;
         }

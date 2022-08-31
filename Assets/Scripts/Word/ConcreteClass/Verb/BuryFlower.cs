@@ -16,7 +16,7 @@ class BuryFlower : AbstractVerbs
         bookName = BookNameEnum.HongLouMeng;
         description = "学会葬花，释放时每次攻击都会在目标周围掉落花瓣，每瓣花提升角色1点精神。";
         skillMode = gameObject.AddComponent<UpPSYMode>();
-        skillMode.attackRange = new CircleAttackSelector();//
+        skillMode.attackRange = new SingleSelector();
         attackDistance = 0;
         skillTime = 7;
         skillEffectsTime = 0;

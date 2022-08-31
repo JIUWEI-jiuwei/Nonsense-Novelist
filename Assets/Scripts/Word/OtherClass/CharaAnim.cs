@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 角色动画组件（不要用Play用这个）
 /// </summary>
-class CharaAnim : MonoBehaviour
+public class CharaAnim : MonoBehaviour
 {
     /// <summary>实际动画组件</summary>
     public Animator anim;

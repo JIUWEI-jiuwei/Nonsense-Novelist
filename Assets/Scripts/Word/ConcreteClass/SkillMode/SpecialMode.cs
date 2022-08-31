@@ -11,6 +11,12 @@ class SpecialMode : AbstractSkillMode
         skillModeID = 4;
         skillModeName = "¸³ÓèÌØÊâ×´Ì¬";
     }
+
+    public override AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
+    {
+        return null;
+    }
+
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
     }

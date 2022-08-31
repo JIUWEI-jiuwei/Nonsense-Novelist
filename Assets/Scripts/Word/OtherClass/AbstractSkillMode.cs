@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 技能类型
 /// </summary>
-abstract class AbstractSkillMode : MonoBehaviour
+abstract public class AbstractSkillMode : MonoBehaviour
 {
     /// <summary>技能类型序号</summary>
     public int skillModeID;
@@ -28,11 +28,7 @@ abstract class AbstractSkillMode : MonoBehaviour
     /// </summary>
     /// <param name="character">施法者</param>
     /// <returns></returns>
-    virtual public GameObject[] CalculateAgain(float attackDistance,GameObject character)
-    {
-        GameObject[] a=attackRange.AttackRange(attackDistance,character.transform,extra);
-        return a;
-    }
+    abstract public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character);
     /// <summary>
     /// 对目标实际影响
     /// </summary>

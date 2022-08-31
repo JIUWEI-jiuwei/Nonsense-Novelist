@@ -23,15 +23,11 @@ class CureMode : AbstractSkillMode
     /// </summary>
     /// <param name="character">Ê©·¨Õß</param>
     /// <returns></returns>
-    override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
+    override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
-        CampEnum camp = character.GetComponent<AbstractCharacter>().camp;
-        GameObject[] a = base.CalculateAgain(attackDistance, character);
-        if (a != null)
-        {
-                a = CollectionHelper.FindAll<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp == camp);
-        }
-        CollectionHelper.OrderBy<GameObject, float>(a, p => p.GetComponent<AbstractCharacter>().hp);
+        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation,NeedCampEnum.friend);
+        
+        CollectionHelper.OrderBy<AbstractCharacter, float>(a, p => p.GetComponent<AbstractCharacter>().hp);
 
         return a;
     }

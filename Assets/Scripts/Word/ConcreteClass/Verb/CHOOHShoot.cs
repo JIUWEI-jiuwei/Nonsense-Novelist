@@ -16,7 +16,7 @@ class CHOOHShoot : AbstractVerbs
         description = "学会蚁酸喷射，造成150%攻击力的伤害，减少2点防御力。";
         attackDistance = 5;
         skillMode = gameObject.AddComponent<DamageMode>();
-        skillMode.attackRange = new CircleAttackSelector();//
+        skillMode.attackRange = new SingleSelector();
         attackDistance = 5;
         skillTime = 0;
         skillEffectsTime = 7;
@@ -39,11 +39,10 @@ class CHOOHShoot : AbstractVerbs
         
         for (int i = 0; i < aims.Length; i++)
         {
-            AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
-            if (!a.buffs.ContainsKey(9) || a.buffs[10] < 9)
+            if (!aims[i].buffs.ContainsKey(9) || aims[i].buffs[10] < 9)
             {
-                a.def -= 2;
-                a.AddBuff(10);
+                aims[i].def -= 2;
+                aims[i].AddBuff(10);
                 now = 0;
             }
         }
@@ -59,9 +58,8 @@ class CHOOHShoot : AbstractVerbs
         {
             for (int i = 0; i < aims.Length; i++)
             {
-                AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
-                a.def += 2;
-                a.RemoveBuff(10);
+                aims[i].def += 2;
+                aims[i].RemoveBuff(10);
             }
         }
     }

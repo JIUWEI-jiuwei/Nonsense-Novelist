@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 抽象性格【不用】
 /// </summary>
-abstract class AbstractTrait : MonoBehaviour
+abstract public class AbstractTrait : MonoBehaviour
 {
     /// <summary>性格ID </summary>
     public int traitID;

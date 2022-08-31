@@ -4,14 +4,14 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// 进入攻击范围
+    /// 进入攻击范围(弃用）
     /// </summary>
-    class IntoAttackTrigger : AbstractTrigger
+    class WalkToAttackTrigger_x : AbstractTrigger
     {
         override public void Awake()
         {
             base.Awake();
-            id = TriggerID.IntoAttack;
+            //id = TriggerID.IntoAttack;
         }
         public override bool Satisfy(MyState0 myState)
         {

@@ -16,7 +16,7 @@ class TongPinGongZhen: AbstractVerbs
         description = "学会同频共振，让附近的敌人晕眩1.5秒。";
         banUse.Add(gameObject.AddComponent<Girl>());
         skillMode = gameObject.AddComponent<UpATKMode>();
-        skillMode.attackRange = new CircleAttackSelector();
+        skillMode.attackRange = new SingleSelector();
         percentage = 0;
         attackDistance = 5;
         skillTime = 0;
@@ -30,7 +30,6 @@ class TongPinGongZhen: AbstractVerbs
         description = "通过磁场的共振让周围的敌人晕眩。";
     }
 
-    private AbstractCharacter aimState;//目标的抽象角色类
     /// <summary>
     /// 让所有友军回复5点SP
     /// </summary>
@@ -38,10 +37,6 @@ class TongPinGongZhen: AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        foreach (GameObject aim in aims)
-        {
-            aimState = aim.GetComponent<AbstractCharacter>();
-        }
         SpecialAbility(useCharacter);
     }
 
@@ -50,11 +45,10 @@ class TongPinGongZhen: AbstractVerbs
     /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-        foreach (GameObject aim in aims)
+        foreach (AbstractCharacter aim in aims)
         {
-            AbstractCharacter a = aim.GetComponent<AbstractCharacter>();
-            a.dizzyTime = skillEffectsTime;
-            a.AddBuff(5);
+            aim.dizzyTime = skillEffectsTime;
+            aim.AddBuff(5);
         }
     }
 

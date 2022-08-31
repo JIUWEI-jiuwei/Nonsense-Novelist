@@ -15,7 +15,7 @@ class FangFuShu : AbstractVerbs
         bookName = BookNameEnum.EgyptMyth;
         description = "学会防腐术，让队友获得复活的机会，持续20秒。";
         skillMode = gameObject.AddComponent<CureMode>();
-        skillMode.attackRange = new CircleAttackSelector();
+        skillMode.attackRange =  new SingleSelector();
         percentage = 0;
         attackDistance = 5;
         skillTime = 0;
@@ -45,14 +45,13 @@ class FangFuShu : AbstractVerbs
     /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-        foreach(GameObject aim in aims)
+        foreach(AbstractCharacter aim in aims)
         {
-            AbstractCharacter a = aim.GetComponent<AbstractCharacter>();
-            if (!a.buffs.ContainsKey(7) || a.buffs[7] < 5)//最高叠5层
+            if (!aim.buffs.ContainsKey(7) || aim.buffs[7] < 5)//最高叠5层
             {
                 //1.给目标添加此脚本：该脚本在Start获取抽象角色类,并在Update等待触发效果
-                aim.AddComponent<FangFuShu>();
-                a.AddBuff(7);
+                aim.gameObject.AddComponent<FangFuShu>();
+                aim.AddBuff(7);
             }
         }
     }

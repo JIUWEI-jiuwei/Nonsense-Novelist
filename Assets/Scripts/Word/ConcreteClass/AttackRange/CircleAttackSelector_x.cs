@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-    /// <summary>
-    /// 圆形（球形）区域
-    /// </summary>
-	class CircleAttackSelector : IAttackRange
+/// <summary>
+/// 圆形（球形）区域(弃用）
+/// </summary>
+class CircleAttackSelector_x 
     {
         /// <summary>
         /// 计算影响区域
@@ -13,7 +13,7 @@ using UnityEngine;
         /// <param name="ownTrans">施法者位置</param>
         /// <param name="extra">无额外值</param>
         /// <returns>返回区域内目标数组</returns>
-        public GameObject[] AttackRange(float attackDistance, Transform ownTrans,float extra=0)
+        public GameObject[] AttackRange(int attackDistance, Transform ownTrans,float extra=0)
         {
             //发一个球形射线，找出所有角色碰撞体
             Collider2D[] colliders = Physics2D.OverlapCircleAll(ownTrans.position, attackDistance, 1 << LayerMask.NameToLayer("Character"));

@@ -18,7 +18,7 @@ class FallBadly : AbstractVerbs
         nickname.Add("甩");
         nickname.Add("投掷");
         skillMode = gameObject.AddComponent<DamageMode>();
-        skillMode.attackRange =new CircleAttackSelector();//
+        skillMode.attackRange = new SingleSelector();
         percentage = 1.5f;
         attackDistance = 6;
         skillTime = 0;
@@ -32,7 +32,6 @@ class FallBadly : AbstractVerbs
         possibility = 0;
     }
 
-    private AbstractCharacter aimState;//目标的抽象角色类
     /// <summary>
     /// 造成150%攻击力的伤害
     /// </summary>
@@ -40,10 +39,9 @@ class FallBadly : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        foreach (GameObject aim in aims)
+        foreach (AbstractCharacter aim in aims)
         {
-            aimState = aim.GetComponent<AbstractCharacter>();
-           skillMode.UseMode(useCharacter, useCharacter.atk * percentage *(1-aimState.def/(aimState.def+20)), aimState);
+           skillMode.UseMode(useCharacter, useCharacter.atk * percentage *(1-aim.def/(aim.def+20)), aim);
         }
         SpecialAbility(useCharacter);
     }
@@ -52,11 +50,10 @@ class FallBadly : AbstractVerbs
     /// </summary>
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-        foreach(GameObject aim in aims)
+        foreach(AbstractCharacter aim in aims)
         {
-            AbstractCharacter a = aim.GetComponent<AbstractCharacter>();
-            a.dizzyTime = skillEffectsTime;
-            a.AddBuff(5);
+            aim.dizzyTime = skillEffectsTime;
+            aim.AddBuff(5);
         }
     }
     public override string UseText()

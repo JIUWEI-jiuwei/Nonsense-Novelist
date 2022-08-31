@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 直线攻击
+/// 直线攻击(弃用）
 /// </summary>
-class StraightAttackSelector : IAttackRange
+class StraightAttackSelector_x 
 {
     /// <summary>
     /// 计算影响区域
@@ -13,7 +13,7 @@ class StraightAttackSelector : IAttackRange
     /// <param name="ownTrans">施法者位置</param>
     /// <param name="extra">无额外值</param>
     /// <returns>返回区域内目标数组</returns>
-    public GameObject[] AttackRange(float attackDistance, Transform ownTrans, float extra = 1)
+    public GameObject[] AttackRange(int attackDistance, Transform ownTrans, float extra = 1)
     {
         //发出射线，找出所有角色碰撞体
         RaycastHit2D[] hit = Physics2D.RaycastAll(ownTrans.position, ownTrans.forward, attackDistance, 1 << LayerMask.NameToLayer("Character"));

@@ -9,7 +9,7 @@ using UnityEngine;
 /// <summary>
 /// 抽象角色类
 /// </summary>
-abstract class AbstractCharacter : AbstractWords0
+abstract public class AbstractCharacter : AbstractWords0
 {
     /// <summary>序号</summary>
     public int characterID;
@@ -79,6 +79,9 @@ abstract class AbstractCharacter : AbstractWords0
     public float skillSpeed = 0;
     /// <summary>闪避几率(完全无视攻击的概率)</summary>
     public float dodgeChance = 0;
+
+    /// <summary>站位</summary>
+    public Situation situation;
     /// <summary>攻击射程</summary>
     public int attackDistance = 0;
     /// <summary>视野角度</summary>

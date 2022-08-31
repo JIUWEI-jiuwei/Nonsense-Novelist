@@ -17,7 +17,7 @@ class FireBall : AbstractVerbs
         bookName = BookNameEnum.StudentOfWitch;
         description = "学会杂耍火球，造成150%精神力的伤害，晕眩0.3秒。";
         skillMode = gameObject.AddComponent<DamageMode>();
-        skillMode.attackRange = new CircleAttackSelector();//
+        skillMode.attackRange = new SingleSelector();
         percentage = 1.5f;
         attackDistance = 999;
         skillTime = 0;
@@ -44,8 +44,7 @@ class FireBall : AbstractVerbs
         base.UseVerbs(useCharacter);
         if (aims != null)
         {
-            aimState = aims[0].GetComponent<AbstractCharacter>();
-            skillMode.UseMode(useCharacter, useCharacter.atk * percentage * (1 - aimState.def / (aimState.def + 20)), aimState);
+            skillMode.UseMode(useCharacter, useCharacter.atk * percentage * (1 - aims[0].def / (aims[0].def + 20)), aims[0]);
             SpecialAbility(useCharacter);
         }
     }
@@ -55,14 +54,13 @@ class FireBall : AbstractVerbs
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
         DanDao danDao = bullet.GetComponent<DanDao>();
-            danDao.aim = aims[0];
+            danDao.aim = aims[0].gameObject;
             danDao.bulletSpeed = 0.5f;
             danDao.birthTransform = this.transform;
             ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aims[0].transform.rotation);
 
-            AbstractCharacter a = aims[0].GetComponent<AbstractCharacter>();
-            a.dizzyTime = skillEffectsTime;
-            a.AddBuff(5);
+        aims[0].dizzyTime = skillEffectsTime;
+        aims[0].AddBuff(5);
     }
 
     public override string UseText()

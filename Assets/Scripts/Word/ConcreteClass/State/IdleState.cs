@@ -13,8 +13,8 @@ namespace AI
         {
             base.Awake();
             id = StateID.idle;
-            triggers.Add(gameObject.AddComponent<IdleToWalkTrigger>());
-            map.Add(TriggerID.IdleToWalk,StateID.walk);
+            triggers.Add(gameObject.AddComponent<IdleToAttackTrigger>());
+            map.Add(TriggerID.IdleToAttack,StateID.attack);
         }
         public override void Action(MyState0 myState)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 身份限制类
 /// </summary>
- class AbstractRoleLimit : MonoBehaviour
+public class AbstractRoleLimit : MonoBehaviour
 {
     /// <summary>
     /// 名称

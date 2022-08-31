@@ -4,23 +4,26 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// 开始走路
+    /// 结束走路(弃用）
     /// </summary>
-    class IdleToWalkTrigger : AbstractTrigger
+    class WalkToIdleTrigger_x : AbstractTrigger
     {
         override public void Awake()
         {
             base.Awake();
-            id = TriggerID.IdleToWalk;
+            //id = TriggerID.WalkToIdle;
         }
         public override bool Satisfy(MyState0 myState)
         {
-            if (myState.aim != null||UIManager.nextQuanQia==true)
+            
+            if (myState.aim == null)
             {
                 return true;
             }
-            else 
+            else
+            {
                 return false;
+            }
         }
     }
 }

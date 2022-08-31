@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// �������
 /// </summary>
-abstract class AbstractWords0 : MonoBehaviour
+abstract public class AbstractWords0 : MonoBehaviour
 {
     /// <summary>所属数目</summary>
     public BookNameEnum bookName;

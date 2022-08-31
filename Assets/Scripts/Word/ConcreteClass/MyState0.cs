@@ -21,7 +21,7 @@ namespace AI
         /// <summary>关注的目标</summary>
         public AbstractCharacter aim;
         /// <summary>扇形搜索（用于调用其中方法）</summary>
-        public SectorAttackSelector sectorSearch = new SectorAttackSelector();
+        public SectorAttackSelector_x sectorSearch = new SectorAttackSelector_x();
         /// <summary>移速</summary>
         public float speed = 0.1f;
 
@@ -31,7 +31,6 @@ namespace AI
             allState.Add(gameObject.AddComponent<AttackState>());
             allState.Add(gameObject.AddComponent<DeadState>());
             allState.Add(gameObject.AddComponent<DizzyState>());
-            allState.Add(gameObject.AddComponent<WalkState>());
         }
         public void Start()
         {
@@ -46,9 +45,8 @@ namespace AI
         {
             nowState.Action(this);
             nowState.CheckTrigger(this);
-            if (aim == null)
-                aim = FindAim();
-            //aim = FindAim();离开AttackState时重新寻找目标+++++++++++++++++++++++++++++++++
+            //if (aim == null)
+                aim = FindAim();//不断寻找更近的敌人
         }
         /// <summary>
         /// 寻找目标

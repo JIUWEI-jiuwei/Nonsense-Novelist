@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 抽象身份
 /// </summary>
-abstract class AbstractRole : MonoBehaviour
+abstract public class AbstractRole : MonoBehaviour
 {
     /// <summary>身份序号 </summary>
     public int roleID;

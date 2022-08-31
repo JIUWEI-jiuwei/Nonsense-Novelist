@@ -17,7 +17,7 @@ class WritePoem : AbstractVerbs
         nickname.Add("×÷Ê«");
         attackDistance = 5;
         skillMode = gameObject.AddComponent<UpATKMode>();
-        skillMode.attackRange = new CircleAttackSelector();//
+        skillMode.attackRange = new SingleSelector();
         attackDistance = 5;
         skillTime = 0;
         skillEffectsTime = 5;
@@ -41,10 +41,9 @@ class WritePoem : AbstractVerbs
         now = 0;
         for(int i=0;i<aims.Length;i++)
         {
-            AbstractCharacter a = aims[i].GetComponent<AbstractCharacter>();
-            records[i] = a.psy * 0.3f;
-            skillMode.UseMode(null,records[i], a);
-            a.AddBuff(1);
+            records[i] = aims[i].psy * 0.3f;
+            skillMode.UseMode(null,records[i], aims[i]);
+            aims[i].AddBuff(1);
         }
         
     }
@@ -59,9 +58,8 @@ class WritePoem : AbstractVerbs
         {
             for (int i = 0; i < aims.Length; i++)
             {
-                AbstractCharacter a=aims[i].GetComponent<AbstractCharacter>();
-                a.atk -=records[i];
-                a.RemoveBuff(1);
+                aims[i].atk -=records[i];
+                aims[i].RemoveBuff(1);
             }
             records = null;
         }

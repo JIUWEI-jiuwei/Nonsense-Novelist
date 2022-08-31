@@ -5,7 +5,7 @@ using UnityEngine;
 ///<summary>
 ///ДЪад
 ///</summary>
-enum WordSortEnum
+public enum WordSortEnum
 {
     adj=0,
     verb=1,

@@ -10,7 +10,7 @@ class PlatformMode : AbstractSkillMode
     {
         skillModeID = 6;
         skillModeName = "³¡µØÄ§·¨";
-        attackRange = new CircleAttackSelector();
+        attackRange = new SingleSelector();
     }
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
@@ -21,9 +21,9 @@ class PlatformMode : AbstractSkillMode
     /// </summary>
     /// <param name="attackDistance"></param>
     /// <returns></returns>
-    override public GameObject[] CalculateAgain(float attackDistance, GameObject character)
+    override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
-        GameObject[] a = base.CalculateAgain(attackDistance, character);
+        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.all);
         return a;
     }
 }

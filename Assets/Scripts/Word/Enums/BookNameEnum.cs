@@ -3,7 +3,7 @@
 /// <summary>
 /// 书籍名枚举
 /// </summary>
- enum BookNameEnum
+public enum BookNameEnum
 {
     /// <summary>画室（已弃用）</summary>
     HuaShi=-1,

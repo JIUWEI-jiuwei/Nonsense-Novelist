@@ -6,11 +6,7 @@ namespace AI
     public enum TriggerID
     {
         /// <summary>开始走路</summary>
-        IdleToWalk,
-        /// <summary>停止走路</summary>
-        WalkToIdle,
-        /// <summary>进入攻击范围</summary>
-        IntoAttack,
+        IdleToAttack,
         /// <summary>离开攻击范围</summary>
         OutAttack,
         /// <summary>生命值为0</summary>

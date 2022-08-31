@@ -14,13 +14,13 @@ namespace AI
             base.Awake();
             id = StateID.attack;
             triggers.Add(gameObject.AddComponent<OutAttackTrigger>());  
-            map.Add(TriggerID.OutAttack,StateID.walk);
+            map.Add(TriggerID.OutAttack,StateID.idle);
             triggers.Add(gameObject.AddComponent<KilledAimTrigger>());
-            map.Add(TriggerID.KilledAim, StateID.walk);
+            map.Add(TriggerID.KilledAim, StateID.idle);
 
             attackA = gameObject.AddComponent<DamageMode>();//平A是伤害类型
-            attackA.attackRange = new SectorAttackSelector();
-            
+            attackA.attackRange = new SingleSelector();
+
         }
 
         /// <summary>平A模式</summary>
@@ -36,7 +36,7 @@ namespace AI
             foreach(AbstractVerbs skill in myState.character.realSkills)
             {
                 //如果能量已满&&有目标,使用技能
-                if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character.gameObject)!=null)
+                if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character)!=null)
                 {
                     myState.character.charaAnim.Play(AnimEnum.attack);
                     skill.UseVerbs(myState.character); 

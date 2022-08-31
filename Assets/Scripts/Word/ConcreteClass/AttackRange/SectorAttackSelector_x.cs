@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-    /// <summary>
-    /// 扇形区域
-    /// </summary>
-	class SectorAttackSelector : IAttackRange
+/// <summary>
+/// 扇形区域(弃用）
+/// </summary>
+class SectorAttackSelector_x 
     {
         /// <summary>
         /// 计算影响区域
@@ -15,7 +15,7 @@ using UnityEngine;
         /// <param name="ownTrans">施法者位置</param>
         /// <param name="extra">角度</param>
         /// <returns>返回区域内目标数组</returns>
-        public GameObject[] AttackRange(float attackDistance, Transform ownTrans,float angle)
+        public GameObject[] AttackRange(int attackDistance, Transform ownTrans,float angle)
         {
         //发一个球形射线，找出所有角色碰撞体
         Collider2D[] colliders = Physics2D.OverlapCircleAll(ownTrans.position, attackDistance, 1 << LayerMask.NameToLayer("Character"));// LayerMask.NameToLayer("Character")

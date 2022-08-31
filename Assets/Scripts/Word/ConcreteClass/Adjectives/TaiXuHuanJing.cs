@@ -50,10 +50,10 @@ class TaiXuHuanJing : AbstractAdjectives
     override public void UseVerbs(AbstractCharacter aimCharacter)
     {
         base.UseVerbs(aimCharacter);
-        aims =skillMode.CalculateAgain(attackDistance, aimCharacter.gameObject);
-        foreach (GameObject aim in aims)
+        aims =skillMode.CalculateAgain(attackDistance, aimCharacter);
+        foreach (AbstractCharacter aim in aims)
         {
-            SpecialAbility(aim.GetComponent<AbstractCharacter>());
+            SpecialAbility(aim);
         }
 
     }
