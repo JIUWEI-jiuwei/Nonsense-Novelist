@@ -16,8 +16,6 @@ abstract public class AbstractSkillMode : MonoBehaviour
     /// <summary>目标性格优先级(和↑二选一）【不用】</summary>
     public List<AbstractTrait> traitOrde=new List<AbstractTrait>();
     
-    /// <summary>额外值（影响区域相关）</summary>
-    public float extra;
     /// <summary>影响区域（直线、扇形、圆形）</summary>
     public IAttackRange attackRange ;
     /// <summary>攻击次数（比如三连击）</summary>

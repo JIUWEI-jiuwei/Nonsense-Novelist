@@ -29,8 +29,6 @@ namespace AI
         [HideInInspector]public float attackAtime;
         public override void Action(MyState0 myState)
         {
-            attackA.extra = myState.character.attackAngle;
-
             attackAtime += Time.deltaTime;
             
             foreach(AbstractVerbs skill in myState.character.realSkills)

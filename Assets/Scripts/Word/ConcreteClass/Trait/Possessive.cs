@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 慈爱性格
+/// 强欲性格
 /// </summary>
-class Mercy :AbstractTrait
+class Possessive: AbstractTrait
 {
     public void Awake()
     {
-        traitName = "慈爱";
-        traitEnum=TraitEnum.Mercy;
-        restrainRole.Add(TraitEnum.Spicy);
+        traitName = "强欲";
+        traitEnum = TraitEnum.Possessive;
         restrainRole.Add(TraitEnum.ColdInexorability);
+        restrainRole.Add(TraitEnum.Pride);
     }
 }

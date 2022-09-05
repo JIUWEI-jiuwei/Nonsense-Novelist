@@ -21,7 +21,7 @@ namespace AI
         /// <summary>关注的目标</summary>
         public AbstractCharacter aim;
         /// <summary>扇形搜索（用于调用其中方法）</summary>
-        public SectorAttackSelector_x sectorSearch = new SectorAttackSelector_x();
+        public SingleSelector sectorSearch = new SingleSelector();
         /// <summary>移速</summary>
         public float speed = 0.1f;
 
@@ -54,15 +54,8 @@ namespace AI
         public AbstractCharacter FindAim()
         {
             //所有目标
-            GameObject[] a = sectorSearch.AttackRange(999, character.transform, character.attackAngle);
-            GameObject result;
-
-            result = CollectionHelper.Find<GameObject>(a, p => p.GetComponent<AbstractCharacter>().camp !=character.camp);
-            if (result != null)
-                return result.GetComponent<AbstractCharacter>();
-            else
-                return null;
-
+            AbstractCharacter[] a = sectorSearch.CaculateRange(999, character.situation,NeedCampEnum.enemy);
+            return a[0];
         }
         /// <summary>
         /// 状态切换

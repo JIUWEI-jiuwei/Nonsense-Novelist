@@ -29,7 +29,7 @@ class LiuGrandma : AbstractCharacter
         attackDistance = 2;
         luckyValue = 0;
         importantNum.AddRange(new int[] { 4, 10 });
-        bg_text = "刘姥姥，是曹雪芹所著中国古典文学名著《红楼梦》中人物。是一位来自乡下贫农家庭的谙于世故的老婆婆，见证了贾府兴衰荣辱的全过程。";
+        description = "刘姥姥，是曹雪芹所著中国古典文学名著《红楼梦》中人物。是一位来自乡下贫农家庭的谙于世故的老婆婆，见证了贾府兴衰荣辱的全过程。";
         mainSort = MainSortEnum.san;
     }
 

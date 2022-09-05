@@ -23,17 +23,13 @@ abstract public class AbstractCharacter : AbstractWords0
     public AudioClip aAttackAudio;
     /// <summary>走路音效（手动拖拽）</summary>
     public AudioClip walkAudio;
-
-    /// <summary>生平详细描述</summary>
-    public string bg_text;
-    /// <summary>时代（用于文本）</summary>
-    public string epoch;
-    /// <summary>地区（用于文本）</summary>
-    public string area;
-    /// <summary>人物暴击默认台词（触发暴击时所说的台词）</summary>
+    /// <summary>人物暴击默认台词（弃用）</summary>
     public string criticalSpeak;
-    /// <summary>人物死亡默认台词（死亡时所说的台词）</summary>
+    /// <summary>人物死亡默认台词（弃用）</summary>
     public string deadSpeak;
+    /// <summary>身份(弃用）</summary>
+    public AbstractRole role;
+
     /// <summary>特效</summary>
     public TeXiao teXiao;
     /// <summary>子弹(手动挂）</summary>
@@ -41,25 +37,15 @@ abstract public class AbstractCharacter : AbstractWords0
     /// <summary>发出子弹 </summary>
     public virtual void CreateBullet(GameObject aimChara) { }
 
-
     /// <summary>阵营</summary>
     public CampEnum camp;
-    /// <summary>身份</summary>
-    public AbstractRole role;
-    //人物的身份的类型可以不断扩充，不同的身份在战斗时对实体敌人单位的攻防加权会有影响，如大小姐，受到经济问题，社会问题的伤害较低，收到家庭问题的伤害较高
-    /// <summary>性格</summary>
-    public AbstractTrait trait;
-    /// <summary>自带技能</summary>
-    public List<AbstractVerbs> skills=new List<AbstractVerbs>();
-    /// <summary>实际自带技能（所挂组件）</summary>
-    public AbstractVerbs[] realSkills;
     /// <summary>血量</summary>
     public float hp = 0;
     /// <summary>总血量</summary>
     public float maxHP = 0;
-    /// <summary>蓝量</summary>
+    /// <summary>蓝量（弃用）</summary>
     public float sp = 0;
-    /// <summary>总蓝量</summary>
+    /// <summary>总蓝量（弃用）</summary>
     public float maxSP = 0;
     /// <summary>攻击力</summary>
     public float atk = 0;
@@ -69,32 +55,38 @@ abstract public class AbstractCharacter : AbstractWords0
     public float psy = 0;
     /// <summary>意志力</summary>
     public float san = 0;
-    /// <summary>暴击几率</summary>
+    /// <summary>主属性</summary>
+    public Dictionary<string,string> mainProperty;
+    /// <summary>性格</summary>
+    public AbstractTrait trait;
+    /// <summary>身份（自带技能）</summary>
+    public List<AbstractVerbs> skills = new List<AbstractVerbs>();
+    /// <summary>拥有技能（所挂组件）</summary>
+    public List<AbstractVerbs> realSkills;
+    /// <summary>暴击几率(暴击即为2倍)</summary>
     public float criticalChance = 0;
-    /// <summary>暴击倍数</summary>
+    /// <summary>暴击倍数(弃用）</summary>
     public float multipleCriticalStrike = 0;
     /// <summary>攻击间隔(检定攻击的次序，以及每两次攻击间隔时长)</summary>
     public float attackInterval = 0;
-    /// <summary>技能速度(用于减少该人物所有技能的CD，尽量不要这个值)</summary>
+    /// <summary>技能速度(弃用）(用于减少该人物所有技能的CD，尽量不要这个值)</summary>
     public float skillSpeed = 0;
-    /// <summary>闪避几率(完全无视攻击的概率)</summary>
+    /// <summary>闪避几率(弃用)</summary>
     public float dodgeChance = 0;
 
     /// <summary>站位</summary>
     public Situation situation;
     /// <summary>攻击射程</summary>
     public int attackDistance = 0;
-    /// <summary>视野角度</summary>
-    public float attackAngle=120;
-    /// <summary>幸运值()</summary>
+    /// <summary>幸运值(弃用)</summary>
     public int luckyValue = 0;
-    /// <summary>等级</summary>
+    /// <summary>等级(弃用）</summary>
     public int level = 1;
-    /// <summary>经验（0-100）</summary>
+    /// <summary>经验(弃用）（0-100）</summary>
     public int exp = 0;
-    /// <summary>怪级别（友方为0）</summary>
+    /// <summary>怪级别(弃用）（友方为0）</summary>
     public int enemyLevel = 0;
-    /// <summary>主属性</summary>
+    /// <summary>主属性(弃用）</summary>
     public MainSortEnum mainSort = 0;
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;
@@ -156,7 +148,7 @@ abstract public class AbstractCharacter : AbstractWords0
     /// 升级
     /// </summary>
     /// <returns></returns>
-    virtual public bool LevelUp()
+    /*virtual public bool LevelUp()
     {
         if (exp < 100)
             return false;
@@ -172,7 +164,7 @@ abstract public class AbstractCharacter : AbstractWords0
             san += trait.growSAN;
             return true;
         }
-    }
+    }*/
 
     /// <summary>
     /// 判断该角色是否有该buff

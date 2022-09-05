@@ -19,7 +19,7 @@ class ShiLian : AbstractCharacter
         nickname.Add("令人心碎的爱情");
         criticalSpeak = "抱歉，但我们不合适。";
         deadSpeak = "你竟然丝毫不在乎？";
-        trait = gameObject.AddComponent<Inexorability>();
+        trait = gameObject.AddComponent<ColdInexorability>();
         role = gameObject.AddComponent<Noble>();
         skills.Add(gameObject.AddComponent<HeartBroken>());
         hp=maxHP = 40;

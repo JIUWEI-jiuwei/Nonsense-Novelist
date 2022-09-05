@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 泼辣性格
+/// 坚毅性格
 /// </summary>
-class Spicy : AbstractTrait
+class Persistent : AbstractTrait
 {
     public void Awake()
     {
-        traitName = "泼辣";
-        traitEnum=TraitEnum.Spicy;
-        restrainRole.Add(TraitEnum.Possessive);
+        traitName = "坚毅";
+        traitEnum = TraitEnum.Persistent;
         restrainRole.Add(TraitEnum.Vicious);
+        restrainRole.Add(TraitEnum.Possessive);
     }
 }

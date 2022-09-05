@@ -3,22 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 抽象性格【不用】
+/// 抽象性格
 /// </summary>
 abstract public class AbstractTrait : MonoBehaviour
 {
-    /// <summary>性格ID </summary>
-    public int traitID;
     /// <summary>性格名 </summary>
     public string traitName;
-    /// <summary>性格描述 </summary>
-    public string description;
-    /// <summary>蓝量成长 </summary>
-    public int growSP;
-    /// <summary>精神力成长 </summary>
-    public float growPSY;
-    /// <summary>意志力成长 </summary>
-    public float growSAN;
-    /// <summary>受克制的性格序号，克制强度（小数）</summary>
-    public Dictionary<int, float> restrainRole=new  Dictionary<int, float>();
+    /// <summary>性格枚举，仅用于克制</summary>
+    public TraitEnum traitEnum;
+    /// <summary>受克制的性格(额外造成30%伤害)</summary>
+    static public List<TraitEnum> restrainRole=new List<TraitEnum>();
 }
+
+/// <summary>
+/// 性格枚举，仅用于克制
+/// </summary>
+public enum TraitEnum
+{
+    /// <summary>敏感</summary>
+    Sentimental,
+    /// <summary>泼辣</summary>
+    Spicy,
+    /// <summary>冰冷</summary>
+    ColdInexorability,
+    /// <summary>恶毒</summary>
+    Vicious,
+    /// <summary>强欲</summary>
+    Possessive,
+    /// <summary>坚毅</summary>
+    Persistent,
+    /// <summary>慈爱</summary>
+    Mercy,
+    /// <summary>傲慢</summary>
+    Pride,
+}
+

@@ -33,6 +33,11 @@ namespace AI
             myState.character.charaAnim.Play(AnimEnum.dead);
             AbstractBook.afterFightText += myState.character.LowHPText();
             //½áÊø
+            if (GameObject.Find("LeftAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1 || GameObject.Find("RightAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1)
+            // if (myState.character.camp == CampEnum.friend)
+            {
+                UIManager.LoseEnd();
+            }
             /*
             if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[uIManager.transAndCamera.guanQiaNum].transform.childCount <= 1)
             {
@@ -61,11 +66,7 @@ namespace AI
                     UIManager.WinEnd();
                 }
             }*/
-            if (myState.character.camp == CampEnum.friend)
-            // if (myState.character.camp == CampEnum.friend)
-            {
-                UIManager.LoseEnd();
-            }
+
         }
         public override void Exit(MyState0 myState)
         {

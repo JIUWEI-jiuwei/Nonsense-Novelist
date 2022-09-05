@@ -14,7 +14,6 @@ class SilenceOne : AbstractCharacter
         wordName = "沉默者";
         bookName = BookNameEnum.allBooks;
         brief = "一个强大的，无法绕开的敌人";
-        description = "一个强大的，无法绕开的敌人";
         criticalSpeak = "嗯……";
         deadSpeak = "嗯……？！";
         role = gameObject.AddComponent<OldEnemy>();
@@ -34,7 +33,7 @@ class SilenceOne : AbstractCharacter
         attackDistance = 6;
         luckyValue = 0;
         enemyLevel = 3;
-        bg_text = "一个强大的，无法绕开的敌人";
+        description = "一个强大的，无法绕开的敌人";
         mainSort = MainSortEnum.atk;
     }
 
