@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ËÞµÐ£¨ÔÝÊ±ÆúÓÃ£©
 /// </summary>
-class AgelessEnemy : AbstractCharacter
+class AgelessEnemy_x : AbstractCharacter
 {
     override public void Awake()
     {

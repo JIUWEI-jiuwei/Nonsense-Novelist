@@ -7,27 +7,23 @@ using UnityEngine;
     override public void Awake()
     {
         base.Awake();
-        characterID = 9;
+        characterID = 6;
+        wordName = "林黛玉";
+        bookName = BookNameEnum.ZooManual;
         gender = GenderEnum.noGender;
-        wordName = "老鼠";
-        bookName = BookNameEnum.allBooks;
-        role = gameObject.AddComponent<Beast>();
-        trait=gameObject.AddComponent<NullTrait>();
-        hp=maxHP  = 60;
-        sp=maxSP = 20;
-        atk = 7;
-        def = 0;
-        psy = 0;
+        hp = maxHP = 150;
+        atk = 4;
+        def = 4;
+        psy = 3;
         san = 3;
-        criticalChance = 0;
-        multipleCriticalStrike = 2;
-        attackInterval = 1.5f;
-        skillSpeed = 0;
-        dodgeChance = 0;
+        mainProperty.Add("攻击", "近物dps");
+        trait = gameObject.AddComponent<Possessive>();
+        criticalChance = 30;
+        attackInterval = 2;
         attackDistance = 1;
-        luckyValue = 0;
-        enemyLevel = 1;
-        mainSort = MainSortEnum.atk;
+        importantNum.AddRange(new int[] { 8 });
+        brief = "肮脏且会偷窃物品的老鼠。";
+        description = "肮脏且会偷窃物品的老鼠。";
     }
 
     public override string ShowText(AbstractCharacter otherChara)

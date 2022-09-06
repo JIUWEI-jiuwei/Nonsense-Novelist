@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- class LinDaiYu : AbstractCharacter
+ class DiKaDe : AbstractCharacter
 {
     override public void Awake()
     {
         base.Awake();
-        characterID = 1;
-        wordName = "林黛玉";
-        bookName = BookNameEnum.HongLouMeng;
-        gender = GenderEnum.girl;
-        hp =maxHP  = 80;
-        atk = 3;
-        def = 3;
-        psy = 5;
+        characterID = 9;
+        wordName = "狄卡德";
+        bookName = BookNameEnum.ElectronicGoal;
+        gender = GenderEnum.boy;
+        hp =maxHP  = 120;
+        atk = 4;
+        def = 4;
+        psy = 3;
         san = 3;
-        mainProperty.Add("精神","远法dps");
-        trait=gameObject.AddComponent<Sentimental>();
-        criticalChance = 10;
-        attackInterval = 2.5f;
+        mainProperty.Add("攻击","远物dps");
+        trait=gameObject.AddComponent<Persistent>();
+        criticalChance = 0;
+        attackInterval = 1.8f;
         attackDistance = 5;
         importantNum.AddRange(new int[] { 8 });
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";

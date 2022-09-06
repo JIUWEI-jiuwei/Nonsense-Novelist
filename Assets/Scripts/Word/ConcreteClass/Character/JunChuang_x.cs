@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ¾ú´²
 /// </summary>
- class JunChuang : AbstractCharacter
+ class JunChuang_x : AbstractCharacter
 {
     override public void Awake()
     {

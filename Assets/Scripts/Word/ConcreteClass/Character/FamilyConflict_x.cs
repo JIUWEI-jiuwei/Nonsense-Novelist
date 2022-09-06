@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class FamilyConflict : AbstractCharacter
+class FamilyConflict_x : AbstractCharacter
 {
     override public void Awake()
     {

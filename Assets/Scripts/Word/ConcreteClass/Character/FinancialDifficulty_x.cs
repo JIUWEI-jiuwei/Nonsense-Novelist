@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ¾­¼ÃÑ¹Á¦
 /// </summary>
-class FinancialDifficulty : AbstractCharacter
+class FinancialDifficulty_x : AbstractCharacter
 {
     override public void Awake()
     {

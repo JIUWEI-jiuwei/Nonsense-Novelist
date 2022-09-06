@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class JiaGrandma : AbstractCharacter
+class JiaGrandma_x : AbstractCharacter
 {
     override public void Awake()
     {

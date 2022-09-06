@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- class LinDaiYu : AbstractCharacter
+ class SiYangYuan : AbstractCharacter
 {
     override public void Awake()
     {
         base.Awake();
-        characterID = 1;
-        wordName = "林黛玉";
-        bookName = BookNameEnum.HongLouMeng;
-        gender = GenderEnum.girl;
-        hp =maxHP  = 80;
-        atk = 3;
-        def = 3;
-        psy = 5;
-        san = 3;
-        mainProperty.Add("精神","远法dps");
-        trait=gameObject.AddComponent<Sentimental>();
-        criticalChance = 10;
-        attackInterval = 2.5f;
+        characterID = 11;
+        wordName = "贝洛姬·姬妮";
+        bookName = BookNameEnum.ZooManual;
+        gender = GenderEnum.noGender;
+        hp =maxHP  = 100;
+        atk = 0;
+        def = 5;
+        psy = 3;
+        san = 5;
+        mainProperty.Add("意志","奶");
+        trait=gameObject.AddComponent<Mercy>();
+        criticalChance = 0;
+        attackInterval = 1.5f;
         attackDistance = 5;
         importantNum.AddRange(new int[] { 8 });
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";

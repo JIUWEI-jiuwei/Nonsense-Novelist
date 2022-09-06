@@ -38,15 +38,23 @@ namespace AI
             nowState = defaultState = allState.Find(p => p.id == StateID.idle);
             nowState.EnterState(this);
 
-
             aim = FindAim();
+            StartCoroutine(Every1Seconds());
         }
+
+
         public void FixedUpdate()
         {
             nowState.Action(this);
             nowState.CheckTrigger(this);
-            //if (aim == null)
+        }
+        IEnumerator Every1Seconds()
+        {
+            while (true)
+            {
                 aim = FindAim();//不断寻找更近的敌人
+                yield return new WaitForSeconds(1);
+            }
         }
         /// <summary>
         /// 寻找目标
