@@ -39,7 +39,7 @@ class SkillsLoadingCircle : MonoBehaviour
             {
                 if(charaComponent.skills.Count>count)
                 {
-                    charaComponent.realSkills = charaComponent.GetComponents<AbstractVerbs>();
+                    //charaComponent.realSkills = charaComponent.GetComponents<AbstractVerbs>();
                     count = charaComponent.skills.Count;
                     skillUIbar.Add(Instantiate(verbLoadingPrefab, canvas.transform));
                     verbCD.Add(skillUIbar[count-1].transform.GetChild(0).GetComponent<Image>()) ;

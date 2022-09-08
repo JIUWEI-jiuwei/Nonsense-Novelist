@@ -12,7 +12,7 @@ abstract public class AbstractTrait : MonoBehaviour
     /// <summary>性格枚举，仅用于克制</summary>
     public TraitEnum traitEnum;
     /// <summary>受克制的性格(额外造成30%伤害)</summary>
-    static public List<TraitEnum> restrainRole=new List<TraitEnum>();
+    public List<TraitEnum> restrainRole=new List<TraitEnum>();
 }
 
 /// <summary>

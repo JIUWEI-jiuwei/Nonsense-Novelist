@@ -105,7 +105,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                     {
                         hit.collider.gameObject.AddComponent(b.GetType());
                         character.skills.Add(b);
-                        character.realSkills = character.GetComponents<AbstractVerbs>();
+                        //character.realSkills = character.GetComponents<AbstractVerbs>();
                         Destroy(this.gameObject);
                     }
                     else//²»ÄÜ
