@@ -18,6 +18,7 @@ using UnityEngine;
         san = 3;
         mainProperty.Add("精神","远法dps");
         trait=gameObject.AddComponent<Sentimental>();
+        roleName = "诗人";
         criticalChance = 10;
         attackInterval = 2.5f;
         attackDistance = 5;
@@ -28,6 +29,12 @@ using UnityEngine;
             "\n可叹停机德，堪怜咏絮才。" +
             "\n玉带林中挂，金簪雪里埋。";
     }
+
+    /// <summary>
+    /// 身份
+    /// </summary>
+    public override float psy { get { return PSY * 1.25f; } set { PSY = value; } }
+    public override float def { get { return DEF*0.9f; } set { DEF = value; } }
 
     public override void CreateBullet(GameObject aimChara)
     {

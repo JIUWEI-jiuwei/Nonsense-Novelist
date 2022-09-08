@@ -18,6 +18,7 @@ class WangXiFeng : AbstractCharacter
         san = 3;
         mainProperty.Add("攻击", "近物dps");
         trait = gameObject.AddComponent<Spicy>();
+        roleName = "大家长";
         criticalChance = 10;
         attackInterval = 2;
         attackDistance = 2;
@@ -25,6 +26,14 @@ class WangXiFeng : AbstractCharacter
         brief = "《红楼梦》中一位泼辣且极具备能力的女人。";
         description = "王熙凤，曹雪芹所著中国古典小说《红楼梦》中的人物，金陵十二钗之一，贾琏的妻子。在贾府掌握实权，为人心狠手辣，八面玲珑，敢爱敢恨，做事决绝。因其深爱丈夫贾琏，故而十分善妒，暗中算计害死尤二姐。王熙凤在被休后王家不容她,在监牢里血崩病发,流尽鲜血而死。";
     }
+
+    /// <summary>
+    /// 身份
+    /// </summary>
+    public override float atk { get { return ATK +3; } set { ATK = value; } }
+    public override float def { get { return DEF + 3; } set { DEF = value; } }
+    public override float san { get { return SAN + 3; } set { SAN = value; } }
+    public override float psy { get { return PSY + 3; } set { PSY = value; } }
 
     public override string ShowText(AbstractCharacter otherChara)
     {

@@ -16,7 +16,16 @@ namespace AI
         public override bool Satisfy(MyState0 myState)
         {
             if (myState.character.hp <= 0)
-                return true;
+            {
+                if (myState.character.reLifes)
+                {
+                    myState.character.hp = myState.character.maxHP;
+                    myState.character.reLifes=false;
+                    return false;
+                }
+                else
+                    return true;
+            }
             else
                 return false;
         }

@@ -18,6 +18,7 @@ using UnityEngine;
         san = 3;
         mainProperty.Add("防御","中物T");
         trait=gameObject.AddComponent<ColdInexorability>();
+        roleName = "垄断公司";
         criticalChance = 10;
         attackInterval = 2;
         attackDistance = 1;
