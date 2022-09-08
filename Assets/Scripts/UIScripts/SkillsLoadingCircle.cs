@@ -54,7 +54,7 @@ class SkillsLoadingCircle : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 //获取到该角色身上的skills库中的动词技能
-                float percent = charaComponent.realSkills[i].cd / charaComponent.realSkills[i].maxCD;
+                float percent = charaComponent.skills[i].cd / charaComponent.skills[i].maxCD;
                 verbCD[i].fillAmount = percent;
                 //实时更新位置
                 skillUIbar[i].transform.position = verbLoadingPoints[i].position;

@@ -31,7 +31,7 @@ namespace AI
         {
             attackAtime += Time.deltaTime;
             
-            foreach(AbstractVerbs skill in myState.character.realSkills)
+            foreach(AbstractVerbs skill in myState.character.skills)
             {
                 //如果能量已满&&有目标,使用技能
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character)!=null)
@@ -59,15 +59,15 @@ namespace AI
         }
 
         /// <summary>
-        /// 是否能平A
+        /// 是否能平A（没有技能在使用）
         /// </summary>
         /// <returns></returns>
         private bool canA(MyState0 myState)
         {
-            foreach (AbstractVerbs skill in myState.character.realSkills)
+            foreach (AbstractVerbs skill in myState.character.skills)
             {
-                if (!skill.isUsing)
-                    return true;
+                if (skill.isUsing)
+                    return false;
             }
             return true;
         }

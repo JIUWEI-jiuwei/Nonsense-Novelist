@@ -48,21 +48,41 @@ abstract public class AbstractCharacter : AbstractWords0
     /// <summary>总蓝量（弃用）</summary>
     public float maxSP = 0;
     /// <summary>攻击力</summary>
-    public float atk = 0;
+    protected float ATK = 0;
+    virtual public float atk
+    {
+        get { return ATK; }
+        set { ATK = value; }
+    }
     /// <summary>防御力</summary>
-    public float def = 0;
+    protected float DEF = 0;
+    virtual public float def
+    {
+        get { return DEF; }
+        set { DEF = value; }
+    }
     /// <summary>精神力</summary>psychic force
-    public float psy = 0;
+    protected float PSY = 0;
+    virtual public float psy
+    {
+        get { return PSY; }
+        set { PSY = value; }
+    }
     /// <summary>意志力</summary>
-    public float san = 0;
+    protected float SAN = 0;
+    virtual public float san
+    {
+        get { return SAN; }
+        set { SAN = value; }
+    }
     /// <summary>主属性</summary>
     public Dictionary<string,string> mainProperty;
     /// <summary>性格</summary>
     public AbstractTrait trait;
-    /// <summary>身份（自带技能）</summary>
-    public List<AbstractVerbs> skills = new List<AbstractVerbs>();
-    /// <summary>拥有技能（所挂组件）</summary>
-    public List<AbstractVerbs> realSkills;
+    /// <summary>身份名</summary>
+    public string roleName;
+    /// <summary>拥有技能（所挂组件,自带技能/身份 在初始赋值）</summary>
+    public List<AbstractVerbs> skills;
     /// <summary>暴击几率(暴击即为2倍)</summary>
     public float criticalChance = 0;
     /// <summary>暴击倍数(弃用）</summary>
@@ -92,6 +112,8 @@ abstract public class AbstractCharacter : AbstractWords0
     public CharaAnim charaAnim;
     /// <summary>剩余眩晕时间</summary>
     public float dizzyTime;
+    /// <summary>是否有复活状态</summary>
+    public bool reLifes;
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
     /// <summary>重要之人序号</summary>
@@ -122,17 +144,9 @@ abstract public class AbstractCharacter : AbstractWords0
         {
             hp = 0;
         }
-        if (sp < 0)
-        {
-            sp = 0;
-        }
         if(hp>maxHP)
         {
             hp=maxHP;
-        }
-        if(sp>maxSP)
-        {
-            sp=maxSP;
         }
         if(def<-19)
         {
