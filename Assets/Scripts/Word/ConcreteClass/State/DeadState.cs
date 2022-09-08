@@ -23,15 +23,19 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
-            AbstractBook.afterFightText += myState.character.DieText();
-            //播放完动画后销毁
-            Destroy(this.gameObject);
+            if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
+                //播放完动画后销毁
+                Destroy(this.gameObject);
         }
+
 
         public override void EnterState(MyState0 myState)
         {
             myState.character.charaAnim.Play(AnimEnum.dead);
-            AbstractBook.afterFightText += myState.character.LowHPText();
+            //AbstractBook.afterFightText += myState.character.LowHPText();
+            AbstractBook.afterFightText += myState.character.DieText();
+            
+
             //结束
             if (GameObject.Find("LeftAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1 || GameObject.Find("RightAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1)
             // if (myState.character.camp == CampEnum.friend)

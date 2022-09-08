@@ -15,10 +15,14 @@ namespace AI
         }
         public override bool Satisfy(MyState0 myState)
         {
-           if(myState.aim==null ||
-                Situation.Distance(myState.character.situation, myState.aim.situation) > myState.character.attackDistance)
+            if (myState.aim == null ||
+                 Situation.Distance(myState.character.situation, myState.aim.situation) > myState.character.attackDistance)
+            {
+                myState.aim = null;
                 return true;
-           else return false;
+            }
+            else 
+                return false;
         }
     }
 }

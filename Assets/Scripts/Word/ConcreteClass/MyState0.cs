@@ -38,15 +38,22 @@ namespace AI
             nowState = defaultState = allState.Find(p => p.id == StateID.idle);
             nowState.EnterState(this);
 
-            aim = FindAim();
             StartCoroutine(Every1Seconds());
+            StartCoroutine(EveryZeroOne());
         }
-
 
         public void FixedUpdate()
         {
             nowState.Action(this);
-            nowState.CheckTrigger(this);
+        }
+        IEnumerator EveryZeroOne()
+        {
+            while (true)
+            {
+                nowState.CheckTrigger(this);//更新状态
+                yield return new WaitForSeconds(0.1f);
+            }
+
         }
         IEnumerator Every1Seconds()
         {
@@ -62,7 +69,7 @@ namespace AI
         public AbstractCharacter FindAim()
         {
             //所有目标
-            AbstractCharacter[] a = sectorSearch.CaculateRange(999, character.situation,NeedCampEnum.enemy);
+            AbstractCharacter[] a = sectorSearch.CaculateRange(character.attackDistance, character.situation,NeedCampEnum.enemy);
             return a[0];
         }
         /// <summary>

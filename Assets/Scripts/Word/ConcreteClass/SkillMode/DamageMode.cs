@@ -35,13 +35,9 @@ class DamageMode : AbstractSkillMode
                 return; 
             }
 
-            if (useCharacter.role.restrainRole.ContainsKey(aimCharacter.role.roleID))//攻击者克被攻击者
+            if(useCharacter.trait.restrainRole.Contains(aimCharacter.trait.traitEnum))//攻击者克被攻击者,提升30%伤害
             {
-                aimCharacter.hp -= value * (1 + useCharacter.role.restrainRole[aimCharacter.role.roleID]);
-            }
-            else if (aimCharacter.role.restrainRole.ContainsKey(useCharacter.role.roleID))//被攻击者克制攻击者
-            {
-                aimCharacter.hp -= value * (1 - aimCharacter.role.restrainRole[useCharacter.role.roleID]);
+                aimCharacter.hp -= value * 1.3f;
             }
             else//一般
             {
