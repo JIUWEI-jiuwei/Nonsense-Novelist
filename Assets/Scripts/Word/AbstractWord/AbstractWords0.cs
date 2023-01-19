@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 abstract public class AbstractWords0 : MonoBehaviour
 {
-    /// <summary>所属数目</summary>
+    /// <summary>所属书目</summary>
     public BookNameEnum bookName;
     /// <summary>名称（词汇本体）</summary>
     public string wordName;
