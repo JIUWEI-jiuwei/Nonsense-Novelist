@@ -18,17 +18,13 @@ class FireBall : AbstractVerbs
         description = "学会杂耍火球，造成150%精神力的伤害，晕眩0.3秒。";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new SingleSelector();
-        percentage = 1.5f;
         attackDistance = 999;
         skillTime = 0;
         skillEffectsTime = 0.3f;
         cd = 0;
         maxCD = 5;
-        comsumeSP = 5;
         prepareTime = 0.5f;
         afterTime = 0;
-        allowInterrupt = false;
-        possibility = 0;
         description = "花哨且伤害不俗的杂技把戏。";
 
         bullet = Resources.Load<GameObject>("FirstStageLoad/" + "bullet/Fireball_bullet");
@@ -44,7 +40,7 @@ class FireBall : AbstractVerbs
         base.UseVerbs(useCharacter);
         if (aims != null)
         {
-            skillMode.UseMode(useCharacter, useCharacter.atk * percentage * (1 - aims[0].def / (aims[0].def + 20)), aims[0]);
+            skillMode.UseMode(useCharacter, useCharacter.atk  * (1 - aims[0].def / (aims[0].def + 20)), aims[0]);
             SpecialAbility(useCharacter);
         }
     }

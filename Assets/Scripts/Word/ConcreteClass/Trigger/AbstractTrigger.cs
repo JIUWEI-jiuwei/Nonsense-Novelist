@@ -6,7 +6,7 @@ namespace AI
     /// <summary>
     /// ³éÏó´¥·¢Æ÷
     /// </summary>
-    abstract class AbstractTrigger : MonoBehaviour
+    public abstract class AbstractTrigger : MonoBehaviour
     {
       public TriggerID id;
 

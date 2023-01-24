@@ -16,16 +16,12 @@ class FangFuShu : AbstractVerbs
         description = "学会防腐术，让队友获得复活的机会，持续20秒。";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange =  new SingleSelector();
-        percentage = 0;
         attackDistance = 5;
         skillTime = 0;
         skillEffectsTime = 20;
         cd=maxCD=50;
-        comsumeSP = 20;
         prepareTime = 0;
         afterTime = 0;
-        allowInterrupt = false;
-        possibility = 0;
         description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
 
         aimState = this.GetComponent<AI.MyState0>();//2.获取目标（挂在目标上时）

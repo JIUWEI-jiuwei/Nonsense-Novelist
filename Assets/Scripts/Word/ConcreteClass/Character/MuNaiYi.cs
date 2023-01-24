@@ -1,3 +1,4 @@
+using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,19 +20,30 @@ using UnityEngine;
         mainProperty.Add("意志","中法T");
         trait=gameObject.AddComponent<Vicious>();
         roleName = "亡灵";
-        criticalChance = 15;
-        attackInterval = 2;
+        attackInterval = 2.2f;
         attackDistance = 3;
-        reLifes = true;//复活技能
-        importantNum.AddRange(new int[] { 8 });
+        reLifes++;//复活技能
         brief = "";
         description = "沉默者曾经是某个王国的贵族，从小便精通魔法的使用。据说在王国政权被颠覆之后他被叛逃者关在地牢里折磨，痛苦的嘶吼随着时日慢慢沉寂，直到他所有人性都被磨灭。而他身上的魔法能量也被扭曲，变得恶毒不堪。如今的它都蜷缩于阴暗的地窖里，练习着被巫师们唾弃的魔法。";
     }
+
+    private void Start()
+    {
+        NoHealthTrigger noHealthTrigger= GetComponent<NoHealthTrigger>();
+        noHealthTrigger.OnLive += OnLive;
+    }
+
     /// <summary>
     /// 身份
     /// </summary>
-    public override float psy { get { return PSY +5; } set { PSY = value; } }
-    public override float san { get { return SAN +5; } set { SAN = value; } }
+    public void OnLive()
+    {
+        atk += 10;
+        def += 10;
+        psy += 10;
+        san += 10;
+    }
+
 
     public override void CreateBullet(GameObject aimChara)
     {

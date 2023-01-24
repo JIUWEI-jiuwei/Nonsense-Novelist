@@ -18,16 +18,27 @@ using UnityEngine;
         san = 3;
         mainProperty.Add("精神","中法dps");
         trait=gameObject.AddComponent<Possessive>();
-        criticalChance = 0;
-        attackInterval = 2;
+        roleName = "舞女";
+        attackInterval = 2.2f;
         attackDistance = 2;
-        importantNum.AddRange(new int[] { 8 });
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
         description = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
             "\n道是：" +
             "\n可叹停机德，堪怜咏絮才。" +
             "\n玉带林中挂，金簪雪里埋。";
     }
+
+    public override void AttackA()
+    {
+        base.AttackA();//普通攻击降低敌人20%意志，不可叠加，持续10s
+        ShaLeMeiBuff record=myState.aim.GetComponent<ShaLeMeiBuff>();
+        if (record == null)
+            myState.aim.gameObject.AddComponent<ShaLeMeiBuff>();
+        else
+            record.nowTime = 10;
+    }
+
+
 
     public override void CreateBullet(GameObject aimChara)
     {

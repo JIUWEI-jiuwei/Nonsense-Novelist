@@ -18,16 +18,15 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
-            if (myState.character.charaAnim.IsEnd(AnimEnum.beAttacked))
+            if (myState.character.dizzyTime > 0)
             {
-                myState.character.charaAnim.Play(AnimEnum.dizzy);
+                myState.character.dizzyTime -= Time.deltaTime;
             }
         }
 
 
         public override void EnterState(MyState0 myState)
         {
-            // myState.character.charaAnim.Play(AnimEnum.beAttacked);
         }
 
         public override void Exit(MyState0 myState)

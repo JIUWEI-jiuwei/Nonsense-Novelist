@@ -14,27 +14,16 @@ class SilenceOne : AbstractCharacter
         wordName = "沉默者";
         bookName = BookNameEnum.allBooks;
         brief = "一个强大的，无法绕开的敌人";
-        criticalSpeak = "嗯……";
-        deadSpeak = "嗯……？！";
-        role = gameObject.AddComponent<OldEnemy>();
         trait=gameObject.AddComponent<Pride>();
         hp=maxHP = 300;
-        sp=maxSP = 20;
         atk = 13;
         def = 5;
         psy = 10;
         san = 30;
-        mainSort = MainSortEnum.atk;
-        criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 1.5f;
-        skillSpeed = 0;
-        dodgeChance = 0;
+        attackInterval = 2.2f;
         attackDistance = 6;
-        luckyValue = 0;
-        enemyLevel = 3;
         description = "一个强大的，无法绕开的敌人";
-        mainSort = MainSortEnum.atk;
     }
 
     public override void CreateBullet(GameObject aimChara)

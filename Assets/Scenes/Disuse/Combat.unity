@@ -14671,45 +14671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verbLoadingPrefab: {fileID: 6806686265833367326, guid: 756f52404dda4ef43afb026bc41a98d2, type: 3}
---- !u!114 &6809282097221740379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792533845921761566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
---- !u!114 &6809282097964032827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792533845170883966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
---- !u!114 &6809282098733858181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792533846897005504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
 --- !u!1 &6960307406908304749
 GameObject:
   m_ObjectHideFlags: 0
@@ -15576,45 +15537,27 @@ MonoBehaviour:
   wordSort: 0
   characterID: 0
   gender: 0
-  appearance: {fileID: 0}
   source: {fileID: 0}
   aAttackAudio: {fileID: 8300000, guid: 677425152d8c7254a814b22947ab038e, type: 3}
   walkAudio: {fileID: 8300000, guid: 336cc2b14d4b27641a1c4408bd39c99d, type: 3}
-  epoch: 
-  area: 
-  criticalSpeak: 
-  deadSpeak: 
   teXiao: {fileID: 0}
   bullet: {fileID: 0}
   camp: 1
-  role: {fileID: 0}
-  trait: {fileID: 0}
-  skills: []
-  realSkills: []
-  hp: 0
+  HP: 0
   maxHP: 0
   sp: 0
   maxSP: 0
-  atk: 0
-  def: 0
-  psy: 0
-  san: 0
+  trait: {fileID: 0}
+  roleName: 
+  skills: []
   criticalChance: 0
   multipleCriticalStrike: 0
   attackInterval: 0
-  skillSpeed: 0
-  dodgeChance: 0
+  situation: {fileID: 0}
   attackDistance: 0
-  attackAngle: 120
-  luckyValue: 0
-  level: 1
-  exp: 0
-  enemyLevel: 0
-  mainSort: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  importantNum: 
-  bg_text: 
+  reLifes: 0
 --- !u!114 &8792533845170883959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15718,7 +15661,6 @@ GameObject:
   - component: {fileID: 2357813419992492496}
   - component: {fileID: 3087079198443880278}
   - component: {fileID: 6102042650824924691}
-  - component: {fileID: 6809282097964032827}
   m_Layer: 3
   m_Name: Mouse (1)
   m_TagString: Untagged
@@ -15818,45 +15760,27 @@ MonoBehaviour:
   wordSort: 0
   characterID: 0
   gender: 0
-  appearance: {fileID: 0}
   source: {fileID: 0}
   aAttackAudio: {fileID: 8300000, guid: 677425152d8c7254a814b22947ab038e, type: 3}
   walkAudio: {fileID: 8300000, guid: 336cc2b14d4b27641a1c4408bd39c99d, type: 3}
-  epoch: 
-  area: 
-  criticalSpeak: 
-  deadSpeak: 
   teXiao: {fileID: 0}
   bullet: {fileID: 0}
   camp: 1
-  role: {fileID: 0}
-  trait: {fileID: 0}
-  skills: []
-  realSkills: []
-  hp: 0
+  HP: 0
   maxHP: 0
   sp: 0
   maxSP: 0
-  atk: 0
-  def: 0
-  psy: 0
-  san: 0
+  trait: {fileID: 0}
+  roleName: 
+  skills: []
   criticalChance: 0
   multipleCriticalStrike: 0
   attackInterval: 0
-  skillSpeed: 0
-  dodgeChance: 0
+  situation: {fileID: 0}
   attackDistance: 0
-  attackAngle: 120
-  luckyValue: 0
-  level: 1
-  exp: 0
-  enemyLevel: 0
-  mainSort: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  importantNum: 
-  bg_text: 
+  reLifes: 0
 --- !u!114 &8792533845921761559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15960,7 +15884,6 @@ GameObject:
   - component: {fileID: 2357813419258391984}
   - component: {fileID: 3087079199311674166}
   - component: {fileID: 6102042649948412531}
-  - component: {fileID: 6809282097221740379}
   m_Layer: 3
   m_Name: Mouse (2)
   m_TagString: Untagged
@@ -15996,7 +15919,6 @@ GameObject:
   - component: {fileID: 2357813420770375534}
   - component: {fileID: 3087079197866795496}
   - component: {fileID: 6102042648973164717}
-  - component: {fileID: 6809282098733858181}
   - component: {fileID: 8792533846897005505}
   m_Layer: 3
   m_Name: Mouse (3)
@@ -16161,45 +16083,27 @@ MonoBehaviour:
   wordSort: 0
   characterID: 0
   gender: 0
-  appearance: {fileID: 0}
   source: {fileID: 0}
   aAttackAudio: {fileID: 8300000, guid: 677425152d8c7254a814b22947ab038e, type: 3}
   walkAudio: {fileID: 8300000, guid: 336cc2b14d4b27641a1c4408bd39c99d, type: 3}
-  epoch: 
-  area: 
-  criticalSpeak: 
-  deadSpeak: 
   teXiao: {fileID: 0}
   bullet: {fileID: 0}
   camp: 1
-  role: {fileID: 0}
-  trait: {fileID: 0}
-  skills: []
-  realSkills: []
-  hp: 0
+  HP: 0
   maxHP: 0
   sp: 0
   maxSP: 0
-  atk: 0
-  def: 0
-  psy: 0
-  san: 0
+  trait: {fileID: 0}
+  roleName: 
+  skills: []
   criticalChance: 0
   multipleCriticalStrike: 0
   attackInterval: 0
-  skillSpeed: 0
-  dodgeChance: 0
+  situation: {fileID: 0}
   attackDistance: 0
-  attackAngle: 120
-  luckyValue: 0
-  level: 1
-  exp: 0
-  enemyLevel: 0
-  mainSort: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  importantNum: 
-  bg_text: 
+  reLifes: 0
 --- !u!114 &8792533846897005518
 MonoBehaviour:
   m_ObjectHideFlags: 0

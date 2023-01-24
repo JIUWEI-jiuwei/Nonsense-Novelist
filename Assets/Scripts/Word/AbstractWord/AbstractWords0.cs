@@ -9,7 +9,7 @@ using UnityEngine.UI;
 abstract public class AbstractWords0 : MonoBehaviour
 {
     /// <summary>所属书目</summary>
-    public BookNameEnum bookName;
+    public BookNameEnum bookName=BookNameEnum.allBooks;
     /// <summary>名称（词汇本体）</summary>
     public string wordName;
     /// <summary>图标/头像</summary>

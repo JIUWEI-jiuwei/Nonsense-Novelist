@@ -1,3 +1,4 @@
+using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ using UnityEngine;
         wordName = "税收";
         bookName = BookNameEnum.ElectronicGoal;
         gender = GenderEnum.noGender;
-        hp =maxHP  = 2200;
+        hp =maxHP  = 220;
         atk = 5;
         def = 5;
         psy = 3;
@@ -19,12 +20,35 @@ using UnityEngine;
         mainProperty.Add("防御","中物T");
         trait=gameObject.AddComponent<ColdInexorability>();
         roleName = "垄断公司";
-        criticalChance = 10;
-        attackInterval = 2;
+        attackInterval = 2.2f;
         attackDistance = 1;
-        importantNum.AddRange(new int[] { 8 });
         brief = "来自日常生活开销所产生的经济压力";
         description = "来自日常生活开销所产生的经济压力。";
+    }
+
+    private void Start()
+    {
+        attackState=GetComponent<AttackState>();
+    }
+
+    AttackState attackState;
+    AbstractCharacter[] aims;
+    public override void AttackA()
+    {
+        base.AttackA();
+        myState.aim = null;
+        if (myState.character.aAttackAudio != null)
+        {
+            myState.character.source.clip = myState.character.aAttackAudio;
+            myState.character.source.Play();
+        }
+        myState.character.charaAnim.Play(AnimEnum.attack);
+        //attackA已是DamageMode
+        aims = attackState.attackA.CalculateAgain(10, this);
+        foreach (AbstractCharacter aim in aims)
+        {//普通攻击为对所有敌人造成攻击力10%的伤害，附带攻击特效
+            attackState.attackA.UseMode(myState.character, myState.character.atk*0.1f * (1 - myState.aim.def / (myState.aim.def + 20)), aim);
+        }
     }
 
     public override void CreateBullet(GameObject aimChara)
@@ -35,7 +59,6 @@ using UnityEngine;
         danDao.bulletSpeed = 0.5f;
         danDao.birthTransform = this.transform;
         ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-
     }
     public override string ShowText(AbstractCharacter otherChara)
     {

@@ -13,7 +13,7 @@ class GuanZhuangFeiYan : AbstractAdjectives
         adjID = 8;
         wordName = "¹Ú×´·ÎÑ×";
         nickname.Add("·ÎÑ×");
-        bookName = BookNameEnum.Epidemiology;
+        bookName = BookNameEnum.FluStudy;
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Biology>());
         skillMode=gameObject.AddComponent<DamageMode>();

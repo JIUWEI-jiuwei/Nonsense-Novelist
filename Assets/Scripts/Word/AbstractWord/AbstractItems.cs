@@ -54,7 +54,6 @@ abstract class AbstractItems : AbstractWords0
         useCharacter.san += san;
         useCharacter.criticalChance += criticalChance;
         useCharacter.multipleCriticalStrike += multipleCriticalStrike;
-        useCharacter.dodgeChance+=dodgeChance;
         useCharacter.attackInterval += attackInterval;
     }
 
@@ -67,7 +66,6 @@ abstract class AbstractItems : AbstractWords0
         useCharacter.san -= san;
         useCharacter.criticalChance += criticalChance;
         useCharacter.multipleCriticalStrike-=multipleCriticalStrike;
-        useCharacter.dodgeChance-=dodgeChance;
         useCharacter.attackInterval -= attackInterval;
     }
 }

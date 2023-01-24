@@ -12,7 +12,7 @@ class ChaoMinFanYing : AbstractAdjectives
         adjID = 7;
         wordName = "≥¨√Ù∑¥”¶";
         nickname.Add ("π˝√Ù");
-        bookName = BookNameEnum.Epidemiology;
+        bookName = BookNameEnum.FluStudy;
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Biology>());
         skillMode=gameObject.AddComponent<DamageMode>();

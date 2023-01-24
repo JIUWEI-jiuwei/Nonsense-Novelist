@@ -101,73 +101,35 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 {
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                     
-                    if(CanUseVerb(character, b))//如果能够使用到角色身上
+                    //if(CanUseVerb(character, b))//如果能够使用到角色身上
                     {
                         hit.collider.gameObject.AddComponent(b.GetType());
                         character.skills.Add(b);
                         //character.realSkills = character.GetComponents<AbstractVerbs>();
                         Destroy(this.gameObject);
                     }
-                    else//不能
+                    /*else//不能
                     {
                         audioSource_cantuse.Play();
-                    }
+                    }*/
                 }
                 else if (absWord.wordSort == WordSortEnum.adj)
                 {
-                    if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
+                    //if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
                     {
                         this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
                         Destroy(this.gameObject);
                     }
-                    else
+                    /*else
                     {
                         audioSource_cantuse.Play();
-                    }
+                    }*/
                 }
             }
         }
     }
-    /// <summary>
-    /// 检查目标角色限制（动词）
-    /// </summary>
-    public bool CanUseVerb(AbstractCharacter aimChara,AbstractVerbs verb)
-    {
-        foreach(AbstractRoleLimit roleLimit in verb.banUse)
-        {
-            foreach(AbstractRole role in roleLimit.banRole)
-            {
-                if (aimChara.role == role)
-                    return false;
-            }
-            foreach (GenderEnum gender in roleLimit.banGender)
-            {
-                if (aimChara.gender == gender)
-                    return false;
-            }
-        }
-        return true;
-    }
-    /// <summary>
-    /// 检查目标角色限制（形容词）
-    /// </summary>
-    public bool CanUseAdj(AbstractCharacter aimChara, AbstractAdjectives adj)
-    {
-        foreach(AbstractRoleLimit roleLimit in adj.banAim)
-        {
-            foreach (AbstractRole role in roleLimit.banRole)
-            {
-                if (aimChara.role == role)
-                    return false;
-            }
-            foreach (GenderEnum gender in roleLimit.banGender)
-            {
-                if (aimChara.gender == gender)
-                    return false;
-            }
-        }
-        return true;
-    }
+    
+    
 
     /// <summary>
     /// 将词条位置与卡槽位置相匹配

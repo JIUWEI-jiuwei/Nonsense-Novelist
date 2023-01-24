@@ -13,7 +13,7 @@ class LinQiuJun : AbstractAdjectives
         adjID = 6;
         wordName = "ÁÜÇò¾ú";
         nickname.Add("ÁÜ²¡");
-        bookName = BookNameEnum.Epidemiology;
+        bookName = BookNameEnum.FluStudy;
         chooseWay = ChooseWayEnum.canChoose;
         banAim.Add(gameObject.AddComponent<Biology>());
         skillMode=gameObject.AddComponent<DamageMode>();

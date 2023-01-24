@@ -35,7 +35,7 @@ class SPbar : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        UpdateSPBar(chara.sp, chara.maxSP);
+        //UpdateSPBar(chara.sp, chara.maxSP);
         if (UIbar != null)
         {
             UIbar.transform.position = SPbarPoint.position;

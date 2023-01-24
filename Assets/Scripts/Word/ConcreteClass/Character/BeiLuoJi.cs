@@ -1,3 +1,4 @@
+using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,15 +19,39 @@ using UnityEngine;
         san = 5;
         mainProperty.Add("意志","奶");
         trait=gameObject.AddComponent<Mercy>();
-        criticalChance = 0;
-        attackInterval = 2.3f;
+        attackInterval = 2.2f;
         attackDistance = 5;
-        importantNum.AddRange(new int[] { 8 });
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
         description = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
             "\n道是：" +
             "\n可叹停机德，堪怜咏絮才。" +
             "\n玉带林中挂，金簪雪里埋。";
+    }
+
+    private void Start()
+    {
+        attackState = GetComponent<AttackState>();
+        Destroy(attackState.attackA);
+        attackState.attackA = gameObject.AddComponent<CureMode>();
+    }
+
+    AttackState attackState;
+    AbstractCharacter[] aims;
+    public override void AttackA()
+    {
+        base.AttackA();
+        myState.aim = null;
+        if (myState.character.aAttackAudio != null)
+        {
+            myState.character.source.clip = myState.character.aAttackAudio;
+            myState.character.source.Play();
+        }
+        myState.character.charaAnim.Play(AnimEnum.attack);
+        aims = attackState.attackA.CalculateAgain(10, this);
+        foreach (AbstractCharacter aim in aims)
+        {//普通攻击目标为所有队友，恢复70%意志的血量，不附带攻击攻击特效
+            attackState.attackA.UseMode(myState.character, san * 0.7f, aim) ;
+        }
     }
 
     public override void CreateBullet(GameObject aimChara)

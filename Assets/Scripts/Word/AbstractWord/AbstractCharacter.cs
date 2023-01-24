@@ -1,3 +1,4 @@
+using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,11 @@ using UnityEngine;
 /// </summary>
 abstract public class AbstractCharacter : AbstractWords0
 {
+    protected MyState0 myState;
     /// <summary>序号</summary>
     public int characterID;
     /// <summary>性别</summary>
     public GenderEnum gender;
-    /// <summary>形象</summary>
-    public Animator appearance;
     /// <summary>AudioSource</summary>
     public AudioSource source;
     /// <summary>平A音效(手动拖拽）</summary>
@@ -24,11 +24,9 @@ abstract public class AbstractCharacter : AbstractWords0
     /// <summary>走路音效（手动拖拽）</summary>
     public AudioClip walkAudio;
     /// <summary>人物暴击默认台词（弃用）</summary>
-    public string criticalSpeak;
+    //[HideInInspector] public string criticalSpeak;
     /// <summary>人物死亡默认台词（弃用）</summary>
-    public string deadSpeak;
-    /// <summary>身份(弃用）</summary>
-    public AbstractRole role;
+    //[HideInInspector] public string deadSpeak;
 
     /// <summary>特效</summary>
     public TeXiao teXiao;
@@ -40,29 +38,48 @@ abstract public class AbstractCharacter : AbstractWords0
     /// <summary>阵营</summary>
     public CampEnum camp;
     /// <summary>血量</summary>
-    public float hp = 0;
+    public float HP = 0;
     /// <summary>总血量</summary>
     public float maxHP = 0;
-    /// <summary>蓝量（弃用）</summary>
-    public float sp = 0;
-    /// <summary>总蓝量（弃用）</summary>
-    public float maxSP = 0;
     /// <summary>攻击力</summary>
     protected float ATK = 0;
+
+    virtual public float hp
+    {
+        get { return HP; }
+        set 
+        {
+            HP = value;
+            if (HP > maxHP)
+            {
+                HP = maxHP;
+            }
+            else if (HP < 0)
+            {
+                HP = 0;
+            }
+        }
+    }
+
     virtual public float atk
     {
         get { return ATK; }
         set { ATK = value; }
     }
-    /// <summary>防御力</summary>
     protected float DEF = 0;
     virtual public float def
     {
         get { return DEF; }
-        set { DEF = value; }
+        set 
+        {
+            DEF = value;
+            if (DEF < -19)
+                DEF= -19;
+        }
     }
-    /// <summary>精神力</summary>psychic force
+    /// <summary>精神力</summary>
     protected float PSY = 0;
+    /// <summary>精神力</summary>
     virtual public float psy
     {
         get { return PSY; }
@@ -70,58 +87,59 @@ abstract public class AbstractCharacter : AbstractWords0
     }
     /// <summary>意志力</summary>
     protected float SAN = 0;
+    /// <summary>意志力</summary>
     virtual public float san
     {
         get { return SAN; }
-        set { SAN = value; }
+        set
+        { 
+            SAN = value;
+            if (SAN < -19)
+            SAN= -19;  
+        }
     }
-    /// <summary>主属性</summary>
+    /// <summary>主属性(弃用)</summary>
     public Dictionary<string,string> mainProperty;
-    /// <summary>性格</summary>
+    /// <summary>性格（弃用）</summary>
     public AbstractTrait trait;
     /// <summary>身份名</summary>
     public string roleName;
     /// <summary>拥有技能（所挂组件,自带技能/身份 在初始赋值）</summary>
     public List<AbstractVerbs> skills;
-    /// <summary>暴击几率(暴击即为2倍)</summary>
-    public float criticalChance = 0;
+    /// <summary>暴击几率(弃用)</summary>
+    [HideInInspector]public float criticalChance = 0;
     /// <summary>暴击倍数(弃用）</summary>
-    public float multipleCriticalStrike = 0;
+    [HideInInspector] public float multipleCriticalStrike = 2;
     /// <summary>攻击间隔(检定攻击的次序，以及每两次攻击间隔时长)</summary>
-    public float attackInterval = 0;
-    /// <summary>技能速度(弃用）(用于减少该人物所有技能的CD，尽量不要这个值)</summary>
-    public float skillSpeed = 0;
-    /// <summary>闪避几率(弃用)</summary>
-    public float dodgeChance = 0;
+    public float attackInterval = 2.2f;
 
     /// <summary>站位</summary>
     public Situation situation;
     /// <summary>攻击射程</summary>
     public int attackDistance = 0;
-    /// <summary>幸运值(弃用)</summary>
-    public int luckyValue = 0;
-    /// <summary>等级(弃用）</summary>
-    public int level = 1;
-    /// <summary>经验(弃用）（0-100）</summary>
-    public int exp = 0;
-    /// <summary>怪级别(弃用）（友方为0）</summary>
-    public int enemyLevel = 0;
-    /// <summary>主属性(弃用）</summary>
-    public MainSortEnum mainSort = 0;
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;
     /// <summary>剩余眩晕时间</summary>
     public float dizzyTime;
-    /// <summary>是否有复活状态</summary>
-    public bool reLifes;
+    /// <summary>是否有复活状态(仍不可叠加，但数量为0则不可复活)</summary>
+    private int relifes;
+    public int reLifes
+    {
+        get { return relifes; } 
+        set
+        { 
+            relifes = value; 
+            if(relifes<0)relifes=0;
+        }
+    }
+
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
-    /// <summary>重要之人序号</summary>
-    public List<int> importantNum=new List<int>();
     
 
     virtual public void Awake()
     {
+        myState = GetComponent<MyState0>();
         teXiao=GetComponentInChildren<TeXiao>();
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
@@ -132,53 +150,22 @@ abstract public class AbstractCharacter : AbstractWords0
         AbstractBook.beforeFightText += ShowText(b);
     }
 
-    virtual public void FixedUpdate()
-    {
-        if(dizzyTime>0)
-        {
-            dizzyTime-= Time.deltaTime;
-            //负数归零写在DizzyState的Exit中
-        }
-        #region 数值限制
-        if (hp < 0)
-        {
-            hp = 0;
-        }
-        if(hp>maxHP)
-        {
-            hp=maxHP;
-        }
-        if(def<-19)
-        {
-            def = -19;
-        }
-        if(san<-19)
-        {
-            san= -19;
-        }
-        #endregion
-    }
+
     /// <summary>
-    /// 升级
+    /// 平A时最先发生的事(角色对平A造成影响）
     /// </summary>
-    /// <returns></returns>
-    /*virtual public bool LevelUp()
+    virtual public void AttackA() 
     {
-        if (exp < 100)
-            return false;
-        else
-        {
-            level++;
-            exp -= 100;
-            hp += role.growHP;
-            atk += role.growATK;
-            def += role.growDEF;
-            sp+=trait.growSP;
-            psy += trait.growPSY;
-            san += trait.growSAN;
-            return true;
-        }
-    }*/
+        if(OnA!=null)
+        OnA();
+    }
+
+    public delegate void changeA();
+    /// <summary>
+    /// 对角色平A进行操作(技能等对平A造成影响）
+    /// </summary>
+    public event changeA OnA;
+    
 
     /// <summary>
     /// 判断该角色是否有该buff

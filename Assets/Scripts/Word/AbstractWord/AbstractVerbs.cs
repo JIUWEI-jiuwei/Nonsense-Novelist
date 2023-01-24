@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,19 +21,8 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>弹道特效</summary>
     public Animation bulletAnim;
 
-
-
-
-    /// <summary>技能使用者身份限制（谁不能使用）</summary>
-    public List<AbstractRoleLimit> banUse=new List<AbstractRoleLimit>();
-    /// <summary>目标限制（不能向谁使用）</summary>
-    public List<AbstractRoleLimit> banAim=new List<AbstractRoleLimit>();
-
-
     /// <summary>技能类型 </summary>
     public AbstractSkillMode skillMode;
-    /// <summary>技能强度(在这两数间取随机)，或造成 某值n%（percentage写小数） 的伤害</summary>
-    public float skillMinStrength, skillMaxStrength,percentage;
     /// <summary>射程</summary>
     public int attackDistance;
 
@@ -42,26 +33,28 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     public float skillEffectsTime;
     /// <summary>是否正在使用该技能 </summary>
     public bool isUsing;
-    /// <summary>当前能量（不用CD，改为随着时间和平A次数增长，到满可以释放）</summary>
-    public float cd;//一阶段用CD
+    /// <summary>稀有度</summary>
+    public int rarity;
+    /// <summary>当前能量(每个技能有自己的能量值)</summary>
+    public float cd;
     /// <summary>总能量</summary>
-    public float maxCD;//一阶段用CD
-    /// <summary>消耗蓝量</summary>
-    public int comsumeSP;
+    public float maxCD;
     /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）【不用】</summary>
     public float prepareTime,afterTime;
-    /// <summary>是否允许打断 【不用】</summary>
-    public bool allowInterrupt;
-    /// <summary>技能概率（平A时有概率释放）【不用】</summary>
-    public float possibility;
     /// <summary>目标数组 </summary>
     protected AbstractCharacter[] aims;
-
+    /// <summary>特殊效果存储引用</summary>
+    protected List<AbstractBuff> buffs;
 
     public virtual void Awake()
     {
         wordSort =WordSortEnum.verb;
+        OnAwake();
     }
+
+    public delegate void AwakeHandler();
+    static public event AwakeHandler OnAwake;
+
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
@@ -79,7 +72,6 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
         cd = 0;
         aims=skillMode.CalculateAgain(attackDistance,useCharacter);
         
-        useCharacter.sp -= comsumeSP;
         stateInfo=useCharacter.charaAnim.anim.GetCurrentAnimatorStateInfo(0);
     }
 
@@ -111,5 +103,20 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
         }
         else
             return false;
+    }
+
+    private void OnDisable()
+    {
+        foreach(AbstractBuff buff in buffs)
+        {
+            Destroy(buff);
+        }
+    }
+    private void OnDestroy()
+    {
+        foreach (AbstractBuff buff in buffs)
+        {
+            Destroy(buff);
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ÐÎÈÝ´Ê£¨×´Ì¬£©
+/// ÐÎÈÝ´Ê
 /// </summary>
 abstract class AbstractAdjectives : AbstractWords0
 {

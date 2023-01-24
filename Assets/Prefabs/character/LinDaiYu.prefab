@@ -62,36 +62,6 @@ Transform:
   - {fileID: 5898917912383427011}
   - {fileID: 5195961038940074984}
   m_Father: {fileID: 3837959891539934792}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2849001961377838941
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1996022868118279635}
-  m_Layer: 0
-  m_Name: SP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1996022868118279635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2849001961377838941}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3837959891539934792}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3717080420932905053
@@ -153,7 +123,7 @@ Transform:
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children: []
   m_Father: {fileID: 3837959891539934792}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3837959891525375967
 SpriteRenderer:
@@ -225,7 +195,6 @@ GameObject:
   - component: {fileID: 3365705217194823574}
   - component: {fileID: 2168264803539121840}
   - component: {fileID: 897282651144369372}
-  - component: {fileID: 2412674331984132232}
   m_Layer: 3
   m_Name: LinDaiYu
   m_TagString: character
@@ -245,7 +214,6 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 1191789748813535651}
-  - {fileID: 1996022868118279635}
   - {fileID: 1417761081344716078}
   - {fileID: 3837959891525375964}
   - {fileID: 7401971362705178223}
@@ -369,45 +337,27 @@ MonoBehaviour:
   wordSort: 0
   characterID: 0
   gender: 0
-  appearance: {fileID: 0}
   source: {fileID: 0}
   aAttackAudio: {fileID: 8300000, guid: b8cd3700f6bb8f24b9fc9ccefac895b2, type: 3}
   walkAudio: {fileID: 8300000, guid: 336cc2b14d4b27641a1c4408bd39c99d, type: 3}
-  epoch: 
-  area: 
-  criticalSpeak: 
-  deadSpeak: 
   teXiao: {fileID: 0}
   bullet: {fileID: 7617887590883620401, guid: c53e15fe0150c9d428a6254f04e23faf, type: 3}
   camp: 1
-  role: {fileID: 0}
-  trait: {fileID: 0}
-  skills: []
-  realSkills: []
-  hp: 0
+  HP: 0
   maxHP: 0
   sp: 0
   maxSP: 0
-  atk: 0
-  def: 0
-  psy: 0
-  san: 0
+  trait: {fileID: 0}
+  roleName: 
+  skills: []
   criticalChance: 0
   multipleCriticalStrike: 0
   attackInterval: 0
-  skillSpeed: 0
-  dodgeChance: 0
+  situation: {fileID: 0}
   attackDistance: 0
-  attackAngle: 120
-  luckyValue: 0
-  level: 1
-  exp: 0
-  enemyLevel: 0
-  mainSort: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  importantNum: 
-  bg_text: 
+  reLifes: 0
 --- !u!114 &897282651725383748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,19 +524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1067f2512016e3d43a30319d235621b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2412674331984132232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3837959891539934793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
 --- !u!1 &4292073181992697367
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalScale.x

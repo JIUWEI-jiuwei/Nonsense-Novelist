@@ -13,7 +13,6 @@ class LengXiangPill : AbstractItems
         bookName = BookNameEnum.HongLouMeng;
         getWay = GetWayEnum.NormalWord;
         description = "一枚制作相当复杂的药丸，提升3点防御。";
-        banUse.Add(gameObject.AddComponent<Biology>());
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         withSkill = gameObject.AddComponent<FuYao>();

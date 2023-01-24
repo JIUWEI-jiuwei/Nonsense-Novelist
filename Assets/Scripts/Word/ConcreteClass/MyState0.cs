@@ -6,7 +6,7 @@ namespace AI
     /// <summary>
     /// 自己状态（抽象角色脚本挂上时，此脚本自动跟着挂上）
     /// </summary>
-    class MyState0 : MonoBehaviour
+    public class MyState0 : MonoBehaviour
     {
         /// <summary>角色</summary>
         [HideInInspector] public AbstractCharacter character;

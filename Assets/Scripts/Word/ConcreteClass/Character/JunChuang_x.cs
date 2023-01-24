@@ -12,23 +12,16 @@ using UnityEngine;
         characterID = 8;
         gender = GenderEnum.noGender;
         wordName = "¾ú´²";
-        bookName = BookNameEnum.Epidemiology;
-        role = gameObject.AddComponent<NullRole>();
+        bookName = BookNameEnum.FluStudy;
         trait = gameObject.AddComponent<NullTrait>();
         hp = maxHP = 30;
-        sp=maxSP = 0;
         atk = 0;
         def = 3;
         psy = 0;
         san = 999;
-        criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 2f;
-        skillSpeed = 0;
-        dodgeChance = 0;
+        attackInterval = 2.2f;
         attackDistance = 0;
-        luckyValue = 0;
-        mainSort = MainSortEnum.def;
     }
 
     public override string ShowText(AbstractCharacter otherChara)

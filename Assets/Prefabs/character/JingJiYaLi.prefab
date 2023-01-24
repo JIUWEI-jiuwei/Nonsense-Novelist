@@ -152,7 +152,7 @@ Transform:
   - {fileID: 3468684103705262079}
   - {fileID: 936639262440409245}
   m_Father: {fileID: 8792533845088263388}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6960307407198877868
 GameObject:
@@ -184,36 +184,6 @@ Transform:
   m_Father: {fileID: 5903070781244159321}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7157372326734581484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7507239836164359790}
-  m_Layer: 3
-  m_Name: SP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7507239836164359790
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7157372326734581484}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.35, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8792533845088263388}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8792533845088263391
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +201,6 @@ GameObject:
   - component: {fileID: 8792533845088263379}
   - component: {fileID: 8414490356962856464}
   - component: {fileID: 2357813420043696241}
-  - component: {fileID: 7813373795055179565}
   - component: {fileID: 3087079198526402295}
   - component: {fileID: 6102042650773589938}
   - component: {fileID: 841774588081080553}
@@ -254,7 +223,6 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 2364249823446177229}
-  - {fileID: 7507239836164359790}
   - {fileID: 5903070781244159321}
   - {fileID: 8122906025280384466}
   m_Father: {fileID: 0}
@@ -505,19 +473,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}
---- !u!114 &7813373795055179565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792533845088263391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad6b69e45db984e9223c2b259383ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SPBarPrefab: {fileID: 2078027437508774145, guid: 1c09245d92b2864458c0b380790e8548, type: 3}
 --- !u!114 &3087079198526402295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,45 +519,27 @@ MonoBehaviour:
   wordSort: 0
   characterID: 0
   gender: 0
-  appearance: {fileID: 0}
   source: {fileID: 0}
   aAttackAudio: {fileID: 0}
   walkAudio: {fileID: 0}
-  epoch: 
-  area: 
-  criticalSpeak: 
-  deadSpeak: 
   teXiao: {fileID: 0}
   bullet: {fileID: 5396089893936509290, guid: 767f667755cd0c247aa64b5b5d83c016, type: 3}
   camp: 1
-  role: {fileID: 0}
-  trait: {fileID: 0}
-  skills: []
-  realSkills: []
-  hp: 0
+  HP: 0
   maxHP: 0
   sp: 0
   maxSP: 0
-  atk: 0
-  def: 0
-  psy: 0
-  san: 0
+  trait: {fileID: 0}
+  roleName: 
+  skills: []
   criticalChance: 0
   multipleCriticalStrike: 0
   attackInterval: 0
-  skillSpeed: 0
-  dodgeChance: 0
+  situation: {fileID: 0}
   attackDistance: 0
-  attackAngle: 120
-  luckyValue: 0
-  level: 1
-  exp: 0
-  enemyLevel: 0
-  mainSort: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  importantNum: 
-  bg_text: 
+  reLifes: 0
 --- !u!1001 &2540138411879691345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalScale.x

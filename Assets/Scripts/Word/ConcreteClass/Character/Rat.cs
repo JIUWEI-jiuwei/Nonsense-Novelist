@@ -8,7 +8,7 @@ using UnityEngine;
     {
         base.Awake();
         characterID = 6;
-        wordName = "林黛玉";
+        wordName = "老鼠";
         bookName = BookNameEnum.ZooManual;
         gender = GenderEnum.noGender;
         hp = maxHP = 150;
@@ -18,10 +18,9 @@ using UnityEngine;
         san = 3;
         mainProperty.Add("攻击", "近物dps");
         trait = gameObject.AddComponent<Possessive>();
-        criticalChance = 30;
-        attackInterval = 2;
+        roleName = "小偷";
+        attackInterval = 1.7f;
         attackDistance = 1;
-        importantNum.AddRange(new int[] { 8 });
         brief = "肮脏且会偷窃物品的老鼠。";
         description = "肮脏且会偷窃物品的老鼠。";
     }

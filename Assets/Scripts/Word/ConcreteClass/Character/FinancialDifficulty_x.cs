@@ -13,23 +13,15 @@ class FinancialDifficulty_x : AbstractCharacter
         gender = GenderEnum.noGender;
         wordName = "¾­¼ÃÑ¹Á¦";
         bookName = BookNameEnum.allBooks;
-        role = gameObject.AddComponent<Bank>();
         trait=gameObject.AddComponent<NullTrait>();
         hp=maxHP = 100;
-        sp=maxSP = 10;
         atk = 10;
         def = 12;
         psy = 0;
         san = 2;
-        criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 2f;
-        skillSpeed = 0;
-        dodgeChance = 0;
+        attackInterval = 2.2f;
         attackDistance = 6;
-        luckyValue = 0;
-        enemyLevel = 2;
-        mainSort = MainSortEnum.def;
     }
 
     public override void CreateBullet(GameObject aimChara)

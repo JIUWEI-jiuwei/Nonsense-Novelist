@@ -11,15 +11,13 @@ abstract public class AbstractSkillMode : MonoBehaviour
     public int skillModeID;
     /// <summary>技能类型名称</summary>
     public string skillModeName;
-    /// <summary>目标身份优先级(和↓二选一）</summary>
-    public List<AbstractRole> roleOrder=new List<AbstractRole>();
-    /// <summary>目标性格优先级(和↑二选一）【不用】</summary>
-    public List<AbstractTrait> traitOrde=new List<AbstractTrait>();
-    
+    /// <summary>目标身份优先级(弃用）</summary>
+    //public List<AbstractRole> roleOrder=new List<AbstractRole>();
+    /// <summary>目标性格优先级(弃用）</summary>
+    //public List<AbstractTrait> traitOrde=new List<AbstractTrait>();
+
     /// <summary>影响区域（直线、扇形、圆形）</summary>
     public IAttackRange attackRange ;
-    /// <summary>攻击次数（比如三连击）</summary>
-    public int attacktimes=1;
 
     /// <summary>
     /// 再次计算锁定的目标

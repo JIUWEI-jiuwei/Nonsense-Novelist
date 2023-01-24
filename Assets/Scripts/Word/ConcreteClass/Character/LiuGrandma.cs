@@ -12,25 +12,16 @@ class LiuGrandma : AbstractCharacter
         wordName = "刘姥姥";
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add( "母蝗虫");
-        deadSpeak = "这就是大观园吗？";
-        role = gameObject.AddComponent<Country>();
         trait = gameObject.AddComponent<Enthusiasm>();
         hp =maxHP = 70;
-        sp=maxSP = 10;
         atk = 5;
         def = 5;
         psy = 5;
         san = 10;
-        criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 2;
-        skillSpeed = 0;
-        dodgeChance = 0;
+        attackInterval = 2.2f;
         attackDistance = 2;
-        luckyValue = 0;
-        importantNum.AddRange(new int[] { 4, 10 });
         description = "刘姥姥，是曹雪芹所著中国古典文学名著《红楼梦》中人物。是一位来自乡下贫农家庭的谙于世故的老婆婆，见证了贾府兴衰荣辱的全过程。";
-        mainSort = MainSortEnum.san;
     }
 
     public override string ShowText(AbstractCharacter otherChara)

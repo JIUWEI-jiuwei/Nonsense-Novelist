@@ -8,7 +8,8 @@ namespace AI
     /// </summary>
     class AttackState :AbstractState
     {
-
+        /// <summary>是否是物理伤害</summary>
+        public bool isPhysics=true;
         override public void Awake()
         {
             base.Awake();
@@ -22,9 +23,13 @@ namespace AI
             attackA.attackRange = new SingleSelector();
 
         }
+        private void Update()
+        {
+            print(attackA);
+        }
 
         /// <summary>平A模式</summary>
-        private AbstractSkillMode attackA;
+        public AbstractSkillMode attackA;
         /// <summary>平A计时器（累加）</summary>
         [HideInInspector]public float attackAtime;
         public override void Action(MyState0 myState)
@@ -43,6 +48,7 @@ namespace AI
             //如果没有技能在使用&&平A冷却完毕
             if ( canA(myState) && attackAtime >= myState.character.attackInterval)
             {
+                myState.character.AttackA();
                 myState.character.CreateBullet(myState.aim.gameObject);
                 attackAtime = 0;
                 if (myState.aim != null)
@@ -53,7 +59,7 @@ namespace AI
                         myState.character.source.Play();
                     }
                     myState.character.charaAnim.Play(AnimEnum.attack);
-                    attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.san / (myState.aim.san + 20)), myState.aim);
+                    attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim);
                 }
             }
         }

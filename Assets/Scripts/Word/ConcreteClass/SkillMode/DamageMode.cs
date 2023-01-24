@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 class DamageMode : AbstractSkillMode
 {
+    /// <summary>是否为物理伤害（仅用于展示） </summary>
+    public bool isPhysics=true;
     public void Awake()
     {
         skillModeID = 1;
@@ -29,20 +31,7 @@ class DamageMode : AbstractSkillMode
                 AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
             }
 
-            float b=Random.Range(0, 100);//闪避抽奖
-            if(b<=aimCharacter.dodgeChance*100)//闪避
-            {
-                return; 
-            }
-
-            if(useCharacter.trait.restrainRole.Contains(aimCharacter.trait.traitEnum))//攻击者克被攻击者,提升30%伤害
-            {
-                aimCharacter.hp -= value * 1.3f;
-            }
-            else//一般
-            {
                 aimCharacter.hp -= value;
-            }
         }
         else//玩家使用（形容词）
             aimCharacter.hp -= (int)value;

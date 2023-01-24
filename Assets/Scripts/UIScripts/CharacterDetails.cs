@@ -24,12 +24,12 @@ class CharacterDetails : MonoBehaviour
     {
         mouseDown= GameObject.Find("MainCamera").GetComponent<MouseDown>();
         //获取重要之人
-        for (int i = 0; i < mouseDown.abschara.importantNum.Count; i++)
+        //for (int i = 0; i < mouseDown.abschara.importantNum.Count; i++)
         {
             GameObject a = Instantiate(imagePrefab);
             importantImage.Add(a);
-            importantImage[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + "head" + mouseDown.abschara.importantNum[i].ToString());
-            importantImage[i].transform.SetParent(importantPanel.transform);
+            //importantImage[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + "head" + mouseDown.abschara.importantNum[i].ToString());
+            //importantImage[i].transform.SetParent(importantPanel.transform);
             a.transform.localScale = new Vector3(1, 1, 1);//必须放在SetParent后面
         }
         //背景信息面板
@@ -56,17 +56,17 @@ class CharacterDetails : MonoBehaviour
         //san
         texts1[2].text = IntToString.SwitchATK(mouseDown.abschara.san);
         //SP
-        texts1[3].text = mouseDown.abschara.sp.ToString() + "/" + mouseDown.abschara.maxSP.ToString();
+        //texts1[3].text = mouseDown.abschara.sp.ToString() + "/" + mouseDown.abschara.maxSP.ToString();
         //def
-        texts1[4].text = IntToString.SwitchATK(mouseDown.abschara.def);
+        texts1[3].text = IntToString.SwitchATK(mouseDown.abschara.def);
         //atkInterval
-        texts1[5].text = IntToString.SwitchATK(mouseDown.abschara.attackInterval);
+        texts1[4].text = IntToString.SwitchATK(mouseDown.abschara.attackInterval);
         //EXP
-        texts1[6].text = mouseDown.abschara.exp.ToString() + "/100";
+        //texts1[6].text = mouseDown.abschara.exp.ToString() + "/100";
         //psy
-        texts1[7].text = IntToString.SwitchATK(mouseDown.abschara.psy);
+        texts1[5].text = IntToString.SwitchATK(mouseDown.abschara.psy);
         //
-        texts1[8].text = IntToString.SwitchATK(mouseDown.abschara.skillSpeed);
+        //texts1[8].text = IntToString.SwitchATK(mouseDown.abschara.skillSpeed);
 
         //技能信息面板
         if (mouseDown.absAdj)

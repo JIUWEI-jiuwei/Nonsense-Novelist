@@ -23,11 +23,8 @@ class WritePoem : AbstractVerbs
         skillEffectsTime = 5;
         cd = 18;
         maxCD=18;
-        comsumeSP = 10;
         prepareTime = 2;
         afterTime = 0;
-        allowInterrupt = true;
-        possibility = 0;
     }
 
     private float now = 0;//¼ÆÊ±

@@ -16,12 +16,7 @@ using UnityEngine;
         def = 30;
         psy = 15;
         san = 30;
-        //mainProperty.Add("意志","奶");
         trait=gameObject.AddComponent<Sentimental>();
-        //criticalChance = 0;
-        //attackInterval = 2.3f;
-        //attackDistance = 5;
-        importantNum.AddRange(new int[] { 8 });
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
         description = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
             "\n道是：" +

@@ -14,19 +14,14 @@ class FuYao : AbstractVerbs
         wordName = "服药";
         bookName = BookNameEnum.HongLouMeng;
         description = "学会服药，恢复20点生命，解除负面效果。";
-        banUse.Add(gameObject.AddComponent<Biology>());
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new SingleSelector();
-        percentage = Mathf.Infinity;//回满(不用此变量）
         attackDistance = 2;
         skillTime = 0;
         skillEffectsTime = 0;
         cd=maxCD=6;
-        comsumeSP = 0;
         prepareTime = 0.5f;
         afterTime = 0;
-        allowInterrupt = false;
-        possibility = 0;
         description = "";
     }
     /// <summary>

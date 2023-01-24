@@ -6,7 +6,7 @@ namespace AI
     /// <summary>
     /// 抽象状态（目前只用于角色）
     /// </summary>
-    abstract class AbstractState : MonoBehaviour
+    public abstract class AbstractState : MonoBehaviour
     {
         [HideInInspector] public StateID id;
         /// <summary>所有触发条件</summary>

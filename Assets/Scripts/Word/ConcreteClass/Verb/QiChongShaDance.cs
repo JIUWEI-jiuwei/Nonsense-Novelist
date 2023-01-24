@@ -14,19 +14,14 @@ class QiChongShaDance : AbstractVerbs
         wordName = "七重纱之舞";
         bookName = BookNameEnum.Salome;
         description = "学会七重纱之舞，让周围所有友军恢复5点魔法。";
-        banUse.Add(gameObject.AddComponent<Girl>());
         skillMode = gameObject.AddComponent<SpecialMode>();
         skillMode.attackRange = new SingleSelector();
-        percentage = 5;// 让所有友军回复5点SP
         attackDistance = 7;
         skillTime = 0;
         skillEffectsTime = 0;
         cd=maxCD=3;
-        comsumeSP = 0;
         prepareTime = 0;
         afterTime = 0;
-        allowInterrupt = false;
-        possibility = 0;
         description = "每一重都会卸下一层薄纱的迷人舞蹈，让周围的友军充满力量。";
     }
     /// <summary>
@@ -39,7 +34,7 @@ class QiChongShaDance : AbstractVerbs
         base.UseVerbs(useCharacter);
         foreach (AbstractCharacter aim in aims)
         {
-            skillMode.UseMode(useCharacter,percentage, aim);
+            //skillMode.UseMode(useCharacter,percentage, aim);
         }
     }
 

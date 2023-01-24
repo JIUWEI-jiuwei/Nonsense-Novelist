@@ -10,11 +10,10 @@ class JiShengChong : AbstractItems
     {
         itemID = 11;
         wordName = "寄生虫";
-        bookName = BookNameEnum.Epidemiology;
+        bookName = BookNameEnum.FluStudy;
         getWay = GetWayEnum.NormalWord;
         description = "寄生虫让其宿主颇为焦躁不安，降低3点防御，减少攻击速度。";
         holdEnum = HoldEnum.handSingle;
-        banUse.Add(gameObject.AddComponent<Biology>());
         VoiceEnum = MaterialVoiceEnum.Meat;
         def =-3;
         attackInterval = -0.3f;

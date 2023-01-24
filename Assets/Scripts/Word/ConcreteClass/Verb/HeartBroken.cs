@@ -15,19 +15,14 @@ class HeartBroken : AbstractVerbs
         bookName = BookNameEnum.allBooks;
         description = "学会心碎，造成150%精神力的魔法伤害，并让目标沮丧。";
         nickname.Add( "刺痛");
-        banAim.Add(gameObject.AddComponent<Sense>());
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new SingleSelector();
-        percentage = 1.5f;
         attackDistance = 999;
         skillTime = 0;
         skillEffectsTime = 3;
         cd=maxCD=5;
-        comsumeSP = 5;
         prepareTime = 0.5f;
         afterTime = 1;
-        allowInterrupt = false;
-        possibility = 0;
     }
 
     private AbstractCharacter aimState;//目标的抽象角色类
@@ -41,7 +36,7 @@ class HeartBroken : AbstractVerbs
         foreach (AbstractCharacter aim in aims)
         {
             aim.teXiao.PlayTeXiao("LengXiangWan");
-            skillMode.UseMode(useCharacter,aim.psy * percentage *(1-aimState.def/(aimState.def+20)), aimState);
+            skillMode.UseMode(useCharacter,aim.psy *(1-aimState.def/(aimState.def+20)), aimState);
         }
         SpecialAbility(useCharacter);
     }

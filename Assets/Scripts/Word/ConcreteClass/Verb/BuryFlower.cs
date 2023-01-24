@@ -21,11 +21,8 @@ class BuryFlower : AbstractVerbs
         skillTime = 7;
         skillEffectsTime = 0;
         cd=maxCD=40;
-        comsumeSP = 15;
         prepareTime = 1f;
         afterTime = 0;
-        allowInterrupt = true;
-        possibility = 0;
         if (SceneManager.GetActiveScene().name == "Combat")
         {
             buryFlower = GameObject.Find("BuryFlowerF").transform.GetChild(0).gameObject;

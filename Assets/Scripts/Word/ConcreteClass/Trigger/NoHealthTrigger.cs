@@ -13,20 +13,25 @@ namespace AI
             base.Awake();
             id = TriggerID.NoHealth;
         }
+
+        public delegate void Live();
+        public event Live OnLive;
+
         public override bool Satisfy(MyState0 myState)
         {
             if (myState.character.hp <= 0)
             {
-                if (myState.character.reLifes)
+                if (myState.character.reLifes>0)//¸´»î
                 {
                     myState.character.hp = myState.character.maxHP;
-                    myState.character.reLifes=false;
+                    myState.character.reLifes = 0;
+                    if (OnLive != null) OnLive();
                     return false;
                 }
-                else
+                else//ËÀÍö
                     return true;
             }
-            else
+            else//hp>0
                 return false;
         }
     }

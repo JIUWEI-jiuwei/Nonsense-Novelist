@@ -12,25 +12,15 @@ class FamilyConflict_x : AbstractCharacter
         wordName = "家庭矛盾";
         bookName = BookNameEnum.allBooks;
         
-        criticalSpeak = "我怎么养了你这么个东西";
-        deadSpeak = "孩子究竟是长大了";
-        role = gameObject.AddComponent<Parents>();
         trait = gameObject.AddComponent<Pride>();
         hp =maxHP = 40;
-        sp=maxSP = 10;
         atk = 7;
         def = 3;
         psy = 0;
         san = 10;
-        criticalChance = 0;
         multipleCriticalStrike = 2;
-        attackInterval = 1.3f;
-        skillSpeed = 0;
-        dodgeChance = 0;
+        attackInterval = 2.2f;
         attackDistance = 2;
-        luckyValue = 0;
-        enemyLevel = 2;
-        mainSort = MainSortEnum.san;
         brief = "因与家人关系恶化而导致的苦恼";
         description = "因与家人关系恶化而导致的苦恼";
     }

@@ -12,21 +12,26 @@ using UnityEngine;
         bookName = BookNameEnum.ElectronicGoal;
         gender = GenderEnum.boy;
         hp =maxHP  = 120;
-        atk = 4;
+        atk = 5;
         def = 4;
         psy = 3;
         san = 3;
         mainProperty.Add("攻击","远物dps");
         trait=gameObject.AddComponent<Persistent>();
-        criticalChance = 0;
-        attackInterval = 1.8f;
+        roleName = "银翼杀手";
+        attackInterval = 2.2f;
         attackDistance = 5;
-        importantNum.AddRange(new int[] { 8 });
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
         description = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
             "\n道是：" +
             "\n可叹停机德，堪怜咏絮才。" +
             "\n玉带林中挂，金簪雪里埋。";
+    }
+
+    public override float atk 
+    {
+        get => base.atk + maxHP * 0.05f; 
+        set => base.atk = value; 
     }
 
     public override void CreateBullet(GameObject aimChara)
