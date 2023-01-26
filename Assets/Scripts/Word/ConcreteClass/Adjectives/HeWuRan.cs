@@ -22,7 +22,7 @@ public class HeWuRan : AbstractAdjectives
         aimCharacter.gameObject.AddComponent<Toxic>()
             .maxTime = skillEffectsTime;
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
     }
 

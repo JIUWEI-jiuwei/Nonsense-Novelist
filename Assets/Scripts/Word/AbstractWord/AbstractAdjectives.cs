@@ -30,7 +30,7 @@ abstract public class AbstractAdjectives : AbstractWords0
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    abstract public void SpecialAbility(AbstractCharacter aimCharacter);
+    abstract public void BasicAbility(AbstractCharacter aimCharacter);
 
     /// <summary>
     /// 使用技能

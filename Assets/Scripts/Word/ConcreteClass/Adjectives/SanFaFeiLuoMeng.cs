@@ -22,7 +22,7 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         buffs.Add(aimCharacter.gameObject.AddComponent<QiWu>());
         buffs[0].maxTime = skillEffectsTime;
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
     }
 

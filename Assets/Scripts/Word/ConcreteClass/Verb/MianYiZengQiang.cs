@@ -25,10 +25,10 @@ class MianYiZengQiang : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        SpecialAbility(useCharacter);
+        BasicAbility(useCharacter);
     }
 
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
        AbstractCharacter aim= skillMode.CalculateAgain(attackDistance,useCharacter)[0];
         aim.hp += 30;

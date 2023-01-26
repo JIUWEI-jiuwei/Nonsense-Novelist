@@ -22,7 +22,7 @@ public class KeBan : AbstractAdjectives
         buffs.Add(aimCharacter.gameObject.AddComponent<Upset>());
             buffs[0].maxTime = skillEffectsTime;
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         
     }

@@ -41,7 +41,7 @@ class FireBall_x : AbstractVerbs
     /// <summary>
     /// ‘Œ—£0.3√Î
     /// </summary>
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
        /* DanDao danDao = bullet.GetComponent<DanDao>();
             danDao.aim = aims[0].gameObject;

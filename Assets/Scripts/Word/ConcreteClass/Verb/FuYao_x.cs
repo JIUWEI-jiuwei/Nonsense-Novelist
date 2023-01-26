@@ -31,12 +31,12 @@ class FuYao_x : AbstractVerbs
         {
             aim.hp = aim.maxHP;
         }*/
-        SpecialAbility(useCharacter);
+        BasicAbility(useCharacter);
     }
     /// <summary>
     /// 解除所有负面状态
     /// </summary>
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
         useCharacter.dizzyTime = 0;
     }

@@ -62,7 +62,7 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>
     /// 技能效果(特殊效果）
     /// </summary>
-    virtual public void SpecialAbility(AbstractCharacter useCharacter)
+    virtual public void BasicAbility(AbstractCharacter useCharacter)
     {
 
     }

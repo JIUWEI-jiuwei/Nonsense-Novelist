@@ -12,5 +12,17 @@ public class ChuanBo: AbstractBuff
         upup= 1;
     }
 
-
+    /// <summary>
+    /// ∑µªÿ¡⁄æ”£¨»√¥ Ω≈±æ»•∏≥÷µ
+    /// </summary>
+    public AbstractCharacter[] GetNeighbor(AbstractCharacter center)
+    {
+       Situation[] situation= CollectionHelper.FindAll<Situation>(Situation.allSituation, p => Situation.Distance(center.situation, p) <= 1);
+        List<AbstractCharacter> result=new List<AbstractCharacter>();
+        foreach (Situation s in situation)
+        {
+            result.Add(s.GetComponentInChildren<AbstractCharacter>());
+        }
+        return result.ToArray();
+    }
 }

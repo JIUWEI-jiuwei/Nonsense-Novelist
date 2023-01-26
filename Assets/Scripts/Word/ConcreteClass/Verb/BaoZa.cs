@@ -21,10 +21,10 @@ class BaoZa : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        SpecialAbility(useCharacter);
+        BasicAbility(useCharacter);
     }
 
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
         skillMode.CalculateAgain(attackDistance, useCharacter)[0].hp += 40;
     }

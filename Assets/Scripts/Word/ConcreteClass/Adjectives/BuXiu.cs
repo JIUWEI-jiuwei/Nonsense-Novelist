@@ -21,9 +21,9 @@ public class BuXiu : AbstractAdjectives
         base.UseVerbs(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<ReLife>());
         buffs[0].maxTime = skillEffectsTime;
-        SpecialAbility(aimCharacter);
+        BasicAbility(aimCharacter);
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         aimCharacter.maxHP += 30;
     }
