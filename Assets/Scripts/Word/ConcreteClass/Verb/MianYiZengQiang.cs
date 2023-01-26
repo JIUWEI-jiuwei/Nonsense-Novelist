@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 防腐术
-/// </summary>
-class FangFuShu : AbstractVerbs
+class MianYiZengQiang : AbstractVerbs
 {
     public override void Awake()
     {
         base.Awake();
-        skillID = 5;
+        skillID = 12;
         wordName = "防腐";
-        bookName = BookNameEnum.EgyptMyth;
+        bookName = BookNameEnum.FluStudy;
         description = "学会防腐术，让队友获得复活的机会，持续20秒。";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange =  new SingleSelector();
-        skillEffectsTime = 20;
-        rarity = 1;
-        needCD = 10;
+        skillEffectsTime = Mathf.Infinity;
+        rarity = 2;
+        needCD =3;
         description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
 
     }
@@ -28,8 +25,14 @@ class FangFuShu : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<ReLife>());
-        buffs[0].maxTime = skillEffectsTime;
+        SpecialAbility(useCharacter);
+    }
+
+    public override void SpecialAbility(AbstractCharacter useCharacter)
+    {
+       AbstractCharacter aim= skillMode.CalculateAgain(attackDistance,useCharacter)[0];
+        aim.hp += 30;
+        aim.maxHP += 20;
     }
 
     public override string UseText()

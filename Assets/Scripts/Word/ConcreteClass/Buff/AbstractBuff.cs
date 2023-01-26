@@ -32,4 +32,13 @@ public class AbstractBuff : MonoBehaviour
         }
     }
 
+    virtual public void Update()
+    {
+        maxTime -= Time.deltaTime;
+        if(maxTime<0)
+        {
+            Destroy(this);
+        }
+    }
+
 }

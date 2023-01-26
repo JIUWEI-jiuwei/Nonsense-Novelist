@@ -47,7 +47,7 @@ using UnityEngine;
             myState.character.source.Play();
         }
         myState.character.charaAnim.Play(AnimEnum.attack);
-        aims = attackState.attackA.CalculateAgain(10, this);
+        aims = attackState.attackA.CalculateAgain(100, this);
         foreach (AbstractCharacter aim in aims)
         {//普通攻击目标为所有队友，恢复70%意志的血量，不附带攻击攻击特效
             attackState.attackA.UseMode(myState.character, san * 0.7f, aim) ;

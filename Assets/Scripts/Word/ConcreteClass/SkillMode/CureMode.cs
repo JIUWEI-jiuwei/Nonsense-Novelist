@@ -26,8 +26,7 @@ class CureMode : AbstractSkillMode
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
         AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation,NeedCampEnum.friend);
-        
-        CollectionHelper.OrderBy<AbstractCharacter, float>(a, p => p.GetComponent<AbstractCharacter>().hp);
+        CollectionHelper.OrderBy(a, p => p.hp);
 
         return a;
     }

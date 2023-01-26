@@ -9,19 +9,15 @@ class TongPinGongZhen: AbstractVerbs
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.verb;
-        skillID = 9;
+        skillID = 8;
         wordName = "同频共振";
         bookName = BookNameEnum.CrystalEnergy;
         description = "学会同频共振，让附近的敌人晕眩1.5秒。";
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new SingleSelector();
-        attackDistance = 5;
-        skillTime = 0;
-        skillEffectsTime = 1.5f;
-        cd=maxCD=5;
-        prepareTime = 1;
-        afterTime = 0;
+        skillEffectsTime = 30;
+        rarity = 2;
+        needCD=2;
         description = "通过磁场的共振让周围的敌人晕眩。";
     }
 
@@ -32,20 +28,10 @@ class TongPinGongZhen: AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        SpecialAbility(useCharacter);
+        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<GongZhen>());
+        buffs[0].maxTime = skillEffectsTime;
     }
 
-    /// <summary>
-    /// 让所有敌人晕眩1.5秒
-    /// </summary>
-    public override void SpecialAbility(AbstractCharacter useCharacter)
-    {
-        foreach (AbstractCharacter aim in aims)
-        {
-            aim.dizzyTime = skillEffectsTime;
-            aim.AddBuff(5);
-        }
-    }
 
     public override string UseText()
     {

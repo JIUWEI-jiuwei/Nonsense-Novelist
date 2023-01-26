@@ -11,20 +11,14 @@ class FireBall : AbstractVerbs
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.verb;
         skillID = 10;
         wordName = "杂耍火球";
         bookName = BookNameEnum.StudentOfWitch;
         description = "学会杂耍火球，造成150%精神力的伤害，晕眩0.3秒。";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new SingleSelector();
-        attackDistance = 999;
-        skillTime = 0;
         skillEffectsTime = 0.3f;
-        cd = 0;
-        maxCD = 5;
-        prepareTime = 0.5f;
-        afterTime = 0;
+        needCD = 5;
         description = "花哨且伤害不俗的杂技把戏。";
 
         bullet = Resources.Load<GameObject>("FirstStageLoad/" + "bullet/Fireball_bullet");

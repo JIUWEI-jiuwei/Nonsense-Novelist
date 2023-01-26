@@ -9,33 +9,23 @@ class QiChongShaDance : AbstractVerbs
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.verb;
         skillID = 6;
         wordName = "七重纱之舞";
         bookName = BookNameEnum.Salome;
         description = "学会七重纱之舞，让周围所有友军恢复5点魔法。";
-        skillMode = gameObject.AddComponent<SpecialMode>();
+        skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
-        attackDistance = 7;
-        skillTime = 0;
-        skillEffectsTime = 0;
-        cd=maxCD=3;
-        prepareTime = 0;
-        afterTime = 0;
+        skillEffectsTime =10;
+        rarity = 3;
+        needCD=10;
         description = "每一重都会卸下一层薄纱的迷人舞蹈，让周围的友军充满力量。";
     }
-    /// <summary>
-    /// 让所有友军回复5点SP
-    /// </summary>
-    /// <param name="useCharacter">施法者</param>
+
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
-        useCharacter.teXiao.PlayTeXiao("QiChongShaZhiWu");
         base.UseVerbs(useCharacter);
-        foreach (AbstractCharacter aim in aims)
-        {
-            //skillMode.UseMode(useCharacter,percentage, aim);
-        }
+        buffs.Add(gameObject.AddComponent<QiWu>());
+        buffs[0].maxTime = skillEffectsTime;
     }
 
     public override string UseText()

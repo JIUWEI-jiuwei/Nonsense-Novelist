@@ -31,8 +31,8 @@ using UnityEngine;
     /// <summary>
     /// …Ì∑›
     /// </summary>
-    public override float psy { get { return PSY * 1.25f; } set { PSY = value; } }
-    public override float def { get { return DEF*0.9f; } set { DEF = value; } }
+    public override float psy { get { return base.psy * 1.25f; } set { base.psy = value; ; } }
+    public override float def { get { return base.def*0.9f; } set { base.def = value; } }
 
     public override void CreateBullet(GameObject aimChara)
     {

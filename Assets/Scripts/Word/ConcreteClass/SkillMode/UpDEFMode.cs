@@ -23,6 +23,7 @@ class UpDEFMode : AbstractSkillMode
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
         AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.friend);
+        CollectionHelper.OrderByDescending(a, p => p.allValue);
         return a;
     }
 }

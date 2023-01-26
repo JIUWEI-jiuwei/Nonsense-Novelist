@@ -29,7 +29,4 @@ abstract public class AbstractWords0 : MonoBehaviour
         return null;
     }
 
-
-    /// <summary>����</summary>
-    public WordSortEnum wordSort;
 }

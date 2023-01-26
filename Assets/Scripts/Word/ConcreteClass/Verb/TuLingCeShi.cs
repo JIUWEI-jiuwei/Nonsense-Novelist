@@ -1,37 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 防腐术
-/// </summary>
-class FangFuShu : AbstractVerbs
+class TuLingCeShi : AbstractVerbs
 {
     public override void Awake()
     {
         base.Awake();
-        skillID = 5;
-        wordName = "防腐";
-        bookName = BookNameEnum.EgyptMyth;
+        skillID = 9;
+        wordName = "图灵测试";
+        bookName = BookNameEnum.ElectronicGoal;
         description = "学会防腐术，让队友获得复活的机会，持续20秒。";
-        skillMode = gameObject.AddComponent<CureMode>();
+        skillMode = gameObject.AddComponent<DamageMode>();
+        (skillMode as DamageMode).isPhysics = false;
         skillMode.attackRange =  new SingleSelector();
-        skillEffectsTime = 20;
-        rarity = 1;
-        needCD = 10;
+        skillEffectsTime = Mathf.Infinity;
+        rarity = 3;
+        needCD = 4;
         description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
 
     }
-    /// <summary>
-    /// 复活
-    /// </summary>
-    /// <param name="useCharacter">施法者</param>
+
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<ReLife>());
-        buffs[0].maxTime = skillEffectsTime;
+        SpecialAbility(useCharacter);
     }
 
+    public override void SpecialAbility(AbstractCharacter useCharacter)
+    {
+        AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
+        skillMode.UseMode(useCharacter, (aim.atk-aim.psy) * 10 * (1 - aim.san / (aim.san + 20)),aim);
+    }
     public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();

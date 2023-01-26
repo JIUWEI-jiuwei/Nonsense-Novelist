@@ -1,31 +1,28 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-/// <summary>
-/// 葬花
-/// </summary>
-class BuryFlower : AbstractVerbs
+class WanShua : AbstractVerbs
 {
     public override void Awake()
     {
         base.Awake();
-        skillID = 2;
-        wordName = "葬花";
-        bookName = BookNameEnum.HongLouMeng;
-        skillMode = gameObject.AddComponent<UpPSYMode>();
-        skillEffectsTime = Mathf.Infinity;
-        rarity = 3;
-        needCD = 2;
+        skillID = 3;
+        wordName = "玩耍";
+        bookName = BookNameEnum.ZooManual;
+        skillMode = gameObject.AddComponent<UpATKMode>();
+        skillEffectsTime = 7;
+        rarity = 1;
+        needCD = 4;
     }
 
     /// <summary>
-    /// 花瓣
+    /// 亢奋
     /// </summary>
     /// <param name="useCharacter">施法者</param>
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<HuaBan>());
+        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<KangFen>());
         buffs[0].maxTime = skillEffectsTime;
     }
 

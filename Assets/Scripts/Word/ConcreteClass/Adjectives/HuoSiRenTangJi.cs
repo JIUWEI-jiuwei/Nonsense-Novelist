@@ -11,7 +11,6 @@ class HuoSiRenTangJi : AbstractAdjectives
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.adj;
         adjID = 2;
         wordName = "ªÓÀ¿»ÀÃ¿º¡";
         bookName = BookNameEnum.StudentOfWitch;

@@ -9,48 +9,33 @@ class FallBadly : AbstractVerbs
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.verb;
-        skillID = 4;
+        skillID = 15;
         wordName = "摔";
-        bookName = BookNameEnum.HongLouMeng;
+        bookName = BookNameEnum.allBooks;
         description = "学会摔，造成150%攻击力的伤害，晕眩1.5秒。";
         nickname.Add("砸");
         nickname.Add("甩");
         nickname.Add("投掷");
         skillMode = gameObject.AddComponent<DamageMode>();
+        (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange = new SingleSelector();
-        attackDistance = 6;
-        skillTime = 0;
-        skillEffectsTime = 1.5f;
-        cd=0;
-        maxCD=6;
-        prepareTime = 0.5f;
-        afterTime = 0;
+        skillEffectsTime = 2f;
+        rarity = 1;
+        needCD=2;
     }
 
-    /// <summary>
-    /// 造成150%攻击力的伤害
-    /// </summary>
-    /// <param name="useCharacter">施法者</param>
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        foreach (AbstractCharacter aim in aims)
-        {
-           skillMode.UseMode(useCharacter, useCharacter.atk  *(1-aim.def/(aim.def+20)), aim);
-        }
+        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<Dizzy>());
+        buffs[0].maxTime = skillEffectsTime;
         SpecialAbility(useCharacter);
     }
-    /// <summary>
-    /// 晕眩1.5秒
-    /// </summary>
+
     public override void SpecialAbility(AbstractCharacter useCharacter)
     {
-        foreach(AbstractCharacter aim in aims)
-        {
-            aim.dizzyTime = skillEffectsTime;
-            aim.AddBuff(5);
-        }
+        AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
+        skillMode.UseMode(useCharacter, useCharacter.atk*0.2f * (1 - aim.def / (aim.def + 20)), aim);
     }
     public override string UseText()
     {

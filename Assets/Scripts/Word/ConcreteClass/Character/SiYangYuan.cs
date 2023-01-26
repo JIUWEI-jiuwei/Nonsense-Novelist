@@ -46,7 +46,7 @@ using UnityEngine;
             myState.character.source.Play();
         }
         myState.character.charaAnim.Play(AnimEnum.attack);
-        aims=attackState.attackA.CalculateAgain(10, this);
+        aims=attackState.attackA.CalculateAgain(100, this);
         CollectionHelper.OrderBy(aims, p=>p.hp);
         //普通攻击目标为血量百分比最低的队友，恢复120%意志的血量，以及“亢奋”状态
         attackState.attackA.UseMode(myState.character, san * 1.2f, aims[0]);

@@ -64,7 +64,11 @@ abstract public class AbstractCharacter : AbstractWords0
     virtual public float atk
     {
         get { return ATK; }
-        set { ATK = value; }
+        set 
+        {
+            ATK = value;
+            CaculateValue();
+        }
     }
     protected float DEF = 0;
     virtual public float def
@@ -75,6 +79,7 @@ abstract public class AbstractCharacter : AbstractWords0
             DEF = value;
             if (DEF < -19)
                 DEF= -19;
+            CaculateValue();
         }
     }
     /// <summary>精神力</summary>
@@ -83,7 +88,11 @@ abstract public class AbstractCharacter : AbstractWords0
     virtual public float psy
     {
         get { return PSY; }
-        set { PSY = value; }
+        set 
+        { 
+            PSY = value;
+            CaculateValue();
+        }
     }
     /// <summary>意志力</summary>
     protected float SAN = 0;
@@ -95,9 +104,13 @@ abstract public class AbstractCharacter : AbstractWords0
         { 
             SAN = value;
             if (SAN < -19)
-            SAN= -19;  
+            SAN= -19;
+            CaculateValue();
         }
     }
+    /// <summary>四维之和，节省性能 </summary>
+    public float allValue { get; private set; }
+    public void CaculateValue() { allValue = atk + def + psy + san; }
     /// <summary>主属性(弃用)</summary>
     public Dictionary<string,string> mainProperty;
     /// <summary>性格（弃用）</summary>
@@ -133,6 +146,9 @@ abstract public class AbstractCharacter : AbstractWords0
         }
     }
 
+    /// <summary>能量充能</summary>
+    public float energy;
+
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
     
@@ -150,6 +166,18 @@ abstract public class AbstractCharacter : AbstractWords0
         AbstractBook.beforeFightText += ShowText(b);
     }
 
+    public delegate void energyFull();
+    public event energyFull OnEnergyFull;
+    private void Update()
+    {
+        energy += Time.deltaTime;
+        if(energy>1)
+        {
+            energy = 0;
+            if (OnEnergyFull != null)
+                OnEnergyFull();
+        }
+    }
 
     /// <summary>
     /// 平A时最先发生的事(角色对平A造成影响）

@@ -44,7 +44,7 @@ using UnityEngine;
         }
         myState.character.charaAnim.Play(AnimEnum.attack);
         //attackA已是DamageMode
-        aims = attackState.attackA.CalculateAgain(10, this);
+        aims = attackState.attackA.CalculateAgain(100, this);
         foreach (AbstractCharacter aim in aims)
         {//普通攻击为对所有敌人造成攻击力10%的伤害，附带攻击特效
             attackState.attackA.UseMode(myState.character, myState.character.atk*0.1f * (1 - myState.aim.def / (myState.aim.def + 20)), aim);

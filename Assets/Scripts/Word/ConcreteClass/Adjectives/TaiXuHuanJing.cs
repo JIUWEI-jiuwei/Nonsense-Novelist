@@ -10,7 +10,6 @@ class TaiXuHuanJing : AbstractAdjectives
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.adj;
         adjID = 3;
         wordName = "Ì«Ðé»Ã¾³";
         bookName = BookNameEnum.HongLouMeng;

@@ -13,8 +13,9 @@ public class KangFen : AbstractBuff
         chara.atk += 5;
     }
 
-    private void Update()
+    override public void Update()
     {
+        base.Update();
         nowTime += Time.deltaTime;
         if (nowTime > 1)//√ø√Î5%ª÷∏¥
         {

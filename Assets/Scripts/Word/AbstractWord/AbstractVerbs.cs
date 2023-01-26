@@ -23,23 +23,31 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
 
     /// <summary>技能类型 </summary>
     public AbstractSkillMode skillMode;
-    /// <summary>射程</summary>
-    public int attackDistance;
 
-
-    /// <summary>技能持续时长（已持续时间变量现场声明） </summary>
-    public float skillTime;
-    /// <summary>技能效果(特殊后续效果）持续时长 </summary>
+    /// <summary>射程（已弃用） </summary>
+    public int attackDistance=100;
+    /// <summary>技能效果持续时长 </summary>
     public float skillEffectsTime;
     /// <summary>是否正在使用该技能 </summary>
     public bool isUsing;
     /// <summary>稀有度</summary>
     public int rarity;
     /// <summary>当前能量(每个技能有自己的能量值)</summary>
-    public float cd;
-    /// <summary>总能量</summary>
-    public float maxCD;
-    /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）【不用】</summary>
+    private int cd;
+    public int CD
+    { 
+        get
+        {
+            return cd;
+        }
+        set
+        {
+            cd = value;
+        }
+    }
+    /// <summary>释放一次所需能量</summary>
+    public int needCD;
+    /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）（已弃用）</summary>
     public float prepareTime,afterTime;
     /// <summary>目标数组 </summary>
     protected AbstractCharacter[] aims;
@@ -48,7 +56,6 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
 
     public virtual void Awake()
     {
-        wordSort =WordSortEnum.verb;
         OnAwake();
     }
 
@@ -69,9 +76,7 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     virtual public void UseVerbs(AbstractCharacter useCharacter)
     {
         isUsing = true;
-        cd = 0;
-        aims=skillMode.CalculateAgain(attackDistance,useCharacter);
-        
+        CD = 0;
         stateInfo=useCharacter.charaAnim.anim.GetCurrentAnimatorStateInfo(0);
     }
 
@@ -79,10 +84,6 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
 
     virtual public void FixedUpdate()
     {
-        if (cd < maxCD)
-        {
-            cd += Time.deltaTime;
-        }
         if(isUsing && stateInfo.normalizedTime>= 0.9f )//播放完特效即为使用完毕
         {
             isUsing=false;
@@ -96,9 +97,8 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     virtual public bool CalculateCD()
     {
 
-        if (cd >= maxCD)
+        if (CD >= needCD)
         {
-            cd = maxCD;
             return true;
         }
         else

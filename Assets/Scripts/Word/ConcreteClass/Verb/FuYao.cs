@@ -9,19 +9,14 @@ class FuYao : AbstractVerbs
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.verb;
         skillID = 5;
         wordName = "服药";
         bookName = BookNameEnum.HongLouMeng;
         description = "学会服药，恢复20点生命，解除负面效果。";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new SingleSelector();
-        attackDistance = 2;
-        skillTime = 0;
         skillEffectsTime = 0;
-        cd=maxCD=6;
-        prepareTime = 0.5f;
-        afterTime = 0;
+        needCD = 6;
         description = "";
     }
     /// <summary>

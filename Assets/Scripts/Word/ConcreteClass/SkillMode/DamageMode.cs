@@ -23,14 +23,13 @@ class DamageMode : AbstractSkillMode
     {
         if (useCharacter != null)//½ÇÉ«Ê¹ÓÃ
         {
-            float a = Random.Range(0, 100);//±©»÷³é½±
+            /*float a = Random.Range(0, 100);//±©»÷³é½±
             if (a <= useCharacter.criticalChance * 100)//±©»÷
             {
                 value *= useCharacter.multipleCriticalStrike;
                 aimCharacter.teXiao.PlayTeXiao("BaoJi");
                 AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
-            }
-
+            }*/
                 aimCharacter.hp -= value;
         }
         else//Íæ¼ÒÊ¹ÓÃ£¨ÐÎÈÝ´Ê£©

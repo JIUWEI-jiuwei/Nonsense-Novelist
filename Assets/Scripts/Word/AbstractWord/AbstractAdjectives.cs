@@ -30,7 +30,6 @@ abstract class AbstractAdjectives : AbstractWords0
 
     public virtual void Awake()
     {
-        wordSort = WordSortEnum.adj;
     }
     /// <summary>
     /// 技能效果(特殊效果）

@@ -9,7 +9,6 @@ class TouXiangQieYu : AbstractAdjectives
     public override void Awake()
     {
         base.Awake();
-        wordSort = WordSortEnum.adj;
         adjID = 1;
         wordName = "Õµœ„«‘”Ò";
         bookName = BookNameEnum.HongLouMeng;

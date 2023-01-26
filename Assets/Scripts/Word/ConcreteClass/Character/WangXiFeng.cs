@@ -28,10 +28,10 @@ class WangXiFeng : AbstractCharacter
     /// <summary>
     /// Éí·İ
     /// </summary>
-    public override float atk { get { return ATK +5; } set { ATK = value; } }
-    public override float def { get { return DEF + 5; } set { DEF = value; } }
-    public override float san { get { return SAN + 5; } set { SAN = value; } }
-    public override float psy { get { return PSY + 5; } set { PSY = value; } }
+    public override float atk { get { return base.atk +5; } set { base.atk = value; } }
+    public override float def { get { return base.def + 5; } set { base.def = value; } }
+    public override float san { get { return base.san + 5; } set { base.san = value; } }
+    public override float psy { get { return base.psy  + 5; } set { base.psy  = value; } }
 
     public override string ShowText(AbstractCharacter otherChara)
     {

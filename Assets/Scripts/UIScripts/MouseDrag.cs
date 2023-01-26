@@ -97,7 +97,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 AbstractCharacter character = hit.collider.gameObject.GetComponent<AbstractCharacter>();
 
                 //判断该词条是形容词还是动词
-                if (absWord.wordSort == WordSortEnum.verb)
+                if (absWord.GetType()==typeof(AbstractVerbs))
                 {
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                     
@@ -113,7 +113,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                         audioSource_cantuse.Play();
                     }*/
                 }
-                else if (absWord.wordSort == WordSortEnum.adj)
+                else if (absWord.GetType() == typeof(AbstractAdjectives))
                 {
                     //if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
                     {

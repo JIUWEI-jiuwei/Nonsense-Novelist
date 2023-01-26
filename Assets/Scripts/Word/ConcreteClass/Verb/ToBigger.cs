@@ -1,31 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 心碎
-/// </summary>
-class HeartBroken : AbstractVerbs
+class ToBigger : AbstractVerbs
 {
     public override void Awake()
     {
         base.Awake();
-        skillID = 14;
-        wordName = "心碎";
+        skillID = 16;
+        wordName = "变大";
         bookName = BookNameEnum.allBooks;
         description = "学会心碎，造成150%精神力的魔法伤害，并让目标沮丧。";
         nickname.Add( "刺痛");
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
-        skillEffectsTime = 2;
+        skillEffectsTime = Mathf.Infinity;
         rarity = 1;
-        needCD=2;
+        needCD=3;
     }
 
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        buffs.Add(gameObject.AddComponent<Upset>());
-        buffs[0].maxTime = skillEffectsTime;
+        SpecialAbility(useCharacter);
+    }
+
+    public override void SpecialAbility(AbstractCharacter useCharacter)
+    {
+        useCharacter.maxHP += 20;
     }
 
     public override string UseText()
