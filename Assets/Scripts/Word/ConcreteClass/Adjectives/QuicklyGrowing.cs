@@ -21,7 +21,7 @@ public class QuicklyGrowing : AbstractAdjectives
     {
         base.UseVerbs(aimCharacter);
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
     }
 

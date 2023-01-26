@@ -21,10 +21,10 @@ class ToBigger : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        SpecialAbility(useCharacter);
+        BasicAbility(useCharacter);
     }
 
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
         useCharacter.maxHP += 20;
     }

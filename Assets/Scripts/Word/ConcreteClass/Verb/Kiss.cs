@@ -25,10 +25,10 @@ class Kiss : AbstractVerbs
         base.UseVerbs(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<FuHuo>());
         buffs[0].maxTime = skillEffectsTime;
-        SpecialAbility(useCharacter);
+        BasicAbility(useCharacter);
     }
 
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         skillMode.UseMode(useCharacter, useCharacter.psy * 2 * (1 - aim.san / (aim.san + 20)),aim);

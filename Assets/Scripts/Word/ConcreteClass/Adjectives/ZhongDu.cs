@@ -28,7 +28,7 @@ public class ZhongDu : AbstractAdjectives
         }
         
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
     }
 

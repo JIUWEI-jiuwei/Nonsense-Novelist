@@ -35,7 +35,7 @@ public class ShenHuanFeiYan : AbstractAdjectives
             buff.maxTime = skillEffectsTime;
         }
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
     }
 

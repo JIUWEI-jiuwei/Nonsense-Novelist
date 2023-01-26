@@ -20,9 +20,9 @@ public class YouAnQuanGan : AbstractAdjectives
     public override void UseVerbs(AbstractCharacter aimCharacter)
     {
         base.UseVerbs(aimCharacter);
-        SpecialAbility(aimCharacter);
+        BasicAbility(aimCharacter);
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         
     }

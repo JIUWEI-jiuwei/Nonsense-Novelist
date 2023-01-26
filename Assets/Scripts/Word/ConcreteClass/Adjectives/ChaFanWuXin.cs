@@ -21,9 +21,9 @@ public class ChaFanWuXin : AbstractAdjectives
         base.UseVerbs(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<Upset>());
         buffs[0].maxTime = skillEffectsTime;
-        SpecialAbility(aimCharacter);
+        BasicAbility(aimCharacter);
     }
-    public override void SpecialAbility(AbstractCharacter aimCharacter)
+    public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         aimCharacter.psy += 10;
     }

@@ -23,10 +23,10 @@ class TuLingCeShi : AbstractVerbs
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
-        SpecialAbility(useCharacter);
+        BasicAbility(useCharacter);
     }
 
-    public override void SpecialAbility(AbstractCharacter useCharacter)
+    public override void BasicAbility(AbstractCharacter useCharacter)
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         skillMode.UseMode(useCharacter, (aim.atk-aim.psy) * 10 * (1 - aim.san / (aim.san + 20)),aim);
