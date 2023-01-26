@@ -6,7 +6,7 @@ class ShaYu : AbstractVerbs
     public override void Awake()
     {
         base.Awake();
-        skillID = 3;
+        skillID = 4;
         wordName = "ɳԡ";
         bookName = BookNameEnum.ZooManual;
         skillMode = gameObject.AddComponent<SelfMode>();
