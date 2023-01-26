@@ -20,6 +20,8 @@ abstract public class AbstractWords0 : MonoBehaviour
     public string description;
     /// <summary>别称（弃用）</summary>
     public List<string> nickname=new List<string>();
+    /// <summary>稀有度</summary>
+    public int rarity;
 
     /// <summary>
     /// 使用时文本

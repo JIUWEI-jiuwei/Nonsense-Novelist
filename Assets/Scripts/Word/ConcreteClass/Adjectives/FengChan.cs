@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class FengChan : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "»é·ÉµÄ";
-        bookName = BookNameEnum.PHXTwist;
+        adjID = 9;
+        wordName = "·á²úµÄ";
+        bookName = BookNameEnum.EgyptMyth;
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
@@ -23,7 +23,8 @@ public class HunFei : AbstractAdjectives
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.maxHP += 10;
+
     }
 
     
@@ -31,6 +32,7 @@ public class HunFei : AbstractAdjectives
     public override void End()
     {
         base.End();
+        aim.maxHP -= 10;
     }
 
 }

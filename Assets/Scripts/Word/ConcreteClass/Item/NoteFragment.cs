@@ -16,7 +16,7 @@ class NoteFragment : AbstractItems
         nickname.Add("±Ê¼Ç±¾");
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Book;
-        withSkill = gameObject.AddComponent<FireBall>();
+        withSkill = gameObject.AddComponent<FireBall_x>();
         psy = 5;
     }
 

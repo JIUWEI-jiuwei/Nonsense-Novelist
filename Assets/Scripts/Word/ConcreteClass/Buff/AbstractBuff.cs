@@ -12,7 +12,7 @@ public class AbstractBuff : MonoBehaviour
     /// <summary>可叠加次数（默认无限）</summary>
     public int upup=999;
     protected AbstractCharacter chara;
-    public float maxTime;
+    public float maxTime=0.5f;
 
     protected virtual void Awake()
     {

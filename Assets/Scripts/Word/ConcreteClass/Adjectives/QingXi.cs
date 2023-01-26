@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class QingXi : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "»é·ÉµÄ";
-        bookName = BookNameEnum.PHXTwist;
-        skillMode = gameObject.AddComponent<CureMode>();
+        adjID = 11;
+        wordName = "ÇåÎúµÄ";
+        bookName = BookNameEnum.CrystalEnergy;
+        skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
     }
@@ -23,7 +23,7 @@ public class HunFei : AbstractAdjectives
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.psy += 5;
     }
 
     
@@ -31,6 +31,7 @@ public class HunFei : AbstractAdjectives
     public override void End()
     {
         base.End();
+        aim.psy-= 5;
     }
 
 }

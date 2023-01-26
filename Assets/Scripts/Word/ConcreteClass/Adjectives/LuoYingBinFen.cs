@@ -3,27 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class LuoYingBinFen : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "»é·ÉµÄ";
-        bookName = BookNameEnum.PHXTwist;
-        skillMode = gameObject.AddComponent<CureMode>();
+        adjID = 17;
+        wordName = "ÂäÓ¢çÍ·×µÄ";
+        bookName = BookNameEnum.EgyptMyth;
+        skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
-        rarity = 1;
+        rarity = 0;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
     {
         base.UseVerbs(aimCharacter);
-        SpecialAbility(aimCharacter);
+        buffs.Add(aimCharacter.gameObject.AddComponent<HuaBan>());
+        buffs[0].maxTime = skillEffectsTime;
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
     }
 
     

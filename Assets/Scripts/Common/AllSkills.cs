@@ -48,10 +48,10 @@ public static class AllSkills
     {       
         //添加动词词条
         list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),           
-           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen),typeof(FireBall) });
+           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen),typeof(FireBall_x) });
         //添加形容词词条
-        list_adj.AddRange(new Type[] {  typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
-            typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
+        //list_adj.AddRange(new Type[] {  typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
+        //    typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
         //添加名词词条
         list_noun.AddRange(new Type[] { typeof(Exoskeleton), typeof(JiShengChong), typeof(LengXiangPill), typeof(Nexus6Arm),
             typeof(NoteFragment),typeof(PinkStone),typeof(PurpleStone) ,typeof(RiLunGuaZhui),
@@ -69,7 +69,7 @@ public static class AllSkills
         //《红楼梦》添加动词词条
         hlmList_verb.AddRange(new Type[] { typeof(BuryFlower), typeof(WritePoem), typeof(FallBadly)});
         //《红楼梦》添加形容词词条
-        hlmList_adj.AddRange(new Type[] { typeof(TaiXuHuanJing), typeof(TouXiangQieYu)});
+        //hlmList_adj.AddRange(new Type[] { typeof(TaiXuHuanJing), typeof(TouXiangQieYu)});
         //《红楼梦》添加名词词条
         hlmList_noun.AddRange(new Type[] { typeof(TeaCup), typeof(LengXiangPill) });
         //《红楼梦》全部词条
@@ -78,13 +78,13 @@ public static class AllSkills
         hlmList_all.AddRange(hlmList_noun);
         
         /// <summary>动物园全部词条</summary>
-        animalList_all.AddRange(new Type[] { typeof(KeBanXingWei) });
+        //animalList_all.AddRange(new Type[] { typeof(KeBanXingWei) });
         /// <summary>仿生人全部词条</summary>
-        humanList_all.AddRange(new Type[] { typeof(HeChenAi) });// typeof(Nexus6Arm),
+        //humanList_all.AddRange(new Type[] { typeof(HeChenAi) });// typeof(Nexus6Arm),
         /// <summary>水晶能量全部词条</summary>
         crystalList_all.AddRange(new Type[] { typeof(TongPinGongZhen) });//, typeof(PinkStone), typeof(PurpleStone), typeof(TigerStone), typeof(WhiteStone)
         /// <summary>女巫学徒全部词条</summary>
-        nvwuList_all.AddRange(new Type[] { typeof(FireBall)});//, typeof(UnlockMagicCode), typeof(NoteFragment) 
+        nvwuList_all.AddRange(new Type[] { typeof(FireBall_x)});//, typeof(UnlockMagicCode), typeof(NoteFragment) 
 
         /// <summary>战斗界面全部词条</summary>
         combatList_all.AddRange(nvwuList_all);

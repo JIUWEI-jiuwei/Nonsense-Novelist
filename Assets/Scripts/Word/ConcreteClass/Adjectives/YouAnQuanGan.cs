@@ -3,17 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class YouAnQuanGan : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "婚飞的";
-        bookName = BookNameEnum.PHXTwist;
-        skillMode = gameObject.AddComponent<CureMode>();
+        adjID = 8;
+        wordName = "有安全感的";
+        bookName = BookNameEnum.ZooManual;
+        skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
+        time = skillEffectsTime;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
@@ -23,14 +24,26 @@ public class HunFei : AbstractAdjectives
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        
     }
 
+    float time;
     
+    protected override void Update()
+    {
+        base.Update();
+        if(nowTime<time)
+        {
+            time--;
+            if (aim != null)
+                aim.hp += 5;
+        }
+    }
 
     public override void End()
     {
         base.End();
+        aim.reLifes--;
     }
 
 }

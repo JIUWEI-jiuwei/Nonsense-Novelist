@@ -3,34 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class ShenYouHuanJing : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "婚飞的";
-        bookName = BookNameEnum.PHXTwist;
-        skillMode = gameObject.AddComponent<CureMode>();
-        skillEffectsTime = Mathf.Infinity;
+        adjID = 3;
+        wordName = "神游幻境的";
+        bookName = BookNameEnum.HongLouMeng;
+        skillMode = gameObject.AddComponent<SelfMode>();
+        skillEffectsTime = 10;
         rarity = 1;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
     {
         base.UseVerbs(aimCharacter);
-        SpecialAbility(aimCharacter);
+        buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
+        buffs[0].maxTime = skillEffectsTime;
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        
     }
-
     
-
-    public override void End()
-    {
-        base.End();
-    }
-
 }

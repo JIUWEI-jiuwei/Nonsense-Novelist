@@ -30,8 +30,7 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     public float skillEffectsTime;
     /// <summary>是否正在使用该技能 </summary>
     public bool isUsing;
-    /// <summary>稀有度</summary>
-    public int rarity;
+    
     /// <summary>当前能量(每个技能有自己的能量值)</summary>
     private int cd;
     public int CD
@@ -49,8 +48,6 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     public int needCD;
     /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）（已弃用）</summary>
     public float prepareTime,afterTime;
-    /// <summary>目标数组 </summary>
-    protected AbstractCharacter[] aims;
     /// <summary>特殊效果存储引用</summary>
     protected List<AbstractBuff> buffs;
 

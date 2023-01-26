@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class HaoZhan : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "婚飞的";
+        adjID = 0;
+        wordName = "好战的";
         bookName = BookNameEnum.PHXTwist;
-        skillMode = gameObject.AddComponent<CureMode>();
+        skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
-        rarity = 1;
+        rarity = 0;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
@@ -23,7 +23,7 @@ public class HunFei : AbstractAdjectives
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.attackInterval -= 0.5f;
     }
 
     
@@ -31,6 +31,7 @@ public class HunFei : AbstractAdjectives
     public override void End()
     {
         base.End();
+        aim.attackInterval += 0.5f;
     }
 
 }

@@ -15,7 +15,7 @@ class LengXiangPill : AbstractItems
         description = "一枚制作相当复杂的药丸，提升3点防御。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
-        withSkill = gameObject.AddComponent<FuYao>();
+        withSkill = gameObject.AddComponent<FuYao_x>();
 
 
     }

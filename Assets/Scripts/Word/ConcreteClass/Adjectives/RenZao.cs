@@ -3,27 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class RenZao : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "婚飞的";
-        bookName = BookNameEnum.PHXTwist;
+        adjID = 12;
+        wordName = "人造的";
+        bookName = BookNameEnum.ElectronicGoal;
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
-        rarity = 1;
+        rarity = 0;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
     {
         base.UseVerbs(aimCharacter);
+        buffs.Add(aimCharacter.gameObject.AddComponent<GaiZao>());
+        buffs[0] .maxTime = skillEffectsTime;
         SpecialAbility(aimCharacter);
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.maxHP += 20;
     }
 
     
@@ -31,6 +33,7 @@ public class HunFei : AbstractAdjectives
     public override void End()
     {
         base.End();
+        aim.maxHP -= 20;
     }
 
 }

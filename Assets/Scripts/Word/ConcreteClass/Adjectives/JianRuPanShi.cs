@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class JianRuPanShi : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "婚飞的";
-        bookName = BookNameEnum.PHXTwist;
-        skillMode = gameObject.AddComponent<CureMode>();
-        skillEffectsTime = Mathf.Infinity;
-        rarity = 1;
+        adjID = 19;
+        wordName = "坚如磐石的";
+        bookName = BookNameEnum.allBooks;
+        skillMode = gameObject.AddComponent<UpDEFMode>();
+        skillEffectsTime = 10;
+        rarity = 0;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
@@ -23,7 +23,7 @@ public class HunFei : AbstractAdjectives
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.def += 10;
     }
 
     
@@ -31,6 +31,7 @@ public class HunFei : AbstractAdjectives
     public override void End()
     {
         base.End();
+        aim.def -= 10;
     }
 
 }

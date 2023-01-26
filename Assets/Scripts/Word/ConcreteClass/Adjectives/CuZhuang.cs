@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HunFei : AbstractAdjectives
+public class CuZhuang : AbstractAdjectives
 {
     public override void Awake()
     {
         base.Awake();
-        adjID = 14;
-        wordName = "»é·ÉµÄ";
-        bookName = BookNameEnum.PHXTwist;
+        adjID = 18;
+        wordName = "´Ö×³µÄ";
+        bookName = BookNameEnum.allBooks;
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
-        rarity = 1;
+        rarity = 0;
     }
 
     public override void UseVerbs(AbstractCharacter aimCharacter)
@@ -23,7 +23,7 @@ public class HunFei : AbstractAdjectives
     }
     public override void SpecialAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.maxHP += 20;
     }
 
     
@@ -31,6 +31,7 @@ public class HunFei : AbstractAdjectives
     public override void End()
     {
         base.End();
+        aim.maxHP -= 20;
     }
 
 }
