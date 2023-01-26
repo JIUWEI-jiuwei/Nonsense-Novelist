@@ -19,6 +19,7 @@ using UnityEngine;
         san = 5;
         mainProperty.Add("意志","奶");
         trait=gameObject.AddComponent<Mercy>();
+        roleName = "蚁后";
         attackInterval = 2.2f;
         attackDistance = 5;
         brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
