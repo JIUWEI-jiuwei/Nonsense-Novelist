@@ -20,7 +20,7 @@ class FamilyConflict_x : AbstractCharacter
         san = 10;
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
-        attackDistance = 2;
+        attackDistance = 200;
         brief = "因与家人关系恶化而导致的苦恼";
         description = "因与家人关系恶化而导致的苦恼";
     }

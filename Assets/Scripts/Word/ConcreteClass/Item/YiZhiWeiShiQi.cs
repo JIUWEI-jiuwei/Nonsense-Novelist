@@ -4,42 +4,50 @@ using UnityEngine;
 /// <summary>
 /// 服药
 /// </summary>
-class LengXiangPill : AbstractItems
+class YiZhiWeiShiQi : AbstractItems
 {
     public override void Awake()
     {
-        itemID = 2;
-        wordName = "冷香丸";
-        bookName = BookNameEnum.HongLouMeng;
+        itemID = 4;
+        wordName = "益智喂食器";
+        bookName = BookNameEnum.ZooManual;
         description = "一枚制作相当复杂的药丸，提升3点防御。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
-        rarity = 1;
+        rarity = 2;
+
         nowTime = 0;
-    }
-    public override void UseItems(AbstractCharacter chara)
-    {
-        base.UseItems(chara);
-        chara.def++;
+        skillMode = new CureMode();
     }
 
     float nowTime;
+    AbstractSkillMode skillMode;
+    AbstractCharacter[] friends;
+    public override void UseItems(AbstractCharacter chara)
+    {
+        base.UseItems(chara);
+        friends= skillMode.CalculateAgain(999, aim);
+        foreach (AbstractCharacter friend in friends)
+        {
+            friend.psy++;
+        }
+    }
+
     public override void UseVerbs()
     {
         base.UseVerbs();
         nowTime += Time.deltaTime;
-        if(nowTime>1)
+        if (nowTime > 1)
         {
-            nowTime= 0;
-            aim.hp += 3;
+            nowTime = 0;
+            friends = skillMode.CalculateAgain(999, aim);
+            friends[0].hp += 3;
         }
-
     }
 
     public override void End()
     {
         base.End();
-        aim.def--;
     }
     public override string UseText()
     {

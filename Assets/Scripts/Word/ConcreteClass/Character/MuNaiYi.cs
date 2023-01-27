@@ -21,7 +21,7 @@ using UnityEngine;
         trait=gameObject.AddComponent<Vicious>();
         roleName = "亡灵";
         attackInterval = 2.2f;
-        attackDistance = 3;
+        attackDistance = 300;
         reLifes++;//复活技能
         brief = "";
         description = "沉默者曾经是某个王国的贵族，从小便精通魔法的使用。据说在王国政权被颠覆之后他被叛逃者关在地牢里折磨，痛苦的嘶吼随着时日慢慢沉寂，直到他所有人性都被磨灭。而他身上的魔法能量也被扭曲，变得恶毒不堪。如今的它都蜷缩于阴暗的地窖里，练习着被巫师们唾弃的魔法。";

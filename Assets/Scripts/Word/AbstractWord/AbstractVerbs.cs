@@ -49,7 +49,7 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）（已弃用）</summary>
     public float prepareTime,afterTime;
     /// <summary>特殊效果存储引用</summary>
-    protected List<AbstractBuff> buffs;
+    protected List<AbstractBuff> buffs=new List<AbstractBuff>();
 
     public virtual void Awake()
     {
@@ -102,13 +102,6 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
             return false;
     }
 
-    private void OnDisable()
-    {
-        foreach(AbstractBuff buff in buffs)
-        {
-            Destroy(buff);
-        }
-    }
     private void OnDestroy()
     {
         foreach (AbstractBuff buff in buffs)

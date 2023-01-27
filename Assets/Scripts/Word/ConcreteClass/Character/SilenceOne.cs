@@ -22,7 +22,7 @@ class SilenceOne : AbstractCharacter
         san = 30;
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
-        attackDistance = 6;
+        attackDistance = 600;
         description = "一个强大的，无法绕开的敌人";
     }
 

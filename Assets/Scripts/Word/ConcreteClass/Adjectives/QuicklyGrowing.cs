@@ -17,9 +17,9 @@ public class QuicklyGrowing : AbstractAdjectives
         time = skillEffectsTime;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {

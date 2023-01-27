@@ -21,7 +21,7 @@ using UnityEngine;
         san = 999;
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
-        attackDistance = 0;
+        attackDistance = 100;
     }
 
     public override string ShowText(AbstractCharacter otherChara)

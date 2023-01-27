@@ -6,15 +6,32 @@ using UnityEngine;
 /// </summary>
 class TeaCup : AbstractItems
 {
-    public void Awake()
+    public override void Awake()
     {
         itemID = 1;
         wordName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
-        getWay = GetWayEnum.NormalWord;
         description = "一个相当精致的茶杯，提升3点意志";
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        san = 3;
+        rarity = 0;
+    }
+
+    public override void UseItems(AbstractCharacter chara)
+    {
+        base.UseItems(chara);
+        chara.psy += 2;
+    }
+
+    public override void UseVerbs()
+    {
+        base.UseVerbs();
+
+    }
+
+    public override void End()
+    {
+        base.End();
+        aim.psy-= 2;
     }
 
     public override string UseText()

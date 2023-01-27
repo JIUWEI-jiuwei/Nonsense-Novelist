@@ -117,7 +117,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 {
                     //if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
                     {
-                        this.GetComponent<AbstractAdjectives>().UseVerbs(hit.collider.gameObject.GetComponent<AbstractCharacter>());
+                        this.GetComponent<AbstractAdjectives>().UseAdj(hit.collider.gameObject.GetComponent<AbstractCharacter>());
                         Destroy(this.gameObject);
                     }
                     /*else

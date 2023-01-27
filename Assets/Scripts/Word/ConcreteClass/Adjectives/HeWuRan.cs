@@ -16,9 +16,9 @@ public class HeWuRan : AbstractAdjectives
         rarity = 1;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         aimCharacter.gameObject.AddComponent<Toxic>()
             .maxTime = skillEffectsTime;
     }

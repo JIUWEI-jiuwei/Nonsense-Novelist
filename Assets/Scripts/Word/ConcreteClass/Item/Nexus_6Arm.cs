@@ -1,29 +1,28 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///外骨骼
+///Nexus-6型手臂
 /// </summary>
-class Exoskeleton : AbstractItems
+class Nexus_6Arm : AbstractItems
 {
     public override void Awake()
     {
-        itemID = 17;
-        wordName = "外骨骼";
-        bookName = BookNameEnum.PHXTwist;
-        description = "厚厚的几丁质外壳能保护其主人，提升3点防御，15%闪避几率。";
-        holdEnum = HoldEnum.clothes;
+        itemID = 12;
+        wordName = "Nexus-6型手臂";
+        bookName = BookNameEnum.ElectronicGoal;
+        description = "一种已经停产的强大机械臂，提升10点攻击，10%暴击几率。";
+        holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
 
-        rarity = 1;
+        rarity = 3;
     }
 
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-        chara.def += 3;
-        chara.attackInterval -= 0.2f;
+        chara.atk += 7;
+
     }
 
     public override void UseVerbs()
@@ -34,7 +33,6 @@ class Exoskeleton : AbstractItems
     public override void End()
     {
         base.End();
-        aim.def -= 3;
-        aim.attackInterval += 0.2f;
+        aim.atk -= 7;
     }
 }

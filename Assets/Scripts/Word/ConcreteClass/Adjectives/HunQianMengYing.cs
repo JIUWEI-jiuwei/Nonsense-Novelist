@@ -16,9 +16,9 @@ public class HunQianMengYing : AbstractAdjectives
         rarity = 1;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<FuHuo>());
         buffs[0].maxTime = skillEffectsTime;
     }

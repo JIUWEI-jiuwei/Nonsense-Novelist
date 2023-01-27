@@ -53,7 +53,7 @@ public static class AllSkills
         //list_adj.AddRange(new Type[] {  typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
         //    typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
         //添加名词词条
-        list_noun.AddRange(new Type[] { typeof(Exoskeleton), typeof(JiShengChong), typeof(LengXiangPill), typeof(Nexus6Arm),
+        list_noun.AddRange(new Type[] { typeof(Exoskeleton), typeof(JiShengChong), typeof(LengXiangPill), typeof(Nexus_6Arm),
             typeof(NoteFragment),typeof(PinkStone),typeof(PurpleStone) ,typeof(RiLunGuaZhui),
             typeof(TeaCup),typeof(TigerStone) ,typeof(UnlockMagicCode),typeof(WhiteStone) });
         //全部

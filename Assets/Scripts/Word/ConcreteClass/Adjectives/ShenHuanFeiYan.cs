@@ -16,9 +16,9 @@ public class ShenHuanFeiYan : AbstractAdjectives
         rarity = 1;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         //中心得到传播
         buffs.Add(aimCharacter.gameObject.AddComponent<ChuanBo>());
         //相邻得到患病

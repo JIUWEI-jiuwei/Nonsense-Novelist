@@ -17,9 +17,9 @@ public class YouAnQuanGan : AbstractAdjectives
         time = skillEffectsTime;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         BasicAbility(aimCharacter);
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)

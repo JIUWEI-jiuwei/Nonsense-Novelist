@@ -1,71 +1,75 @@
- using System.Collections;
+using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 抽象物品类
+/// 物品（自己处理每秒做的事）
 /// </summary>
 abstract class AbstractItems : AbstractWords0
 {
     /// <summary>物品序号</summary>
     public int itemID;
-    /// <summary>获取方式</summary>
-    public GetWayEnum getWay;
     /// <summary>物品对应战场形象</summary>
     public GameObject obj;
-    /// <summary>物品目标身份限制（谁不能使用） </summary>
-    public List<AbstractRoleLimit> banUse=new List<AbstractRoleLimit>();
     /// <summary>持有方式</summary>
     public HoldEnum holdEnum;
     /// <summary>物品材质，对应音效种类 </summary>
     public MaterialVoiceEnum VoiceEnum;
-    /// <summary>物品提供的技能</summary>
-    public AbstractVerbs withSkill;
-    /// <summary>物品提供的状态</summary>
-    public AbstractAdjectives withAdj;
 
-    /// <summary>提供的攻击力</summary>
-    public float atk = 0;
-    /// <summary>提供的防御力</summary>
-    public float def = 0;
-    /// <summary>提供的精神力</summary>psychic force
-    public float psy = 0;
-    /// <summary>提供的意志力</summary>
-    public float san = 0;
-    /// <summary>提高的暴击几率</summary>
-    public float criticalChance = 0;
-    /// <summary>提高的暴击倍数</summary>
-    public float multipleCriticalStrike=1;
-    /// <summary>提高的闪避几率</summary>
-    public float dodgeChance = 0;
-    /// <summary>提高的攻击间隔</summary>
-    public float attackInterval = 0;
+    protected AbstractCharacter aim;
+    /// <summary>特殊效果存储引用</summary>
+    protected List<AbstractBuff> buffs = new List<AbstractBuff>();
+
+    virtual public void Awake()
+    {
+        aim = GetComponent<AbstractCharacter>();
+    }
 
     /// <summary>
-    /// 使用物品
+    /// 初始释放
     /// </summary>
-    virtual public void UseItem(AbstractCharacter useCharacter)
+    /// <param name="chara">持有者</param>
+    virtual public void UseItems(AbstractCharacter chara)
     {
-        withSkill.UseVerbs(useCharacter);
-        //物品提供的属性
-        useCharacter.atk += atk;
-        useCharacter.def += def;
-        useCharacter.psy += psy;
-        useCharacter.san += san;
-        useCharacter.criticalChance += criticalChance;
-        useCharacter.multipleCriticalStrike += multipleCriticalStrike;
-        useCharacter.attackInterval += attackInterval;
+        
     }
 
-    virtual public void LoseItem(AbstractCharacter useCharacter)
+    /// <summary>
+    /// 相当于Update
+    /// </summary>
+    /// <param name="chara"></param>
+    virtual public void UseVerbs()
     {
-        //失去物品提供的属性
-        useCharacter.atk -= atk;
-        useCharacter.def -= def;
-        useCharacter.psy -= psy;
-        useCharacter.san -= san;
-        useCharacter.criticalChance += criticalChance;
-        useCharacter.multipleCriticalStrike-=multipleCriticalStrike;
-        useCharacter.attackInterval -= attackInterval;
+
     }
+
+    private void Update()
+    {
+        if(aim!=null)
+        {
+            UseVerbs();
+        }
+    }
+
+    /// <summary>
+    /// 相当于OnDestroy()
+    /// </summary>
+    virtual public void End()
+    {
+
+    }
+
+    private void OnDestroy()
+    {
+        foreach (AbstractBuff buff in buffs)
+        {
+            Destroy(buff);
+        }
+        if (aim != null)
+        {
+            End();
+        }
+    }
+
 }

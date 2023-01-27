@@ -16,9 +16,9 @@ public class BuXiu : AbstractAdjectives
         rarity = 2;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<ReLife>());
         buffs[0].maxTime = skillEffectsTime;
         BasicAbility(aimCharacter);

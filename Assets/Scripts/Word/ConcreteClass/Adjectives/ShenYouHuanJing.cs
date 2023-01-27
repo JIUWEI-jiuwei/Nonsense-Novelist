@@ -16,9 +16,9 @@ public class ShenYouHuanJing : AbstractAdjectives
         rarity = 1;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
         buffs[0].maxTime = skillEffectsTime;
     }
