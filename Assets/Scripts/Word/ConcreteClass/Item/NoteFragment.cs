@@ -11,13 +11,10 @@ class NoteFragment : AbstractItems
         itemID = 3;
         wordName = "德洛瑞斯的笔记碎片";
         bookName = BookNameEnum.StudentOfWitch;
-        getWay = GetWayEnum.FromStory;
         description = "记载了一些德洛瑞斯写的笔记，提升5点精神。";
         nickname.Add("笔记本");
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Book;
-        withSkill = gameObject.AddComponent<FireBall_x>();
-        psy = 5;
     }
 
     public override string UseText()

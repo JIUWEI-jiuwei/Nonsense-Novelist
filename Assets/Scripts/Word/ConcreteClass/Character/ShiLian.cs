@@ -1,3 +1,4 @@
+using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,14 +21,27 @@ class ShiLian : AbstractCharacter
         san = 3;
         mainProperty.Add("精神", "中法dps");
         trait = gameObject.AddComponent<Vicious>();
+        roleName = "负面情绪";
         attackInterval = 2.2f;
-        attackDistance = 3;
-        brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
-        description = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
-            "\n道是：" +
-            "\n可叹停机德，堪怜咏絮才。" +
-            "\n玉带林中挂，金簪雪里埋。";
+        attackDistance = 300;
     }
+    private void Start()
+    {
+        attackState = GetComponent<AttackState>();
+        Destroy(attackState.attackA);
+        attackState.attackA = gameObject.AddComponent<DamageMode>();
+    }
+
+    AttackState attackState;
+    AbstractCharacter[] aims;
+    public override void AttackA()
+    {
+        base.AttackA();
+        //普通攻击有20几率附带“沮丧”状态
+        if(Random.Range(1, 101)<=20)
+        myState.aim.gameObject.AddComponent<Upset>().maxTime = 5;
+    }
+
 
     public override string ShowText(AbstractCharacter otherChara)
     {

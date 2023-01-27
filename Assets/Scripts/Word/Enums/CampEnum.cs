@@ -8,12 +8,6 @@ public enum CampEnum
     stranger,
     left,
     right,
-
-
-    /// <summary>”—∑Ω</summary>
-    friend ,
-    /// <summary>µ–»À</summary>
-    enemy ,
 };
 
 /// <summary>

@@ -1,19 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-///外骨骼
-/// </summary>
-class Exoskeleton : AbstractItems
+class MemoryImplantion : AbstractItems
 {
     public override void Awake()
     {
-        itemID = 17;
-        wordName = "外骨骼";
-        bookName = BookNameEnum.PHXTwist;
-        description = "厚厚的几丁质外壳能保护其主人，提升3点防御，15%闪避几率。";
-        holdEnum = HoldEnum.clothes;
+        itemID = 13;
+        wordName = "被植入的记忆";
+        bookName = BookNameEnum.ElectronicGoal;
+        description = "一种已经停产的强大机械臂，提升10点攻击，10%暴击几率。";
+        holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
 
         rarity = 1;
@@ -22,8 +18,8 @@ class Exoskeleton : AbstractItems
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-        chara.def += 3;
-        chara.attackInterval -= 0.2f;
+        chara.psy-= chara.psy * 0.15f;
+        chara.san-= chara.san * 0.15f;
     }
 
     public override void UseVerbs()
@@ -34,7 +30,5 @@ class Exoskeleton : AbstractItems
     public override void End()
     {
         base.End();
-        aim.def -= 3;
-        aim.attackInterval += 0.2f;
     }
 }

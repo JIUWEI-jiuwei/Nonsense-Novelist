@@ -1,3 +1,4 @@
+using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +12,36 @@ using UnityEngine;
         wordName = "怀疑主义";
         bookName = BookNameEnum.allBooks;
         gender = GenderEnum.noGender;
+        camp = CampEnum.stranger;
         hp =maxHP  = 350;
         atk = 10;
         def = 30;
         psy = 15;
         san = 30;
         trait=gameObject.AddComponent<Sentimental>();
-        brief = "《红楼梦》中一位性格敏感脆弱，却又极有灵性的少女。";
-        description = "林黛玉，中国古典名著《红楼梦》的女主角，金陵十二钗正册双首之一，西方灵河岸绛珠仙草转世，最后于贾宝玉、薛宝钗大婚之夜泪尽而逝。她生得容貌清丽，兼有诗才，是古代文学作品中极富灵气的经典女性形象。" +
-            "\n道是：" +
-            "\n可叹停机德，堪怜咏絮才。" +
-            "\n玉带林中挂，金簪雪里埋。";
+        roleName = "思潮";
+        attackInterval = 2.2f;
+    }
+    private void Start()
+    {
+        skillMode = gameObject.AddComponent<DamageMode>();
+    }
+
+    AbstractSkillMode skillMode;
+    AbstractCharacter[] aims;
+    float record;
+    public override void AttackA()
+    {
+        base.AttackA();
+        aims = skillMode.CalculateAgain(100, this);
+        //夺取场上每个敌人5点意志力，加在自己身上
+        foreach(AbstractCharacter aim in aims)
+        {
+            record = aim.san;
+            aim.san -= 5;
+            record = record - aim.san;
+            san += record;
+        }
     }
 
     public override void CreateBullet(GameObject aimChara)

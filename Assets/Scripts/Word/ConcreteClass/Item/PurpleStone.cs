@@ -6,16 +6,35 @@ using UnityEngine;
 /// </summary>
 class PurpleStone: AbstractItems
 {
-    public void Awake()
+    public override void Awake()
     {
-        itemID = 7;
+        itemID = 9;
         wordName = "紫水晶";
         bookName = BookNameEnum.CrystalEnergy;
-        getWay = GetWayEnum.NormalWord;
         description = "一颗深紫色高洁的水晶，提升3点精神，少量增强暴击倍数。";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-        psy = 3;
-        multipleCriticalStrike = 0.5f;
+
+        rarity = 1;
+    }
+
+    public override void UseItems(AbstractCharacter chara)
+    {
+        base.UseItems(chara);
+        chara.psy += 4;
+
+    }
+
+    public override void UseVerbs()
+    {
+        base.UseVerbs();
+        buffs.Add(gameObject.AddComponent<GongZhen>());
+        buffs[0].maxTime = Mathf.Infinity;
+    }
+
+    public override void End()
+    {
+        base.End();
+        aim.psy -= 4;
     }
 }

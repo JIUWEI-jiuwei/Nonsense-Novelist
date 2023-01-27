@@ -1,35 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 虎眼石
-/// </summary>
-class TigerStone: AbstractItems
+class HorusEyes : AbstractItems
 {
     public override void Awake()
     {
-        itemID = 10;
-        wordName = "虎眼石";
-        bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
-        holdEnum = HoldEnum.handSingle;
+        itemID = 6;
+        wordName = "荷鲁斯之眼";
+        bookName = BookNameEnum.EgyptMyth;
+        description = "一枚熠熠生辉的宝石，提升7点精神，增强暴击倍数。";
+        holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
-
         rarity = 2;
     }
-
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
         chara.atk += 5;
-
     }
 
     public override void UseVerbs()
     {
         base.UseVerbs();
-        buffs.Add(gameObject.AddComponent<GongZhen>());
-        buffs[0].maxTime = Mathf.Infinity;
+        
     }
 
     public override void End()

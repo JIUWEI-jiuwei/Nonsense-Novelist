@@ -20,7 +20,7 @@ abstract public class AbstractAdjectives : AbstractWords0
 
     protected AbstractCharacter aim;
     /// <summary>特殊效果存储引用</summary>
-    protected List<AbstractBuff> buffs;
+    protected List<AbstractBuff> buffs=new List<AbstractBuff>();
 
     public virtual void Awake()
     {
@@ -36,7 +36,7 @@ abstract public class AbstractAdjectives : AbstractWords0
     /// 使用技能
     /// </summary>
     /// <param name="aimCharacter">目标</param>
-    virtual public void UseVerbs(AbstractCharacter aimCharacter)
+    virtual public void UseAdj(AbstractCharacter aimCharacter)
     {
         AbstractBook.afterFightText += UseText();
     }
@@ -53,17 +53,6 @@ abstract public class AbstractAdjectives : AbstractWords0
 
     }
 
-    private void OnDisable()
-    {
-        foreach (AbstractBuff buff in buffs)
-        {
-            Destroy(buff);
-        }
-        if (aim != null)
-        {
-            End();
-        }
-    }
     private void OnDestroy()
     {
         foreach (AbstractBuff buff in buffs)

@@ -17,9 +17,9 @@ public class ZhongDu : AbstractAdjectives
         rarity = 2;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<Toxic>());
         buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
         foreach(AbstractBuff buff in buffs)

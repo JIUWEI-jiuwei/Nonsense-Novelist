@@ -16,9 +16,9 @@ public class KeBan : AbstractAdjectives
         rarity = 0;
     }
 
-    public override void UseVerbs(AbstractCharacter aimCharacter)
+    public override void UseAdj(AbstractCharacter aimCharacter)
     {
-        base.UseVerbs(aimCharacter);
+        base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<Upset>());
             buffs[0].maxTime = skillEffectsTime;
     }

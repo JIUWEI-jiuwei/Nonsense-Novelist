@@ -21,7 +21,7 @@ class AgelessEnemy_x : AbstractCharacter
         psy = 7;
         san = 2;
         attackInterval = 2.2f;
-        attackDistance = 6;
+        attackDistance = 600;
     }
 
     public override string ShowText(AbstractCharacter otherChara)

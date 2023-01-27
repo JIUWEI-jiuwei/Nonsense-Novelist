@@ -21,7 +21,7 @@ class FinancialDifficulty_x : AbstractCharacter
         san = 2;
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
-        attackDistance = 6;
+        attackDistance = 600;
     }
 
     public override void CreateBullet(GameObject aimChara)

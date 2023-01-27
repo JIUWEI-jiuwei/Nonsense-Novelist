@@ -11,7 +11,6 @@ class UnlockMagicCode : AbstractItems
         itemID = 4;
         wordName = "未解锁的《密特拉魔典》";
         bookName = BookNameEnum.StudentOfWitch;
-        getWay = GetWayEnum.FromStory;
         description = "一本装饰华丽的魔典，中央有着一个眼睛看来看去，提升3点意志，3点防御。";
         
     }

@@ -21,7 +21,7 @@ using UnityEngine;
         trait=gameObject.AddComponent<ColdInexorability>();
         roleName = "垄断公司";
         attackInterval = 2.2f;
-        attackDistance = 1;
+        attackDistance = 100;
         brief = "来自日常生活开销所产生的经济压力";
         description = "来自日常生活开销所产生的经济压力。";
     }
@@ -36,6 +36,7 @@ using UnityEngine;
     public override void AttackA()
     {
         base.AttackA();
+        //代替平A
         myState.aim = null;
         if (myState.character.aAttackAudio != null)
         {
