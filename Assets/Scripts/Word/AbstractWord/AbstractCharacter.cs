@@ -8,40 +8,40 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(AudioSource))]
 /// <summary>
-/// ³éÏó½ÇÉ«Àà
+/// æŠ½è±¡è§’è‰²ç±»
 /// </summary>
 abstract public class AbstractCharacter : AbstractWords0
 {
     protected MyState0 myState;
-    /// <summary>ĞòºÅ</summary>
+    /// <summary>åºå·</summary>
     public int characterID;
-    /// <summary>ĞÔ±ğ</summary>
+    /// <summary>æ€§åˆ«(å¼ƒç”¨)</summary>
     public GenderEnum gender;
     /// <summary>AudioSource</summary>
     public AudioSource source;
-    /// <summary>Æ½AÒôĞ§(ÊÖ¶¯ÍÏ×§£©</summary>
+    /// <summary>å¹³AéŸ³æ•ˆ(æ‰‹åŠ¨æ‹–æ‹½ï¼‰</summary>
     public AudioClip aAttackAudio;
-    /// <summary>×ßÂ·ÒôĞ§£¨ÊÖ¶¯ÍÏ×§£©</summary>
+    /// <summary>èµ°è·¯éŸ³æ•ˆï¼ˆæ‰‹åŠ¨æ‹–æ‹½ï¼‰</summary>
     public AudioClip walkAudio;
-    /// <summary>ÈËÎï±©»÷Ä¬ÈÏÌ¨´Ê£¨ÆúÓÃ£©</summary>
+    /// <summary>äººç‰©æš´å‡»é»˜è®¤å°è¯ï¼ˆå¼ƒç”¨ï¼‰</summary>
     //[HideInInspector] public string criticalSpeak;
-    /// <summary>ÈËÎïËÀÍöÄ¬ÈÏÌ¨´Ê£¨ÆúÓÃ£©</summary>
+    /// <summary>äººç‰©æ­»äº¡é»˜è®¤å°è¯ï¼ˆå¼ƒç”¨ï¼‰</summary>
     //[HideInInspector] public string deadSpeak;
 
-    /// <summary>ÌØĞ§</summary>
+    /// <summary>ç‰¹æ•ˆ</summary>
     public TeXiao teXiao;
-    /// <summary>×Óµ¯(ÊÖ¶¯¹Ò£©</summary>
+    /// <summary>å­å¼¹(æ‰‹åŠ¨æŒ‚ï¼‰</summary>
     public GameObject bullet;
-    /// <summary>·¢³ö×Óµ¯ </summary>
+    /// <summary>å‘å‡ºå­å¼¹ </summary>
     public virtual void CreateBullet(GameObject aimChara) { }
 
-    /// <summary>ÕóÓª</summary>
+    /// <summary>é˜µè¥</summary>
     public CampEnum camp;
-    /// <summary>ÑªÁ¿</summary>
+    /// <summary>è¡€é‡</summary>
     public float HP = 0;
-    /// <summary>×ÜÑªÁ¿</summary>
+    /// <summary>æ€»è¡€é‡</summary>
     public float maxHP = 0;
-    /// <summary>¹¥»÷Á¦</summary>
+    /// <summary>æ”»å‡»åŠ›</summary>
     protected float ATK = 0;
 
     virtual public float hp
@@ -82,9 +82,9 @@ abstract public class AbstractCharacter : AbstractWords0
             CaculateValue();
         }
     }
-    /// <summary>¾«ÉñÁ¦</summary>
+    /// <summary>ç²¾ç¥åŠ›</summary>
     protected float PSY = 0;
-    /// <summary>¾«ÉñÁ¦</summary>
+    /// <summary>ç²¾ç¥åŠ›</summary>
     virtual public float psy
     {
         get { return PSY; }
@@ -94,9 +94,9 @@ abstract public class AbstractCharacter : AbstractWords0
             CaculateValue();
         }
     }
-    /// <summary>ÒâÖ¾Á¦</summary>
+    /// <summary>æ„å¿—åŠ›</summary>
     protected float SAN = 0;
-    /// <summary>ÒâÖ¾Á¦</summary>
+    /// <summary>æ„å¿—åŠ›</summary>
     virtual public float san
     {
         get { return SAN; }
@@ -108,33 +108,33 @@ abstract public class AbstractCharacter : AbstractWords0
             CaculateValue();
         }
     }
-    /// <summary>ËÄÎ¬Ö®ºÍ£¬½ÚÊ¡ĞÔÄÜ </summary>
+    /// <summary>å››ç»´ä¹‹å’Œï¼ŒèŠ‚çœæ€§èƒ½ </summary>
     public float allValue { get; private set; }
     public void CaculateValue() { allValue = atk + def + psy + san; }
-    /// <summary>Ö÷ÊôĞÔ(ÆúÓÃ)</summary>
+    /// <summary>ä¸»å±æ€§(å¼ƒç”¨)</summary>
     public Dictionary<string,string> mainProperty;
-    /// <summary>ĞÔ¸ñ£¨ÆúÓÃ£©</summary>
+    /// <summary>æ€§æ ¼ï¼ˆå¼ƒç”¨ï¼‰</summary>
     public AbstractTrait trait;
-    /// <summary>Éí·İÃû</summary>
+    /// <summary>èº«ä»½å</summary>
     public string roleName;
-    /// <summary>ÓµÓĞ¼¼ÄÜ£¨Ëù¹Ò×é¼ş,×Ô´ø¼¼ÄÜ/Éí·İ ÔÚ³õÊ¼¸³Öµ£©</summary>
+    /// <summary>æ‹¥æœ‰æŠ€èƒ½ï¼ˆæ‰€æŒ‚ç»„ä»¶,è‡ªå¸¦æŠ€èƒ½/èº«ä»½ åœ¨åˆå§‹èµ‹å€¼ï¼‰</summary>
     public List<AbstractVerbs> skills;
-    /// <summary>±©»÷¼¸ÂÊ(ÆúÓÃ)</summary>
+    /// <summary>æš´å‡»å‡ ç‡(å¼ƒç”¨)</summary>
     [HideInInspector]public float criticalChance = 0;
-    /// <summary>±©»÷±¶Êı(ÆúÓÃ£©</summary>
+    /// <summary>æš´å‡»å€æ•°(å¼ƒç”¨ï¼‰</summary>
     [HideInInspector] public float multipleCriticalStrike = 2;
-    /// <summary>¹¥»÷¼ä¸ô(¼ì¶¨¹¥»÷µÄ´ÎĞò£¬ÒÔ¼°Ã¿Á½´Î¹¥»÷¼ä¸ôÊ±³¤)</summary>
+    /// <summary>æ”»å‡»é—´éš”(æ£€å®šæ”»å‡»çš„æ¬¡åºï¼Œä»¥åŠæ¯ä¸¤æ¬¡æ”»å‡»é—´éš”æ—¶é•¿)</summary>
     public float attackInterval = 2.2f;
 
-    /// <summary>Õ¾Î»</summary>
+    /// <summary>ç«™ä½</summary>
     public Situation situation;
-    /// <summary>¹¥»÷Éä³Ì</summary>
+    /// <summary>æ”»å‡»å°„ç¨‹</summary>
     public int attackDistance = 0;
-    /// <summary>½ÇÉ«¶¯»­</summary>
+    /// <summary>è§’è‰²åŠ¨ç”»</summary>
     public CharaAnim charaAnim;
-    /// <summary>Ê£ÓàÑ£ÔÎÊ±¼ä</summary>
+    /// <summary>å‰©ä½™çœ©æ™•æ—¶é—´</summary>
     public float dizzyTime;
-    /// <summary>ÊÇ·ñÓĞ¸´»î×´Ì¬(ÈÔ²»¿Éµş¼Ó£¬µ«ÊıÁ¿Îª0Ôò²»¿É¸´»î)</summary>
+    /// <summary>æ˜¯å¦æœ‰å¤æ´»çŠ¶æ€(ä»ä¸å¯å åŠ ï¼Œä½†æ•°é‡ä¸º0åˆ™ä¸å¯å¤æ´»)</summary>
     private int relifes;
     public int reLifes
     {
@@ -146,10 +146,10 @@ abstract public class AbstractCharacter : AbstractWords0
         }
     }
 
-    /// <summary>ÄÜÁ¿³äÄÜ</summary>
+    /// <summary>èƒ½é‡å……èƒ½</summary>
     public float energy;
 
-    /// <summary>ËùÓĞbuff¡¶buffID£¬ÊÇ·ñÓĞbuff¡·</summary>
+    /// <summary>æ‰€æœ‰buffã€ŠbuffIDï¼Œæ˜¯å¦æœ‰buffã€‹</summary>
     public Dictionary<int,int> buffs;
     
 
@@ -180,7 +180,7 @@ abstract public class AbstractCharacter : AbstractWords0
     }
 
     /// <summary>
-    /// Æ½AÊ±×îÏÈ·¢ÉúµÄÊÂ(½ÇÉ«¶ÔÆ½AÔì³ÉÓ°Ïì£©
+    /// å¹³Aæ—¶æœ€å…ˆå‘ç”Ÿçš„äº‹(è§’è‰²å¯¹å¹³Aé€ æˆå½±å“ï¼‰
     /// </summary>
     virtual public void AttackA() 
     {
@@ -190,13 +190,13 @@ abstract public class AbstractCharacter : AbstractWords0
 
     public delegate void changeA();
     /// <summary>
-    /// ¶Ô½ÇÉ«Æ½A½øĞĞ²Ù×÷(¼¼ÄÜµÈ¶ÔÆ½AÔì³ÉÓ°Ïì£©
+    /// å¯¹è§’è‰²å¹³Aè¿›è¡Œæ“ä½œ(æŠ€èƒ½ç­‰å¯¹å¹³Aé€ æˆå½±å“ï¼‰
     /// </summary>
     public event changeA OnA;
     
 
     /// <summary>
-    /// ÅĞ¶Ï¸Ã½ÇÉ«ÊÇ·ñÓĞ¸Ãbuff
+    /// åˆ¤æ–­è¯¥è§’è‰²æ˜¯å¦æœ‰è¯¥buff
     /// </summary>
     public bool HasBuff(int buffID)
     {
@@ -209,7 +209,7 @@ abstract public class AbstractCharacter : AbstractWords0
     }
 
     /// <summary>
-    /// ¼Ó¸öbuff
+    /// åŠ ä¸ªbuff
     /// </summary>
     /// <param name="buffID"></param>
     public void AddBuff(int buffID)
@@ -221,7 +221,7 @@ abstract public class AbstractCharacter : AbstractWords0
     }
 
     /// <summary>
-    /// È¥¸öbuff
+    /// å»ä¸ªbuff
     /// </summary>
     /// <param name="buffID"></param>
     public void RemoveBuff(int buffID)
@@ -229,22 +229,22 @@ abstract public class AbstractCharacter : AbstractWords0
             buffs[buffID]--;
     }
     /// <summary>
-    /// ÈËÎï³ö³¡ÎÄ±¾(¼Óµ½AbstractBook.beforeFightText)
+    /// äººç‰©å‡ºåœºæ–‡æœ¬(åŠ åˆ°AbstractBook.beforeFightText)
     /// </summary>
     abstract public string ShowText(AbstractCharacter otherChara);
 
     /// <summary>
-    /// ±©»÷ÎÄ±¾(¼Óµ½AbstractBook.afterFightText)
+    /// æš´å‡»æ–‡æœ¬(åŠ åˆ°AbstractBook.afterFightText)
     /// </summary>
     abstract public string CriticalText(AbstractCharacter otherChara);
 
     /// <summary>
-    /// µÍÑªÁ¿ÎÄ±¾(¼Óµ½AbstractBook.afterFightText)
+    /// ä½è¡€é‡æ–‡æœ¬(åŠ åˆ°AbstractBook.afterFightText)
     /// </summary>
     abstract public string LowHPText();
 
     /// <summary>
-    /// ËÀÍöÎÄ±¾(¼Óµ½AbstractBook.afterFightText)
+    /// æ­»äº¡æ–‡æœ¬(åŠ åˆ°AbstractBook.afterFightText)
     /// </summary>
     abstract public string DieText();
 }
