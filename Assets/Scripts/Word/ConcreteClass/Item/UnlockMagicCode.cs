@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class UnlockMagicCode : AbstractItems
 {
-    public void Awake()
+    public override void Awake()
     {
         itemID = 4;
         wordName = "未解锁的《密特拉魔典》";

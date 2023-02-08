@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// µÂÀ­ÈğË¹µÄ±Ê¼ÇËéÆ¬
+/// å¾·æ‹‰ç‘æ–¯çš„ç¬”è®°ç¢ç‰‡
 /// </summary>
 class NoteFragment : AbstractItems
 {
-    public void Awake()
+    public override void Awake()
     {
         itemID = 3;
-        wordName = "µÂÂåÈğË¹µÄ±Ê¼ÇËéÆ¬";
+        wordName = "å¾·æ´›ç‘æ–¯çš„ç¬”è®°ç¢ç‰‡";
         bookName = BookNameEnum.StudentOfWitch;
-        description = "¼ÇÔØÁËÒ»Ğ©µÂÂåÈğË¹Ğ´µÄ±Ê¼Ç£¬ÌáÉı5µã¾«Éñ¡£";
-        nickname.Add("±Ê¼Ç±¾");
+        description = "è®°è½½äº†ä¸€äº›å¾·æ´›ç‘æ–¯å†™çš„ç¬”è®°ï¼Œæå‡5ç‚¹ç²¾ç¥ã€‚";
+        nickname.Add("ç¬”è®°æœ¬");
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Book;
     }
@@ -23,7 +23,7 @@ class NoteFragment : AbstractItems
         if (character == null)
             return null;
 
-        return character.wordName + "´ÓµØÉÏ¼ñÆğÁËÒ»¸öÖ½Æ¬£¬¡°ÕâÉÏÃæĞ´µÄÊÇ¡­¡­Ò»¸öÄ§·¨ÖäÓï£¿¡±";
+        return character.wordName + "ä»åœ°ä¸Šæ¡èµ·äº†ä¸€ä¸ªçº¸ç‰‡ï¼Œâ€œè¿™ä¸Šé¢å†™çš„æ˜¯â€¦â€¦ä¸€ä¸ªé­”æ³•å’’è¯­ï¼Ÿâ€";
 
     }
 }

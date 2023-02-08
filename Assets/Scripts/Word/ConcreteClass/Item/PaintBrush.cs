@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// »­±Ê
+/// ç”»ç¬”
 /// </summary>
 class PaintBrush : AbstractItems
 {
-    public void Awake()
+    public override void Awake()
     {
         itemID = -1;
-        wordName = "»­±Ê";
-        description = "Ò»Ö§Æ½Æ½ÎÞÆæµÄ»­±Ê";
-        nickname.Add("±ÊË¢");
+        wordName = "ç”»ç¬”";
+        description = "ä¸€æ”¯å¹³å¹³æ— å¥‡çš„ç”»ç¬”";
+        nickname.Add("ç¬”åˆ·");
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Soft;
     }

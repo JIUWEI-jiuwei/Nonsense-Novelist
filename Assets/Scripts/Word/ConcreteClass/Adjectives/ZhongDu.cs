@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class ZhongDu : AbstractAdjectives
 {
@@ -10,7 +9,7 @@ public class ZhongDu : AbstractAdjectives
     {
         base.Awake();
         adjID = 20;
-        wordName = "ÖÐ¶¾µÄ";
+        wordName = "ä¸­æ¯’çš„";
         bookName = BookNameEnum.allBooks;
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;

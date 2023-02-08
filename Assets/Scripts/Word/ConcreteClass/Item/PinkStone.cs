@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ·ÛË®¾§
+/// ç²‰æ°´æ™¶
 /// </summary>
 class PinkStone: AbstractItems
 {
-    public void Awake()
+    public override void Awake()
     {
         itemID = 9;
-        wordName = "·ÛË®¾§";
+        wordName = "ç²‰æ°´æ™¶";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "Ò»Ã¶·ÛÉ«ÈáºÍµÄË®¾§£¬ÌáÉı3µãÒâÖ¾£¬15%ÉÁ±Ü¼¸ÂÊ¡£";
+        description = "ä¸€æšç²‰è‰²æŸ”å’Œçš„æ°´æ™¶ï¼Œæå‡3ç‚¹æ„å¿—ï¼Œ15%é—ªé¿å‡ ç‡ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
     }
