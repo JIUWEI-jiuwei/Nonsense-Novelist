@@ -9,6 +9,9 @@ TagManager:
   - sec3_3
   - blackPanel
   - character
+  - bullet
+  - portal
+  - wall
   layers:
   - Default
   - TransparentFX
