@@ -15,6 +15,7 @@ public class YouAnQuanGan : AbstractAdjectives
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
         time = skillEffectsTime;
+        wordCollisionShoots.Add(gameObject.AddComponent<YunSu>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

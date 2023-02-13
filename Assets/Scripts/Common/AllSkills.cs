@@ -47,15 +47,22 @@ public static class AllSkills
     static AllSkills()
     {       
         //添加动词词条
-        list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),           
-           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen),typeof(FireBall_x) });
+        list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),
+           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen),
+        typeof(BaoZa), typeof(FangFuShu), typeof(GunShoot), typeof(Kiss),typeof(MianYiZengQiang),
+        typeof(ShaYu), typeof(ToBigger), typeof(TuLingCeShi), typeof(WanShua), typeof(WenYiChuanBo)});
         //添加形容词词条
-        //list_adj.AddRange(new Type[] {  typeof(TaiXuHuanJing), typeof(TouXiangQieYu), typeof(HeChenAi), 
-        //    typeof(ChaoMinFanYing),typeof(GuanZhuangFeiYan) ,typeof(HunFei),typeof(KeBanXingWei) ,typeof(LinQiuJun) });
+        list_adj.AddRange(new Type[] {  typeof(BuXiu), typeof(ChaFanWuXin), typeof(CuZhuang), typeof(HunFei),
+           typeof(FengChan),typeof(FengLi) ,typeof(GuoMin),typeof(HaoZhan) ,typeof(HeWuRan),typeof(HunQianMengYing),
+        typeof(JianRuPanShi),typeof(KeBan) ,typeof(LuanLun),typeof(LuoYingBinFen) ,typeof(QingXi),typeof(QuicklyGrowing),
+        typeof(RenZao),typeof(SanFaFeiLuoMeng) ,typeof(ShenHuanFeiYan),typeof(ShenYouHuanJing) ,typeof(XinShenJiDang),
+            typeof(YouAnQuanGan),typeof(ZhongDu),});
         //添加名词词条
         list_noun.AddRange(new Type[] { typeof(Exoskeleton), typeof(JiShengChong), typeof(LengXiangPill), typeof(Nexus_6Arm),
-            typeof(NoteFragment),typeof(PinkStone),typeof(PurpleStone) ,typeof(RiLunGuaZhui),
-            typeof(TeaCup),typeof(TigerStone) ,typeof(UnlockMagicCode),typeof(WhiteStone) });
+            typeof(PurpleStone) ,typeof(RiLunGuaZhui),typeof(BenJieShiDui),typeof(DuXian),
+            typeof(TeaCup),typeof(TigerStone) ,typeof(WhiteStone) ,typeof(FuTouAxe),typeof(GlassPendant),
+            typeof(HorusEyes),typeof(MeiGuiShiYing) ,typeof(MemoryImplantion),typeof(PaintBrush),typeof(StrangeStatue),
+            typeof(ThickDictionary),typeof(VolumeProduction) ,typeof(XianZhiHead),typeof(YiZhiWeiShiQi) });
         //全部
         list_all.AddRange(list_verb);
         list_all.AddRange(list_adj);
@@ -97,6 +104,15 @@ public static class AllSkills
         //UnityEngine.Random.InitState((int)Time.unscaledTime);
         int number = UnityEngine.Random.Range(0, list.Count);
         return list[number];
+    }
+    /// <summary>
+    /// 【弹射版本】生成随机词条(包含名词+动词+形容词)
+    /// </summary>
+    /// <returns></returns>
+    public static Type CreateSkillWord()
+    {
+        int number = UnityEngine.Random.Range(0, list_all.Count);
+        return list_all[number];
     }
     /// <summary>
     /// 返回全部技能词条

@@ -14,6 +14,7 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;
+        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

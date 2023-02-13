@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ·þÒ©
+/// ÒæÖÇÎ¹Ê³Æ÷
 /// </summary>
 class YiZhiWeiShiQi : AbstractItems
 {

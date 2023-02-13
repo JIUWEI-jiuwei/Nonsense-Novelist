@@ -7,10 +7,13 @@ using UnityEngine;
 /// </summary>
 public class WordCollisionShoot : MonoBehaviour
 {
-    public AbstractWords0 absWord;
+    private AbstractWords0 absWord;
 
 
-
+    private void Awake()
+    {
+        absWord = this.GetComponent<AbstractWords0>();
+    }
 
 
     /// <summary>

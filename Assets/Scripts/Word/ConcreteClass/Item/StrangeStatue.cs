@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// Ææ¹ÖÊ¯Ïñ
+/// </summary>
 class StrangeStatue : AbstractItems
 {
     public override void Awake()

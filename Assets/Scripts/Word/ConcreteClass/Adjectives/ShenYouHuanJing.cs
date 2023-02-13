@@ -14,6 +14,7 @@ public class ShenYouHuanJing : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;
+        wordCollisionShoots.AddRange(new WordCollisionShoot[] { gameObject.AddComponent<XuWu>(), gameObject.AddComponent<YunSu>() });
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

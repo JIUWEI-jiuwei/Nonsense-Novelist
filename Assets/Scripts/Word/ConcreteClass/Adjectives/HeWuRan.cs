@@ -14,6 +14,7 @@ public class HeWuRan : AbstractAdjectives
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 3;
         rarity = 1;
+        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

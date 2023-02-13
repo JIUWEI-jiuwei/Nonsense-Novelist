@@ -14,6 +14,7 @@ public class GuoMin : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 0;
         rarity = 1;
+        wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

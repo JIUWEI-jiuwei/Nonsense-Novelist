@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// ºÉÂ³Ë¹Ö®ÑÛ
+/// </summary>
 class HorusEyes : AbstractItems
 {
     public override void Awake()

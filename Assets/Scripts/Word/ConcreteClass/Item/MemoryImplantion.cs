@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 被植入的记忆
+/// </summary>
 class MemoryImplantion : AbstractItems
 {
     public override void Awake()

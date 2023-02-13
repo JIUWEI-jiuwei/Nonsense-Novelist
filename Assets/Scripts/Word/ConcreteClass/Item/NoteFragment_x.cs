@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 德拉瑞斯的笔记碎片
 /// </summary>
-class NoteFragment : AbstractItems
+class NoteFragment_x : AbstractItems
 {
     public override void Awake()
     {
