@@ -7,7 +7,7 @@ public class FengChan : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
+        
         adjID = 9;
         wordName = "·á²úµÄ";
         bookName = BookNameEnum.EgyptMyth;
@@ -15,6 +15,7 @@ public class FengChan : AbstractAdjectives
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
         wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

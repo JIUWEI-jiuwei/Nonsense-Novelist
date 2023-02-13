@@ -7,7 +7,6 @@ public class HeWuRan : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 5;
         wordName = "ºËÎÛÈ¾µÄ";
         bookName = BookNameEnum.EgyptMyth;
@@ -15,6 +14,7 @@ public class HeWuRan : AbstractAdjectives
         skillEffectsTime = 3;
         rarity = 1;
         wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

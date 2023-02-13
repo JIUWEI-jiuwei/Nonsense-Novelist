@@ -7,13 +7,13 @@ public class HunQianMengYing : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 0;
         wordName = "»êÇ£ÃÎÝÓµÄ";
         bookName = BookNameEnum.Salome;
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 15;
         rarity = 1;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

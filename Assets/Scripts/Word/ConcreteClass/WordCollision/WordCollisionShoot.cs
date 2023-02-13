@@ -7,14 +7,17 @@ using UnityEngine;
 /// </summary>
 public class WordCollisionShoot : MonoBehaviour
 {
-    private AbstractWords0 absWord;
+    public AbstractWords0 absWord;
 
 
     private void Awake()
     {
-        absWord = this.GetComponent<AbstractWords0>();
+       
     }
-
+    private void Start()
+    {
+        
+    }
 
     /// <summary>
     /// 词条实体碰撞到角色，将词条施加到角色身上
@@ -26,8 +29,9 @@ public class WordCollisionShoot : MonoBehaviour
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
-            //判断该词条是形容词还是动词
-            if (absWord.GetType() == typeof(AbstractVerbs))
+            //判断该词条是形容词/动词/名词
+            //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
+            if (absWord.wordKind==WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                 collision.gameObject.AddComponent(b.GetType());
@@ -35,9 +39,16 @@ public class WordCollisionShoot : MonoBehaviour
                 Destroy(this.gameObject);
 
             }
-            else if (absWord.GetType() == typeof(AbstractAdjectives))
+            else if (absWord.wordKind==WordKindEnum.adj)
             {
-                this.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                collision.gameObject.AddComponent(absWord.GetType());
+                collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                Destroy(this.gameObject);
+            }
+            else if (absWord.wordKind==WordKindEnum.noun)
+            {
+                collision.gameObject.AddComponent(absWord.GetType());
+                collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);
             }
         }

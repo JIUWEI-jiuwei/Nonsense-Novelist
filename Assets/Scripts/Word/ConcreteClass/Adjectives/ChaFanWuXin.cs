@@ -7,13 +7,14 @@ public class ChaFanWuXin : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
+        
         adjID = 1;
         wordName = "²è·¹ÎÞÐÄµÄ";
         bookName = BookNameEnum.HongLouMeng;
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = 10;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

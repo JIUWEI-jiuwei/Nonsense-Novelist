@@ -112,7 +112,7 @@ abstract public class AbstractCharacter : AbstractWords0
     public float allValue { get; private set; }
     public void CaculateValue() { allValue = atk + def + psy + san; }
     /// <summary>主属性(弃用)</summary>
-    public Dictionary<string,string> mainProperty;
+    public Dictionary<string,string> mainProperty=new Dictionary<string, string>();
     /// <summary>性格（弃用）</summary>
     public AbstractTrait trait;
     /// <summary>身份名</summary>
@@ -161,9 +161,12 @@ abstract public class AbstractCharacter : AbstractWords0
         buffs= new Dictionary<int,int>();
         charaAnim=GetComponent<CharaAnim>();
 
-        AbstractCharacter[] a= GameObject.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
-        AbstractCharacter b=CollectionHelper.Find(a,p=>p.wordName!=wordName); 
-        AbstractBook.beforeFightText += ShowText(b);
+        if (GameObject.Find("SelfCharacter") != null)
+        {
+            AbstractCharacter[] a = GameObject.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
+            AbstractCharacter b = CollectionHelper.Find(a, p => p.wordName != wordName);
+            AbstractBook.beforeFightText += ShowText(b);
+        }
     }
 
     public delegate void energyFull();

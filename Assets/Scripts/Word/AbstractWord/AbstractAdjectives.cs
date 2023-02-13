@@ -26,6 +26,7 @@ abstract public class AbstractAdjectives : AbstractWords0
 
     public virtual void Awake()
     {
+        wordKind = WordKindEnum.adj;
         nowTime = skillEffectsTime;
         aim=GetComponent<AbstractCharacter>();
     }

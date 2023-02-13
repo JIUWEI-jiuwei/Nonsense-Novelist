@@ -25,7 +25,7 @@ namespace AI
         }
         private void Update()
         {
-            print(attackA);
+           // print(attackA);
         }
 
         /// <summary>ƽAģʽ</summary>

@@ -67,10 +67,15 @@ public class Shoot : MonoBehaviour
         go.transform.localEulerAngles = Vector3.zero;
         go.transform.SetParent(bulletRoot);
 
-        //增加词条属性
-        go.AddComponent(AllSkills.CreateSkillWord());
+        //给小球增加词条属性
+        //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
+        //go.AddComponent<ShenYouHuanJing>();
+        go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<BuryFlower>();
+
 
         //增加词条图像
+
+
 
         //给词条添加一个初始的力
         go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * crtForce);

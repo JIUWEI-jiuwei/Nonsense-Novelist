@@ -16,6 +16,8 @@ class JiShengChong : AbstractItems
         VoiceEnum = MaterialVoiceEnum.Meat;
 
         rarity = 1;
+        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+
     }
 
     public override void UseItems(AbstractCharacter chara)

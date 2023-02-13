@@ -7,13 +7,13 @@ public class KeBan : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 4;
         wordName = "¿Ì°åµÄ";
         bookName = BookNameEnum.ZooManual;
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

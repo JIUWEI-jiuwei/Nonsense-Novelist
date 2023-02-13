@@ -12,7 +12,11 @@ namespace AI
 
         private void Start()
         {
-            uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+            if (GameObject.Find("UIManager")!=null)
+            {
+                uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+
+            }
         }
         override public void Awake()
         {

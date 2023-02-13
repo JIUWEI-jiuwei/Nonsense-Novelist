@@ -7,13 +7,13 @@ public class ShenHuanFeiYan : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 6;
         wordName = "Éí»¼·ÎÑ×µÄ";
         bookName = BookNameEnum.FluStudy;
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 5;
         rarity = 1;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

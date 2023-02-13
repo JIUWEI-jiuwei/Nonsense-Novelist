@@ -7,7 +7,6 @@ public class GuoMin : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 7;
         wordName = "¹ýÃôµÄ";
         bookName = BookNameEnum.FluStudy;
@@ -15,6 +14,7 @@ public class GuoMin : AbstractAdjectives
         skillEffectsTime = 0;
         rarity = 1;
         wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

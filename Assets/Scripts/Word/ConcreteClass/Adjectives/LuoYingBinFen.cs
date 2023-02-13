@@ -7,13 +7,13 @@ public class LuoYingBinFen : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 17;
         wordName = "ÂäÓ¢çÍ·×µÄ";
         bookName = BookNameEnum.EgyptMyth;
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

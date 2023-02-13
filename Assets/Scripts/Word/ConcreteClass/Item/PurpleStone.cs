@@ -16,6 +16,8 @@ class PurpleStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 1;
+        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+
     }
 
     public override void UseItems(AbstractCharacter chara)

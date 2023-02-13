@@ -7,13 +7,13 @@ public class HaoZhan : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 0;
         wordName = "ºÃÕ½µÄ";
         bookName = BookNameEnum.PHXTwist;
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

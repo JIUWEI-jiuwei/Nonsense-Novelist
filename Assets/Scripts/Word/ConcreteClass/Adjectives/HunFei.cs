@@ -7,7 +7,6 @@ public class HunFei : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 14;
         wordName = "»é·ÉµÄ";
         bookName = BookNameEnum.PHXTwist;
@@ -15,6 +14,7 @@ public class HunFei : AbstractAdjectives
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
         wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

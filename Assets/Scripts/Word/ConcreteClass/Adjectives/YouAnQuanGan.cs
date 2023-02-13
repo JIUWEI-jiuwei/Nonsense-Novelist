@@ -7,7 +7,6 @@ public class YouAnQuanGan : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 8;
         wordName = "有安全感的";
         bookName = BookNameEnum.ZooManual;
@@ -16,6 +15,7 @@ public class YouAnQuanGan : AbstractAdjectives
         rarity = 1;
         time = skillEffectsTime;
         wordCollisionShoots.Add(gameObject.AddComponent<YunSu>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

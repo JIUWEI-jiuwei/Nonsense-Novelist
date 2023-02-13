@@ -16,6 +16,8 @@ class TigerStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 2;
+        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+
     }
 
     public override void UseItems(AbstractCharacter chara)

@@ -7,13 +7,13 @@ public class RenZao : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 12;
         wordName = "»À‘Ïµƒ";
         bookName = BookNameEnum.ElectronicGoal;
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

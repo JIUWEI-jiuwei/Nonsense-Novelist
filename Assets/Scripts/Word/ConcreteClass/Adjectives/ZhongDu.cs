@@ -7,13 +7,13 @@ public class ZhongDu : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 20;
         wordName = "中毒的";
         bookName = BookNameEnum.allBooks;
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

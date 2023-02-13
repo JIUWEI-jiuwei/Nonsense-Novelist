@@ -16,6 +16,8 @@ class VolumeProduction : AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 0;
+        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+
     }
 
     public override void UseItems(AbstractCharacter chara)

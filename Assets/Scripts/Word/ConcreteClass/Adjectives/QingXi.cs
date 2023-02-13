@@ -7,13 +7,13 @@ public class QingXi : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 11;
         wordName = "ÇåÎúµÄ";
         bookName = BookNameEnum.CrystalEnergy;
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

@@ -7,13 +7,13 @@ public class FengLi : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 15;
         wordName = "·æÀûµÄ";
         bookName = BookNameEnum.allBooks;
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillEffectsTime = 20;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

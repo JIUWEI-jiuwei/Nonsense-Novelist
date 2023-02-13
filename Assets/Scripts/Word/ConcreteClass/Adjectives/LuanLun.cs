@@ -7,7 +7,6 @@ public class LuanLun : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 0;
         wordName = "ÂÒÂ×µÄ";
         bookName = BookNameEnum.Salome;
@@ -15,6 +14,7 @@ public class LuanLun : AbstractAdjectives
         skillEffectsTime =5;
         rarity = 1;
         wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

@@ -7,7 +7,6 @@ public class XinShenJiDang : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 10;
         wordName = "ÐÄÉñ¼¤µ´µÄ";
         bookName = BookNameEnum.Salome;
@@ -15,6 +14,7 @@ public class XinShenJiDang : AbstractAdjectives
         skillEffectsTime = 10;
         rarity = 2;
         wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

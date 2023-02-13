@@ -7,7 +7,6 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 13;
         wordName = "É¢·¢·ÑÂåÃÉµÄ";
         bookName = BookNameEnum.EgyptMyth;
@@ -15,6 +14,7 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         skillEffectsTime = 10;
         rarity = 2;
         wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

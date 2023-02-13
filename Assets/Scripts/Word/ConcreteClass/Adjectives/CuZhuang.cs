@@ -7,13 +7,13 @@ public class CuZhuang : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 18;
         wordName = "´Ö×³µÄ";
         bookName = BookNameEnum.allBooks;
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

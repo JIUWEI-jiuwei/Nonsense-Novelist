@@ -55,6 +55,8 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     {
         if(OnAwake!=null) 
         OnAwake();
+
+        wordKind = WordKindEnum.verb;
     }
 
     public delegate void AwakeHandler();

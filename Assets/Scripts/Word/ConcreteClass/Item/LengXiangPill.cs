@@ -16,6 +16,7 @@ class LengXiangPill : AbstractItems
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 1;
         nowTime = 0;
+        wordCollisionShoots.Add(gameObject.AddComponent<XuWu>());
     }
     public override void UseItems(AbstractCharacter chara)
     {

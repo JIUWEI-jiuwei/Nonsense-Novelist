@@ -8,6 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 abstract public class AbstractWords0 : MonoBehaviour
 {
+    /// <summary>词性</summary>
+    public WordKindEnum wordKind;
     /// <summary>所属书目</summary>
     public BookNameEnum bookName=BookNameEnum.allBooks;
     /// <summary>名称（词汇本体）</summary>

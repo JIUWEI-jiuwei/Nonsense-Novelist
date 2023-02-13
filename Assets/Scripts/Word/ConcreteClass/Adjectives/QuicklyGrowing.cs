@@ -7,7 +7,6 @@ public class QuicklyGrowing : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 16;
         wordName = "快速成长的";
         bookName = BookNameEnum.allBooks;
@@ -15,6 +14,7 @@ public class QuicklyGrowing : AbstractAdjectives
         skillEffectsTime = 3;
         rarity = 0;
         time = skillEffectsTime;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

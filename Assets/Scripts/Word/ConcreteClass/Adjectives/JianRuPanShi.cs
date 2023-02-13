@@ -7,13 +7,13 @@ public class JianRuPanShi : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
         adjID = 19;
         wordName = "坚如磐石的";
         bookName = BookNameEnum.allBooks;
         skillMode = gameObject.AddComponent<UpDEFMode>();
         skillEffectsTime = 10;
         rarity = 0;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

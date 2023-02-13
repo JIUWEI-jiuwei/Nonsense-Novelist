@@ -7,13 +7,14 @@ public class BuXiu : AbstractAdjectives
 {
     public override void Awake()
     {
-        base.Awake();
+        
         adjID = 2;
         wordName = "²»ÐàµÄ";
         bookName = BookNameEnum.EgyptMyth;
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 2;
+        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
