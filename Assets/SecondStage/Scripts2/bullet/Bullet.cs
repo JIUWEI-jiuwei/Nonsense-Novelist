@@ -19,8 +19,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.transform.tag == "wall")
         {
-            GameObject clone= Instantiate(this).gameObject;
-            clone.transform.position = this.transform.position;
+           //GameObject clone= Instantiate(this).gameObject;
+           //clone.transform.position = this.transform.position;
             
         }
     }

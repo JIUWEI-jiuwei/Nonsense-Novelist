@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2830400669725613172}
   - component: {fileID: 9005332940064562943}
   - component: {fileID: 1994193640294487361}
+  - component: {fileID: -8902338148882004398}
   m_Layer: 0
   m_Name: word
   m_TagString: bullet
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359337495731723507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6568372, y: -0.09720297, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.5902, y: -0.1638, z: 0}
+  m_LocalScale: {x: 0.36675, y: 0.36675, z: 0.36675}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -129,8 +130,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359337495731723507}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a05e8b23f1cf16f46b06302cfc9d4726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8902338148882004398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359337495731723507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85a5b08d3bd5ad41b69a0068bf4aad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCol: 0
+  me: {fileID: 6359337495731723507}

@@ -16,6 +16,10 @@ public class OneWayMove : MonoBehaviour
     public float angle = 1;
     /// <summary>消失时间</summary>
     public float disappearTime = 2;
+    /// <summary>出口位置</summary>
+    public Transform exitPoint;
+    /// <summary>出口速度系数</summary>
+    public float k = 0.5f;
 
     /// <summary>判断</summary>
     public int or = 0;
@@ -53,16 +57,26 @@ public class OneWayMove : MonoBehaviour
                 Invoke("EnableBack", disappearTime);
             }
         }
-        if (or == 4)//传送门（未完成）
-        {
-            if(collision.transform.tag == "bullet")
-            {
-                collision.transform.position = transform.GetChild(0).position;
-            }
-        }
+        
     }
     public void EnableBack()
     {
         this.gameObject.SetActive(true);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (or == 4)//单向传送门（出口无碰撞）
+        {
+            if (collision.transform.tag == "bullet")
+            {
+                Vector3 a = collision.GetComponent<Rigidbody2D>().velocity*k;
+
+                while(a.magnitude <= 1)//防止速度过慢
+                {
+                    a = collision.GetComponent<Rigidbody2D>().velocity * 2;
+                }
+                collision.transform.position = exitPoint.position+a;
+            }
+        }
     }
 }
