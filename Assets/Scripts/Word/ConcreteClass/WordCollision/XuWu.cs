@@ -1,18 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 虚无
+/// </summary>
 public class XuWu : WordCollisionShoot
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Awake()
     {
-        
+        base.Awake();
+        this.GetComponent<CircleCollider2D>().isTrigger = true;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        //时间结束销毁词条
+        if (VanishTime(10))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public override bool VanishTime(float time)
+    {
+        return base.VanishTime(time);
+    }
+    /// <summary>
+    /// 任何一方为trigger则调用该函数
+    /// 穿越角色不消失，直至时间结束消失
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
+        {
+            AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
+
+            //判断该词条是形容词/动词/名词
+            //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
+            if (absWord.wordKind == WordKindEnum.verb)
+            {
+                AbstractVerbs b = this.GetComponent<AbstractVerbs>();
+                collision.gameObject.AddComponent(b.GetType());
+                character.skills.Add(b);
+
+            }
+            else if (absWord.wordKind == WordKindEnum.adj)
+            {
+                collision.gameObject.AddComponent(absWord.GetType());
+                collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+            }
+            else if (absWord.wordKind == WordKindEnum.noun)
+            {
+                collision.gameObject.AddComponent(absWord.GetType());
+                collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
+            }
+        }
     }
 }

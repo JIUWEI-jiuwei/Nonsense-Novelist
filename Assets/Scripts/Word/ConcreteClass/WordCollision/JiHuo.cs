@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ¼¤»î
+/// </summary>
 public class JiHuo : WordCollisionShoot
 {
     // Start is called before the first frame update

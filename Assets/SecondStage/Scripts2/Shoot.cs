@@ -71,7 +71,7 @@ public class Shoot : MonoBehaviour
         //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
         //go.AddComponent<ShenYouHuanJing>();
         go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<BuryFlower>();
-
+        //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
 
         //Ôö¼Ó´ÊÌõÍ¼Ïñ
 

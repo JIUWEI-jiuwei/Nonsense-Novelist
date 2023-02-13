@@ -7,23 +7,21 @@ using UnityEngine;
 /// </summary>
 public class WordCollisionShoot : MonoBehaviour
 {
+    /// <summary>词条技能 </summary>
     public AbstractWords0 absWord;
+    /// <summary>计时器 </summary>
+    public float timer;
 
-
-    private void Awake()
+    public virtual void Awake()
     {
        
-    }
-    private void Start()
-    {
-        
     }
 
     /// <summary>
     /// 词条实体碰撞到角色，将词条施加到角色身上
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual  void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
@@ -52,5 +50,19 @@ public class WordCollisionShoot : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+    /// <summary>
+    /// 计时器(时间结束返回true
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool VanishTime(float time)
+    {
+        timer += Time.deltaTime;
+        if (timer >= time)
+        {
+            timer = 0;
+            return true;
+        }
+        return false;
     }
 }
