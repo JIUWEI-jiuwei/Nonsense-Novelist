@@ -6,32 +6,32 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ³éÏó¶¯´ÊÀà£¨¼¼ÄÜ£©
+/// æŠ½è±¡åŠ¨è¯ç±»ï¼ˆæŠ€èƒ½ï¼‰
 /// </summary>
 abstract public class AbstractVerbs : AbstractWords0 ,ICD
 {
-    /// <summary>¼¼ÄÜĞòºÅ</summary>
+    /// <summary>æŠ€èƒ½åºå·</summary>
     public int skillID;
 
 
-    /// <summary>Ê©·¨ÕßÌØĞ§</summary>
+    /// <summary>æ–½æ³•è€…ç‰¹æ•ˆ</summary>
     public Animation userAnim;
-    /// <summary>×÷ÓÃÕßÌØĞ§</summary>
+    /// <summary>ä½œç”¨è€…ç‰¹æ•ˆ</summary>
     public Animation aimAnim;
-    /// <summary>µ¯µÀÌØĞ§</summary>
+    /// <summary>å¼¹é“ç‰¹æ•ˆ</summary>
     public Animation bulletAnim;
 
-    /// <summary>¼¼ÄÜÀàĞÍ </summary>
+    /// <summary>æŠ€èƒ½ç±»å‹ </summary>
     public AbstractSkillMode skillMode;
 
-    /// <summary>Éä³Ì£¨ÒÑÆúÓÃ£© </summary>
+    /// <summary>å°„ç¨‹ï¼ˆå·²å¼ƒç”¨ï¼‰ </summary>
     public int attackDistance=100;
-    /// <summary>¼¼ÄÜĞ§¹û³ÖĞøÊ±³¤ </summary>
+    /// <summary>æŠ€èƒ½æ•ˆæœæŒç»­æ—¶é•¿ </summary>
     public float skillEffectsTime;
-    /// <summary>ÊÇ·ñÕıÔÚÊ¹ÓÃ¸Ã¼¼ÄÜ </summary>
+    /// <summary>æ˜¯å¦æ­£åœ¨ä½¿ç”¨è¯¥æŠ€èƒ½ </summary>
     public bool isUsing;
     
-    /// <summary>µ±Ç°ÄÜÁ¿(Ã¿¸ö¼¼ÄÜÓĞ×Ô¼ºµÄÄÜÁ¿Öµ)</summary>
+    /// <summary>å½“å‰èƒ½é‡(æ¯ä¸ªæŠ€èƒ½æœ‰è‡ªå·±çš„èƒ½é‡å€¼)</summary>
     private int cd;
     public int CD
     { 
@@ -44,15 +44,16 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
             cd = value;
         }
     }
-    /// <summary>ÊÍ·ÅÒ»´ÎËùĞèÄÜÁ¿</summary>
+    /// <summary>é‡Šæ”¾ä¸€æ¬¡æ‰€éœ€èƒ½é‡</summary>
     public int needCD;
-    /// <summary>Ê©·¨Ê±³¤£ºÇ°Ò¡£¬ºóÒ¡£¨ÒÑÊ©·¨Ê±¼ä±äÁ¿ÏÖ³¡ÉùÃ÷£©£¨ÒÑÆúÓÃ£©</summary>
+    /// <summary>æ–½æ³•æ—¶é•¿ï¼šå‰æ‘‡ï¼Œåæ‘‡ï¼ˆå·²æ–½æ³•æ—¶é—´å˜é‡ç°åœºå£°æ˜ï¼‰ï¼ˆå·²å¼ƒç”¨ï¼‰</summary>
     public float prepareTime,afterTime;
-    /// <summary>ÌØÊâĞ§¹û´æ´¢ÒıÓÃ</summary>
+    /// <summary>ç‰¹æ®Šæ•ˆæœå­˜å‚¨å¼•ç”¨</summary>
     protected List<AbstractBuff> buffs=new List<AbstractBuff>();
 
     public virtual void Awake()
     {
+        if(OnAwake!=null) 
         OnAwake();
     }
 
@@ -60,16 +61,16 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
     static public event AwakeHandler OnAwake;
 
     /// <summary>
-    /// ¼¼ÄÜĞ§¹û(ÌØÊâĞ§¹û£©
+    /// æŠ€èƒ½æ•ˆæœ(ç‰¹æ®Šæ•ˆæœï¼‰
     /// </summary>
     virtual public void BasicAbility(AbstractCharacter useCharacter)
     {
 
     }
     /// <summary>
-    /// Ê¹ÓÃ¼¼ÄÜ
+    /// ä½¿ç”¨æŠ€èƒ½
     /// </summary>
-    /// <param name="camp">Ê¹ÓÃÕßÕóÓª</param>
+    /// <param name="camp">ä½¿ç”¨è€…é˜µè¥</param>
     virtual public void UseVerbs(AbstractCharacter useCharacter)
     {
         isUsing = true;
@@ -81,16 +82,16 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
 
     virtual public void FixedUpdate()
     {
-        if(isUsing && stateInfo.normalizedTime>= 0.9f )//²¥·ÅÍêÌØĞ§¼´ÎªÊ¹ÓÃÍê±Ï
+        if(isUsing && stateInfo.normalizedTime>= 0.9f )//æ’­æ”¾å®Œç‰¹æ•ˆå³ä¸ºä½¿ç”¨å®Œæ¯•
         {
             isUsing=false;
         }
     }
 
     /// <summary>
-    /// ÀäÈ´£¨UseVerbs½«cdÖØÖÃÎª0£©
+    /// å†·å´ï¼ˆUseVerbså°†cdé‡ç½®ä¸º0ï¼‰
     /// </summary>
-    /// <returns>ÊÇ·ñÀäÈ´Íê±Ï</returns>
+    /// <returns>æ˜¯å¦å†·å´å®Œæ¯•</returns>
     virtual public bool CalculateCD()
     {
 
