@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ·şÒ©
+/// ÀäÏãÍè
 /// </summary>
 class LengXiangPill : AbstractItems
 {

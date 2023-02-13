@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// ²£Á§¹Ò×¹
+/// </summary>
 class GlassPendant : AbstractItems
 {
     public override void Awake()

@@ -14,6 +14,7 @@ public class FengChan : AbstractAdjectives
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
+        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

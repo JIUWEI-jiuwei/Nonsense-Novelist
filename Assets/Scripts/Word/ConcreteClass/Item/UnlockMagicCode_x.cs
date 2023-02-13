@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 未解锁的《密特拉魔典》
 /// </summary>
-class UnlockMagicCode : AbstractItems
+class UnlockMagicCode_x : AbstractItems
 {
     public override void Awake()
     {

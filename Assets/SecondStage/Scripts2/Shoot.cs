@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// 发射词弹
@@ -51,20 +52,27 @@ public class Shoot : MonoBehaviour
         }
     }
     /// <summary>
-    /// 产生词弹
+    /// 产生词条实体
     /// </summary>
     void CreateWordBullet()
     {
         fired = true; // 设置开火状态为已开火
 
         GameObject go = Instantiate(bullet);
+
+        //预制体相关
         go.transform.SetParent(gang);
         go.transform.localPosition = Vector3.zero;
         go.transform.localScale = Vector3.one;
         go.transform.localEulerAngles = Vector3.zero;
         go.transform.SetParent(bulletRoot);
 
-        //给子弹添加一个初始的力
+        //增加词条属性
+        go.AddComponent(AllSkills.CreateSkillWord());
+
+        //增加词条图像
+
+        //给词条添加一个初始的力
         go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * crtForce);
     }
 }

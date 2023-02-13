@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// ºñ×Öµä
+/// </summary>
 class ThickDictionary : AbstractItems
 {
     public override void Awake()

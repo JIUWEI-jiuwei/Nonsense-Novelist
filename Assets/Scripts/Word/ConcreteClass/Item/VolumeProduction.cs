@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 量产改装件
+/// </summary>
 class VolumeProduction : AbstractItems
 {
     public override void Awake()

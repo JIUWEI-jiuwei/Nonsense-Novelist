@@ -14,6 +14,7 @@ public class XinShenJiDang : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;
+        wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

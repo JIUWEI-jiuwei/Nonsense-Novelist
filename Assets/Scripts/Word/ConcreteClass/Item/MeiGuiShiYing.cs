@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ª¢—€ Ø
+/// √µπÂ Ø”¢
 /// </summary>
 class MeiGuiShiYing : AbstractItems
 {

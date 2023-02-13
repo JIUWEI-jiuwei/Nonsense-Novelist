@@ -14,6 +14,7 @@ public class LuanLun : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime =5;
         rarity = 1;
+        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

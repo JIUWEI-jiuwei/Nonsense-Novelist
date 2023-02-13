@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 粉水晶
 /// </summary>
-class PinkStone: AbstractItems
+class PinkStone_x: AbstractItems
 {
     public override void Awake()
     {

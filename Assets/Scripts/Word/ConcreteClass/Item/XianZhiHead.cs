@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-class XianZhiHead: AbstractItems
+/// <summary>
+/// 先知的头颅
+/// </summary>
+class XianZhiHead : AbstractItems
 {
     public override void Awake()
     {
         itemID = 7;
-        wordName = "荷鲁斯之眼";
+        wordName = "先知的头颅";
         bookName = BookNameEnum.Salome;
         description = "一枚熠熠生辉的宝石，提升7点精神，增强暴击倍数。";
         holdEnum = HoldEnum.handSingle; 
