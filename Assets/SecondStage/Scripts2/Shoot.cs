@@ -72,7 +72,7 @@ public class Shoot : MonoBehaviour
         //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
         //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
         //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
-        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<ShenYouHuanJing>();
+        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<WhiteStone>();
         //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<YouAnQuanGan>();
 
         abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord;

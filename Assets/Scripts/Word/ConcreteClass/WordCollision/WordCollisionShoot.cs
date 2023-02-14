@@ -23,7 +23,6 @@ public class WordCollisionShoot : MonoBehaviour
     /// <param name="collision"></param>
     public virtual  void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("father");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();

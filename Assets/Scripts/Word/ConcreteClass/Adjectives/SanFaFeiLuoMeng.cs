@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SanFaFeiLuoMeng : AbstractAdjectives
 {
+    /// <summary>是否激活起舞 </summary>
+    public static bool jiHuo;
     public override void Awake()
     {
         adjID = 13;
@@ -23,12 +25,16 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<QiWu>());
         buffs[0].maxTime = skillEffectsTime;
+
+        //起舞(激活)
+        if (jiHuo)
+        {
+            buffs[0].maxTime = 3;
+        }
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
     }
-
-    
 
     public override void End()
     {

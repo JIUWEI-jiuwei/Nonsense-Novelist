@@ -20,7 +20,7 @@ abstract public class AbstractAdjectives : AbstractWords0
     /// <summary>弹射机制 </summary>
     public List<WordCollisionShoot> wordCollisionShoots=new List<WordCollisionShoot>();
 
-    protected AbstractCharacter aim;
+    public AbstractCharacter aim;
     /// <summary>特殊效果存储引用</summary>
     protected List<AbstractBuff> buffs=new List<AbstractBuff>();
 
