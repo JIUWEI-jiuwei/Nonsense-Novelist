@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 class EXingZhongLiu : AbstractItems
 {
+    /// <summary>充能次数 </summary>
+    public int chongNeng;
+
     public override void Awake()
     {
         base.Awake();
@@ -24,7 +27,8 @@ class EXingZhongLiu : AbstractItems
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-
+        //充能效果
+        chara.maxhp -= 0.05f *chongNeng* chara.maxHP;
     }
 
     public override void UseVerbs()

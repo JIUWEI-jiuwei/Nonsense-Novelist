@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class JiHuo : WordCollisionShoot
 {
+    /// <summary>碰撞次数 </summary>
     private int count = 0;
     public override void Awake()
     {
@@ -44,7 +45,8 @@ public class JiHuo : WordCollisionShoot
                 if (count >= 3 && collision.gameObject.GetComponent<SanFaFeiLuoMeng>())
                 {
                     //散发费洛蒙的
-                    SanFaFeiLuoMeng.jiHuo = true;
+                    SanFaFeiLuoMeng a = collision.gameObject.GetComponent<SanFaFeiLuoMeng>();
+                    a.jiHuo = true;
                 }
                 collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);

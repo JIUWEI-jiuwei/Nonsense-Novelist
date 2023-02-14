@@ -6,8 +6,18 @@ public class Father : MonoBehaviour
 {
     public AbstractWords0 abs;
 
-    private void Awake()
+    public virtual void Awake()
     {
         //abs = gameObject.AddComponent<ShenHuanFeiYan>();
+        print("111");
+
+    }
+    public virtual void Update()
+    {
+        //print("111");
+    }
+    public virtual void AAA()
+    {
+        print("111");
     }
 }

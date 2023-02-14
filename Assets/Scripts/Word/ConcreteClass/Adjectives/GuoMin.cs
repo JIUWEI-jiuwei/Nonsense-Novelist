@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class GuoMin : AbstractAdjectives
 {
+    /// <summary>充能次数 </summary>
+    public int chongNeng;
+    /// <summary>充能持续时间 </summary>
+    public float chongNengTime = 0.5f;
+
     public override void Awake()
     {
         adjID = 7;
@@ -34,7 +39,7 @@ public class GuoMin : AbstractAdjectives
 
         foreach (AbstractBuff buff in buffs)
         {
-            buff.maxTime = skillEffectsTime;
+            buff.maxTime = skillEffectsTime+chongNengTime*chongNeng;
         }
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class SanFaFeiLuoMeng : AbstractAdjectives
 {
     /// <summary>ÊÇ·ñ¼¤»îÆğÎè </summary>
-    public static bool jiHuo;
+    public bool jiHuo;
     public override void Awake()
     {
         adjID = 13;
