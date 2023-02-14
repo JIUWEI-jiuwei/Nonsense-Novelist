@@ -3,16 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÏÈÖªµÄÍ·Â­
+/// å…ˆçŸ¥çš„å¤´é¢…
 /// </summary>
 class XianZhiHead : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 7;
-        wordName = "ÏÈÖªµÄÍ·Â­";
+        wordName = "å…ˆçŸ¥çš„å¤´é¢…";
         bookName = BookNameEnum.Salome;
-        description = "Ò»Ã¶ìÚìÚÉú»ÔµÄ±¦Ê¯£¬ÌáÉı7µã¾«Éñ£¬ÔöÇ¿±©»÷±¶Êı¡£";
+        description = "ä¸€æšç† ç† ç”Ÿè¾‰çš„å®çŸ³ï¼Œæå‡7ç‚¹ç²¾ç¥ï¼Œå¢å¼ºæš´å‡»å€æ•°ã€‚";
         holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;

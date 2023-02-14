@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ±»Ö²ÈëµÄ¼ÇÒä
+/// è¢«æ¤å…¥çš„è®°å¿†
 /// </summary>
 class MemoryImplantion : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 13;
-        wordName = "±»Ö²ÈëµÄ¼ÇÒä";
+        wordName = "è¢«æ¤å…¥çš„è®°å¿†";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "Ò»ÖÖÒÑ¾­Í£²úµÄÇ¿´ó»úĞµ±Û£¬ÌáÉı10µã¹¥»÷£¬10%±©»÷¼¸ÂÊ¡£";
+        description = "ä¸€ç§å·²ç»åœäº§çš„å¼ºå¤§æœºæ¢°è‡‚ï¼Œæå‡10ç‚¹æ”»å‡»ï¼Œ10%æš´å‡»å‡ ç‡ã€‚";
         holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

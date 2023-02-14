@@ -3,16 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///Íâ¹Ç÷À
+///å¤–éª¨éª¼
 /// </summary>
 class Exoskeleton : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 17;
-        wordName = "Íâ¹Ç÷À";
+        wordName = "å¤–éª¨éª¼";
         bookName = BookNameEnum.PHXTwist;
-        description = "ºñºñµÄ¼¸¶¡ÖÊÍâ¿ÇÄÜ±£»¤ÆäÖ÷ÈË£¬ÌáÉı3µã·ÀÓù£¬15%ÉÁ±Ü¼¸ÂÊ¡£";
+        description = "åšåšçš„å‡ ä¸è´¨å¤–å£³èƒ½ä¿æŠ¤å…¶ä¸»äººï¼Œæå‡3ç‚¹é˜²å¾¡ï¼Œ15%é—ªé¿å‡ ç‡ã€‚";
         holdEnum = HoldEnum.clothes;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

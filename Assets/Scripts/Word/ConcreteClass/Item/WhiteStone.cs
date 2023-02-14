@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// °×Ë®¾§
+/// ç™½æ°´æ™¶
 /// </summary>
 class WhiteStone: AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 8;
-        wordName = "°×Ë®¾§";
+        wordName = "ç™½æ°´æ™¶";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "Ò»¿Å´¿½àÎŞÏ¾µÄ°×É«Ë®¾§£¬ÌáÉıËÄÎ¬ÊôĞÔ¸÷1µã¡£";
+        description = "ä¸€é¢—çº¯æ´æ— æš‡çš„ç™½è‰²æ°´æ™¶ï¼Œæå‡å››ç»´å±æ€§å„1ç‚¹ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

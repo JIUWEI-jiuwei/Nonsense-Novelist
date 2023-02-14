@@ -8,6 +8,7 @@ class PinkStone_x: AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 9;
         wordName = "粉水晶";
         bookName = BookNameEnum.CrystalEnergy;

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÒæÖÇÎ¹Ê³Æ÷
+/// ç›Šæ™ºå–‚é£Ÿå™¨
 /// </summary>
 class YiZhiWeiShiQi : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 4;
-        wordName = "ÒæÖÇÎ¹Ê³Æ÷";
+        wordName = "ç›Šæ™ºå–‚é£Ÿå™¨";
         bookName = BookNameEnum.ZooManual;
-        description = "Ò»Ã¶ÖÆ×÷Ïàµ±¸´ÔÓµÄÒ©Íè£¬ÌáÉı3µã·ÀÓù¡£";
+        description = "ä¸€æšåˆ¶ä½œç›¸å½“å¤æ‚çš„è¯ä¸¸ï¼Œæå‡3ç‚¹é˜²å¾¡ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 2;
@@ -55,7 +56,7 @@ class YiZhiWeiShiQi : AbstractItems
         if (character == null)
             return null;
 
-        return "°×Äµµ¤»¨Èï¡¢°×ºÉ»¨»¨Èï¡¢°×Ü½ÈØ»¨Èï¡¢°×Ã·»¨»¨Èï......µÈÊ®ÄêÎ´±Ø¶¼ÕâÑùÇÉÄÜ×ö³öÕâÀäÏãÍèÄØ£¡¡±" + character.wordName + "ËµµÀ¡£";
+        return "ç™½ç‰¡ä¸¹èŠ±è•Šã€ç™½è·èŠ±èŠ±è•Šã€ç™½èŠ™è“‰èŠ±è•Šã€ç™½æ¢…èŠ±èŠ±è•Š......ç­‰åå¹´æœªå¿…éƒ½è¿™æ ·å·§èƒ½åšå‡ºè¿™å†·é¦™ä¸¸å‘¢ï¼â€" + character.wordName + "è¯´é“ã€‚";
 
     }
 }

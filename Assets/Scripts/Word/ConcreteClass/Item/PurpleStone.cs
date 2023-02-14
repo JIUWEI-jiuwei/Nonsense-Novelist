@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ×ÏË®¾§
+/// ç´«æ°´æ™¶
 /// </summary>
 class PurpleStone: AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 9;
-        wordName = "×ÏË®¾§";
+        wordName = "ç´«æ°´æ™¶";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "Ò»¿ÅÉî×ÏÉ«¸ß½àµÄË®¾§£¬ÌáÉı3µã¾«Éñ£¬ÉÙÁ¿ÔöÇ¿±©»÷±¶Êı¡£";
+        description = "ä¸€é¢—æ·±ç´«è‰²é«˜æ´çš„æ°´æ™¶ï¼Œæå‡3ç‚¹ç²¾ç¥ï¼Œå°‘é‡å¢å¼ºæš´å‡»å€æ•°ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

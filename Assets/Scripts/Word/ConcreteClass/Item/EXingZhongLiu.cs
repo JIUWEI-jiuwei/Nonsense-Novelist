@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¶ñĞÔÖ×Áö
+/// æ¶æ€§è‚¿ç˜¤
 /// </summary>
 class EXingZhongLiu : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 16;
-        wordName = "¶ñĞÔÖ×Áö";
+        wordName = "æ¶æ€§è‚¿ç˜¤";
         bookName = BookNameEnum.FluStudy;
         description = " ";
         holdEnum = HoldEnum.handSingle;

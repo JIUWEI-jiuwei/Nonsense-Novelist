@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///Nexus-6ĞÍÊÖ±Û
+///Nexus-6å‹æ‰‹è‡‚
 /// </summary>
 class Nexus_6Arm : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 12;
-        wordName = "Nexus-6ĞÍÊÖ±Û";
+        wordName = "Nexus-6å‹æ‰‹è‡‚";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "Ò»ÖÖÒÑ¾­Í£²úµÄÇ¿´ó»úĞµ±Û£¬ÌáÉı10µã¹¥»÷£¬10%±©»÷¼¸ÂÊ¡£";
+        description = "ä¸€ç§å·²ç»åœäº§çš„å¼ºå¤§æœºæ¢°è‡‚ï¼Œæå‡10ç‚¹æ”»å‡»ï¼Œ10%æš´å‡»å‡ ç‡ã€‚";
         holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

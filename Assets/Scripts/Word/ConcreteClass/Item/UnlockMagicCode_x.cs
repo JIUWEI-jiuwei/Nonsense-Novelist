@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Î´½âËøµÄ¡¶ÃÜÌØÀ­Ä§µä¡·
+/// æœªè§£é”çš„ã€Šå¯†ç‰¹æ‹‰é­”å…¸ã€‹
 /// </summary>
 class UnlockMagicCode_x : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 4;
-        wordName = "Î´½âËøµÄ¡¶ÃÜÌØÀ­Ä§µä¡·";
+        wordName = "æœªè§£é”çš„ã€Šå¯†ç‰¹æ‹‰é­”å…¸ã€‹";
         bookName = BookNameEnum.StudentOfWitch;
-        description = "Ò»±¾×°ÊÎ»ªÀöµÄÄ§µä£¬ÖĞÑëÓĞ×ÅÒ»¸öÑÛ¾¦¿´À´¿´È¥£¬ÌáÉı3µãÒâÖ¾£¬3µã·ÀÓù¡£";
+        description = "ä¸€æœ¬è£…é¥°åä¸½çš„é­”å…¸ï¼Œä¸­å¤®æœ‰ç€ä¸€ä¸ªçœ¼ç›çœ‹æ¥çœ‹å»ï¼Œæå‡3ç‚¹æ„å¿—ï¼Œ3ç‚¹é˜²å¾¡ã€‚";
         
     }
     public override string UseText()
@@ -20,7 +21,7 @@ class UnlockMagicCode_x : AbstractItems
         if (character == null)
             return null;
 
-        return "¡°Î¹Î¹£¬Äã¿ÉµÃºÃºÃÄÃ×Å£¡¡±Ä§µä¶Ô" + character.wordName + "ËµµÀ¡£";
+        return "â€œå–‚å–‚ï¼Œä½ å¯å¾—å¥½å¥½æ‹¿ç€ï¼â€é­”å…¸å¯¹" + character.wordName + "è¯´é“ã€‚";
 
     }
 }

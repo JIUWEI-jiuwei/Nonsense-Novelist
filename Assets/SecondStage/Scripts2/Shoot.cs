@@ -70,7 +70,7 @@ public class Shoot : MonoBehaviour
         //给小球增加词条属性
         //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
         //go.AddComponent<ShenYouHuanJing>();
-        go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<ChaFanWuXin>();
+        go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
         //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
 
         //增加词条图像

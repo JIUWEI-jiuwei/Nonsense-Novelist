@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ²è±­
+/// èŒ¶æ¯
 /// </summary>
 class TeaCup : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 1;
-        wordName = "²è±­";
+        wordName = "èŒ¶æ¯";
         bookName = BookNameEnum.HongLouMeng;
-        description = "Ò»¸öÏàµ±¾«ÖÂµÄ²è±­£¬ÌáÉı3µãÒâÖ¾";
+        description = "ä¸€ä¸ªç›¸å½“ç²¾è‡´çš„èŒ¶æ¯ï¼Œæå‡3ç‚¹æ„å¿—";
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 0;
     }
@@ -40,7 +41,7 @@ class TeaCup : AbstractItems
         if (character == null)
             return null;
 
-            return character.wordName+"ÄÃ³öÁËÒ»¸öÉÏ´óÏÂĞ¡µÄ±ÌÂÌ·½ĞÎ²è±­¡£";
+            return character.wordName+"æ‹¿å‡ºäº†ä¸€ä¸ªä¸Šå¤§ä¸‹å°çš„ç¢§ç»¿æ–¹å½¢èŒ¶æ¯ã€‚";
         
     }
 }

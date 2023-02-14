@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ºñ×Öµä
+/// åšå­—å…¸
 /// </summary>
 class ThickDictionary : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 20;
-        wordName = "ºñ×Öµä";
+        wordName = "åšå­—å…¸";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "Ò»¿Å½ğÉ«»ªÀöµÄ±¦Ê¯£¬ÌáÉı3µã¹¥»÷£¬ÉÙÁ¿ÔöÇ¿±©»÷±¶Êı¡£";
+        description = "ä¸€é¢—é‡‘è‰²åä¸½çš„å®çŸ³ï¼Œæå‡3ç‚¹æ”»å‡»ï¼Œå°‘é‡å¢å¼ºæš´å‡»å€æ•°ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

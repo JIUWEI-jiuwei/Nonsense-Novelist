@@ -5,10 +5,11 @@ class DuXian : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 18;
-        wordName = "¶¾ÏÙ";
+        wordName = "æ¯’è…º";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "Ò»¿Å½ğÉ«»ªÀöµÄ±¦Ê¯£¬ÌáÉı3µã¹¥»÷£¬ÉÙÁ¿ÔöÇ¿±©»÷±¶Êı¡£";
+        description = "ä¸€é¢—é‡‘è‰²åä¸½çš„å®çŸ³ï¼Œæå‡3ç‚¹æ”»å‡»ï¼Œå°‘é‡å¢å¼ºæš´å‡»å€æ•°ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
@@ -18,7 +19,6 @@ class DuXian : AbstractItems
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-
     }
 
     public override void UseVerbs()

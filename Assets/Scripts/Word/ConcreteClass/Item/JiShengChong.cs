@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///¼ÄÉú³æ
+///å¯„ç”Ÿè™«
 /// </summary>
 class JiShengChong : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 15;
-        wordName = "¼ÄÉú³æ";
+        wordName = "å¯„ç”Ÿè™«";
         bookName = BookNameEnum.FluStudy;
-        description = "¼ÄÉú³æÈÃÆäËŞÖ÷ÆÄÎª½¹Ôê²»°²£¬½µµÍ3µã·ÀÓù£¬¼õÉÙ¹¥»÷ËÙ¶È¡£";
+        description = "å¯„ç”Ÿè™«è®©å…¶å®¿ä¸»é¢‡ä¸ºç„¦èºä¸å®‰ï¼Œé™ä½3ç‚¹é˜²å¾¡ï¼Œå‡å°‘æ”»å‡»é€Ÿåº¦ã€‚";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

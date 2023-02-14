@@ -31,7 +31,7 @@ public class WordCollisionShoot : MonoBehaviour
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind==WordKindEnum.verb)
             {
-                AbstractVerbs b = this.GetComponent<AbstractVerbs>();//b==null
+                AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                 collision.gameObject.AddComponent(b.GetType());
                 character.skills.Add(b);
                 Destroy(this.gameObject);

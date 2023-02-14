@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÈÕÂÖ¹Ò×¹
+/// æ—¥è½®æŒ‚å 
 /// </summary>
 class RiLunGuaZhui : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 5;
-        wordName = "ÈÕÂÖ¹Ò×¹";
+        wordName = "æ—¥è½®æŒ‚å ";
         bookName = BookNameEnum.EgyptMyth;
-        description = "Ò»Ã¶ìÚìÚÉú»ÔµÄ±¦Ê¯£¬ÌáÉı7µã¾«Éñ£¬ÔöÇ¿±©»÷±¶Êı¡£";
+        description = "ä¸€æšç† ç† ç”Ÿè¾‰çš„å®çŸ³ï¼Œæå‡7ç‚¹ç²¾ç¥ï¼Œå¢å¼ºæš´å‡»å€æ•°ã€‚";
         holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;

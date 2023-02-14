@@ -8,6 +8,7 @@ class NoteFragment_x : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = 3;
         wordName = "德洛瑞斯的笔记碎片";
         bookName = BookNameEnum.StudentOfWitch;

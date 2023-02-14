@@ -8,6 +8,7 @@ class PaintBrush : AbstractItems
 {
     public override void Awake()
     {
+        base.Awake();
         itemID = -1;
         wordName = "画笔";
         description = "一支平平无奇的画笔";
