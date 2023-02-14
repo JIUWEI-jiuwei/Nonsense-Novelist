@@ -17,7 +17,8 @@ class VolumeProduction : AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 0;
-        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
 
     }
 

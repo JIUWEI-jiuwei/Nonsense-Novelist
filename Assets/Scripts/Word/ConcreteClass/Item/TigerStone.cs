@@ -17,7 +17,8 @@ class TigerStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 2;
-        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
 
     }
 

@@ -13,7 +13,8 @@ public class GuoMin : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 0;
         rarity = 1;
-        wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
         base.Awake();
     }
 

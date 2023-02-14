@@ -13,7 +13,8 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;
-        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
         base.Awake();
     }
 

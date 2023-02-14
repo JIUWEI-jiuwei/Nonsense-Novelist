@@ -13,9 +13,10 @@ public class ShenYouHuanJing : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;
-        //wordCollisionShoots.AddRange(new WordCollisionShoot[] { gameObject.AddComponent<XuWu>(), gameObject.AddComponent<YunSu>() });
-        wordCollisionShoots.Add(gameObject.AddComponent<XuWu>());
-        wordCollisionShoots.Add(gameObject.AddComponent<YunSu>());
+        if(this.gameObject.layer== LayerMask.NameToLayer("WordCollision"))
+        {
+            wordCollisionShoots.Add(gameObject.AddComponent<XuWu_YunSu>());
+        }
         base.Awake();
     }
 

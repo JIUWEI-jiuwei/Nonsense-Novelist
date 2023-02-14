@@ -13,7 +13,8 @@ public class HunFei : AbstractAdjectives
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
-        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
         base.Awake();
     }
 

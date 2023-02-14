@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 7973935648316513243}
   - component: {fileID: 2830400669725613172}
   - component: {fileID: 9005332940064562943}
-  - component: {fileID: -3120371909414780051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: word
   m_TagString: bullet
   m_Icon: {fileID: 0}
@@ -122,16 +121,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3120371909414780051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6359337495731723507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc32892f38656a4daa65f8342afbe6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  absWord: {fileID: 0}

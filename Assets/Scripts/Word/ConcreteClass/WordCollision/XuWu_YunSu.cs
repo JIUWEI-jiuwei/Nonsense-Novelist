@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 虚无
-/// </summary>
-public class XuWu : WordCollisionShoot
+
+public class XuWu_YunSu : WordCollisionShoot
 {
     public override void Awake()
     {
         base.Awake();
+        this.gameObject.GetComponent<Collider2D>().sharedMaterial.friction = 0;
 
     }
     private void Update()
@@ -32,12 +31,12 @@ public class XuWu : WordCollisionShoot
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
-            this.GetComponent<Collider2D>().isTrigger = true;
 
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
-            
+
             //给absWord赋值
             absWord = Shoot.abs;
+
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
@@ -58,8 +57,6 @@ public class XuWu : WordCollisionShoot
                 collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
             }
         }
-        this.GetComponent<Collider2D>().isTrigger = false;
 
     }
-
 }

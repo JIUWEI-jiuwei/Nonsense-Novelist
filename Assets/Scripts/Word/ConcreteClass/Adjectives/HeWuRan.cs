@@ -13,7 +13,8 @@ public class HeWuRan : AbstractAdjectives
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 3;
         rarity = 1;
-        wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
         base.Awake();
     }
 

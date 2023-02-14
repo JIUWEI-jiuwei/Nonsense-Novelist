@@ -25,8 +25,9 @@ public class Shoot : MonoBehaviour
     /// <summary>有无发射</summary>
     private bool fired = false;
     /// <summary>蓄力Slider</summary>
-    public Slider aimSlider; 
-
+    public Slider aimSlider;
+    /// <summary>存储WordCollisionShoot的词条属性</summary>
+    public static AbstractWords0 abs;
     private void Update()
     {
         aimSlider.value = 0; // 重置slider的值
@@ -69,10 +70,12 @@ public class Shoot : MonoBehaviour
 
         //给小球增加词条属性
         //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
-        //go.AddComponent<ShenYouHuanJing>();
-        go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
+        //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
         //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
+        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<ShenYouHuanJing>();
+        //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<YouAnQuanGan>();
 
+        abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord;
         //增加词条图像
 
 

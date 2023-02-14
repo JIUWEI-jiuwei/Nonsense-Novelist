@@ -17,7 +17,8 @@ class WhiteStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 1;
-        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
     }
 
     public override void UseItems(AbstractCharacter chara)

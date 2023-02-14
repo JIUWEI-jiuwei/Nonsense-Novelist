@@ -25,10 +25,15 @@ public class Situation : MonoBehaviour
 
     /// <summary>
     /// 重新计算所有站位
+    /// AllCharacter的子物体是所有站位，每个站位的子物体是角色
     /// </summary>
     static public Situation[] CaculateAllSituation()
     {
-        allSituation=GameObject.Find("AllCharacter").GetComponentsInChildren<Situation>();
-        return allSituation;
+        if (GameObject.Find("AllCharacter") != null)
+        {
+            allSituation = GameObject.Find("AllCharacter").GetComponentsInChildren<Situation>();
+            return allSituation;
+        }
+        return null;
     }
 }

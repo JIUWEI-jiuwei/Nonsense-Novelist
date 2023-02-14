@@ -8,14 +8,12 @@ public class SanShe : WordCollisionShoot
 {
     private int num = 0;
     public bool hasCol;
-    private void Awake()
-    {
-    }
-    void Update()
-    {
 
+    public override void Awake()
+    {
+        base.Awake();
     }
-    private void OnCollisionEnter2D(Collision2D collision)//(角度计算有问题)
+    public void OnCollisionEnter2D(Collision2D collision)//(角度计算有问题)
     {
         if (!hasCol && collision.transform.tag == "wall")
         {
