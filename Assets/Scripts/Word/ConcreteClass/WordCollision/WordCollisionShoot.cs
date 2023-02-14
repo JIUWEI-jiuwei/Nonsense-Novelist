@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ¸ºÔğ´ÊÌõÊµÌåÓë½ÇÉ«/Ç½±ÚµÄÅö×²
+/// è´Ÿè´£è¯æ¡å®ä½“ä¸è§’è‰²/å¢™å£çš„ç¢°æ’
 /// </summary>
 public class WordCollisionShoot : MonoBehaviour
 {
-    /// <summary>´ÊÌõ¼¼ÄÜ </summary>
+    /// <summary>è¯æ¡æŠ€èƒ½ </summary>
     public AbstractWords0 absWord;
-    /// <summary>¼ÆÊ±Æ÷ </summary>
+    /// <summary>è®¡æ—¶å™¨ </summary>
     public float timer;
 
     public virtual void Awake()
@@ -18,7 +18,7 @@ public class WordCollisionShoot : MonoBehaviour
     }
 
     /// <summary>
-    /// ´ÊÌõÊµÌåÅö×²µ½½ÇÉ«£¬½«´ÊÌõÊ©¼Óµ½½ÇÉ«ÉíÉÏ
+    /// è¯æ¡å®ä½“ç¢°æ’åˆ°è§’è‰²ï¼Œå°†è¯æ¡æ–½åŠ åˆ°è§’è‰²èº«ä¸Š
     /// </summary>
     /// <param name="collision"></param>
     public virtual  void OnCollisionEnter2D(Collision2D collision)
@@ -27,11 +27,11 @@ public class WordCollisionShoot : MonoBehaviour
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
-            //ÅĞ¶Ï¸Ã´ÊÌõÊÇĞÎÈİ´Ê/¶¯´Ê/Ãû´Ê
-            //ÏÈ°ÑabsWord½Å±¾¹ÒÔÚ½ÇÉ«ÉíÉÏ£¬È»ºóµ÷ÓÃ½ÇÉ«ÉíÉÏµÄuseAdj
+            //åˆ¤æ–­è¯¥è¯æ¡æ˜¯å½¢å®¹è¯/åŠ¨è¯/åè¯
+            //å…ˆæŠŠabsWordè„šæœ¬æŒ‚åœ¨è§’è‰²èº«ä¸Šï¼Œç„¶åè°ƒç”¨è§’è‰²èº«ä¸Šçš„useAdj
             if (absWord.wordKind==WordKindEnum.verb)
             {
-                AbstractVerbs b = this.GetComponent<AbstractVerbs>();
+                AbstractVerbs b = this.GetComponent<AbstractVerbs>();//b==null
                 collision.gameObject.AddComponent(b.GetType());
                 character.skills.Add(b);
                 Destroy(this.gameObject);
@@ -52,7 +52,7 @@ public class WordCollisionShoot : MonoBehaviour
         }
     }
     /// <summary>
-    /// ¼ÆÊ±Æ÷(Ê±¼ä½áÊø·µ»Øtrue
+    /// è®¡æ—¶å™¨(æ—¶é—´ç»“æŸè¿”å›true
     /// </summary>
     /// <returns></returns>
     public virtual bool VanishTime(float time)

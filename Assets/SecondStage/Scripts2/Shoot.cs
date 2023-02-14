@@ -3,48 +3,48 @@ using UnityEngine;
 using System;
 
 /// <summary>
-/// ·¢Éä´Êµ¯
+/// å‘å°„è¯å¼¹
 /// </summary>
 public class Shoot : MonoBehaviour
 {
-    /// <summary>·¢ÉäÎ»ÖÃ</summary>
+    /// <summary>å‘å°„ä½ç½®</summary>
     public Transform gang;
-    /// <summary>´ÊÌõ</summary>
+    /// <summary>è¯æ¡</summary>
     public GameObject bullet;
-    /// <summary>·¢Éäºó´ÊÌõµÄ¸¸ÎïÌå</summary>
+    /// <summary>å‘å°„åè¯æ¡çš„çˆ¶ç‰©ä½“</summary>
     public Transform bulletRoot;
-    /// <summary>µ±Ç°µÄÁ¦</summary>
+    /// <summary>å½“å‰çš„åŠ›</summary>
     [SerializeField]
     private float crtForce = 0;
-    /// <summary>×îĞ¡Á¦</summary>
+    /// <summary>æœ€å°åŠ›</summary>
     private float minForce = 0;
-    /// <summary>×î´óÁ¦</summary>
+    /// <summary>æœ€å¤§åŠ›</summary>
     private float maxForce = 200;
-    /// <summary>ĞîÁ¦ËÙ¶È</summary>
+    /// <summary>è“„åŠ›é€Ÿåº¦</summary>
     public float forceSpeed = 80;
-    /// <summary>ÓĞÎŞ·¢Éä</summary>
+    /// <summary>æœ‰æ— å‘å°„</summary>
     private bool fired = false;
-    /// <summary>ĞîÁ¦Slider</summary>
+    /// <summary>è“„åŠ›Slider</summary>
     public Slider aimSlider; 
 
     private void Update()
     {
-        aimSlider.value = 0; // ÖØÖÃsliderµÄÖµ
+        aimSlider.value = 0; // é‡ç½®sliderçš„å€¼
 
-        if (crtForce >= maxForce && !fired)// ĞîÁ¦µ½×î´óÖµ
+        if (crtForce >= maxForce && !fired)// è“„åŠ›åˆ°æœ€å¤§å€¼
         { 
             crtForce = maxForce;
         }
 
         if (Input.GetButtonDown("Fire1"))
         { 
-            crtForce = minForce; // ÖØÖÃÁ¦µÄ´óĞ¡
-            fired = false; // ÉèÖÃ¿ª»ğ×´Ì¬ÎªÎ´¿ª»ğ
+            crtForce = minForce; // é‡ç½®åŠ›çš„å¤§å°
+            fired = false; // è®¾ç½®å¼€ç«çŠ¶æ€ä¸ºæœªå¼€ç«
         }
-        else if (Input.GetButton("Fire1" ) && !fired)// Ò»Ö±°´×Å
+        else if (Input.GetButton("Fire1" ) && !fired)// ä¸€ç›´æŒ‰ç€
         { 
-            crtForce += forceSpeed * Time.deltaTime; // ĞîÁ¦
-            aimSlider.value = crtForce/maxForce; // ¸üĞÂsliderµÄÖµ
+            crtForce += forceSpeed * Time.deltaTime; // è“„åŠ›
+            aimSlider.value = crtForce/maxForce; // æ›´æ–°sliderçš„å€¼
         }
         else if (Input.GetButtonUp("Fire1" ) && !fired)
         {
@@ -52,32 +52,32 @@ public class Shoot : MonoBehaviour
         }
     }
     /// <summary>
-    /// ²úÉú´ÊÌõÊµÌå
+    /// äº§ç”Ÿè¯æ¡å®ä½“
     /// </summary>
     void CreateWordBullet()
     {
-        fired = true; // ÉèÖÃ¿ª»ğ×´Ì¬ÎªÒÑ¿ª»ğ
+        fired = true; // è®¾ç½®å¼€ç«çŠ¶æ€ä¸ºå·²å¼€ç«
 
         GameObject go = Instantiate(bullet);
 
-        //Ô¤ÖÆÌåÏà¹Ø
+        //é¢„åˆ¶ä½“ç›¸å…³
         go.transform.SetParent(gang);
         go.transform.localPosition = Vector3.zero;
         go.transform.localScale = Vector3.one;
         go.transform.localEulerAngles = Vector3.zero;
         go.transform.SetParent(bulletRoot);
 
-        //¸øĞ¡ÇòÔö¼Ó´ÊÌõÊôĞÔ
+        //ç»™å°çƒå¢åŠ è¯æ¡å±æ€§
         //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
         //go.AddComponent<ShenYouHuanJing>();
-        go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<BuryFlower>();
+        go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<ChaFanWuXin>();
         //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
 
-        //Ôö¼Ó´ÊÌõÍ¼Ïñ
+        //å¢åŠ è¯æ¡å›¾åƒ
 
 
 
-        //¸ø´ÊÌõÌí¼ÓÒ»¸ö³õÊ¼µÄÁ¦
+        //ç»™è¯æ¡æ·»åŠ ä¸€ä¸ªåˆå§‹çš„åŠ›
         go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * crtForce);
     }
 }
