@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ³ÁÄ¬Õß
 /// </summary>
-class SilenceOne : AbstractCharacter
+class SilenceOne_x : AbstractCharacter
 {
     override public void Awake()
     {

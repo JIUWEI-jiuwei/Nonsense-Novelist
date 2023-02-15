@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class LinDaiYu : AbstractCharacter
+/// <summary>
+/// ֱײקל׃ס
+/// </summary>
+class LinDaiYu : AbstractCharacter
 {
     override public void Awake()
     {

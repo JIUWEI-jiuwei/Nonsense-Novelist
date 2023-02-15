@@ -12,6 +12,7 @@ TagManager:
   - bullet
   - portal
   - wall
+  - situation
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - WordCollision
-  - 
+  - Situation
   - 
   - 
   - 

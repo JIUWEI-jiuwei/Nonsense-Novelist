@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ÍõÎõ·ï
+/// </summary>
 class WangXiFeng : AbstractCharacter
 {
     override public void Awake()

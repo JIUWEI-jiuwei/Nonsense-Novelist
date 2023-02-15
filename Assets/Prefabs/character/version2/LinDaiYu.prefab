@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 3365705217194823574}
   - component: {fileID: 2168264803539121840}
   - component: {fileID: 897282651144369372}
+  - component: {fileID: 1887637913}
   m_Layer: 3
   m_Name: LinDaiYu
   m_TagString: character
@@ -211,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 3837959891539934793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.78, y: 2.91, z: 10.5001}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 1191789748813535651}
   - {fileID: 1417761081344716078}
@@ -281,7 +282,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.3699187, y: -0.42455006}
@@ -295,7 +296,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.441622, y: 8.328634}
+  m_Size: {x: 7.441622, y: 9.48}
   m_EdgeRadius: 0
 --- !u!95 &897282651725383745
 Animator:
@@ -328,13 +329,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04b13235789104418cdcca033136510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordKind: 0
   bookName: 0
   wordName: 
   pattern: {fileID: 0}
   brief: 
   description: 
   nickname: []
-  wordSort: 0
+  rarity: 0
   characterID: 0
   gender: 0
   source: {fileID: 0}
@@ -345,8 +347,6 @@ MonoBehaviour:
   camp: 1
   HP: 0
   maxHP: 0
-  sp: 0
-  maxSP: 0
   trait: {fileID: 0}
   roleName: 
   skills: []
@@ -357,7 +357,7 @@ MonoBehaviour:
   attackDistance: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
-  reLifes: 0
+  energy: 0
 --- !u!114 &897282651725383748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837959891539934793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6e908473309d24abf8212e935898f7, type: 3}
   m_Name: 
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837959891539934793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a471f06be8a910a4b9beb4f20ca303d2, type: 3}
   m_Name: 
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837959891539934793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 618ba97d141392141aa55c7f7eba7f83, type: 3}
   m_Name: 
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837959891539934793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44c28474b9167a54e88ce187a15a8ef4, type: 3}
   m_Name: 
@@ -423,7 +423,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837959891539934793}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -522,6 +522,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1067f2512016e3d43a30319d235621b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1887637913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837959891539934793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c93954f1550e8745be3314a9e6fe6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4292073181992697367

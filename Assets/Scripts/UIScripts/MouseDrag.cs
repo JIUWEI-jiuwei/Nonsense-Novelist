@@ -84,12 +84,13 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         //若未使用，则回到最初位置
         if (rectTrans != null)
         {
-            FindGrid();
+            //FindGrid();
         }
-        //将UI词条拖拽到角色身上
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null)
         {
+            #region 版本一：将UI词条拖拽到角色身上
+
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
                 //播放词条拖拽上去的音效
@@ -97,35 +98,37 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
                 AbstractCharacter character = hit.collider.gameObject.GetComponent<AbstractCharacter>();
 
                 //判断该词条是形容词还是动词
-                if (absWord.GetType()==typeof(AbstractVerbs))
+                if (absWord.GetType() == typeof(AbstractVerbs))
                 {
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
-                    
+
                     //if(CanUseVerb(character, b))//如果能够使用到角色身上
-                    {
+                    //{
                         hit.collider.gameObject.AddComponent(b.GetType());
                         character.skills.Add(b);
                         //character.realSkills = character.GetComponents<AbstractVerbs>();
                         Destroy(this.gameObject);
-                    }
-                    /*else//不能
-                    {
-                        audioSource_cantuse.Play();
-                    }*/
+                    //}
+                   //     else//不能
+                   // {
+                   //     audioSource_cantuse.Play();
+                   // }
                 }
                 else if (absWord.GetType() == typeof(AbstractAdjectives))
                 {
-                    //if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
-                    {
+                   // if (CanUseAdj(character, absWord.GetComponent<AbstractAdjectives>()))
+                   // {
                         this.GetComponent<AbstractAdjectives>().UseAdj(hit.collider.gameObject.GetComponent<AbstractCharacter>());
                         Destroy(this.gameObject);
-                    }
-                    /*else
-                    {
-                        audioSource_cantuse.Play();
-                    }*/
+                  //  }
+                  //      else
+                  //  {
+                  //      audioSource_cantuse.Play();
+                  //  }
                 }
             }
+            #endregion
+
         }
     }
     
@@ -169,5 +172,5 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         a.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().description;
         Time.timeScale = 0;
     }
-    
+
 }

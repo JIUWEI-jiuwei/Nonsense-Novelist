@@ -2,8 +2,10 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class BeiLuoJi : AbstractCharacter
+/// <summary>
+/// ±´Âå¼§¡¤¼§ÄÝ
+/// </summary>
+class BeiLuoJi : AbstractCharacter
 {
     override public void Awake()
     {

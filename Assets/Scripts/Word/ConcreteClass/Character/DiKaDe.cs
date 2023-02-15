@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class DiKaDe : AbstractCharacter
+/// <summary>
+/// µÒ¿¨µÂ
+/// </summary>
+class DiKaDe : AbstractCharacter
 {
     override public void Awake()
     {

@@ -2,8 +2,10 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class ShuiShou : AbstractCharacter
+/// <summary>
+/// À∞ ’
+/// </summary>
+class ShuiShou : AbstractCharacter
 {
     override public void Awake()
     {

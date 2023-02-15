@@ -28,28 +28,35 @@ public class Shoot : MonoBehaviour
     public Slider aimSlider;
     /// <summary>存储WordCollisionShoot的词条属性</summary>
     public static AbstractWords0 abs;
+    /// <summary>是否开始战斗</summary>
+    public static bool isStart;
+
     private void Update()
     {
-        aimSlider.value = 0; // 重置slider的值
-
-        if (crtForce >= maxForce && !fired)// 蓄力到最大值
-        { 
-            crtForce = maxForce;
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        { 
-            crtForce = minForce; // 重置力的大小
-            fired = false; // 设置开火状态为未开火
-        }
-        else if (Input.GetButton("Fire1" ) && !fired)// 一直按着
-        { 
-            crtForce += forceSpeed * Time.deltaTime; // 蓄力
-            aimSlider.value = crtForce/maxForce; // 更新slider的值
-        }
-        else if (Input.GetButtonUp("Fire1" ) && !fired)
+        if (isStart)
         {
-            CreateWordBullet(); 
+            aimSlider.value = 0; // 重置slider的值
+
+            if (crtForce >= maxForce && !fired)// 蓄力到最大值
+            {
+                crtForce = maxForce;
+            }
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                crtForce = minForce; // 重置力的大小
+                fired = false; // 设置开火状态为未开火
+            }
+            else if (Input.GetButton("Fire1") && !fired)// 一直按着
+            {
+                crtForce += forceSpeed * Time.deltaTime; // 蓄力
+                aimSlider.value = crtForce / maxForce; // 更新slider的值
+            }
+            else if (Input.GetButtonUp("Fire1") && !fired)
+            {
+                CreateWordBullet();
+            }
+
         }
     }
     /// <summary>

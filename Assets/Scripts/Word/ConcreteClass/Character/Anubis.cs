@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class Anubis : AbstractCharacter
+/// <summary>
+/// ∞¢≈¨±»Àπ
+/// </summary>
+class Anubis : AbstractCharacter
 {
     override public void Awake()
     {

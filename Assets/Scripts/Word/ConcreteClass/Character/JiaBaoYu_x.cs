@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class JiaBaoYu : AbstractCharacter
+/// <summary>
+/// ¼Ö±¦Óñ
+/// </summary>
+class JiaBaoYu_x : AbstractCharacter
 {
     override public void Awake()
     {
