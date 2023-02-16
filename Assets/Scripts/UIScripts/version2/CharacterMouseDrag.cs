@@ -41,9 +41,23 @@ public class CharacterMouseDrag : MonoBehaviour
          
      }*/
     #endregion
+
+    /// <summary>
+    /// 鼠标悬停
+    /// </summary>
+    private void OnMouseOver()
+    {
+        //颜色变黄
+        GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)225 / 255, (float)189 / 255, (float)255 / 255);
+
+        //显示角色简要信息
+
+    }
     private void OnMouseExit()
     {
-      
+        //颜色恢复
+        GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
+
     }
     //被移动物体需要添加collider组件，以响应OnMouseDown()函数
     //基本思路。当鼠标点击物体时（OnMouseDown（），函数体里面代码只执行一次），

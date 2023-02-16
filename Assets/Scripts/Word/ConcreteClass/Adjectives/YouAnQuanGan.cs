@@ -14,12 +14,12 @@ public class YouAnQuanGan : AbstractAdjectives
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
         time = skillEffectsTime;
+        base.Awake();
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
         {
-            wordCollisionShoots.Add(gameObject.AddComponent<YunSu>());
+            wordCollisionShoots[0]=gameObject.AddComponent<YunSu>();
 
         }
-        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

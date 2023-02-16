@@ -57,6 +57,9 @@ abstract public class AbstractVerbs : AbstractWords0 ,ICD
         OnAwake();
 
         wordKind = WordKindEnum.verb;
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots.Add(gameObject.AddComponent<Common>());
+
     }
 
     public delegate void AwakeHandler();

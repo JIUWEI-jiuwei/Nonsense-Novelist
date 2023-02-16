@@ -15,9 +15,9 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;
-        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
-            wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
         base.Awake();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots[0]=gameObject.AddComponent<JiHuo>();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

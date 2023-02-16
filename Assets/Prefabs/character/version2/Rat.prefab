@@ -202,7 +202,6 @@ GameObject:
   - component: {fileID: 8792533845088263378}
   - component: {fileID: 8414490356962856464}
   - component: {fileID: 2357813420043696241}
-  - component: {fileID: 3087079198526402295}
   - component: {fileID: -3105405567596336704}
   m_Layer: 3
   m_Name: Rat
@@ -514,18 +513,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}
---- !u!114 &3087079198526402295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792533845088263391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1067f2512016e3d43a30319d235621b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3105405567596336704
 MonoBehaviour:
   m_ObjectHideFlags: 0

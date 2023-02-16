@@ -75,9 +75,9 @@ public class Shoot : MonoBehaviour
 
         //给小球增加词条属性
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
-        //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
+        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
-        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<XinShenJiDang>();
+        //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<XinShenJiDang>();
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<YouAnQuanGan>();
 
         abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord;

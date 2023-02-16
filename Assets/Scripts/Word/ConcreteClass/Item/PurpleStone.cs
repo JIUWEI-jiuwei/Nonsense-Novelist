@@ -20,8 +20,8 @@ class PurpleStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 1;
-        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
-            wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
 
     }
 

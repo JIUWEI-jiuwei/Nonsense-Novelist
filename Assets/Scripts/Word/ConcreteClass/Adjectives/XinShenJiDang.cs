@@ -19,9 +19,9 @@ public class XinShenJiDang : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;
-        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
-            wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
         base.Awake();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0]=gameObject.AddComponent<ChongNeng>();
     }
     protected override void Update()
     {

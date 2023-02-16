@@ -10,9 +10,9 @@ public class CharacterManager : MonoBehaviour
     /// <summary>当下全部角色</summary>
     public static AbstractCharacter[] charas;
     /// <summary>左侧角色</summary>
-    public static List< AbstractCharacter> charas_left;
+    public static List< AbstractCharacter> charas_left=new List<AbstractCharacter>();
     /// <summary>右侧角色</summary>
-    public static List<AbstractCharacter> charas_right;
+    public static List<AbstractCharacter> charas_right = new List<AbstractCharacter>();
 
 
     private void Awake()

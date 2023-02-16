@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 1692046517}
   - component: {fileID: 5361354823142773629}
   - component: {fileID: 1479494677}
-  - component: {fileID: 1479494678}
   - component: {fileID: -2398173083784865602}
   m_Layer: 3
   m_Name: WangXIFeng
@@ -277,7 +276,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.73, y: -0.56}
@@ -332,6 +331,7 @@ MonoBehaviour:
   description: 
   nickname: []
   rarity: 0
+  wordCollisionShoots: []
   characterID: 0
   gender: 0
   source: {fileID: 0}
@@ -494,18 +494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 4707058309079507317, guid: e79133b4bbbca62479a2ebcdf36a6c66, type: 3}
---- !u!114 &1479494678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2923459406948245553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1067f2512016e3d43a30319d235621b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-2398173083784865602
 MonoBehaviour:
   m_ObjectHideFlags: 0

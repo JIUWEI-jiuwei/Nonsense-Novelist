@@ -14,12 +14,13 @@ public class FengChan : AbstractAdjectives
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
+
+        base.Awake();
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
         {
-            wordCollisionShoots.Add(gameObject.AddComponent<SanShe>());
+            wordCollisionShoots[0] = gameObject.AddComponent<SanShe>();
 
         }
-        base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
