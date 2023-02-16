@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// 挂在父物体上，随机生成4个角色子物体，分别位于四个空物体下
+/// 挂在父物体(charaPos)上，随机生成4个角色子物体，分别位于四个空物体下
 /// </summary>
 public class CreateOneCharacter : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class CreateOneCharacter : MonoBehaviour
         //四个角色全部上场
         if (GetComponentInChildren<AbstractCharacter>() == null)
         {
-            ButtonCombat.isStart = true;
+            ButtonCombat.isAllCharaUp = true;
         }
     }
 

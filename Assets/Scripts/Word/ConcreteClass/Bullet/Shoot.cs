@@ -28,12 +28,10 @@ public class Shoot : MonoBehaviour
     public Slider aimSlider;
     /// <summary>存储WordCollisionShoot的词条属性</summary>
     public static AbstractWords0 abs;
-    /// <summary>是否开始战斗</summary>
-    public static bool isStart;
 
     private void Update()
     {
-        if (isStart)
+        if (ButtonCombat. isTwoSides && ButtonCombat.isAllCharaUp)
         {
             aimSlider.value = 0; // 重置slider的值
 
@@ -76,11 +74,11 @@ public class Shoot : MonoBehaviour
         go.transform.SetParent(bulletRoot);
 
         //给小球增加词条属性
-        //go.GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
-        //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
-        //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
+        //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
+        //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
+        //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
         GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<XinShenJiDang>();
-        //go.GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<YouAnQuanGan>();
+        //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<YouAnQuanGan>();
 
         abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord;
         //增加词条图像

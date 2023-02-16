@@ -12,5 +12,11 @@ public class YunSu : WordCollisionShoot
         base.Awake();
         this.gameObject.GetComponent<Collider2D>().sharedMaterial.friction = 0;
     }
-   
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        //¸øabsWord¸³Öµ
+        absWord = Shoot.abs;
+        base.OnTriggerEnter2D(collision);
+    }
 }

@@ -1353,6 +1353,7 @@ MonoBehaviour:
   disappearTime: 2
   exitPoint: {fileID: 1299391414}
   k: 0.5
+  camp: 0
   or: 4
 --- !u!61 &635282837
 BoxCollider2D:
@@ -1887,6 +1888,7 @@ MonoBehaviour:
   disappearTime: 2
   exitPoint: {fileID: 1299391414}
   k: 0.5
+  camp: 0
   or: 4
 --- !u!61 &1019533996
 BoxCollider2D:
@@ -2408,7 +2410,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1252078126}
   m_OnClick:
     m_PersistentCalls:
@@ -2428,6 +2430,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1252078128}
         m_TargetAssemblyTypeName: ButtonCombat, Assembly-CSharp
         m_MethodName: ChangeSituationColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1252078128}
+        m_TargetAssemblyTypeName: ButtonCombat, Assembly-CSharp
+        m_MethodName: AllCharaUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1252078128}
+        m_TargetAssemblyTypeName: ButtonCombat, Assembly-CSharp
+        m_MethodName: TwoSides
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2681,6 +2707,7 @@ MonoBehaviour:
   disappearTime: 2
   exitPoint: {fileID: 1019533994}
   k: 0.5
+  camp: 0
   or: 4
 --- !u!61 &1299391416
 BoxCollider2D:
@@ -2879,6 +2906,8 @@ GameObject:
   - component: {fileID: 1380573527}
   - component: {fileID: 1380573530}
   - component: {fileID: 1380573529}
+  - component: {fileID: 1380573528}
+  - component: {fileID: 1380573531}
   m_Layer: 0
   m_Name: Circle (1)
   m_TagString: Untagged
@@ -2900,6 +2929,19 @@ Transform:
   m_Father: {fileID: 1252378457}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380573528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380573526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3449a2efe8ee707459acd122da6f3589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camp: 2
 --- !u!58 &1380573529
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2967,6 +3009,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1380573531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380573526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16b5e1bb80eb5f4eae67a247a23f2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value1: 10
+  value2: 10
+  angle: 1
+  disappearTime: 2
+  exitPoint: {fileID: 0}
+  k: 0.5
+  camp: 2
+  or: 5
 --- !u!1 &1470282295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,6 +3970,8 @@ GameObject:
   - component: {fileID: 1841996909}
   - component: {fileID: 1841996912}
   - component: {fileID: 1841996911}
+  - component: {fileID: 1841996910}
+  - component: {fileID: 1841996913}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -3929,6 +3993,19 @@ Transform:
   m_Father: {fileID: 1252378457}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841996910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841996908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3449a2efe8ee707459acd122da6f3589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camp: 1
 --- !u!58 &1841996911
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3996,6 +4073,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1841996913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841996908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16b5e1bb80eb5f4eae67a247a23f2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value1: 10
+  value2: 10
+  angle: 1
+  disappearTime: 2
+  exitPoint: {fileID: 0}
+  k: 0.5
+  camp: 1
+  or: 5
 --- !u!1 &1851565760
 GameObject:
   m_ObjectHideFlags: 0
