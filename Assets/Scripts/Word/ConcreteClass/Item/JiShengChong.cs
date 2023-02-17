@@ -12,7 +12,7 @@ class JiShengChong : AbstractItems
         itemID = 15;
         wordName = "寄生虫";
         bookName = BookNameEnum.FluStudy;
-        description = "寄生虫让其宿主颇为焦躁不安，降低3点防御，减少攻击速度。";
+        description = "散射，减少防御，加快攻速，攻击附带“患病”";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

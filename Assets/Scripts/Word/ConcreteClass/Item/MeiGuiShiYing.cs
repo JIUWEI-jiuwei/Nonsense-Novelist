@@ -15,7 +15,7 @@ class MeiGuiShiYing : AbstractItems
         itemID = 11;
         wordName = "玫瑰石英";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
+        description = "激活后，加6防御，获得共振";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

@@ -12,7 +12,7 @@ class Nexus_6Arm : AbstractItems
         itemID = 12;
         wordName = "Nexus-6型手臂";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "一种已经停产的强大机械臂，提升10点攻击，10%暴击几率。";
+        description = "加7攻击";
         holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

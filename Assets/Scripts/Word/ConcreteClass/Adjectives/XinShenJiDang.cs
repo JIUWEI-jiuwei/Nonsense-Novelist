@@ -16,6 +16,7 @@ public class XinShenJiDang : AbstractAdjectives
         adjID = 10;
         wordName = "心神激荡的";
         bookName = BookNameEnum.Salome;
+        description = "获得精神，攻击精神交换（颠倒）";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;

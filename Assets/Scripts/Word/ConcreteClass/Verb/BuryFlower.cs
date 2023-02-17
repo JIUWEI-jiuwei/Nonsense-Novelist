@@ -12,6 +12,7 @@ class BuryFlower : AbstractVerbs
         skillID = 2;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
+        description = "自身获得“花瓣”";
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 3;

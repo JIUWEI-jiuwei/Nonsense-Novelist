@@ -9,14 +9,14 @@ class CHOOHShoot : AbstractVerbs
         skillID = 13;
         wordName = "蚁酸喷射";
         bookName = BookNameEnum.PHXTwist;
-        description = "学会蚁酸喷射，造成150%攻击力的伤害，减少2点防御力。";
+        description = "使敌人受到伤害，获得“腐蚀”";
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics= true;
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 12;
         rarity = 1;
         needCD = 1;
-        description = "以全力将毒腺挤压，喷射出的毒液可以腐蚀护甲。";
+
     }
 
 

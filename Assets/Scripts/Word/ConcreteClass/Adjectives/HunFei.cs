@@ -10,6 +10,7 @@ public class HunFei : AbstractAdjectives
         adjID = 14;
         wordName = "»é·ÉµÄ";
         bookName = BookNameEnum.PHXTwist;
+        description = "É¢Éä£¬»Ö¸´ÉúÃü";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;

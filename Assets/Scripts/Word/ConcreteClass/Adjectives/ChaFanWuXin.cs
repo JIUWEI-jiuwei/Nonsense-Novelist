@@ -11,6 +11,7 @@ public class ChaFanWuXin : AbstractAdjectives
         adjID = 1;
         wordName = "茶饭无心的";
         bookName = BookNameEnum.HongLouMeng;
+        description = "获得较多精神，获得“沮丧”";
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = 10;
         rarity = 0;

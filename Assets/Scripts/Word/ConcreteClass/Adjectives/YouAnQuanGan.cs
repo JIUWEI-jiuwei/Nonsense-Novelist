@@ -10,6 +10,7 @@ public class YouAnQuanGan : AbstractAdjectives
         adjID = 8;
         wordName = "有安全感的";
         bookName = BookNameEnum.ZooManual;
+        description = "恢复生命";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;

@@ -13,7 +13,7 @@ class Exoskeleton : AbstractItems
         itemID = 17;
         wordName = "外骨骼";
         bookName = BookNameEnum.PHXTwist;
-        description = "厚厚的几丁质外壳能保护其主人，提升3点防御，15%闪避几率。";
+        description = "加3防御，加快攻速";
         holdEnum = HoldEnum.clothes;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

@@ -15,7 +15,7 @@ class EXingZhongLiu : AbstractItems
         itemID = 16;
         wordName = "恶性肿瘤";
         bookName = BookNameEnum.FluStudy;
-        description = " ";
+        description = "充能：减5%生命上限";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

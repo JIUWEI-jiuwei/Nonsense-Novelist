@@ -10,6 +10,7 @@ public class HaoZhan : AbstractAdjectives
         adjID = 0;
         wordName = "好战的";
         bookName = BookNameEnum.PHXTwist;
+        description = "加快攻速";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

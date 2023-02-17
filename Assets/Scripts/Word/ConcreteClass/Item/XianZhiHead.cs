@@ -13,7 +13,7 @@ class XianZhiHead : AbstractItems
         itemID = 7;
         wordName = "先知的头颅";
         bookName = BookNameEnum.Salome;
-        description = "一枚熠熠生辉的宝石，提升7点精神，增强暴击倍数。";
+        description = "加15%精神，减10%意志";
         holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;

@@ -12,7 +12,7 @@ class StrangeStatue : AbstractItems
         itemID = 21;
         wordName = "奇怪石像";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
+        description = "加2精神";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

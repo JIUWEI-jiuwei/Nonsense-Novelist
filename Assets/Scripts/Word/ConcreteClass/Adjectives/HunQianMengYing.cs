@@ -10,6 +10,7 @@ public class HunQianMengYing : AbstractAdjectives
         adjID = 0;
         wordName = "魂牵梦萦的";
         bookName = BookNameEnum.Salome;
+        description = "使角色获得“俘虏”，攻击队友";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 15;
         rarity = 1;

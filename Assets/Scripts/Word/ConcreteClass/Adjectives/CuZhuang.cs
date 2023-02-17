@@ -10,6 +10,7 @@ public class CuZhuang : AbstractAdjectives
         adjID = 18;
         wordName = "粗壮的";
         bookName = BookNameEnum.allBooks;
+        description = "获得生命上限";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

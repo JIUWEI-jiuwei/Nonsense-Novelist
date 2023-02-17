@@ -10,6 +10,7 @@ public class QingXi : AbstractAdjectives
         adjID = 11;
         wordName = "清晰的";
         bookName = BookNameEnum.CrystalEnergy;
+        description = "获得精神";
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;

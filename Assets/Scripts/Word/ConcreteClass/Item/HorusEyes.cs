@@ -12,7 +12,7 @@ class HorusEyes : AbstractItems
         itemID = 6;
         wordName = "荷鲁斯之眼";
         bookName = BookNameEnum.EgyptMyth;
-        description = "一枚熠熠生辉的宝石，提升7点精神，增强暴击倍数。";
+        description = "加5攻击";
         holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;

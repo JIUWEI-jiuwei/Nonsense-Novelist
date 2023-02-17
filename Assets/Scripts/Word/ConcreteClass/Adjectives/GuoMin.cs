@@ -15,6 +15,7 @@ public class GuoMin : AbstractAdjectives
         adjID = 7;
         wordName = "过敏的";
         bookName = BookNameEnum.FluStudy;
+        description = "传播，获得“晕眩”";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 0;
         rarity = 1;

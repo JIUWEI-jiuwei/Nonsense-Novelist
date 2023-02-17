@@ -10,6 +10,7 @@ public class RenZao : AbstractAdjectives
         adjID = 12;
         wordName = "人造的";
         bookName = BookNameEnum.ElectronicGoal;
+        description = "获得改造，获得生命上限";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

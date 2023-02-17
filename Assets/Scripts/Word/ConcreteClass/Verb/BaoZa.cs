@@ -9,7 +9,7 @@ class BaoZa : AbstractVerbs
         skillID = 17;
         wordName = "包扎";
         bookName = BookNameEnum.allBooks;
-        description = "学会心碎，造成150%精神力的魔法伤害，并让目标沮丧。";
+        description = "恢复友方血量";
         nickname.Add( "刺痛");
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new SingleSelector();

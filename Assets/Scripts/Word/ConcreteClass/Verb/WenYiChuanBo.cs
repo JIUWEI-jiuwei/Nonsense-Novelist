@@ -9,14 +9,14 @@ class WenYiChuanBo : AbstractVerbs
         skillID = 11;
         wordName = "瘟疫传播";
         bookName = BookNameEnum.FluStudy;
-        description = "学会防腐术，让队友获得复活的机会，持续20秒。";
+        description = "使敌人获得可传播的“患病”";
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = 5;
         rarity = 2;
         needCD = 2;
-        description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
+
 
     }
 

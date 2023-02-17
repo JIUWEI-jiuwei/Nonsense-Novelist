@@ -9,7 +9,7 @@ class ToBigger : AbstractVerbs
         skillID = 16;
         wordName = "变大";
         bookName = BookNameEnum.allBooks;
-        description = "学会心碎，造成150%精神力的魔法伤害，并让目标沮丧。";
+        description = "自身增加生命上限";
         nickname.Add( "刺痛");
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();

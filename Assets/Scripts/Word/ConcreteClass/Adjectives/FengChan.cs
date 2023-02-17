@@ -11,10 +11,11 @@ public class FengChan : AbstractAdjectives
         adjID = 9;
         wordName = "丰产的";
         bookName = BookNameEnum.EgyptMyth;
+        description = "散射，获得生命上限";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
-
+        
         base.Awake();
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
         {

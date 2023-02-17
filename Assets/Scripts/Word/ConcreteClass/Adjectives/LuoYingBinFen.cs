@@ -10,6 +10,7 @@ public class LuoYingBinFen : AbstractAdjectives
         adjID = 17;
         wordName = "落英缤纷的";
         bookName = BookNameEnum.EgyptMyth;
+        description = "获得“花瓣”";
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

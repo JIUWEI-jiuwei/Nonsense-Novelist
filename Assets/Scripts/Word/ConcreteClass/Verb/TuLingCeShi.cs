@@ -9,14 +9,14 @@ class TuLingCeShi : AbstractVerbs
         skillID = 9;
         wordName = "图灵测试";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "学会防腐术，让队友获得复活的机会，持续20秒。";
+        description = "使敌人受到较大精神伤害";
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = false;
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
         rarity = 3;
         needCD = 4;
-        description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
+    
 
     }
 

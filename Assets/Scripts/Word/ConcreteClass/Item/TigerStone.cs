@@ -15,7 +15,7 @@ class TigerStone: AbstractItems
         itemID = 10;
         wordName = "虎眼石";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
+        description = "激活后，加5攻击，获得共振";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

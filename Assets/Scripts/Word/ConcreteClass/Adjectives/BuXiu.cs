@@ -11,6 +11,7 @@ public class BuXiu : AbstractAdjectives
         adjID = 2;
         wordName = "不朽的";
         bookName = BookNameEnum.EgyptMyth;
+        description = "获得生命上限，获得复活";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 2;

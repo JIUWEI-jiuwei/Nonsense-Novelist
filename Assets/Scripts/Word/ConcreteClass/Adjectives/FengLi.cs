@@ -10,6 +10,7 @@ public class FengLi : AbstractAdjectives
         adjID = 15;
         wordName = "锋利的";
         bookName = BookNameEnum.allBooks;
+        description = "增加攻击力";
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillEffectsTime = 20;
         rarity = 0;

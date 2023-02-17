@@ -12,7 +12,7 @@ class BenJieShiDui : AbstractItems
         itemID = 3;
         wordName = "本杰士堆";
         bookName = BookNameEnum.ZooManual;
-        description = "一枚制作相当复杂的药丸，提升3点防御。";
+        description = "使队友获得亢奋";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 2;

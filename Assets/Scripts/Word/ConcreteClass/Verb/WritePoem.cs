@@ -12,6 +12,7 @@ class WritePoem : AbstractVerbs
         skillID = 1;
         wordName = "¸³Ê«";
         bookName = BookNameEnum.HongLouMeng;
+        description = "";
         nickname.Add("×÷Ê«");
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = 7;

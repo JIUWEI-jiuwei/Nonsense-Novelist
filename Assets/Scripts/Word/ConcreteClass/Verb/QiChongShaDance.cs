@@ -12,7 +12,7 @@ class QiChongShaDance : AbstractVerbs
         skillID = 6;
         wordName = "七重纱之舞";
         bookName = BookNameEnum.Salome;
-        description = "学会七重纱之舞，让周围所有友军恢复5点魔法。";
+        description = "使自己获得“起舞”";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime =10;

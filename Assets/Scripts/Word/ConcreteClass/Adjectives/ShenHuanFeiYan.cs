@@ -10,6 +10,7 @@ public class ShenHuanFeiYan : AbstractAdjectives
         adjID = 6;
         wordName = "身患肺炎的";
         bookName = BookNameEnum.FluStudy;
+        description = "传播，获得“患病”";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 5;
         rarity = 1;

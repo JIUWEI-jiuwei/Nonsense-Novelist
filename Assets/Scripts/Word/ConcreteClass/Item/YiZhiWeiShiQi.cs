@@ -12,7 +12,7 @@ class YiZhiWeiShiQi : AbstractItems
         itemID = 4;
         wordName = "益智喂食器";
         bookName = BookNameEnum.ZooManual;
-        description = "一枚制作相当复杂的药丸，提升3点防御。";
+        description = "增加友方意志,治疗低血量的队友";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 2;

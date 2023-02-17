@@ -12,7 +12,7 @@ class FuTouAxe : AbstractItems
         itemID = 19;
         wordName = "钝斧头";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
+        description = "加2攻击";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

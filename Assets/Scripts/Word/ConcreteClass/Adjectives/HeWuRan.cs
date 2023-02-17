@@ -10,6 +10,7 @@ public class HeWuRan : AbstractAdjectives
         adjID = 5;
         wordName = "核污染的";
         bookName = BookNameEnum.EgyptMyth;
+        description = "获得中毒";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 3;
         rarity = 1;

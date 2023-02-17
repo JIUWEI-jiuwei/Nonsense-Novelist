@@ -12,7 +12,7 @@ class VolumeProduction : AbstractItems
         itemID = 14;
         wordName = "量产改装件";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "一颗纯洁无暇的白色水晶，提升四维属性各1点。";
+        description = "散射，获得改造";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

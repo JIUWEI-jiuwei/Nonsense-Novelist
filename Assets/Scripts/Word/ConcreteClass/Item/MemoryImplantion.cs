@@ -12,7 +12,7 @@ class MemoryImplantion : AbstractItems
         itemID = 13;
         wordName = "被植入的记忆";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "一种已经停产的强大机械臂，提升10点攻击，10%暴击几率。";
+        description = "减15%精神与意志";
         holdEnum = HoldEnum.handDouble;
         VoiceEnum = MaterialVoiceEnum.Meat;
 

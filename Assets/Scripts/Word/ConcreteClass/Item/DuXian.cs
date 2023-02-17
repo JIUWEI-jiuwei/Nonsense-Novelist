@@ -12,7 +12,7 @@ class DuXian : AbstractItems
         itemID = 18;
         wordName = "毒腺";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
+        description = "攻击附带“腐蚀”";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

@@ -10,6 +10,7 @@ public class ZhongDu : AbstractAdjectives
         adjID = 20;
         wordName = "中毒的";
         bookName = BookNameEnum.allBooks;
+        description = "获得“中毒”，攻击精神互换（颠倒）";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;

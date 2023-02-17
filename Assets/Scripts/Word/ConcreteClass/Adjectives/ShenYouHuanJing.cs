@@ -10,6 +10,7 @@ public class ShenYouHuanJing : AbstractAdjectives
         adjID = 3;
         wordName = "神游幻境的";
         bookName = BookNameEnum.HongLouMeng;
+        description = "虚无，攻击精神交换（颠倒）";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;

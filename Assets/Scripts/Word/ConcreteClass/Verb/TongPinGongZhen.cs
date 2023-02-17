@@ -12,13 +12,13 @@ class TongPinGongZhen: AbstractVerbs
         skillID = 8;
         wordName = "同频共振";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "学会同频共振，让附近的敌人晕眩1.5秒。";
+        description = "使队友获得“共振”";
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 30;
         rarity = 2;
         needCD=2;
-        description = "通过磁场的共振让周围的敌人晕眩。";
+
     }
 
     /// <summary>

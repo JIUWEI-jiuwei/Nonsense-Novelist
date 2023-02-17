@@ -9,6 +9,7 @@ class ShaYu : AbstractVerbs
         skillID = 4;
         wordName = "沙浴";
         bookName = BookNameEnum.ZooManual;
+        description = "自身获得“亢奋”";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;

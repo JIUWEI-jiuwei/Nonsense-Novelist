@@ -12,6 +12,7 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         adjID = 13;
         wordName = "散发费洛蒙的";
         bookName = BookNameEnum.EgyptMyth;
+        description = "获得“起舞”";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;

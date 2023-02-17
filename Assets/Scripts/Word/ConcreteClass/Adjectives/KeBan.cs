@@ -10,6 +10,7 @@ public class KeBan : AbstractAdjectives
         adjID = 4;
         wordName = "¿Ì°åµÄ";
         bookName = BookNameEnum.ZooManual;
+        description = "ÎÞ·¨¹¥»÷";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 0;

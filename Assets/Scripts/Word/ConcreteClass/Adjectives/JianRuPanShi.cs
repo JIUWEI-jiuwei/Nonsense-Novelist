@@ -10,6 +10,7 @@ public class JianRuPanShi : AbstractAdjectives
         adjID = 19;
         wordName = "坚如磐石的";
         bookName = BookNameEnum.allBooks;
+        description = "获得防御";
         skillMode = gameObject.AddComponent<UpDEFMode>();
         skillEffectsTime = 10;
         rarity = 0;

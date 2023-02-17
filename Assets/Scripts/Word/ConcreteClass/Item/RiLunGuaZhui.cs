@@ -12,7 +12,7 @@ class RiLunGuaZhui : AbstractItems
         itemID = 5;
         wordName = "日轮挂坠";
         bookName = BookNameEnum.EgyptMyth;
-        description = "一枚熠熠生辉的宝石，提升7点精神，增强暴击倍数。";
+        description = "加5精神";
         holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;

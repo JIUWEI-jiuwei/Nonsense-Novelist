@@ -9,6 +9,7 @@ class WanShua : AbstractVerbs
         skillID = 3;
         wordName = "玩耍";
         bookName = BookNameEnum.ZooManual;
+        description = "使友方获得“亢奋”";
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillEffectsTime = 7;
         rarity = 1;

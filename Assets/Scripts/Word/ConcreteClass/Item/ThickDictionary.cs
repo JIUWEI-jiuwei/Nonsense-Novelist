@@ -12,7 +12,7 @@ class ThickDictionary : AbstractItems
         itemID = 20;
         wordName = "厚字典";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗金色华丽的宝石，提升3点攻击，少量增强暴击倍数。";
+        description = "加2防御";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

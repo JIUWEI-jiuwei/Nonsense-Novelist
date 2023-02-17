@@ -10,6 +10,7 @@ public class QuicklyGrowing : AbstractAdjectives
         adjID = 16;
         wordName = "快速成长的";
         bookName = BookNameEnum.allBooks;
+        description = "增加生命恢复";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = 3;
         rarity = 0;

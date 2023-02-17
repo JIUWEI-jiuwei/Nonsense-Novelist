@@ -12,7 +12,7 @@ class LengXiangPill : AbstractItems
         itemID = 2;
         wordName = "冷香丸";
         bookName = BookNameEnum.HongLouMeng;
-        description = "一枚制作相当复杂的药丸，提升3点防御。";
+        description = "虚无，加1防御";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 1;

@@ -15,7 +15,7 @@ class PurpleStone: AbstractItems
         itemID = 9;
         wordName = "紫水晶";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗深紫色高洁的水晶，提升3点精神，少量增强暴击倍数。";
+        description = "激活后，加4精神，获得共振";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

@@ -14,7 +14,7 @@ class WhiteStone: AbstractItems
         itemID = 8;
         wordName = "白水晶";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "一颗纯洁无暇的白色水晶，提升四维属性各1点。";
+        description = "激活后，加40生命，获得共振";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
