@@ -60,7 +60,14 @@ abstract public class AbstractCharacter : AbstractWords0
             }
         }
     }
-
+    virtual public float maxhp
+    {
+        get { return maxHP; }
+        set
+        {
+            maxHP = value;
+        }
+    }
     virtual public float atk
     {
         get { return ATK; }

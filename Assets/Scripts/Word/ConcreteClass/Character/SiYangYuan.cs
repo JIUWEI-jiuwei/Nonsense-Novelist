@@ -2,8 +2,10 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class SiYangYuan : AbstractCharacter
+/// <summary>
+/// ËÇÑøÔ±
+/// </summary>
+class SiYangYuan : AbstractCharacter
 {
     override public void Awake()
     {

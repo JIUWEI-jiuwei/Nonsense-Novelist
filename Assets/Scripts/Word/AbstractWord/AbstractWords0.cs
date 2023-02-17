@@ -24,6 +24,8 @@ abstract public class AbstractWords0 : MonoBehaviour
     public List<string> nickname=new List<string>();
     /// <summary>稀有度</summary>
     public int rarity;
+    /// <summary>弹射机制 </summary>
+    public List<WordCollisionShoot> wordCollisionShoots = new List<WordCollisionShoot>();
 
     /// <summary>
     /// 使用时文本

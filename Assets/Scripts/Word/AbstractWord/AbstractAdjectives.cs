@@ -17,10 +17,8 @@ abstract public class AbstractAdjectives : AbstractWords0
     public int attackDistance=100;
     /// <summary>技能效果(特殊后续效果）持续时长 </summary>
     public float skillEffectsTime;
-    /// <summary>弹射机制 </summary>
-    public List<WordCollisionShoot> wordCollisionShoots=new List<WordCollisionShoot>();
 
-    protected AbstractCharacter aim;
+    public AbstractCharacter aim;
     /// <summary>特殊效果存储引用</summary>
     protected List<AbstractBuff> buffs=new List<AbstractBuff>();
 
@@ -29,6 +27,9 @@ abstract public class AbstractAdjectives : AbstractWords0
         wordKind = WordKindEnum.adj;
         nowTime = skillEffectsTime;
         aim=GetComponent<AbstractCharacter>();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots.Add(gameObject.AddComponent<Common>());
+
     }
     /// <summary>
     /// 技能效果(特殊效果）

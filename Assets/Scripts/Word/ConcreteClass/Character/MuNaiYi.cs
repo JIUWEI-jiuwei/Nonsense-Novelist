@@ -2,8 +2,10 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class MuNaiYi : AbstractCharacter
+/// <summary>
+/// д╬дкра
+/// </summary>
+class MuNaiYi : AbstractCharacter
 {
     override public void Awake()
     {

@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class ShaLeMei : AbstractCharacter
+/// <summary>
+/// …Ø¿÷√¿
+/// </summary>
+class ShaLeMei : AbstractCharacter
 {
     override public void Awake()
     {

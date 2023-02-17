@@ -6,10 +6,17 @@ using UnityEngine;
 /// </summary>
 public class YunSu : WordCollisionShoot
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void Awake()
     {
+        base.Awake();
         this.gameObject.GetComponent<Collider2D>().sharedMaterial.friction = 0;
     }
 
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        //¸øabsWord¸³Öµ
+        absWord = Shoot.abs;
+        base.OnTriggerEnter2D(collision);
+    }
 }

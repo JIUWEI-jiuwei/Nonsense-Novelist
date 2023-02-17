@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 class TigerStone: AbstractItems
 {
+    /// <summary>是否激活共振 </summary>
+    public bool jiHuo;
+
     public override void Awake()
     {
         base.Awake();
@@ -17,27 +20,39 @@ class TigerStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 2;
-        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
 
     }
 
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-        chara.atk += 5;
+        if (jiHuo)
+        {
+            chara.atk += 5;
+
+        }
 
     }
 
     public override void UseVerbs()
     {
         base.UseVerbs();
-        buffs.Add(gameObject.AddComponent<GongZhen>());
-        buffs[0].maxTime = Mathf.Infinity;
+        if (jiHuo)
+        {
+            buffs.Add(gameObject.AddComponent<GongZhen>());
+            buffs[0].maxTime = Mathf.Infinity;
+
+        }
     }
 
     public override void End()
     {
         base.End();
-        aim.atk -= 5;
+        if (jiHuo)
+        {
+            aim.atk -= 5;
+        }
     }
 }

@@ -9,7 +9,7 @@ public class XuWu : WordCollisionShoot
     public override void Awake()
     {
         base.Awake();
-        this.GetComponent<CircleCollider2D>().isTrigger = true;
+
     }
     private void Update()
     {
@@ -28,12 +28,16 @@ public class XuWu : WordCollisionShoot
     /// 穿越角色不消失，直至时间结束消失
     /// </summary>
     /// <param name="collision"></param>
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
-            AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
+            this.GetComponent<Collider2D>().isTrigger = true;
 
+            AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
+            
+            //给absWord赋值
+            absWord = Shoot.abs;
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
@@ -54,5 +58,8 @@ public class XuWu : WordCollisionShoot
                 collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
             }
         }
+        this.GetComponent<Collider2D>().isTrigger = false;
+
     }
+
 }

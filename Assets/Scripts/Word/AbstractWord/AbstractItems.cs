@@ -16,8 +16,6 @@ abstract class AbstractItems : AbstractWords0
     public HoldEnum holdEnum;
     /// <summary>物品材质，对应音效种类 </summary>
     public MaterialVoiceEnum VoiceEnum;
-    /// <summary>弹射机制 </summary>
-    public List<WordCollisionShoot> wordCollisionShoots = new List<WordCollisionShoot>();
 
     protected AbstractCharacter aim;
     /// <summary>特殊效果存储引用</summary>
@@ -27,6 +25,9 @@ abstract class AbstractItems : AbstractWords0
     {
         aim = GetComponent<AbstractCharacter>();
         wordKind = WordKindEnum.noun;
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots.Add(gameObject.AddComponent<Common>());
+
     }
 
     /// <summary>

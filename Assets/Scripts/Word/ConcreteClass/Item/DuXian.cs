@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 毒腺
+/// </summary>
 class DuXian : AbstractItems
 {
     public override void Awake()

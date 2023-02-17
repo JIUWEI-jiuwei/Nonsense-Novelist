@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
- class Rat : AbstractCharacter
+/// <summary>
+/// ¿œ Û
+/// </summary>
+class Rat : AbstractCharacter
 {
     override public void Awake()
     {

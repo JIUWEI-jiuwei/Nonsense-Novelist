@@ -13,10 +13,12 @@ public class ShenYouHuanJing : AbstractAdjectives
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;
-        //wordCollisionShoots.AddRange(new WordCollisionShoot[] { gameObject.AddComponent<XuWu>(), gameObject.AddComponent<YunSu>() });
-        wordCollisionShoots.Add(gameObject.AddComponent<XuWu>());
-        wordCollisionShoots.Add(gameObject.AddComponent<YunSu>());
+        
         base.Awake();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+        {
+            wordCollisionShoots[0] = gameObject.AddComponent<XuWu_YunSu>();
+        }
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 class EXingZhongLiu : AbstractItems
 {
+    /// <summary>充能次数 </summary>
+    public int chongNeng;
+
     public override void Awake()
     {
         base.Awake();
@@ -17,13 +20,15 @@ class EXingZhongLiu : AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 1;
-        wordCollisionShoots.Add(gameObject.AddComponent<ChongNeng>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<ChongNeng>();
     }
 
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-
+        //充能效果
+        chara.maxhp -= 0.05f *chongNeng* chara.maxHP;
     }
 
     public override void UseVerbs()

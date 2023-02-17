@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 class WhiteStone: AbstractItems
 {
+    /// <summary>是否激活共振 </summary>
+    public bool jiHuo;
     public override void Awake()
     {
         base.Awake();
@@ -17,21 +19,28 @@ class WhiteStone: AbstractItems
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 1;
-        wordCollisionShoots.Add(gameObject.AddComponent<JiHuo>());
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
     }
 
     public override void UseItems(AbstractCharacter chara)
     {
         base.UseItems(chara);
-        chara.hp += 40;
+        if (jiHuo)
+        {
+            chara.hp += 40;
+        }
 
     }
 
     public override void UseVerbs()
     {
         base.UseVerbs();
-        buffs.Add(gameObject.AddComponent<GongZhen>());
-        buffs[0].maxTime = Mathf.Infinity;
+        if (jiHuo)
+        {
+            buffs.Add(gameObject.AddComponent<GongZhen>());
+            buffs[0].maxTime = Mathf.Infinity;
+        }
     }
 
     public override void End()

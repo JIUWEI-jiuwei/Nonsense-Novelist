@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ¡ı¿—¿—
+/// </summary>
 class LiuGrandma : AbstractCharacter
 {
     override public void Awake()
