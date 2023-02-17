@@ -2,13 +2,15 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 [RequireComponent(typeof(CharaAnim))]
 [RequireComponent(typeof(AI.MyState0))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(AudioSource))]
 /// <summary>
-/// 抽象角色类
+/// 抽象角色类（启用，会在Awake自动关上，需要外部脚本再启用）
 /// </summary>
 abstract public class AbstractCharacter : AbstractWord0
 {
@@ -158,11 +160,17 @@ abstract public class AbstractCharacter : AbstractWord0
 
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
-    
+
 
     virtual public void Awake()
     {
+        energyCanvas = this.GetComponentInChildren<Canvas>();
+        energySlider=this.GetComponentInChildren<Slider>();
+        energyText = this.GetComponentInChildren<Text>();
+        energyCanvas.gameObject.SetActive(false);
+
         myState = GetComponent<MyState0>();
+        myState.character = this;
         teXiao=GetComponentInChildren<TeXiao>();
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
@@ -175,17 +183,40 @@ abstract public class AbstractCharacter : AbstractWord0
             AbstractBook.beforeFightText += ShowText(b);
         }
     }
+    private void OnEnable()
+    {
+        energyCanvas.gameObject.SetActive(true);
+    }
 
+    private Canvas energyCanvas;
+    private Slider energySlider;
+    private Text energyText;
     public delegate void energyFull();
     public event energyFull OnEnergyFull;
     private void Update()
     {
         energy += Time.deltaTime;
+        energySlider.value = energy;
         if(energy>1)
         {
             energy = 0;
+            _canUseSkills = 0;
             if (OnEnergyFull != null)
                 OnEnergyFull();
+        }
+    }
+    /// <summary>能用的技能个数 </summary>
+    private int _canUseSkills;
+    public int canUseSkills
+    {
+        get
+        {
+            return _canUseSkills; 
+        }
+        set 
+        {
+            _canUseSkills = value;
+            energyText.text = _canUseSkills.ToString();
         }
     }
 

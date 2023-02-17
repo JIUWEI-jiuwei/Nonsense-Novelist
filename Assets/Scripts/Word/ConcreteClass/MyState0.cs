@@ -4,25 +4,25 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// ×Ô¼º×´Ì¬£¨³éÏó½ÇÉ«½Å±¾¹ÒÉÏÊ±£¬´Ë½Å±¾×Ô¶¯¸ú×Å¹ÒÉÏ£©
+    /// è‡ªå·±çŠ¶æ€ï¼ˆæŠ½è±¡è§’è‰²è„šæœ¬æŒ‚ä¸Šæ—¶ï¼Œæ­¤è„šæœ¬è‡ªåŠ¨è·Ÿç€æŒ‚ä¸Šï¼‰
     /// </summary>
     public class MyState0 : MonoBehaviour
     {
-        /// <summary>½ÇÉ«</summary>
+        /// <summary>è§’è‰²</summary>
         [HideInInspector] public AbstractCharacter character;
-        /// <summary>ÓµÓĞµÄËùÓĞ×´Ì¬</summary>
+        /// <summary>æ‹¥æœ‰çš„æ‰€æœ‰çŠ¶æ€</summary>
         public List<AbstractState> allState = new List<AbstractState>();
-        /// <summary>µ±Ç°×´Ì¬</summary>
+        /// <summary>å½“å‰çŠ¶æ€</summary>
         public AbstractState nowState;
-        /// <summary>Ä¬ÈÏ×´Ì¬</summary>
+        /// <summary>é»˜è®¤çŠ¶æ€</summary>
         [HideInInspector] public AbstractState defaultState;
 
 
-        /// <summary>¹Ø×¢µÄÄ¿±ê</summary>
+        /// <summary>å…³æ³¨çš„ç›®æ ‡</summary>
         public AbstractCharacter aim;
-        /// <summary>ÉÈĞÎËÑË÷£¨ÓÃÓÚµ÷ÓÃÆäÖĞ·½·¨£©</summary>
+        /// <summary>æ‰‡å½¢æœç´¢ï¼ˆç”¨äºè°ƒç”¨å…¶ä¸­æ–¹æ³•ï¼‰</summary>
         public SingleSelector sectorSearch = new SingleSelector();
-        /// <summary>ÒÆËÙ</summary>
+        /// <summary>ç§»é€Ÿ</summary>
         public float speed = 0.1f;
 
         public void Awake()
@@ -34,7 +34,7 @@ namespace AI
         }
         public void Start()
         {
-            character = this.GetComponent<AbstractCharacter>();
+            //character = this.GetComponent<AbstractCharacter>();//åœ¨è§’è‰²é‚£è¾¹å·²å†™
             nowState = defaultState = allState.Find(p => p.id == StateID.idle);
             nowState.EnterState(this);
 
@@ -50,7 +50,7 @@ namespace AI
         {
             while (true)
             {
-                nowState.CheckTrigger(this);//¸üĞÂ×´Ì¬
+                nowState.CheckTrigger(this);//æ›´æ–°çŠ¶æ€
                 yield return new WaitForSeconds(0.1f);
             }
 
@@ -59,21 +59,21 @@ namespace AI
         {
             while (true)
             {
-                aim = FindAim();//²»¶ÏÑ°ÕÒ¸ü½üµÄµĞÈË
+                aim = FindAim();//ä¸æ–­å¯»æ‰¾æ›´è¿‘çš„æ•Œäºº
                 yield return new WaitForSeconds(1);
             }
         }
         /// <summary>
-        /// Ñ°ÕÒÄ¿±ê
+        /// å¯»æ‰¾ç›®æ ‡
         /// </summary>
         public AbstractCharacter FindAim()
         {
-            //ËùÓĞÄ¿±ê
+            //æ‰€æœ‰ç›®æ ‡
             AbstractCharacter[] a = sectorSearch.CaculateRange(character.attackDistance, character.situation,NeedCampEnum.enemy);
             return a[0];
         }
         /// <summary>
-        /// ×´Ì¬ÇĞ»»
+        /// çŠ¶æ€åˆ‡æ¢
         /// </summary> 
         public void ChangeActiveState(StateID stateID)
         {

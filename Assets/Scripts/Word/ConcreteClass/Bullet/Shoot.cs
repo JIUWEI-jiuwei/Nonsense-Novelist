@@ -28,6 +28,8 @@ public class Shoot : MonoBehaviour
     public Slider aimSlider;
     /// <summary>存储WordCollisionShoot的词条属性</summary>
     public static AbstractWord0 abs;
+    /// <summary>手动，词条信息板 </summary>
+    public WordInformation information;
 
     private void Update()
     {
@@ -52,7 +54,8 @@ public class Shoot : MonoBehaviour
             }
             else if (Input.GetButtonUp("Fire1") && !fired)
             {
-                CreateWordBullet();
+                //有请九尾+++++++++++++++++++++++++
+                CreateWordBullet(new DuXian());//因为没有实际用处所以暂时用new，可以随便改
             }
 
         }
@@ -60,7 +63,7 @@ public class Shoot : MonoBehaviour
     /// <summary>
     /// 产生词条实体
     /// </summary>
-    void CreateWordBullet()
+    void CreateWordBullet(AbstractWord0 word)
     {
         fired = true; // 设置开火状态为已开火
 
@@ -75,7 +78,7 @@ public class Shoot : MonoBehaviour
 
         //给小球增加词条属性
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord= go.AddComponent(AllSkills.CreateSkillWord()) as AbstractWords0;
-        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<DuXian>();
+        GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent(word.GetType()) as AbstractWord0;
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<LengXiangPill>();
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<XinShenJiDang>();
         //GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = go.gameObject.AddComponent<YouAnQuanGan>();
@@ -83,9 +86,10 @@ public class Shoot : MonoBehaviour
         abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord;
         //增加词条图像
 
-
-
         //给词条添加一个初始的力
         go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * crtForce);
+
+        //下一个词条？++++++++++++++++++++
+        information.ChangeInformation(word);//等你写好了改这个实参++++++++++++++++++++++++++++++
     }
 }

@@ -16,7 +16,7 @@ abstract public class AbstractWord0 : MonoBehaviour
     public string wordName;
     /// <summary>图标/头像</summary>
     public Image pattern;
-    /// <summary>简介(弃用)</summary>
+    /// <summary>简介</summary>
     public string brief;
     /// <summary>详细描述</summary>
     public string description;

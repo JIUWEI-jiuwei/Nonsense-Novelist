@@ -13,6 +13,8 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     /// <summary>技能序号</summary>
     public int skillID;
 
+    public AbstractCharacter character;
+
 
     /// <summary>施法者特效</summary>
     public Animation userAnim;
@@ -56,14 +58,26 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
         if(OnAwake!=null) 
         OnAwake();
 
+        character=this.GetComponent<AbstractCharacter>();
+        if (character != null)
+        {
+            character.OnEnergyFull += CdAdd;
+        }
+
         wordKind = WordKindEnum.verb;
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots.Add(gameObject.AddComponent<Common>());
 
     }
-
     public delegate void AwakeHandler();
     static public event AwakeHandler OnAwake;
+
+    public virtual void CdAdd()
+    {
+        CD++;
+        if(CD+1>=needCD) 
+        character.canUseSkills++;
+    }
 
     /// <summary>
     /// 技能效果(特殊效果）

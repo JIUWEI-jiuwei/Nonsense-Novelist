@@ -502,6 +502,7 @@ MonoBehaviour:
   description: 
   nickname: []
   rarity: 0
+  wordCollisionShoots: []
   characterID: 0
   gender: 0
   source: {fileID: 0}
