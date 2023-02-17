@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// �������
 /// </summary>
-abstract public class AbstractWords0 : MonoBehaviour
+abstract public class AbstractWord0 : MonoBehaviour
 {
     /// <summary>词性</summary>
     public WordKindEnum wordKind;
@@ -16,7 +16,7 @@ abstract public class AbstractWords0 : MonoBehaviour
     public string wordName;
     /// <summary>图标/头像</summary>
     public Image pattern;
-    /// <summary>简介</summary>
+    /// <summary>简介(弃用)</summary>
     public string brief;
     /// <summary>详细描述</summary>
     public string description;

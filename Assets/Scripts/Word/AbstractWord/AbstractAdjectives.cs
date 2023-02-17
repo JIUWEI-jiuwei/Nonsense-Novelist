@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ĞÎÈİ´Ê
+/// å½¢å®¹è¯
 /// </summary>
-abstract public class AbstractAdjectives : AbstractWords0
+abstract public class AbstractAdjectives : AbstractWord0
 {
-    /// <summary>¼¼ÄÜĞòºÅ</summary>
+    /// <summary>æŠ€èƒ½åºå·</summary>
     public int adjID;
-    /// <summary>Ä¿±êÌØĞ§</summary>
+    /// <summary>ç›®æ ‡ç‰¹æ•ˆ</summary>
     public Animation anim;
-    /// <summary>¼¼ÄÜÀàĞÍ </summary>
+    /// <summary>æŠ€èƒ½ç±»å‹ </summary>
     public AbstractSkillMode skillMode;
-    /// <summary>Éä³Ì(ÆúÓÃ£©</summary>
+    /// <summary>å°„ç¨‹(å¼ƒç”¨ï¼‰</summary>
     public int attackDistance=100;
-    /// <summary>¼¼ÄÜĞ§¹û(ÌØÊâºóĞøĞ§¹û£©³ÖĞøÊ±³¤ </summary>
+    /// <summary>æŠ€èƒ½æ•ˆæœ(ç‰¹æ®Šåç»­æ•ˆæœï¼‰æŒç»­æ—¶é•¿ </summary>
     public float skillEffectsTime;
 
     public AbstractCharacter aim;
-    /// <summary>ÌØÊâĞ§¹û´æ´¢ÒıÓÃ</summary>
+    /// <summary>ç‰¹æ®Šæ•ˆæœå­˜å‚¨å¼•ç”¨</summary>
     protected List<AbstractBuff> buffs=new List<AbstractBuff>();
 
     public virtual void Awake()
@@ -32,19 +32,19 @@ abstract public class AbstractAdjectives : AbstractWords0
 
     }
     /// <summary>
-    /// ¼¼ÄÜĞ§¹û(ÌØÊâĞ§¹û£©
+    /// æŠ€èƒ½æ•ˆæœ(ç‰¹æ®Šæ•ˆæœï¼‰
     /// </summary>
     abstract public void BasicAbility(AbstractCharacter aimCharacter);
 
     /// <summary>
-    /// Ê¹ÓÃ¼¼ÄÜ
+    /// ä½¿ç”¨æŠ€èƒ½
     /// </summary>
-    /// <param name="aimCharacter">Ä¿±ê</param>
+    /// <param name="aimCharacter">ç›®æ ‡</param>
     virtual public void UseAdj(AbstractCharacter aimCharacter)
     {
         AbstractBook.afterFightText += UseText();
     }
-    /// <summary>µ¹¼ÆÊ±</summary>
+    /// <summary>å€’è®¡æ—¶</summary>
     protected float nowTime;
     virtual protected void Update()
     {

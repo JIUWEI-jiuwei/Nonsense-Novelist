@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 抽象动词类（技能）
 /// </summary>
-abstract public class AbstractVerbs : AbstractWords0 ,ICD
+abstract public class AbstractVerbs : AbstractWord0 ,ICD
 {
     /// <summary>技能序号</summary>
     public int skillID;

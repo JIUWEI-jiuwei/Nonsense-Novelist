@@ -4,21 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ÎïÆ·£¨×Ô¼º´¦ÀíÃ¿Ãë×öµÄÊÂ£©
+/// ç‰©å“ï¼ˆè‡ªå·±å¤„ç†æ¯ç§’åšçš„äº‹ï¼‰
 /// </summary>
-abstract class AbstractItems : AbstractWords0
+abstract class AbstractItems : AbstractWord0
 {
-    /// <summary>ÎïÆ·ĞòºÅ</summary>
+    /// <summary>ç‰©å“åºå·</summary>
     public int itemID;
-    /// <summary>ÎïÆ·¶ÔÓ¦Õ½³¡ĞÎÏó</summary>
+    /// <summary>ç‰©å“å¯¹åº”æˆ˜åœºå½¢è±¡</summary>
     public GameObject obj;
-    /// <summary>³ÖÓĞ·½Ê½</summary>
+    /// <summary>æŒæœ‰æ–¹å¼</summary>
     public HoldEnum holdEnum;
-    /// <summary>ÎïÆ·²ÄÖÊ£¬¶ÔÓ¦ÒôĞ§ÖÖÀà </summary>
+    /// <summary>ç‰©å“æè´¨ï¼Œå¯¹åº”éŸ³æ•ˆç§ç±» </summary>
     public MaterialVoiceEnum VoiceEnum;
 
     protected AbstractCharacter aim;
-    /// <summary>ÌØÊâĞ§¹û´æ´¢ÒıÓÃ</summary>
+    /// <summary>ç‰¹æ®Šæ•ˆæœå­˜å‚¨å¼•ç”¨</summary>
     protected List<AbstractBuff> buffs = new List<AbstractBuff>();
 
     virtual public void Awake()
@@ -31,16 +31,16 @@ abstract class AbstractItems : AbstractWords0
     }
 
     /// <summary>
-    /// ³õÊ¼ÊÍ·Å
+    /// åˆå§‹é‡Šæ”¾
     /// </summary>
-    /// <param name="chara">³ÖÓĞÕß</param>
+    /// <param name="chara">æŒæœ‰è€…</param>
     virtual public void UseItems(AbstractCharacter chara)
     {
         
     }
 
     /// <summary>
-    /// Ïàµ±ÓÚUpdate
+    /// ç›¸å½“äºUpdate
     /// </summary>
     /// <param name="chara"></param>
     virtual public void UseVerbs()
@@ -57,7 +57,7 @@ abstract class AbstractItems : AbstractWords0
     }
 
     /// <summary>
-    /// Ïàµ±ÓÚOnDestroy()
+    /// ç›¸å½“äºOnDestroy()
     /// </summary>
     virtual public void End()
     {

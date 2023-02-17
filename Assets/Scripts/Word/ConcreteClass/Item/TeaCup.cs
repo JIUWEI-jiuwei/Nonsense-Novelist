@@ -12,7 +12,7 @@ class TeaCup : AbstractItems
         itemID = 1;
         wordName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
-        description = "一个相当精致的茶杯，提升3点意志";
+        description = "加2精神";
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 0;
     }

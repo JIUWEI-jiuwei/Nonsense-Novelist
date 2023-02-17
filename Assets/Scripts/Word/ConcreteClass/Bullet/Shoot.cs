@@ -27,7 +27,7 @@ public class Shoot : MonoBehaviour
     /// <summary>蓄力Slider</summary>
     public Slider aimSlider;
     /// <summary>存储WordCollisionShoot的词条属性</summary>
-    public static AbstractWords0 abs;
+    public static AbstractWord0 abs;
 
     private void Update()
     {

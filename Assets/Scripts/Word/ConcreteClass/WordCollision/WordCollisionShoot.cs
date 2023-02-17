@@ -8,7 +8,7 @@ using UnityEngine;
 public class WordCollisionShoot : MonoBehaviour
 {
     /// <summary>词条技能 </summary>
-    public AbstractWords0 absWord;
+    public AbstractWord0 absWord;
     /// <summary>计时器 </summary>
     public float timer;
 

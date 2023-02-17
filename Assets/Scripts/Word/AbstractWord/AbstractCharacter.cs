@@ -10,7 +10,7 @@ using UnityEngine;
 /// <summary>
 /// 抽象角色类
 /// </summary>
-abstract public class AbstractCharacter : AbstractWords0
+abstract public class AbstractCharacter : AbstractWord0
 {
     protected MyState0 myState;
     /// <summary>序号</summary>

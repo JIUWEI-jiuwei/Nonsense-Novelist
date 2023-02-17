@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 ///<summary>
-///³é½±ºĞ¶¯»­
+///æŠ½å¥–ç›’åŠ¨ç”»
 ///</summary>
 class BoxAnim : MonoBehaviour
 {
-    /// <summary>¸½¼ÓÔÚºĞ×ÓÉÏµÄ¶¯»­Æ¬¶ÎÃû³Æ</summary>
+    /// <summary>é™„åŠ åœ¨ç›’å­ä¸Šçš„åŠ¨ç”»ç‰‡æ®µåç§°</summary>
     private string anim1;
     private string anim2;
     private string anim3;
@@ -15,17 +15,17 @@ class BoxAnim : MonoBehaviour
     private string anim5;
     private string anim6;
     private string anim7;
-    /// <summary>¶¯»­ĞĞÎªÀà</summary>
+    /// <summary>åŠ¨ç”»è¡Œä¸ºç±»</summary>
     public AnimationActor animActor;
-    /// <summary>¶¯»­Æ¬¶ÎÃû³ÆµÄ¼¯ºÏ</summary>
+    /// <summary>åŠ¨ç”»ç‰‡æ®µåç§°çš„é›†åˆ</summary>
     private List<string> animNames=new List<string>();
-    /// <summary>Ëæ»úÉú³ÉµÄ6¸öËæ»úÊı</summary>
+    /// <summary>éšæœºç”Ÿæˆçš„6ä¸ªéšæœºæ•°</summary>
     private int[] nums = new int[6];
-    /// <summary>´ÊÌõÔ¤ÖÆÌå</summary>
+    /// <summary>è¯æ¡é¢„åˆ¶ä½“</summary>
     public GameObject wordPrefab;
-    /// <summary>¸¸ÎïÌå±ä»»×é¼ş</summary>
+    /// <summary>çˆ¶ç‰©ä½“å˜æ¢ç»„ä»¶</summary>
     public Transform parentTF;
-    /// <summary>ÅĞ¶ÏÊÇ·ñÊÇµÚÒ»´Îµã»÷</summary>
+    /// <summary>åˆ¤æ–­æ˜¯å¦æ˜¯ç¬¬ä¸€æ¬¡ç‚¹å‡»</summary>
     public bool isFirst=false;
     private void Awake()
     {
@@ -34,7 +34,7 @@ class BoxAnim : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     /// <summary>
-    /// ³éÈ¡6¸ö´ÊÌõ¶¯»­
+    /// æŠ½å–6ä¸ªè¯æ¡åŠ¨ç”»
     /// </summary>
     /// <returns></returns>
     public void NumberRandom()
@@ -49,9 +49,9 @@ class BoxAnim : MonoBehaviour
         }
     }
     /// <summary>
-    /// µİ¹é£¨·µ»ØÒ»¸öÎ´ÖØ¸´µÄÔªËØ£©
+    /// é€’å½’ï¼ˆè¿”å›ä¸€ä¸ªæœªé‡å¤çš„å…ƒç´ ï¼‰
     /// </summary>
-    /// <param name="a">µ±Ç°µÄÔªËØ</param>
+    /// <param name="a">å½“å‰çš„å…ƒç´ </param>
     /// <returns></returns>
     private int Useable(int a)
     {
@@ -67,9 +67,9 @@ class BoxAnim : MonoBehaviour
         return nums[a];
     }
     /// <summary>
-    /// ÅĞ¶ÏÊÇ·ñÖØ¸´
+    /// åˆ¤æ–­æ˜¯å¦é‡å¤
     /// </summary>
-    /// <param name="length">µ±Ç°µÄÔªËØ</param>
+    /// <param name="length">å½“å‰çš„å…ƒç´ </param>
     /// <returns></returns>
     public bool IsUseable(int length)
     {
@@ -83,7 +83,7 @@ class BoxAnim : MonoBehaviour
         return true;
     }
     /// <summary>
-    /// µã»÷ºĞ×Ó²¥·Å¶¯»­
+    /// ç‚¹å‡»ç›’å­æ’­æ”¾åŠ¨ç”»
     /// </summary>
     public void BoxPlay()
     {
@@ -93,7 +93,7 @@ class BoxAnim : MonoBehaviour
         }
     }
     /// <summary>
-    /// Ëæ»úÉú³É6¸öĞÂµÄ´ÊÌõ
+    /// éšæœºç”Ÿæˆ6ä¸ªæ–°çš„è¯æ¡
     /// </summary>
     public void CreateWord()
     {
@@ -107,11 +107,11 @@ class BoxAnim : MonoBehaviour
                     {
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
                         Type absWord = AllSkills.OnDrawBox();
-                        //½«¼¼ÄÜ´¢´æ£¬¼ÓÔØµ½ÏÂÒ»¸ö³¡¾°
+                        //å°†æŠ€èƒ½å‚¨å­˜ï¼ŒåŠ è½½åˆ°ä¸‹ä¸€ä¸ªåœºæ™¯
                         AllSkills.absWords[i] = absWord;
                         word.AddComponent(absWord);
-                        //ÈÃbuttonµÄtextÏÔÊ¾¼¼ÄÜÎÄ×Ö
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWords0>().wordName);
+                        //è®©buttonçš„textæ˜¾ç¤ºæŠ€èƒ½æ–‡å­—
+                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWord0>().wordName);
                         word.transform.SetParent(parentTF);
                     }
                 }

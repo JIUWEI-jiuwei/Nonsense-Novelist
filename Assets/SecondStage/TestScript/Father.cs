@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Father : MonoBehaviour
 {
-    public AbstractWords0 abs;
+    public AbstractWord0 abs;
 
     public virtual void Awake()
     {

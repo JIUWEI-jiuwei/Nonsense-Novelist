@@ -3,36 +3,36 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 ///<summary>
-///Êó±êÍÏ×§
+///é¼ æ ‡æ‹–æ‹½
 ///</summary>
 class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    /// <summary>Í¼ÏñÎ»ÖÃ</summary>
+    /// <summary>å›¾åƒä½ç½®</summary>
     private RectTransform rectTrans;
-    /// <summary>¿¨²Û¸¸ÎïÌåÎ»ÖÃ</summary>
+    /// <summary>å¡æ§½çˆ¶ç‰©ä½“ä½ç½®</summary>
     private Transform gridPanel;
-    /// <summary>¿¨²Û¸¸ÎïÌåÎ»ÖÃ£¨ÓÃÓÚ²âÊÔ£©</summary>
+    /// <summary>å¡æ§½çˆ¶ç‰©ä½“ä½ç½®ï¼ˆç”¨äºæµ‹è¯•ï¼‰</summary>
     private Transform gridPanelForTest;
-    /// <summary>´ÊÌõ¸¸ÎïÌåÎ»ÖÃ</summary>
+    /// <summary>è¯æ¡çˆ¶ç‰©ä½“ä½ç½®</summary>
     private Transform wordPanel;
-    /// <summary>´ÊÌõ¸¸ÎïÌåÎ»ÖÃ</summary>
+    /// <summary>è¯æ¡çˆ¶ç‰©ä½“ä½ç½®</summary>
     private Transform testPanel;
-    /// <summary>CanvasGroup×é¼ş</summary>
+    /// <summary>CanvasGroupç»„ä»¶</summary>
     private CanvasGroup canvasGroup;
-    /// <summary>´ÊÌõÉíÉÏµÄ¼¼ÄÜ½Å±¾</summary>
-    private AbstractWords0 absWord;
+    /// <summary>è¯æ¡èº«ä¸Šçš„æŠ€èƒ½è„šæœ¬</summary>
+    private AbstractWord0 absWord;
 
-    /// <summary>ĞÎÈİ´ÊµÄ¼ÓÔØÔ²È¦</summary>
+    /// <summary>å½¢å®¹è¯çš„åŠ è½½åœ†åœˆ</summary>
     public GameObject adjCircle;
-    /// <summary>¶¯´ÊµÄ¼ÓÔØÔ²È¦</summary>
+    /// <summary>åŠ¨è¯çš„åŠ è½½åœ†åœˆ</summary>
     public GameObject verbCircle;
-    /// <summary>ĞÎÈİ´ÊÔ²È¦¼ÓÔØµÄÎ»ÖÃ</summary>
+    /// <summary>å½¢å®¹è¯åœ†åœˆåŠ è½½çš„ä½ç½®</summary>
     private Transform parentCircleTF;
-    /// <summary>ÒôĞ§summary>
+    /// <summary>éŸ³æ•ˆsummary>
     private AudioSource audioSource;
-    /// <summary>ÒôĞ§summary>
+    /// <summary>éŸ³æ•ˆsummary>
     private AudioSource audioSource_cantuse;
-    /// <summary>´ÊÌõÏêÇé</summary>
+    /// <summary>è¯æ¡è¯¦æƒ…</summary>
     public GameObject wordDetail;
     private GameObject otherCanvas;
 
@@ -40,7 +40,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     {
         rectTrans = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        absWord = GetComponent<AbstractWords0>();
+        absWord = GetComponent<AbstractWord0>();
         otherCanvas = GameObject.Find("MainCanvas");
         FindGrid();
         if (SceneManager.GetActiveScene().name == "Combat")
@@ -50,7 +50,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         }
     }
     /// <summary>
-    /// ¿ªÊ¼ÍÏ×§
+    /// å¼€å§‹æ‹–æ‹½
     /// </summary>
     /// <param name="eventData"></param>
     public void OnBeginDrag(PointerEventData eventData)
@@ -59,12 +59,12 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         canvasGroup.alpha = 0.5f;
     }
     /// <summary>
-    /// ÕıÔÚÍÏ×§
+    /// æ­£åœ¨æ‹–æ‹½
     /// </summary>
     /// <param name="eventData"></param>
     public void OnDrag(PointerEventData eventData)
     {
-        //½ÃÕıÊó±êÎ»ÖÃÆ«ÒÆ
+        //çŸ«æ­£é¼ æ ‡ä½ç½®åç§»
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "MainCanvas")
@@ -74,14 +74,14 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         }
     }
     /// <summary>
-    /// ÍÏ×§½áÊø
+    /// æ‹–æ‹½ç»“æŸ
     /// </summary>
     /// <param name="eventData"></param>
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
-        //ÈôÎ´Ê¹ÓÃ£¬Ôò»Øµ½×î³õÎ»ÖÃ
+        //è‹¥æœªä½¿ç”¨ï¼Œåˆ™å›åˆ°æœ€åˆä½ç½®
         if (rectTrans != null)
         {
             //FindGrid();
@@ -89,27 +89,27 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null)
         {
-            #region °æ±¾Ò»£º½«UI´ÊÌõÍÏ×§µ½½ÇÉ«ÉíÉÏ
+            #region ç‰ˆæœ¬ä¸€ï¼šå°†UIè¯æ¡æ‹–æ‹½åˆ°è§’è‰²èº«ä¸Š
 
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Character"))
             {
-                //²¥·Å´ÊÌõÍÏ×§ÉÏÈ¥µÄÒôĞ§
+                //æ’­æ”¾è¯æ¡æ‹–æ‹½ä¸Šå»çš„éŸ³æ•ˆ
                 audioSource.Play();
                 AbstractCharacter character = hit.collider.gameObject.GetComponent<AbstractCharacter>();
 
-                //ÅĞ¶Ï¸Ã´ÊÌõÊÇĞÎÈİ´Ê»¹ÊÇ¶¯´Ê
+                //åˆ¤æ–­è¯¥è¯æ¡æ˜¯å½¢å®¹è¯è¿˜æ˜¯åŠ¨è¯
                 if (absWord.GetType() == typeof(AbstractVerbs))
                 {
                     AbstractVerbs b = this.GetComponent<AbstractVerbs>();
 
-                    //if(CanUseVerb(character, b))//Èç¹ûÄÜ¹»Ê¹ÓÃµ½½ÇÉ«ÉíÉÏ
+                    //if(CanUseVerb(character, b))//å¦‚æœèƒ½å¤Ÿä½¿ç”¨åˆ°è§’è‰²èº«ä¸Š
                     //{
                         hit.collider.gameObject.AddComponent(b.GetType());
                         character.skills.Add(b);
                         //character.realSkills = character.GetComponents<AbstractVerbs>();
                         Destroy(this.gameObject);
                     //}
-                   //     else//²»ÄÜ
+                   //     else//ä¸èƒ½
                    // {
                    //     audioSource_cantuse.Play();
                    // }
@@ -135,7 +135,7 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
     
 
     /// <summary>
-    /// ½«´ÊÌõÎ»ÖÃÓë¿¨²ÛÎ»ÖÃÏàÆ¥Åä
+    /// å°†è¯æ¡ä½ç½®ä¸å¡æ§½ä½ç½®ç›¸åŒ¹é…
     /// </summary>
     public void FindGrid()
     {
@@ -162,14 +162,14 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
         }       
     }
     /// <summary>
-    /// ²é¿´´ÊÌõÏêÏ¸ĞÅÏ¢
+    /// æŸ¥çœ‹è¯æ¡è¯¦ç»†ä¿¡æ¯
     /// </summary>
     public void ShowDetails()
     {
-        //»ñÈ¡±³¾°°å
+        //è·å–èƒŒæ™¯æ¿
         Transform a = Instantiate(wordDetail, otherCanvas.transform).transform.GetChild(0).GetChild(0);
-        a.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().wordName;
-        a.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().description;
+        a.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<AbstractWord0>().wordName;
+        a.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<AbstractWord0>().description;
         Time.timeScale = 0;
     }
 

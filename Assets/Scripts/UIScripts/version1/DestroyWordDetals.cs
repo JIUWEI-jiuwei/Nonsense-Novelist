@@ -2,11 +2,11 @@ using UnityEngine.UI;
 using UnityEngine;
 
 ///<summary>
-///¹Ø±Õ´ÊÌõÏêÇéÃæ°å(¹ÒÔÚ´ÊÌõÏêÇéÃæ°åÉÏ)
+///å…³é—­è¯æ¡è¯¦æƒ…é¢æ¿(æŒ‚åœ¨è¯æ¡è¯¦æƒ…é¢æ¿ä¸Š)
 ///</summary>
 class DestroyWordDetals : MonoBehaviour
 {
-    /// <summary>´ÊÌõÏêÇé</summary>
+    /// <summary>è¯æ¡è¯¦æƒ…</summary>
     public GameObject wordDetail;
     private GameObject otherCanvas;
     private void Start()
@@ -19,14 +19,14 @@ class DestroyWordDetals : MonoBehaviour
         Time.timeScale = 1;
     }
     /// <summary>
-    /// ²é¿´´ÊÌõÏêÏ¸ĞÅÏ¢
+    /// æŸ¥çœ‹è¯æ¡è¯¦ç»†ä¿¡æ¯
     /// </summary>
     public void ShowDetails()
     {
-        //»ñÈ¡±³¾°°å
+        //è·å–èƒŒæ™¯æ¿
         Transform a = Instantiate(wordDetail, otherCanvas.transform).transform.GetChild(0).GetChild(0);
-        a.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().wordName;
-        a.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<AbstractWords0>().description;
+        a.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<AbstractWord0>().wordName;
+        a.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<AbstractWord0>().description;
         Time.timeScale = 0;
     }
 }
