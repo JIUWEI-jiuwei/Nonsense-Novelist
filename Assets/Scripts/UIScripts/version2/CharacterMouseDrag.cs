@@ -107,7 +107,7 @@ public class CharacterMouseDrag : MonoBehaviour
                 else
                 {
                     this.GetComponent<AbstractCharacter>().camp = CampEnum.right;
-
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
             }
 

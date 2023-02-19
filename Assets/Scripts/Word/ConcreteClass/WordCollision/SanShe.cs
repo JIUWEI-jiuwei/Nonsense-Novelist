@@ -15,6 +15,9 @@ public class SanShe : WordCollisionShoot
     }
     public void OnCollisionEnter2D(Collision2D collision)//(角度计算有问题)
     {
+        //给absWord赋值
+        absWord = Shoot.abs;
+
         if (!hasCol && collision.transform.tag == "wall")
         {
             hasCol = true;

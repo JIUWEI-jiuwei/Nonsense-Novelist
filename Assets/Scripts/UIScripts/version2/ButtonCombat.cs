@@ -16,12 +16,18 @@ public class ButtonCombat : MonoBehaviour
     private GameObject[] situations;
     /// <summary>所有角色</summary>
     private GameObject[] characters;
+    /// <summary>发射器</summary>
+    public GameObject shooter;
 
     private void Start()
     {
         start = GetComponent<Button>();
         situations = GameObject.FindGameObjectsWithTag("situation");
         characters = GameObject.FindGameObjectsWithTag("character");
+        //发射器禁用
+        shooter.GetComponent<Shoot>().enabled = false;
+        shooter.GetComponent<RollControler>().enabled = false;
+
     }
 
     /// <summary>
@@ -31,28 +37,28 @@ public class ButtonCombat : MonoBehaviour
     {
         if (isTwoSides&&isAllCharaUp)
         {
+            // 将所有站位颜色隐藏
             foreach (GameObject it in situations)
             {
                 it.GetComponent<SpriteRenderer>().material.color = Color.clear;
             }
-        }
-        
-    }
-    /// <summary>
-    /// 所有角色不可拖拽
-    /// </summary>
-    public void RemoveCharacterDrag()
-    {
-        if (isTwoSides && isAllCharaUp)
-        {
+            // 所有角色不可拖拽
             foreach (GameObject it in characters)
             {
                 Destroy(it.GetComponent<CharacterMouseDrag>());
             }
+            //发射器启用
+            shooter.GetComponent<Shoot>().enabled = true;
+            shooter.GetComponent<RollControler>().enabled = true;
+
         }
         
-
     }
+
+
+    /// <summary>
+    /// 两方至少要有一名角色
+    /// </summary>
     public void TwoSides()
     {
         
@@ -74,6 +80,9 @@ public class ButtonCombat : MonoBehaviour
             print("两方至少要有一名角色");
         }
     }
+    /// <summary>
+    /// 仍有角色未就位
+    /// </summary>
     public void AllCharaUp()
     {
         if (!isAllCharaUp)

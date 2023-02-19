@@ -165,23 +165,28 @@ abstract public class AbstractCharacter : AbstractWord0
     virtual public void Awake()
     {
         energyCanvas = this.GetComponentInChildren<Canvas>();
+        energyCanvas.worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
         energySlider=this.GetComponentInChildren<Slider>();
         energyText = this.GetComponentInChildren<Text>();
         energyCanvas.gameObject.SetActive(false);
 
         myState = GetComponent<MyState0>();
         myState.character = this;
+        myState.enabled = false;
+
         teXiao=GetComponentInChildren<TeXiao>();
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
         charaAnim=GetComponent<CharaAnim>();
 
-        if (GameObject.Find("SelfCharacter") != null)
+        if (GameObject.Find("AllCharacter") != null)
         {
-            AbstractCharacter[] a = GameObject.Find("SelfCharacter").GetComponentsInChildren<AbstractCharacter>();
+            AbstractCharacter[] a = GameObject.Find("AllCharacter").GetComponentsInChildren<AbstractCharacter>();
             AbstractCharacter b = CollectionHelper.Find(a, p => p.wordName != wordName);
             AbstractBook.beforeFightText += ShowText(b);
         }
+
+        this.enabled = false;
     }
     private void OnEnable()
     {
