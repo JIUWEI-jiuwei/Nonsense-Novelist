@@ -4,19 +4,21 @@ using UnityEngine;
 
 /// <summary>
 /// 挂在父物体(charaPos)上，随机生成4个角色子物体，分别位于四个空物体下
+/// start按钮响应函数
 /// </summary>
 public class CreateOneCharacter : MonoBehaviour
 {
+    /// <summary>（手动挂）角色预制体池</summary>
     public GameObject[] charaPrefabs;
     private List<int> array = new List<int>();
 
     private void Awake()
     {
-
+        //初始生成四个角色
         for (int i = 0; i < 4; i++)
         {
             int number = UnityEngine.Random.Range(0, charaPrefabs.Length);
-            while (array.Contains(number))
+            while (array.Contains(number))//去重
             {
                 number = UnityEngine.Random.Range(0, charaPrefabs.Length);
             }
@@ -82,6 +84,8 @@ public class CreateOneCharacter : MonoBehaviour
         }
         else if (isTwoSides && isAllCharaUp)//成功开始
         {
+            //将UICanvas隐藏
+            GameObject.Find("UICanvas").SetActive(false);
 
             // 将所有站位颜色隐藏
             foreach (Situation it in Situation.allSituation)
