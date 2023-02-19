@@ -98,15 +98,23 @@ public class CharacterMouseDrag : MonoBehaviour
                 if(lastParentTF.gameObject.GetComponent<SpriteRenderer>())
                     lastParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = new Color((float)180/255, (float)180 /255, (float)180 /255, 1);
 
+                AbstractCharacter c = this.GetComponent<AbstractCharacter>();
                 //根据站位给角色阵营赋值
                 if (hit.collider.gameObject.GetComponent<Situation>().number < 6)
                 {
-                    this.GetComponent<AbstractCharacter>().camp = CampEnum.left;
-
+                    c.camp = CampEnum.left;
+                    if (CharacterManager.charas_right.Contains(c))
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                        CharacterManager.charas_right.Remove(c);
+                    }
+                    CharacterManager.charas_left.Add(c);
                 }
                 else
                 {
-                    this.GetComponent<AbstractCharacter>().camp = CampEnum.right;
+                    c.camp = CampEnum.right;
+                    if (CharacterManager.charas_left.Contains(c)) CharacterManager.charas_left.Remove(c);
+                    CharacterManager.charas_right.Add(c);
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
             }

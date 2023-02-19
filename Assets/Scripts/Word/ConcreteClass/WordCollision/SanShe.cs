@@ -13,6 +13,12 @@ public class SanShe : WordCollisionShoot
     {
         base.Awake();
     }
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        //给absWord赋值
+        absWord = Shoot.abs;
+        base.OnTriggerEnter2D(collision);
+    }
     public void OnCollisionEnter2D(Collision2D collision)//(角度计算有问题)
     {
         //给absWord赋值

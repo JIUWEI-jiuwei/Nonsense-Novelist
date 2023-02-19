@@ -35,7 +35,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
     /// <summary>
     /// 2.程序运行时（Awake），从场景中找到 脚本的唯一实例，记录在m_instance中）
     /// </summary>
-    private void Awake()
+    virtual public void Awake()
     {
 
         if (m_Instance == null)
@@ -47,7 +47,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
     public virtual void Init() { }
     //应用程序退出，清除对象
 
-    private void OnApplicationQuit()
+    virtual public void OnApplicationQuit()
     {
         m_Instance = null;
     }

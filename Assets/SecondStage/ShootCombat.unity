@@ -1539,6 +1539,7 @@ MonoBehaviour:
   - {fileID: 2923459406948245553, guid: 41fa4755dae4fc1478c606d816b532f8, type: 3}
   - {fileID: 8792533845088263391, guid: 32a3c3de17364f840973d1d7c6e21d6f, type: 3}
   - {fileID: 3837959891539934793, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
+  shooter: {fileID: 1930712499}
 --- !u!1 &632021670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,7 +2791,6 @@ GameObject:
   - component: {fileID: 1252078127}
   - component: {fileID: 1252078126}
   - component: {fileID: 1252078125}
-  - component: {fileID: 1252078128}
   m_Layer: 5
   m_Name: start
   m_TagString: Untagged
@@ -2862,33 +2862,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1252078128}
-        m_TargetAssemblyTypeName: ButtonCombat, Assembly-CSharp
-        m_MethodName: ChangeSituationColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1252078128}
-        m_TargetAssemblyTypeName: ButtonCombat, Assembly-CSharp
-        m_MethodName: AllCharaUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1252078128}
-        m_TargetAssemblyTypeName: ButtonCombat, Assembly-CSharp
-        m_MethodName: TwoSides
+      - m_Target: {fileID: 622972521}
+        m_TargetAssemblyTypeName: CreateOneCharacter, Assembly-CSharp
+        m_MethodName: CombatStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2948,19 +2924,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252078123}
   m_CullTransparentMesh: 1
---- !u!114 &1252078128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252078123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6dd64d776b60dc49825b087044332b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shooter: {fileID: 1930712499}
 --- !u!1 &1252378456
 GameObject:
   m_ObjectHideFlags: 0

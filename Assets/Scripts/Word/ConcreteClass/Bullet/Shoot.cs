@@ -35,7 +35,7 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
-        if (ButtonCombat. isTwoSides && ButtonCombat.isAllCharaUp)
+        if (CreateOneCharacter. isTwoSides && CreateOneCharacter.isAllCharaUp)
         {
             aimSlider.value = 0; // 重置slider的值
 
@@ -80,8 +80,8 @@ public class Shoot : MonoBehaviour
 
         //给小球增加词条属性
 
-        //abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord= bulletInstance.AddComponent(AllSkills.CreateSkillWord()) as AbstractWord0;
-        abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = bulletInstance.AddComponent(typeof( FengChan)) as AbstractWord0;
+        abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord= bulletInstance.AddComponent(AllSkills.CreateSkillWord()) as AbstractWord0;
+        //abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = bulletInstance.AddComponent(typeof( FengChan)) as AbstractWord0;
 
         information.ChangeInformation(abs);
     }
