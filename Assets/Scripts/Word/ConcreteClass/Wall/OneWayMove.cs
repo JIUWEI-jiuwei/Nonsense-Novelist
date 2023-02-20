@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 墙壁移动or旋转
+/// 各种类型墙壁
 /// </summary>
 public class OneWayMove : MonoBehaviour
 {
