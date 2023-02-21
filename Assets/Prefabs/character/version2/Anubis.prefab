@@ -511,7 +511,7 @@ MonoBehaviour:
   aAttackAudio: {fileID: 0}
   walkAudio: {fileID: 0}
   teXiao: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 7617887590883620401, guid: c53e15fe0150c9d428a6254f04e23faf, type: 3}
   camp: 0
   HP: 0
   maxHP: 0
