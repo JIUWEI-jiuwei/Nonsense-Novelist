@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÁõÀÑÀÑ
+/// åˆ˜å§¥å§¥
 /// </summary>
 class LiuGrandma : AbstractCharacter
 {
@@ -11,11 +11,11 @@ class LiuGrandma : AbstractCharacter
         base.Awake();
         characterID = 3;
         gender = GenderEnum.girl;
-        wordName = "ÁõÀÑÀÑ";
+        wordName = "åˆ˜å§¥å§¥";
         bookName = BookNameEnum.HongLouMeng;
-        nickname.Add( "Ä¸»È³æ");
+        nickname.Add( "æ¯è—è™«");
         trait = gameObject.AddComponent<Enthusiasm>();
-        hp =maxHP = 70;
+        hp =MaxHP = 70;
         atk = 5;
         def = 5;
         psy = 5;
@@ -23,7 +23,7 @@ class LiuGrandma : AbstractCharacter
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
         attackDistance = 200;
-        description = "ÁõÀÑÀÑ£¬ÊÇ²ÜÑ©ÇÛËùÖøÖĞ¹ú¹ÅµäÎÄÑ§ÃûÖø¡¶ºìÂ¥ÃÎ¡·ÖĞÈËÎï¡£ÊÇÒ»Î»À´×ÔÏçÏÂÆ¶Å©¼ÒÍ¥µÄÚÏÓÚÊÀ¹ÊµÄÀÏÆÅÆÅ£¬¼ûÖ¤ÁË¼Ö¸®ĞËË¥ÈÙÈèµÄÈ«¹ı³Ì¡£";
+        description = "åˆ˜å§¥å§¥ï¼Œæ˜¯æ›¹é›ªèŠ¹æ‰€è‘—ä¸­å›½å¤å…¸æ–‡å­¦åè‘—ã€Šçº¢æ¥¼æ¢¦ã€‹ä¸­äººç‰©ã€‚æ˜¯ä¸€ä½æ¥è‡ªä¹¡ä¸‹è´«å†œå®¶åº­çš„è°™äºä¸–æ•…çš„è€å©†å©†ï¼Œè§è¯äº†è´¾åºœå…´è¡°è£è¾±çš„å…¨è¿‡ç¨‹ã€‚";
     }
 
     public override string ShowText(AbstractCharacter otherChara)

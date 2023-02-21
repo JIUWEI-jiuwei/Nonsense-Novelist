@@ -28,7 +28,7 @@ class EXingZhongLiu : AbstractItems
     {
         base.UseItems(chara);
         //充能效果
-        chara.maxhp -= 0.05f *chongNeng* chara.maxHP;
+        chara.maxhp -= 0.05f *chongNeng* chara.MaxHP;
     }
 
     public override void UseVerbs()

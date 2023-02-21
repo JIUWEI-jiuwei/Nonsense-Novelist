@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ±´Âå¼§¡¤¼§Äİ
+/// è´æ´›å§¬Â·å§¬å¦®
 /// </summary>
 class BeiLuoJi : AbstractCharacter
 {
@@ -11,17 +11,17 @@ class BeiLuoJi : AbstractCharacter
     {
         base.Awake();
         characterID = 10;
-        wordName = "±´Âå¼§¡¤¼§Äİ";
+        wordName = "è´æ´›å§¬Â·å§¬å¦®";
         bookName = BookNameEnum.PHXTwist;
         gender = GenderEnum.noGender;
-        hp =maxHP  = 100;
+        hp =MaxHP  = 100;
         atk = 0;
         def = 4;
         psy = 3;
         san = 5;
-        mainProperty.Add("ÒâÖ¾","ÄÌ");
+        mainProperty.Add("æ„å¿—","å¥¶");
         trait=gameObject.AddComponent<Mercy>();
-        roleName = "ÒÏºó";
+        roleName = "èšå";
         attackInterval = 2.2f;
         attackDistance = 500;
     }
@@ -38,7 +38,7 @@ class BeiLuoJi : AbstractCharacter
     public override void AttackA()
     {
         base.AttackA();
-        //´úÌæÆ½A
+        //ä»£æ›¿å¹³A
         myState.aim = null;
         if (myState.character.aAttackAudio != null)
         {
@@ -48,7 +48,7 @@ class BeiLuoJi : AbstractCharacter
         myState.character.charaAnim.Play(AnimEnum.attack);
         aims = attackState.attackA.CalculateAgain(100, this);
         foreach (AbstractCharacter aim in aims)
-        {//ÆÕÍ¨¹¥»÷Ä¿±êÎªËùÓĞ¶ÓÓÑ£¬»Ö¸´70%ÒâÖ¾µÄÑªÁ¿£¬²»¸½´ø¹¥»÷¹¥»÷ÌØĞ§
+        {//æ™®é€šæ”»å‡»ç›®æ ‡ä¸ºæ‰€æœ‰é˜Ÿå‹ï¼Œæ¢å¤70%æ„å¿—çš„è¡€é‡ï¼Œä¸é™„å¸¦æ”»å‡»æ”»å‡»ç‰¹æ•ˆ
             attackState.attackA.UseMode(myState.character, san * 0.7f, aim) ;
         }
     }
@@ -66,25 +66,25 @@ class BeiLuoJi : AbstractCharacter
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return otherChara.wordName + "ÔçÒÑ¿´¼û¶àÁËÒ»¸öÃÃÃÃ£¬Ï¸¿´ĞÎÈİ£¬Ö»¼ûÀá¹âµãµã£¬½¿´­Î¢Î¢£¬ÏĞ¾²Ê±Èçæ¯»¨ÕÕË®£¬ĞĞ¶¯´¦ËÆÈõÁø·ö·ç£¬" + otherChara.wordName + "Ğ¦µÀ£º¡°Õâ¸öÃÃÃÃ£¬ÎÒÔø¼û¹ıµÄ¡±";
+            return otherChara.wordName + "æ—©å·²çœ‹è§å¤šäº†ä¸€ä¸ªå¦¹å¦¹ï¼Œç»†çœ‹å½¢å®¹ï¼Œåªè§æ³ªå…‰ç‚¹ç‚¹ï¼Œå¨‡å–˜å¾®å¾®ï¼Œé—²é™æ—¶å¦‚å§£èŠ±ç…§æ°´ï¼Œè¡ŒåŠ¨å¤„ä¼¼å¼±æŸ³æ‰¶é£ï¼Œ" + otherChara.wordName + "ç¬‘é“ï¼šâ€œè¿™ä¸ªå¦¹å¦¹ï¼Œæˆ‘æ›¾è§è¿‡çš„â€";
         else
             return null;
     }
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "¡°ÎÒ¾ÍÖªµÀ£¬±ğÈË²»ÌôÊ£ÏÂµÄÒ²²»¸øÎÒ¡£¡±ÁÖ÷ìÓñÇáÄíÒ»¶ä»¨°ê£¬Ïò" + otherChara.wordName + "·ÉÈ¥";
+            return "â€œæˆ‘å°±çŸ¥é“ï¼Œåˆ«äººä¸æŒ‘å‰©ä¸‹çš„ä¹Ÿä¸ç»™æˆ‘ã€‚â€æ—é»›ç‰è½»æ»ä¸€æœµèŠ±ç“£ï¼Œå‘" + otherChara.wordName + "é£å»";
         else
             return null;
     }
 
     public override string LowHPText()
     {
-        return "÷ìÓñ¶ÔÊÌÅ®´­Ï¢µÀ£º¡°ÁıÉÏ»ğÅè°Õ¡£¡±±ã½«Ò»¶ÔÅÁ×Ó£¬Ò»µşÊ«¸å·Ù¾¡ÓÚ»ğÅèÖĞ¡£";
+        return "é»›ç‰å¯¹ä¾å¥³å–˜æ¯é“ï¼šâ€œç¬¼ä¸Šç«ç›†ç½¢ã€‚â€ä¾¿å°†ä¸€å¯¹å¸•å­ï¼Œä¸€å è¯—ç¨¿ç„šå°½äºç«ç›†ä¸­ã€‚";
     }
     public override string DieText()
     {
-        return "¡°±¦Óñ¡­±¦Óñ¡­ÄãºÃ¡­¡­¡±÷ìÓñÃ»ËµÍê±ãºÏÉÏÁËË«ÑÛ¡£";
+        return "â€œå®ç‰â€¦å®ç‰â€¦ä½ å¥½â€¦â€¦â€é»›ç‰æ²¡è¯´å®Œä¾¿åˆä¸Šäº†åŒçœ¼ã€‚";
     }
 
 }

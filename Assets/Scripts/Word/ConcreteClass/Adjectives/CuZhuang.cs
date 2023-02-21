@@ -8,9 +8,9 @@ public class CuZhuang : AbstractAdjectives
     public override void Awake()
     {
         adjID = 18;
-        wordName = "´Ö×³µÄ";
+        wordName = "ç²—å£®çš„";
         bookName = BookNameEnum.allBooks;
-        description = "»ñµÃÉúÃüÉÏÏŞ";
+        description = "è·å¾—ç”Ÿå‘½ä¸Šé™";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
@@ -24,7 +24,7 @@ public class CuZhuang : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.maxHP += 20;
+        aimCharacter.MaxHP += 20;
     }
 
     
@@ -32,7 +32,7 @@ public class CuZhuang : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.maxHP -= 20;
+        aim.MaxHP -= 20;
     }
 
 }

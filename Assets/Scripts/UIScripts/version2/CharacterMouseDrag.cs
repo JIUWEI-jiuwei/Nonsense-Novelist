@@ -104,9 +104,12 @@ public class CharacterMouseDrag : MonoBehaviour
                 //根据站位给角色阵营赋值
                 if (hit.collider.gameObject.GetComponent<Situation>().number < 6)
                 {
-                    c.camp = CampEnum.left;
                     //图片翻转方向
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    if (c.camp == CampEnum.right)
+                    {
+                        this.GetComponent<AbstractCharacter>().turn();
+                    }
+                    c.camp = CampEnum.left;
                     //去重
                     if (CharacterManager.charas_right.Contains(c))
                     {
@@ -117,8 +120,11 @@ public class CharacterMouseDrag : MonoBehaviour
                 }
                 else
                 {
+                    if (c.camp != CampEnum.right)
+                    {
+                        this.GetComponent<AbstractCharacter>().turn();
+                    }
                     c.camp = CampEnum.right;
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                     if (CharacterManager.charas_left.Contains(c)) CharacterManager.charas_left.Remove(c);
                     CharacterManager.charas_right.Add(c);
                 }

@@ -9,11 +9,11 @@ class FamilyConflict_x : AbstractCharacter
         base.Awake();
         characterID = 5;
         gender = GenderEnum.noGender;
-        wordName = "家庭矛盾";
+        wordName = "瀹跺涵鐭涚浘";
         bookName = BookNameEnum.allBooks;
         
         trait = gameObject.AddComponent<Pride>();
-        hp =maxHP = 40;
+        hp =MaxHP = 40;
         atk = 7;
         def = 3;
         psy = 0;
@@ -21,8 +21,8 @@ class FamilyConflict_x : AbstractCharacter
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
         attackDistance = 200;
-        brief = "因与家人关系恶化而导致的苦恼";
-        description = "因与家人关系恶化而导致的苦恼";
+        brief = "鍥犱笌瀹朵汉鍏崇郴鎭跺寲鑰屽鑷寸殑鑻︽伡";
+        description = "鍥犱笌瀹朵汉鍏崇郴鎭跺寲鑰屽鑷寸殑鑻︽伡";
     }
 
     public override string ShowText(AbstractCharacter otherChara)

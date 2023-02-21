@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Ä¾ÄËÒÁ
+/// æœ¨ä¹ƒä¼Š
 /// </summary>
 class MuNaiYi : AbstractCharacter
 {
@@ -11,22 +11,22 @@ class MuNaiYi : AbstractCharacter
     {
         base.Awake();
         characterID = 4;
-        wordName = "Ä¾ÄËÒÁ";
+        wordName = "æœ¨ä¹ƒä¼Š";
         bookName = BookNameEnum.EgyptMyth;
         gender = GenderEnum.noGender;
-        hp =maxHP  = 220;
+        hp =MaxHP  = 220;
         atk = 3;
         def = 4;
         psy = 4;
         san = 4;
-        mainProperty.Add("ÒâÖ¾","ÖĞ·¨T");
+        mainProperty.Add("æ„å¿—","ä¸­æ³•T");
         trait=gameObject.AddComponent<Vicious>();
-        roleName = "ÍöÁé";
+        roleName = "äº¡çµ";
         attackInterval = 2.2f;
         attackDistance = 300;
-        reLifes++;//¸´»î¼¼ÄÜ
+        reLifes++;//å¤æ´»æŠ€èƒ½
         brief = "";
-        description = "³ÁÄ¬ÕßÔø¾­ÊÇÄ³¸öÍõ¹úµÄ¹ó×å£¬´ÓĞ¡±ã¾«Í¨Ä§·¨µÄÊ¹ÓÃ¡£¾İËµÔÚÍõ¹úÕşÈ¨±»µß¸²Ö®ºóËû±»ÅÑÌÓÕß¹ØÔÚµØÀÎÀïÕÛÄ¥£¬Í´¿àµÄË»ºğËæ×ÅÊ±ÈÕÂıÂı³Á¼Å£¬Ö±µ½ËûËùÓĞÈËĞÔ¶¼±»Ä¥Ãğ¡£¶øËûÉíÉÏµÄÄ§·¨ÄÜÁ¿Ò²±»Å¤Çú£¬±äµÃ¶ñ¶¾²»¿°¡£Èç½ñµÄËü¶¼òéËõÓÚÒõ°µµÄµØ½ÑÀï£¬Á·Ï°×Å±»Î×Ê¦ÃÇÍÙÆúµÄÄ§·¨¡£";
+        description = "æ²‰é»˜è€…æ›¾ç»æ˜¯æŸä¸ªç‹å›½çš„è´µæ—ï¼Œä»å°ä¾¿ç²¾é€šé­”æ³•çš„ä½¿ç”¨ã€‚æ®è¯´åœ¨ç‹å›½æ”¿æƒè¢«é¢ è¦†ä¹‹åä»–è¢«å›é€ƒè€…å…³åœ¨åœ°ç‰¢é‡ŒæŠ˜ç£¨ï¼Œç—›è‹¦çš„å˜¶å¼éšç€æ—¶æ—¥æ…¢æ…¢æ²‰å¯‚ï¼Œç›´åˆ°ä»–æ‰€æœ‰äººæ€§éƒ½è¢«ç£¨ç­ã€‚è€Œä»–èº«ä¸Šçš„é­”æ³•èƒ½é‡ä¹Ÿè¢«æ‰­æ›²ï¼Œå˜å¾—æ¶æ¯’ä¸å ªã€‚å¦‚ä»Šçš„å®ƒéƒ½èœ·ç¼©äºé˜´æš—çš„åœ°çª–é‡Œï¼Œç»ƒä¹ ç€è¢«å·«å¸ˆä»¬å”¾å¼ƒçš„é­”æ³•ã€‚";
     }
 
     private void Start()
@@ -36,7 +36,7 @@ class MuNaiYi : AbstractCharacter
     }
 
     /// <summary>
-    /// Éí·İ
+    /// èº«ä»½
     /// </summary>
     public void OnLive()
     {
@@ -60,25 +60,25 @@ class MuNaiYi : AbstractCharacter
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return otherChara.wordName + "ÔçÒÑ¿´¼û¶àÁËÒ»¸öÃÃÃÃ£¬Ï¸¿´ĞÎÈİ£¬Ö»¼ûÀá¹âµãµã£¬½¿´­Î¢Î¢£¬ÏĞ¾²Ê±Èçæ¯»¨ÕÕË®£¬ĞĞ¶¯´¦ËÆÈõÁø·ö·ç£¬" + otherChara.wordName + "Ğ¦µÀ£º¡°Õâ¸öÃÃÃÃ£¬ÎÒÔø¼û¹ıµÄ¡±";
+            return otherChara.wordName + "æ—©å·²çœ‹è§å¤šäº†ä¸€ä¸ªå¦¹å¦¹ï¼Œç»†çœ‹å½¢å®¹ï¼Œåªè§æ³ªå…‰ç‚¹ç‚¹ï¼Œå¨‡å–˜å¾®å¾®ï¼Œé—²é™æ—¶å¦‚å§£èŠ±ç…§æ°´ï¼Œè¡ŒåŠ¨å¤„ä¼¼å¼±æŸ³æ‰¶é£ï¼Œ" + otherChara.wordName + "ç¬‘é“ï¼šâ€œè¿™ä¸ªå¦¹å¦¹ï¼Œæˆ‘æ›¾è§è¿‡çš„â€";
         else
             return null;
     }
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "¡°ÎÒ¾ÍÖªµÀ£¬±ğÈË²»ÌôÊ£ÏÂµÄÒ²²»¸øÎÒ¡£¡±ÁÖ÷ìÓñÇáÄíÒ»¶ä»¨°ê£¬Ïò" + otherChara.wordName + "·ÉÈ¥";
+            return "â€œæˆ‘å°±çŸ¥é“ï¼Œåˆ«äººä¸æŒ‘å‰©ä¸‹çš„ä¹Ÿä¸ç»™æˆ‘ã€‚â€æ—é»›ç‰è½»æ»ä¸€æœµèŠ±ç“£ï¼Œå‘" + otherChara.wordName + "é£å»";
         else
             return null;
     }
 
     public override string LowHPText()
     {
-        return "÷ìÓñ¶ÔÊÌÅ®´­Ï¢µÀ£º¡°ÁıÉÏ»ğÅè°Õ¡£¡±±ã½«Ò»¶ÔÅÁ×Ó£¬Ò»µşÊ«¸å·Ù¾¡ÓÚ»ğÅèÖĞ¡£";
+        return "é»›ç‰å¯¹ä¾å¥³å–˜æ¯é“ï¼šâ€œç¬¼ä¸Šç«ç›†ç½¢ã€‚â€ä¾¿å°†ä¸€å¯¹å¸•å­ï¼Œä¸€å è¯—ç¨¿ç„šå°½äºç«ç›†ä¸­ã€‚";
     }
     public override string DieText()
     {
-        return "¡°±¦Óñ¡­±¦Óñ¡­ÄãºÃ¡­¡­¡±÷ìÓñÃ»ËµÍê±ãºÏÉÏÁËË«ÑÛ¡£";
+        return "â€œå®ç‰â€¦å®ç‰â€¦ä½ å¥½â€¦â€¦â€é»›ç‰æ²¡è¯´å®Œä¾¿åˆä¸Šäº†åŒçœ¼ã€‚";
     }
 
 }

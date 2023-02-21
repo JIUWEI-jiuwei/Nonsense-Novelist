@@ -9,9 +9,9 @@ public class FengChan : AbstractAdjectives
     {
         
         adjID = 9;
-        wordName = "·á²úµÄ";
+        wordName = "ä¸°äº§çš„";
         bookName = BookNameEnum.EgyptMyth;
-        description = "É¢Éä£¬»ñµÃÉúÃüÉÏÏŞ";
+        description = "æ•£å°„ï¼Œè·å¾—ç”Ÿå‘½ä¸Šé™";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
@@ -31,7 +31,7 @@ public class FengChan : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.maxHP += 10;
+        aimCharacter.MaxHP += 10;
 
     }
 
@@ -40,7 +40,7 @@ public class FengChan : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.maxHP -= 10;
+        aim.MaxHP -= 10;
     }
 
 }

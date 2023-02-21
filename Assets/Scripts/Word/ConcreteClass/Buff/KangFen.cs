@@ -8,7 +8,7 @@ public class KangFen : AbstractBuff
     override protected void Awake()
     {
         base.Awake();
-        buffName = "¿º·Ü";
+        buffName = "äº¢å¥‹";
         book = BookNameEnum.ZooManual;
         chara.atk += 5;
     }
@@ -17,9 +17,9 @@ public class KangFen : AbstractBuff
     {
         base.Update();
         nowTime += Time.deltaTime;
-        if (nowTime > 1)//Ã¿Ãë5%»Ö¸´
+        if (nowTime > 1)//æ¯ç§’5%æ¢å¤
         {
-            chara.hp += 0.05f * chara.maxHP;
+            chara.hp += 0.05f * chara.MaxHP;
         }
     }
 

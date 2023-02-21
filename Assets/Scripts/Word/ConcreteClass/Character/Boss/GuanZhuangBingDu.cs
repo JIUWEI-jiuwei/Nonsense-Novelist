@@ -9,17 +9,17 @@ using UnityEngine;
     {
         base.Awake();
         characterID = 0;
-        wordName = "¹Ú×´²¡¶¾";
+        wordName = "å† çŠ¶ç—…æ¯’";
         bookName = BookNameEnum.allBooks;
         gender = GenderEnum.noGender;
         camp = CampEnum.stranger;
-        hp =maxHP  = 600;
+        hp =MaxHP  = 600;
         atk = 30;
         def = 60;
         psy = 25;
         san = 60;
         trait=gameObject.AddComponent<Vicious>();
-        roleName = "Ë¼³±";
+        roleName = "æ€æ½®";
         attackInterval = 2.2f;
 
         nowTime = 0;
@@ -77,25 +77,25 @@ using UnityEngine;
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return otherChara.wordName + "ÔçÒÑ¿´¼û¶àÁËÒ»¸öÃÃÃÃ£¬Ï¸¿´ĞÎÈİ£¬Ö»¼ûÀá¹âµãµã£¬½¿´­Î¢Î¢£¬ÏĞ¾²Ê±Èçæ¯»¨ÕÕË®£¬ĞĞ¶¯´¦ËÆÈõÁø·ö·ç£¬" + otherChara.wordName + "Ğ¦µÀ£º¡°Õâ¸öÃÃÃÃ£¬ÎÒÔø¼û¹ıµÄ¡±";
+            return otherChara.wordName + "æ—©å·²çœ‹è§å¤šäº†ä¸€ä¸ªå¦¹å¦¹ï¼Œç»†çœ‹å½¢å®¹ï¼Œåªè§æ³ªå…‰ç‚¹ç‚¹ï¼Œå¨‡å–˜å¾®å¾®ï¼Œé—²é™æ—¶å¦‚å§£èŠ±ç…§æ°´ï¼Œè¡ŒåŠ¨å¤„ä¼¼å¼±æŸ³æ‰¶é£ï¼Œ" + otherChara.wordName + "ç¬‘é“ï¼šâ€œè¿™ä¸ªå¦¹å¦¹ï¼Œæˆ‘æ›¾è§è¿‡çš„â€";
         else
             return null;
     }
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "¡°ÎÒ¾ÍÖªµÀ£¬±ğÈË²»ÌôÊ£ÏÂµÄÒ²²»¸øÎÒ¡£¡±ÁÖ÷ìÓñÇáÄíÒ»¶ä»¨°ê£¬Ïò" + otherChara.wordName + "·ÉÈ¥";
+            return "â€œæˆ‘å°±çŸ¥é“ï¼Œåˆ«äººä¸æŒ‘å‰©ä¸‹çš„ä¹Ÿä¸ç»™æˆ‘ã€‚â€æ—é»›ç‰è½»æ»ä¸€æœµèŠ±ç“£ï¼Œå‘" + otherChara.wordName + "é£å»";
         else
             return null;
     }
 
     public override string LowHPText()
     {
-        return "÷ìÓñ¶ÔÊÌÅ®´­Ï¢µÀ£º¡°ÁıÉÏ»ğÅè°Õ¡£¡±±ã½«Ò»¶ÔÅÁ×Ó£¬Ò»µşÊ«¸å·Ù¾¡ÓÚ»ğÅèÖĞ¡£";
+        return "é»›ç‰å¯¹ä¾å¥³å–˜æ¯é“ï¼šâ€œç¬¼ä¸Šç«ç›†ç½¢ã€‚â€ä¾¿å°†ä¸€å¯¹å¸•å­ï¼Œä¸€å è¯—ç¨¿ç„šå°½äºç«ç›†ä¸­ã€‚";
     }
     public override string DieText()
     {
-        return "¡°±¦Óñ¡­±¦Óñ¡­ÄãºÃ¡­¡­¡±÷ìÓñÃ»ËµÍê±ãºÏÉÏÁËË«ÑÛ¡£";
+        return "â€œå®ç‰â€¦å®ç‰â€¦ä½ å¥½â€¦â€¦â€é»›ç‰æ²¡è¯´å®Œä¾¿åˆä¸Šäº†åŒçœ¼ã€‚";
     }
 
 }

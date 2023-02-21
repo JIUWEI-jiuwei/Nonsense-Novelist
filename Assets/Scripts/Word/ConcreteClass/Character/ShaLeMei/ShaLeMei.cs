@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// É¯ÀÖÃÀ
+/// èä¹ç¾
 /// </summary>
 class ShaLeMei : AbstractCharacter
 {
@@ -10,29 +10,29 @@ class ShaLeMei : AbstractCharacter
     {
         base.Awake();
         characterID = 8;
-        wordName = "É¯ÀÖÃÀ";
+        wordName = "èä¹ç¾";
         bookName = BookNameEnum.Salome;
         gender = GenderEnum.girl;
-        hp =maxHP  = 130;
+        hp =MaxHP  = 130;
         atk = 3;
         def = 4;
         psy = 5;
         san = 3;
-        mainProperty.Add("¾«Éñ","ÖĞ·¨dps");
+        mainProperty.Add("ç²¾ç¥","ä¸­æ³•dps");
         trait=gameObject.AddComponent<Possessive>();
-        roleName = "ÎèÅ®";
+        roleName = "èˆå¥³";
         attackInterval = 2.2f;
         attackDistance = 200;
-        brief = "¡¶ºìÂ¥ÃÎ¡·ÖĞÒ»Î»ĞÔ¸ñÃô¸Ğ´àÈõ£¬È´ÓÖ¼«ÓĞÁéĞÔµÄÉÙÅ®¡£";
-        description = "ÁÖ÷ìÓñ£¬ÖĞ¹ú¹ÅµäÃûÖø¡¶ºìÂ¥ÃÎ¡·µÄÅ®Ö÷½Ç£¬½ğÁêÊ®¶şîÎÕı²áË«Ê×Ö®Ò»£¬Î÷·½ÁéºÓ°¶ç­ÖéÏÉ²İ×ªÊÀ£¬×îºóÓÚ¼Ö±¦Óñ¡¢Ñ¦±¦îÎ´ó»éÖ®Ò¹Àá¾¡¶øÊÅ¡£ËıÉúµÃÈİÃ²ÇåÀö£¬¼æÓĞÊ«²Å£¬ÊÇ¹Å´úÎÄÑ§×÷Æ·ÖĞ¼«¸»ÁéÆøµÄ¾­µäÅ®ĞÔĞÎÏó¡£" +
-            "\nµÀÊÇ£º" +
-            "\n¿ÉÌ¾Í£»úµÂ£¬¿°Á¯Ó½Ğõ²Å¡£" +
-            "\nÓñ´øÁÖÖĞ¹Ò£¬½ğô¢Ñ©ÀïÂñ¡£";
+        brief = "ã€Šçº¢æ¥¼æ¢¦ã€‹ä¸­ä¸€ä½æ€§æ ¼æ•æ„Ÿè„†å¼±ï¼Œå´åˆææœ‰çµæ€§çš„å°‘å¥³ã€‚";
+        description = "æ—é»›ç‰ï¼Œä¸­å›½å¤å…¸åè‘—ã€Šçº¢æ¥¼æ¢¦ã€‹çš„å¥³ä¸»è§’ï¼Œé‡‘é™µåäºŒé’—æ­£å†ŒåŒé¦–ä¹‹ä¸€ï¼Œè¥¿æ–¹çµæ²³å²¸ç»›ç ä»™è‰è½¬ä¸–ï¼Œæœ€åäºè´¾å®ç‰ã€è–›å®é’—å¤§å©šä¹‹å¤œæ³ªå°½è€Œé€ã€‚å¥¹ç”Ÿå¾—å®¹è²Œæ¸…ä¸½ï¼Œå…¼æœ‰è¯—æ‰ï¼Œæ˜¯å¤ä»£æ–‡å­¦ä½œå“ä¸­æå¯Œçµæ°”çš„ç»å…¸å¥³æ€§å½¢è±¡ã€‚" +
+            "\né“æ˜¯ï¼š" +
+            "\nå¯å¹åœæœºå¾·ï¼Œå ªæ€œå’çµ®æ‰ã€‚" +
+            "\nç‰å¸¦æ—ä¸­æŒ‚ï¼Œé‡‘ç°ªé›ªé‡ŒåŸ‹ã€‚";
     }
 
     public override void AttackA()
     {
-        base.AttackA();//ÆÕÍ¨¹¥»÷½µµÍµĞÈË20%ÒâÖ¾£¬²»¿Éµş¼Ó£¬³ÖĞø10s
+        base.AttackA();//æ™®é€šæ”»å‡»é™ä½æ•Œäºº20%æ„å¿—ï¼Œä¸å¯å åŠ ï¼ŒæŒç»­10s
         ShaLeMeiBuff record=myState.aim.GetComponent<ShaLeMeiBuff>();
         if (record == null)
             myState.aim.gameObject.AddComponent<ShaLeMeiBuff>();
@@ -55,25 +55,25 @@ class ShaLeMei : AbstractCharacter
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return otherChara.wordName + "ÔçÒÑ¿´¼û¶àÁËÒ»¸öÃÃÃÃ£¬Ï¸¿´ĞÎÈİ£¬Ö»¼ûÀá¹âµãµã£¬½¿´­Î¢Î¢£¬ÏĞ¾²Ê±Èçæ¯»¨ÕÕË®£¬ĞĞ¶¯´¦ËÆÈõÁø·ö·ç£¬" + otherChara.wordName + "Ğ¦µÀ£º¡°Õâ¸öÃÃÃÃ£¬ÎÒÔø¼û¹ıµÄ¡±";
+            return otherChara.wordName + "æ—©å·²çœ‹è§å¤šäº†ä¸€ä¸ªå¦¹å¦¹ï¼Œç»†çœ‹å½¢å®¹ï¼Œåªè§æ³ªå…‰ç‚¹ç‚¹ï¼Œå¨‡å–˜å¾®å¾®ï¼Œé—²é™æ—¶å¦‚å§£èŠ±ç…§æ°´ï¼Œè¡ŒåŠ¨å¤„ä¼¼å¼±æŸ³æ‰¶é£ï¼Œ" + otherChara.wordName + "ç¬‘é“ï¼šâ€œè¿™ä¸ªå¦¹å¦¹ï¼Œæˆ‘æ›¾è§è¿‡çš„â€";
         else
             return null;
     }
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "¡°ÎÒ¾ÍÖªµÀ£¬±ğÈË²»ÌôÊ£ÏÂµÄÒ²²»¸øÎÒ¡£¡±ÁÖ÷ìÓñÇáÄíÒ»¶ä»¨°ê£¬Ïò" + otherChara.wordName + "·ÉÈ¥";
+            return "â€œæˆ‘å°±çŸ¥é“ï¼Œåˆ«äººä¸æŒ‘å‰©ä¸‹çš„ä¹Ÿä¸ç»™æˆ‘ã€‚â€æ—é»›ç‰è½»æ»ä¸€æœµèŠ±ç“£ï¼Œå‘" + otherChara.wordName + "é£å»";
         else
             return null;
     }
 
     public override string LowHPText()
     {
-        return "÷ìÓñ¶ÔÊÌÅ®´­Ï¢µÀ£º¡°ÁıÉÏ»ğÅè°Õ¡£¡±±ã½«Ò»¶ÔÅÁ×Ó£¬Ò»µşÊ«¸å·Ù¾¡ÓÚ»ğÅèÖĞ¡£";
+        return "é»›ç‰å¯¹ä¾å¥³å–˜æ¯é“ï¼šâ€œç¬¼ä¸Šç«ç›†ç½¢ã€‚â€ä¾¿å°†ä¸€å¯¹å¸•å­ï¼Œä¸€å è¯—ç¨¿ç„šå°½äºç«ç›†ä¸­ã€‚";
     }
     public override string DieText()
     {
-        return "¡°±¦Óñ¡­±¦Óñ¡­ÄãºÃ¡­¡­¡±÷ìÓñÃ»ËµÍê±ãºÏÉÏÁËË«ÑÛ¡£";
+        return "â€œå®ç‰â€¦å®ç‰â€¦ä½ å¥½â€¦â€¦â€é»›ç‰æ²¡è¯´å®Œä¾¿åˆä¸Šäº†åŒçœ¼ã€‚";
     }
 
 }

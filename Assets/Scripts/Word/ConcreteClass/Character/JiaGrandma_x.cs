@@ -9,11 +9,11 @@ class JiaGrandma_x : AbstractCharacter
         base.Awake();
         characterID = 10;
         gender = GenderEnum.girl;
-        wordName = "¼ÖÄ¸";
+        wordName = "è´¾æ¯";
         bookName = BookNameEnum.HongLouMeng;
-        nickname.Add( "Ê·Ì«¾ı");
+        nickname.Add( "å²å¤ªå›");
         trait=gameObject.AddComponent<Mercy>();
-        hp=maxHP = 40;
+        hp=MaxHP = 40;
         atk = 7;
         def = 5;
         psy = 7;
@@ -21,7 +21,7 @@ class JiaGrandma_x : AbstractCharacter
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
         attackDistance = 500;
-        description = "¼ÖÄ¸£¬ÓÖ³ÆÊ·ÀÏÌ«¾ı£¬¼Ö¸®ÉÏÏÂ×ğ³ÆËıÎª¡°ÀÏÌ«Ì«¡±¡¢¡°ÀÏ×æ×Ú¡±£¬ÊÇ²ÜÑ©ÇÛËùÖøÖĞ¹ú¹ÅµäĞ¡Ëµ¡¶ºìÂ¥ÃÎ¡·ÖĞµÄÖ÷Òª½ÇÉ«Ö®Ò»£¬ÊÇ¼Ö¸®ÃûÒåÉÏµÄ×î¸ßÍ³ÖÎÕß£¬Ò»ÉúÏí¾¡ÈÙ»ª¸»¹ó¡£";
+        description = "è´¾æ¯ï¼Œåˆç§°å²è€å¤ªå›ï¼Œè´¾åºœä¸Šä¸‹å°Šç§°å¥¹ä¸ºâ€œè€å¤ªå¤ªâ€ã€â€œè€ç¥–å®—â€ï¼Œæ˜¯æ›¹é›ªèŠ¹æ‰€è‘—ä¸­å›½å¤å…¸å°è¯´ã€Šçº¢æ¥¼æ¢¦ã€‹ä¸­çš„ä¸»è¦è§’è‰²ä¹‹ä¸€ï¼Œæ˜¯è´¾åºœåä¹‰ä¸Šçš„æœ€é«˜ç»Ÿæ²»è€…ï¼Œä¸€ç”Ÿäº«å°½è£åå¯Œè´µã€‚";
     }
 
     public override string ShowText(AbstractCharacter otherChara)

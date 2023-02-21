@@ -60,6 +60,10 @@ namespace AI
             while (true)
             {
                 aim = FindAim();//不断寻找更近的敌人
+                if(aim==null)
+                {
+                    print(0);
+                }
                 yield return new WaitForSeconds(1);
             }
         }

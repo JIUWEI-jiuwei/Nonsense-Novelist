@@ -16,11 +16,11 @@ abstract public class AbstractCharacter : AbstractWord0
 {
     protected MyState0 myState;
     /// <summary>序号</summary>
-    public int characterID;
+    [HideInInspector] public int characterID;
     /// <summary>性别(弃用)</summary>
-    public GenderEnum gender;
+    [HideInInspector] public GenderEnum gender;
     /// <summary>AudioSource</summary>
-    public AudioSource source;
+    [HideInInspector] public AudioSource source;
     /// <summary>平A音效(手动拖拽）</summary>
     public AudioClip aAttackAudio;
     /// <summary>走路音效（手动拖拽）</summary>
@@ -31,7 +31,7 @@ abstract public class AbstractCharacter : AbstractWord0
     //[HideInInspector] public string deadSpeak;
 
     /// <summary>特效</summary>
-    public TeXiao teXiao;
+    [HideInInspector] public TeXiao teXiao;
     /// <summary>子弹(手动挂）</summary>
     public GameObject bullet;
     /// <summary>发出子弹 </summary>
@@ -42,34 +42,36 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>血量</summary>
     public float HP = 0;
     /// <summary>总血量</summary>
-    public float maxHP = 0;
-    /// <summary>攻击力</summary>
-    protected float ATK = 0;
+    public float MaxHP = 0;
 
+    private Slider hpSlider;
     virtual public float hp
     {
         get { return HP; }
         set 
         {
             HP = value;
-            if (HP > maxHP)
+            if (HP > MaxHP)
             {
-                HP = maxHP;
+                HP = MaxHP;
             }
             else if (HP < 0)
             {
                 HP = 0;
             }
+            hpSlider.value = HP / MaxHP;
         }
     }
     virtual public float maxhp
     {
-        get { return maxHP; }
+        get { return MaxHP; }
         set
         {
-            maxHP = value;
+            MaxHP = value;
         }
     }
+    /// <summary>攻击力</summary>
+    protected float ATK = 0;
     virtual public float atk
     {
         get { return ATK; }
@@ -123,9 +125,9 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>主属性(弃用)</summary>
     public Dictionary<string,string> mainProperty=new Dictionary<string, string>();
     /// <summary>性格（弃用）</summary>
-    public AbstractTrait trait;
+    [HideInInspector] public AbstractTrait trait;
     /// <summary>身份名</summary>
-    public string roleName;
+    [HideInInspector] public string roleName;
     /// <summary>拥有技能（所挂组件,自带技能/身份 在初始赋值）</summary>
     public List<AbstractVerbs> skills;
     /// <summary>暴击几率(弃用)</summary>
@@ -166,7 +168,8 @@ abstract public class AbstractCharacter : AbstractWord0
     {
         energyCanvas = this.GetComponentInChildren<Canvas>();
         energyCanvas.worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
-        energySlider=this.GetComponentInChildren<Slider>();
+        energySlider=transform.Find("Canvas/CD").GetComponent<Slider>();
+        hpSlider = transform.Find("Canvas/HP").GetComponent<Slider>();
         energyText = this.GetComponentInChildren<Text>();
         energyCanvas.gameObject.SetActive(false);
 
@@ -210,6 +213,15 @@ abstract public class AbstractCharacter : AbstractWord0
                 OnEnergyFull();
         }
     }
+    /// <summary>
+    /// 翻转
+    /// </summary>
+    public void turn()
+    {
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        energyCanvas.transform.localScale=new Vector3(Mathf.Abs(energyCanvas.transform.localScale.x), energyCanvas.transform.localScale.y, energyCanvas.transform.localScale.z);
+    }
+
     /// <summary>能用的技能个数 </summary>
     private int _canUseSkills;
     public int canUseSkills

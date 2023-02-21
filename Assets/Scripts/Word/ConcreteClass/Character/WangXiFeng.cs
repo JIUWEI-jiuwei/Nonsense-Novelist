@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÍõÎõ·ï
+/// ç‹ç†™å‡¤
 /// </summary>
 class WangXiFeng : AbstractCharacter
 {
@@ -10,25 +10,25 @@ class WangXiFeng : AbstractCharacter
     {
         base.Awake();
         characterID = 2;
-        wordName = "ÍõÎõ·ï";
+        wordName = "ç‹ç†™å‡¤";
         bookName = BookNameEnum.HongLouMeng;
         gender = GenderEnum.girl;
-        hp = maxHP = 150;
+        hp = MaxHP = 150;
         atk = 5;
         def = 4;
         psy = 3;
         san = 3;
-        mainProperty.Add("¹¥»÷", "½üÎïdps");
+        mainProperty.Add("æ”»å‡»", "è¿‘ç‰©dps");
         trait = gameObject.AddComponent<Spicy>();
-        roleName = "´ó¼Ò³¤";
+        roleName = "å¤§å®¶é•¿";
         attackInterval = 2.2f;
         attackDistance = 200;
-        brief = "¡¶ºìÂ¥ÃÎ¡·ÖĞÒ»Î»ÆÃÀ±ÇÒ¼«¾ß±¸ÄÜÁ¦µÄÅ®ÈË¡£";
-        description = "ÍõÎõ·ï£¬²ÜÑ©ÇÛËùÖøÖĞ¹ú¹ÅµäĞ¡Ëµ¡¶ºìÂ¥ÃÎ¡·ÖĞµÄÈËÎï£¬½ğÁêÊ®¶şîÎÖ®Ò»£¬¼ÖçöµÄÆŞ×Ó¡£ÔÚ¼Ö¸®ÕÆÎÕÊµÈ¨£¬ÎªÈËĞÄºİÊÖÀ±£¬°ËÃæÁáçç£¬¸Ò°®¸ÒºŞ£¬×öÊÂ¾ö¾ø¡£ÒòÆäÉî°®ÕÉ·ò¼Öçö£¬¹Ê¶øÊ®·ÖÉÆ¶Ê£¬°µÖĞËã¼Æº¦ËÀÓÈ¶ş½ã¡£ÍõÎõ·ïÔÚ±»ĞİºóÍõ¼Ò²»ÈİËı,ÔÚ¼àÀÎÀïÑª±À²¡·¢,Á÷¾¡ÏÊÑª¶øËÀ¡£";
+        brief = "ã€Šçº¢æ¥¼æ¢¦ã€‹ä¸­ä¸€ä½æ³¼è¾£ä¸”æå…·å¤‡èƒ½åŠ›çš„å¥³äººã€‚";
+        description = "ç‹ç†™å‡¤ï¼Œæ›¹é›ªèŠ¹æ‰€è‘—ä¸­å›½å¤å…¸å°è¯´ã€Šçº¢æ¥¼æ¢¦ã€‹ä¸­çš„äººç‰©ï¼Œé‡‘é™µåäºŒé’—ä¹‹ä¸€ï¼Œè´¾ççš„å¦»å­ã€‚åœ¨è´¾åºœæŒæ¡å®æƒï¼Œä¸ºäººå¿ƒç‹ æ‰‹è¾£ï¼Œå…«é¢ç²ç‘ï¼Œæ•¢çˆ±æ•¢æ¨ï¼Œåšäº‹å†³ç»ã€‚å› å…¶æ·±çˆ±ä¸ˆå¤«è´¾çï¼Œæ•…è€Œååˆ†å–„å¦’ï¼Œæš—ä¸­ç®—è®¡å®³æ­»å°¤äºŒå§ã€‚ç‹ç†™å‡¤åœ¨è¢«ä¼‘åç‹å®¶ä¸å®¹å¥¹,åœ¨ç›‘ç‰¢é‡Œè¡€å´©ç—…å‘,æµå°½é²œè¡€è€Œæ­»ã€‚";
     }
 
     /// <summary>
-    /// Éí·İ
+    /// èº«ä»½
     /// </summary>
     public override float atk { get { return base.atk +5; } set { base.atk = value; } }
     public override float def { get { return base.def + 5; } set { base.def = value; } }
@@ -38,7 +38,7 @@ class WangXiFeng : AbstractCharacter
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "Ö»¼û´«À´Ò»Õó¸ß¿ºµÄĞ¦Éù¡°" + otherChara.wordName + "£¬ÊÇÎÒÀ´³ÙÁË¡±¡£Óï°Õ±ã×ß³öÁËÒ»¸öÅ¨×±ÃÀÑŞµÄÉÙ¸¾£¬ÕıÊÇÍõÎõ·ï¡£";
+            return "åªè§ä¼ æ¥ä¸€é˜µé«˜äº¢çš„ç¬‘å£°â€œ" + otherChara.wordName + "ï¼Œæ˜¯æˆ‘æ¥è¿Ÿäº†â€ã€‚è¯­ç½¢ä¾¿èµ°å‡ºäº†ä¸€ä¸ªæµ“å¦†ç¾è‰³çš„å°‘å¦‡ï¼Œæ­£æ˜¯ç‹ç†™å‡¤ã€‚";
         else
             return null;
     }
@@ -46,18 +46,18 @@ class WangXiFeng : AbstractCharacter
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "ÍõÎõ·ï¶Ô×Å"+otherChara .wordName+"ºİºİµØÒ»°ÍÕÆ¡°ÄãÕâñ®¹··ö²»ÉÏÇ½µÄÖÖ×Ó£¡¡±,";
+            return "ç‹ç†™å‡¤å¯¹ç€"+otherChara .wordName+"ç‹ ç‹ åœ°ä¸€å·´æŒâ€œä½ è¿™ç™ç‹—æ‰¶ä¸ä¸Šå¢™çš„ç§å­ï¼â€,";
         else
             return null;
     }
     public override string LowHPText()
     {
-        return "ÍõÎõ·ïÒ»ÉúÖĞ²ÙÀÍÌ«¹ı£¬ÒòÓÖÆøÄÕ¶øÆøÑªÉÏÓ¿¶øÒıÆğÑª±À£¬´ËÊ±ÉíÌå±äµÃÊ®·ÖĞéÈõ¡£";
+        return "ç‹ç†™å‡¤ä¸€ç”Ÿä¸­æ“åŠ³å¤ªè¿‡ï¼Œå› åˆæ°”æ¼è€Œæ°”è¡€ä¸Šæ¶Œè€Œå¼•èµ·è¡€å´©ï¼Œæ­¤æ—¶èº«ä½“å˜å¾—ååˆ†è™šå¼±ã€‚";
     }
 
     public override string DieText()
     {
-        return "ÃæÉ«²Ò°×µÄÍõÎõ·ïÖ§³Ö²»×¡µ¹ÁËÏÂÈ¥¡£";
+        return "é¢è‰²æƒ¨ç™½çš„ç‹ç†™å‡¤æ”¯æŒä¸ä½å€’äº†ä¸‹å»ã€‚";
     }
 
 }

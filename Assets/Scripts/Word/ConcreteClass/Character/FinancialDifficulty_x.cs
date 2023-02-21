@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 经济压力
+/// 缁忔祹鍘嬪姏
 /// </summary>
 class FinancialDifficulty_x : AbstractCharacter
 {
@@ -11,10 +11,10 @@ class FinancialDifficulty_x : AbstractCharacter
         base.Awake();
         characterID = 7;
         gender = GenderEnum.noGender;
-        wordName = "经济压力";
+        wordName = "缁忔祹鍘嬪姏";
         bookName = BookNameEnum.allBooks;
         trait=gameObject.AddComponent<NullTrait>();
-        hp=maxHP = 100;
+        hp=MaxHP = 100;
         atk = 10;
         def = 12;
         psy = 0;

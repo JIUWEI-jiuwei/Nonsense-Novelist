@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ËŞµĞ£¨ÔİÊ±ÆúÓÃ£©
+/// å®¿æ•Œï¼ˆæš‚æ—¶å¼ƒç”¨ï¼‰
 /// </summary>
 class AgelessEnemy_x : AbstractCharacter
 {
@@ -11,11 +11,11 @@ class AgelessEnemy_x : AbstractCharacter
         base.Awake();
         characterID = -1;
         gender = GenderEnum.noGender;
-        wordName = "ËŞµĞ";
+        wordName = "å®¿æ•Œ";
         bookName = BookNameEnum.allBooks;
-        description = "³¤ÆÚÓëÄã¹ı²»È¥£¬²¢ÇÒ²»ÖªÎªºÎ×ÜÊÇ»á²»¶ÏÓöµ½¶Ô·½";
+        description = "é•¿æœŸä¸ä½ è¿‡ä¸å»ï¼Œå¹¶ä¸”ä¸çŸ¥ä¸ºä½•æ€»æ˜¯ä¼šä¸æ–­é‡åˆ°å¯¹æ–¹";
         trait = gameObject.AddComponent<Pride>();
-        hp=maxHP = 70;
+        hp=MaxHP = 70;
         atk = 15;
         def = 2;
         psy = 7;

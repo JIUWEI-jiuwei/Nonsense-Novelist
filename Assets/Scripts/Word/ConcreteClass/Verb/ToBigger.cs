@@ -7,10 +7,10 @@ class ToBigger : AbstractVerbs
     {
         base.Awake();
         skillID = 16;
-        wordName = "±ä´ó";
+        wordName = "å˜å¤§";
         bookName = BookNameEnum.allBooks;
-        description = "×ÔÉíÔö¼ÓÉúÃüÉÏÏŞ";
-        nickname.Add( "´ÌÍ´");
+        description = "è‡ªèº«å¢åŠ ç”Ÿå‘½ä¸Šé™";
+        nickname.Add( "åˆºç—›");
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
@@ -26,7 +26,7 @@ class ToBigger : AbstractVerbs
 
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
-        useCharacter.maxHP += 20;
+        useCharacter.MaxHP += 20;
     }
 
     public override string UseText()
@@ -35,7 +35,7 @@ class ToBigger : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "µÄĞÄ°®Ö®ÈË¶ÔÆäËµ£º¡°ÎÅ¾ıÓĞÁ½Òâ£¬¹ÊÀ´Ïà¾ö¾ø¡±£¬Òò¶ø±¯Í´Óû¾ø¡£";
+        return character.wordName + "çš„å¿ƒçˆ±ä¹‹äººå¯¹å…¶è¯´ï¼šâ€œé—»å›æœ‰ä¸¤æ„ï¼Œæ•…æ¥ç›¸å†³ç»â€ï¼Œå› è€Œæ‚²ç—›æ¬²ç»ã€‚";
 
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¾ú´²
+/// èŒåºŠ
 /// </summary>
  class JunChuang_x : AbstractCharacter
 {
@@ -11,10 +11,10 @@ using UnityEngine;
         base.Awake();
         characterID = 8;
         gender = GenderEnum.noGender;
-        wordName = "¾ú´²";
+        wordName = "èŒåºŠ";
         bookName = BookNameEnum.FluStudy;
         trait = gameObject.AddComponent<NullTrait>();
-        hp = maxHP = 30;
+        hp = MaxHP = 30;
         atk = 0;
         def = 3;
         psy = 0;

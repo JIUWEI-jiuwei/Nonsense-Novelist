@@ -6,9 +6,9 @@ using UnityEngine;
 /// </summary>
 public class AfterStart : MonoBehaviour
 {
-    /// <summary>½ÇÉ«¼òÒªÔ¤ÖÆÌå£¨ÊÖ¶¯¹Ò£©</summary>
+    /// <summary>è§’è‰²ç®€è¦é¢„åˆ¶ä½“ï¼ˆæ‰‹åŠ¨æŒ‚ï¼‰</summary>
     private Transform charaShortInstance;
-    /// <summary>½ÇÉ«¼òÒªÔ¤ÖÆÌå¿ËÂ¡</summary>
+    /// <summary>è§’è‰²ç®€è¦é¢„åˆ¶ä½“å…‹éš†</summary>
     private Transform charaShort;
     /// <summary></summary>
     private bool one;
@@ -20,23 +20,23 @@ public class AfterStart : MonoBehaviour
     private void OnMouseOver()
     {
 
-        //ÑÕÉ«±ä»Æ
+        //é¢œè‰²å˜é»„
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)225 / 255, (float)189 / 255, (float)255 / 255);
 
         if (!one)
         {
             one = true;
-            //ÏÔÊ¾½ÇÉ«¼òÒªĞÅÏ¢(´ı²âÊÔ)
+            //æ˜¾ç¤ºè§’è‰²ç®€è¦ä¿¡æ¯(å¾…æµ‹è¯•)
             charaShort = Instantiate(charaShortInstance);
             charaShort.SetParent(transform.GetChild(4));
             charaShort.localScale = Vector3.one;
 
-            //¸ø½ÇÉ«¼òÒª¸³Öµ
+            //ç»™è§’è‰²ç®€è¦èµ‹å€¼
             AbstractCharacter abschara = GetComponent<AbstractCharacter>();
             //name
             charaShort.GetChild(0).GetComponent<Text>().text = abschara.wordName;
             //HP
-            charaShort.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.maxHP.ToString();
+            charaShort.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.MaxHP.ToString();
             //ATK
             charaShort.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
             //def
@@ -49,10 +49,10 @@ public class AfterStart : MonoBehaviour
     }
     private void OnMouseExit()
     {
-        //ÑÕÉ«»Ö¸´
+        //é¢œè‰²æ¢å¤
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
 
-        //½ÇÉ«¼òÒª²»ÏÔÊ¾
+        //è§’è‰²ç®€è¦ä¸æ˜¾ç¤º
         Destroy(charaShort.gameObject);
     }
 }

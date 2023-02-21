@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ³ÁÄ¬Õß
+/// æ²‰é»˜è€…
 /// </summary>
 class SilenceOne_x : AbstractCharacter
 {
@@ -11,11 +11,11 @@ class SilenceOne_x : AbstractCharacter
         base.Awake();
         characterID = 6;
         gender = GenderEnum.noGender;
-        wordName = "³ÁÄ¬Õß";
+        wordName = "æ²‰é»˜è€…";
         bookName = BookNameEnum.allBooks;
-        brief = "Ò»¸öÇ¿´óµÄ£¬ÎÞ·¨ÈÆ¿ªµÄµÐÈË";
+        brief = "ä¸€ä¸ªå¼ºå¤§çš„ï¼Œæ— æ³•ç»•å¼€çš„æ•Œäºº";
         trait=gameObject.AddComponent<Pride>();
-        hp=maxHP = 300;
+        hp=MaxHP = 300;
         atk = 13;
         def = 5;
         psy = 10;
@@ -23,7 +23,7 @@ class SilenceOne_x : AbstractCharacter
         multipleCriticalStrike = 2;
         attackInterval = 2.2f;
         attackDistance = 600;
-        description = "Ò»¸öÇ¿´óµÄ£¬ÎÞ·¨ÈÆ¿ªµÄµÐÈË";
+        description = "ä¸€ä¸ªå¼ºå¤§çš„ï¼Œæ— æ³•ç»•å¼€çš„æ•Œäºº";
     }
 
     public override void CreateBullet(GameObject aimChara)

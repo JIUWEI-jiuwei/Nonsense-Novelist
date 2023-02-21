@@ -2,24 +2,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 ///<summary>
-///ÑªÌõUI
-///ÑªÌõºÍÀ¶ÌõµÄÖÆ×÷·½·¨
-///ÔÚ½ÇÉ«Ô¤ÖÆÌåÏÂÃæ½¨Á¢Á½¸ö¿ÕÎïÌåHPºÍSP£¬ÉèÖÃHPºÍSPµÄÎ»ÖÃ
-///È»ºó½«½Å±¾healthbarºÍSPbarÍÏ×§¸ø½ÇÉ«Ô¤ÖÆÌå
+///è¡€æ¡UI
+///è¡€æ¡å’Œè“æ¡çš„åˆ¶ä½œæ–¹æ³•
+///åœ¨è§’è‰²é¢„åˆ¶ä½“ä¸‹é¢å»ºç«‹ä¸¤ä¸ªç©ºç‰©ä½“HPå’ŒSPï¼Œè®¾ç½®HPå’ŒSPçš„ä½ç½®
+///ç„¶åå°†è„šæœ¬healthbarå’ŒSPbaræ‹–æ‹½ç»™è§’è‰²é¢„åˆ¶ä½“
 ///</summary>
 class HealthBar : MonoBehaviour
 {
-    /// <summary>ÑªÌõÔ¤ÖÆÌå </summary>
+    /// <summary>è¡€æ¡é¢„åˆ¶ä½“ </summary>
     public GameObject healthBarPrefab;
-    /// <summary>½ÇÉ«Í·¶¥ÑªÌõµÄÎ»ÖÃ </summary>
+    /// <summary>è§’è‰²å¤´é¡¶è¡€æ¡çš„ä½ç½® </summary>
     private Transform hpBarPoint;
-    /// <summary>Ê£ÓàÑªÁ¿ÊıÖµ </summary>
+    /// <summary>å‰©ä½™è¡€é‡æ•°å€¼ </summary>
     private Image healthSlider;
-    /// <summary>½ÇÉ«Î»ÖÃ </summary>
+    /// <summary>è§’è‰²ä½ç½® </summary>
     private GameObject UIbar;
-    /// <summary>»ñÈ¡¸Ã½ÇÉ« </summary>
+    /// <summary>è·å–è¯¥è§’è‰² </summary>
     private AbstractCharacter charaComponent;
-    /// <summary>ÌõÎ»ÖÃ </summary>
+    /// <summary>æ¡ä½ç½® </summary>
     private Transform[] barPoint;
     public static bool isDead = false;
 
@@ -39,17 +39,17 @@ class HealthBar : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        UpdateHealthBar(charaComponent.hp, charaComponent.maxHP);
+        UpdateHealthBar(charaComponent.hp, charaComponent.MaxHP);
         if (UIbar != null)
         {
             UIbar.transform.position = hpBarPoint.position;
         }
     }
     /// <summary>
-    /// ¸üĞÂÑªÁ¿ÊıÖµ
+    /// æ›´æ–°è¡€é‡æ•°å€¼
     /// </summary>
-    /// <param name="currentHP">µ±Ç°ÑªÁ¿</param>
-    /// <param name="maxHP">×ÜÑªÁ¿</param>
+    /// <param name="currentHP">å½“å‰è¡€é‡</param>
+    /// <param name="maxHP">æ€»è¡€é‡</param>
     public void UpdateHealthBar(float currentHP, float maxHP)
     {
         if (currentHP <= 0) {

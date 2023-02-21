@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÀÏÊó
+/// è€é¼ 
 /// </summary>
 class Rat : AbstractCharacter
 {
@@ -10,21 +10,21 @@ class Rat : AbstractCharacter
     {
         base.Awake();
         characterID = 6;
-        wordName = "ÀÏÊó";
+        wordName = "è€é¼ ";
         bookName = BookNameEnum.ZooManual;
         gender = GenderEnum.noGender;
-        hp = maxHP = 150;
+        hp = MaxHP = 150;
         atk = 4;
         def = 4;
         psy = 3;
         san = 3;
-        mainProperty.Add("¹¥»÷", "½üÎïdps");
+        mainProperty.Add("æ”»å‡»", "è¿‘ç‰©dps");
         trait = gameObject.AddComponent<Possessive>();
-        roleName = "Ğ¡Íµ";
+        roleName = "å°å·";
         attackInterval = 1.7f;
         attackDistance = 100;
-        brief = "°¹ÔàÇÒ»áÍµÇÔÎïÆ·µÄÀÏÊó¡£";
-        description = "°¹ÔàÇÒ»áÍµÇÔÎïÆ·µÄÀÏÊó¡£";
+        brief = "è‚®è„ä¸”ä¼šå·çªƒç‰©å“çš„è€é¼ ã€‚";
+        description = "è‚®è„ä¸”ä¼šå·çªƒç‰©å“çš„è€é¼ ã€‚";
     }
 
     public override string ShowText(AbstractCharacter otherChara)

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Ë°ÊÕ
+/// ç¨æ”¶
 /// </summary>
 class ShuiShou : AbstractCharacter
 {
@@ -11,21 +11,21 @@ class ShuiShou : AbstractCharacter
     {
         base.Awake();
         characterID = 5;
-        wordName = "Ë°ÊÕ";
+        wordName = "ç¨æ”¶";
         bookName = BookNameEnum.ElectronicGoal;
         gender = GenderEnum.noGender;
-        hp =maxHP  = 220;
+        hp =MaxHP  = 220;
         atk = 5;
         def = 5;
         psy = 3;
         san = 3;
-        mainProperty.Add("·ÀÓù","ÖĞÎïT");
+        mainProperty.Add("é˜²å¾¡","ä¸­ç‰©T");
         trait=gameObject.AddComponent<ColdInexorability>();
-        roleName = "Â¢¶Ï¹«Ë¾";
+        roleName = "å„æ–­å…¬å¸";
         attackInterval = 2.2f;
         attackDistance = 100;
-        brief = "À´×ÔÈÕ³£Éú»î¿ªÏúËù²úÉúµÄ¾­¼ÃÑ¹Á¦";
-        description = "À´×ÔÈÕ³£Éú»î¿ªÏúËù²úÉúµÄ¾­¼ÃÑ¹Á¦¡£";
+        brief = "æ¥è‡ªæ—¥å¸¸ç”Ÿæ´»å¼€é”€æ‰€äº§ç”Ÿçš„ç»æµå‹åŠ›";
+        description = "æ¥è‡ªæ—¥å¸¸ç”Ÿæ´»å¼€é”€æ‰€äº§ç”Ÿçš„ç»æµå‹åŠ›ã€‚";
     }
 
     private void Start()
@@ -38,7 +38,7 @@ class ShuiShou : AbstractCharacter
     public override void AttackA()
     {
         base.AttackA();
-        //´úÌæÆ½A
+        //ä»£æ›¿å¹³A
         myState.aim = null;
         if (myState.character.aAttackAudio != null)
         {
@@ -46,10 +46,10 @@ class ShuiShou : AbstractCharacter
             myState.character.source.Play();
         }
         myState.character.charaAnim.Play(AnimEnum.attack);
-        //attackAÒÑÊÇDamageMode
+        //attackAå·²æ˜¯DamageMode
         aims = attackState.attackA.CalculateAgain(100, this);
         foreach (AbstractCharacter aim in aims)
-        {//ÆÕÍ¨¹¥»÷Îª¶ÔËùÓĞµĞÈËÔì³É¹¥»÷Á¦10%µÄÉËº¦£¬¸½´ø¹¥»÷ÌØĞ§
+        {//æ™®é€šæ”»å‡»ä¸ºå¯¹æ‰€æœ‰æ•Œäººé€ æˆæ”»å‡»åŠ›10%çš„ä¼¤å®³ï¼Œé™„å¸¦æ”»å‡»ç‰¹æ•ˆ
             attackState.attackA.UseMode(myState.character, myState.character.atk*0.1f * (1 - myState.aim.def / (myState.aim.def + 20)), aim);
         }
     }
@@ -66,25 +66,25 @@ class ShuiShou : AbstractCharacter
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return otherChara.wordName + "ÔçÒÑ¿´¼û¶àÁËÒ»¸öÃÃÃÃ£¬Ï¸¿´ĞÎÈİ£¬Ö»¼ûÀá¹âµãµã£¬½¿´­Î¢Î¢£¬ÏĞ¾²Ê±Èçæ¯»¨ÕÕË®£¬ĞĞ¶¯´¦ËÆÈõÁø·ö·ç£¬" + otherChara.wordName + "Ğ¦µÀ£º¡°Õâ¸öÃÃÃÃ£¬ÎÒÔø¼û¹ıµÄ¡±";
+            return otherChara.wordName + "æ—©å·²çœ‹è§å¤šäº†ä¸€ä¸ªå¦¹å¦¹ï¼Œç»†çœ‹å½¢å®¹ï¼Œåªè§æ³ªå…‰ç‚¹ç‚¹ï¼Œå¨‡å–˜å¾®å¾®ï¼Œé—²é™æ—¶å¦‚å§£èŠ±ç…§æ°´ï¼Œè¡ŒåŠ¨å¤„ä¼¼å¼±æŸ³æ‰¶é£ï¼Œ" + otherChara.wordName + "ç¬‘é“ï¼šâ€œè¿™ä¸ªå¦¹å¦¹ï¼Œæˆ‘æ›¾è§è¿‡çš„â€";
         else
             return null;
     }
     public override string CriticalText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
-            return "¡°ÎÒ¾ÍÖªµÀ£¬±ğÈË²»ÌôÊ£ÏÂµÄÒ²²»¸øÎÒ¡£¡±ÁÖ÷ìÓñÇáÄíÒ»¶ä»¨°ê£¬Ïò" + otherChara.wordName + "·ÉÈ¥";
+            return "â€œæˆ‘å°±çŸ¥é“ï¼Œåˆ«äººä¸æŒ‘å‰©ä¸‹çš„ä¹Ÿä¸ç»™æˆ‘ã€‚â€æ—é»›ç‰è½»æ»ä¸€æœµèŠ±ç“£ï¼Œå‘" + otherChara.wordName + "é£å»";
         else
             return null;
     }
 
     public override string LowHPText()
     {
-        return "÷ìÓñ¶ÔÊÌÅ®´­Ï¢µÀ£º¡°ÁıÉÏ»ğÅè°Õ¡£¡±±ã½«Ò»¶ÔÅÁ×Ó£¬Ò»µşÊ«¸å·Ù¾¡ÓÚ»ğÅèÖĞ¡£";
+        return "é»›ç‰å¯¹ä¾å¥³å–˜æ¯é“ï¼šâ€œç¬¼ä¸Šç«ç›†ç½¢ã€‚â€ä¾¿å°†ä¸€å¯¹å¸•å­ï¼Œä¸€å è¯—ç¨¿ç„šå°½äºç«ç›†ä¸­ã€‚";
     }
     public override string DieText()
     {
-        return "¡°±¦Óñ¡­±¦Óñ¡­ÄãºÃ¡­¡­¡±÷ìÓñÃ»ËµÍê±ãºÏÉÏÁËË«ÑÛ¡£";
+        return "â€œå®ç‰â€¦å®ç‰â€¦ä½ å¥½â€¦â€¦â€é»›ç‰æ²¡è¯´å®Œä¾¿åˆä¸Šäº†åŒçœ¼ã€‚";
     }
 
 }

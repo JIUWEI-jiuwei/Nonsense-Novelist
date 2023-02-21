@@ -13,17 +13,15 @@ abstract public class AbstractWord0 : MonoBehaviour
     /// <summary>所属书目</summary>
     public BookNameEnum bookName=BookNameEnum.allBooks;
     /// <summary>名称（词汇本体）</summary>
-    public string wordName;
-    /// <summary>图标/头像</summary>
-    public Image pattern;
-    /// <summary>简介</summary>
-    public string brief;
+    [HideInInspector] public string wordName;
+    /// <summary>简介（弃用）</summary>
+    [HideInInspector] public string brief;
     /// <summary>详细描述</summary>
-    public string description;
+    [HideInInspector] public string description;
     /// <summary>别称（弃用）</summary>
-    public List<string> nickname=new List<string>();
-    /// <summary>稀有度</summary>
-    public int rarity;
+    [HideInInspector] public List<string> nickname=new List<string>();
+    /// <summary>稀有度（弃用）</summary>
+    [HideInInspector] public int rarity;
     /// <summary>弹射机制 </summary>
     public List<WordCollisionShoot> wordCollisionShoots = new List<WordCollisionShoot>();
 

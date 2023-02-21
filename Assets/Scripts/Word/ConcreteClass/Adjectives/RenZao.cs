@@ -8,9 +8,9 @@ public class RenZao : AbstractAdjectives
     public override void Awake()
     {
         adjID = 12;
-        wordName = "人造的";
+        wordName = "浜洪�犵殑";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "获得改造，获得生命上限";
+        description = "鑾峰緱鏀归�狅紝鑾峰緱鐢熷懡涓婇檺";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
@@ -26,7 +26,7 @@ public class RenZao : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.maxHP += 20;
+        aimCharacter.MaxHP += 20;
     }
 
     
@@ -34,7 +34,7 @@ public class RenZao : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.maxHP -= 20;
+        aim.MaxHP -= 20;
     }
 
 }

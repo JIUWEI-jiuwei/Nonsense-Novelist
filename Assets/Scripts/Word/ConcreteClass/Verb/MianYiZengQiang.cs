@@ -7,9 +7,9 @@ class MianYiZengQiang : AbstractVerbs
     {
         base.Awake();
         skillID = 12;
-        wordName = "ÃâÒßÔöÇ¿";
+        wordName = "å…ç–«å¢å¼º";
         bookName = BookNameEnum.FluStudy;
-        description = "Ê¹¶ÓÓÑ»ØÑª¡±";
+        description = "ä½¿é˜Ÿå‹å›è¡€â€";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
@@ -18,9 +18,9 @@ class MianYiZengQiang : AbstractVerbs
 
     }
     /// <summary>
-    /// ¸´»î
+    /// å¤æ´»
     /// </summary>
-    /// <param name="useCharacter">Ê©·¨Õß</param>
+    /// <param name="useCharacter">æ–½æ³•è€…</param>
     public override void UseVerbs(AbstractCharacter useCharacter)
     {
         base.UseVerbs(useCharacter);
@@ -31,7 +31,7 @@ class MianYiZengQiang : AbstractVerbs
     {
        AbstractCharacter aim= skillMode.CalculateAgain(attackDistance,useCharacter)[0];
         aim.hp += 30;
-        aim.maxHP += 20;
+        aim.MaxHP += 20;
     }
 
     public override string UseText()
@@ -40,7 +40,7 @@ class MianYiZengQiang : AbstractVerbs
         //if (character == null || aimState==null)
             //return null;
 
-        return character.wordName + "ÄÃÆğĞ¡µ¶£¬½«¸¹²¿¿ª³öÒ»¸öĞ¡È±¿Ú£¬²¢½«ÏãÖ¬ÓÍ¹àÂúÆäÖĞ¡£ÔÙ½«Ê÷Ö¬ÌîÈëÃû×Ö2µÄÍ·Â­£¬·ÀÖ¹Í·²¿µÄ±äĞÎ¡£½ÓÏÂÀ´½«ËûÕû¸öÂñÓÚ¼î·ÛÖĞÒ»¸öÔÂ£¬ÕâÑù¾Í¿ÉÒÔ×öµ½ÈâÌå²»±»¸¯ĞàËùÀ§ÈÅÁË¡£";
+        return character.wordName + "æ‹¿èµ·å°åˆ€ï¼Œå°†è…¹éƒ¨å¼€å‡ºä¸€ä¸ªå°ç¼ºå£ï¼Œå¹¶å°†é¦™è„‚æ²¹çŒæ»¡å…¶ä¸­ã€‚å†å°†æ ‘è„‚å¡«å…¥åå­—2çš„å¤´é¢…ï¼Œé˜²æ­¢å¤´éƒ¨çš„å˜å½¢ã€‚æ¥ä¸‹æ¥å°†ä»–æ•´ä¸ªåŸ‹äºç¢±ç²‰ä¸­ä¸€ä¸ªæœˆï¼Œè¿™æ ·å°±å¯ä»¥åšåˆ°è‚‰ä½“ä¸è¢«è…æœ½æ‰€å›°æ‰°äº†ã€‚";
 
     }
 }

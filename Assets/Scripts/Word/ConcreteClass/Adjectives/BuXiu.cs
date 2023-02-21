@@ -9,9 +9,9 @@ public class BuXiu : AbstractAdjectives
     {
         
         adjID = 2;
-        wordName = "²»ĞàµÄ";
+        wordName = "ä¸æœ½çš„";
         bookName = BookNameEnum.EgyptMyth;
-        description = "»ñµÃÉúÃüÉÏÏŞ£¬»ñµÃ¸´»î";
+        description = "è·å¾—ç”Ÿå‘½ä¸Šé™ï¼Œè·å¾—å¤æ´»";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 2;
@@ -27,7 +27,7 @@ public class BuXiu : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.maxHP += 30;
+        aimCharacter.MaxHP += 30;
     }
 
     
@@ -35,7 +35,7 @@ public class BuXiu : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.maxHP -= 30;
+        aim.MaxHP -= 30;
     }
 
 }

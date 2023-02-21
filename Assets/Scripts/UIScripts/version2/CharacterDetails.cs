@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 ///<summary>
-///½ÇÉ«ÏêÏ¸ĞÅÏ¢Ãæ°å£¨¹ÒÔÚ¸ÃÃæ°åµÄÔ¤ÖÆÌå±¾Éí£©
+///è§’è‰²è¯¦ç»†ä¿¡æ¯é¢æ¿ï¼ˆæŒ‚åœ¨è¯¥é¢æ¿çš„é¢„åˆ¶ä½“æœ¬èº«ï¼‰
 ///</summary>
 class CharacterDetails : MonoBehaviour
 {
@@ -23,10 +23,10 @@ class CharacterDetails : MonoBehaviour
     public Transform statePanel;
     public GameObject stateImage;
 
-    /// <summary>»ñÈ¡mousedown½Å±¾ </summary>
+    /// <summary>è·å–mousedownè„šæœ¬ </summary>
     private MouseDown mouseDown;
 
-    //·ÏÆú²ÎÊı
+    //åºŸå¼ƒå‚æ•°
     //public GameObject importantPanel;
     //private List<GameObject> importantImage=new List<GameObject>();
     //public GameObject imagePrefab;
@@ -35,7 +35,7 @@ class CharacterDetails : MonoBehaviour
     {
         mouseDown= GameObject.Find("MainCamera").GetComponent<MouseDown>();
 
-        #region »ñÈ¡ÖØÒªÖ®ÈË(·ÏÆú)
+        #region è·å–é‡è¦ä¹‹äºº(åºŸå¼ƒ)
         /*
         //for (int i = 0; i < mouseDown.abschara.importantNum.Count; i++)
         {
@@ -43,31 +43,31 @@ class CharacterDetails : MonoBehaviour
             importantImage.Add(a);
             //importantImage[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + "head" + mouseDown.abschara.importantNum[i].ToString());
             //importantImage[i].transform.SetParent(importantPanel.transform);
-            a.transform.localScale = new Vector3(1, 1, 1);//±ØĞë·ÅÔÚSetParentºóÃæ
+            a.transform.localScale = new Vector3(1, 1, 1);//å¿…é¡»æ”¾åœ¨SetParentåé¢
         }*/
         #endregion
 
-        ///0¡¢Ê×Ò³ĞÅÏ¢
-        //½ÇÉ«ÃûºÍÍ¼Æ¬
+        ///0ã€é¦–é¡µä¿¡æ¯
+        //è§’è‰²åå’Œå›¾ç‰‡
         charaName.sprite = Resources.Load<Sprite>("FirstStageLoad/" + "Character_" + mouseDown.abschara.wordName);
         charaImage.sprite = Resources.Load<Sprite>("FirstStageLoad/" + mouseDown.abschara.wordName);
 
-        //Êé±¾Í¼Æ¬
+        //ä¹¦æœ¬å›¾ç‰‡
         bookImage.sprite = Resources.Load<Sprite>("FirstStage/Book/" +mouseDown.abschara.bookName.ToString());
         //print(mouseDown.abschara.bookName.ToString());
 
-        //½ÇÉ«Éí·İ£¨ÌØĞÔ£©×óÏÂ½ÇµÄ¶ÌÖ½Æ¬
+        //è§’è‰²èº«ä»½ï¼ˆç‰¹æ€§ï¼‰å·¦ä¸‹è§’çš„çŸ­çº¸ç‰‡
         texts4[0].text = mouseDown.abschara.roleName;
 
-        //4¡¢±³¾°Ò³ĞÅÏ¢Ãæ°å
+        //4ã€èƒŒæ™¯é¡µä¿¡æ¯é¢æ¿
         texts3[0].text = mouseDown.abschara.description;
 
     }
     private void Update()
     {
-        //1¡¢×´Ì¬Ò³ĞÅÏ¢Ãæ°å
+        //1ã€çŠ¶æ€é¡µä¿¡æ¯é¢æ¿
         //HP
-        texts1[0].text = mouseDown.abschara.hp.ToString() + "/" + mouseDown.abschara.maxHP.ToString();
+        texts1[0].text = mouseDown.abschara.hp.ToString() + "/" + mouseDown.abschara.MaxHP.ToString();
         //ATK
         texts1[1].text = IntToString.SwitchATK(mouseDown.abschara.atk);
         //def
@@ -80,15 +80,15 @@ class CharacterDetails : MonoBehaviour
         AdjDetails();
 
 
-        //2¡¢Ãû´ÊÒ³ĞÅÏ¢Ãæ°å
+        //2ã€åè¯é¡µä¿¡æ¯é¢æ¿
         NounDetails();
 
-        //3¡¢¶¯´ÊÒ³ĞÅÏ¢Ãæ°å
+        //3ã€åŠ¨è¯é¡µä¿¡æ¯é¢æ¿
         VerbDetails();
 
     }
     /// <summary>
-    /// 2¡¢Ãû´ÊĞÅÏ¢Ãæ°å
+    /// 2ã€åè¯ä¿¡æ¯é¢æ¿
     /// </summary>
     private void NounDetails()
     {
@@ -97,7 +97,7 @@ class CharacterDetails : MonoBehaviour
             isFirstNoun = true;
             AbstractItems[] items = mouseDown.abschara.gameObject.GetComponents<AbstractItems>();
 
-            //È«²¿±éÀúÒ»±é
+            //å…¨éƒ¨éå†ä¸€é
             for (int i = 0; i < items.Length; i++)
             {
                 GameObject word = Instantiate(wordPrefab);
@@ -105,9 +105,9 @@ class CharacterDetails : MonoBehaviour
                 word.transform.SetParent(nounTF);
                 word.transform.localScale = Vector3.one;
 
-                //¼ÓÔØÍ¼Æ¬
+                //åŠ è½½å›¾ç‰‡
 
-                //Í¬Ò»´ÊµÄÊıÁ¿
+                //åŒä¸€è¯çš„æ•°é‡
                 for (int j = i + 1; j < items.Length; j++)
                 {
                     if (items[i].itemID == items[j].itemID)
@@ -116,7 +116,7 @@ class CharacterDetails : MonoBehaviour
                     }
                 }
             }
-            //È¥ÖØ
+            //å»é‡
             for (int i = 0; i < nounTF.childCount; i++)
             {
                 for (int j = i + 1; j < nounTF.childCount; j++)
@@ -131,7 +131,7 @@ class CharacterDetails : MonoBehaviour
         }
     }
     /// <summary>
-    /// 3¡¢¶¯´ÊÒ³ĞÅÏ¢Ãæ°å
+    /// 3ã€åŠ¨è¯é¡µä¿¡æ¯é¢æ¿
     /// </summary>
     private void VerbDetails()
     {
@@ -140,7 +140,7 @@ class CharacterDetails : MonoBehaviour
             isFirstVerb = true;
             AbstractVerbs[] verbs = mouseDown.abschara.gameObject.GetComponents<AbstractVerbs>();
 
-            //È«²¿±éÀúÒ»±é
+            //å…¨éƒ¨éå†ä¸€é
             for (int i = 0; i < verbs.Length; i++)
             {
                 GameObject word = Instantiate(wordPrefab);
@@ -148,9 +148,9 @@ class CharacterDetails : MonoBehaviour
                 word.transform.SetParent(nounTF);
                 word.transform.localScale = Vector3.one;
 
-                //¼ÓÔØÍ¼Æ¬
+                //åŠ è½½å›¾ç‰‡
 
-                //Í¬Ò»´ÊµÄÊıÁ¿
+                //åŒä¸€è¯çš„æ•°é‡
                 for (int j = i + 1; j < verbs.Length; j++)
                 {
                     if (verbs[i].skillID == verbs[j].skillID)
@@ -159,7 +159,7 @@ class CharacterDetails : MonoBehaviour
                     }
                 }
             }
-            //È¥ÖØ
+            //å»é‡
             for (int i = 0; i < verbTF.childCount; i++)
             {
                 for (int j = i + 1; j < verbTF.childCount; j++)
@@ -174,7 +174,7 @@ class CharacterDetails : MonoBehaviour
         }
     }
     /// <summary>
-    /// 1¡¢×´Ì¬À¸ĞÅÏ¢
+    /// 1ã€çŠ¶æ€æ ä¿¡æ¯
     /// </summary>
     private void AdjDetails()
     {
@@ -183,7 +183,7 @@ class CharacterDetails : MonoBehaviour
             isFirstAdj = true;
             AbstractAdjectives[] adj = mouseDown.abschara.gameObject.GetComponents<AbstractAdjectives>();
 
-            //È«²¿±éÀúÒ»±é
+            //å…¨éƒ¨éå†ä¸€é
             for (int i = 0; i < adj.Length; i++)
             {
                 GameObject word = Instantiate(stateImage);
@@ -191,9 +191,9 @@ class CharacterDetails : MonoBehaviour
                 word.transform.SetParent(statePanel);
                 word.transform.localScale = Vector3.one;
 
-                //¼ÓÔØÍ¼Æ¬
+                //åŠ è½½å›¾ç‰‡
 
-                //Í¬Ò»´ÊµÄÊıÁ¿
+                //åŒä¸€è¯çš„æ•°é‡
                 for (int j = i + 1; j < adj.Length; j++)
                 {
                     if (adj[i].adjID == adj[j].adjID)
@@ -202,7 +202,7 @@ class CharacterDetails : MonoBehaviour
                     }
                 }
             }
-            //È¥ÖØ
+            //å»é‡
             for (int i = 0; i < statePanel.childCount; i++)
             {
                 for (int j = i + 1; j < statePanel.childCount; j++)
@@ -218,7 +218,7 @@ class CharacterDetails : MonoBehaviour
     }
 
     /// <summary>
-    /// ÊôĞÔÃæ°åµÄ¹Ø±Õ°´Å¥£¨ÓÃÔ¤ÖÆÌå¹Ò½Å±¾À´¸³Öµ£©
+    /// å±æ€§é¢æ¿çš„å…³é—­æŒ‰é’®ï¼ˆç”¨é¢„åˆ¶ä½“æŒ‚è„šæœ¬æ¥èµ‹å€¼ï¼‰
     /// </summary>
     public void CloseCharaPanel()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Ê§Áµ
+/// å¤±æ‹
 /// </summary>
 class ShiLian : AbstractCharacter
 {
@@ -11,17 +11,17 @@ class ShiLian : AbstractCharacter
     {
         base.Awake();
         characterID = 12;
-        wordName = "Ê§Áµ";
+        wordName = "å¤±æ‹";
         bookName = BookNameEnum.Salome;
         gender = GenderEnum.noGender;
-        hp = maxHP = 120;
+        hp = MaxHP = 120;
         atk = 3;
         def = 4;
         psy = 5;
         san = 3;
-        mainProperty.Add("¾«Éñ", "ÖĞ·¨dps");
+        mainProperty.Add("ç²¾ç¥", "ä¸­æ³•dps");
         trait = gameObject.AddComponent<Vicious>();
-        roleName = "¸ºÃæÇéĞ÷";
+        roleName = "è´Ÿé¢æƒ…ç»ª";
         attackInterval = 2.2f;
         attackDistance = 300;
     }
@@ -37,7 +37,7 @@ class ShiLian : AbstractCharacter
     public override void AttackA()
     {
         base.AttackA();
-        //ÆÕÍ¨¹¥»÷ÓĞ20¼¸ÂÊ¸½´ø¡°¾ÚÉ¥¡±×´Ì¬
+        //æ™®é€šæ”»å‡»æœ‰20å‡ ç‡é™„å¸¦â€œæ²®ä¸§â€çŠ¶æ€
         if(Random.Range(1, 101)<=20)
         myState.aim.gameObject.AddComponent<Upset>().maxTime = 5;
     }

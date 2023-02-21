@@ -4,7 +4,7 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// 生命值为0
+    /// 鐢熷懡鍊间负0
     /// </summary>
     class NoHealthTrigger : AbstractTrigger
     {
@@ -21,14 +21,14 @@ namespace AI
         {
             if (myState.character.hp <= 0)
             {
-                if (myState.character.reLifes>0)//复活
+                if (myState.character.reLifes>0)//澶嶆椿
                 {
-                    myState.character.hp = myState.character.maxHP;
+                    myState.character.hp = myState.character.MaxHP;
                     myState.character.reLifes--;
                     if (OnLive != null) OnLive();
                     return false;
                 }
-                else//死亡
+                else//姝讳骸
                     return true;
             }
             else//hp>0
