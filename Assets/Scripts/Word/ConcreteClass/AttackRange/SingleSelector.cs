@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// µ¥ÌåÑ°ÕÒ
+/// å•ä½“å¯»æ‰¾
 /// </summary>
 public class SingleSelector : IAttackRange
 {
@@ -10,14 +10,14 @@ public class SingleSelector : IAttackRange
     private List<AbstractCharacter> result;
     public AbstractCharacter[] CaculateRange(int attackDistance, Situation situation, NeedCampEnum needCamp)
     {
-        //Éä³ÌÉ¸
-        firstResult= CollectionHelper.FindAll<Situation>(Situation.allSituation,p=>Situation.Distance(situation,p) <= attackDistance);
-        //ÕóÓªÉ¸
+        //å°„ç¨‹ç­›
+        firstResult= CollectionHelper.FindAll<Situation>(Situation.allSituation,p=>p.GetComponentInChildren<AbstractCharacter>()!=null && Situation.Distance(situation,p) <= attackDistance);
+        //é˜µè¥ç­›
         CampEnum myCamp= situation.GetComponentInChildren<AbstractCharacter>().camp;
         secondResult= CollectionHelper.FindAll<Situation>(firstResult, p => isAim(myCamp, p.GetComponentInChildren<AbstractCharacter>().camp, needCamp));
-        //ÉıĞò
+        //å‡åº
         CollectionHelper.OrderBy(secondResult, p => Situation.Distance(situation, p));
-        //×ª½ÇÉ«
+        //è½¬è§’è‰²
         result = new List<AbstractCharacter>();
         foreach(Situation s in secondResult)
         {
