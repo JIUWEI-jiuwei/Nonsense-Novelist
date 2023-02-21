@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384e5573be57deb418272b3f65937433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingSceneName: Login
+  LoadingSceneName: Login0
   loadingSlider: {fileID: 118226248}
 --- !u!20 &519420031
 Camera:

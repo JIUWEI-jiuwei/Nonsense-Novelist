@@ -2210,7 +2210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373, y: -47.00002}
+  m_AnchoredPosition: {x: -173.99997, y: -47.00002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &787878233
@@ -2358,7 +2358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -796, y: -47}
+  m_AnchoredPosition: {x: -597, y: -47}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &945433581
@@ -2914,7 +2914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660f807e6d5a2c14392863dc78ae3b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDetailPrefab: {fileID: 6514718508804367532, guid: 2a6e45c032ce9c247ac01dc4b1643f8e, type: 3}
+  characterDetailPrefab: {fileID: 6383735193206529920, guid: 6697dbb306115f44c8d35d183aa7defe, type: 3}
   otherCanvas: {fileID: 226819304}
   abschara: {fileID: 0}
   absRole: {fileID: 0}
@@ -4530,7 +4530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -147, y: -47.00002}
+  m_AnchoredPosition: {x: 52.00003, y: -47.00002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1841996908
@@ -5468,6 +5468,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -576, y: -47.00002}
+  m_AnchoredPosition: {x: -376.99997, y: -47.00002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

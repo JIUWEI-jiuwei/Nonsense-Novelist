@@ -6775,10 +6775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gaiZhangAnim: {fileID: 0}
   loadingScript: {fileID: 0}
-  startGame: Login
-  bookDesk: BookDesk
-  newGame: NewGame
-  combat: Combat
+  startGame: Login0
+  bookDesk: BookDesk2
+  newGame: NewGame3
+  combat: ShootCombat
   audioSource: {fileID: 0}
 --- !u!114 &1251680861
 MonoBehaviour:

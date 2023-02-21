@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384e5573be57deb418272b3f65937433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingSceneName: BookDesk
+  LoadingSceneName: BookDesk2
   loadingSlider: {fileID: 6626182896869141975}
 --- !u!20 &519420031
 Camera:

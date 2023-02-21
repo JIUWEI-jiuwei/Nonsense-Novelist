@@ -857,8 +857,8 @@ GameObject:
   - component: {fileID: 1251680857}
   - component: {fileID: 1251680856}
   - component: {fileID: 1251680855}
-  - component: {fileID: 1251680858}
   - component: {fileID: 1251680859}
+  - component: {fileID: 1251680858}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -959,10 +959,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gaiZhangAnim: {fileID: 0}
   loadingScript: {fileID: 1251680858}
-  startGame: Login
-  bookDesk: BookDesk
-  newGame: NewGame
-  combat: Combat
+  startGame: Login0
+  bookDesk: BookDesk2
+  newGame: NewGame3
+  combat: ShootCombat
   audioSource: {fileID: 0}
 --- !u!1 &1841867100
 GameObject:

@@ -9,10 +9,10 @@ class LoadingButtonManager : MonoBehaviour
     public GaiZhangAnim gaiZhangAnim;
 
     public LoadingScript loadingScript;
-    public string startGame = "Login";
-    public string bookDesk = "BookDesk";
-    public string newGame = "NewGame";
-    public string combat = "Combat";
+    public string startGame = "Login0";
+    public string bookDesk = "BookDesk2";
+    public string newGame = "NewGame3";
+    public string combat = "ShootCombat";
 
     private int settingNum = 1;
     public AudioSource audioSource;
