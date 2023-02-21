@@ -4,26 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// °æ±¾¶ş£ºÍÏ×§½ÇÉ«Õ¾Î»
+/// ç‰ˆæœ¬äºŒï¼šæ‹–æ‹½è§’è‰²ç«™ä½
 /// </summary>
 public class CharacterMouseDrag : MonoBehaviour
 {
-    /// <summary>OnMouseDownÏà¹Ø²ÎÊı</summary>
-    private Vector3 targetScreenpos;//ÍÏ×§ÎïÌåµÄÆÁÄ»×ø±ê
-    private Vector3 targetWorldpos;//ÍÏ×§ÎïÌåµÄÊÀ½ç×ø±ê
-    private Transform target;//ÍÏ×§ÎïÌå
-    private Vector3 mouseScreenpos;//Êó±êµÄÆÁÄ»×ø±ê
-    private Vector3 offset;//Æ«ÒÆÁ¿
+    /// <summary>OnMouseDownç›¸å…³å‚æ•°</summary>
+    private Vector3 targetScreenpos;//æ‹–æ‹½ç‰©ä½“çš„å±å¹•åæ ‡
+    private Vector3 targetWorldpos;//æ‹–æ‹½ç‰©ä½“çš„ä¸–ç•Œåæ ‡
+    private Transform target;//æ‹–æ‹½ç‰©ä½“
+    private Vector3 mouseScreenpos;//é¼ æ ‡çš„å±å¹•åæ ‡
+    private Vector3 offset;//åç§»é‡
 
-    /// <summary>¼ÇÂ¼Ä¿Ç°ËùÔÚµÄÕ¾Î»</summary>
+    /// <summary>è®°å½•ç›®å‰æ‰€åœ¨çš„ç«™ä½</summary>
     private Transform nowParentTF;
-    /// <summary>¼ÇÂ¼ÉÏÒ»¸öËùÔÚµÄÕ¾Î»</summary>
+    /// <summary>è®°å½•ä¸Šä¸€ä¸ªæ‰€åœ¨çš„ç«™ä½</summary>
     private Transform lastParentTF;
-    /// <summary>½ÇÉ«ºÍÕ¾Î»positionµÄYÆ«ÒÆÁ¿</summary>
+    /// <summary>è§’è‰²å’Œç«™ä½positionçš„Yåç§»é‡</summary>
     public static float offsetY = 0.5f;
-    /// <summary>½ÇÉ«¼òÒªÔ¤ÖÆÌå£¨ÊÖ¶¯¹Ò£©</summary>
+    /// <summary>è§’è‰²ç®€è¦é¢„åˆ¶ä½“ï¼ˆæ‰‹åŠ¨æŒ‚ï¼‰</summary>
     public Transform charaShortInstance;
-    /// <summary>½ÇÉ«¼òÒªÔ¤ÖÆÌå¿ËÂ¡</summary>
+    /// <summary>è§’è‰²ç®€è¦é¢„åˆ¶ä½“å…‹éš†</summary>
     private Transform charaShort;
 
     private void Start()
@@ -36,11 +36,11 @@ public class CharacterMouseDrag : MonoBehaviour
     {
         
     }
-    #region OnMouseDrag()ËæÊó±êÒÆ¶¯(·ÏÆú)
+    #region OnMouseDrag()éšé¼ æ ‡ç§»åŠ¨(åºŸå¼ƒ)
 
     /* private void OnMouseDrag()
      {
-         //ËæÊó±êÒÆ¶¯
+         //éšé¼ æ ‡ç§»åŠ¨
          var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
          transform.position = new Vector3(pos.x, pos.y, transform.position.z);
          
@@ -48,19 +48,19 @@ public class CharacterMouseDrag : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Êó±êĞüÍ£
+    /// é¼ æ ‡æ‚¬åœ
     /// </summary>
     private void OnMouseOver()
     {
-        //ÑÕÉ«±ä»Æ
+        //é¢œè‰²å˜é»„
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)225 / 255, (float)189 / 255, (float)255 / 255);
 
-        //ÏÔÊ¾½ÇÉ«¼òÒªĞÅÏ¢(´ı²âÊÔ)
-        charaShort = Instantiate(charaShortInstance);
+        //æ˜¾ç¤ºè§’è‰²ç®€è¦ä¿¡æ¯(å¾…æµ‹è¯•)
+        /*charaShort = Instantiate(charaShortInstance);
         charaShort.SetParent(transform.GetChild(4));
         charaShort.localScale = Vector3.one;
 
-        //¸ø½ÇÉ«¼òÒª¸³Öµ
+        //ç»™è§’è‰²ç®€è¦èµ‹å€¼
         AbstractCharacter abschara = GetComponent<AbstractCharacter>();
         //name
         charaShort.GetChild(0).GetComponent<Text>().text = abschara.wordName;
@@ -73,27 +73,27 @@ public class CharacterMouseDrag : MonoBehaviour
         //san
         charaShort.GetChild(4).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san);
         //psy
-        charaShort.GetChild(5).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);
+        charaShort.GetChild(5).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);*/
     }
     private void OnMouseExit()
     {
-        //ÑÕÉ«»Ö¸´
+        //é¢œè‰²æ¢å¤
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
 
-        //½ÇÉ«¼òÒª²»ÏÔÊ¾
+        //è§’è‰²ç®€è¦ä¸æ˜¾ç¤º
         Destroy(charaShort);
     }
-    //±»ÒÆ¶¯ÎïÌåĞèÒªÌí¼Ócollider×é¼ş£¬ÒÔÏìÓ¦OnMouseDown()º¯Êı
-    //»ù±¾Ë¼Â·¡£µ±Êó±êµã»÷ÎïÌåÊ±£¨OnMouseDown£¨£©£¬º¯ÊıÌåÀïÃæ´úÂëÖ»Ö´ĞĞÒ»´Î£©£¬
-    //¼ÇÂ¼´ËÊ±Êó±ê×ø±êºÍÎïÌå×ø±ê£¬²¢ÇóµÃ²îÖµ¡£Èç¹û´ËºóÓÃ»§ÈÔÈ»°´×ÅÊó±ê×ó¼ü£¬ÄÇÃ´±£³ÖÖ®Ç°µÄ²îÖµ²»±ä¼´¿É¡£
-    //ÓÉÓÚÎïÌå×ø±êÊÇÊÀ½ç×ø±ê£¬Êó±ê×ø±êÊÇÆÁÄ»×ø±ê£¬ĞèÒª½øĞĞ×ª»»¡£¾ßÌå¹ı³ÌÈçÏÂËùÊ¾¡£
+    //è¢«ç§»åŠ¨ç‰©ä½“éœ€è¦æ·»åŠ colliderç»„ä»¶ï¼Œä»¥å“åº”OnMouseDown()å‡½æ•°
+    //åŸºæœ¬æ€è·¯ã€‚å½“é¼ æ ‡ç‚¹å‡»ç‰©ä½“æ—¶ï¼ˆOnMouseDownï¼ˆï¼‰ï¼Œå‡½æ•°ä½“é‡Œé¢ä»£ç åªæ‰§è¡Œä¸€æ¬¡ï¼‰ï¼Œ
+    //è®°å½•æ­¤æ—¶é¼ æ ‡åæ ‡å’Œç‰©ä½“åæ ‡ï¼Œå¹¶æ±‚å¾—å·®å€¼ã€‚å¦‚æœæ­¤åç”¨æˆ·ä»ç„¶æŒ‰ç€é¼ æ ‡å·¦é”®ï¼Œé‚£ä¹ˆä¿æŒä¹‹å‰çš„å·®å€¼ä¸å˜å³å¯ã€‚
+    //ç”±äºç‰©ä½“åæ ‡æ˜¯ä¸–ç•Œåæ ‡ï¼Œé¼ æ ‡åæ ‡æ˜¯å±å¹•åæ ‡ï¼Œéœ€è¦è¿›è¡Œè½¬æ¢ã€‚å…·ä½“è¿‡ç¨‹å¦‚ä¸‹æ‰€ç¤ºã€‚
     IEnumerator OnMouseDown()
     {
         targetScreenpos = Camera.main.WorldToScreenPoint(target.position);
         mouseScreenpos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, targetScreenpos.z);
         offset = target.position - Camera.main.ScreenToWorldPoint(mouseScreenpos);
 
-        while (Input.GetMouseButton(0))//Êó±ê×ó¼ü±»³ÖĞø°´ÏÂ¡£
+        while (Input.GetMouseButton(0))//é¼ æ ‡å·¦é”®è¢«æŒç»­æŒ‰ä¸‹ã€‚
         {
             mouseScreenpos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, targetScreenpos.z);
             targetWorldpos = Camera.main.ScreenToWorldPoint(mouseScreenpos) + offset;
@@ -103,7 +103,7 @@ public class CharacterMouseDrag : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        //¼ÓÉÏÁË¼ì²â²ã¼¶£¨ºöÂÔ½ÇÉ«±¾Éí£©
+        //åŠ ä¸Šäº†æ£€æµ‹å±‚çº§ï¼ˆå¿½ç•¥è§’è‰²æœ¬èº«ï¼‰
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,100,LayerMask.GetMask("Situation"));
         if (hit.collider != null)
         {
@@ -111,19 +111,19 @@ public class CharacterMouseDrag : MonoBehaviour
 
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Situation"))
             {
-                //½ÇÉ«ÍÏ×§µ½Õ¾Î»ÉÏÇÒÎ»ÖÃĞ£×¼
+                //è§’è‰²æ‹–æ‹½åˆ°ç«™ä½ä¸Šä¸”ä½ç½®æ ¡å‡†
                 lastParentTF = nowParentTF;
                 nowParentTF = hit.transform;
                 this.transform.SetParent(nowParentTF);
                 transform.position = new Vector3(nowParentTF.position.x, nowParentTF.position.y + offsetY, nowParentTF.position.z);
 
-                //Òş²Ø/»Ö¸´Õ¾Î»ÑÕÉ«£¨Í¸Ã÷¶ÈÎª0
+                //éšè—/æ¢å¤ç«™ä½é¢œè‰²ï¼ˆé€æ˜åº¦ä¸º0
                 nowParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = Color.clear;
                 if(lastParentTF.gameObject.GetComponent<SpriteRenderer>())
                     lastParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = new Color((float)180/255, (float)180 /255, (float)180 /255, 1);
 
                 AbstractCharacter c = this.GetComponent<AbstractCharacter>();
-                //¸ù¾İÕ¾Î»¸ø½ÇÉ«ÕóÓª¸³Öµ
+                //æ ¹æ®ç«™ä½ç»™è§’è‰²é˜µè¥èµ‹å€¼
                 if (hit.collider.gameObject.GetComponent<Situation>().number < 6)
                 {
                     c.camp = CampEnum.left;
@@ -144,7 +144,7 @@ public class CharacterMouseDrag : MonoBehaviour
             }
 
         }
-        else//Ã»ÓĞ¼ì²âµ½Õ¾Î»
+        else//æ²¡æœ‰æ£€æµ‹åˆ°ç«™ä½
         {
             transform.position = new Vector3(nowParentTF.position.x, nowParentTF.position.y + offsetY, nowParentTF.position.z);
 

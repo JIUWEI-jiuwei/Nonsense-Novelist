@@ -138,7 +138,7 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>站位</summary>
     public Situation situation;
     /// <summary>攻击射程</summary>
-    public int attackDistance = 0;
+    public int attackDistance = 99;
     /// <summary>角色动画</summary>
     public CharaAnim charaAnim;
     /// <summary>剩余眩晕时间</summary>
