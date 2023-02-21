@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// 版本二：拖拽角色站位
+/// before start
 /// </summary>
 public class CharacterMouseDrag : MonoBehaviour
 {
@@ -21,10 +20,7 @@ public class CharacterMouseDrag : MonoBehaviour
     private Transform lastParentTF;
     /// <summary>角色和站位position的Y偏移量</summary>
     public static float offsetY = 0.5f;
-    /// <summary>角色简要预制体（手动挂）</summary>
-    public Transform charaShortInstance;
-    /// <summary>角色简要预制体克隆</summary>
-    private Transform charaShort;
+
 
     private void Start()
     {
@@ -54,34 +50,13 @@ public class CharacterMouseDrag : MonoBehaviour
     {
         //颜色变黄
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)225 / 255, (float)189 / 255, (float)255 / 255);
-
-        //显示角色简要信息(待测试)
-        /*charaShort = Instantiate(charaShortInstance);
-        charaShort.SetParent(transform.GetChild(4));
-        charaShort.localScale = Vector3.one;
-
-        //给角色简要赋值
-        AbstractCharacter abschara = GetComponent<AbstractCharacter>();
-        //name
-        charaShort.GetChild(0).GetComponent<Text>().text = abschara.wordName;
-        //HP
-        charaShort.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.maxHP.ToString();
-        //ATK
-        charaShort.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
-        //def
-        charaShort.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def);
-        //san
-        charaShort.GetChild(4).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san);
-        //psy
-        charaShort.GetChild(5).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);*/
+        
     }
     private void OnMouseExit()
     {
         //颜色恢复
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
-
-        //角色简要不显示
-        Destroy(charaShort);
+        
     }
     //被移动物体需要添加collider组件，以响应OnMouseDown()函数
     //基本思路。当鼠标点击物体时（OnMouseDown（），函数体里面代码只执行一次），
@@ -123,23 +98,29 @@ public class CharacterMouseDrag : MonoBehaviour
                     lastParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = new Color((float)180/255, (float)180 /255, (float)180 /255, 1);
 
                 AbstractCharacter c = this.GetComponent<AbstractCharacter>();
+                //根据站位给角色站位赋值
+                c.situation = hit.collider.gameObject.GetComponent<Situation>();
+
                 //根据站位给角色阵营赋值
                 if (hit.collider.gameObject.GetComponent<Situation>().number < 6)
                 {
                     c.camp = CampEnum.left;
+                    //图片翻转方向
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    //去重
                     if (CharacterManager.charas_right.Contains(c))
                     {
-                        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                         CharacterManager.charas_right.Remove(c);
                     }
+                    //加入阵营
                     CharacterManager.charas_left.Add(c);
                 }
                 else
                 {
                     c.camp = CampEnum.right;
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                     if (CharacterManager.charas_left.Contains(c)) CharacterManager.charas_left.Remove(c);
                     CharacterManager.charas_right.Add(c);
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
             }
 

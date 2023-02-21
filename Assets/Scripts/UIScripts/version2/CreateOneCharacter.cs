@@ -97,6 +97,7 @@ public class CreateOneCharacter : MonoBehaviour
             {
                 it.GetComponent<AI.MyState0>().enabled = true;
                 it.GetComponent<AbstractCharacter>().enabled = true;
+                it.gameObject.AddComponent(typeof(AfterStart));
                 Destroy(it.GetComponent<CharacterMouseDrag>());
             }
             //∑¢…‰∆˜∆Ù”√

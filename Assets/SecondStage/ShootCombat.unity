@@ -1639,6 +1639,8 @@ MonoBehaviour:
   - {fileID: 2923459406948245553, guid: 41fa4755dae4fc1478c606d816b532f8, type: 3}
   - {fileID: 8792533845088263391, guid: 32a3c3de17364f840973d1d7c6e21d6f, type: 3}
   - {fileID: 3837959891539934793, guid: ffa3cdc06b8b7ba48963bb4b8036df2f, type: 3}
+  - {fileID: 3837959891539934793, guid: 667ec1d5e386d2d449b2717ef6009e94, type: 3}
+  - {fileID: 3837959891539934793, guid: 3c6478429ef74cf4d852263f5645538f, type: 3}
   shooter: {fileID: 1930712499}
 --- !u!1 &632021670
 GameObject:
@@ -2135,7 +2137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.6299438}
+  m_AnchoredPosition: {x: 0, y: 3.6298828}
   m_SizeDelta: {x: 0, y: 7.2598877}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740328161
