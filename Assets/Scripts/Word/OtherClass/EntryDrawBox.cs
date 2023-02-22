@@ -60,6 +60,13 @@ class EntryDrawBox : MonoBehaviour
     /// <summary>CD加载满，点击能否生成词条</summary>
     //public bool isCreateWord = false;
     public int wordNumm = 0;
+    /// <summary>名词toggle</summary>
+    public Toggle toggle_noun;
+    /// <summary>动词toggle</summary>
+    public Toggle toggle_verb;
+    /// <summary>形容词toggle</summary>
+    public Toggle toggle_adj;
+
 
     //加载初始六个词条
     private void Start()
@@ -180,7 +187,8 @@ class EntryDrawBox : MonoBehaviour
             }
         }       
     }
-    /// <summary>
+/*   版本一废弃方法
+ *   /// <summary>
     /// 书桌界面全部名词词条
     /// </summary>
     public void BookDeskNounWords()
@@ -252,7 +260,8 @@ class EntryDrawBox : MonoBehaviour
             }
         }        
     }
-
+*/
+    
     /// <summary>
     /// 书桌界面《红楼梦》词条
     /// </summary>
@@ -260,20 +269,27 @@ class EntryDrawBox : MonoBehaviour
     {
         if (hlmFirst == false)
         {
-            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            if (toggle_noun.isOn && toggle_verb.isOn && toggle_adj.isOn)
             {
-                if (canvas.name == "MainCanvas")
+                foreach (Canvas canvas in FindObjectsOfType<Canvas>())
                 {
-                    for (int i = 0; i < AllSkills.hlmList_all.Count; i++)
+                    if (canvas.name == "MainCanvas")
                     {
-                        GameObject word = Instantiate(wordPrefab, canvas.transform);
-                        Type absWord = AllSkills.HLMWords(i);
-                        word.AddComponent(absWord);
-                        word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWord0>().wordName);
-                        word.transform.SetParent(hlmbookDeskPanel);
+                        for (int i = 0; i < AllSkills.hlmList_all.Count; i++)
+                        {
+                            GameObject word = Instantiate(wordPrefab, canvas.transform);
+                            Type absWord = AllSkills.HLMWords(i);
+                            word.AddComponent(absWord);
+                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWord0>().wordName);
+                            word.transform.SetParent(hlmbookDeskPanel);
+                        }
                     }
+                    hlmFirst = true;
                 }
-                hlmFirst = true;
+            }
+            else if(toggle_noun.isOn && toggle_verb.isOn && toggle_adj.isOn)
+            {
+
             }
         }        
     }
