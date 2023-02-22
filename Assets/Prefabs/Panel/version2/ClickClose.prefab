@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2188559462136350678}
   - component: {fileID: 116534811747357249}
   - component: {fileID: 8351338095451976292}
-  - component: {fileID: 3487229699286190677}
   m_Layer: 5
   m_Name: ClickClose
   m_TagString: Untagged
@@ -94,9 +93,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3487229699286190677}
-        m_TargetAssemblyTypeName: DestroyCharacterDetail, Assembly-CSharp
-        m_MethodName: CloseDetail
+      - m_Target: {fileID: 434459023385473633}
+        m_TargetAssemblyTypeName: CharacterDetails, Assembly-CSharp
+        m_MethodName: CloseCharaPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -283,18 +282,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3487229699286190677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6383735193206529920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10cbdbc170d88742a707ac85ec2ebf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5429135508015396584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,3 +384,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6514718508804367533, guid: 2a6e45c032ce9c247ac01dc4b1643f8e, type: 3}
   m_PrefabInstance: {fileID: 5429135508015396584}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &434459023385473633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5575363794469454985, guid: 2a6e45c032ce9c247ac01dc4b1643f8e, type: 3}
+  m_PrefabInstance: {fileID: 5429135508015396584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7533ce09dab1f43a65a431fd5dc3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

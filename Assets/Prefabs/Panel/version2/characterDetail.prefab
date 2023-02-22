@@ -1421,8 +1421,8 @@ MonoBehaviour:
   wordPrefab: {fileID: 1818578637429496212, guid: 0e29b21630a4db54e907b153c7f88b42, type: 3}
   nounTF: {fileID: 6514718509433545977}
   verbTF: {fileID: 6514718509224885766}
-  statePanel: {fileID: 0}
-  stateImage: {fileID: 0}
+  statePanel: {fileID: 5113802614655757887}
+  stateImage: {fileID: 2671565423359967523, guid: 4c693ad8f58e55f4bb911f43f0b1da3c, type: 3}
 --- !u!114 &6771948579708737314
 MonoBehaviour:
   m_ObjectHideFlags: 0

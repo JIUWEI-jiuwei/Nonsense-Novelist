@@ -7,15 +7,15 @@ using UnityEngine;
 public class AfterStart : MonoBehaviour
 {
     /// <summary>角色简要预制体（手动挂）</summary>
-    private Transform charaShortInstance;
+    private GameObject charaShortInstance;
     /// <summary>角色简要预制体克隆</summary>
-    private Transform charaShort;
+    private GameObject charaShort;
     /// <summary></summary>
     private bool one;
 
     private void Start()
     {
-        charaShortInstance = Resources.Load<Transform>("SecondStageLoad/CharacterShort");
+        charaShortInstance = Resources.Load<GameObject>("CharacterShort");
     }
     private void OnMouseOver()
     {
@@ -26,25 +26,23 @@ public class AfterStart : MonoBehaviour
         if (!one)
         {
             one = true;
-            //显示角色简要信息(待测试)
-            charaShort = Instantiate(charaShortInstance);
-            charaShort.SetParent(transform.GetChild(4));
-            charaShort.localScale = Vector3.one;
+            //显示角色简要信息(注意第二个参数对于UI)
+            charaShort = Instantiate(charaShortInstance,this.transform.GetComponentInChildren<Canvas>().gameObject.transform);
 
             //给角色简要赋值
             AbstractCharacter abschara = GetComponent<AbstractCharacter>();
             //name
-            charaShort.GetChild(0).GetComponent<Text>().text = abschara.wordName;
+            charaShort.transform.GetChild(0).GetComponent<Text>().text = abschara.wordName;
             //HP
-            charaShort.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.MaxHP.ToString();
+            charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.MaxHP.ToString();
             //ATK
-            charaShort.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
+            charaShort.transform.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
             //def
-            charaShort.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def);
+            charaShort.transform.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def);
             //san
-            charaShort.GetChild(4).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san);
+            charaShort.transform.GetChild(4).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san);
             //psy
-            charaShort.GetChild(5).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);
+            charaShort.transform.GetChild(5).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);
         }
     }
     private void OnMouseExit()
@@ -52,7 +50,11 @@ public class AfterStart : MonoBehaviour
         //颜色恢复
         GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
 
-        //角色简要不显示
-        Destroy(charaShort.gameObject);
+        if (one)
+        {
+            //角色简要不显示
+            Destroy(charaShort.gameObject);
+            one = false;
+        }
     }
 }

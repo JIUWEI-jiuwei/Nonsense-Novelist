@@ -221,7 +221,9 @@ abstract public class AbstractCharacter : AbstractWord0
     public void turn()
     {
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        //角色的canvas子物体不转向
         energyCanvas.transform.localScale=new Vector3(Mathf.Abs(energyCanvas.transform.localScale.x), energyCanvas.transform.localScale.y, energyCanvas.transform.localScale.z);
+
     }
 
     /// <summary>能用的技能个数 </summary>
