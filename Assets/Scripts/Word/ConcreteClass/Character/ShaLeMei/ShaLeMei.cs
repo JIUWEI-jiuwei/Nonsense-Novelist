@@ -30,28 +30,23 @@ class ShaLeMei : AbstractCharacter
             "\n玉带林中挂，金簪雪里埋。";
     }
 
-    public override void AttackA()
+    public override bool AttackA()
     {
-        base.AttackA();//普通攻击降低敌人20%意志，不可叠加，持续10s
-        ShaLeMeiBuff record=myState.aim.GetComponent<ShaLeMeiBuff>();
-        if (record == null)
-            myState.aim.gameObject.AddComponent<ShaLeMeiBuff>();
-        else
-            record.nowTime = 10;
+        if (base.AttackA())
+        {
+            //普通攻击降低敌人20%意志，不可叠加，持续10s
+            ShaLeMeiBuff record = myState.aim.GetComponent<ShaLeMeiBuff>();
+            if (record == null)
+                myState.aim.gameObject.AddComponent<ShaLeMeiBuff>();
+            else
+                record.nowTime = 10;
+            return true;
+        }
+        return false;
     }
 
 
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = aimChara;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = this.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-
-    }
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)

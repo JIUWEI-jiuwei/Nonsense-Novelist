@@ -24,15 +24,6 @@ class FinancialDifficulty_x : AbstractCharacter
         attackDistance = 600;
     }
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = this.gameObject;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = aimChara.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, aimChara.transform.position, aimChara.transform.rotation);
-    }
 
     public override string ShowText(AbstractCharacter otherChara)
     {

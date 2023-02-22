@@ -29,13 +29,10 @@ abstract public class AbstractCharacter : AbstractWord0
     //[HideInInspector] public string criticalSpeak;
     /// <summary>人物死亡默认台词（弃用）</summary>
     //[HideInInspector] public string deadSpeak;
-
     /// <summary>特效</summary>
     [HideInInspector] public TeXiao teXiao;
     /// <summary>子弹(手动挂）</summary>
     public GameObject bullet;
-    /// <summary>发出子弹 </summary>
-    public virtual void CreateBullet(GameObject aimChara) { }
 
     /// <summary>阵营</summary>
     public CampEnum camp;
@@ -163,6 +160,8 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
 
+    /// <summary>平A模式</summary>
+    [HideInInspector]public AbstractSkillMode attackA;
 
     virtual public void Awake()
     {
@@ -177,7 +176,10 @@ abstract public class AbstractCharacter : AbstractWord0
         myState.character = this;
         myState.enabled = false;
 
-        teXiao=GetComponentInChildren<TeXiao>();
+        attackA = gameObject.AddComponent<DamageMode>();//平A是伤害类型
+        attackA.attackRange = new SingleSelector();
+
+        teXiao =GetComponentInChildren<TeXiao>();
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
         charaAnim=GetComponent<CharaAnim>();
@@ -238,20 +240,34 @@ abstract public class AbstractCharacter : AbstractWord0
     }
 
     /// <summary>
-    /// 平A时最先发生的事(角色对平A造成影响）
+    /// 平A
     /// </summary>
-    virtual public void AttackA() 
+    /// <returns>是否平A成功（影响AttackState平A冷却重置）</returns>
+    virtual public bool AttackA() 
     {
-        if(OnA!=null)
-        OnA();
+        if (myState.aim != null)
+        {
+            myState.character.CreateBullet(myState.aim.gameObject);
+            if (myState.character.aAttackAudio != null)
+            {
+                myState.character.source.clip = myState.character.aAttackAudio;
+                myState.character.source.Play();
+            }
+            myState.character.charaAnim.Play(AnimEnum.attack);
+            attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim);
+            return true;
+        }
+        return false;
     }
-
-    public delegate void changeA();
-    /// <summary>
-    /// 对角色平A进行操作(技能等对平A造成影响）
-    /// </summary>
-    public event changeA OnA;
-    
+    /// <summary>发出子弹 </summary>
+    public virtual void CreateBullet(GameObject aimChara)
+    {
+        DanDao danDao = GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation)
+            .GetComponent<DanDao>(); 
+        danDao.aim = aimChara;
+        danDao.bulletSpeed = 0.5f;
+        danDao.SetOff(this.transform.position);
+    }
 
     /// <summary>
     /// 判断该角色是否有该buff

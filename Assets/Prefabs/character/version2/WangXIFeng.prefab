@@ -358,7 +358,6 @@ MonoBehaviour:
   wordKind: 0
   bookName: 0
   wordName: 
-  pattern: {fileID: 0}
   brief: 
   description: 
   nickname: []
@@ -371,9 +370,9 @@ MonoBehaviour:
   walkAudio: {fileID: 8300000, guid: 336cc2b14d4b27641a1c4408bd39c99d, type: 3}
   teXiao: {fileID: 0}
   bullet: {fileID: 3424991713766038287, guid: 9cfb782ead826aa4883ddaac0089618e, type: 3}
-  camp: 2
+  camp: 0
   HP: 0
-  maxHP: 0
+  MaxHP: 0
   trait: {fileID: 0}
   roleName: 
   skills: []

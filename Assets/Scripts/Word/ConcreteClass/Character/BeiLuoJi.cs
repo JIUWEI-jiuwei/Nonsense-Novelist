@@ -24,45 +24,33 @@ class BeiLuoJi : AbstractCharacter
         roleName = "蚁后";
         attackInterval = 2.2f;
         attackDistance = 500;
+
+        Destroy(attackA);
+        attackA = gameObject.AddComponent<CureMode>();
     }
 
-    private void Start()
-    {
-        attackState = GetComponent<AttackState>();
-        Destroy(attackState.attackA);
-        attackState.attackA = gameObject.AddComponent<CureMode>();
-    }
-
-    AttackState attackState;
     AbstractCharacter[] aims;
-    public override void AttackA()
-    {
-        base.AttackA();
-        //代替平A
-        myState.aim = null;
-        if (myState.character.aAttackAudio != null)
+    public override bool AttackA()
+    {//代替平A
+        if (myState.aim != null)
         {
-            myState.character.source.clip = myState.character.aAttackAudio;
-            myState.character.source.Play();
+            if (myState.character.aAttackAudio != null)
+            {
+                myState.character.source.clip = myState.character.aAttackAudio;
+                myState.character.source.Play();
+            }
+            myState.character.charaAnim.Play(AnimEnum.attack);
+            aims = attackA.CalculateAgain(100, this);
+            foreach (AbstractCharacter aim in aims)
+            {//普通攻击目标为所有队友，恢复70%意志的血量，不附带攻击攻击特效
+                attackA.UseMode(myState.character, san * 0.7f, aim);
+                myState.character.CreateBullet(aim.gameObject);
+            }
+            return true;    
         }
-        myState.character.charaAnim.Play(AnimEnum.attack);
-        aims = attackState.attackA.CalculateAgain(100, this);
-        foreach (AbstractCharacter aim in aims)
-        {//普通攻击目标为所有队友，恢复70%意志的血量，不附带攻击攻击特效
-            attackState.attackA.UseMode(myState.character, san * 0.7f, aim) ;
-        }
+        return false;
     }
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = aimChara;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = this.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-
-    }
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)

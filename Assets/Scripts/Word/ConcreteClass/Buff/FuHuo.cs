@@ -8,20 +8,20 @@ public class FuHuo : AbstractBuff
     override protected void Awake()
     {
         base.Awake();
-        buffName = "·ı»ñ";
+        buffName = "ä¿˜è·";
         book = BookNameEnum.Salome;
         upup = 1;
 
-        if (GameObject.Find("ËùÓĞ½ÇÉ«µÄ¸¸ÎïÌå").GetComponentsInChildren<FuHuo>().Length == 1)
+        if (GameObject.Find("æ‰€æœ‰è§’è‰²çš„çˆ¶ç‰©ä½“").GetComponentsInChildren<FuHuo>().Length == 1)
         AbstractVerbs.OnAwake += FuHuoSkill;
 
-        AttackState attackState = GetComponent<AttackState>();
-        if(attackState!=null && attackState.attackA.GetType()==typeof(DamageMode))
+        AbstractCharacter character = GetComponent<AbstractCharacter>();
+        if(character.attackA.GetType()==typeof(DamageMode))
         {
             FuHuoMode newMode= gameObject.AddComponent<FuHuoMode>();
-            newMode.attackRange = attackState.attackA.attackRange;
-            Destroy(attackState.attackA);
-            attackState.attackA = newMode;
+            newMode.attackRange = character.attackA.attackRange;
+            Destroy(character.attackA);
+            character.attackA = newMode;
         }
         FuHuoSkill();
     }
@@ -43,18 +43,18 @@ public class FuHuo : AbstractBuff
 
     private void OnDestroy()
     {
-       if(this.GetComponents<FuHuo>().Length<=1)//Ö»ÓĞ×Ô¼º
+       if(this.GetComponents<FuHuo>().Length<=1)//åªæœ‰è‡ªå·±
         {
-            if(GameObject.Find("ËùÓĞ½ÇÉ«µÄ¸¸ÎïÌå").GetComponentsInChildren<FuHuo>().Length<=1)
+            if(GameObject.Find("æ‰€æœ‰è§’è‰²çš„çˆ¶ç‰©ä½“").GetComponentsInChildren<FuHuo>().Length<=1)
                 AbstractVerbs.OnAwake -= FuHuoSkill;
 
-            AttackState attackState = GetComponent<AttackState>();
-            if (attackState != null && attackState.attackA.GetType() == typeof(FuHuoMode))
+            AbstractCharacter character = GetComponent<AbstractCharacter>();
+            if (character.attackA.GetType() == typeof(FuHuoMode))
             {
                 DamageMode newMode = gameObject.AddComponent<DamageMode>();
-                newMode.attackRange = attackState.attackA.attackRange;
-                Destroy(attackState.attackA);
-                attackState.attackA = newMode;
+                newMode.attackRange = character.attackA.attackRange;
+                Destroy(character.attackA);
+                character.attackA = newMode;
             }
             AbstractVerbs[] allVerb = GetComponents<AbstractVerbs>();
             foreach (AbstractVerbs verb in allVerb)
@@ -75,42 +75,42 @@ public class FuHuo : AbstractBuff
 class FuHuoMode : AbstractSkillMode
 {
     /// <summary>
-    /// ¶ÔÄ¿±êÊµ¼ÊÓ°Ïì
+    /// å¯¹ç›®æ ‡å®é™…å½±å“
     /// </summary>
-    /// <param name="value">Êµ¼ÊÉËº¦</param>
-    /// <param name="character">Ä¿±ê£¨À´×ÔÄ¿±êÊı×é£©</param>
+    /// <param name="value">å®é™…ä¼¤å®³</param>
+    /// <param name="character">ç›®æ ‡ï¼ˆæ¥è‡ªç›®æ ‡æ•°ç»„ï¼‰</param>
     public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        if (useCharacter != null)//½ÇÉ«Ê¹ÓÃ
+        if (useCharacter != null)//è§’è‰²ä½¿ç”¨
         {
-            float a = Random.Range(0, 100);//±©»÷³é½±
-            if (a <= useCharacter.criticalChance * 100)//±©»÷
+            float a = Random.Range(0, 100);//æš´å‡»æŠ½å¥–
+            if (a <= useCharacter.criticalChance * 100)//æš´å‡»
             {
                 value *= useCharacter.multipleCriticalStrike;
                 aimCharacter.teXiao.PlayTeXiao("BaoJi");
                 AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
             }
 
-            /*if(useCharacter.trait.restrainRole.Contains(aimCharacter.trait.traitEnum))//¹¥»÷Õß¿Ë±»¹¥»÷Õß,ÌáÉı30%ÉËº¦
+            /*if(useCharacter.trait.restrainRole.Contains(aimCharacter.trait.traitEnum))//æ”»å‡»è€…å…‹è¢«æ”»å‡»è€…,æå‡30%ä¼¤å®³
             {
                 aimCharacter.hp -= value * 1.3f;
             }
-            else//Ò»°ã*/
+            else//ä¸€èˆ¬*/
             {
                 aimCharacter.hp -= value;
             }
         }
-        else//Íæ¼ÒÊ¹ÓÃ£¨ĞÎÈİ´Ê£©
+        else//ç©å®¶ä½¿ç”¨ï¼ˆå½¢å®¹è¯ï¼‰
             aimCharacter.hp -= (int)value;
     }
     /// <summary>
-    /// ÔÙ´Î¼ÆËãËø¶¨µÄÄ¿±ê
+    /// å†æ¬¡è®¡ç®—é”å®šçš„ç›®æ ‡
     /// </summary>
-    /// <param name="character">Ê©·¨Õß</param>
+    /// <param name="character">æ–½æ³•è€…</param>
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
-        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.friend);//ÓÅÏÈ¹¥»÷ÓÑ·½£¬ÆÚ¼äÉËº¦¼õ°ë£¬½áÊøºó»Ö¸´
+        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.friend);//ä¼˜å…ˆæ”»å‡»å‹æ–¹ï¼ŒæœŸé—´ä¼¤å®³å‡åŠï¼Œç»“æŸåæ¢å¤
         return a;
     }
 }
