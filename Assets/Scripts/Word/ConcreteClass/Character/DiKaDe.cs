@@ -13,7 +13,7 @@ class DiKaDe : AbstractCharacter
         wordName = "狄卡德";
         bookName = BookNameEnum.ElectronicGoal;
         gender = GenderEnum.boy;
-        hp =MaxHP  = 120;
+        hp =maxHp  = 120;
         atk = 5;
         def = 4;
         psy = 3;
@@ -27,7 +27,7 @@ class DiKaDe : AbstractCharacter
 
     public override float atk 
     {
-        get => base.atk + MaxHP * 0.05f; 
+        get => base.atk + maxHp * 0.05f; 
         set => base.atk = value; 
     }
 

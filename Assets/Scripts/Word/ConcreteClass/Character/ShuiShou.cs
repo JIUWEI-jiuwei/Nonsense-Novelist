@@ -14,7 +14,7 @@ class ShuiShou : AbstractCharacter
         wordName = "税收";
         bookName = BookNameEnum.ElectronicGoal;
         gender = GenderEnum.noGender;
-        hp =MaxHP  = 220;
+        hp =maxHp  = 220;
         atk = 5;
         def = 5;
         psy = 3;

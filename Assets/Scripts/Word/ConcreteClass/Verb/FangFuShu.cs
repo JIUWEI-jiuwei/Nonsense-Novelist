@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ·À¸¯Êõ
+/// é˜²è…æœ¯
 /// </summary>
 class FangFuShu : AbstractVerbs
 {
@@ -10,24 +10,24 @@ class FangFuShu : AbstractVerbs
     {
         base.Awake();
         skillID = 5;
-        wordName = "·À¸¯";
+        wordName = "é˜²è…";
         bookName = BookNameEnum.EgyptMyth;
-        description = "Ê¹¶ÓÓÑ»ñµÃ¡°¸´»î¡±";
+        description = "ä½¿é˜Ÿå‹è·å¾—â€œå¤æ´»â€";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = 20;
         rarity = 1;
         needCD = 10;
-        description = "Í¨¹ı¸´ÔÓµÄ¹¤Ğò£¬ÈÃÈâÌå²»»á¸¯°Ü£¬ÔÙ´Î»ñµÃÉú´æµÄ»ú»á¡£";
+        description = "é€šè¿‡å¤æ‚çš„å·¥åºï¼Œè®©è‚‰ä½“ä¸ä¼šè…è´¥ï¼Œå†æ¬¡è·å¾—ç”Ÿå­˜çš„æœºä¼šã€‚";
 
     }
     /// <summary>
-    /// ¸´»î
+    /// å¤æ´»
     /// </summary>
-    /// <param name="useCharacter">Ê©·¨Õß</param>
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    /// <param name="useCharacter">æ–½æ³•è€…</param>
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<ReLife>());
         buffs[0].maxTime = skillEffectsTime;
     }
@@ -38,7 +38,7 @@ class FangFuShu : AbstractVerbs
         //if (character == null || aimState==null)
             //return null;
 
-        return character.wordName + "ÄÃÆğĞ¡µ¶£¬½«¸¹²¿¿ª³öÒ»¸öĞ¡È±¿Ú£¬²¢½«ÏãÖ¬ÓÍ¹àÂúÆäÖĞ¡£ÔÙ½«Ê÷Ö¬ÌîÈëÃû×Ö2µÄÍ·Â­£¬·ÀÖ¹Í·²¿µÄ±äĞÎ¡£½ÓÏÂÀ´½«ËûÕû¸öÂñÓÚ¼î·ÛÖĞÒ»¸öÔÂ£¬ÕâÑù¾Í¿ÉÒÔ×öµ½ÈâÌå²»±»¸¯ĞàËùÀ§ÈÅÁË¡£";
+        return character.wordName + "æ‹¿èµ·å°åˆ€ï¼Œå°†è…¹éƒ¨å¼€å‡ºä¸€ä¸ªå°ç¼ºå£ï¼Œå¹¶å°†é¦™è„‚æ²¹çŒæ»¡å…¶ä¸­ã€‚å†å°†æ ‘è„‚å¡«å…¥åå­—2çš„å¤´é¢…ï¼Œé˜²æ­¢å¤´éƒ¨çš„å˜å½¢ã€‚æ¥ä¸‹æ¥å°†ä»–æ•´ä¸ªåŸ‹äºç¢±ç²‰ä¸­ä¸€ä¸ªæœˆï¼Œè¿™æ ·å°±å¯ä»¥åšåˆ°è‚‰ä½“ä¸è¢«è…æœ½æ‰€å›°æ‰°äº†ã€‚";
 
     }
 }

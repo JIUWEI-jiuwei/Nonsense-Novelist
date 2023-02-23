@@ -67,7 +67,7 @@ class CharacterDetails : MonoBehaviour
     {
         //1、状态页信息面板
         //HP
-        texts1[0].text = mouseDown.abschara.hp.ToString() + "/" + mouseDown.abschara.MaxHP.ToString();
+        texts1[0].text = mouseDown.abschara.hp.ToString() + "/" + mouseDown.abschara.maxHp.ToString();
         //ATK
         texts1[1].text = IntToString.SwitchATK(mouseDown.abschara.atk);
         //def

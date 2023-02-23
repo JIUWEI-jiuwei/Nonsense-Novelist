@@ -14,7 +14,7 @@ class ShiLian : AbstractCharacter
         wordName = "失恋";
         bookName = BookNameEnum.Salome;
         gender = GenderEnum.noGender;
-        hp = MaxHP = 120;
+        hp = maxHp = 120;
         atk = 3;
         def = 4;
         psy = 5;

@@ -13,7 +13,7 @@ using UnityEngine;
         bookName = BookNameEnum.allBooks;
         gender = GenderEnum.noGender;
         camp = CampEnum.stranger;
-        hp =MaxHP  = 600;
+        hp =maxHp  = 600;
         atk = 30;
         def = 60;
         psy = 25;

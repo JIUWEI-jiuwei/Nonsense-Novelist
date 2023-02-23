@@ -107,7 +107,7 @@ public class CharacterMouseDrag : MonoBehaviour
                     //图片翻转方向
                     if (c.camp == CampEnum.right)
                     {
-                        this.GetComponent<AbstractCharacter>().turn();
+                        this.GetComponent<AbstractCharacter>().turn(true);
                     }
                     c.camp = CampEnum.left;
                     //去重
@@ -122,7 +122,7 @@ public class CharacterMouseDrag : MonoBehaviour
                 {
                     if (c.camp != CampEnum.right)
                     {
-                        this.GetComponent<AbstractCharacter>().turn();
+                        this.GetComponent<AbstractCharacter>().turn(false);
                     }
                     c.camp = CampEnum.right;
                     if (CharacterManager.charas_left.Contains(c)) CharacterManager.charas_left.Remove(c);

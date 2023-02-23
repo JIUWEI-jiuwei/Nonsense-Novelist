@@ -7,9 +7,9 @@ class CHOOHShoot : AbstractVerbs
     {
         base.Awake();
         skillID = 13;
-        wordName = "ÒÏËáÅçÉä";
+        wordName = "èšé…¸å–·å°„";
         bookName = BookNameEnum.PHXTwist;
-        description = "Ê¹µĞÈËÊÜµ½ÉËº¦£¬»ñµÃ¡°¸¯Ê´¡±";
+        description = "ä½¿æ•Œäººå—åˆ°ä¼¤å®³ï¼Œè·å¾—â€œè…èš€â€";
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics= true;
         skillMode.attackRange = new SingleSelector();
@@ -20,9 +20,9 @@ class CHOOHShoot : AbstractVerbs
     }
 
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<FuShi>());
         buffs[0].maxTime = skillEffectsTime;
         BasicAbility(useCharacter);
@@ -40,7 +40,7 @@ class CHOOHShoot : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "¹Ä¶¯×Å×Ô¼º¸¹²¿µÄÏÙÌå£¬Í»È»ÊÕËõ¸¹²¿£¬ÅçÉä³öÁËÒ»µÀËáĞÔµÄÒºÌå£¬ÕıºÃÃüÖĞÁËÃû×Ö2µÄÁ³²¿¡£";
+        return character.wordName + "é¼“åŠ¨ç€è‡ªå·±è…¹éƒ¨çš„è…ºä½“ï¼Œçªç„¶æ”¶ç¼©è…¹éƒ¨ï¼Œå–·å°„å‡ºäº†ä¸€é“é…¸æ€§çš„æ¶²ä½“ï¼Œæ­£å¥½å‘½ä¸­äº†åå­—2çš„è„¸éƒ¨ã€‚";
 
     }
 }

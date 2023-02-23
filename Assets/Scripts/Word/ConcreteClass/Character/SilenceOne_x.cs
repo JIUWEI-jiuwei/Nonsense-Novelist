@@ -15,7 +15,7 @@ class SilenceOne_x : AbstractCharacter
         bookName = BookNameEnum.allBooks;
         brief = "一个强大的，无法绕开的敌人";
         trait=gameObject.AddComponent<Pride>();
-        hp=MaxHP = 300;
+        hp=maxHp = 300;
         atk = 13;
         def = 5;
         psy = 10;

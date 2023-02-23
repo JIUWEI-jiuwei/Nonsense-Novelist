@@ -19,16 +19,16 @@ class Nexus_6Arm : AbstractItems
         rarity = 3;
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         chara.atk += 7;
 
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
     }
 
     public override void End()

@@ -32,7 +32,7 @@ namespace AI
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character)!=null)
                 {
                     myState.character.charaAnim.Play(AnimEnum.attack);
-                    skill.UseVerbs(myState.character); 
+                    skill.UseVerb(myState.character); 
                 }
             }
             //如果没有技能在使用&&平A冷却完毕

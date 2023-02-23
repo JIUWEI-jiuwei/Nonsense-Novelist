@@ -24,19 +24,19 @@ class YiZhiWeiShiQi : AbstractItems
     float nowTime;
     AbstractSkillMode skillMode;
     AbstractCharacter[] friends;
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
-        friends= skillMode.CalculateAgain(999, aim);
+        base.UseItem(chara);
+        friends= skillMode.CalculateAgain(999, chara);
         foreach (AbstractCharacter friend in friends)
         {
             friend.psy++;
         }
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
         nowTime += Time.deltaTime;
         if (nowTime > 1)
         {

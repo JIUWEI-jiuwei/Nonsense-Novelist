@@ -13,7 +13,7 @@ class LinDaiYu : AbstractCharacter
         wordName = "林黛玉";
         bookName = BookNameEnum.HongLouMeng;
         gender = GenderEnum.girl;
-        hp =MaxHP  = 80;
+        hp =maxHp  = 80;
         atk = 3;
         def = 3;
         psy = 5;

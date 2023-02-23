@@ -19,15 +19,15 @@ class StrangeStatue : AbstractItems
         rarity = 0;
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         chara.psy += 2;
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
     }
 
     public override void End()

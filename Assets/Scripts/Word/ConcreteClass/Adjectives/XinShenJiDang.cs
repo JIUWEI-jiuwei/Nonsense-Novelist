@@ -3,39 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XinShenJiDang : AbstractAdjectives
+public class XinShenJiDang : AbstractAdjectives,IChongNeng
 {
-    /// <summary>充能次数 </summary>
-    public int chongNeng;
-    /// <summary>是否开始充能 </summary>
-    public bool beginCN;
-    /// <summary>充能持续时间 </summary>
-    public float chongNengTime=10;
+    private int psyAdd;
+
     public override void Awake()
     {
         adjID = 10;
-        wordName = "心神激荡的";
+        wordName = "蹇冪婵�鑽＄殑";
         bookName = BookNameEnum.Salome;
-        description = "获得精神，攻击精神交换（颠倒）";
+        description = "鑾峰緱绮剧锛屾敾鍑荤簿绁炰氦鎹紙棰犲�掞級";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;
         base.Awake();
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
-            wordCollisionShoots[0]=gameObject.AddComponent<ChongNeng>();
+            wordCollisionShoots[0] = gameObject.AddComponent<ChongNeng>();
     }
-    protected override void Update()
+    public void ChongNeng(int times)
     {
-        //充能持续时间
-        if (beginCN)
-        {
-            chongNengTime -= Time.deltaTime;
-            if (chongNengTime < 0)
-            {
-                aim.psy -= 5 * chongNeng;
-            }
-        }
-        base.Update();
+        psyAdd += 5*times;
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
@@ -43,25 +30,18 @@ public class XinShenJiDang : AbstractAdjectives
         base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
         buffs[0].maxTime = skillEffectsTime;
+        BasicAbility(aimCharacter);
 
-        //充能效果
-        beginCN = true;
-        aimCharacter.psy += 5 * chongNeng;
-        if (chongNeng > 0)
-        {
-            if (nowTime < chongNengTime)
-                nowTime = chongNengTime;
-        }
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
+        aimCharacter.psy += psyAdd;
     }
-
-
 
     public override void End()
     {
+        aim.psy -= psyAdd;
         base.End();
     }
-
+    
 }

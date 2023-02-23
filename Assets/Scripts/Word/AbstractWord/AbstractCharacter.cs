@@ -39,7 +39,7 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>血量</summary>
     public float HP = 0;
     /// <summary>总血量</summary>
-    public float MaxHP = 0;
+    private float MaxHp = 0;
 
     private Slider hpSlider;
     virtual public float hp
@@ -48,23 +48,27 @@ abstract public class AbstractCharacter : AbstractWord0
         set 
         {
             HP = value;
-            if (HP > MaxHP)
+            if (HP > maxHp)
             {
-                HP = MaxHP;
+                HP = maxHp;
             }
             else if (HP < 0)
             {
                 HP = 0;
             }
-            hpSlider.value = HP / MaxHP;
+            hpSlider.value = HP / maxHp;
         }
     }
-    virtual public float maxhp
+    virtual public float maxHp
     {
-        get { return MaxHP; }
+        get { return MaxHp; }
         set
         {
-            MaxHP = value;
+            MaxHp = value;
+            if(hp> MaxHp)
+            {
+                hp= MaxHp;
+            }
         }
     }
     /// <summary>攻击力</summary>
@@ -218,12 +222,11 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>
     /// 翻转
     /// </summary>
-    public void turn()
+    public void turn(bool atLeft)
     {
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         //角色的canvas子物体不转向
-        energyCanvas.transform.localScale=new Vector3(Mathf.Abs(energyCanvas.transform.localScale.x), energyCanvas.transform.localScale.y, energyCanvas.transform.localScale.z);
-
+        energyCanvas.transform.localScale=new Vector3(-energyCanvas.transform.localScale.x, energyCanvas.transform.localScale.y, energyCanvas.transform.localScale.z);
     }
 
     /// <summary>能用的技能个数 </summary>

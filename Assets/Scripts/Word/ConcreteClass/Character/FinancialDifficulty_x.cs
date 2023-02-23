@@ -14,7 +14,7 @@ class FinancialDifficulty_x : AbstractCharacter
         wordName = "经济压力";
         bookName = BookNameEnum.allBooks;
         trait=gameObject.AddComponent<NullTrait>();
-        hp=MaxHP = 100;
+        hp=maxHp = 100;
         atk = 10;
         def = 12;
         psy = 0;

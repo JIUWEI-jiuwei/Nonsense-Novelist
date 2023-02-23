@@ -29,27 +29,27 @@ class HealthCircleBar : MonoBehaviour
     {
         if (this.transform.GetChild(0).gameObject.name== "LinDaiYu_Circle"&& linDaiYu != null)
         {
-            float hpPercent=(float)linDaiYu.hp / linDaiYu.MaxHP;
+            float hpPercent=(float)linDaiYu.hp / linDaiYu.maxHp;
             this.GetComponent<Image>().fillAmount = hpPercent;
         }
         if (this.transform.GetChild(0).gameObject.name== "JiaBaoYu_Circle" && jiaBaoYu != null)
         {
-            float hpPercent=(float)jiaBaoYu.hp / jiaBaoYu.MaxHP;
+            float hpPercent=(float)jiaBaoYu.hp / jiaBaoYu.maxHp;
             this.GetComponent<Image>().fillAmount = hpPercent;
         }
         if (this.transform.GetChild(0).gameObject.name== "JiaMu_Circle" && jiaMu != null)
         {
-            float hpPercent=(float)jiaMu.hp / jiaMu.MaxHP;
+            float hpPercent=(float)jiaMu.hp / jiaMu.maxHp;
             this.GetComponent<Image>().fillAmount = hpPercent;
         }
         if (this.transform.GetChild(0).gameObject.name== "LiuLaoLao_Circle" && liuLaoLao != null)
         {
-            float hpPercent=(float)liuLaoLao.hp / liuLaoLao.MaxHP;
+            float hpPercent=(float)liuLaoLao.hp / liuLaoLao.maxHp;
             this.GetComponent<Image>().fillAmount = hpPercent;
         }
         if (this.transform.GetChild(0).gameObject.name == "WangXiFeng_Circle" && wangXiFeng != null)
         {
-            float hpPercent = (float)wangXiFeng.hp / wangXiFeng.MaxHP;
+            float hpPercent = (float)wangXiFeng.hp / wangXiFeng.maxHp;
             this.GetComponent<Image>().fillAmount = hpPercent;
         }
 

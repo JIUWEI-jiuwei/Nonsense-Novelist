@@ -39,7 +39,7 @@ class HealthBar : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        UpdateHealthBar(charaComponent.hp, charaComponent.MaxHP);
+        UpdateHealthBar(charaComponent.hp, charaComponent.maxHp);
         if (UIbar != null)
         {
             UIbar.transform.position = hpBarPoint.position;

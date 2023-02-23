@@ -22,15 +22,15 @@ class JiShengChong : AbstractItems
 
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         chara.def-=3;
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
         buffs.Add(gameObject.AddComponent<Ill>());
         buffs[0].maxTime = 5;
     }

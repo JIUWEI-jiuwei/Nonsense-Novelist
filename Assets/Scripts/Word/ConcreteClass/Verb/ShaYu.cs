@@ -7,9 +7,9 @@ class ShaYu : AbstractVerbs
     {
         base.Awake();
         skillID = 4;
-        wordName = "É³Ô¡";
+        wordName = "æ²™æµ´";
         bookName = BookNameEnum.ZooManual;
-        description = "×ÔÉí»ñµÃ¡°¿º·Ü¡±";
+        description = "è‡ªèº«è·å¾—â€œäº¢å¥‹â€";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;
@@ -17,12 +17,12 @@ class ShaYu : AbstractVerbs
     }
 
     /// <summary>
-    /// ¿º·Ü
+    /// äº¢å¥‹
     /// </summary>
-    /// <param name="useCharacter">Ê©·¨Õß</param>
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    /// <param name="useCharacter">æ–½æ³•è€…</param>
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(gameObject.AddComponent<KangFen>());
         buffs[0].maxTime = skillEffectsTime;
     }
@@ -33,7 +33,7 @@ class ShaYu : AbstractVerbs
         if (character == null)
             return null;
 
-        return "ÁÖ¼äÊ¢¿ªµÄÌÒ»¨ËæÇá·çÆ®ÂäÔÚµØ¡£\n"+character.wordName+"½«Æ®ÂäÔÚµØµÄÌÒ»¨¾ÛÂ£³ÉÍÅ£¬²¢½«ÆäÂñÔá£¬ÎªÆä°§µ¿¡£¡°»¨Ğ»»¨·É»¨ÂúÌì£¬ºìÏãÏû¶ÏÓĞË­Á¯£¿¡±";
+        return "æ—é—´ç››å¼€çš„æ¡ƒèŠ±éšè½»é£é£˜è½åœ¨åœ°ã€‚\n"+character.wordName+"å°†é£˜è½åœ¨åœ°çš„æ¡ƒèŠ±èšæ‹¢æˆå›¢ï¼Œå¹¶å°†å…¶åŸ‹è‘¬ï¼Œä¸ºå…¶å“€æ‚¼ã€‚â€œèŠ±è°¢èŠ±é£èŠ±æ»¡å¤©ï¼Œçº¢é¦™æ¶ˆæ–­æœ‰è°æ€œï¼Ÿâ€";
 
     }
     

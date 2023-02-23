@@ -46,7 +46,7 @@ public class WordCollisionShoot : MonoBehaviour
             else if (absWord.wordKind == WordKindEnum.noun)
             {
                 collision.gameObject.AddComponent(absWord.GetType());
-                collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
+                collision.gameObject.GetComponent<AbstractItems>().UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);
             }
         }

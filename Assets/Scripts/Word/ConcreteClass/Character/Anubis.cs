@@ -13,7 +13,7 @@ class Anubis : AbstractCharacter
         wordName = "阿努比斯";
         bookName = BookNameEnum.EgyptMyth;
         gender = GenderEnum.boy;
-        hp =MaxHP  = 250;
+        hp =maxHp  = 250;
         atk = 3;
         def = 4;
         psy = 3;
@@ -43,7 +43,7 @@ class Anubis : AbstractCharacter
         if(nowTime>1)
         {
             nowTime = 0;
-            hp += MaxHP * 0.03f;
+            hp += maxHp * 0.03f;
         }
     }
 

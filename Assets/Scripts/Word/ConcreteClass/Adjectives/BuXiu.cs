@@ -27,7 +27,7 @@ public class BuXiu : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.MaxHP += 30;
+        aimCharacter.maxHp += 30;
     }
 
     
@@ -35,7 +35,7 @@ public class BuXiu : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.MaxHP -= 30;
+        aim.maxHp -= 30;
     }
 
 }

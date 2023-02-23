@@ -26,7 +26,7 @@ public class RenZao : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.MaxHP += 20;
+        aimCharacter.maxHp += 20;
     }
 
     
@@ -34,7 +34,7 @@ public class RenZao : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.MaxHP -= 20;
+        aim.maxHp -= 20;
     }
 
 }

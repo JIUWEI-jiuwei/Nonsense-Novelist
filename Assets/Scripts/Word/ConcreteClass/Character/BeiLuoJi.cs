@@ -14,7 +14,7 @@ class BeiLuoJi : AbstractCharacter
         wordName = "贝洛姬·姬妮";
         bookName = BookNameEnum.PHXTwist;
         gender = GenderEnum.noGender;
-        hp =MaxHP  = 100;
+        hp =maxHp  = 100;
         atk = 0;
         def = 4;
         psy = 3;

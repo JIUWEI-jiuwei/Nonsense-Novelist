@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¼¤»î
+/// æ¿€æ´»
 /// </summary>
 public class JiHuo : WordCollisionShoot
 {
-    /// <summary>Åö×²´ÎÊı </summary>
+    /// <summary>ç¢°æ’æ¬¡æ•° </summary>
     private int count = 0;
     public override void Awake()
     {
@@ -19,17 +19,15 @@ public class JiHuo : WordCollisionShoot
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-
-
-        //¸øabsWord¸³Öµ
+        //ç»™absWordèµ‹å€¼
         absWord = Shoot.abs;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
-            //ÅĞ¶Ï¸Ã´ÊÌõÊÇĞÎÈİ´Ê/¶¯´Ê/Ãû´Ê
-            //ÏÈ°ÑabsWord½Å±¾¹ÒÔÚ½ÇÉ«ÉíÉÏ£¬È»ºóµ÷ÓÃ½ÇÉ«ÉíÉÏµÄuseAdj
+            //åˆ¤æ–­è¯¥è¯æ¡æ˜¯å½¢å®¹è¯/åŠ¨è¯/åè¯
+            //å…ˆæŠŠabsWordè„šæœ¬æŒ‚åœ¨è§’è‰²èº«ä¸Šï¼Œç„¶åè°ƒç”¨è§’è‰²èº«ä¸Šçš„useAdj
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
@@ -40,53 +38,22 @@ public class JiHuo : WordCollisionShoot
             }
             else if (absWord.wordKind == WordKindEnum.adj)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-                //¼¤»îĞ§¹û
-                if (count >= 3 && collision.gameObject.GetComponent<SanFaFeiLuoMeng>())
-                {
-                    //É¢·¢·ÑÂåÃÉµÄ
-                    SanFaFeiLuoMeng a = collision.gameObject.GetComponent<SanFaFeiLuoMeng>();
-                    a.jiHuo = true;
-                }
-                collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractAdjectives adj = collision.gameObject.AddComponent(absWord.GetType()) as AbstractAdjectives;
+                (adj as IJiHuo).JiHuo(count >= 3);
+                adj.UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);
             }
             else if (absWord.wordKind == WordKindEnum.noun)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-
-                //¼¤»îĞ§¹û
-                if (count >= 3)
-                {
-                    if (collision.gameObject.GetComponent<WhiteStone>())
-                    {
-                        //°×Ë®¾§
-                        WhiteStone a= collision.gameObject.GetComponent<WhiteStone>();
-                        a.jiHuo = true;
-                    }
-                    else if (collision.gameObject.GetComponent<PurpleStone>())
-                    {
-                        //×ÏË®¾§
-                        PurpleStone a = collision.gameObject.GetComponent<PurpleStone>();
-                        a.jiHuo = true;
-                    }
-                    else if (collision.gameObject.GetComponent<TigerStone>())
-                    {
-                        //»¢ÑÛÊ¯
-                        TigerStone a = collision.gameObject.GetComponent<TigerStone>();
-                        a.jiHuo = true;
-                    }
-                    else if (collision.gameObject.GetComponent<MeiGuiShiYing>())
-                    {
-                        //Ãµ¹åÊ¯Ó¢
-                        MeiGuiShiYing a = collision.gameObject.GetComponent<MeiGuiShiYing>();
-                        a.jiHuo = true;
-                    }
-                }
-
-                collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractItems adj = collision.gameObject.AddComponent(absWord.GetType()) as AbstractItems;
+                (adj as IJiHuo).JiHuo(count>=3);
+                adj.UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);
             }
         }
     }
+}
+interface IJiHuo
+{
+    public void JiHuo(bool value);
 }

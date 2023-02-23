@@ -20,18 +20,18 @@ class XianZhiHead : AbstractItems
     }
 
     float recordPsy, recordSan;
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         recordPsy = chara.psy * 0.15f;
         recordSan = chara.san * 0.1f;
         chara.psy += recordPsy;
         chara.san -=recordSan;
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
         
     }
 

@@ -13,7 +13,7 @@ class ShaLeMei : AbstractCharacter
         wordName = "莎乐美";
         bookName = BookNameEnum.Salome;
         gender = GenderEnum.girl;
-        hp =MaxHP  = 130;
+        hp =maxHp  = 130;
         atk = 3;
         def = 4;
         psy = 5;

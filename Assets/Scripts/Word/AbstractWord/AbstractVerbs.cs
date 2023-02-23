@@ -90,7 +90,7 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     /// 使用技能
     /// </summary>
     /// <param name="camp">使用者阵营</param>
-    virtual public void UseVerbs(AbstractCharacter useCharacter)
+    virtual public void UseVerb(AbstractCharacter useCharacter)
     {
         isUsing = true;
         CD = 0;

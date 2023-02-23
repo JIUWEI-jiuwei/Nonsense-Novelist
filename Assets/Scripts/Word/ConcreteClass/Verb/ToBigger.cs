@@ -18,15 +18,15 @@ class ToBigger : AbstractVerbs
         needCD=3;
     }
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         BasicAbility(useCharacter);
     }
 
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
-        useCharacter.MaxHP += 20;
+        useCharacter.maxHp += 20;
     }
 
     public override string UseText()

@@ -19,7 +19,7 @@ public class KangFen : AbstractBuff
         nowTime += Time.deltaTime;
         if (nowTime > 1)//每秒5%恢复
         {
-            chara.hp += 0.05f * chara.MaxHP;
+            chara.hp += 0.05f * chara.maxHp;
         }
     }
 

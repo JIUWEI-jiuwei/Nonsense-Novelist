@@ -14,7 +14,7 @@ class SiYangYuan : AbstractCharacter
         wordName = "饲养员";
         bookName = BookNameEnum.ZooManual;
         gender = GenderEnum.noGender;
-        hp =MaxHP  = 100;
+        hp =maxHp  = 100;
         atk = 0;
         def = 5;
         psy = 3;

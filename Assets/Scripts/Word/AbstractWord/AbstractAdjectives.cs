@@ -17,7 +17,7 @@ abstract public class AbstractAdjectives : AbstractWord0
     public int attackDistance=100;
     /// <summary>技能效果(特殊后续效果）持续时长 </summary>
     public float skillEffectsTime;
-
+    /// <summary>建议只在End()使用，否则别的地方需要判断是否为空 </summary>
     public AbstractCharacter aim;
     /// <summary>特殊效果存储引用</summary>
     protected List<AbstractBuff> buffs=new List<AbstractBuff>();
@@ -52,6 +52,9 @@ abstract public class AbstractAdjectives : AbstractWord0
         if (nowTime < 0)
             Destroy(this);
     }
+    /// <summary>
+    /// 相当于OnDestroy()
+    /// </summary>
     virtual public void End()
     {
 

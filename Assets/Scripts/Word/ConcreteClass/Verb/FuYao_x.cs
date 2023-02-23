@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ·şÒ©
+/// æœè¯
 /// </summary>
 class FuYao_x : AbstractVerbs
 {
@@ -10,9 +10,9 @@ class FuYao_x : AbstractVerbs
     {
         base.Awake();
         skillID = 5;
-        wordName = "·şÒ©";
+        wordName = "æœè¯";
         bookName = BookNameEnum.HongLouMeng;
-        description = "Ñ§»á·şÒ©£¬»Ö¸´20µãÉúÃü£¬½â³ı¸ºÃæĞ§¹û¡£";
+        description = "å­¦ä¼šæœè¯ï¼Œæ¢å¤20ç‚¹ç”Ÿå‘½ï¼Œè§£é™¤è´Ÿé¢æ•ˆæœã€‚";
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 0;
@@ -20,13 +20,13 @@ class FuYao_x : AbstractVerbs
         description = "";
     }
     /// <summary>
-    /// »ØÂúÑª
+    /// å›æ»¡è¡€
     /// </summary>
-    /// <param name="useCharacter">Ê©·¨Õß</param>
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    /// <param name="useCharacter">æ–½æ³•è€…</param>
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
         useCharacter.teXiao.PlayTeXiao("LengXiangWan");
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         /*foreach (AbstractCharacter aim in aims)
         {
             aim.hp = aim.maxHP;
@@ -34,7 +34,7 @@ class FuYao_x : AbstractVerbs
         BasicAbility(useCharacter);
     }
     /// <summary>
-    /// ½â³ıËùÓĞ¸ºÃæ×´Ì¬
+    /// è§£é™¤æ‰€æœ‰è´Ÿé¢çŠ¶æ€
     /// </summary>
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
@@ -47,7 +47,7 @@ class FuYao_x : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "Ôø´ÓÒ»º£ÉÏÀ´µÄÉ®ÈËÑ§µÃÒ»ÏÉ·½£¬¸øÃû×Ö2·şÏÂÁËÕâÏÉ·½£¬ÃûÎªÀäÏãÍè¡£";
+        return character.wordName + "æ›¾ä»ä¸€æµ·ä¸Šæ¥çš„åƒ§äººå­¦å¾—ä¸€ä»™æ–¹ï¼Œç»™åå­—2æœä¸‹äº†è¿™ä»™æ–¹ï¼Œåä¸ºå†·é¦™ä¸¸ã€‚";
 
     }
 }

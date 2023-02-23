@@ -4,10 +4,10 @@ using UnityEngine;
 /// <summary>
 /// 白水晶
 /// </summary>
-class WhiteStone: AbstractItems
+class WhiteStone: AbstractItems,IJiHuo
 {
     /// <summary>是否激活共振 </summary>
-    public bool jiHuo;
+    private bool jiHuo;
     public override void Awake()
     {
         base.Awake();
@@ -23,28 +23,35 @@ class WhiteStone: AbstractItems
             wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public void JiHuo(bool value)
     {
-        base.UseItems(chara);
+        jiHuo= value;
+    }
+
+    public override void UseItem(AbstractCharacter chara)
+    {
+        base.UseItem(chara);
         if (jiHuo)
         {
             chara.hp += 40;
-        }
-
-    }
-
-    public override void UseVerbs()
-    {
-        base.UseVerbs();
-        if (jiHuo)
-        {
             buffs.Add(gameObject.AddComponent<GongZhen>());
             buffs[0].maxTime = Mathf.Infinity;
         }
+        else
+        {
+            chara.hp += 10;
+        }
+    }
+
+    public override void UseVerb()
+    {
+        base.UseVerb();
     }
 
     public override void End()
     {
         base.End();
     }
+
+    
 }

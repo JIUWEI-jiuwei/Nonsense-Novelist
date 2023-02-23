@@ -14,7 +14,7 @@ class MuNaiYi : AbstractCharacter
         wordName = "木乃伊";
         bookName = BookNameEnum.EgyptMyth;
         gender = GenderEnum.noGender;
-        hp =MaxHP  = 220;
+        hp =maxHp  = 220;
         atk = 3;
         def = 4;
         psy = 4;

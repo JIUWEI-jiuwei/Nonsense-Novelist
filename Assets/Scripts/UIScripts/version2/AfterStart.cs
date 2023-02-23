@@ -34,7 +34,7 @@ public class AfterStart : MonoBehaviour
             //name
             charaShort.transform.GetChild(0).GetComponent<Text>().text = abschara.wordName;
             //HP
-            charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.MaxHP.ToString();
+            charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = abschara.hp.ToString() + "/" + abschara.maxHp.ToString();
             //ATK
             charaShort.transform.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
             //def

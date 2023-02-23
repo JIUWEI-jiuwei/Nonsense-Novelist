@@ -21,9 +21,9 @@ class MianYiZengQiang : AbstractVerbs
     /// 复活
     /// </summary>
     /// <param name="useCharacter">施法者</param>
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         BasicAbility(useCharacter);
     }
 
@@ -31,7 +31,7 @@ class MianYiZengQiang : AbstractVerbs
     {
        AbstractCharacter aim= skillMode.CalculateAgain(attackDistance,useCharacter)[0];
         aim.hp += 30;
-        aim.MaxHP += 20;
+        aim.maxHp += 20;
     }
 
     public override string UseText()
