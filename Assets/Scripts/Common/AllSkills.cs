@@ -13,8 +13,6 @@ public static class AllSkills
     public static List<Type> list_adj= new List<Type>();
     /// <summary>全部动词词条</summary>
     public static List<Type> list_verb = new List<Type>();
-    /// <summary>全部技能词条</summary>
-    public static List<Type> list = new List<Type>();
     /// <summary>全部词条</summary>
     public static List<Type> list_all = new List<Type>();
 
@@ -131,10 +129,6 @@ public static class AllSkills
         list_all.AddRange(list_verb);
         list_all.AddRange(list_adj);
         list_all.AddRange(list_noun);
-        //全部动词+形容词
-        list.AddRange(list_verb);
-        list.AddRange(list_adj);
-        
         
 
         //《红楼梦》添加动词词条
@@ -241,15 +235,7 @@ public static class AllSkills
         /// <summary>战斗界面全部词条</summary>
         combatList_all.AddRange(shaLeMeiList_all);
     }
-    /// <summary>
-    /// 静态随机生成技能
-    /// </summary>
-    public static Type OnDrawBox()
-    {
-        //UnityEngine.Random.InitState((int)Time.unscaledTime);
-        int number = UnityEngine.Random.Range(0, list.Count);
-        return list[number];
-    }
+
     /// <summary>
     /// 【弹射版本】生成随机词条(包含名词+动词+形容词)
     /// </summary>
@@ -258,85 +244,6 @@ public static class AllSkills
     {
         int number = UnityEngine.Random.Range(0, list_all.Count);
         return list_all[number];
-    }
-    /// <summary>
-    /// 返回全部技能词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type TestBox(int i)
-    {
-        return list[i];
-    }
-    /// <summary>
-    /// 返回全部词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type AllWords(int i)
-    {
-        return list_all[i];
-    }/// <summary>
-    /// 返回全部名词词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type AllNounWords(int i)
-    {
-        return list_noun[i];
-    }
-    /// 返回全部形容词词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type AllAdjWords(int i)
-    {
-        return list_adj[i];
-    }
-    /// 返回全部动词词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type AllVerbWords(int i)
-    {
-        return list_verb[i];
-    }
-
-    /// <summary>
-    /// 返回《红楼梦》中的全部词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type HLMWords(int i)
-    {
-        return hlmList_all[i];
-    }
-    /// <summary>
-    /// 返回《仿生人》中的全部词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type HumanWords(int i)
-    {
-        return humanList_all[i];
-    }
-    /// <summary>
-    /// 返回《动物园》中的全部词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type AnimalZooWords(int i)
-    {
-        return animalList_all[i];
-    }
-    /// <summary>
-    /// 返回《水晶能量》中的全部词条
-    /// </summary>
-    /// <param name="i"></param>
-    /// <returns></returns>
-    public static Type CrystalWords(int i)
-    {
-        return crystalList_all[i];
     }
 
 }

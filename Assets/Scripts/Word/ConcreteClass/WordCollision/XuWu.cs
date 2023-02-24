@@ -49,13 +49,13 @@ public class XuWu : WordCollisionShoot
             }
             else if (absWord.wordKind == WordKindEnum.adj)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-                collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractAdjectives adj = collision.gameObject.AddComponent(absWord.GetType()) as AbstractAdjectives;
+                adj.UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
             }
             else if (absWord.wordKind == WordKindEnum.noun)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-                collision.gameObject.GetComponent<AbstractItems>().UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractItems noun = collision.gameObject.AddComponent(absWord.GetType()) as AbstractItems;
+                noun.UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
             }
         }
         this.GetComponent<Collider2D>().isTrigger = false;

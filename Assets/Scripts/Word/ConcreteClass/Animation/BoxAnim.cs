@@ -106,7 +106,7 @@ class BoxAnim : MonoBehaviour
                     for (int i = 0; i < nums.Length; i++)
                     {
                         GameObject word = Instantiate(wordPrefab, canvas.transform);
-                        Type absWord = AllSkills.OnDrawBox();
+                        Type absWord = AllSkills.CreateSkillWord();
                         //将技能储存，加载到下一个场景
                         AllSkills.absWords[i] = absWord;
                         word.AddComponent(absWord);
