@@ -251,7 +251,6 @@ MonoBehaviour:
   bullet: {fileID: 7617887590883620401, guid: c53e15fe0150c9d428a6254f04e23faf, type: 3}
   camp: 1
   HP: 0
-  MaxHP: 0
   trait: {fileID: 0}
   roleName: 
   skills: []
@@ -553,6 +552,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3837959891539934792}
     m_Modifications:
+    - target: {fileID: 2117688827076469648, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2981727307482942888, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

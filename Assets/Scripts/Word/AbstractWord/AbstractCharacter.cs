@@ -171,8 +171,8 @@ abstract public class AbstractCharacter : AbstractWord0
     {
         energyCanvas = this.GetComponentInChildren<Canvas>();
         energyCanvas.worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
-        energySlider=transform.Find("Canvas/CD").GetComponent<Slider>();
-        hpSlider = transform.Find("Canvas/HP").GetComponent<Slider>();
+        energySlider= energyCanvas.transform.Find("CD").GetComponent<Slider>();
+        hpSlider = energyCanvas.transform.Find("HP").GetComponent<Slider>();
         energyText = this.GetComponentInChildren<Text>();
         energyCanvas.gameObject.SetActive(false);
 
@@ -222,7 +222,7 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>
     /// 翻转
     /// </summary>
-    public void turn(bool atLeft)
+    public void turn()
     {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         //角色的canvas子物体不转向
@@ -272,6 +272,12 @@ abstract public class AbstractCharacter : AbstractWord0
         danDao.aim = aimChara;
         danDao.bulletSpeed = 0.5f;
         danDao.SetOff(this.transform.position);
+    }
+    /// <summary>漂浮文字 </summary>
+    public void CreateFloatWord(float value, bool boss, bool damage, bool direct)
+    {
+        Instantiate<GameObject>(Resources.Load("SecondStageLoad/floatWord") as GameObject, energyCanvas.transform)
+            .GetComponent<FloatWord>().InitPopup(value, boss, damage, direct);
     }
 
     /// <summary>
