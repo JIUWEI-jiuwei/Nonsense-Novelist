@@ -4340,7 +4340,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1251680858}
+        m_TargetAssemblyTypeName: EntryDrawBox, Assembly-CSharp
+        m_MethodName: ToggleEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &608887299
 GameObject:
@@ -7582,14 +7594,15 @@ MonoBehaviour:
   oneWordTime2: 20
   bookDeskPanel: {fileID: 44748348}
   hlmbookDeskPanel: {fileID: 2055627822}
-  bookDeskHumanPanel: {fileID: 1414976622}
-  bookDeskAnimalPanel: {fileID: 1679975691}
-  bookDeskCrystalPanel: {fileID: 1533137464}
+  fangPanel: {fileID: 1414976622}
+  animalPanel: {fileID: 1679975691}
+  shuijingPanel: {fileID: 1533137464}
   shalemeiPanel: {fileID: 608887300}
   mayiPanel: {fileID: 982099954}
   liuPanel: {fileID: 1088776591}
   aijiPanel: {fileID: 1127777217}
   commonPanel: {fileID: 374609688}
+  boxFirst: 0
   wordNumm: 0
   toggle_noun: {fileID: 1281985099}
   toggle_verb: {fileID: 605443099}
@@ -8983,7 +8996,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1251680858}
+        m_TargetAssemblyTypeName: EntryDrawBox, Assembly-CSharp
+        m_MethodName: ToggleEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1429186775
 GameObject:
@@ -12293,15 +12318,15 @@ RectTransform:
   m_GameObject: {fileID: 3373448380487697639}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5553495, y: 0.5553495, z: 0.5553495}
+  m_LocalScale: {x: 0.3884645, y: 0.3884645, z: 0.3884645}
   m_Children: []
   m_Father: {fileID: 1610128546}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112.33069, y: 81.00006}
-  m_SizeDelta: {x: 512, y: 384}
+  m_AnchoredPosition: {x: -136, y: 75}
+  m_SizeDelta: {x: 329, y: 329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3373448380487697633
 MonoBehaviour:
@@ -12403,7 +12428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89b05fd4ddb264340ad4d724584448ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7709796065dbde47b88f089b9cfe4f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

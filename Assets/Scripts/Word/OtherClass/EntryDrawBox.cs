@@ -27,11 +27,11 @@ class EntryDrawBox : MonoBehaviour
     /// <summary>书桌界面红楼梦形容词父panel</summary>
     public Transform hlmbookDeskPanel;
     /// <summary>书桌界面仿生人父panel</summary>
-    public Transform bookDeskHumanPanel;
+    public Transform fangPanel;
     /// <summary>书桌界面动物园父panel</summary>
-    public Transform bookDeskAnimalPanel;
+    public Transform animalPanel;
     /// <summary>书桌界面水晶能量父panel</summary>
-    public Transform bookDeskCrystalPanel;
+    public Transform shuijingPanel;
     /// <summary>书桌界面莎乐美形容词父panel</summary>
     public Transform shalemeiPanel;
     /// <summary>书桌界面蚂蚁帝国父panel</summary>
@@ -44,29 +44,8 @@ class EntryDrawBox : MonoBehaviour
     public Transform commonPanel;
     #endregion
 
-    #region bool
-    private List<bool> isFirsts = new List<bool>();
     /// <summary>box按钮第一次点击</summary>
-    private bool boxFirst = false;
-    /// <summary>红楼梦按钮第一次点击</summary>
-    private bool hlmFirst = false;
-    /// <summary>仿生人按钮第一次点击</summary>
-    private bool humanFirst = false;
-    /// <summary>动物园按钮第一次点击</summary>
-    private bool animalFirst = false;
-    /// <summary>水晶能量按钮第一次点击</summary>
-    private bool crystalFirst = false;
-    /// <summary>埃及神话按钮第一次点击</summary>
-    private bool aijiFirst = false;
-    /// <summary>莎乐美按钮第一次点击</summary>
-    private bool shalemeiFirst = false;
-    /// <summary>流行病学按钮第一次点击</summary>
-    private bool liuFirst = false;
-    /// <summary>蚂蚁帝国按钮第一次点击</summary>
-    private bool mayiFirst = false;
-    /// <summary>通用按钮第一次点击</summary>
-    private bool commonFirst = false;
-    #endregion
+    public bool boxFirst = false;
 
     /// <summary>CD加载满，点击能否生成词条</summary>
     //public bool isCreateWord = false;
@@ -108,10 +87,9 @@ class EntryDrawBox : MonoBehaviour
     private List<GameObject> fang_adj = new List<GameObject>();
     #endregion
 
-    //加载初始六个词条
+    //加载初始六个词条(废弃)
     private void Start()
     {
-        isFirsts.AddRange(new bool[] { hlmFirst, humanFirst, animalFirst, crystalFirst,commonFirst,mayiFirst,liuFirst,shalemeiFirst,aijiFirst });
         if (SceneManager.GetActiveScene().name == "Combat")
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
@@ -132,9 +110,10 @@ class EntryDrawBox : MonoBehaviour
             }
         }
     }
+    //缓冲词条盒子的CD，CD满了生成一个词条（废弃）
     private void FixedUpdate()
     {
-        //缓冲词条盒子的CD，CD满了生成一个词条
+        
         if (SceneManager.GetActiveScene().name == "Combat")
         {
             oneWordTimer += Time.deltaTime;
@@ -284,80 +263,75 @@ class EntryDrawBox : MonoBehaviour
     */
 
     /// <summary>
-    /// 书桌界面《红楼梦》词条
+    /// 书桌界面点击书本显示词条
     /// </summary>
     public void BookDeskDiffBook()
     {
         // 书桌界面《红楼梦》词条
-        if (EventSystem.current.currentSelectedGameObject.name == "红楼梦" )
+        if (EventSystem.current.currentSelectedGameObject.name == "红楼梦")
         {
-            ShowWords(hlm_noun,hlm_verb,hlm_adj,hlmbookDeskPanel, AllSkills.hlmList_noun, AllSkills.hlmList_verb, AllSkills.hlmList_adj);
-            hlmFirst = true;
+            ShowWords(hlm_noun, hlm_verb, hlm_adj, hlmbookDeskPanel, AllSkills.hlmList_noun, AllSkills.hlmList_verb, AllSkills.hlmList_adj);
         }
         // 书桌界面《仿生人》词条
         else if (EventSystem.current.currentSelectedGameObject.name == "仿生人")
         {
-            ShowWords(fang_noun, fang_verb, fang_adj, bookDeskHumanPanel, AllSkills.humanList_noun, AllSkills.humanList_verb, AllSkills.humanList_adj);
-            humanFirst = true;
+            ShowWords(fang_noun, fang_verb, fang_adj, fangPanel, AllSkills.humanList_noun, AllSkills.humanList_verb, AllSkills.humanList_adj);
         }
         // 书桌界面《动物园》词条
-        else if (EventSystem.current.currentSelectedGameObject.name == "动物园" )
+        else if (EventSystem.current.currentSelectedGameObject.name == "动物园")
         {
-            ShowWords(ani_noun, ani_verb, ani_adj, bookDeskAnimalPanel, AllSkills.animalList_noun, AllSkills.animalList_verb, AllSkills.animalList_adj);
-            animalFirst = true;
+            ShowWords(ani_noun, ani_verb, ani_adj, animalPanel, AllSkills.animalList_noun, AllSkills.animalList_verb, AllSkills.animalList_adj);
         }
         // 书桌界面《埃及神话》词条
         else if (EventSystem.current.currentSelectedGameObject.name == "埃及神话")
         {
             ShowWords(aiji_noun, aiji_verb, aiji_adj, aijiPanel, AllSkills.aiJiShenHuaList_noun, AllSkills.aiJiShenHuaList_verb, AllSkills.aiJiShenHuaList_adj);
-            aijiFirst = true;
         }
         // 书桌界面《莎乐美》词条
-        else if (EventSystem.current.currentSelectedGameObject.name == "莎乐美" )
+        else if (EventSystem.current.currentSelectedGameObject.name == "莎乐美")
         {
             ShowWords(sahlemei_noun, sahlemei_verb, sahlemei_adj, shalemeiPanel, AllSkills.shaLeMeiList_noun, AllSkills.shaLeMeiList_verb, AllSkills.shaLeMeiList_adj);
-            shalemeiFirst = true;
         }
         // 书桌界面《流行病学》词条
         else if (EventSystem.current.currentSelectedGameObject.name == "流行病学")
         {
             ShowWords(liuxing_noun, liuxing_verb, liuxing_adj, liuPanel, AllSkills.liuXingBXList_noun, AllSkills.liuXingBXList_verb, AllSkills.liuXingBXList_adj);
-            liuFirst = true;
         }
         // 书桌界面《蚂蚁帝国》词条
         else if (EventSystem.current.currentSelectedGameObject.name == "蚂蚁帝国")
         {
             ShowWords(mayi_noun, mayi_verb, mayi_adj, mayiPanel, AllSkills.maYiDiGuoList_noun, AllSkills.maYiDiGuoList_verb, AllSkills.maYiDiGuoList_adj);
-            mayiFirst = true;
         }
         // 书桌界面《水晶能量》词条
         else if (EventSystem.current.currentSelectedGameObject.name == "水晶能量")
         {
-            ShowWords(shuijing_noun, shuijing_verb, shuijing_adj, bookDeskCrystalPanel, AllSkills.crystalList_noun, AllSkills.crystalList_verb, AllSkills.crystalList_adj);
-            crystalFirst = true;
+            ShowWords(shuijing_noun, shuijing_verb, shuijing_adj, shuijingPanel, AllSkills.crystalList_noun, AllSkills.crystalList_verb, AllSkills.crystalList_adj);
         }
         // 书桌界面《通用》词条
         else if (EventSystem.current.currentSelectedGameObject.name == "通用")
         {
             ShowWords(common_noun, common_verb, common_adj, commonPanel, AllSkills.commonList_noun, AllSkills.commonList_verb, AllSkills.commonList_adj);
-            commonFirst = true;
         }
-
     }
 
+
     /// <summary>
-    /// 勾选模式下生成词条
+    /// 勾选模式下生成词条(包含名动形)
     /// </summary>
-    /// <param name="bookword_noun"></param>
-    /// <param name="bookword_verb"></param>
-    /// <param name="bookword_adj"></param>
-    private void ShowWords(List<GameObject> words_noun, List<GameObject> words_verb, List<GameObject> words_adj,Transform panelTF, List<Type> bookword_noun, List<Type> bookword_verb, List<Type> bookword_adj)
+    /// <param name="words_noun">该书的名词容器</param>
+    /// <param name="words_verb">该书的名动词容器</param>
+    /// <param name="words_adj">该书的形容词容器</param>
+    /// <param name="panelTF">该书的panel</param>
+    /// <param name="bookword_noun">AllSkills中该书的名词</param>
+    /// <param name="bookword_verb">该书的动词</param>
+    /// <param name="bookword_adj">该书的形容词</param>
+    private void ShowWords(List<GameObject> words_noun, List<GameObject> words_verb, List<GameObject> words_adj, Transform panelTF, List<Type> bookword_noun, List<Type> bookword_verb, List<Type> bookword_adj)
     {
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas.name == "MainCanvas")
             {
-                if (toggle_noun.isOn && words_noun.Count==0)
+                if (toggle_noun.isOn && words_noun.Count == 0)
                 {
                     for (int i = 0; i < bookword_noun.Count; i++)
                     {
@@ -370,18 +344,7 @@ class EntryDrawBox : MonoBehaviour
                         words_noun.Add(word);
                     }
                 }
-/*                else if (!toggle_noun.isOn && words_noun.Count != 0)
-                {
-                    for (int i = 0; i < words_noun.Count; i++)
-                    {
-                        Destroy(words_noun[i]);
-                    }
-                    for (int i = 0; i < words_noun.Count; i++)
-                    {
-                        words_noun.Remove(words_noun[i]);
-                    }
-                }*/
-                if (toggle_verb.isOn && words_verb.Count==0)
+                if (toggle_verb.isOn && words_verb.Count == 0)
                 {
                     for (int i = 0; i < bookword_verb.Count; i++)
                     {
@@ -394,18 +357,7 @@ class EntryDrawBox : MonoBehaviour
                         words_verb.Add(word);
                     }
                 }
-          /*      else if (!toggle_verb.isOn && words_verb.Count!=0)
-                {
-                    for (int i = 0; i < words_verb.Count; i++)
-                    {
-                        Destroy(words_verb[i]);
-                    }
-                    foreach (GameObject it in words_verb)
-                    {
-                        words_verb.Remove(it);
-                    }
-                }*/
-                if (toggle_adj.isOn && words_adj.Count==0)
+                if (toggle_adj.isOn && words_adj.Count == 0)
                 {
                     for (int i = 0; i < bookword_adj.Count; i++)
                     {
@@ -418,61 +370,150 @@ class EntryDrawBox : MonoBehaviour
                         words_adj.Add(word);
                     }
                 }
-              /*  else if (!toggle_adj.isOn && words_adj.Count!=0)
-                {
-                    for (int i = 0; i < words_adj.Count; i++)
-                    {
-                        Destroy(words_adj[i]);
-                    }
-                    foreach (GameObject it in words_adj)
-                    {
-                        words_adj.Remove(it);
-                    }
-                }*/
             }
         }
 
-        for(int i = 0; i < isFirsts.Count; i++)
-        {
-            isFirsts[i] = false;
-        }
     }
+  
+    /// <summary>
+    /// 点击名动形toggle
+    /// </summary>
     public void ToggleEvent()
     {
-        //名词
-        if (EventSystem.current.currentSelectedGameObject.name == toggle_noun.name && !toggle_noun.isOn)
+
+        //清空list，删除
+        //判定当前所在panel
+        if (commonPanel.gameObject.activeSelf == true)
         {
-            //清空list，删除
-            //判定当前所在panel
-            if (commonFirst)
+            RemoveAndDestroy(common_noun, common_verb, common_adj, commonPanel, AllSkills.commonList_noun, AllSkills.commonList_verb, AllSkills.commonList_adj);
+        }
+        else if (hlmbookDeskPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(hlm_noun, hlm_verb, hlm_adj, hlmbookDeskPanel, AllSkills.hlmList_noun, AllSkills.hlmList_verb, AllSkills.hlmList_adj);
+        }
+        else if (animalPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(ani_noun, ani_verb, ani_adj, animalPanel, AllSkills.animalList_noun, AllSkills.animalList_verb, AllSkills.animalList_adj);
+        }
+        else if (liuPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(liuxing_noun, liuxing_verb, liuxing_adj, liuPanel, AllSkills.liuXingBXList_noun, AllSkills.liuXingBXList_verb, AllSkills.liuXingBXList_adj);
+        }
+        else if (aijiPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(aiji_noun, aiji_verb, aiji_adj, aijiPanel, AllSkills.aiJiShenHuaList_noun, AllSkills.aiJiShenHuaList_verb, AllSkills.aiJiShenHuaList_adj);
+        }
+        else if (shuijingPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(shuijing_noun, shuijing_verb, shuijing_adj, shuijingPanel, AllSkills.crystalList_noun, AllSkills.crystalList_verb, AllSkills.crystalList_adj);
+        }
+        else if (shalemeiPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(sahlemei_noun, sahlemei_verb, sahlemei_adj, shalemeiPanel, AllSkills.shaLeMeiList_noun, AllSkills.shaLeMeiList_verb, AllSkills.shaLeMeiList_adj);
+        }
+        else if (fangPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(fang_noun, fang_verb, fang_adj, fangPanel, AllSkills.humanList_noun, AllSkills.humanList_verb, AllSkills.humanList_adj);
+        }
+        else if (mayiPanel.gameObject.activeSelf == true)
+        {
+            RemoveAndDestroy(mayi_noun, mayi_verb, mayi_adj, mayiPanel, AllSkills.maYiDiGuoList_noun, AllSkills.maYiDiGuoList_verb, AllSkills.maYiDiGuoList_adj);
+        }
+    }
+
+    private void RemoveAndDestroy(List<GameObject> word_noun, List<GameObject> word_verb, List<GameObject> word_adj, Transform panelTF, List<Type> bookword_noun, List<Type> bookword_verb, List<Type> bookword_adj)
+    {
+        if (!toggle_noun.isOn)
+        {
+            for (int i = 0; i < word_noun.Count; i++)
             {
-                for (int i = 0; i < common_noun.Count; i++)
-                {
-                    Destroy(common_noun[i]);
-                }
-                hlm_noun.RemoveRange(0, common_noun.Count);
+                Destroy(word_noun[i]);
             }
-            else if (hlmFirst)
+            word_noun.RemoveRange(0, word_noun.Count);
+        }
+        if (!toggle_verb.isOn)
+        {
+            for (int i = 0; i < word_verb.Count; i++)
             {
-                for (int i = 0; i < hlm_noun.Count; i++)
-                {
-                    Destroy(hlm_noun[i]);
-                }
-                hlm_noun.RemoveRange(0, hlm_noun.Count);
+                Destroy(word_verb[i]);
             }
-            else if (animalFirst)
+            word_verb.RemoveRange(0, word_verb.Count);
+        }
+        if (!toggle_adj.isOn)
+        {
+            for (int i = 0; i < word_adj.Count; i++)
             {
-                for (int i = 0; i < ani_noun.Count; i++)
+                Destroy(word_adj[i]);
+            }
+            word_adj.RemoveRange(0, word_adj.Count);
+        }
+        if (toggle_noun.isOn)
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
                 {
-                    Destroy(ani_noun[i]);
+                    if(word_noun.Count == 0)
+                    {
+                        for (int i = 0; i < bookword_noun.Count; i++)
+                        {
+                            GameObject word = Instantiate(wordPrefab, canvas.transform);
+                            Type absWord = bookword_noun[i];
+                            word.AddComponent(absWord);
+                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWord0>().wordName);
+                            word.transform.SetParent(panelTF);
+
+                            word_noun.Add(word);
+                        }
+                    }
+                    
                 }
-                ani_noun.RemoveRange(0, ani_noun.Count);
             }
         }
-        else if(EventSystem.current.currentSelectedGameObject.name == toggle_noun.name && toggle_noun.isOn)
+        if (toggle_verb.isOn)
         {
-            //生成名词
-            print("noun");
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
+                {
+                    if (word_verb.Count == 0)
+                    {
+                        for (int i = 0; i < bookword_verb.Count; i++)
+                        {
+                            GameObject word = Instantiate(wordPrefab, canvas.transform);
+                            Type absWord = bookword_verb[i];
+                            word.AddComponent(absWord);
+                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWord0>().wordName);
+                            word.transform.SetParent(panelTF);
+
+                            word_verb.Add(word);
+                        }
+                    }
+                }
+            }
         }
+        if (toggle_adj.isOn )
+        {
+            foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+            {
+                if (canvas.name == "MainCanvas")
+                {
+                    if (word_adj.Count == 0)
+                    {
+                        for (int i = 0; i < bookword_adj.Count; i++)
+                        {
+                            GameObject word = Instantiate(wordPrefab, canvas.transform);
+                            Type absWord = bookword_adj[i];
+                            word.AddComponent(absWord);
+                            word.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStageLoad/" + word.GetComponent<AbstractWord0>().wordName);
+                            word.transform.SetParent(panelTF);
+
+                            word_adj.Add(word);
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
