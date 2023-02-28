@@ -8,9 +8,9 @@ public class HunFei : AbstractAdjectives
     public override void Awake()
     {
         adjID = 14;
-        wordName = "»é·ÉµÄ";
+        wordName = "å©šé£çš„";
         bookName = BookNameEnum.PHXTwist;
-        description = "É¢Éä£¬»Ö¸´ÉúÃü";
+        description = "æ•£å°„ï¼Œæ¢å¤ç”Ÿå‘½";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
@@ -26,7 +26,9 @@ public class HunFei : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.hp += 30;
+        aimCharacter.CreateFloatWord(
+            skillMode.UseMode(null,30,aimCharacter)
+            , FloatWordColor.heal, true);
     }
 
     

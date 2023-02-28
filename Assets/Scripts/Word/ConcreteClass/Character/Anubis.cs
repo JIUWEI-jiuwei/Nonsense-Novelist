@@ -43,6 +43,7 @@ class Anubis : AbstractCharacter
         if(nowTime>1)
         {
             nowTime = 0;
+            CreateFloatWord(maxHp * 0.03f, FloatWordColor.heal, false);
             hp += maxHp * 0.03f;
         }
     }

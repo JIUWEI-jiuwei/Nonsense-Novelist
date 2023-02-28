@@ -33,12 +33,14 @@ class WhiteStone: AbstractItems,IJiHuo
         base.UseItem(chara);
         if (jiHuo)
         {
+            chara.CreateFloatWord(40, FloatWordColor.heal, false);
             chara.hp += 40;
             buffs.Add(gameObject.AddComponent<GongZhen>());
             buffs[0].maxTime = Mathf.Infinity;
         }
         else
         {
+            chara.CreateFloatWord(10, FloatWordColor.heal, false);
             chara.hp += 10;
         }
     }

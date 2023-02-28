@@ -8,9 +8,9 @@ public class YouAnQuanGan : AbstractAdjectives
     public override void Awake()
     {
         adjID = 8;
-        wordName = "ÓĞ°²È«¸ĞµÄ";
+        wordName = "æœ‰å®‰å…¨æ„Ÿçš„";
         bookName = BookNameEnum.ZooManual;
-        description = "»Ö¸´ÉúÃü";
+        description = "æ¢å¤ç”Ÿå‘½";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
@@ -42,7 +42,10 @@ public class YouAnQuanGan : AbstractAdjectives
         {
             time--;
             if (aim != null)
+            {
+                aim.CreateFloatWord(5, FloatWordColor.heal, true);
                 aim.hp += 5;
+            }
         }
     }
 

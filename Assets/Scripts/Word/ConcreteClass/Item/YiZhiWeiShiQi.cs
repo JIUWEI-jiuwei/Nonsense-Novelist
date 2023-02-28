@@ -41,8 +41,11 @@ class YiZhiWeiShiQi : AbstractItems
         if (nowTime > 1)
         {
             nowTime = 0;
+
             friends = skillMode.CalculateAgain(999, aim);
-            friends[0].hp += 3;
+            friends[0].CreateFloatWord(
+            skillMode.UseMode(aim, 3, friends[0])
+            ,FloatWordColor.heal,true);
         }
     }
 

@@ -41,7 +41,9 @@ class SiYangYuan : AbstractCharacter
             }
             myState.character.charaAnim.Play(AnimEnum.attack);
             //普通攻击目标为血量百分比最低的队友，恢复120%意志的血量，以及“亢奋”状态
-            attackA.UseMode(myState.character, san * 1.2f, myState.aim);
+            myState.aim.CreateFloatWord(
+            attackA.UseMode(myState.character, san * 1.2f, myState.aim)
+            ,FloatWordColor.heal,false);
             myState.aim.gameObject.AddComponent<KangFen>().maxTime = 5;
             return true;
         }

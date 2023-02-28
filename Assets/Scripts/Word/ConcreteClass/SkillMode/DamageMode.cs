@@ -19,7 +19,7 @@ class DamageMode : AbstractSkillMode
     /// </summary>
     /// <param name="value">实际伤害</param>
     /// <param name="character">目标（来自目标数组）</param>
-    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
+    public override float UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
         if (useCharacter != null)//角色使用
         {
@@ -36,6 +36,7 @@ class DamageMode : AbstractSkillMode
         {
             aimCharacter.hp -= (int)value;
         }
+        return value;
     }
     /// <summary>
     /// 再次计算锁定的目标

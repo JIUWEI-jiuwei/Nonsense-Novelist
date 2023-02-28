@@ -28,7 +28,9 @@ class GunShoot : AbstractVerbs
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
-        skillMode.UseMode(useCharacter, useCharacter.atk * (1 - aim.def / (aim.def + 20)),aim);
+        aim.CreateFloatWord(
+        skillMode.UseMode(useCharacter, useCharacter.atk * (1 - aim.def / (aim.def + 20)), aim)
+        ,FloatWordColor.physics,true);
     }
     public override string UseText()
     {

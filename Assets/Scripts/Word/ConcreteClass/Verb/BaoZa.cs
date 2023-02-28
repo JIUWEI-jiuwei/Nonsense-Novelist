@@ -26,7 +26,10 @@ class BaoZa : AbstractVerbs
 
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
-        skillMode.CalculateAgain(attackDistance, useCharacter)[0].hp += 40;
+        AbstractCharacter aim= skillMode.CalculateAgain(attackDistance, useCharacter)[0];
+        aim.CreateFloatWord(
+        skillMode.UseMode(useCharacter, 40, aim)
+        ,FloatWordColor.heal,true);
     }
 
     public override string UseText()

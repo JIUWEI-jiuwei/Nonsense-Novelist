@@ -11,6 +11,8 @@ public class FloatWord : MonoBehaviour
     public Text[] normalTexts;
     /// <summary>(手动）</summary>
     public Text[] bossTexts;
+
+    private Color purple = new Color(153, 0, 255);
     /// <summary>
     /// 
     /// </summary>
@@ -18,7 +20,7 @@ public class FloatWord : MonoBehaviour
     /// <param name="boss">是否是boss</param>
     /// <param name="damage">是否是伤害</param>
     /// <param name="direct">是否是直接的</param>
-    internal void InitPopup(float value, bool boss,bool damage,bool direct)
+    internal void InitPopup(float value, bool boss,FloatWordColor color,bool direct)
     {
         string str = value.ToString();
         Text text=null;
@@ -37,7 +39,7 @@ public class FloatWord : MonoBehaviour
                 text = normalTexts[0];
             }
         }
-        else
+        else//非boss
         {
             if (value >= 20)
             {
@@ -53,13 +55,23 @@ public class FloatWord : MonoBehaviour
             }
         }
         text.text = str;
-        if(damage)
+        switch (color)
         {
-            text.color = Color.red;
-        }
-        else
-        {
-            text.color = Color.green;
+            case FloatWordColor.physics:
+                {
+                    text.color = Color.white;
+                    break;
+                }
+            case FloatWordColor.psychic:
+                {
+                    text.color = purple;
+                    break;
+                }
+            case FloatWordColor.heal:
+                {
+                    text.color = Color.green;
+                    break;
+                }
         }
         text.enabled= true;
 
@@ -69,4 +81,14 @@ public class FloatWord : MonoBehaviour
         //.setEaseOutBack()设置曲线（），使其往返.setDestroyOnComplete(true)设置完成后销毁
         LeanTween.moveY(this.gameObject, this.transform.position.y + height, time).setDestroyOnComplete(true);
     }
+}
+
+public enum FloatWordColor
+{
+    /// <summary>物理</summary>
+    physics=0,
+    /// <summary>精神</summary>
+    psychic=1,
+    /// <summary>治疗</summary>
+    heal=2,
 }

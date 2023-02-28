@@ -1,6 +1,7 @@
 using AI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +38,7 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>阵营</summary>
     public CampEnum camp;
     /// <summary>血量</summary>
-    public float HP = 0;
+    private float HP = 0;
     /// <summary>总血量</summary>
     private float MaxHp = 0;
 
@@ -274,10 +275,10 @@ abstract public class AbstractCharacter : AbstractWord0
         danDao.SetOff(this.transform.position);
     }
     /// <summary>漂浮文字 </summary>
-    public void CreateFloatWord(float value, bool boss, bool damage, bool direct)
+    public void CreateFloatWord(float value, FloatWordColor color, bool direct)
     {
         Instantiate<GameObject>(Resources.Load("SecondStageLoad/floatWord") as GameObject, energyCanvas.transform)
-            .GetComponent<FloatWord>().InitPopup(value, boss, damage, direct);
+            .GetComponent<FloatWord>().InitPopup(value,this.camp==CampEnum.stranger,color, direct);
     }
 
     /// <summary>

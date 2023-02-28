@@ -34,6 +34,7 @@ class LengXiangPill : AbstractItems
         if (nowTime > 1)
         {
             nowTime = 0;
+            aim.CreateFloatWord(3, FloatWordColor.heal, false);
             aim.hp += 3;
         }
     }
