@@ -40,7 +40,6 @@ namespace AI
             {
                if(myState.character.AttackA())
                     attackAtime = 0;
-
             }
         }
 

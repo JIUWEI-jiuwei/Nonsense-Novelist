@@ -22,7 +22,7 @@ public class FloatWord : MonoBehaviour
     /// <param name="direct">是否是直接的</param>
     internal void InitPopup(float value, bool boss,FloatWordColor color,bool direct)
     {
-        string str = value.ToString();
+        string str =((int)value).ToString();
         Text text=null;
         if (boss)
         {
@@ -53,6 +53,11 @@ public class FloatWord : MonoBehaviour
             {
                 text = bossTexts[0];
             }
+        }
+        if (text == null)
+        {
+            Destroy(this.gameObject);//不漂字
+            return;
         }
         text.text = str;
         switch (color)

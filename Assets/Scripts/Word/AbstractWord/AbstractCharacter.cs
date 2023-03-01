@@ -260,7 +260,9 @@ abstract public class AbstractCharacter : AbstractWord0
                 myState.character.source.Play();
             }
             myState.character.charaAnim.Play(AnimEnum.attack);
-            attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim);
+            myState.aim.CreateFloatWord(
+                attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim)
+                ,FloatWordColor.physics,false);
             return true;
         }
         return false;
@@ -274,10 +276,12 @@ abstract public class AbstractCharacter : AbstractWord0
         danDao.bulletSpeed = 0.5f;
         danDao.SetOff(this.transform.position);
     }
+
+    Vector3 pos = new Vector3(0, 1, 0);
     /// <summary>漂浮文字 </summary>
     public void CreateFloatWord(float value, FloatWordColor color, bool direct)
     {
-        Instantiate<GameObject>(Resources.Load("SecondStageLoad/floatWord") as GameObject, energyCanvas.transform)
+        Instantiate<GameObject>(Resources.Load("SecondStageLoad/floatWord") as GameObject,this.transform.position+pos,Quaternion.Euler(Vector3.zero),energyCanvas.transform)
             .GetComponent<FloatWord>().InitPopup(value,this.camp==CampEnum.stranger,color, direct);
     }
 
