@@ -87,6 +87,8 @@ class EntryDrawBox : MonoBehaviour
     private List<GameObject> fang_adj = new List<GameObject>();
     #endregion
 
+    public static int count = 0;
+
     //加载初始六个词条(废弃)
     private void Start()
     {
@@ -515,5 +517,26 @@ class EntryDrawBox : MonoBehaviour
             }
         }
         
+    }
+    /// <summary>
+    /// 新游戏界面勾选两本书
+    /// </summary>
+    public void ToggleBookSelect()
+    {
+        ColorBlock cb = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>().colors;
+        //选中变黄，取消选中恢复
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>().isOn)
+        {
+            cb.normalColor = new Color((float)132 / 255, (float)132 / 255, (float)132/ 255, (float)255 / 255);
+            count++;
+            print("on");
+        }
+        else
+        {
+            cb.normalColor = new Color((float)255 / 255, (float)225 / 255, (float)255 / 255, (float)255 / 255);
+            count--;
+            print("no on");
+        }
+
     }
 }

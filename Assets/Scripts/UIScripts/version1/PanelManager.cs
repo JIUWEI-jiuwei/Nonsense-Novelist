@@ -161,6 +161,9 @@ class PanelManager : MonoBehaviour
     /// </summary>
     public void TestPanelChange3()
     {
-        OpenPanelByButtonName(buttons3, Pages3);
+        if (EntryDrawBox.count == 2)
+        {
+            OpenPanelByButtonName(buttons3, Pages3);
+        }
     }  
 }
