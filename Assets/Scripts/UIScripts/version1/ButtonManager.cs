@@ -74,10 +74,10 @@ class ButtonManager : MonoBehaviour
                     panelManager.Pages1[i].gameObject.SetActive(true);
             }
             //打开故事导入面板时，打开第二组面板
-            if (panelManager.buttons1[i].name == panelManager.buttons1[3].name)
+            /*if (panelManager.buttons1[i].name == panelManager.buttons1[3].name)
             {
                 panelManager.OpenPanel(panelManager.Pages2, panelManager.Pages2[0], panelManager.buttons2[0].GetComponent<RectTransform>(), panelManager.g_btnUpY);
-            }
+            }*/
         }
     }
     /// <summary>

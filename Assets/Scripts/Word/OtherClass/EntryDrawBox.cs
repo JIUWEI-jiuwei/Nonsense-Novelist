@@ -88,6 +88,11 @@ class EntryDrawBox : MonoBehaviour
     #endregion
 
     public static int count = 0;
+    public GameObject bookButton;
+    private string book1;
+    private string book2;
+    private List<GameObject> toggleTwo=new List<GameObject>();
+    public Transform bookPanel;
 
     //加载初始六个词条(废弃)
     private void Start()
@@ -115,7 +120,7 @@ class EntryDrawBox : MonoBehaviour
     //缓冲词条盒子的CD，CD满了生成一个词条（废弃）
     private void FixedUpdate()
     {
-        
+
         if (SceneManager.GetActiveScene().name == "Combat")
         {
             oneWordTimer += Time.deltaTime;
@@ -376,7 +381,7 @@ class EntryDrawBox : MonoBehaviour
         }
 
     }
-  
+
     /// <summary>
     /// 点击名动形toggle
     /// </summary>
@@ -455,7 +460,7 @@ class EntryDrawBox : MonoBehaviour
             {
                 if (canvas.name == "MainCanvas")
                 {
-                    if(word_noun.Count == 0)
+                    if (word_noun.Count == 0)
                     {
                         for (int i = 0; i < bookword_noun.Count; i++)
                         {
@@ -468,7 +473,7 @@ class EntryDrawBox : MonoBehaviour
                             word_noun.Add(word);
                         }
                     }
-                    
+
                 }
             }
         }
@@ -494,7 +499,7 @@ class EntryDrawBox : MonoBehaviour
                 }
             }
         }
-        if (toggle_adj.isOn )
+        if (toggle_adj.isOn)
         {
             foreach (Canvas canvas in FindObjectsOfType<Canvas>())
             {
@@ -516,27 +521,46 @@ class EntryDrawBox : MonoBehaviour
                 }
             }
         }
-        
+
     }
     /// <summary>
     /// 新游戏界面勾选两本书
     /// </summary>
     public void ToggleBookSelect()
     {
-        ColorBlock cb = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>().colors;
-        //选中变黄，取消选中恢复
+        //选中
         if (EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>().isOn)
         {
-            cb.normalColor = new Color((float)132 / 255, (float)132 / 255, (float)132/ 255, (float)255 / 255);
             count++;
+            toggleTwo.Add(EventSystem.current.currentSelectedGameObject);
             print("on");
         }
-        else
+        else//取消选中
         {
-            cb.normalColor = new Color((float)255 / 255, (float)225 / 255, (float)255 / 255, (float)255 / 255);
             count--;
+            toggleTwo.Remove(EventSystem.current.currentSelectedGameObject);
             print("no on");
         }
 
+    }
+    /// <summary>
+    /// 新游戏界面生成两本选中的书
+    /// </summary>
+    public void InstantiateTwoBook()
+    {
+        foreach (Canvas canvas in FindObjectsOfType<Canvas>())
+        {
+            if (canvas.name == "MainCanvas")
+            {
+                for(int i = 0; i < toggleTwo.Count; i++)
+                {
+                    GameObject book = Instantiate(bookButton, canvas.transform);
+                    //将选中的书赋值给预制体
+                    book.name = toggleTwo[i].name;
+                    book.transform.localScale = Vector3.one;
+                    book.transform.SetParent(bookPanel);
+                }
+            }
+        }
     }
 }
