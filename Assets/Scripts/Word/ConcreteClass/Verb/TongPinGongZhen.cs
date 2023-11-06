@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Í¬Æµ¹²Õñ
+/// åŒé¢‘å…±æŒ¯
 /// </summary>
 class TongPinGongZhen: AbstractVerbs
 {
@@ -10,9 +10,9 @@ class TongPinGongZhen: AbstractVerbs
     {
         base.Awake();
         skillID = 8;
-        wordName = "Í¬Æµ¹²Õñ";
+        wordName = "åŒé¢‘å…±æŒ¯";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "Ê¹¶ÓÓÑ»ñµÃ¡°¹²Õñ¡±";
+        description = "ä½¿é˜Ÿå‹è·å¾—â€œå…±æŒ¯â€";
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 30;
@@ -22,12 +22,12 @@ class TongPinGongZhen: AbstractVerbs
     }
 
     /// <summary>
-    /// ÈÃËùÓĞÓÑ¾ü»Ø¸´5µãSP
+    /// è®©æ‰€æœ‰å‹å†›å›å¤5ç‚¹SP
     /// </summary>
-    /// <param name="useCharacter">Ê©·¨Õß</param>
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    /// <param name="useCharacter">æ–½æ³•è€…</param>
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<GongZhen>());
         buffs[0].maxTime = skillEffectsTime;
     }
@@ -39,7 +39,7 @@ class TongPinGongZhen: AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "ÓÃÊÖÔÚË®¾§ÉÏÒÔÂıËÙ»¬¶¯£¬ÊÖÕÆÓëË®¾§µÄÄ¦²Á²úÉúÁËÒ»ÖÖ¾ßÓĞ¹æÂÉµÄÕñ¶¯£¬"+character.wordName+"Í¨¹ı¿ØÖÆÕâ¹ÉÕñ¶¯ÂıÂıµØ»ıĞîÁ¦Á¿£¬×îÖÕÈÃÕû¸öÉ½Ìå¶¼²ü¶¯ÁËÆğÀ´¡£";
+        return character.wordName + "ç”¨æ‰‹åœ¨æ°´æ™¶ä¸Šä»¥æ…¢é€Ÿæ»‘åŠ¨ï¼Œæ‰‹æŒä¸æ°´æ™¶çš„æ‘©æ“¦äº§ç”Ÿäº†ä¸€ç§å…·æœ‰è§„å¾‹çš„æŒ¯åŠ¨ï¼Œ"+character.wordName+"é€šè¿‡æ§åˆ¶è¿™è‚¡æŒ¯åŠ¨æ…¢æ…¢åœ°ç§¯è“„åŠ›é‡ï¼Œæœ€ç»ˆè®©æ•´ä¸ªå±±ä½“éƒ½é¢¤åŠ¨äº†èµ·æ¥ã€‚";
 
     }
 

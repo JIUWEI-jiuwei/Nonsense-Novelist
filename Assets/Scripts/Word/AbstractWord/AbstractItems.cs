@@ -16,7 +16,7 @@ abstract class AbstractItems : AbstractWord0
     public HoldEnum holdEnum;
     /// <summary>物品材质，对应音效种类 </summary>
     public MaterialVoiceEnum VoiceEnum;
-
+    /// <summary>建议只在End(),UseVerb()使用，否则别的地方需要判断是否为空 </summary>
     protected AbstractCharacter aim;
     /// <summary>特殊效果存储引用</summary>
     protected List<AbstractBuff> buffs = new List<AbstractBuff>();
@@ -34,7 +34,7 @@ abstract class AbstractItems : AbstractWord0
     /// 初始释放
     /// </summary>
     /// <param name="chara">持有者</param>
-    virtual public void UseItems(AbstractCharacter chara)
+    virtual public void UseItem(AbstractCharacter chara)
     {
         
     }
@@ -43,7 +43,7 @@ abstract class AbstractItems : AbstractWord0
     /// 相当于Update
     /// </summary>
     /// <param name="chara"></param>
-    virtual public void UseVerbs()
+    virtual public void UseVerb()
     {
 
     }
@@ -52,7 +52,7 @@ abstract class AbstractItems : AbstractWord0
     {
         if(aim!=null)
         {
-            UseVerbs();
+            UseVerb();
         }
     }
 

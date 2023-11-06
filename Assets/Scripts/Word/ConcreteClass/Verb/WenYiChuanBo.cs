@@ -7,9 +7,9 @@ class WenYiChuanBo : AbstractVerbs
     {
         base.Awake();
         skillID = 11;
-        wordName = "ÎÁÒß´«²¥";
+        wordName = "ç˜Ÿç–«ä¼ æ’­";
         bookName = BookNameEnum.FluStudy;
-        description = "Ê¹µĞÈË»ñµÃ¿É´«²¥µÄ¡°»¼²¡¡±";
+        description = "ä½¿æ•Œäººè·å¾—å¯ä¼ æ’­çš„â€œæ‚£ç—…â€";
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange =  new SingleSelector();
@@ -20,19 +20,19 @@ class WenYiChuanBo : AbstractVerbs
 
     }
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         AbstractCharacter center = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
-        //ÖĞĞÄµÃµ½´«²¥
+        //ä¸­å¿ƒå¾—åˆ°ä¼ æ’­
         buffs.Add(center.gameObject.AddComponent<ChuanBo>());
-        //ÏàÁÚµÃµ½»¼²¡
+        //ç›¸é‚»å¾—åˆ°æ‚£ç—…
         AbstractCharacter[] neighbors = (buffs[0] as ChuanBo).GetNeighbor(center);
         foreach (AbstractCharacter n in neighbors)
         {
             buffs.Add(n.gameObject.AddComponent<Ill>());
         }
-        //ÖĞĞÄµÃµ½»¼²¡
+        //ä¸­å¿ƒå¾—åˆ°æ‚£ç—…
         buffs.Add(center.gameObject.AddComponent<Ill>());
 
         foreach (AbstractBuff buff in buffs)
@@ -47,7 +47,7 @@ class WenYiChuanBo : AbstractVerbs
         //if (character == null || aimState==null)
             //return null;
 
-        return character.wordName + "ÄÃÆğĞ¡µ¶£¬½«¸¹²¿¿ª³öÒ»¸öĞ¡È±¿Ú£¬²¢½«ÏãÖ¬ÓÍ¹àÂúÆäÖĞ¡£ÔÙ½«Ê÷Ö¬ÌîÈëÃû×Ö2µÄÍ·Â­£¬·ÀÖ¹Í·²¿µÄ±äĞÎ¡£½ÓÏÂÀ´½«ËûÕû¸öÂñÓÚ¼î·ÛÖĞÒ»¸öÔÂ£¬ÕâÑù¾Í¿ÉÒÔ×öµ½ÈâÌå²»±»¸¯ĞàËùÀ§ÈÅÁË¡£";
+        return character.wordName + "æ‹¿èµ·å°åˆ€ï¼Œå°†è…¹éƒ¨å¼€å‡ºä¸€ä¸ªå°ç¼ºå£ï¼Œå¹¶å°†é¦™è„‚æ²¹çŒæ»¡å…¶ä¸­ã€‚å†å°†æ ‘è„‚å¡«å…¥åå­—2çš„å¤´é¢…ï¼Œé˜²æ­¢å¤´éƒ¨çš„å˜å½¢ã€‚æ¥ä¸‹æ¥å°†ä»–æ•´ä¸ªåŸ‹äºç¢±ç²‰ä¸­ä¸€ä¸ªæœˆï¼Œè¿™æ ·å°±å¯ä»¥åšåˆ°è‚‰ä½“ä¸è¢«è…æœ½æ‰€å›°æ‰°äº†ã€‚";
 
     }
 }

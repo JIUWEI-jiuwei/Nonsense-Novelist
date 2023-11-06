@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Ë¤
+/// æ‘”
 /// </summary>
 class FallBadly : AbstractVerbs
 {
@@ -10,12 +10,12 @@ class FallBadly : AbstractVerbs
     {
         base.Awake();
         skillID = 15;
-        wordName = "Ë¤";
+        wordName = "æ‘”";
         bookName = BookNameEnum.allBooks;
-        description = "Ê¹µĞÈËÊÜµ½µÍÉËº¦£¬»ñµÃ¡°ÔÎÑ£¡±";
-        nickname.Add("ÔÒ");
-        nickname.Add("Ë¦");
-        nickname.Add("Í¶ÖÀ");
+        description = "ä½¿æ•Œäººå—åˆ°ä½ä¼¤å®³ï¼Œè·å¾—â€œæ™•çœ©â€";
+        nickname.Add("ç ¸");
+        nickname.Add("ç”©");
+        nickname.Add("æŠ•æ·");
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange = new SingleSelector();
@@ -24,9 +24,9 @@ class FallBadly : AbstractVerbs
         needCD=2;
     }
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<Dizzy>());
         buffs[0].maxTime = skillEffectsTime;
         BasicAbility(useCharacter);
@@ -35,7 +35,9 @@ class FallBadly : AbstractVerbs
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
-        skillMode.UseMode(useCharacter, useCharacter.atk*0.2f * (1 - aim.def / (aim.def + 20)), aim);
+        aim.CreateFloatWord(
+        skillMode.UseMode(useCharacter, useCharacter.atk*0.2f * (1 - aim.def / (aim.def + 20)), aim)
+        ,FloatWordColor.physics,true);
     }
     public override string UseText()
     {
@@ -43,7 +45,7 @@ class FallBadly : AbstractVerbs
         if (character == null)
             return null;
 
-        return  character.wordName + "ºúÂÒ¼ñÆğ¶«Î÷ÔÒÁË³öÈ¥¡£";
+        return  character.wordName + "èƒ¡ä¹±æ¡èµ·ä¸œè¥¿ç ¸äº†å‡ºå»ã€‚";
 
     }
 }

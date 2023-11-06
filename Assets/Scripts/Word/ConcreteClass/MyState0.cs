@@ -20,8 +20,6 @@ namespace AI
 
         /// <summary>关注的目标</summary>
         public AbstractCharacter aim;
-        /// <summary>扇形搜索（用于调用其中方法）</summary>
-        public SingleSelector sectorSearch = new SingleSelector();
         /// <summary>移速</summary>
         public float speed = 0.1f;
 
@@ -60,10 +58,6 @@ namespace AI
             while (true)
             {
                 aim = FindAim();//不断寻找更近的敌人
-                if(aim==null)
-                {
-                    print(0);
-                }
                 yield return new WaitForSeconds(1);
             }
         }
@@ -73,7 +67,7 @@ namespace AI
         public AbstractCharacter FindAim()
         {
             //所有目标
-            AbstractCharacter[] a = sectorSearch.CaculateRange(character.attackDistance, character.situation,NeedCampEnum.enemy);
+            AbstractCharacter[] a = character.attackA.CalculateAgain(character.attackDistance, character);
             return a[0];
         }
         /// <summary>

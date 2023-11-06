@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¸÷ÖÖÀàĞÍÇ½±Ú
+/// å„ç§ç±»å‹å¢™å£
 /// </summary>
 public class OneWayMove : MonoBehaviour
 {
-    /// <summary>Ë®Æ½·½Ïò</summary>
+    /// <summary>æ°´å¹³æ–¹å‘</summary>
     private float hori_way;
     public float value1 = 10;
-    /// <summary>´¹Ö±·½Ïò</summary>
+    /// <summary>å‚ç›´æ–¹å‘</summary>
     private float ver_way;
     public float value2 = 10;
-    /// <summary>Ğı×ª½Ç¶È</summary>
+    /// <summary>æ—‹è½¬è§’åº¦</summary>
     public float angle = 1;
-    /// <summary>ÏûÊ§Ê±¼ä</summary>
+    /// <summary>æ¶ˆå¤±æ—¶é—´</summary>
     public float disappearTime = 2;
-    /// <summary>³ö¿ÚÎ»ÖÃ</summary>
+    /// <summary>å‡ºå£ä½ç½®</summary>
     public Transform exitPoint;
-    /// <summary>³ö¿ÚËÙ¶ÈÏµÊı</summary>
+    /// <summary>å‡ºå£é€Ÿåº¦ç³»æ•°</summary>
     public float k = 0.5f;
     public CampEnum camp;
     private bool addHP;
@@ -27,34 +27,34 @@ public class OneWayMove : MonoBehaviour
     private float cdTime;
     private bool cdOK=true;
 
-    /// <summary>ÅĞ¶Ï</summary>
+    /// <summary>åˆ¤æ–­</summary>
     public int or = 0;
 
     // Update is called once per frame
     void Update()
     {
-        if (or == 0)//Ë®Æ½·½Ïò
+        if (or == 0)//æ°´å¹³æ–¹å‘
         {
             hori_way = Mathf.PingPong(Time.time, value1);
             transform.position = new Vector3(hori_way, transform.position.y, transform.position.z);
         }
-        else if (or == 1)//ÊúÖ±·½Ïò
+        else if (or == 1)//ç«–ç›´æ–¹å‘
         {
             ver_way = Mathf.PingPong(Time.time, value2);
             transform.position = new Vector3(transform.position.x, ver_way, transform.position.z);
         }
-        else if (or == 2)//¶¨µãĞı×ª
+        else if (or == 2)//å®šç‚¹æ—‹è½¬
         {
             transform.RotateAround(this.transform.position, Vector3.forward, angle);
 
         }
-        else if (addHP)//ÖÎÁÆ»ú¹Ø£¬Ã¿Ãë»Ö¸´ÑªÁ¿
+        else if (addHP)//æ²»ç–—æœºå…³ï¼Œæ¯ç§’æ¢å¤è¡€é‡
         {
             cdOK = false;
 
             addHPTimer += Time.deltaTime;
             addHPTime += Time.deltaTime;
-            if (addHPTime <= 10)//10ÃëÄÚÃ¿Ãë»Ö¸´ÑªÁ¿
+            if (addHPTime <= 10)//10ç§’å†…æ¯ç§’æ¢å¤è¡€é‡
             {
                 if (addHPTimer > 1)
                 {
@@ -67,7 +67,7 @@ public class OneWayMove : MonoBehaviour
                 addHP = false;
             }
         }
-        else if (!cdOK)//ÖÎÁÆ»ú¹Ø£¬ÀäÈ´Ê±¼ä
+        else if (!cdOK)//æ²»ç–—æœºå…³ï¼Œå†·å´æ—¶é—´
         {
             cdTime += Time.deltaTime;
             if (cdTime > 120)
@@ -78,7 +78,7 @@ public class OneWayMove : MonoBehaviour
         }
     }
     /// <summary>
-    /// ÖÎÁÆ»ú¹Ø£¬Ã¿Ãë»Ö¸´ÑªÁ¿
+    /// æ²»ç–—æœºå…³ï¼Œæ¯ç§’æ¢å¤è¡€é‡
     /// </summary>
     private void AddCampHP()
     {
@@ -87,7 +87,8 @@ public class OneWayMove : MonoBehaviour
             AbstractCharacter[] left = CharacterManager.charas_left.ToArray();
             for (int i = 0; i < left.Length; i++)
             {
-                left[i].hp += 0.05f * left[i].HP;
+                left[i].CreateFloatWord(0.05f * left[i].hp, FloatWordColor.heal, false);
+                left[i].hp += 0.05f * left[i].hp;
             }
 
         }
@@ -96,25 +97,26 @@ public class OneWayMove : MonoBehaviour
             AbstractCharacter[] right = CharacterManager.charas_right.ToArray();
             for (int i = 0; i < right.Length; i++)
             {
-                right[i].hp += 0.05f * right[i].HP;
+                right[i].CreateFloatWord(0.05f * right[i].hp, FloatWordColor.heal, false);
+                right[i].hp += 0.05f * right[i].hp;
             }
         }
     }
 
     /// <summary>
-    /// Ç½±ÚÏûÊ§ºóÔÙ³öÏÖ
+    /// å¢™å£æ¶ˆå¤±åå†å‡ºç°
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "bullet")
         {
-            if (or == 3)//ÏûÊ§ºóÔÙ³öÏÖ
+            if (or == 3)//æ¶ˆå¤±åå†å‡ºç°
             {
                 this.gameObject.SetActive(false);
                 Invoke("EnableBack", disappearTime);
             }
-            if (or == 5&&cdOK)//ÖÎÁÆ»ú¹Ø
+            if (or == 5&&cdOK)//æ²»ç–—æœºå…³
             {
                 addHP = true;
             }
@@ -126,13 +128,13 @@ public class OneWayMove : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (or == 4)//µ¥Ïò´«ËÍÃÅ£¨³ö¿ÚÎŞÅö×²£©
+        if (or == 4)//å•å‘ä¼ é€é—¨ï¼ˆå‡ºå£æ— ç¢°æ’ï¼‰
         {
             if (collision.transform.tag == "bullet")
             {
                 Vector3 a = collision.GetComponent<Rigidbody2D>().velocity * k;
 
-                while (a.magnitude <= 1)//·ÀÖ¹ËÙ¶È¹ıÂı
+                while (a.magnitude <= 1)//é˜²æ­¢é€Ÿåº¦è¿‡æ…¢
                 {
                     a = collision.GetComponent<Rigidbody2D>().velocity * 2;
                 }

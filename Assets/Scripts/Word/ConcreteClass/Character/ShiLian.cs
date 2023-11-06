@@ -14,7 +14,7 @@ class ShiLian : AbstractCharacter
         wordName = "失恋";
         bookName = BookNameEnum.Salome;
         gender = GenderEnum.noGender;
-        hp = MaxHP = 120;
+        hp = maxHp = 120;
         atk = 3;
         def = 4;
         psy = 5;
@@ -28,18 +28,22 @@ class ShiLian : AbstractCharacter
     private void Start()
     {
         attackState = GetComponent<AttackState>();
-        Destroy(attackState.attackA);
-        attackState.attackA = gameObject.AddComponent<DamageMode>();
+        Destroy(attackA);
+        attackA = gameObject.AddComponent<DamageMode>();
     }
 
     AttackState attackState;
     AbstractCharacter[] aims;
-    public override void AttackA()
+    public override bool AttackA()
     {
-        base.AttackA();
-        //普通攻击有20几率附带“沮丧”状态
-        if(Random.Range(1, 101)<=20)
-        myState.aim.gameObject.AddComponent<Upset>().maxTime = 5;
+        if (base.AttackA())
+        {
+            //普通攻击有20几率附带“沮丧”状态
+            if (Random.Range(1, 101) <= 20)
+                myState.aim.gameObject.AddComponent<Upset>().maxTime = 5;
+            return true;
+        }
+        return false;
     }
 
 

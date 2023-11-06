@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ĞéÎŞ
+/// è™šæ— 
 /// </summary>
 public class XuWu : WordCollisionShoot
 {
@@ -13,7 +13,7 @@ public class XuWu : WordCollisionShoot
     }
     private void Update()
     {
-        //Ê±¼ä½áÊøÏú»Ù´ÊÌõ
+        //æ—¶é—´ç»“æŸé”€æ¯è¯æ¡
         if (VanishTime(10))
         {
             Destroy(this.gameObject);
@@ -24,8 +24,8 @@ public class XuWu : WordCollisionShoot
         return base.VanishTime(time);
     }
     /// <summary>
-    /// ÈÎºÎÒ»·½ÎªtriggerÔòµ÷ÓÃ¸Ãº¯Êı
-    /// ´©Ô½½ÇÉ«²»ÏûÊ§£¬Ö±ÖÁÊ±¼ä½áÊøÏûÊ§
+    /// ä»»ä½•ä¸€æ–¹ä¸ºtriggeråˆ™è°ƒç”¨è¯¥å‡½æ•°
+    /// ç©¿è¶Šè§’è‰²ä¸æ¶ˆå¤±ï¼Œç›´è‡³æ—¶é—´ç»“æŸæ¶ˆå¤±
     /// </summary>
     /// <param name="collision"></param>
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -36,10 +36,10 @@ public class XuWu : WordCollisionShoot
 
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
             
-            //¸øabsWord¸³Öµ
+            //ç»™absWordèµ‹å€¼
             absWord = Shoot.abs;
-            //ÅĞ¶Ï¸Ã´ÊÌõÊÇĞÎÈİ´Ê/¶¯´Ê/Ãû´Ê
-            //ÏÈ°ÑabsWord½Å±¾¹ÒÔÚ½ÇÉ«ÉíÉÏ£¬È»ºóµ÷ÓÃ½ÇÉ«ÉíÉÏµÄuseAdj
+            //åˆ¤æ–­è¯¥è¯æ¡æ˜¯å½¢å®¹è¯/åŠ¨è¯/åè¯
+            //å…ˆæŠŠabsWordè„šæœ¬æŒ‚åœ¨è§’è‰²èº«ä¸Šï¼Œç„¶åè°ƒç”¨è§’è‰²èº«ä¸Šçš„useAdj
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
@@ -49,13 +49,13 @@ public class XuWu : WordCollisionShoot
             }
             else if (absWord.wordKind == WordKindEnum.adj)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-                collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractAdjectives adj = collision.gameObject.AddComponent(absWord.GetType()) as AbstractAdjectives;
+                adj.UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
             }
             else if (absWord.wordKind == WordKindEnum.noun)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-                collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractItems noun = collision.gameObject.AddComponent(absWord.GetType()) as AbstractItems;
+                noun.UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
             }
         }
         this.GetComponent<Collider2D>().isTrigger = false;

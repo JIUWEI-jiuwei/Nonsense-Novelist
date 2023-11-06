@@ -8,9 +8,9 @@ public class QuicklyGrowing : AbstractAdjectives
     public override void Awake()
     {
         adjID = 16;
-        wordName = "快速成长的";
+        wordName = "蹇�熸垚闀跨殑";
         bookName = BookNameEnum.allBooks;
-        description = "增加生命恢复";
+        description = "澧炲姞鐢熷懡鎭㈠";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = 3;
         rarity = 0;
@@ -34,7 +34,11 @@ public class QuicklyGrowing : AbstractAdjectives
         {
             time--;
             if (aim != null)
-                aim.hp += 10;
+            {
+                aim.CreateFloatWord(
+                    skillMode.UseMode(null,10,aim)
+                    , FloatWordColor.heal, true);
+            }
         }
     }
 

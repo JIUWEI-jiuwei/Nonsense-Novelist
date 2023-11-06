@@ -15,7 +15,7 @@ class AgelessEnemy_x : AbstractCharacter
         bookName = BookNameEnum.allBooks;
         description = "长期与你过不去，并且不知为何总是会不断遇到对方";
         trait = gameObject.AddComponent<Pride>();
-        hp=MaxHP = 70;
+        hp=maxHp = 70;
         atk = 15;
         def = 2;
         psy = 7;

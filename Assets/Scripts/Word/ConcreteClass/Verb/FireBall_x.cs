@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÔÓË£»ğÇò
+/// æ‚è€ç«çƒ
 /// </summary>
 class FireBall_x : AbstractVerbs
 {
@@ -12,26 +12,26 @@ class FireBall_x : AbstractVerbs
     {
         base.Awake();
         skillID = 10;
-        wordName = "ÔÓË£»ğÇò";
+        wordName = "æ‚è€ç«çƒ";
         bookName = BookNameEnum.StudentOfWitch;
 
         skillMode = gameObject.AddComponent<DamageMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 0.3f;
         needCD = 5;
-        description = "»¨ÉÚÇÒÉËº¦²»Ë×µÄÔÓ¼¼°ÑÏ·¡£";
+        description = "èŠ±å“¨ä¸”ä¼¤å®³ä¸ä¿—çš„æ‚æŠ€æŠŠæˆã€‚";
 
         bullet = Resources.Load<GameObject>("FirstStageLoad/" + "bullet/Fireball_bullet");
     }
 
-    private AbstractCharacter aimState;//Ä¿±êµÄ³éÏó½ÇÉ«Àà
+    private AbstractCharacter aimState;//ç›®æ ‡çš„æŠ½è±¡è§’è‰²ç±»
     /// <summary>
-    /// Ôì³É150%¹¥»÷Á¦µÄÉËº¦
+    /// é€ æˆ150%æ”»å‡»åŠ›çš„ä¼¤å®³
     /// </summary>
-    /// <param name="useCharacter">Ê©·¨Õß</param>
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    /// <param name="useCharacter">æ–½æ³•è€…</param>
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
        /* if (aims != null)
         {
             skillMode.UseMode(useCharacter, useCharacter.atk  * (1 - aims[0].def / (aims[0].def + 20)), aims[0]);
@@ -39,7 +39,7 @@ class FireBall_x : AbstractVerbs
         }*/
     }
     /// <summary>
-    /// ÔÎÑ£0.3Ãë
+    /// æ™•çœ©0.3ç§’
     /// </summary>
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
@@ -59,7 +59,7 @@ class FireBall_x : AbstractVerbs
         if (character == null || aimState == null)
             return null;
 
-        return character.wordName + "¶¯ÁË¶¯ÊÖÖ¸£¬¼¸¸ö»ğÇò°éËæ×ÅµÍÉùÒ÷³ªµÄÖäÓï´ÓÖ®¼äÔ¾³ö£¬ÒÔ»¨ÉÚµÄ¶¯×÷Ğı×ª×Å²¢³¯" + aimState.wordName + "³åÁË¹ıÈ¥¡£";
+        return character.wordName + "åŠ¨äº†åŠ¨æ‰‹æŒ‡ï¼Œå‡ ä¸ªç«çƒä¼´éšç€ä½å£°åŸå”±çš„å’’è¯­ä»ä¹‹é—´è·ƒå‡ºï¼Œä»¥èŠ±å“¨çš„åŠ¨ä½œæ—‹è½¬ç€å¹¶æœ" + aimState.wordName + "å†²äº†è¿‡å»ã€‚";
 
     }
 }

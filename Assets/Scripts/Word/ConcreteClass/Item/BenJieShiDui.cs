@@ -20,27 +20,26 @@ class BenJieShiDui : AbstractItems
         nowTime = 0;
         skillMode = new CureMode();
     }
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
     }
 
     float nowTime;
     AbstractSkillMode skillMode;
     AbstractCharacter[] friends;
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
         nowTime += Time.deltaTime;
-        if(nowTime>10)
+        if (nowTime > 10)
         {
-            nowTime= 0;
+            nowTime = 0;
             friends = skillMode.CalculateAgain(999, aim);
 
-            buffs.Add(friends[Random.Range(0,friends.Length)].gameObject.AddComponent<KangFen>());
+            buffs.Add(friends[Random.Range(0, friends.Length)].gameObject.AddComponent<KangFen>());
             buffs[0].maxTime = 10;
         }
-
     }
 
     public override void End()

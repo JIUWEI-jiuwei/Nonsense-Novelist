@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ³äÄÜ
+/// å……èƒ½
 /// </summary>
 public class ChongNeng : WordCollisionShoot
 {
-    /// <summary>Åö×²´ÎÊı </summary>
+    /// <summary>ç¢°æ’æ¬¡æ•° </summary>
     private int count = 0;
     public override void Awake()
     {
@@ -15,19 +15,18 @@ public class ChongNeng : WordCollisionShoot
     private void OnCollisionEnter2D(Collision2D collision)
     {
         count++;
-        Debug.Log(count);
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        //¸øabsWord¸³Öµ
+        //ç»™absWordèµ‹å€¼
         absWord = Shoot.abs;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
-            //ÅĞ¶Ï¸Ã´ÊÌõÊÇĞÎÈİ´Ê/¶¯´Ê/Ãû´Ê
-            //ÏÈ°ÑabsWord½Å±¾¹ÒÔÚ½ÇÉ«ÉíÉÏ£¬È»ºóµ÷ÓÃ½ÇÉ«ÉíÉÏµÄuseAdj
+            //åˆ¤æ–­è¯¥è¯æ¡æ˜¯å½¢å®¹è¯/åŠ¨è¯/åè¯
+            //å…ˆæŠŠabsWordè„šæœ¬æŒ‚åœ¨è§’è‰²èº«ä¸Šï¼Œç„¶åè°ƒç”¨è§’è‰²èº«ä¸Šçš„useAdj
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
@@ -38,38 +37,23 @@ public class ChongNeng : WordCollisionShoot
             }
             else if (absWord.wordKind == WordKindEnum.adj)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-                //³äÄÜĞ§¹û
-                if (collision.gameObject.GetComponent<XinShenJiDang>())
-                {
-                    //ĞÄÉñ¼¤µ´µÄ
-                    XinShenJiDang  a = collision.gameObject.GetComponent<XinShenJiDang>();
-                    a.chongNeng = count;
-                }
-                else if (collision.gameObject.GetComponent<GuoMin>())
-                {
-                    //¹ıÃôµÄ
-                    GuoMin a = collision.gameObject.GetComponent<GuoMin>();
-                    a.chongNeng = count;
-                }
-                collision.gameObject.GetComponent<AbstractAdjectives>().UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractAdjectives adj=collision.gameObject.AddComponent(absWord.GetType()) as AbstractAdjectives;
+                (adj as IChongNeng).ChongNeng(count);
+                adj.UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);
             }
             else if (absWord.wordKind == WordKindEnum.noun)
             {
-                collision.gameObject.AddComponent(absWord.GetType());
-
-                //³äÄÜĞ§¹û
-                if (collision.gameObject.GetComponent<EXingZhongLiu>())
-                {
-                    //¶ñĞÔÖ×Áö
-                    EXingZhongLiu a = collision.gameObject.GetComponent<EXingZhongLiu>();
-                    a.chongNeng = count;
-                }
-
-                collision.gameObject.GetComponent<AbstractItems>().UseItems(collision.gameObject.GetComponent<AbstractCharacter>());
+                AbstractItems item=collision.gameObject.AddComponent(absWord.GetType()) as AbstractItems;
+                (item as IChongNeng).ChongNeng(count);
+                item.UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
                 Destroy(this.gameObject);
             }
         }
     }
+}
+
+interface IChongNeng
+{
+    public void ChongNeng(int times);
 }

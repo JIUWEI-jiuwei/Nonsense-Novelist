@@ -31,7 +31,7 @@ public class FengChan : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.MaxHP += 10;
+        aimCharacter.maxHp += 10;
 
     }
 
@@ -40,7 +40,7 @@ public class FengChan : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.MaxHP -= 10;
+        aim.maxHp -= 10;
     }
 
 }

@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¹¥»÷Á¦ÌáÉı
+/// æ”»å‡»åŠ›æå‡
 /// </summary>
 class UpATKMode : AbstractSkillMode
 {
     public void Awake()
     {
         skillModeID = 2;
-        skillModeName = "×´Ì¬ÌáÉı";
+        skillModeName = "çŠ¶æ€æå‡";
     }
-    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
+    public override float UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
         aimCharacter.atk += value;
-
+        return value;
     }
     /// <summary>
-    /// ÔÙ´Î¼ÆËãËø¶¨µÄÄ¿±ê
+    /// å†æ¬¡è®¡ç®—é”å®šçš„ç›®æ ‡
     /// </summary>
-    /// <param name="character">Ê©·¨Õß</param>
+    /// <param name="character">æ–½æ³•è€…</param>
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {

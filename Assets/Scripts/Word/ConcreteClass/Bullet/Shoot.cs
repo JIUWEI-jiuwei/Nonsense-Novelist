@@ -13,8 +13,10 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     /// <summary>词条</summary>
     private GameObject bulletInstance;
-    /// <summary>发射后词条的父物体</summary>
+    /// <summary>发射前词条的父物体</summary>
     public Transform bulletRoot;
+    /// <summary>发射后词条的父物体</summary>
+    public Transform afterShootTF;
     /// <summary>当前的力</summary>
     [SerializeField]
     private float crtForce = 0;
@@ -56,8 +58,7 @@ public class Shoot : MonoBehaviour
             }
             else if (Input.GetButtonUp("Fire1") && !fired)
             {
-                //有请九尾+++++++++++++++++++++++++
-                ShootWordBullet();//因为没有实际用处所以暂时用new，可以随便改
+                ShootWordBullet();
             }
 
         }
@@ -94,7 +95,7 @@ public class Shoot : MonoBehaviour
 
         //给词条添加一个初始的力
         bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * crtForce);
-
+        bulletInstance.transform.SetParent(afterShootTF);
         bulletInstance.GetComponent<Collider2D>().isTrigger = false;
 
 

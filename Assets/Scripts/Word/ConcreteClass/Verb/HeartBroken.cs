@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ĞÄËé
+/// å¿ƒç¢
 /// </summary>
 class HeartBroken : AbstractVerbs
 {
@@ -10,10 +10,10 @@ class HeartBroken : AbstractVerbs
     {
         base.Awake();
         skillID = 14;
-        wordName = "ĞÄËé";
+        wordName = "å¿ƒç¢";
         bookName = BookNameEnum.allBooks;
-        description = "Ê¹µĞÈË»ñµÃ¡°¾ÚÉ¥¡±";
-        nickname.Add( "´ÌÍ´");
+        description = "ä½¿æ•Œäººè·å¾—â€œæ²®ä¸§â€";
+        nickname.Add( "åˆºç—›");
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 2;
@@ -21,9 +21,9 @@ class HeartBroken : AbstractVerbs
         needCD=2;
     }
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(gameObject.AddComponent<Upset>());
         buffs[0].maxTime = skillEffectsTime;
     }
@@ -34,7 +34,7 @@ class HeartBroken : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "µÄĞÄ°®Ö®ÈË¶ÔÆäËµ£º¡°ÎÅ¾ıÓĞÁ½Òâ£¬¹ÊÀ´Ïà¾ö¾ø¡±£¬Òò¶ø±¯Í´Óû¾ø¡£";
+        return character.wordName + "çš„å¿ƒçˆ±ä¹‹äººå¯¹å…¶è¯´ï¼šâ€œé—»å›æœ‰ä¸¤æ„ï¼Œæ•…æ¥ç›¸å†³ç»â€ï¼Œå› è€Œæ‚²ç—›æ¬²ç»ã€‚";
 
     }
 

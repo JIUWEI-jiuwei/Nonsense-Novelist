@@ -13,7 +13,7 @@ class WangXiFeng : AbstractCharacter
         wordName = "王熙凤";
         bookName = BookNameEnum.HongLouMeng;
         gender = GenderEnum.girl;
-        hp = MaxHP = 150;
+        hp = maxHp = 150;
         atk = 5;
         def = 4;
         psy = 3;

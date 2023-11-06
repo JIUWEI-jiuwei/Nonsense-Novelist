@@ -13,7 +13,7 @@ class Rat : AbstractCharacter
         wordName = "老鼠";
         bookName = BookNameEnum.ZooManual;
         gender = GenderEnum.noGender;
-        hp = MaxHP = 150;
+        hp = maxHp = 150;
         atk = 4;
         def = 4;
         psy = 3;

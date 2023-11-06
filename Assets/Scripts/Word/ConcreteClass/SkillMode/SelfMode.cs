@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 自身（均自己写）
+/// 鑷韩锛堝潎鑷繁鍐欙級
 /// </summary>
 class SelfMode : AbstractSkillMode
 {
     public void Awake()
     {
         skillModeID = 2;
-        skillModeName = "自身";
+        skillModeName = "鑷韩";
     }
 
 
-    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
+    public override float UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        
+        return value;
     }
     public override AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {

@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// »ØÑª
+/// å›è¡€
 /// </summary>
 class CureMode : AbstractSkillMode
 {
     public void Awake()
     {
         skillModeID = 3;
-        skillModeName = "»ØÑª";
+        skillModeName = "å›è¡€";
     }
-    public override void UseMode(AbstractCharacter useCharacter,float value, AbstractCharacter aimCharacter)
+    public override float UseMode(AbstractCharacter useCharacter,float value, AbstractCharacter aimCharacter)
     {
         if (value > 0)
         {
             aimCharacter.hp += (int)value;
         }
+        return value;
     }
     /// <summary>
-    /// ÔÙ´Î¼ÆËãËø¶¨µÄÄ¿±ê(µÍÑªÁ¿ÓÑ·½£©
+    /// å†æ¬¡è®¡ç®—é”å®šçš„ç›®æ ‡(ä½è¡€é‡å‹æ–¹ï¼‰
     /// </summary>
-    /// <param name="character">Ê©·¨Õß</param>
+    /// <param name="character">æ–½æ³•è€…</param>
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {

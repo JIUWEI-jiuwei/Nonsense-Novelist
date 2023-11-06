@@ -20,16 +20,16 @@ class Exoskeleton : AbstractItems
         rarity = 1;
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         chara.def += 3;
         chara.attackInterval -= 0.2f;
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
     }
 
     public override void End()

@@ -13,7 +13,7 @@ using UnityEngine;
         bookName = BookNameEnum.allBooks;
         gender = GenderEnum.noGender;
         camp = CampEnum.stranger;
-        hp =MaxHP  = 350;
+        hp =maxHp  = 350;
         atk = 10;
         def = 30;
         psy = 15;
@@ -30,30 +30,24 @@ using UnityEngine;
     AbstractSkillMode skillMode;
     AbstractCharacter[] aims;
     float record;
-    public override void AttackA()
+    public override bool AttackA()
     {
-        base.AttackA();
-        aims = skillMode.CalculateAgain(100, this);
-        //夺取场上每个敌人5点意志力，加在自己身上
-        foreach(AbstractCharacter aim in aims)
+        if (base.AttackA())
         {
-            record = aim.san;
-            aim.san -= 5;
-            record = record - aim.san;
-            san += record;
+            aims = skillMode.CalculateAgain(100, this);
+            //夺取场上每个敌人5点意志力，加在自己身上
+            foreach (AbstractCharacter aim in aims)
+            {
+                record = aim.san;
+                aim.san -= 5;
+                record = record - aim.san;
+                san += record;
+            }
+            return true;
         }
+        return false;
     }
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = aimChara;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = this.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-
-    }
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)

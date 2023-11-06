@@ -14,7 +14,7 @@ class SiYangYuan : AbstractCharacter
         wordName = "饲养员";
         bookName = BookNameEnum.ZooManual;
         gender = GenderEnum.noGender;
-        hp =MaxHP  = 100;
+        hp =maxHp  = 100;
         atk = 0;
         def = 5;
         psy = 3;
@@ -23,44 +23,33 @@ class SiYangYuan : AbstractCharacter
         roleName = "饲养员";
         attackInterval = 2.2f;
         attackDistance = 500;
-    }
-    private void Start()
-    {
-        attackState = GetComponent<AttackState>();
-        Destroy(attackState.attackA);
-        attackState.attackA = gameObject.AddComponent<CureMode>();
+
+        Destroy(attackA);
+        attackA = gameObject.AddComponent<CureMode>();
     }
 
-    AttackState attackState;
     AbstractCharacter[] aims;
-    public override void AttackA()
-    {
-        base.AttackA();
-        //代替平A
-        myState.aim = null;
-        if (myState.character.aAttackAudio != null)
+    public override bool AttackA()
+    {//代替平A
+        if (myState.aim != null)
         {
-            myState.character.source.clip = myState.character.aAttackAudio;
-            myState.character.source.Play();
+            myState.character.CreateBullet(myState.aim.gameObject);
+            if (myState.character.aAttackAudio != null)
+            {
+                myState.character.source.clip = myState.character.aAttackAudio;
+                myState.character.source.Play();
+            }
+            myState.character.charaAnim.Play(AnimEnum.attack);
+            //普通攻击目标为血量百分比最低的队友，恢复120%意志的血量，以及“亢奋”状态
+            myState.aim.CreateFloatWord(
+            attackA.UseMode(myState.character, san * 1.2f, myState.aim)
+            ,FloatWordColor.heal,false);
+            myState.aim.gameObject.AddComponent<KangFen>().maxTime = 5;
+            return true;
         }
-        myState.character.charaAnim.Play(AnimEnum.attack);
-        aims=attackState.attackA.CalculateAgain(100, this);
-        CollectionHelper.OrderBy(aims, p=>p.hp);
-        //普通攻击目标为血量百分比最低的队友，恢复120%意志的血量，以及“亢奋”状态
-        attackState.attackA.UseMode(myState.character, san * 1.2f, aims[0]);
-        aims[0].gameObject.AddComponent<KangFen>().maxTime = 5;
+        return false;
     }
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = aimChara;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = this.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-
-    }
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)

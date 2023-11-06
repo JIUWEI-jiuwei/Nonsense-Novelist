@@ -2,43 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÉËº¦¼¼ÄÜ
+/// ä¼¤å®³æŠ€èƒ½
 /// </summary>
 class DamageMode : AbstractSkillMode
 {
-    /// <summary>ÊÇ·ñÎªÎïÀíÉËº¦£¨½öÓÃÓÚÕ¹Ê¾£© </summary>
+    /// <summary>æ˜¯å¦ä¸ºç‰©ç†ä¼¤å®³ï¼ˆä»…ç”¨äºå±•ç¤ºï¼‰ </summary>
     public bool isPhysics=true;
     public void Awake()
     {
         skillModeID = 1;
-        skillModeName = "ÉËº¦";
+        skillModeName = "ä¼¤å®³";
     }
 
     /// <summary>
-    /// ¶ÔÄ¿±êÊµ¼ÊÓ°Ïì
+    /// å¯¹ç›®æ ‡å®é™…å½±å“
     /// </summary>
-    /// <param name="value">Êµ¼ÊÉËº¦</param>
-    /// <param name="character">Ä¿±ê£¨À´×ÔÄ¿±êÊı×é£©</param>
-    public override void UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
+    /// <param name="value">å®é™…ä¼¤å®³</param>
+    /// <param name="character">ç›®æ ‡ï¼ˆæ¥è‡ªç›®æ ‡æ•°ç»„ï¼‰</param>
+    public override float UseMode(AbstractCharacter useCharacter, float value, AbstractCharacter aimCharacter)
     {
-        if (useCharacter != null)//½ÇÉ«Ê¹ÓÃ
+        if (useCharacter != null)//è§’è‰²ä½¿ç”¨
         {
-            /*float a = Random.Range(0, 100);//±©»÷³é½±
-            if (a <= useCharacter.criticalChance * 100)//±©»÷
+            /*float a = Random.Range(0, 100);//æš´å‡»æŠ½å¥–
+            if (a <= useCharacter.criticalChance * 100)//æš´å‡»
             {
                 value *= useCharacter.multipleCriticalStrike;
                 aimCharacter.teXiao.PlayTeXiao("BaoJi");
                 AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
             }*/
-                aimCharacter.hp -= value;
+            aimCharacter.hp -= value;
         }
-        else//Íæ¼ÒÊ¹ÓÃ£¨ĞÎÈİ´Ê£©
+        else//ç©å®¶ä½¿ç”¨ï¼ˆå½¢å®¹è¯ï¼‰
+        {
             aimCharacter.hp -= (int)value;
+        }
+        return value;
     }
     /// <summary>
-    /// ÔÙ´Î¼ÆËãËø¶¨µÄÄ¿±ê
+    /// å†æ¬¡è®¡ç®—é”å®šçš„ç›®æ ‡
     /// </summary>
-    /// <param name="character">Ê©·¨Õß</param>
+    /// <param name="character">æ–½æ³•è€…</param>
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {

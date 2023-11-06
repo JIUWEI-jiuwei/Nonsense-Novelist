@@ -7,10 +7,10 @@ class BaoZa : AbstractVerbs
     {
         base.Awake();
         skillID = 17;
-        wordName = "°üÔú";
+        wordName = "åŒ…æ‰";
         bookName = BookNameEnum.allBooks;
-        description = "»Ö¸´ÓÑ·½ÑªÁ¿";
-        nickname.Add( "´ÌÍ´");
+        description = "æ¢å¤å‹æ–¹è¡€é‡";
+        nickname.Add( "åˆºç—›");
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
@@ -18,15 +18,18 @@ class BaoZa : AbstractVerbs
         needCD=2;
     }
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         BasicAbility(useCharacter);
     }
 
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
-        skillMode.CalculateAgain(attackDistance, useCharacter)[0].hp += 40;
+        AbstractCharacter aim= skillMode.CalculateAgain(attackDistance, useCharacter)[0];
+        aim.CreateFloatWord(
+        skillMode.UseMode(useCharacter, 40, aim)
+        ,FloatWordColor.heal,true);
     }
 
     public override string UseText()
@@ -35,7 +38,7 @@ class BaoZa : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "µÄĞÄ°®Ö®ÈË¶ÔÆäËµ£º¡°ÎÅ¾ıÓĞÁ½Òâ£¬¹ÊÀ´Ïà¾ö¾ø¡±£¬Òò¶ø±¯Í´Óû¾ø¡£";
+        return character.wordName + "çš„å¿ƒçˆ±ä¹‹äººå¯¹å…¶è¯´ï¼šâ€œé—»å›æœ‰ä¸¤æ„ï¼Œæ•…æ¥ç›¸å†³ç»â€ï¼Œå› è€Œæ‚²ç—›æ¬²ç»ã€‚";
 
     }
 

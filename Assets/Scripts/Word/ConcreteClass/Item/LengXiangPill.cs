@@ -20,23 +20,23 @@ class LengXiangPill : AbstractItems
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<XuWu>();
     }
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         chara.def++;
     }
 
     float nowTime;
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
         nowTime += Time.deltaTime;
-        if(nowTime>1)
+        if (nowTime > 1)
         {
-            nowTime= 0;
+            nowTime = 0;
+            aim.CreateFloatWord(3, FloatWordColor.heal, false);
             aim.hp += 3;
         }
-
     }
 
     public override void End()

@@ -15,7 +15,7 @@ class LiuGrandma : AbstractCharacter
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add( "母蝗虫");
         trait = gameObject.AddComponent<Enthusiasm>();
-        hp =MaxHP = 70;
+        hp =maxHp = 70;
         atk = 5;
         def = 5;
         psy = 5;

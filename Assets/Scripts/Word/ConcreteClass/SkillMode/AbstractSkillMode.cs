@@ -3,33 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¼¼ÄÜÀàĞÍ
+/// æŠ€èƒ½ç±»å‹
 /// </summary>
 abstract public class AbstractSkillMode : MonoBehaviour
 {
-    /// <summary>¼¼ÄÜÀàĞÍĞòºÅ</summary>
+    /// <summary>æŠ€èƒ½ç±»å‹åºå·</summary>
     public int skillModeID;
-    /// <summary>¼¼ÄÜÀàĞÍÃû³Æ</summary>
+    /// <summary>æŠ€èƒ½ç±»å‹åç§°</summary>
     public string skillModeName;
-    /// <summary>Ä¿±êÉí·İÓÅÏÈ¼¶(ÆúÓÃ£©</summary>
+    /// <summary>ç›®æ ‡èº«ä»½ä¼˜å…ˆçº§(å¼ƒç”¨ï¼‰</summary>
     //public List<AbstractRole> roleOrder=new List<AbstractRole>();
-    /// <summary>Ä¿±êĞÔ¸ñÓÅÏÈ¼¶(ÆúÓÃ£©</summary>
+    /// <summary>ç›®æ ‡æ€§æ ¼ä¼˜å…ˆçº§(å¼ƒç”¨ï¼‰</summary>
     //public List<AbstractTrait> traitOrde=new List<AbstractTrait>();
 
-    /// <summary>Ó°ÏìÇøÓò£¨Ö±Ïß¡¢ÉÈĞÎ¡¢Ô²ĞÎ£©</summary>
+    /// <summary>å½±å“åŒºåŸŸï¼ˆç›´çº¿ã€æ‰‡å½¢ã€åœ†å½¢ï¼‰</summary>
     public IAttackRange attackRange=new SingleSelector();
 
     /// <summary>
-    /// ÔÙ´Î¼ÆËãËø¶¨µÄÄ¿±ê
+    /// å†æ¬¡è®¡ç®—é”å®šçš„ç›®æ ‡
     /// </summary>
-    /// <param name="character">Ê©·¨Õß</param>
+    /// <param name="character">æ–½æ³•è€…</param>
     /// <returns></returns>
     abstract public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character);
     /// <summary>
-    /// ¶ÔÄ¿±êÊµ¼ÊÓ°Ïì
+    /// å¯¹ç›®æ ‡å®é™…å½±å“
     /// </summary>
-    /// <param name="useCharacter">·¢ÆğÕß</param>
-    /// <param name="value">Öµ</param>
-    /// <param name="aimCharacter">Ä¿±ê£¨À´×ÔÄ¿±êÊı×é£©</param>
-    abstract public void UseMode(AbstractCharacter useCharacter ,float value,AbstractCharacter aimCharacter);    
+    /// <param name="useCharacter"></param>
+    /// <param name="value"></param>
+    /// <param name="aimCharacter"></param>
+    /// <returns>ç”¨äºæ¼‚æµ®æ–‡å­—</returns>
+    abstract public float UseMode(AbstractCharacter useCharacter,float value,AbstractCharacter aimCharacter);    
 }

@@ -14,7 +14,7 @@ using UnityEngine;
         wordName = "菌床";
         bookName = BookNameEnum.FluStudy;
         trait = gameObject.AddComponent<NullTrait>();
-        hp = MaxHP = 30;
+        hp = maxHp = 30;
         atk = 0;
         def = 3;
         psy = 0;

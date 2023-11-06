@@ -14,7 +14,7 @@ class ShuiShou : AbstractCharacter
         wordName = "税收";
         bookName = BookNameEnum.ElectronicGoal;
         gender = GenderEnum.noGender;
-        hp =MaxHP  = 220;
+        hp =maxHp  = 220;
         atk = 5;
         def = 5;
         psy = 3;
@@ -28,41 +28,31 @@ class ShuiShou : AbstractCharacter
         description = "来自日常生活开销所产生的经济压力。";
     }
 
-    private void Start()
-    {
-        attackState=GetComponent<AttackState>();
-    }
-
-    AttackState attackState;
     AbstractCharacter[] aims;
-    public override void AttackA()
-    {
-        base.AttackA();
-        //代替平A
-        myState.aim = null;
-        if (myState.character.aAttackAudio != null)
+    public override bool AttackA()
+    {//代替平A
+        if (myState.aim != null)
         {
-            myState.character.source.clip = myState.character.aAttackAudio;
-            myState.character.source.Play();
+            myState.character.CreateBullet(myState.aim.gameObject);
+            if (myState.character.aAttackAudio != null)
+            {
+                myState.character.source.clip = myState.character.aAttackAudio;
+                myState.character.source.Play();
+            }
+            myState.character.charaAnim.Play(AnimEnum.attack);
+            aims = attackA.CalculateAgain(100, this);
+            foreach (AbstractCharacter aim in aims)
+            {//普通攻击为对所有敌人造成攻击力10%的伤害，附带攻击特效
+                myState.character.CreateBullet(aim.gameObject);
+               aim.CreateFloatWord(
+                   attackA.UseMode(myState.character, myState.character.atk * 0.1f * (1 - myState.aim.def / (myState.aim.def + 20)), aim)
+                   ,FloatWordColor.physics,true);
+            }
+            return true;
         }
-        myState.character.charaAnim.Play(AnimEnum.attack);
-        //attackA已是DamageMode
-        aims = attackState.attackA.CalculateAgain(100, this);
-        foreach (AbstractCharacter aim in aims)
-        {//普通攻击为对所有敌人造成攻击力10%的伤害，附带攻击特效
-            attackState.attackA.UseMode(myState.character, myState.character.atk*0.1f * (1 - myState.aim.def / (myState.aim.def + 20)), aim);
-        }
+        return false;
     }
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = aimChara;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = this.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-    }
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)

@@ -13,7 +13,7 @@ class JiaGrandma_x : AbstractCharacter
         bookName = BookNameEnum.HongLouMeng;
         nickname.Add( "史太君");
         trait=gameObject.AddComponent<Mercy>();
-        hp=MaxHP = 40;
+        hp=maxHp = 40;
         atk = 7;
         def = 5;
         psy = 7;

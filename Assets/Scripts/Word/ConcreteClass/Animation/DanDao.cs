@@ -4,22 +4,27 @@ using System;
 using UnityEngine.UI;
 using System.Collections;
 ///<summary>
-///µ¯µÀ£¨¹ÒÔÚ×Óµ¯ÉÏ£©
+///å¼¹é“ï¼ˆæŒ‚åœ¨å­å¼¹ä¸Šï¼‰
 ///</summary>
 class DanDao: MonoBehaviour
 {
-    /// <summary>Íâ²¿¸³Öµ</summary>
-    [HideInInspector] public GameObject aim;
-    /// <summary>Íâ²¿¸³Öµ</summary>
-    [HideInInspector] public Transform birthTransform;
-    /// <summary>Íâ²¿¸³Öµ</summary>
-    [HideInInspector] public float bulletSpeed = 1;
+    /// <summary>å¤–éƒ¨èµ‹å€¼</summary>
+    public GameObject aim;
+    /// <summary>å¤–éƒ¨èµ‹å€¼</summary>
+    public float bulletSpeed = 1;
     bool a;
 
     private void OnEnable()
     {
-        this.transform.position  = birthTransform.position;
+        if(!a)
+            this.enabled= false;
+    }
+
+    public void SetOff(Vector3 birthPos)
+    {
+        this.transform.position = birthPos;
         a = true;
+        this.enabled= true;
     }
 
     private void Update()

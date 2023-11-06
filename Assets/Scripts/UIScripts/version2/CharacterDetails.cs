@@ -67,7 +67,7 @@ class CharacterDetails : MonoBehaviour
     {
         //1、状态页信息面板
         //HP
-        texts1[0].text = mouseDown.abschara.hp.ToString() + "/" + mouseDown.abschara.MaxHP.ToString();
+        texts1[0].text = mouseDown.abschara.hp.ToString() + "/" + mouseDown.abschara.maxHp.ToString();
         //ATK
         texts1[1].text = IntToString.SwitchATK(mouseDown.abschara.atk);
         //def
@@ -192,7 +192,7 @@ class CharacterDetails : MonoBehaviour
                 word.transform.localScale = Vector3.one;
 
                 //加载图片
-
+                //stateImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("FirstStage/CharacterDetails/ShuXing/"+);
                 //同一词的数量
                 for (int j = i + 1; j < adj.Length; j++)
                 {
@@ -224,6 +224,8 @@ class CharacterDetails : MonoBehaviour
     {
         Destroy(this.transform.parent.gameObject);
         Time.timeScale = 1f;
+        mouseDown.shoot.GetComponent<Shoot>().enabled = true;
+
         mouseDown.isShow = false;
     }
 }

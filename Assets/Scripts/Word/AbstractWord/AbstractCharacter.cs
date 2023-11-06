@@ -1,6 +1,7 @@
 using AI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,20 +30,17 @@ abstract public class AbstractCharacter : AbstractWord0
     //[HideInInspector] public string criticalSpeak;
     /// <summary>人物死亡默认台词（弃用）</summary>
     //[HideInInspector] public string deadSpeak;
-
     /// <summary>特效</summary>
     [HideInInspector] public TeXiao teXiao;
     /// <summary>子弹(手动挂）</summary>
     public GameObject bullet;
-    /// <summary>发出子弹 </summary>
-    public virtual void CreateBullet(GameObject aimChara) { }
 
     /// <summary>阵营</summary>
     public CampEnum camp;
     /// <summary>血量</summary>
-    public float HP = 0;
+    private float HP = 0;
     /// <summary>总血量</summary>
-    public float MaxHP = 0;
+    private float MaxHp = 0;
 
     private Slider hpSlider;
     virtual public float hp
@@ -51,23 +49,27 @@ abstract public class AbstractCharacter : AbstractWord0
         set 
         {
             HP = value;
-            if (HP > MaxHP)
+            if (HP > maxHp)
             {
-                HP = MaxHP;
+                HP = maxHp;
             }
             else if (HP < 0)
             {
                 HP = 0;
             }
-            hpSlider.value = HP / MaxHP;
+            hpSlider.value = HP / maxHp;
         }
     }
-    virtual public float maxhp
+    virtual public float maxHp
     {
-        get { return MaxHP; }
+        get { return MaxHp; }
         set
         {
-            MaxHP = value;
+            MaxHp = value;
+            if(hp> MaxHp)
+            {
+                hp= MaxHp;
+            }
         }
     }
     /// <summary>攻击力</summary>
@@ -163,13 +165,15 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>所有buff《buffID，是否有buff》</summary>
     public Dictionary<int,int> buffs;
 
+    /// <summary>平A模式</summary>
+    [HideInInspector]public AbstractSkillMode attackA;
 
     virtual public void Awake()
     {
         energyCanvas = this.GetComponentInChildren<Canvas>();
         energyCanvas.worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
-        energySlider=transform.Find("Canvas/CD").GetComponent<Slider>();
-        hpSlider = transform.Find("Canvas/HP").GetComponent<Slider>();
+        energySlider= energyCanvas.transform.Find("CD").GetComponent<Slider>();
+        hpSlider = energyCanvas.transform.Find("HP").GetComponent<Slider>();
         energyText = this.GetComponentInChildren<Text>();
         energyCanvas.gameObject.SetActive(false);
 
@@ -177,7 +181,10 @@ abstract public class AbstractCharacter : AbstractWord0
         myState.character = this;
         myState.enabled = false;
 
-        teXiao=GetComponentInChildren<TeXiao>();
+        attackA = gameObject.AddComponent<DamageMode>();//平A是伤害类型
+        attackA.attackRange = new SingleSelector();
+
+        teXiao =GetComponentInChildren<TeXiao>();
         source=this.GetComponent<AudioSource>();
         buffs= new Dictionary<int,int>();
         charaAnim=GetComponent<CharaAnim>();
@@ -218,8 +225,9 @@ abstract public class AbstractCharacter : AbstractWord0
     /// </summary>
     public void turn()
     {
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-        energyCanvas.transform.localScale=new Vector3(Mathf.Abs(energyCanvas.transform.localScale.x), energyCanvas.transform.localScale.y, energyCanvas.transform.localScale.z);
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        //角色的canvas子物体不转向
+        energyCanvas.transform.localScale=new Vector3(-energyCanvas.transform.localScale.x, energyCanvas.transform.localScale.y, energyCanvas.transform.localScale.z);
     }
 
     /// <summary>能用的技能个数 </summary>
@@ -238,20 +246,44 @@ abstract public class AbstractCharacter : AbstractWord0
     }
 
     /// <summary>
-    /// 平A时最先发生的事(角色对平A造成影响）
+    /// 平A
     /// </summary>
-    virtual public void AttackA() 
+    /// <returns>是否平A成功（影响AttackState平A冷却重置）</returns>
+    virtual public bool AttackA() 
     {
-        if(OnA!=null)
-        OnA();
+        if (myState.aim != null)
+        {
+            myState.character.CreateBullet(myState.aim.gameObject);
+            if (myState.character.aAttackAudio != null)
+            {
+                myState.character.source.clip = myState.character.aAttackAudio;
+                myState.character.source.Play();
+            }
+            myState.character.charaAnim.Play(AnimEnum.attack);
+            myState.aim.CreateFloatWord(
+                attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim)
+                ,FloatWordColor.physics,false);
+            return true;
+        }
+        return false;
+    }
+    /// <summary>发出子弹 </summary>
+    public virtual void CreateBullet(GameObject aimChara)
+    {
+        DanDao danDao = GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation)
+            .GetComponent<DanDao>(); 
+        danDao.aim = aimChara;
+        danDao.bulletSpeed = 0.5f;
+        danDao.SetOff(this.transform.position);
     }
 
-    public delegate void changeA();
-    /// <summary>
-    /// 对角色平A进行操作(技能等对平A造成影响）
-    /// </summary>
-    public event changeA OnA;
-    
+    Vector3 pos = new Vector3(0, 1, 0);
+    /// <summary>漂浮文字 </summary>
+    public void CreateFloatWord(float value, FloatWordColor color, bool direct)
+    {
+        Instantiate<GameObject>(Resources.Load("SecondStageLoad/floatWord") as GameObject,this.transform.position+pos,Quaternion.Euler(Vector3.zero),energyCanvas.transform)
+            .GetComponent<FloatWord>().InitPopup(value,this.camp==CampEnum.stranger,color, direct);
+    }
 
     /// <summary>
     /// 判断该角色是否有该buff

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¸³Ê«
+/// èµ‹è¯—
 /// </summary>
 class WritePoem : AbstractVerbs
 {
@@ -10,10 +10,10 @@ class WritePoem : AbstractVerbs
     {
         base.Awake();
         skillID = 1;
-        wordName = "¸³Ê«";
+        wordName = "èµ‹è¯—";
         bookName = BookNameEnum.HongLouMeng;
         description = "";
-        nickname.Add("×÷Ê«");
+        nickname.Add("ä½œè¯—");
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = 7;
         rarity = 1;
@@ -21,9 +21,9 @@ class WritePoem : AbstractVerbs
     }
 
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<ShiQing>());
         buffs[0].maxTime = skillEffectsTime;
     }
@@ -34,7 +34,7 @@ class WritePoem : AbstractVerbs
         if (character == null)
             return null;
 
-        return character.wordName + "±»Éí±ßµÄÃÀ¾°ËùÕğº³£¬²»ÓÉµÃÊ«ĞÔ´ó·¢£¬ËÌ³ªÆğÁËÊ«¸è¡°µÇÉ½ÔòÇéÂúÓÚÉ½£¬¹Ûº£ÔòÇéÒçÓÚº££¬Ò÷Ó½Ö®¼ä£¬ÍÂÄÉÖéÓñÖ®Éù¡±¡£";
+        return character.wordName + "è¢«èº«è¾¹çš„ç¾æ™¯æ‰€éœ‡æ’¼ï¼Œä¸ç”±å¾—è¯—æ€§å¤§å‘ï¼Œé¢‚å”±èµ·äº†è¯—æ­Œâ€œç™»å±±åˆ™æƒ…æ»¡äºå±±ï¼Œè§‚æµ·åˆ™æƒ…æº¢äºæµ·ï¼ŒåŸå’ä¹‹é—´ï¼Œåçº³ç ç‰ä¹‹å£°â€ã€‚";
 
     }
 }

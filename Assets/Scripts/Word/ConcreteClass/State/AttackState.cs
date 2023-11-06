@@ -4,11 +4,11 @@ using UnityEngine;
 namespace AI
 {
     /// <summary>
-    /// ¹¥»÷×´Ì¬
+    /// æ”»å‡»çŠ¶æ€
     /// </summary>
     class AttackState :AbstractState
     {
-        /// <summary>ÊÇ·ñÊÇÎïÀíÉËº¦</summary>
+        /// <summary>æ˜¯å¦æ˜¯ç‰©ç†ä¼¤å®³</summary>
         public bool isPhysics=true;
         override public void Awake()
         {
@@ -18,19 +18,9 @@ namespace AI
             map.Add(TriggerID.OutAttack,StateID.idle);
             triggers.Add(gameObject.AddComponent<KilledAimTrigger>());
             map.Add(TriggerID.KilledAim, StateID.idle);
-
-            attackA = gameObject.AddComponent<DamageMode>();//Æ½AÊÇÉËº¦ÀàĞÍ
-            attackA.attackRange = new SingleSelector();
-
-        }
-        private void Update()
-        {
-           // print(attackA);
         }
 
-        /// <summary>Æ½AÄ£Ê½</summary>
-        public AbstractSkillMode attackA;
-        /// <summary>Æ½A¼ÆÊ±Æ÷£¨ÀÛ¼Ó£©</summary>
+        /// <summary>å¹³Aè®¡æ—¶å™¨ï¼ˆç´¯åŠ ï¼‰</summary>
         [HideInInspector]public float attackAtime;
         public override void Action(MyState0 myState)
         {
@@ -38,34 +28,23 @@ namespace AI
             
             foreach(AbstractVerbs skill in myState.character.skills)
             {
-                //Èç¹ûÄÜÁ¿ÒÑÂú&&ÓĞÄ¿±ê,Ê¹ÓÃ¼¼ÄÜ
+                //å¦‚æœèƒ½é‡å·²æ»¡&&æœ‰ç›®æ ‡,ä½¿ç”¨æŠ€èƒ½
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character)!=null)
                 {
                     myState.character.charaAnim.Play(AnimEnum.attack);
-                    skill.UseVerbs(myState.character); 
+                    skill.UseVerb(myState.character); 
                 }
             }
-            //Èç¹ûÃ»ÓĞ¼¼ÄÜÔÚÊ¹ÓÃ&&Æ½AÀäÈ´Íê±Ï
+            //å¦‚æœæ²¡æœ‰æŠ€èƒ½åœ¨ä½¿ç”¨&&å¹³Aå†·å´å®Œæ¯•
             if ( canA(myState) && attackAtime >= myState.character.attackInterval)
             {
-                myState.character.AttackA();
-                myState.character.CreateBullet(myState.aim.gameObject);
-                attackAtime = 0;
-                if (myState.aim != null)
-                {
-                    if (myState.character.aAttackAudio != null)
-                    {
-                        myState.character.source.clip = myState.character.aAttackAudio;
-                        myState.character.source.Play();
-                    }
-                    myState.character.charaAnim.Play(AnimEnum.attack);
-                    attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim);
-                }
+               if(myState.character.AttackA())
+                    attackAtime = 0;
             }
         }
 
         /// <summary>
-        /// ÊÇ·ñÄÜÆ½A£¨Ã»ÓĞ¼¼ÄÜÔÚÊ¹ÓÃ£©
+        /// æ˜¯å¦èƒ½å¹³Aï¼ˆæ²¡æœ‰æŠ€èƒ½åœ¨ä½¿ç”¨ï¼‰
         /// </summary>
         /// <returns></returns>
         private bool canA(MyState0 myState)

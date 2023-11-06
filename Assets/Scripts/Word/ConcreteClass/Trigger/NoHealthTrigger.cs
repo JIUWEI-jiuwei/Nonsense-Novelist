@@ -23,7 +23,7 @@ namespace AI
             {
                 if (myState.character.reLifes>0)//复活
                 {
-                    myState.character.hp = myState.character.MaxHP;
+                    myState.character.hp = myState.character.maxHp;
                     myState.character.reLifes--;
                     if (OnLive != null) OnLive();
                     return false;

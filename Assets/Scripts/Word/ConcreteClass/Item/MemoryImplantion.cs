@@ -19,16 +19,16 @@ class MemoryImplantion : AbstractItems
         rarity = 1;
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItems(chara);
+        base.UseItem(chara);
         chara.psy-= chara.psy * 0.15f;
         chara.san-= chara.san * 0.15f;
     }
 
-    public override void UseVerbs()
+    public override void UseVerb()
     {
-        base.UseVerbs();
+        base.UseVerb();
     }
 
     public override void End()

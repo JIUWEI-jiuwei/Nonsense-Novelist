@@ -13,7 +13,7 @@ class FamilyConflict_x : AbstractCharacter
         bookName = BookNameEnum.allBooks;
         
         trait = gameObject.AddComponent<Pride>();
-        hp =MaxHP = 40;
+        hp =maxHp = 40;
         atk = 7;
         def = 3;
         psy = 0;

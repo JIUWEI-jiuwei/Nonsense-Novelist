@@ -4,11 +4,10 @@ using UnityEngine;
 /// <summary>
 /// 恶性肿瘤
 /// </summary>
-class EXingZhongLiu : AbstractItems
+class EXingZhongLiu : AbstractItems,IChongNeng
 {
-    /// <summary>充能次数 </summary>
-    public int chongNeng;
-
+    public float maxHPAdd;
+    public float record;
     public override void Awake()
     {
         base.Awake();
@@ -18,26 +17,33 @@ class EXingZhongLiu : AbstractItems
         description = "充能：减5%生命上限";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-
         rarity = 1;
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<ChongNeng>();
     }
 
-    public override void UseItems(AbstractCharacter chara)
+    public void ChongNeng(int times)
     {
-        base.UseItems(chara);
-        //充能效果
-        chara.maxhp -= 0.05f *chongNeng* chara.MaxHP;
+        maxHPAdd += 0.05f*times;
     }
 
-    public override void UseVerbs()
+    public override void UseItem(AbstractCharacter chara)
     {
-        base.UseVerbs();
+        base.UseItem(chara);
+        record = chara.maxHp * maxHPAdd;
+        chara.maxHp -= record;
+    }
+
+    public override void UseVerb()
+    {
+        base.UseVerb();
     }
 
     public override void End()
     {
+        aim.maxHp += record;
         base.End();
     }
+
+    
 }

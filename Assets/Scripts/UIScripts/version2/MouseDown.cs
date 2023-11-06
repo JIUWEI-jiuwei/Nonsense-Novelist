@@ -35,6 +35,8 @@ class MouseDown : MonoBehaviour
     public bool isShow = false;
     /// <summary>“Ù–ß</summary>
     public AudioSource audioSource;
+    /// <summary>∑¢…‰∆˜</summary>
+    public GameObject shoot;
     
     private void Update()
     {
@@ -69,6 +71,8 @@ class MouseDown : MonoBehaviour
                     absVerbs = hit.collider.GetComponent<AbstractVerbs>();
                 }
                 Time.timeScale = 0f;
+                //‘›Õ£∑¢…‰
+                shoot.GetComponent<Shoot>().enabled = false;
             }
 
         }

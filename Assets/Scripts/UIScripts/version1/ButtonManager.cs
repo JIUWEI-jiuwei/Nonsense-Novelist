@@ -74,10 +74,10 @@ class ButtonManager : MonoBehaviour
                     panelManager.Pages1[i].gameObject.SetActive(true);
             }
             //打开故事导入面板时，打开第二组面板
-            if (panelManager.buttons1[i].name == panelManager.buttons1[3].name)
+            /*if (panelManager.buttons1[i].name == panelManager.buttons1[3].name)
             {
                 panelManager.OpenPanel(panelManager.Pages2, panelManager.Pages2[0], panelManager.buttons2[0].GetComponent<RectTransform>(), panelManager.g_btnUpY);
-            }
+            }*/
         }
     }
     /// <summary>
@@ -85,25 +85,28 @@ class ButtonManager : MonoBehaviour
     /// </summary>
     public void Next_SeeBook()
     {
-        seeWorLibrary.interactable = true;
-        //向上动画
-        RectTransform rectTransform = seeWorLibrary.GetComponent<RectTransform>();
-        panelManager.AllButtonsDown(panelManager.buttons1, panelManager.originalY);
-        rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, panelManager.btnUpY, rectTransform.localPosition.z);
-
-        //panel
-        for (int i = 0; i < panelManager.buttons1.Length; i++)
+        if (EntryDrawBox.count == 2)//选中两本书
         {
-            if (panelManager.buttons1[i].name == seeWorLibrary.name)
+            seeWorLibrary.interactable = true;
+            //向上动画
+            RectTransform rectTransform = seeWorLibrary.GetComponent<RectTransform>();
+            panelManager.AllButtonsDown(panelManager.buttons1, panelManager.originalY);
+            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, panelManager.btnUpY, rectTransform.localPosition.z);
+
+            //panel
+            for (int i = 0; i < panelManager.buttons1.Length; i++)
             {
-                panelManager.CloseAllPanels(panelManager.Pages1);
-                if (panelManager.Pages1[i].gameObject.activeSelf == false)
-                    panelManager.Pages1[i].gameObject.SetActive(true);
-            }
-            //打开故事导入面板时，打开第二组面板
-            if (panelManager.buttons1[i].name == panelManager.buttons1[3].name)
-            {
-                panelManager.OpenPanel(panelManager.Pages2, panelManager.Pages2[0], panelManager.buttons2[0].GetComponent<RectTransform>(), panelManager.g_btnUpY);
+                if (panelManager.buttons1[i].name == seeWorLibrary.name)
+                {
+                    panelManager.CloseAllPanels(panelManager.Pages1);
+                    if (panelManager.Pages1[i].gameObject.activeSelf == false)
+                        panelManager.Pages1[i].gameObject.SetActive(true);
+                }
+                //打开故事导入面板时，打开第二组面板
+                if (panelManager.buttons1[i].name == panelManager.buttons1[3].name)
+                {
+                    panelManager.OpenPanel(panelManager.Pages2, panelManager.Pages2[0], panelManager.buttons2[0].GetComponent<RectTransform>(), panelManager.g_btnUpY);
+                }
             }
         }
     }

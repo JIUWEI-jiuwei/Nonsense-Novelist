@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÆßÖØÉ´Ö®Îè
+/// ä¸ƒé‡çº±ä¹‹èˆ
 /// </summary>
 class QiChongShaDance : AbstractVerbs
 {
@@ -10,20 +10,20 @@ class QiChongShaDance : AbstractVerbs
     {
         base.Awake();
         skillID = 6;
-        wordName = "ÆßÖØÉ´Ö®Îè";
+        wordName = "ä¸ƒé‡çº±ä¹‹èˆ";
         bookName = BookNameEnum.Salome;
-        description = "Ê¹×Ô¼º»ñµÃ¡°ÆğÎè¡±";
+        description = "ä½¿è‡ªå·±è·å¾—â€œèµ·èˆâ€";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime =10;
         rarity = 3;
         needCD=10;
-        description = "Ã¿Ò»ÖØ¶¼»áĞ¶ÏÂÒ»²ã±¡É´µÄÃÔÈËÎèµ¸£¬ÈÃÖÜÎ§µÄÓÑ¾ü³äÂúÁ¦Á¿¡£";
+        description = "æ¯ä¸€é‡éƒ½ä¼šå¸ä¸‹ä¸€å±‚è–„çº±çš„è¿·äººèˆè¹ˆï¼Œè®©å‘¨å›´çš„å‹å†›å……æ»¡åŠ›é‡ã€‚";
     }
 
-    public override void UseVerbs(AbstractCharacter useCharacter)
+    public override void UseVerb(AbstractCharacter useCharacter)
     {
-        base.UseVerbs(useCharacter);
+        base.UseVerb(useCharacter);
         buffs.Add(gameObject.AddComponent<QiWu>());
         buffs[0].maxTime = skillEffectsTime;
     }
@@ -34,7 +34,7 @@ class QiChongShaDance : AbstractVerbs
         if (character == null)
             return null;
 
-        return "°é×ÅÇá·çÓëÉíÉÏ¹Ò×¹Åö×²µÄ½ğÊôÉù£¬" + character.wordName + "¿ªÊ¼õäõÑÆğÎè¡£ÖÜÎ§µÄÈËÃÇ¶¼·×·×±»ÕâôæÈô¾ªºèµÄÎè×Ë¼¤ÀøÁË£¬²¢ÇÒ¸Ğ¾õ³äÂúÁËÁ¦Á¿¡£";
+        return "ä¼´ç€è½»é£ä¸èº«ä¸ŠæŒ‚å ç¢°æ’çš„é‡‘å±å£°ï¼Œ" + character.wordName + "å¼€å§‹è¹è·¹èµ·èˆã€‚å‘¨å›´çš„äººä»¬éƒ½çº·çº·è¢«è¿™ç¿©è‹¥æƒŠé¸¿çš„èˆå§¿æ¿€åŠ±äº†ï¼Œå¹¶ä¸”æ„Ÿè§‰å……æ»¡äº†åŠ›é‡ã€‚";
 
     }
 }

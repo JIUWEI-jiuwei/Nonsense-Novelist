@@ -3,35 +3,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SanFaFeiLuoMeng : AbstractAdjectives
+public class SanFaFeiLuoMeng : AbstractAdjectives,IJiHuo
 {
-    /// <summary>ÊÇ·ñ¼¤»îÆğÎè </summary>
-    public bool jiHuo;
+    /// <summary>æ˜¯å¦æ¿€æ´»èµ·èˆ </summary>
+    private bool jiHuo;
     public override void Awake()
     {
         adjID = 13;
-        wordName = "É¢·¢·ÑÂåÃÉµÄ";
+        wordName = "æ•£å‘è´¹æ´›è’™çš„";
         bookName = BookNameEnum.EgyptMyth;
-        description = "»ñµÃ¡°ÆğÎè¡±";
+        description = "è·å¾—â€œèµ·èˆâ€";
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = 10;
         rarity = 2;
         base.Awake();
-        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
-            wordCollisionShoots[0]=gameObject.AddComponent<JiHuo>();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
+    }
+    public void JiHuo(bool value)
+    {
+        jiHuo= value;
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
         buffs.Add(aimCharacter.gameObject.AddComponent<QiWu>());
-        buffs[0].maxTime = skillEffectsTime;
-
-        //ÆğÎè(¼¤»î)
+        //èµ·èˆ(æ¿€æ´»)
         if (jiHuo)
         {
-            buffs[0].maxTime = 3;
+            skillEffectsTime = 10;
         }
+        else
+        {
+            skillEffectsTime = 3;
+        }
+        buffs[0].maxTime = skillEffectsTime;
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
@@ -42,4 +49,5 @@ public class SanFaFeiLuoMeng : AbstractAdjectives
         base.End();
     }
 
+    
 }

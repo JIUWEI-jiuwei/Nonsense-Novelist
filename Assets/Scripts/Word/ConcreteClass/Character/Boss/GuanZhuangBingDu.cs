@@ -13,7 +13,7 @@ using UnityEngine;
         bookName = BookNameEnum.allBooks;
         gender = GenderEnum.noGender;
         camp = CampEnum.stranger;
-        hp =MaxHP  = 600;
+        hp =maxHp  = 600;
         atk = 30;
         def = 60;
         psy = 25;
@@ -48,7 +48,9 @@ using UnityEngine;
             cool = true;
             if (randomEnemy != null)
             {
-                skillMode.UseMode(myState.character, 10 * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim);
+               myState.aim.CreateFloatWord(
+                   skillMode.UseMode(myState.character, 10 * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim)
+                   ,FloatWordColor.physics,false);
             }
             else
             {
@@ -64,16 +66,6 @@ using UnityEngine;
         }
     }
 
-    public override void CreateBullet(GameObject aimChara)
-    {
-        base.CreateBullet(aimChara);
-        DanDao danDao = bullet.GetComponent<DanDao>();
-        danDao.aim = aimChara;
-        danDao.bulletSpeed = 0.5f;
-        danDao.birthTransform = this.transform;
-        ARPGDemo.Common.GameObjectPool.instance.CreateObject(bullet.gameObject.name, bullet.gameObject, this.transform.position, aimChara.transform.rotation);
-
-    }
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)
