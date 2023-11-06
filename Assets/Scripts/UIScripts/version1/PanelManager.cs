@@ -83,13 +83,13 @@ class PanelManager : MonoBehaviour
                     pages[i].gameObject.SetActive(true);
             }
             //打开故事导入面板时，打开第二组面板
-            if (SceneManager.GetActiveScene().name == "NewGame")
+            /*if (SceneManager.GetActiveScene().name == "NewGame")
             {
                 if (buttons[i].name == buttons1[3].name)
                 {
                     OpenPanel(Pages2, Pages2[0], buttons2[0].GetComponent<RectTransform>(), g_btnUpY);
                 }
-            }            
+            } */           
         }
     }
     /// <summary>
@@ -161,6 +161,13 @@ class PanelManager : MonoBehaviour
     /// </summary>
     public void TestPanelChange3()
     {
+        if(SceneManager.GetActiveScene().name== "NewGame3")
+        {
+            if (EntryDrawBox.count == 2)
+            {
+                OpenPanelByButtonName(buttons3, Pages3);
+            }
+        }
         OpenPanelByButtonName(buttons3, Pages3);
     }  
 }
