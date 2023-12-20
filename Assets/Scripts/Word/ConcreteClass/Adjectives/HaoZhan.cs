@@ -2,19 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 形容词：好战的
+/// </summary>
 public class HaoZhan : AbstractAdjectives
 {
     public override void Awake()
-    {
-        adjID = 0;
+    {        
+        base.Awake();
+        adjID = 18;
         wordName = "好战的";
         bookName = BookNameEnum.PHXTwist;
-        description = "加快攻速";
+        description = "快速攻击，持续5s";
+
         skillMode = gameObject.AddComponent<SelfMode>();
-        skillEffectsTime = Mathf.Infinity;
+        skillEffectsTime = 5;
+
         rarity = 0;
-        base.Awake();
+
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
@@ -24,7 +29,7 @@ public class HaoZhan : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.attackInterval -= 0.5f;
+        aimCharacter.attackInterval -= 1.2f;
     }
 
     
@@ -32,7 +37,7 @@ public class HaoZhan : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.attackInterval += 0.5f;
+        aim.attackInterval += 1.2f;
     }
 
 }

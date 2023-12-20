@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// buff:起舞
+/// </summary>
 public class QiWu : AbstractBuff
 {
     private float record;
@@ -9,15 +13,13 @@ public class QiWu : AbstractBuff
     {
         base.Awake();
         buffName = "起舞";
+        description = "普通攻击攻击所有敌人，伤害降低70%，附带攻击效果";
         book = BookNameEnum.allBooks;
-        record=chara.psy * 0.2f;
-        chara.psy += record;
-        upup = 1;
+
     }
 
 
     private void OnDestroy()
     {
-        chara.psy -= record;
     }
 }

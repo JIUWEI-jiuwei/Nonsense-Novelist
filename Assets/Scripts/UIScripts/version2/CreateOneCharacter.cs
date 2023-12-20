@@ -14,6 +14,7 @@ public class CreateOneCharacter : MonoBehaviour
 
     private void Awake()
     {
+       Camera.main.GetComponent<CameraController>().SetCameraSizeTo(5);
         //初始生成四个角色
         for (int i = 0; i < 4; i++)
         {
@@ -28,6 +29,10 @@ public class CreateOneCharacter : MonoBehaviour
             chara.transform.SetParent(this.transform.GetChild(i));
             chara.transform.position = new Vector3(transform.GetChild(i).position.x, transform.GetChild(i).position.y + CharacterMouseDrag.offsetY, transform.GetChild(i).position.z);
 
+            SpriteRenderer _sr = chara.GetComponentInChildren<AI.MyState0>().GetComponent<SpriteRenderer>();
+            //角色的显示图层恢复正常
+            _sr.sortingLayerName = "UICanvas";
+            _sr.sortingOrder = 3;
         }
     }
     private void Start()
@@ -53,6 +58,7 @@ public class CreateOneCharacter : MonoBehaviour
     public GameObject shooter;
 
    
+    
 
     /// <summary>
     /// 开始战斗
@@ -84,8 +90,16 @@ public class CreateOneCharacter : MonoBehaviour
         }
         else if (isTwoSides && isAllCharaUp)//成功开始
         {
+            //camera改变
+            Camera.main.GetComponent<CameraController>().SetCameraSizeTo(4);
+
             //将UICanvas隐藏
             GameObject.Find("UICanvas").SetActive(false);
+
+            //触发进度条开始开关
+            GameObject.Find("GameProcess").GetComponent<GameProcessSlider>().ProcessStart();
+            //装载一个shooter
+            GameObject.Find("shooter").GetComponent<Shoot>().ReadyWordBullet();
 
             // 将所有站位颜色隐藏
             foreach (Situation it in Situation.allSituation)
@@ -95,7 +109,14 @@ public class CreateOneCharacter : MonoBehaviour
             // 所有角色不可拖拽
             foreach (AbstractCharacter it in CharacterManager.instance.charas)
             {
-                it.GetComponent<AI.MyState0>().enabled = true;
+                //角色的显示图层恢复正常
+                it.charaAnim.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
+                it.charaAnim.GetComponent<SpriteRenderer>().sortingOrder = 2 /*+(int) it.charaAnim.transform.parent.GetComponent<Situation>().number*/;
+                // it.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
+                //it.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+                //
+                it.charaAnim.GetComponent<AI.MyState0>().enabled = true;
                 it.GetComponent<AbstractCharacter>().enabled = true;
                 it.gameObject.AddComponent(typeof(AfterStart));
                 Destroy(it.GetComponent<CharacterMouseDrag>());

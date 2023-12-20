@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// buff:¸¯Ê´
+/// </summary>
 public class FuShi: AbstractBuff
 {
 
@@ -9,13 +11,16 @@ public class FuShi: AbstractBuff
     {
         base.Awake();
         buffName = "¸¯Ê´";
-        book = BookNameEnum.PHXTwist;
+        description = "½µµÍ1·ÀÓùÁ¦£¬¿Éµþ¼Ó";
+        
+        book = BookNameEnum.allBooks;
         chara.def -= 2;
+        isBad = true;
     }
 
     private void OnDestroy()
     {
-        chara.def += 2;
+        chara.def -= 1;
     }
 
 }

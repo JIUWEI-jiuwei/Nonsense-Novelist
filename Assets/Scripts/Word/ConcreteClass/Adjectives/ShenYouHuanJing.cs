@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 形容词：神游环境的
+/// </summary>
 public class ShenYouHuanJing : AbstractAdjectives
 {
     public override void Awake()
     {
-        adjID = 3;
+        adjID = 2;
         wordName = "神游幻境的";
         bookName = BookNameEnum.HongLouMeng;
-        description = "虚无，攻击精神交换（颠倒）";
+        description = "攻击精神交换10s";
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;
@@ -25,6 +27,7 @@ public class ShenYouHuanJing : AbstractAdjectives
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
+
         buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
         buffs[0].maxTime = skillEffectsTime;
     }

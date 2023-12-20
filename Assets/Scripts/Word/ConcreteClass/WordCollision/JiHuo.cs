@@ -2,25 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 激活
+/// 碰撞机制：暗喻 激活
 /// </summary>
 public class JiHuo : WordCollisionShoot
 {
     /// <summary>碰撞次数 </summary>
     private int count = 0;
+    Color color = Color.green+ Color.white * 0.6f;
+    Color colorWhite = new Color(1, 1, 1, 0);
     public override void Awake()
     {
         base.Awake();
+        //absWord = Shoot.abs;
+        this.GetComponent<SpriteRenderer>().color = color;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        count++;
-        Debug.Log(count);
+        if (collision.transform.tag == "wall")
+        {
+            this.GetComponent<SpriteRenderer>().color -= colorWhite * 0.3f;
+            count++;
+            Debug.Log("（激活）碰撞次数现在是"+count);
+        }
+         
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         //给absWord赋值
-        absWord = Shoot.abs;
+        //absWord = Shoot.abs;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
@@ -31,8 +40,7 @@ public class JiHuo : WordCollisionShoot
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
-                collision.gameObject.AddComponent(b.GetType());
-                character.skills.Add(b);
+                character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
                 Destroy(this.gameObject);
 
             }

@@ -3,30 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 先知的头颅
+/// 名词：先知的头颅
 /// </summary>
 class XianZhiHead : AbstractItems
 {
     public override void Awake()
     {
         base.Awake();
-        itemID = 7;
+        itemID = 8;
         wordName = "先知的头颅";
         bookName = BookNameEnum.Salome;
-        description = "加15%精神，减10%意志";
-        holdEnum = HoldEnum.handSingle; 
+        description = "精神+30%，意志-30%";
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;
     }
 
-    float recordPsy, recordSan;
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        recordPsy = chara.psy * 0.15f;
-        recordSan = chara.san * 0.1f;
-        chara.psy += recordPsy;
-        chara.san -=recordSan;
+        chara.psyMul += 0.3f;
+        chara.sanMul -= 0.3f;
     }
 
     public override void UseVerb()
@@ -38,7 +34,7 @@ class XianZhiHead : AbstractItems
     public override void End()
     {
         base.End();
-        aim.psy -= recordPsy;
-        aim.san += recordSan;
+        aim.psyMul -= 0.3f;
+        aim.sanMul += 0.3f;
     }
 }

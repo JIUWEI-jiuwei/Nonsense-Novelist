@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ÐÎÈÝ´Ê£º»êÇ£ÃÎÝÓµÄ
+/// </summary>
 public class HunQianMengYing : AbstractAdjectives
 {
     public override void Awake()
@@ -10,16 +13,20 @@ public class HunQianMengYing : AbstractAdjectives
         adjID = 0;
         wordName = "»êÇ£ÃÎÝÓµÄ";
         bookName = BookNameEnum.Salome;
-        description = "Ê¹½ÇÉ«»ñµÃ¡°·ýÂ²¡±£¬¹¥»÷¶ÓÓÑ";
-        skillMode = gameObject.AddComponent<SelfMode>();
-        skillEffectsTime = 15;
-        rarity = 1;
+        description = "·ý»ñ½ÇÉ«£¬¹¥»÷¶ÓÓÑ7s";
+
+        skillMode = gameObject.AddComponent<DamageMode>();
+
+        skillEffectsTime = 7;
+        rarity = 0;
         base.Awake();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
+
+      
         buffs.Add(aimCharacter.gameObject.AddComponent<FuHuo>());
         buffs[0].maxTime = skillEffectsTime;
     }

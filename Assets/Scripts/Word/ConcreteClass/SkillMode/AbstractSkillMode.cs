@@ -32,5 +32,8 @@ abstract public class AbstractSkillMode : MonoBehaviour
     /// <param name="value"></param>
     /// <param name="aimCharacter"></param>
     /// <returns>用于漂浮文字</returns>
-    abstract public float UseMode(AbstractCharacter useCharacter,float value,AbstractCharacter aimCharacter);    
+    abstract public float UseMode(AbstractCharacter useCharacter,float value,AbstractCharacter aimCharacter);
+
+
+    abstract public AbstractCharacter[] CalculateRandom(int attackDistance, AbstractCharacter character,bool ignoreBoss);
 }

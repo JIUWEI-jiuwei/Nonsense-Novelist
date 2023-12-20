@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 动词：瘟疫传播
+/// </summary>
 class WenYiChuanBo : AbstractVerbs
 {
     public override void Awake()
@@ -9,10 +12,12 @@ class WenYiChuanBo : AbstractVerbs
         skillID = 11;
         wordName = "瘟疫传播";
         bookName = BookNameEnum.FluStudy;
-        description = "使敌人获得可传播的“患病”";
+        description = "传播疾病，持续5s";
+
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange =  new SingleSelector();
+
         skillEffectsTime = 5;
         rarity = 2;
         needCD = 2;

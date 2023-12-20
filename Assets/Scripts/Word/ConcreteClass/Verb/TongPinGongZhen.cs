@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 同频共振
+/// 动词：同频共振
 /// </summary>
 class TongPinGongZhen: AbstractVerbs
 {
@@ -12,19 +12,18 @@ class TongPinGongZhen: AbstractVerbs
         skillID = 8;
         wordName = "同频共振";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "使队友获得“共振”";
+        description = "使友方获得共振，持续30s";
+
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 30;
+
         rarity = 2;
         needCD=2;
 
     }
 
-    /// <summary>
-    /// 让所有友军回复5点SP
-    /// </summary>
-    /// <param name="useCharacter">施法者</param>
+
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);

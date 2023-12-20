@@ -2,27 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 服药
+/// 名词：本杰士堆
 /// </summary>
 class BenJieShiDui : AbstractItems
 {
     public override void Awake()
     {
         base.Awake();
-        itemID = 3;
+        itemID = 4;
         wordName = "本杰士堆";
         bookName = BookNameEnum.ZooManual;
-        description = "使队友获得亢奋";
-        holdEnum = HoldEnum.handSingle;
-        VoiceEnum = MaterialVoiceEnum.materialNull;
+        description = "获得本杰士堆，被破坏后名词消失";//随从
         rarity = 2;
+
+        VoiceEnum = MaterialVoiceEnum.materialNull;
+   
 
         nowTime = 0;
         skillMode = new CureMode();
     }
+
+
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
+
+        //为角色增加一个随从
+        chara.AddServant(gameObject.AddComponent<CS_BenJieShiDui>());
     }
 
     float nowTime;
@@ -31,15 +37,20 @@ class BenJieShiDui : AbstractItems
     public override void UseVerb()
     {
         base.UseVerb();
-        nowTime += Time.deltaTime;
-        if (nowTime > 10)
-        {
-            nowTime = 0;
-            friends = skillMode.CalculateAgain(999, aim);
+        //获得随从
 
-            buffs.Add(friends[Random.Range(0, friends.Length)].gameObject.AddComponent<KangFen>());
-            buffs[0].maxTime = 10;
-        }
+
+
+
+        //nowTime += Time.deltaTime;
+        //if (nowTime > 10)
+        //{
+        //    nowTime = 0;
+        //    friends = skillMode.CalculateAgain(999, aim);
+
+        //    buffs.Add(friends[Random.Range(0, friends.Length)].gameObject.AddComponent<KangFen>());
+        //    buffs[0].maxTime = 10;
+        //}
     }
 
     public override void End()

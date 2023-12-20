@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 动词：图灵测试
+/// </summary>
 class TuLingCeShi : AbstractVerbs
 {
     public override void Awake()
@@ -9,13 +12,15 @@ class TuLingCeShi : AbstractVerbs
         skillID = 9;
         wordName = "图灵测试";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "使敌人受到较大精神伤害";
+        description = "被动：对意志低于10的敌人造成30%额外伤害;主动：使敌人受到自身攻击 + 防御的精神伤害";
+
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = false;
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
+
         rarity = 3;
-        needCD = 4;
+        needCD = 3;
     
 
     }

@@ -3,17 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// 形容词：不朽
+/// </summary>
+
 public class BuXiu : AbstractAdjectives
 {
     public override void Awake()
     {
         
-        adjID = 2;
+        adjID = 5;
         wordName = "不朽的";
         bookName = BookNameEnum.EgyptMyth;
-        description = "获得生命上限，获得复活";
+        description = "生命上限+60，获得复活";
+
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
+
         rarity = 2;
         base.Awake();
     }
@@ -21,13 +28,15 @@ public class BuXiu : AbstractAdjectives
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
+
         buffs.Add(aimCharacter.gameObject.AddComponent<ReLife>());
         buffs[0].maxTime = skillEffectsTime;
+
         BasicAbility(aimCharacter);
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.maxHp += 30;
+        aimCharacter.maxHp += 60;
     }
 
     
@@ -35,7 +44,7 @@ public class BuXiu : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.maxHp -= 30;
+        aim.maxHp -= 60;
     }
 
 }

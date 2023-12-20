@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 玫瑰石英
+/// 名词：玫瑰石英
 /// </summary>
 class MeiGuiShiYing : AbstractItems,IJiHuo
 {
@@ -12,14 +12,14 @@ class MeiGuiShiYing : AbstractItems,IJiHuo
     public override void Awake()
     {
         base.Awake();
-        itemID = 11;
+        itemID = 12;
         wordName = "玫瑰石英";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "激活后，加6防御，获得共振";
-        holdEnum = HoldEnum.handSingle;
+        description = "未激活，防御+2；激活，防御 + 6，获得共振";
+
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
-        rarity = 2;
+        rarity = 1;
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
     }
@@ -42,7 +42,7 @@ class MeiGuiShiYing : AbstractItems,IJiHuo
         }
         else
         {
-            record = 1;
+            record = 2;
             chara.def += record;
         }
     }

@@ -7,11 +7,11 @@ public class ZhongDu : AbstractAdjectives
 {
     public override void Awake()
     {
-        adjID = 20;
+        adjID = 24;
         wordName = "中毒的";
         bookName = BookNameEnum.allBooks;
-        description = "获得“中毒”，攻击精神互换（颠倒）";
-        skillMode = gameObject.AddComponent<DamageMode>();
+        description = "中毒，颠倒，持续10s";
+        skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;
         base.Awake();
@@ -20,6 +20,7 @@ public class ZhongDu : AbstractAdjectives
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
+
         buffs.Add(aimCharacter.gameObject.AddComponent<Toxic>());
         buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
         foreach(AbstractBuff buff in buffs)

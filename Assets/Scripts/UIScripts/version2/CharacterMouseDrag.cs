@@ -19,13 +19,18 @@ public class CharacterMouseDrag : MonoBehaviour
     /// <summary>记录上一个所在的站位</summary>
     private Transform lastParentTF;
     /// <summary>角色和站位position的Y偏移量</summary>
-    public static float offsetY = 0.5f;
+    public static float offsetY =0.2f;
 
+    //颜色
+    private Color colorOnMouseOver = new Color((float)100 / 255, (float)100 / 255, (float)50 / 255, (float)255 / 255);
+    private Color colorOnMouseExit = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
 
+    private SpriteRenderer sr;
     private void Start()
     {
         nowParentTF = transform.parent;
         target = transform;
+        sr= GetComponentInChildren<AI.MyState0>().GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseEnter()
@@ -49,14 +54,15 @@ public class CharacterMouseDrag : MonoBehaviour
     private void OnMouseOver()
     {
         //颜色变黄
-        GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)225 / 255, (float)189 / 255, (float)255 / 255);
-        
+        sr.color = colorOnMouseOver;
+       
     }
     private void OnMouseExit()
     {
         //颜色恢复
-        GetComponent<SpriteRenderer>().color = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
-        
+        //鼠标进入黄圈时也会执行此脚本。原因未知
+        sr.color = colorOnMouseExit;
+      
     }
     //被移动物体需要添加collider组件，以响应OnMouseDown()函数
     //基本思路。当鼠标点击物体时（OnMouseDown（），函数体里面代码只执行一次），
@@ -64,9 +70,15 @@ public class CharacterMouseDrag : MonoBehaviour
     //由于物体坐标是世界坐标，鼠标坐标是屏幕坐标，需要进行转换。具体过程如下所示。
     IEnumerator OnMouseDown()
     {
+        //先让点击物体中心与鼠标点击处同步。
+        Vector2 offsetCenter = GetComponent<Collider2D>().offset;
+        mouseScreenpos = new Vector3(Input.mousePosition.x, Input.mousePosition.y , Camera.main.WorldToScreenPoint(target.position).z);
+        target.position= Camera.main.ScreenToWorldPoint(mouseScreenpos)-new Vector3(offsetCenter.x/4,offsetCenter.y/4,0);
+
         targetScreenpos = Camera.main.WorldToScreenPoint(target.position);
-        mouseScreenpos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, targetScreenpos.z);
         offset = target.position - Camera.main.ScreenToWorldPoint(mouseScreenpos);
+
+      
 
         while (Input.GetMouseButton(0))//鼠标左键被持续按下。
         {
@@ -94,15 +106,16 @@ public class CharacterMouseDrag : MonoBehaviour
 
                 //隐藏/恢复站位颜色（透明度为0
                 nowParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = Color.clear;
-                if(lastParentTF.gameObject.GetComponent<SpriteRenderer>())
-                    lastParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = new Color((float)180/255, (float)180 /255, (float)180 /255, 1);
+                if (lastParentTF.gameObject.GetComponent<SpriteRenderer>())
+                    lastParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = colorOnMouseOver;
+
 
                 AbstractCharacter c = this.GetComponent<AbstractCharacter>();
                 //根据站位给角色站位赋值
                 c.situation = hit.collider.gameObject.GetComponent<Situation>();
 
                 //根据站位给角色阵营赋值
-                if (hit.collider.gameObject.GetComponent<Situation>().number < 6)
+                if (hit.collider.gameObject.GetComponent<Situation>().number < 5)
                 {
                     //图片翻转方向
                     if (c.camp == CampEnum.right)
@@ -136,6 +149,7 @@ public class CharacterMouseDrag : MonoBehaviour
             transform.position = new Vector3(nowParentTF.position.x, nowParentTF.position.y + offsetY, nowParentTF.position.z);
 
         }
+       
     }
 } 
 

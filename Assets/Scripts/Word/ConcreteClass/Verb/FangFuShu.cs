@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 防腐术
+/// 动词：防腐
 /// </summary>
 class FangFuShu : AbstractVerbs
 {
@@ -12,13 +12,17 @@ class FangFuShu : AbstractVerbs
         skillID = 5;
         wordName = "防腐";
         bookName = BookNameEnum.EgyptMyth;
-        description = "使队友获得“复活”";
+        description = "使友方复活，持续10s";
+
+        //目标：血量最低的友方
         skillMode = gameObject.AddComponent<CureMode>();
         skillMode.attackRange =  new SingleSelector();
-        skillEffectsTime = 20;
+
+
+        skillEffectsTime = 10;
         rarity = 1;
-        needCD = 10;
-        description = "通过复杂的工序，让肉体不会腐败，再次获得生存的机会。";
+        needCD = 6;
+
 
     }
     /// <summary>

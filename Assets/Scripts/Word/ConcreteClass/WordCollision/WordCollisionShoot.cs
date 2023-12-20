@@ -12,9 +12,13 @@ public class WordCollisionShoot : MonoBehaviour
     /// <summary>计时器 </summary>
     public float timer;
 
+
+    Collider2D collider;
     public virtual void Awake()
     {
-        
+        collider = this.gameObject.GetComponent<Collider2D>();
+        if(collider!=null)
+            collider.sharedMaterial = Resources.Load<PhysicsMaterial2D>("Other/word");
     }
 
     /// <summary>
@@ -23,17 +27,26 @@ public class WordCollisionShoot : MonoBehaviour
     /// <param name="collision"></param>
     public virtual  void OnTriggerEnter2D(Collider2D collision)
     {
+
+        
+
+
+
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
+
+
+
+
+
 
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
-                collision.gameObject.AddComponent(b.GetType());
-                character.skills.Add(b);
+                character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
                 Destroy(this.gameObject);
 
             }

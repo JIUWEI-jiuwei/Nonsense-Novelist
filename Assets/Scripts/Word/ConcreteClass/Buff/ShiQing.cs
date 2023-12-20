@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// buff:诗情
+/// </summary>
 public class ShiQing : AbstractBuff
 {
-    private float record;
+
     override protected void Awake()
     {
         base.Awake();
         buffName = "诗情";
+        description = "提升20%精神";
         book = BookNameEnum.HongLouMeng;
-        record=chara.psy * 0.2f;
-        chara.psy += record;
-        upup = 1;
+        chara.psyMul += 0.2f;
+
     }
 
 
     private void OnDestroy()
     {
-        chara.psy -= record;
+        chara.psyMul -= 0.2f;
     }
 }

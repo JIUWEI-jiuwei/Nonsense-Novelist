@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///寄生虫
+///名词：寄生虫
 /// </summary>
 class JiShengChong : AbstractItems
 {
     public override void Awake()
     {
         base.Awake();
-        itemID = 15;
+        itemID = 16;
         wordName = "寄生虫";
         bookName = BookNameEnum.FluStudy;
-        description = "散射，减少防御，加快攻速，攻击附带“患病”";
-        holdEnum = HoldEnum.handSingle;
+        description = "防御-3，自身与随从的攻击附带患病";
+
         VoiceEnum = MaterialVoiceEnum.Meat;
 
         rarity = 1;
@@ -31,8 +31,8 @@ class JiShengChong : AbstractItems
     public override void UseVerb()
     {
         base.UseVerb();
-        buffs.Add(gameObject.AddComponent<Ill>());
-        buffs[0].maxTime = 5;
+        //buffs.Add(gameObject.AddComponent<Ill>());
+        //buffs[0].maxTime = 5;
     }
 
     public override void End()

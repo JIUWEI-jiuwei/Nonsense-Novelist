@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+///（废弃） 形容词：散发费洛蒙的
+/// </summary>
 public class SanFaFeiLuoMeng : AbstractAdjectives,IJiHuo
 {
     /// <summary>是否激活起舞 </summary>

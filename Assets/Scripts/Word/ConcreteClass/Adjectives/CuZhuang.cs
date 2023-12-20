@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 形容词：粗壮的
+/// </summary>
 public class CuZhuang : AbstractAdjectives
 {
     public override void Awake()
     {
-        adjID = 18;
+        adjID = 22;
         wordName = "粗壮的";
         bookName = BookNameEnum.allBooks;
-        description = "获得生命上限";
+        description = "生命上限+30";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

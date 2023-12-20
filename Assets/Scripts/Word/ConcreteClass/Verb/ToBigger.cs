@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 动词：变大
+/// </summary>
 class ToBigger : AbstractVerbs
 {
     public override void Awake()
@@ -9,11 +12,13 @@ class ToBigger : AbstractVerbs
         skillID = 16;
         wordName = "变大";
         bookName = BookNameEnum.allBooks;
-        description = "自身增加生命上限";
-        nickname.Add( "刺痛");
+        description = "生命上限+20";
+       // nickname.Add( "刺痛");
+
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
+
         rarity = 1;
         needCD=3;
     }

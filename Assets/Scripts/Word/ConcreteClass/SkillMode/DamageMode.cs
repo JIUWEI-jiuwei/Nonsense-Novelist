@@ -23,14 +23,15 @@ class DamageMode : AbstractSkillMode
     {
         if (useCharacter != null)//角色使用
         {
-            /*float a = Random.Range(0, 100);//暴击抽奖
+            float a = Random.Range(0, 100);//暴击抽奖
             if (a <= useCharacter.criticalChance * 100)//暴击
             {
                 value *= useCharacter.multipleCriticalStrike;
                 aimCharacter.teXiao.PlayTeXiao("BaoJi");
                 AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
-            }*/
-            aimCharacter.hp -= value;
+            }
+          
+            //aimCharacter.hp -= value;
         }
         else//玩家使用（形容词）
         {
@@ -45,7 +46,14 @@ class DamageMode : AbstractSkillMode
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
+        
         AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.enemy);
+        return a;
+    }
+    override public AbstractCharacter[] CalculateRandom(int attackDistance, AbstractCharacter character, bool _ignoreBoss)
+    {
+
+        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, _ignoreBoss);
         return a;
     }
 }

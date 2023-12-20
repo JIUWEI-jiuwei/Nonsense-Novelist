@@ -17,6 +17,7 @@ namespace AI
                 uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
 
             }
+
         }
         override public void Awake()
         {
@@ -27,9 +28,12 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
-            if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
+            //临时去掉了这个if
+            //if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
+            { 
                 //播放完动画后销毁
-                Destroy(this.gameObject);
+                Destroy(this.transform.parent.gameObject);
+            }
         }
 
 
@@ -40,12 +44,12 @@ namespace AI
             AbstractBook.afterFightText += myState.character.DieText();
             
 
-            //结束
-            if (GameObject.Find("LeftAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1 || GameObject.Find("RightAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1)
-            // if (myState.character.camp == CampEnum.friend)
-            {
-                UIManager.LoseEnd();
-            }
+            ////结束
+            //if (GameObject.Find("LeftAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1 || GameObject.Find("RightAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1)
+            //// if (myState.character.camp == CampEnum.friend)
+            //{
+            //    UIManager.LoseEnd();
+            //}
             /*
             if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[uIManager.transAndCamera.guanQiaNum].transform.childCount <= 1)
             {

@@ -2,7 +2,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /// <summary>
-/// 葬花
+/// 动词：葬花
 /// </summary>
 class BuryFlower : AbstractVerbs
 {
@@ -12,11 +12,11 @@ class BuryFlower : AbstractVerbs
         skillID = 2;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
-        description = "自身获得“花瓣”";
-        skillMode = gameObject.AddComponent<UpPSYMode>();
-        skillEffectsTime = Mathf.Infinity;
+        description = "被动：普通攻击使对方获得花瓣;主动：收回所有花瓣，并造成花瓣数 * 30 % 精神的伤害";
+        skillMode = gameObject.AddComponent<SelfMode>();
+        skillEffectsTime = 10;
         rarity = 3;
-        needCD = 2;
+        needCD = 6;
     }
 
     /// <summary>

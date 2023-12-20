@@ -1,6 +1,10 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// 动词：玩耍
+/// </summary>
 class WanShua : AbstractVerbs
 {
     public override void Awake()
@@ -9,9 +13,11 @@ class WanShua : AbstractVerbs
         skillID = 3;
         wordName = "玩耍";
         bookName = BookNameEnum.ZooManual;
-        description = "使友方获得“亢奋”";
+        description = "使友方亢奋，持续15s";
+
         skillMode = gameObject.AddComponent<UpATKMode>();
-        skillEffectsTime = 7;
+
+        skillEffectsTime = 15;
         rarity = 1;
         needCD = 4;
     }

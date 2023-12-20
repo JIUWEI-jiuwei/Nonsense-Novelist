@@ -13,7 +13,9 @@ public class AbstractBuff : MonoBehaviour
     public int upup=999;
     protected AbstractCharacter chara;
     public float maxTime=0.5f;
-
+    public string description;
+    public bool isBad = false;
+    public bool isAll = false;
     protected virtual void Awake()
     {
         chara = GetComponent<AbstractCharacter>();

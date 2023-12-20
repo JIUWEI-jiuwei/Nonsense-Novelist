@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 动词：亲吻
+/// </summary>
 class Kiss : AbstractVerbs
 {
     public override void Awake()
@@ -9,13 +12,15 @@ class Kiss : AbstractVerbs
         skillID = 7;
         wordName = "亲吻";
         bookName = BookNameEnum.Salome;
-        description = "使敌人获得“俘虏”";
+        description = "使敌人受到3*精神的精神伤害，并被俘获10s";
+
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = false;
         skillMode.attackRange =  new SingleSelector();
-        skillEffectsTime = 10;
-        rarity = 2;
-        needCD = 6;
+
+        skillEffectsTime =5;
+        rarity = 1;
+        needCD = 4;
 
     }
 
@@ -23,7 +28,7 @@ class Kiss : AbstractVerbs
     {
         base.UseVerb(useCharacter);
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<FuHuo>());
-        buffs[0].maxTime = skillEffectsTime;
+        buffs[0].maxTime = 10f;
         BasicAbility(useCharacter);
     }
 
@@ -31,7 +36,7 @@ class Kiss : AbstractVerbs
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         aim.CreateFloatWord(
-        skillMode.UseMode(useCharacter, useCharacter.psy * 2 * (1 - aim.san / (aim.san + 20)), aim)
+        skillMode.UseMode(useCharacter, 3 * useCharacter.psy * useCharacter.psyMul * (1 - aim.san / (aim.san + 20)), aim)
         ,FloatWordColor.psychic,true);
     }
     public override string UseText()

@@ -2,19 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 形容词：落英缤纷的
+/// </summary>
 public class LuoYingBinFen : AbstractAdjectives
 {
     public override void Awake()
     {
-        adjID = 17;
+        adjID = 21;
         wordName = "落英缤纷的";
-        bookName = BookNameEnum.EgyptMyth;
-        description = "获得“花瓣”";
-        skillMode = gameObject.AddComponent<UpPSYMode>();
+        bookName = BookNameEnum.allBooks;
+        description = "获得花瓣";
+        skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
         base.Awake();
+
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<SanShe>();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

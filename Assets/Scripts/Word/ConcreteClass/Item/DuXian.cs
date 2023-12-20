@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 毒腺
+/// 名词：毒腺
 /// </summary>
 class DuXian : AbstractItems
 {
     public override void Awake()
     {
         base.Awake();
-        itemID = 18;
+        itemID = 19;
         wordName = "毒腺";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "攻击附带“腐蚀”";
+
+        description = "自身与随从的攻击附带腐蚀";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
-        rarity = 0;
+        rarity = 2;
     }
 
     public override void UseItem(AbstractCharacter chara)
