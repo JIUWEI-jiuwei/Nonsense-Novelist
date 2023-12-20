@@ -15,7 +15,11 @@ class YiZhiWeiShiQi : AbstractItems
         itemID =5;
         wordName = "益智喂食器";
         bookName = BookNameEnum.ZooManual;
+<<<<<<< HEAD
         description = "获得<color=#dd7d0e>益智喂食器</color>，被破坏后名词消失";//随从
+=======
+        description = "获得益智喂食器，被破坏后名词消失";//随从
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 2;
 

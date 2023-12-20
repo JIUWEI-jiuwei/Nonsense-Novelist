@@ -32,7 +32,11 @@ namespace AI
                 //如果能量已满&&有目标,使用技能
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character)!=null)
                 {
+<<<<<<< HEAD
                     print("使用技能：" + skill.wordName);
+=======
+                    print("使用技能消耗为" + skill.CalculateCD() + "的技能：" + skill.wordName);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
                     myState.character.charaAnim.Play(AnimEnum.attack);
                     skill.UseVerb(myState.character); 
                 }

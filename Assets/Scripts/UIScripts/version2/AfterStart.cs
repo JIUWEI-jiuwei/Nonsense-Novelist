@@ -11,10 +11,16 @@ public class AfterStart : MonoBehaviour
     /// <summary>角色简要预制体（手动挂）</summary>
     private GameObject charaShortInstance;
     /// <summary>角色简要预制体克隆</summary>
+<<<<<<< HEAD
     private GameObject charaShortP;
     private Transform charaShort;
 
     private string buffShortAdr="UI/buffShort";
+=======
+    private GameObject charaShort;
+
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
     /// <summary></summary>
     private bool one;
@@ -22,6 +28,7 @@ public class AfterStart : MonoBehaviour
 
     private Color colorIn = new Color((float)255 / 255, (float)225 / 255, (float)189 / 255, (float)255 / 255);
     private Color colorOut = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
+<<<<<<< HEAD
     private Color colorNoEnergy = Color.white;
     private Color colorHasEnergy = Color.blue;
 
@@ -97,6 +104,20 @@ public class AfterStart : MonoBehaviour
         if (CharacterManager.instance.pause) return;
         
 
+=======
+    private Color colorNoEnergy=Color.white;
+    private Color colorHasEnergy =Color.blue;
+    private void Start()
+    {
+        charaShortInstance = Resources.Load<GameObject>("UI/CharacterShort");
+
+        sr = GetComponentInChildren<AI.MyState0>().GetComponent<SpriteRenderer>();
+    }
+
+
+    private void OnMouseOver()
+    {
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         //颜色变黄
         sr.color = colorIn;
 
@@ -118,6 +139,12 @@ public class AfterStart : MonoBehaviour
             DestoryEnergy();
             FunctionInis();
 
+<<<<<<< HEAD
+=======
+            Function();
+
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         }
     }
 
@@ -128,6 +155,7 @@ public class AfterStart : MonoBehaviour
     private float energyOffset = 60;//一行之间的每两个能量值中间的间隔大小
     private float energyOffsetWith = 150;//第一个能量值在x轴上向右的位移
 
+<<<<<<< HEAD
 
     //在最开始和刷新后使用。内涵生成物体代码
 
@@ -138,6 +166,12 @@ void FunctionInis()
 
         //给角色简要赋值
         abschara = GetComponent<AbstractCharacter>();
+=======
+    void Function()
+    {
+        //给角色简要赋值
+        AbstractCharacter abschara = GetComponent<AbstractCharacter>();
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         //ATK1
         charaShort.transform.GetChild(0).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
@@ -152,26 +186,40 @@ void FunctionInis()
         //获取角色的技能列表
         skillList = charaShort.transform.GetChild(4);
         if (abschara.skills.Count > 3) print(abschara.name + "技能数超过3个");
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillList.GetChild(0).GetComponent<Text>().text = "";
         skillList.GetChild(1).GetComponent<Text>().text = "";
         skillList.GetChild(2).GetComponent<Text>().text = "";
 
+<<<<<<< HEAD
         //
         energy[0].Clear(); 
          energy[1].Clear();
         energy[2].Clear();
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         for (int x = 0; x < abschara.skills.Count; x++)
         {
 
             skillList.GetChild(x).GetComponent<Text>().text = abschara.skills[x].wordName;
 
+<<<<<<< HEAD
             
+=======
+            print(abschara.skills[x].wordName + abschara.skills[x].CD);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             for (int i = 0; i < abschara.skills[x].needCD; i++)
             {
                 PoolMgr.GetInstance().GetObj(energyAdr, (o) =>
                 {
+<<<<<<< HEAD
                     energy[x].Add(o);
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
                     o.transform.parent = skillList.GetChild(x);
                     o.transform.localScale = Vector3.one;
                     o.transform.localPosition = new Vector3(i * energyOffset + energyOffsetWith, 0, 0);
@@ -182,6 +230,7 @@ void FunctionInis()
 
             }
         }
+<<<<<<< HEAD
        
 
         //获取角色的状态列表（最多10个）
@@ -233,11 +282,22 @@ void FunctionInis()
 
     }
 
+=======
+
+
+        //获取角色的状态列表（最多10个）
+        buffList = charaShort.transform.GetChild(5);
+
+    }
+
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     private void Update()
     {
         if (!one)
             return;
 
+<<<<<<< HEAD
         FunctionUpdate();
         buffCount.Value = GetComponents<AbstractBuff>().Length;
 
@@ -295,6 +355,13 @@ void FunctionInis()
 
 
 
+=======
+
+        Function();
+    }
+
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     private void OnMouseExit()
     {
         //颜色恢复

@@ -13,13 +13,17 @@ public class CameraController : MonoBehaviour
         camera = GetComponent<Camera>();
         
     }
+<<<<<<< HEAD
     bool pausing = false;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     public void SetCameraSizeTo(float _size)
     {
 
         print("SetCameraSizeTo");
         camera = GetComponent<Camera>();
         nowSize = _size;
+<<<<<<< HEAD
 
         if (Time.timeScale == 0)
         {
@@ -27,6 +31,8 @@ public class CameraController : MonoBehaviour
         }
 
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         if (Mathf.Abs(_size- camera.orthographicSize ) > 0.001f)
         {
             StopAllCoroutines();
@@ -36,11 +42,15 @@ public class CameraController : MonoBehaviour
     }
     IEnumerator ChangeCameraSize()
     {
+<<<<<<< HEAD
       if(pausing)Time.timeScale = 1f;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         print("ChangeCameraSize");
         while (Mathf.Abs(camera.orthographicSize - nowSize) > 0.001f)
         { 
             yield return new WaitForFixedUpdate();
+<<<<<<< HEAD
     
             camera.orthographicSize += (count) * 0.02f; 
             //count = camera.orthographicSize - nowSize;
@@ -51,5 +61,11 @@ public class CameraController : MonoBehaviour
             pausing = false;
         }
       
+=======
+            print("while");
+            camera.orthographicSize += (count) * 0.02f; 
+            //count = camera.orthographicSize - nowSize;
+        }
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 }

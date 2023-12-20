@@ -12,8 +12,12 @@ public class HuaBan: AbstractBuff
     {
         base.Awake();
         buffName = "花瓣";
+<<<<<<< HEAD
         description = "提升1<sprite name=\"psy\">";
 
+=======
+        description = "提升1精神";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         book = BookNameEnum.allBooks;
         chara.psy += 1;
     }

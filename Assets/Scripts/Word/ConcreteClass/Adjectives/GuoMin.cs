@@ -19,7 +19,11 @@ public class GuoMin : AbstractAdjectives,IChongNeng
         adjID = 14;
         wordName = "过敏的";
         bookName = BookNameEnum.FluStudy;
+<<<<<<< HEAD
         description = "充能，每次弹射<color=#dd7d0e>晕眩</color>0.5s";
+=======
+        description = "充能，每次弹射“晕眩”0.5s”";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<SelfMode>();
 

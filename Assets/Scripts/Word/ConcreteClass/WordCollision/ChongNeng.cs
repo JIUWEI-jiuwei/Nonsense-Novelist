@@ -22,14 +22,21 @@ public class ChongNeng : WordCollisionShoot
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
         if (CharacterManager.instance.pause)
             return;
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         if (collision.transform.tag == "wall")
         {
             count++;
             this.GetComponent<SpriteRenderer>().color -= colorWhite * 0.3f;
+<<<<<<< HEAD
            
+=======
+            Debug.Log("(充能)碰撞次数现在是" + count);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         }
     }
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -47,7 +54,10 @@ public class ChongNeng : WordCollisionShoot
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                 character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
                 Destroy(this.gameObject);
 
             }

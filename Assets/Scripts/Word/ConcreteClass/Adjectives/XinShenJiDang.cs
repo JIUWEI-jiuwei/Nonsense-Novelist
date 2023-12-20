@@ -17,7 +17,11 @@ public class XinShenJiDang : AbstractAdjectives,IChongNeng
         adjID = 7;
         wordName = "心神激荡的";
         bookName = BookNameEnum.Salome;
+<<<<<<< HEAD
         description = "每次碰撞获得2<sprite name=\"psy\">，并获得<color=#dd7d0e>颠倒</color>";
+=======
+        description = "每次碰撞获得2精神，并获得颠倒";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;
@@ -25,6 +29,7 @@ public class XinShenJiDang : AbstractAdjectives,IChongNeng
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<ChongNeng>();
     }
+<<<<<<< HEAD
 
 
     override public string[] DetailLable()
@@ -36,6 +41,8 @@ public class XinShenJiDang : AbstractAdjectives,IChongNeng
     }
 
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     /// <summary>
     /// 每次弹射，增加2精神，持续10s（这个叠加只加精神 持续时间续不增加|| 无碰撞直接发射 就是0）
     /// </summary>

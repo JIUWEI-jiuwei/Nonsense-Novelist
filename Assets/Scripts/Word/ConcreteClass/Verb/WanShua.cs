@@ -15,7 +15,11 @@ class WanShua : AbstractVerbs
         skillID = 3;
         wordName = "玩耍";
         bookName = BookNameEnum.ZooManual;
+<<<<<<< HEAD
         description = "使友方<color=#dd7d0e>亢奋</color>，持续15s";
+=======
+        description = "使友方亢奋，持续15s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<UpATKMode>();
 

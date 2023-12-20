@@ -13,7 +13,11 @@ public class DianDao : AbstractBuff
     {
         base.Awake();
         buffName = "颠倒";
+<<<<<<< HEAD
         description = "交换当前的<sprite name=\"atk\">和<sprite name=\"psy\">，结束后恢复";
+=======
+        description = "交换当前的攻击力和精神，结束后恢复";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         book = BookNameEnum.allBooks;
         float record = chara.atk;
         chara.atk = chara.psy;

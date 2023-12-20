@@ -6,15 +6,23 @@ using UnityEngine;
 /// </summary>
 class EXingZhongLiu : AbstractItems,IChongNeng
 {
+<<<<<<< HEAD
     static public string s_description = "每次弹射<sprite name=\"hpmax\">-5%";
     static public string s_wordName = "恶性肿瘤";
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     public override void Awake()
     {
         base.Awake();
         itemID = 17;
         wordName = "恶性肿瘤";
         bookName = BookNameEnum.FluStudy;
+<<<<<<< HEAD
         description = "每次弹射<sprite name=\"hpmax\">-5%";
+=======
+        description = "每次弹射生命上限-5%";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
@@ -24,12 +32,16 @@ class EXingZhongLiu : AbstractItems,IChongNeng
             wordCollisionShoots[0] = gameObject.AddComponent<ChongNeng>();
     }
 
+<<<<<<< HEAD
     override public string[] DetailLable()
     {
         string[] _s = new string[1];
         _s[0] = "ChongNeng";
         return _s;
     }
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     public float maxHPAdd;
 
     public void ChongNeng(int times)

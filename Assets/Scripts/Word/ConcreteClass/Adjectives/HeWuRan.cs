@@ -16,7 +16,11 @@ public class HeWuRan : AbstractAdjectives
         adjID = 11;
         wordName = "核污染的";
         bookName = BookNameEnum.ElectronicGoal;
+<<<<<<< HEAD
         description = "<color=#dd7d0e>中毒</color>，持续10s";
+=======
+        description = "中毒，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<DamageMode>();
 
@@ -25,6 +29,7 @@ public class HeWuRan : AbstractAdjectives
       
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
             wordCollisionShoots[0]=gameObject.AddComponent<ChuanBoCollision>();
+<<<<<<< HEAD
     }
 
 
@@ -34,6 +39,8 @@ public class HeWuRan : AbstractAdjectives
         _s[0] = "ChuanBoCollision";
         _s[1] = "Toxic";
         return _s;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

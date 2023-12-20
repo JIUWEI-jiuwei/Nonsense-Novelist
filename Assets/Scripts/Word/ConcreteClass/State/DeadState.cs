@@ -28,12 +28,15 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
+<<<<<<< HEAD
             var _sa = this.transform.parent.GetComponent<ServantAbstract>();
             //如果是随从，额外手续
             if (_sa != null)
             {
                 _sa.masterNow.DeleteServant(_sa.gameObject);
             }
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             //临时去掉了这个if
             //if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
             { 

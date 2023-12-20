@@ -15,7 +15,11 @@ class FuTouAxe : AbstractItems
         wordName = "钝斧头";
 
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"atk\">+1";
+=======
+        description = "攻击+1";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
  
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

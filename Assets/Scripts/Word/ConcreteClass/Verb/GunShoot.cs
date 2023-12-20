@@ -15,7 +15,11 @@ class GunShoot : AbstractVerbs
         skillID = 10;
         wordName = "枪击";
         bookName = BookNameEnum.ElectronicGoal;
+<<<<<<< HEAD
         description = "造成3*<sprite name=\"atk\">的物理伤害";
+=======
+        description = "造成3*攻击的物理伤害";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;

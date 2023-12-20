@@ -17,7 +17,11 @@ public class FengLi : AbstractAdjectives
         adjID = 19;
         wordName = "锋利的";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"atk\">+4，持续10s";
+=======
+        description = "攻击力+4，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<UpATKMode>();
 

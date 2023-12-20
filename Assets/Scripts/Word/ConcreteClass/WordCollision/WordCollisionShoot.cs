@@ -28,8 +28,12 @@ public class WordCollisionShoot : MonoBehaviour
     public virtual  void OnTriggerEnter2D(Collider2D collision)
     {
 
+<<<<<<< HEAD
         if (CharacterManager.instance.pause)
             return;
+=======
+        
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
 
 
@@ -37,9 +41,17 @@ public class WordCollisionShoot : MonoBehaviour
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
+<<<<<<< HEAD
            
                 absWord = this.GetComponent<AbstractWord0>();
            //
+=======
+
+
+
+
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)

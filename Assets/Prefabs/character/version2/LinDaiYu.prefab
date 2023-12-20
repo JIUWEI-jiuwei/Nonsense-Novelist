@@ -137,6 +137,7 @@ MonoBehaviour:
   aim: {fileID: 0}
   speed: 0.5
   isAimRandom: 0
+<<<<<<< HEAD
 --- !u!1 &2437689646154250782
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +220,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 --- !u!1 &3837959891525375965
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +342,10 @@ Transform:
   - {fileID: 7401971362705178223}
   - {fileID: 2281947007484839817}
   - {fileID: 1425272243827366164}
+<<<<<<< HEAD
   - {fileID: 4996267784449605745}
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -973,7 +979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingOrder
+<<<<<<< HEAD
       value: 4
+=======
+      value: 3
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingLayerID

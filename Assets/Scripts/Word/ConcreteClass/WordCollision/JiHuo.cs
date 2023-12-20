@@ -14,7 +14,10 @@ public class JiHuo : WordCollisionShoot
     private int count = 0;
     Color color = Color.green+ Color.white * 0.6f;
     Color colorWhite = new Color(1, 1, 1, 0);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     public override void Awake()
     {
         base.Awake();
@@ -23,10 +26,13 @@ public class JiHuo : WordCollisionShoot
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
         if (CharacterManager.instance.pause)
             return;
         if (count > 3)
             return;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         if (collision.transform.tag == "wall")
         {
             this.GetComponent<SpriteRenderer>().color -= colorWhite * 0.3f;

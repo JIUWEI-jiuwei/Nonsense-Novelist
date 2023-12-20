@@ -14,7 +14,11 @@ class ToBigger : AbstractVerbs
         skillID = 16;
         wordName = "变大";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = " <sprite name=\"hpmax\">+20";
+=======
+        description = "生命上限+20";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
        // nickname.Add( "刺痛");
 
         skillMode = gameObject.AddComponent<SelfMode>();

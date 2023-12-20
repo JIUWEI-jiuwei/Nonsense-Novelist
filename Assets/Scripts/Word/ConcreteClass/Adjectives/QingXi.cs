@@ -14,7 +14,11 @@ public class QingXi : AbstractAdjectives
         adjID = 10;
         wordName = "清晰的";
         bookName = BookNameEnum.CrystalEnergy;
+<<<<<<< HEAD
         description = "+12<sprite name=\"san\">，持续20s";
+=======
+        description = "+12意志，持续20s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = 20;
         rarity = 0;

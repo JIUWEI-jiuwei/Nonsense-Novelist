@@ -16,8 +16,11 @@ public class AbstractBuff : MonoBehaviour
     public string description;
     public bool isBad = false;
     public bool isAll = false;
+<<<<<<< HEAD
        static public string s_description = "";
     static public string s_wordName = "";
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     protected virtual void Awake()
     {
         chara = GetComponent<AbstractCharacter>();

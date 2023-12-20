@@ -16,7 +16,11 @@ class herusizhiyan : AbstractItems
 
         wordName = "荷鲁斯之眼";
         bookName = BookNameEnum.EgyptMyth;
+<<<<<<< HEAD
         description = "<sprite name=\"atk\">+4";
+=======
+        description = "攻击+4";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;
     }

@@ -149,7 +149,10 @@ Transform:
   - {fileID: 1848783083695447905}
   - {fileID: 7226242309075123211}
   - {fileID: 4125861265569656985}
+<<<<<<< HEAD
   - {fileID: 6122860709646028283}
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -208,6 +211,10 @@ MonoBehaviour:
   teXiao: {fileID: 0}
   bullet: {fileID: 3424991713766038287, guid: 9cfb782ead826aa4883ddaac0089618e, type: 3}
   camp: 0
+<<<<<<< HEAD
+=======
+  trait: {fileID: 0}
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   roleName: 
   trait: {fileID: 0}
   criticalChance: 0
@@ -217,8 +224,11 @@ MonoBehaviour:
   attackDistance: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
+<<<<<<< HEAD
   skills: []
   servants: []
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   maxSkillsCount: 3
   energy: 0
   attackA: {fileID: 0}
@@ -343,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c93954f1550e8745be3314a9e6fe6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1 &4783718014092426606
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +633,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 --- !u!1 &8865985208204811243
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +728,11 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8865985208204811243}
+<<<<<<< HEAD
   m_Enabled: 1
+=======
+  m_Enabled: 0
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 45946341818a8804594654b961c17f4a, type: 2}
   m_CullingMode: 0
@@ -926,7 +943,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingOrder
+<<<<<<< HEAD
       value: 4
+=======
+      value: 3
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingLayerID

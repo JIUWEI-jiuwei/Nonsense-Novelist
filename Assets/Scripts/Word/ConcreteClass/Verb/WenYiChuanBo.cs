@@ -14,7 +14,11 @@ class WenYiChuanBo : AbstractVerbs
         skillID = 11;
         wordName = "瘟疫传播";
         bookName = BookNameEnum.FluStudy;
+<<<<<<< HEAD
         description = "传播<color=#dd7d0e>疾病</color>，持续5s";
+=======
+        description = "传播疾病，持续5s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;

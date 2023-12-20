@@ -20,8 +20,12 @@ class ChaBei : AbstractItems
 
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
+<<<<<<< HEAD
         description = "<sprite name=\"psy\">+2";
      
+=======
+        description = "精神+2";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
     public override void UseItem(AbstractCharacter chara)

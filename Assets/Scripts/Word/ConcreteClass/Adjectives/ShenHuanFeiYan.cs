@@ -13,7 +13,11 @@ public class ShenHuanFeiYan : AbstractAdjectives
         adjID = 13;
         wordName = "身患肺炎的";
         bookName = BookNameEnum.FluStudy;
+<<<<<<< HEAD
         description = "<color=#dd7d0e>患病</color>，持续20s";
+=======
+        description = "患病，持续20s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<DamageMode>();
 
         skillEffectsTime = 20;

@@ -15,7 +15,11 @@ class XianZhiHead : AbstractItems
         itemID = 8;
         wordName = "先知的头颅";
         bookName = BookNameEnum.Salome;
+<<<<<<< HEAD
         description = "<sprite name=\"psy\">+30%，<sprite name=\"san\">-30%";
+=======
+        description = "精神+30%，意志-30%";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;
     }

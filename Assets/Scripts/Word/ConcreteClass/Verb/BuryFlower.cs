@@ -16,7 +16,11 @@ class BuryFlower : AbstractVerbs
         skillID = 2;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
+<<<<<<< HEAD
         description = "被动：普通攻击使对方获得<color=#dd7d0e>花瓣</color>;\n主动：收回所有<color=#dd7d0e>花瓣</color>，并造成<color=#dd7d0e>花瓣</color>数 * 30 % <sprite name=\"psy\">的伤害";
+=======
+        description = "被动：普通攻击使对方获得花瓣;主动：收回所有花瓣，并造成花瓣数 * 30 % 精神的伤害";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 3;

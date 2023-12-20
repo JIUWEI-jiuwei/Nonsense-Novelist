@@ -14,7 +14,11 @@ class FangFuShu : AbstractVerbs
         skillID = 5;
         wordName = "防腐";
         bookName = BookNameEnum.EgyptMyth;
+<<<<<<< HEAD
         description = "使友方<color=#dd7d0e>复活</color>，持续10s";
+=======
+        description = "使友方复活，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         //目标：血量最低的友方
         skillMode = gameObject.AddComponent<CureMode>();

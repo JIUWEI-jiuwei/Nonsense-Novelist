@@ -15,7 +15,11 @@ class DuXian : AbstractItems
         wordName = "毒腺";
         bookName = BookNameEnum.CrystalEnergy;
 
+<<<<<<< HEAD
         description = "自身与随从的攻击附带<color=#dd7d0e>腐蚀</color>";
+=======
+        description = "自身与随从的攻击附带腐蚀";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

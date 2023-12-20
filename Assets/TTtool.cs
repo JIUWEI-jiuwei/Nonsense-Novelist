@@ -10,7 +10,7 @@ public class TTtool
         
         for (int i = 0; i < _array.Length; i++)
         {
-            Debug.Log("Ä¿±ê" + i + ":" + _array[i].wordName);
+            Debug.Log("Ä¿ï¿½ï¿½" + i + ":" + _array[i].wordName);
         }
     }
 }

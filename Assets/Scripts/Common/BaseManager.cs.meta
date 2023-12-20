@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Common/BaseManager.cs.meta
 guid: ba64bdb3e6bfad74b818a0d2b58eaa0c
+========
+guid: adf4a83b3faf94945b3b9fc48eba2c2f
+>>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454:Assets/Scripts/Common/PoorMgr.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -82,11 +82,14 @@ namespace AI
         /// </summary>
         public AbstractCharacter FindAim()
         {
+<<<<<<< HEAD
 
                 
 
 
             //如果已有不变目标：
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             if (unchangeAim != null)
                 return unchangeAim;
 
@@ -114,6 +117,7 @@ namespace AI
             }
 
                 //筛选目标，返回距离最近的
+<<<<<<< HEAD
             AbstractCharacter[] a = character.attackA.CalculateAgain(character.attackDistance, character);
 
 
@@ -151,10 +155,48 @@ namespace AI
             }
 
             //筛选目标，返回距离最近的
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             AbstractCharacter[] a = character.attackA.CalculateAgain(character.attackDistance, character);
             return a[0];
         }
 
+<<<<<<< HEAD
+=======
+   
+
+        /// <summary>
+        ///刷新目标
+        /// </summary>
+        public AbstractCharacter GetANewAim(bool _isRandom)
+        {
+            if (_isRandom)
+            {
+                //所有目标，返回随机一个(除了BOSS以外)
+                AbstractCharacter[] b = character.attackA.CalculateRandom(character.attackDistance, character, true);
+                int _r = Random.Range(0, b.Length);
+
+                //异常报备
+                if (b.Length <= 1)
+                {
+                    print("在" + character.wordName + "的GetNewAim(Random)中，其目标小于1");
+                    return b[_r];
+                }
+
+                //排除自己
+                while (b[_r] == character)
+                {
+                     _r = Random.Range(0, b.Length);
+                }
+                return b[_r];
+            }
+
+            //筛选目标，返回距离最近的
+            AbstractCharacter[] a = character.attackA.CalculateAgain(character.attackDistance, character);
+            return a[0];
+        }
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         private AbstractCharacter unchangeAim;
         /// <summary>

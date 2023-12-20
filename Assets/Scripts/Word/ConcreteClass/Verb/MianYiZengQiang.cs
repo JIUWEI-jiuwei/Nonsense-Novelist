@@ -14,7 +14,11 @@ class MianYiZengQiang : AbstractVerbs
         skillID = 12;
         wordName = "免疫增强";
         bookName = BookNameEnum.FluStudy;
+<<<<<<< HEAD
         description = "<sprite name=\"hpmax\">+40，并消除负面状态”";
+=======
+        description = "生命上限+40，并消除负面状态”";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange =  new SingleSelector();

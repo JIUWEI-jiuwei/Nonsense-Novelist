@@ -15,7 +15,11 @@ public class LuanLun : AbstractAdjectives
         adjID = 8;
         wordName = "乱伦的";
         bookName = BookNameEnum.Salome;
+<<<<<<< HEAD
         description = "<color=#dd7d0e>俘获</color>一群角色，攻击队友7s";
+=======
+        description = "俘获一群角色，攻击队友7s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime =7;
         rarity = 1;

@@ -14,7 +14,11 @@ class BoLiGuaZhui : AbstractItems
         itemID = 23;
         wordName = "玻璃挂坠";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"san\">+3";
+=======
+        description = "意志+3";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

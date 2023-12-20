@@ -14,7 +14,11 @@ class QiGuaiShiXiang : AbstractItems
         itemID = 22;
         wordName = "奇怪石像";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "< sprite name=\"psy\">+1";
+=======
+        description = "精神+1";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

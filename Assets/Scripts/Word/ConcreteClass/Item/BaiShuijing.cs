@@ -6,8 +6,11 @@ using UnityEngine;
 /// </summary>
 class BaiShuijing: AbstractItems,IJiHuo
 {
+<<<<<<< HEAD
     static public string s_description = "未激活，<sprite name=\"hpmax\">+20；\n激活，<sprite name=\"hp\"> + 60，获得<color=#dd7d0e>共振</color>";
     static public string s_wordName = "白水晶";
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     /// <summary>是否激活共振 </summary>
     private bool jiHuo;
     public override void Awake()
@@ -16,13 +19,18 @@ class BaiShuijing: AbstractItems,IJiHuo
         itemID = 9;
         wordName = "白水晶";
         bookName = BookNameEnum.CrystalEnergy;
+<<<<<<< HEAD
         description = "未激活，<sprite name=\"hpmax\">+20；\n激活，<sprite name=\"hp\"> + 60，获得<color=#dd7d0e>共振</color>";
+=======
+        description = "未激活，生命上限+20；激活，生命 + 60，获得共振";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 1;
 
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<JiHuo>();
     }
+<<<<<<< HEAD
     override public string[] DetailLable()
     {
         string[] _s = new string[2];
@@ -31,6 +39,8 @@ class BaiShuijing: AbstractItems,IJiHuo
         return _s;
     }
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
     public void JiHuo(bool value)
     {

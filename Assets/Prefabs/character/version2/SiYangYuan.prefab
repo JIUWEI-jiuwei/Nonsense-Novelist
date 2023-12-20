@@ -202,7 +202,10 @@ Transform:
   - {fileID: 7401971362705178223}
   - {fileID: 2231116435205906298}
   - {fileID: 4968051575811972710}
+<<<<<<< HEAD
   - {fileID: 8142370950326257239}
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -397,6 +400,11 @@ MonoBehaviour:
   bullet: {fileID: 5396089893936509290, guid: 767f667755cd0c247aa64b5b5d83c016, type: 3}
   camp: 0
   roleName: 
+<<<<<<< HEAD
+=======
+  skills: []
+  servants: []
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   trait: {fileID: 0}
   criticalChance: 0
   multipleCriticalStrike: 2
@@ -405,8 +413,11 @@ MonoBehaviour:
   attackDistance: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
+<<<<<<< HEAD
   skills: []
   servants: []
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   maxSkillsCount: 3
   energy: 0
   attackA: {fileID: 0}
@@ -665,8 +676,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8886171282579681395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.842, y: 0.772, z: 0}
   m_LocalScale: {x: 1.159, y: 1.138, z: 1}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Children: []
   m_Father: {fileID: 3837959891539934792}
   m_RootOrder: 4
@@ -711,7 +727,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 482bca2c6399b854fb3d4aa91185e5b9, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 50474cb7527fe6f4e94df22ee8db8bbc, type: 3}
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -730,9 +750,15 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8886171282579681395}
+<<<<<<< HEAD
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ba5d540a7d66a3b4bb6448b5cb210c62, type: 2}
+=======
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8607cd5107c4df2478c560336310d6bf, type: 2}
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -969,7 +995,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingOrder
+<<<<<<< HEAD
       value: 4
+=======
+      value: 3
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingLayerID

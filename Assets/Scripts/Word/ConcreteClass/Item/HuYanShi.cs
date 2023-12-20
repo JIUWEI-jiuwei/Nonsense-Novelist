@@ -17,7 +17,11 @@ class HuYanShi: AbstractItems,IJiHuo
         itemID = 11;
         wordName = "虎眼石";
         bookName = BookNameEnum.CrystalEnergy;
+<<<<<<< HEAD
         description = "未激活，<sprite name=\"atk\">+1；\n激活，<sprite name=\"atk\"> + 3，获得<color=#dd7d0e>共振</color>";
+=======
+        description = "未激活，攻击+1；激活，攻击 + 3，获得共振";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 2;

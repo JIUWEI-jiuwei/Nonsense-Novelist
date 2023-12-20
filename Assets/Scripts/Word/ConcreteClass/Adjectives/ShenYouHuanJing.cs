@@ -14,7 +14,11 @@ public class ShenYouHuanJing : AbstractAdjectives
         adjID = 2;
         wordName = "神游幻境的";
         bookName = BookNameEnum.HongLouMeng;
+<<<<<<< HEAD
         description = " <sprite name=\"atk\">和 <sprite name=\"psy\">交换10s";
+=======
+        description = "攻击精神交换10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 1;

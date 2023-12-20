@@ -14,7 +14,11 @@ class WritePoem : AbstractVerbs
         skillID = 1;
         wordName = "赋诗";
         bookName = BookNameEnum.HongLouMeng;
+<<<<<<< HEAD
         description = "使友方获得<color=#dd7d0e>诗情</color>，持续10s";
+=======
+        description = "使友方获得诗情，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
        // nickname.Add("作诗");
        

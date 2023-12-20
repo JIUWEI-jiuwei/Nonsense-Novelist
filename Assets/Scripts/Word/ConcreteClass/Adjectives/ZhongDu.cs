@@ -13,7 +13,11 @@ public class ZhongDu : AbstractAdjectives
         adjID = 24;
         wordName = "中毒的";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<color=#dd7d0e>中毒</color>，<color=#dd7d0e>颠倒</color>，持续10s";
+=======
+        description = "中毒，颠倒，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = 10;
         rarity = 2;

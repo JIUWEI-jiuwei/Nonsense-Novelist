@@ -14,7 +14,11 @@ class JiShengChong : AbstractItems
         itemID = 16;
         wordName = "寄生虫";
         bookName = BookNameEnum.FluStudy;
+<<<<<<< HEAD
         description = "<sprite name=\"def\">-3，自身与随从的攻击附带<color=#dd7d0e>患病</color>";
+=======
+        description = "防御-3，自身与随从的攻击附带患病";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         VoiceEnum = MaterialVoiceEnum.Meat;
 

@@ -16,7 +16,11 @@ public class FengChan : AbstractAdjectives
         adjID = 6;
         wordName = "丰产的";
         bookName = BookNameEnum.EgyptMyth;
+<<<<<<< HEAD
         description = "<sprite name=\"hpmax\">+30";
+=======
+        description = "生命上限+30";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;

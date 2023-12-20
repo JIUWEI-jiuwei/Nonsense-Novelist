@@ -18,11 +18,15 @@ public class SingleSelector : IAttackRange
 
         //阵营筛
         CampEnum myCamp;
+<<<<<<< HEAD
         if (situation == null) { Debug.Log("situation== null"); return null; }
        
         myCamp = situation.transform.GetChild(0).GetComponent<AbstractCharacter>().camp;
 
 
+=======
+        myCamp= situation.GetComponentInChildren<AbstractCharacter>().camp;
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         secondResult= CollectionHelper.FindAll<Situation>(firstResult, p => isAim(myCamp, p.GetComponentInChildren<AbstractCharacter>().camp, needCamp));
         CollectionHelper.OrderBy(secondResult, p => Situation.Distance(situation, p)); 

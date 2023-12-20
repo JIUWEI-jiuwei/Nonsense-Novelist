@@ -15,7 +15,11 @@ class Shuai : AbstractVerbs
         wordName = "摔";
         bookName = BookNameEnum.allBooks;
 
+<<<<<<< HEAD
         description = "使敌人<color=#dd7d0e>晕眩</color>3s";
+=======
+        description = "使敌人晕眩3s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         //nickname.Add("砸");
         //nickname.Add("甩");
         //nickname.Add("投掷");

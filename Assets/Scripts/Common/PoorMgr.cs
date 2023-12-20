@@ -88,6 +88,7 @@ public class PoolMgr : BaseManager<PoolMgr>
             
         }
     }
+<<<<<<< HEAD
     public void GetObj(GameObject obj, UnityAction<GameObject> callBack)
     {
         //有抽屉 并且抽屉里有东西
@@ -105,6 +106,9 @@ public class PoolMgr : BaseManager<PoolMgr>
 
         }
     }
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     /// <summary>
     /// 换暂时不用的东西给我
     /// </summary>

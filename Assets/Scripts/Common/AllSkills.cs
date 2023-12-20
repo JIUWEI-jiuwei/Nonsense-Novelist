@@ -244,7 +244,11 @@ public static class AllSkills
 
 
         ///<summary>²âÊÔ´ÊÌõ1</summary>
+<<<<<<< HEAD
         testList1.AddRange(new Type[] {typeof(BuryFlower), typeof(ChaBei) });
+=======
+        testList1.AddRange(new Type[] { typeof(QiChongShaDance), typeof(BuryFlower) });
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
     /// <summary>
@@ -263,10 +267,13 @@ public static class AllSkills
 
         int number = UnityEngine.Random.Range(0, testList1.Count);
         return testList1[number];
+<<<<<<< HEAD
 
         //ÕıÊ½
         //int number = UnityEngine.Random.Range(0, GameMgr.instance.GetListLength());
         //return GameMgr.instance.GetCombatStartList()[number];
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
 }

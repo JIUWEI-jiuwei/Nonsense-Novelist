@@ -14,7 +14,11 @@ class ShaYu : AbstractVerbs
         skillID = 4;
         wordName = "沙浴";
         bookName = BookNameEnum.ZooManual;
+<<<<<<< HEAD
         description = "治疗10+100%<sprite name=\"san\">，消除所有负面状态";
+=======
+        description = "治疗10+100%意志，消除所有负面状态";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<CureMode>();
 

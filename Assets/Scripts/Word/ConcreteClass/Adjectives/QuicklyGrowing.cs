@@ -14,7 +14,11 @@ public class QuicklyGrowing : AbstractAdjectives
         adjID = 20;
         wordName = "快速成长的";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"hp\">恢复30";
+=======
+        description = "生命恢复30";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<SelfMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

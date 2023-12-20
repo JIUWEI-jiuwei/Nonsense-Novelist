@@ -112,7 +112,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!1 &4595736042179396261
+=======
+--- !u!1 &6413448882717144129
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,6 +124,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 8506177121348932902}
   - component: {fileID: 4026302825702548581}
   m_Layer: 7
@@ -284,6 +289,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   - component: {fileID: 3565412105046088375}
   - component: {fileID: 2258943931846657823}
   - component: {fileID: 5168243309142298698}
@@ -411,7 +418,11 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6413448882717144129}
+<<<<<<< HEAD
   m_Enabled: 1
+=======
+  m_Enabled: 0
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e166ce204fbd67045abbf20dc26485f3, type: 2}
   m_CullingMode: 0
@@ -422,6 +433,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< HEAD
 --- !u!1 &7072003625937470291
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +549,8 @@ Transform:
   m_Father: {fileID: 8792533845088263388}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 --- !u!1 &8792533845088263391
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +588,10 @@ Transform:
   - {fileID: 1734781452738722141}
   - {fileID: 8054356240953395271}
   - {fileID: 3565412105046088375}
+<<<<<<< HEAD
   - {fileID: 4966969981476660991}
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -634,6 +651,11 @@ MonoBehaviour:
   bullet: {fileID: 3424991713766038287, guid: 9cfb782ead826aa4883ddaac0089618e, type: 3}
   camp: 1
   roleName: 
+<<<<<<< HEAD
+=======
+  skills: []
+  servants: []
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   trait: {fileID: 0}
   criticalChance: 0
   multipleCriticalStrike: 0
@@ -642,8 +664,11 @@ MonoBehaviour:
   attackDistance: 0
   charaAnim: {fileID: 0}
   dizzyTime: 0
+<<<<<<< HEAD
   skills: []
   servants: []
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   maxSkillsCount: 3
   energy: 0
   attackA: {fileID: 0}

@@ -15,7 +15,11 @@ public class LuoYingBinFen : AbstractAdjectives
         adjID = 21;
         wordName = "落英缤纷的";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "获得<color=#dd7d0e>花瓣</color>";
+=======
+        description = "获得花瓣";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<DamageMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;
@@ -23,6 +27,7 @@ public class LuoYingBinFen : AbstractAdjectives
 
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<SanShe>();
+<<<<<<< HEAD
     }
     override public string[] DetailLable()
     {
@@ -30,6 +35,8 @@ public class LuoYingBinFen : AbstractAdjectives
         _s[0] = "SanShe";
         _s[1] = "HuaBan";
         return _s;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

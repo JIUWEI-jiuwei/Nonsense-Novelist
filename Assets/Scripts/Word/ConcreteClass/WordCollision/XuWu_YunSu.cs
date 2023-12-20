@@ -6,9 +6,12 @@ using UnityEngine;
 /// </summary>
 public class XuWu_YunSu : WordCollisionShoot
 {
+<<<<<<< HEAD
     static public string s_description = "纸团变为虚无状态，穿越角色，不减速";
     static public string s_wordName = "通感 虚无";
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
     bool hasShootOut = false;
     Rigidbody2D rb;
@@ -32,8 +35,11 @@ public class XuWu_YunSu : WordCollisionShoot
     private void Update()
     {
         //时间结束销毁词条
+<<<<<<< HEAD
         if (CharacterManager.instance.pause)
             return;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         if (rb.velocity.sqrMagnitude < 0.1f)
             return;
@@ -76,7 +82,11 @@ IEnumerator Timer()
 
             //给absWord赋值
             //absWord = Shoot.abs;
+<<<<<<< HEAD
             print(absWord.wordName + "被虚无给了角色(这里有bug)" + character.name);
+=======
+            print(absWord.wordName + "被虚无给了角色" + character.name);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
@@ -87,7 +97,10 @@ IEnumerator Timer()
                // collision.gameObject.AddComponent(b.GetType());
 
                 character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
+<<<<<<< HEAD
                
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
             }
             else if (absWord.wordKind == WordKindEnum.adj)

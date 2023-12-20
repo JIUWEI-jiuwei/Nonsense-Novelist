@@ -15,7 +15,11 @@ class RiLunGuaZhui : AbstractItems
 
         wordName = "日轮挂坠";
         bookName = BookNameEnum.EgyptMyth;
+<<<<<<< HEAD
         description = "<sprite name=\"hpmax\">+30，恢复+3";
+=======
+        description = "生命上限+30，恢复+3";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;
     }

@@ -7,11 +7,14 @@ using UnityEngine;
 /// </summary>
 public class ChuanBoCollision : WordCollisionShoot
 {
+<<<<<<< HEAD
 
     static public string s_description = "命中后，复制词条效果到相邻格子的角色";
     static public string s_wordName = "夸张 传播";
 
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     /// <summary>碰撞次数 </summary>
     private int count = 0;
     Color color = Color.black;
@@ -23,15 +26,22 @@ public class ChuanBoCollision : WordCollisionShoot
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
         if (CharacterManager.instance.pause)
             return;
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         ////给absWord赋值
         //absWord = Shoot.abs;
+<<<<<<< HEAD
         if (CharacterManager.instance.pause)
             return;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {

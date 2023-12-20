@@ -18,7 +18,11 @@ public class HunFei : AbstractAdjectives
         adjID = 17;
         wordName = "婚飞的";
         bookName = BookNameEnum.PHXTwist;
+<<<<<<< HEAD
         description = "散射，获得<color=#dd7d0e>虫卵</color>，持续10s";
+=======
+        description = "散射，获得虫卵，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<CureMode>();
 
@@ -30,6 +34,7 @@ public class HunFei : AbstractAdjectives
             wordCollisionShoots[0]=gameObject.AddComponent<SanShe>();
         }
            
+<<<<<<< HEAD
     }
     override public string[] DetailLable()
     {
@@ -37,6 +42,8 @@ public class HunFei : AbstractAdjectives
         _s[0] = "SanShe";
         _s[1] = "SanShe";
         return _s;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

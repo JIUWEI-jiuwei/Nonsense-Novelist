@@ -7,9 +7,12 @@ using UnityEngine;
 /// </summary>
 public class GongZhen : AbstractBuff
 {
+<<<<<<< HEAD
 
     static public string s_description = "场上每有4个“共振”，四维+1，<sprite name=\"hp\">+30";
     static public string s_wordName = "共振";
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     int count=0;
     /// <summary>共振角色数量</summary>
     static int num;

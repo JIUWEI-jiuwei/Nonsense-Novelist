@@ -39,9 +39,12 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>阵营</summary>
     public CampEnum camp;
 
+<<<<<<< HEAD
     /// <summary>身份名</summary>
     [HideInInspector] public string roleName;
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     #region 血量
 
     private Slider hpSlider;
@@ -90,8 +93,13 @@ abstract public class AbstractCharacter : AbstractWord0
             HP = 0;
         if(HP > MaxHp * MaxHpMul)
             HP = MaxHp * MaxHpMul;
+<<<<<<< HEAD
         if(hpSlider!=null)
             hpSlider.value = HP / (MaxHp * MaxHpMul);
+=======
+
+        hpSlider.value = HP / (MaxHp * MaxHpMul);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
 
@@ -224,7 +232,12 @@ abstract public class AbstractCharacter : AbstractWord0
         myState.isAimRandom = _bool;
     }
 
+<<<<<<< HEAD
 
+=======
+    /// <summary>身份名</summary>
+    [HideInInspector] public string roleName;
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
 
 
@@ -272,7 +285,11 @@ abstract public class AbstractCharacter : AbstractWord0
     public List<AbstractVerbs> skills;
 
     /// <summary>拥有的随从（最多3个）</summary>
+<<<<<<< HEAD
     public List<GameObject> servants;
+=======
+    public List<AbstractCharacter> servants;
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
 
     ///<summary>这个角色身上可以挂载的最大技能数 </summary>
@@ -297,11 +314,14 @@ abstract public class AbstractCharacter : AbstractWord0
             skills.RemoveAt(0);
         }
         skills.Add(_av);
+<<<<<<< HEAD
 
         //刷新short列表
     
         GetComponentInChildren<AfterStart>().GetNewVerbs();
         
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         print(this.wordName + "增加" + _av.wordName+"身上技能："+skills.Count);
     }
 
@@ -312,6 +332,7 @@ abstract public class AbstractCharacter : AbstractWord0
     /// <summary>
     /// 增加随从时调用
     /// </summary>
+<<<<<<< HEAD
     public void AddServant(string _a)
     {
         GameObject _servant = Instantiate<GameObject>(Resources.Load<GameObject>("Servants/" + _a));
@@ -366,6 +387,34 @@ abstract public class AbstractCharacter : AbstractWord0
             }
         }
     }
+=======
+    public void AddServant(AbstractCharacter _av)
+    {
+        int _count=0;
+        if ((servants.Count != 0) && (servants.Count >= maxServantsCount - 1))
+        {
+            print(this.gameObject.name + "随从数超出，移除" + servants[0].wordName);
+            //技能数超出，移除最前面的（此处可能有问题）
+            servants.RemoveAt(0);
+        }
+        servants.Add(_av);
+        print(this.wordName + "增加随从：" + _av.wordName  +"("+servants.Count);
+
+        //生成随从
+        GameObject _servants = Instantiate<GameObject>(Resources.Load<GameObject>(""));
+        _servants.transform.localPosition = Vector3.zero;
+        _servants.transform.localPosition += new Vector3();
+        _servants.transform.localEulerAngles= Vector3.zero;
+        _servants.transform.localScale = Vector3.zero;
+        _servants.transform.parent=this.transform.parent.Find("Servants");
+        
+
+        //将随从的主人设置成这个
+        _servants.GetComponent<ServantAbstract>().masterNow = this;
+
+    }
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
     #endregion
 /// <summary>所有buff《buffID，是否有buff》</summary>
@@ -428,7 +477,10 @@ abstract public class AbstractCharacter : AbstractWord0
 
     private void OnEnable()
     {
+<<<<<<< HEAD
         if (energyCanvas == null) return;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         energyCanvas.gameObject.SetActive(true);
     }
 
@@ -442,9 +494,12 @@ abstract public class AbstractCharacter : AbstractWord0
 
     private void Update()
     {
+<<<<<<< HEAD
         //角色的能量条积攒
         if (energySlider == null) return;
         if (CharacterManager.instance.pause) return;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         energy += Time.deltaTime;
         energySlider.value = energy;
         if(energy>1)

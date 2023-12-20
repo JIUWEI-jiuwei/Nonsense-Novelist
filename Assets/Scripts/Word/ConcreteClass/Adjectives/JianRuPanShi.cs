@@ -15,7 +15,11 @@ public class JianRuPanShi : AbstractAdjectives
         adjID = 23;
         wordName = "坚如磐石的";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"def\">+12，持续10s";
+=======
+        description = "防御+12，持续10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<UpDEFMode>();
         skillEffectsTime = 10;
         rarity = 0;

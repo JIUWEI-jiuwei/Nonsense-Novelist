@@ -14,7 +14,11 @@ class Kiss : AbstractVerbs
         skillID = 7;
         wordName = "亲吻";
         bookName = BookNameEnum.Salome;
+<<<<<<< HEAD
         description = "使敌人受到3*<sprite name=\"psy\">的精神伤害，并被<color=#dd7d0e>俘获</color>10s";
+=======
+        description = "使敌人受到3*精神的精神伤害，并被俘获10s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = false;

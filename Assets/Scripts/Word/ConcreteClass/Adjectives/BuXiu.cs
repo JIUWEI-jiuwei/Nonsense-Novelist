@@ -20,7 +20,11 @@ public class BuXiu : AbstractAdjectives
         adjID = 5;
         wordName = "不朽的";
         bookName = BookNameEnum.EgyptMyth;
+<<<<<<< HEAD
         description = "<sprite name=\"hpmax\">+60，获得<color=#dd7d0e>复活</color>";
+=======
+        description = "生命上限+60，获得复活";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;

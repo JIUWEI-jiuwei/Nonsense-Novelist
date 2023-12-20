@@ -120,7 +120,10 @@ Transform:
   - {fileID: 7401971362705178223}
   - {fileID: 4023442446284964694}
   - {fileID: 2466284456028937873}
+<<<<<<< HEAD
   - {fileID: 34668622489789866}
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -911,7 +914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingOrder
+<<<<<<< HEAD
       value: 4
+=======
+      value: 3
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
       objectReference: {fileID: 0}
     - target: {fileID: 9026329820072278781, guid: efee30f1ca7c4b2438e7b262e95efa2e, type: 3}
       propertyPath: m_SortingLayerID

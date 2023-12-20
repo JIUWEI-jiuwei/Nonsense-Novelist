@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class CS_BenJieShiDui : ServantAbstract
 {
+<<<<<<< HEAD
     static public string s_description = "普通攻击治疗队友";
     static public string s_wordName = "随从：本杰士堆";
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     override public void Awake()
     {
         base.Awake();
@@ -35,12 +38,18 @@ public class CS_BenJieShiDui : ServantAbstract
 
     AbstractCharacter[] aims;
     public override bool AttackA()
+<<<<<<< HEAD
     {
    
         //代替平A
         if (myState.aim != null)
         {
             print("随从"+wordName+"的目标是"+ myState.aim.name);
+=======
+    {//代替平A
+        if (myState.aim != null)
+        {
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             myState.character.CreateBullet(myState.aim.gameObject);
             if (myState.character.aAttackAudio != null)
             {
@@ -54,7 +63,10 @@ public class CS_BenJieShiDui : ServantAbstract
             , FloatWordColor.heal, false);
             return true;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         return false;
     }
 

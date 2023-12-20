@@ -17,7 +17,11 @@ public class CuZhuang : AbstractAdjectives
         adjID = 22;
         wordName = "粗壮的";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"hpmax\">+30";
+=======
+        description = "生命上限+30";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 0;

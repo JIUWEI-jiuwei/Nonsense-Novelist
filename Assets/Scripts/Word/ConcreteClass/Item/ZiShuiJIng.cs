@@ -18,7 +18,11 @@ class ZiShuiJIng: AbstractItems,IJiHuo
         itemID = 10;
         wordName = "紫水晶";
         bookName = BookNameEnum.CrystalEnergy;
+<<<<<<< HEAD
         description = "未激活，< sprite name=\"psy\">+1；\n激活，< sprite name=\"psy\"> + 3，获得<color=#dd7d0e>共振</color>";
+=======
+        description = "未激活，精神+1；激活，精神 + 3，获得共振";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 1;
 

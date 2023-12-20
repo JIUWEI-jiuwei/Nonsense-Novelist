@@ -30,6 +30,7 @@ public class GameProcessSlider : MonoBehaviour
 
     private bool countTime = false;//计时开关
     private Slider sliderProcess;
+<<<<<<< HEAD
 
 
     [Header("中场抽取书本加入游戏")]
@@ -43,6 +44,12 @@ public class GameProcessSlider : MonoBehaviour
         characterCanvas.SetActive(true);
 
         //生成进度条
+=======
+   
+
+    private void Start()
+    {
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         sliderProcess = this.GetComponent<Slider>();
         sliderProcess.value = 0;
 
@@ -88,8 +95,12 @@ public class GameProcessSlider : MonoBehaviour
         //如果进入阶段
         if (timeNow>time_stage[stageCount].time_count)
         {
+<<<<<<< HEAD
             CreateBookCanvas();
             //CreateBoss(time_stage[stageCount].boss);
+=======
+            CreateBoss(time_stage[stageCount].boss);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
             countTime = false;
             stageCount++;
@@ -126,6 +137,7 @@ public class GameProcessSlider : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
     /// <summary>
     ///进入抽取书本页面
     /// </summary>
@@ -151,13 +163,19 @@ public class GameProcessSlider : MonoBehaviour
 
         GameObject.Find("UICanvas").GetComponentInChildren<CreateOneCharacter>().CreateNewCharacter(2);
     }
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     /// <summary>
     /// 在createOneCharacter中执行
     /// </summary>
     public void ProcessStart()
     {
         countTime = true;
+<<<<<<< HEAD
         CharacterManager.instance.pause = false;
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
  
     void Update()

@@ -14,7 +14,11 @@ class HouZiDian : AbstractItems
         itemID = 21;
         wordName = "厚字典";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "<sprite name=\"def\">+3";
+=======
+        description = "防御+3";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

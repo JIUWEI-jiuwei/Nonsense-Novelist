@@ -16,7 +16,11 @@ class TuLingCeShi : AbstractVerbs
         skillID = 9;
         wordName = "图灵测试";
         bookName = BookNameEnum.ElectronicGoal;
+<<<<<<< HEAD
         description = "被动：对 <sprite name=\"san\">低于10的敌人造成30%额外伤害;\n主动：使敌人受到自身 <sprite name=\"atk\"> +  <sprite name=\"san\">的精神伤害";
+=======
+        description = "被动：对意志低于10的敌人造成30%额外伤害;主动：使敌人受到自身攻击 + 防御的精神伤害";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = false;

@@ -14,7 +14,11 @@ class BenJieShiDui : AbstractItems
         itemID = 4;
         wordName = "本杰士堆";
         bookName = BookNameEnum.ZooManual;
+<<<<<<< HEAD
         description = "获得<color=#dd7d0e>本杰士堆</color>，被破坏后名词消失";//随从
+=======
+        description = "获得本杰士堆，被破坏后名词消失";//随从
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         rarity = 2;
 
         VoiceEnum = MaterialVoiceEnum.materialNull;
@@ -23,6 +27,7 @@ class BenJieShiDui : AbstractItems
         nowTime = 0;
         skillMode = new CureMode();
     }
+<<<<<<< HEAD
     override public string[] DetailLable()
     {
         string[] _s = new string[1];
@@ -31,10 +36,14 @@ class BenJieShiDui : AbstractItems
     }
 
     bool hasAdd=false;
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
+<<<<<<< HEAD
         if (hasAdd)
             return;
         if (chara == null)
@@ -42,6 +51,11 @@ class BenJieShiDui : AbstractItems
         //为角色增加一个随从
         chara.AddServant("CS_BenJieShiDui");
         hasAdd = true;
+=======
+
+        //为角色增加一个随从
+        chara.AddServant(gameObject.AddComponent<CS_BenJieShiDui>());
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     }
 
     float nowTime;

@@ -17,7 +17,11 @@ public class ChaFanWuXin : AbstractAdjectives
         adjID = 1;
         wordName = "茶饭无心的";
         bookName = BookNameEnum.HongLouMeng;
+<<<<<<< HEAD
         description = "在10s内 <sprite name=\"psy\">+8，无法攻击";
+=======
+        description = "在10s内精神+8，无法攻击";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<UpPSYMode>();
         skillEffectsTime = 10;

@@ -15,7 +15,11 @@ class HeartBroken : AbstractVerbs
         skillID = 14;
         wordName = "心碎";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "造成2*<sprite name=\"psy\">的精神伤害";
+=======
+        description = "造成2*精神的精神伤害";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         //nickname.Add( "刺痛");
 
         skillMode = gameObject.AddComponent<SelfMode>();

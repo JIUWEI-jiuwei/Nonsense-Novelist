@@ -24,8 +24,12 @@ public class CreateOneCharacter : MonoBehaviour
 
     private void Awake()
     {
+<<<<<<< HEAD
         wallP.SetActive(false);
         Camera.main.GetComponent<CameraController>().SetCameraSizeTo(5);
+=======
+       Camera.main.GetComponent<CameraController>().SetCameraSizeTo(5);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         //初始生成四个角色
         for (int i = 0; i < 4; i++)
         {
@@ -106,10 +110,15 @@ public class CreateOneCharacter : MonoBehaviour
         }
         else if (isTwoSides && isAllCharaUp)//成功开始
         {
+<<<<<<< HEAD
             //
             wallP.SetActive(true);
             //camera改变
             Camera.main.GetComponent<CameraController>().SetCameraSizeTo(3.7f);
+=======
+            //camera改变
+            Camera.main.GetComponent<CameraController>().SetCameraSizeTo(4);
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
             //将UICanvas隐藏
             GameObject.Find("UICanvas").SetActive(false);

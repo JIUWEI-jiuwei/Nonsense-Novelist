@@ -29,7 +29,11 @@ public class WordInformation : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
 
     [Tooltip("显示CD的文字")]public Text needCD;
     [Tooltip("词条名称")]public Text title;
+<<<<<<< HEAD
     [Tooltip("词条文字")]public TextMeshProUGUI description;
+=======
+    [Tooltip("词条文字")]public Text description;
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     [Tooltip("是needCD的父物体")] public Image energy;
     [Tooltip("词条图像")] public Image wordImage;
 
@@ -43,6 +47,7 @@ public class WordInformation : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
 
     [Header("默认的词语图像")]
     public Sprite defaultWordImage;
+<<<<<<< HEAD
 
 
     [Header("机制解释面板")]
@@ -61,6 +66,11 @@ public class WordInformation : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
     public void ChangeInformation(AbstractWord0 word)
     {
         nowWord = word;
+=======
+    public void ChangeInformation(AbstractWord0 word)
+    {
+     
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         switch (word.wordKind)
         {
             case WordKindEnum.adj:

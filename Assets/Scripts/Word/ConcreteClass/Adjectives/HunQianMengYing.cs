@@ -16,7 +16,11 @@ public class HunQianMengYing : AbstractAdjectives
         adjID = 0;
         wordName = "»êÇ£ÃÎÝÓµÄ";
         bookName = BookNameEnum.Salome;
+<<<<<<< HEAD
         description = "<color=#dd7d0e>·ý»ñ</color>½ÇÉ«£¬¹¥»÷¶ÓÓÑ7s";
+=======
+        description = "·ý»ñ½ÇÉ«£¬¹¥»÷¶ÓÓÑ7s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<DamageMode>();
 

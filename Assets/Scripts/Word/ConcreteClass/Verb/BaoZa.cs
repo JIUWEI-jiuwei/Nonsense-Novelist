@@ -16,7 +16,11 @@ class BaoZa : AbstractVerbs
         skillID = 17;
         wordName = "包扎";
         bookName = BookNameEnum.allBooks;
+<<<<<<< HEAD
         description = "治疗友方3*<sprite name=\"san\">";
+=======
+        description = "治疗友方3*意志";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
        // nickname.Add( "刺痛");
 

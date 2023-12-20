@@ -14,7 +14,11 @@ class TongPinGongZhen: AbstractVerbs
         skillID = 8;
         wordName = "同频共振";
         bookName = BookNameEnum.CrystalEnergy;
+<<<<<<< HEAD
         description = "使友方获得<color=#dd7d0e>共振</color>，持续30s";
+=======
+        description = "使友方获得共振，持续30s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
 
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new SingleSelector();
@@ -31,6 +35,10 @@ class TongPinGongZhen: AbstractVerbs
         return _s;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);
