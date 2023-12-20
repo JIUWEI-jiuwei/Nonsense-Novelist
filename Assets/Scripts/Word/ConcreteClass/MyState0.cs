@@ -23,6 +23,12 @@ namespace AI
         /// <summary>移速</summary>
         public float speed = 0.1f;
 
+        public bool isAimRandom=false;
+
+        //外部可以增加每秒检测的委托入口
+        [HideInInspector] public  delegate void Event_EveryZeroOne();
+        [HideInInspector] public Event_EveryZeroOne event_EveryZeroOne;
+
         public void Awake()
         {
             allState.Add(gameObject.AddComponent<IdleState>());
@@ -42,6 +48,7 @@ namespace AI
 
         public void FixedUpdate()
         {
+
             nowState.Action(this);
         }
         IEnumerator EveryZeroOne()
@@ -50,13 +57,22 @@ namespace AI
             {
                 nowState.CheckTrigger(this);//更新状态
                 yield return new WaitForSeconds(0.1f);
+                if(event_EveryZeroOne!=null)
+                    event_EveryZeroOne();
             }
 
         }
+
+        ServantAbstract sa=null;
+        AI.MyState0 masterState = null;
         IEnumerator Every1Seconds()
         {
+            sa = transform.parent.GetComponentInChildren<ServantAbstract>();
+            if(sa!=null) masterState= sa.masterNow.GetComponentInChildren<MyState0>();
+
             while (true)
             {
+                
                 aim = FindAim();//不断寻找更近的敌人
                 yield return new WaitForSeconds(1);
             }
@@ -66,10 +82,92 @@ namespace AI
         /// </summary>
         public AbstractCharacter FindAim()
         {
-            //所有目标
+
+                
+
+
+            //如果已有不变目标：
+            if (unchangeAim != null)
+                return unchangeAim;
+
+            if (isAimRandom)
+            {
+                //所有目标，返回随机一个(除了BOSS以外)
+                AbstractCharacter[] b = character.attackA.CalculateRandom(character.attackDistance, character,true);
+                print("returnRandomAim");
+                int _r = Random.Range(0, b.Length);
+
+                //异常报备
+                if (b.Length <= 1)
+                {
+                    print("在" + character.wordName + "的GetNewAim(Random)中，其目标小于1");
+                    return b[_r];
+                }
+
+                //排除自己
+                while (b[_r] == character)
+                {
+                    _r = Random.Range(0, b.Length);
+                }
+
+                return b[_r];
+            }
+
+                //筛选目标，返回距离最近的
+            AbstractCharacter[] a = character.attackA.CalculateAgain(character.attackDistance, character);
+
+
+
+           
+            return a[0];
+        }
+
+   
+
+        /// <summary>
+        ///刷新目标
+        /// </summary>
+        public AbstractCharacter GetANewAim(bool _isRandom)
+        {
+            if (_isRandom)
+            {
+                //所有目标，返回随机一个(除了BOSS以外)
+                AbstractCharacter[] b = character.attackA.CalculateRandom(character.attackDistance, character, true);
+                int _r = Random.Range(0, b.Length);
+
+                //异常报备
+                if (b.Length <= 1)
+                {
+                    print("在" + character.wordName + "的GetNewAim(Random)中，其目标小于1");
+                    return b[_r];
+                }
+
+                //排除自己
+                while (b[_r] == character)
+                {
+                     _r = Random.Range(0, b.Length);
+                }
+                return b[_r];
+            }
+
+            //筛选目标，返回距离最近的
             AbstractCharacter[] a = character.attackA.CalculateAgain(character.attackDistance, character);
             return a[0];
         }
+
+
+        private AbstractCharacter unchangeAim;
+        /// <summary>
+        ///设置一个不变的目标
+        /// </summary>
+        public void SetUnchangeAim(AbstractCharacter _aim)
+        {
+            if (_aim != null)
+                unchangeAim = _aim;
+            else
+                unchangeAim = null;
+        }
+
         /// <summary>
         /// 状态切换
         /// </summary> 

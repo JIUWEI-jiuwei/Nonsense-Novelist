@@ -25,12 +25,14 @@ namespace AI
         public override void Action(MyState0 myState)
         {
             attackAtime += Time.deltaTime;
-            
+           
             foreach(AbstractVerbs skill in myState.character.skills)
             {
+               
                 //如果能量已满&&有目标,使用技能
                 if(skill.CalculateCD()&& skill.skillMode.CalculateAgain(skill.attackDistance, myState.character)!=null)
                 {
+                    print("使用技能：" + skill.wordName);
                     myState.character.charaAnim.Play(AnimEnum.attack);
                     skill.UseVerb(myState.character); 
                 }
@@ -38,7 +40,8 @@ namespace AI
             //如果没有技能在使用&&平A冷却完毕
             if ( canA(myState) && attackAtime >= myState.character.attackInterval)
             {
-               if(myState.character.AttackA())
+                if (myState.character.AttackA())
+                    
                     attackAtime = 0;
             }
         }
@@ -52,7 +55,9 @@ namespace AI
             foreach (AbstractVerbs skill in myState.character.skills)
             {
                 if (skill.isUsing)
-                    return false;
+                   return false;
+                    //tt：策划的意思是动词和平A能同时用？
+                     //return true;
             }
             return true;
         }

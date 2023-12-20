@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// buff:中毒
+/// </summary>
 public class Toxic : AbstractBuff
 {
+    static public string s_description = "每秒受到5点物理伤害";
+    static public string s_wordName = "中毒";
     /// <summary>外部赋值使用者</summary>
     public AbstractCharacter useCharacter;
     float nowTime;
@@ -12,9 +16,11 @@ public class Toxic : AbstractBuff
     {
         base.Awake();
         buffName = "中毒";
+        description = "每秒受到5点物理伤害";
         book = BookNameEnum.allBooks;
+        //
         damageMode.attackRange=new SingleSelector();
-        upup = 1;
+        isBad = true;
     }
 
 
@@ -25,7 +31,7 @@ public class Toxic : AbstractBuff
         if(nowTime>1)
         {
             nowTime= 0;
-            damageMode.UseMode(useCharacter!=null?useCharacter:chara, 10 * (1 - chara.san / (chara.san + 20)), chara);
+            damageMode.UseMode(useCharacter!=null?useCharacter:chara, 5* (1 - chara.def / (chara.def + 20)), chara);
         }
     }
 }

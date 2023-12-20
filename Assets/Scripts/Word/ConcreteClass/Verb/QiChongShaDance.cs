@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 七重纱之舞
+/// 动词：七重纱之舞
 /// </summary>
 class QiChongShaDance : AbstractVerbs
 {
+
+    static public string s_description = "被动：攻击额外造成20%的精神伤害；\n主动：起舞，攻击所有敌人，持续10s";
+    static public string s_wordName = "七重纱之舞";
     public override void Awake()
     {
         base.Awake();
@@ -17,12 +20,21 @@ class QiChongShaDance : AbstractVerbs
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime =10;
         rarity = 3;
-        needCD=10;
-        description = "每一重都会卸下一层薄纱的迷人舞蹈，让周围的友军充满力量。";
+        needCD=8;
+        description = "被动：攻击额外造成20%的精神伤害；\n主动：<color=#dd7d0e>起舞</color>，攻击所有敌人，持续10s";
+    }
+
+
+    override public string[] DetailLable()
+    {
+        string[] _s = new string[1];
+        _s[0] = "QiWu";
+        return _s;
     }
 
     public override void UseVerb(AbstractCharacter useCharacter)
     {
+       
         base.UseVerb(useCharacter);
         buffs.Add(gameObject.AddComponent<QiWu>());
         buffs[0].maxTime = skillEffectsTime;

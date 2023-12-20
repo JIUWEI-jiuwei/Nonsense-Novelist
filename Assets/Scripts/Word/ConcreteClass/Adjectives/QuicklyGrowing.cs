@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 形容词：快速成长的
+/// </summary>
 public class QuicklyGrowing : AbstractAdjectives
 {
+    static public string s_description = "<sprite name=\"hp\">恢复30";
+    static public string s_wordName = "快速成长的";
     public override void Awake()
     {
-        adjID = 16;
+        adjID = 20;
         wordName = "快速成长的";
         bookName = BookNameEnum.allBooks;
-        description = "增加生命恢复";
-        skillMode = gameObject.AddComponent<CureMode>();
-        skillEffectsTime = 3;
+        description = "<sprite name=\"hp\">恢复30";
+        skillMode = gameObject.AddComponent<SelfMode>();
+        skillEffectsTime = Mathf.Infinity;
         rarity = 0;
         time = skillEffectsTime;
         base.Awake();
@@ -24,26 +28,19 @@ public class QuicklyGrowing : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
+        aimCharacter.hp += 30;
     }
 
     float time;
     protected override void Update()
     {
         base.Update();
-        if (nowTime < time)
-        {
-            time--;
-            if (aim != null)
-            {
-                aim.CreateFloatWord(
-                    skillMode.UseMode(null,10,aim)
-                    , FloatWordColor.heal, true);
-            }
-        }
+       
     }
 
     public override void End()
     {
+        aim.hp -= 30;
         base.End();
     }
 

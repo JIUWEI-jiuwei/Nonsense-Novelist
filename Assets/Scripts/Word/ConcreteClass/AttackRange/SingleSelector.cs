@@ -8,21 +8,61 @@ public class SingleSelector : IAttackRange
 {
     private Situation[] firstResult, secondResult;
     private List<AbstractCharacter> result;
+
+    
     public AbstractCharacter[] CaculateRange(int attackDistance, Situation situation, NeedCampEnum needCamp)
     {
         //射程筛
         firstResult= CollectionHelper.FindAll<Situation>(Situation.allSituation,p=>p.GetComponentInChildren<AbstractCharacter>()!=null && Situation.Distance(situation,p) <= attackDistance);
+
+
         //阵营筛
-        CampEnum myCamp= situation.GetComponentInChildren<AbstractCharacter>().camp;
+        CampEnum myCamp;
+        if (situation == null) { Debug.Log("situation== null"); return null; }
+       
+        myCamp = situation.transform.GetChild(0).GetComponent<AbstractCharacter>().camp;
+
+
+
         secondResult= CollectionHelper.FindAll<Situation>(firstResult, p => isAim(myCamp, p.GetComponentInChildren<AbstractCharacter>().camp, needCamp));
-        //升序
-        CollectionHelper.OrderBy(secondResult, p => Situation.Distance(situation, p));
+        CollectionHelper.OrderBy(secondResult, p => Situation.Distance(situation, p)); 
+       
+        
+
         //转角色
         result = new List<AbstractCharacter>();
-        foreach(Situation s in secondResult)
+
+        foreach (Situation s in secondResult)
         {
             result.Add(s.GetComponentInChildren<AbstractCharacter>());
         }
+       
+        return result.ToArray();
+    }
+
+
+    /// <summary>
+    /// 随机版本
+    /// </summary>
+    /// <param name="attackDistance"></param>
+    /// <param name="situation"></param>
+    /// <returns></returns>
+    public AbstractCharacter[] CaculateRange(int attackDistance, Situation situation, bool _ignoreBoss)
+    {
+        if(_ignoreBoss)//排除boss
+            firstResult = CollectionHelper.FindAll<Situation>(Situation.allSituation, p => (p.GetComponentInChildren<AbstractCharacter>() != null)&&(p.GetComponent<Situation>().number!= 4.5f));
+        else
+            firstResult = CollectionHelper.FindAll<Situation>(Situation.allSituation, p => p.GetComponentInChildren<AbstractCharacter>() != null);
+
+        //转角色
+        result = new List<AbstractCharacter>();
+
+
+        foreach (Situation s in firstResult)
+        {
+            result.Add(s.GetComponentInChildren<AbstractCharacter>());
+        }
+       
         return result.ToArray();
     }
 
@@ -30,9 +70,9 @@ public class SingleSelector : IAttackRange
     {
         if(needCamp==NeedCampEnum.all)
             return true;
-        if(needCamp==NeedCampEnum.friend && myCamp==aimCamp)
+        if((needCamp==NeedCampEnum.friend )&& myCamp==aimCamp)
             return true;
-        if(needCamp==NeedCampEnum.enemy && myCamp!=aimCamp)
+        if((needCamp==NeedCampEnum.enemy) && myCamp!=aimCamp)
             return true;
 
         return false;

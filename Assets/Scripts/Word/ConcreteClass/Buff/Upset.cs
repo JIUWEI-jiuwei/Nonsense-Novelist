@@ -2,16 +2,21 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// buff£º¾ÚÉ¥
+/// </summary>
 public class Upset : AbstractBuff
 {
+    static public string s_description = "Í£Ö¹ÆÕÍ¨¹¥»÷";
+    static public string s_wordName = "¾ÚÉ¥";
     AttackState state;
     override protected void Awake()
     {
         base.Awake();
         buffName = "¾ÚÉ¥";
+        description = "Í£Ö¹ÆÕÍ¨¹¥»÷";
         book = BookNameEnum.allBooks;
-        upup = 1;
+        isBad = true;
         state=GetComponent<AttackState>();
     }
 

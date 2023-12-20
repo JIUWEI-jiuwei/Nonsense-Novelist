@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 动词：免疫增强
+/// </summary>
 class MianYiZengQiang : AbstractVerbs
 {
+    static public string s_description = "<sprite name=\"hpmax\">+40，并消除负面状态”";
+    static public string s_wordName = "免疫增强";
     public override void Awake()
     {
         base.Awake();
         skillID = 12;
         wordName = "免疫增强";
         bookName = BookNameEnum.FluStudy;
-        description = "使队友回血”";
-        skillMode = gameObject.AddComponent<CureMode>();
+        description = "<sprite name=\"hpmax\">+40，并消除负面状态”";
+
+        skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
+
         rarity = 2;
-        needCD =3;
+        needCD =4;
 
     }
     /// <summary>
@@ -29,11 +36,11 @@ class MianYiZengQiang : AbstractVerbs
 
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
-       AbstractCharacter aim= skillMode.CalculateAgain(attackDistance,useCharacter)[0];
+        AbstractCharacter aim= skillMode.CalculateAgain(attackDistance,useCharacter)[0];
         aim.CreateFloatWord(
-        skillMode.UseMode(useCharacter, 30, aim)
+        skillMode.UseMode(useCharacter, 40, aim)
         ,FloatWordColor.heal,true);
-        aim.maxHp += 20;
+        aim.maxHp += 40;
     }
 
     public override string UseText()

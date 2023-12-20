@@ -8,6 +8,7 @@ namespace AI
     /// </summary>
     class OutAttackTrigger : AbstractTrigger
     {
+
         override public void Awake()
         {
             base.Awake();
@@ -15,6 +16,12 @@ namespace AI
         }
         public override bool Satisfy(MyState0 myState)
         {
+            if (CharacterManager.instance.pause)
+            {
+                return true;
+            }
+
+
             if (myState.aim == null ||
                  Situation.Distance(myState.character.situation, myState.aim.situation) > myState.character.attackDistance)
             {

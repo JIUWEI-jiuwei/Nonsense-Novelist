@@ -2,18 +2,25 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// buff：俘获
+/// </summary>
 public class FuHuo : AbstractBuff
 {
+    static public string s_description = "优先攻击友方，期间伤害减半，结束后恢复";
+    static public string s_wordName = "俘获";
     override protected void Awake()
     {
         base.Awake();
         buffName = "俘获";
+        description = "优先攻击友方，期间伤害减半，结束后恢复";
         book = BookNameEnum.Salome;
         upup = 1;
+        isBad = true;
+        isAll = true;
 
         if (GameObject.Find("所有角色的父物体").GetComponentsInChildren<FuHuo>().Length == 1)
-        AbstractVerbs.OnAwake += FuHuoSkill;
+            AbstractVerbs.OnAwake += FuHuoSkill;
 
         AbstractCharacter character = GetComponent<AbstractCharacter>();
         if(character.attackA.GetType()==typeof(DamageMode))
@@ -106,7 +113,14 @@ class FuHuoMode : AbstractSkillMode
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
+        
         AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.friend);//优先攻击友方，期间伤害减半，结束后恢复
+        return a;
+    }
+    override public AbstractCharacter[] CalculateRandom(int attackDistance, AbstractCharacter character, bool _ignoreBoss)
+    {
+
+        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, _ignoreBoss);
         return a;
     }
 }
