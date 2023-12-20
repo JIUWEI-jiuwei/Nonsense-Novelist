@@ -23,8 +23,10 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
                 m_Instance = FindObjectOfType(typeof(T)) as T;
                 if (m_Instance == null)
                 {//4.场景中也找不到，最终new一个叫“Singleton of...”的对象，和挂在其上的 脚本唯一实例
-                    m_Instance = new GameObject("Singleton of " + typeof(T).ToString(), typeof(T)).GetComponent<T>();
+                    m_Instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
                     m_Instance.Init();
+                
+                
                 }
 
             }
@@ -42,9 +44,10 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
         {
             m_Instance = this as T;
         }
+        DontDestroyOnLoad(m_Instance.gameObject);
     }
 
-    public virtual void Init() { }
+    public virtual void Init() {  }
     //应用程序退出，清除对象
 
     virtual public void OnApplicationQuit()

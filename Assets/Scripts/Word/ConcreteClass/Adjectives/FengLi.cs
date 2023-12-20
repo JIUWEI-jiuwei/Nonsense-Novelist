@@ -3,16 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 形容词：锋利的
+/// </summary>
 public class FengLi : AbstractAdjectives
 {
+    static public string s_description = "<sprite name=\"atk\">+4，持续10s";
+    static public string s_wordName = "锋利的";
+
+
     public override void Awake()
     {
-        adjID = 15;
+        adjID = 19;
         wordName = "锋利的";
         bookName = BookNameEnum.allBooks;
-        description = "增加攻击力";
+        description = "<sprite name=\"atk\">+4，持续10s";
+
         skillMode = gameObject.AddComponent<UpATKMode>();
-        skillEffectsTime = 20;
+
+        skillEffectsTime = 10;
         rarity = 0;
         base.Awake();
     }
@@ -24,7 +33,7 @@ public class FengLi : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.atk += 5;
+        aimCharacter.atk += 4;
     }
 
     
@@ -32,7 +41,7 @@ public class FengLi : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.atk -= 5;
+        aim.atk -=4;
     }
 
 }

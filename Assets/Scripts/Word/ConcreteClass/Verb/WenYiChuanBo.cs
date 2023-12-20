@@ -1,23 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 动词：瘟疫传播
+/// </summary>
 class WenYiChuanBo : AbstractVerbs
 {
+    static public string s_description = "传播<color=#dd7d0e>疾病</color>，持续5s";
+    static public string s_wordName = "瘟疫传播";
     public override void Awake()
     {
         base.Awake();
         skillID = 11;
         wordName = "瘟疫传播";
         bookName = BookNameEnum.FluStudy;
-        description = "使敌人获得可传播的“患病”";
+        description = "传播<color=#dd7d0e>疾病</color>，持续5s";
+
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange =  new SingleSelector();
+
         skillEffectsTime = 5;
         rarity = 2;
         needCD = 2;
 
 
+    }
+    override public string[] DetailLable()
+    {
+        string[] _s = new string[2];
+        _s[0] = "Ill";
+        _s[1] = "ChuanBo";
+        return _s;
     }
 
     public override void UseVerb(AbstractCharacter useCharacter)

@@ -36,6 +36,7 @@ class LoadingButtonManager : MonoBehaviour
     public void BackToStartGame()
     {
         SceneManager.LoadSceneAsync(startGame);
+     
     }
     public void NextToNewGame()
     {

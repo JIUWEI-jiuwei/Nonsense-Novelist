@@ -18,6 +18,13 @@ abstract public class AbstractWord0 : MonoBehaviour
     [HideInInspector] public string brief;
     /// <summary>详细描述</summary>
     [HideInInspector] public string description;
+
+    /// <summary>外部调用用</summary>
+    [HideInInspector] static public string s_description;
+    /// <summary>名称（词汇本体）</summary>
+    [HideInInspector] static public string s_wordName;
+
+
     /// <summary>别称（弃用）</summary>
     [HideInInspector] public List<string> nickname=new List<string>();
     /// <summary>稀有度（弃用）</summary>
@@ -32,5 +39,13 @@ abstract public class AbstractWord0 : MonoBehaviour
     {
         return null;
     }
+    /// <summary>
+    /// 词组的标签（类型）
+    /// </summary>
+    /// <returns></returns>
 
+    virtual public string[] DetailLable()
+    {
+        return null;
+    }
 }
