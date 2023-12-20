@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 益智喂食器
+/// 名词：益智喂食器
 /// </summary>
 class YiZhiWeiShiQi : AbstractItems
 {
+
+    static public string s_description = "获得<color=#dd7d0e>益智喂食器</color>，被破坏后名词消失";
+    static public string s_wordName = "益智喂食器";
     public override void Awake()
     {
         base.Awake();
-        itemID = 4;
+        itemID =5;
         wordName = "益智喂食器";
         bookName = BookNameEnum.ZooManual;
-        description = "增加友方意志,治疗低血量的队友";
-        holdEnum = HoldEnum.handSingle;
+<<<<<<< HEAD
+        description = "获得<color=#dd7d0e>益智喂食器</color>，被破坏后名词消失";//随从
+=======
+        description = "获得益智喂食器，被破坏后名词消失";//随从
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
         VoiceEnum = MaterialVoiceEnum.materialNull;
         rarity = 2;
 
@@ -21,6 +27,12 @@ class YiZhiWeiShiQi : AbstractItems
         skillMode = new CureMode();
     }
 
+    override public string[] DetailLable()
+    {
+        string[] _s = new string[1];
+        _s[0] = "CS_YiZhiWeiShiQi";
+        return _s;
+    }
     float nowTime;
     AbstractSkillMode skillMode;
     AbstractCharacter[] friends;
@@ -37,16 +49,19 @@ class YiZhiWeiShiQi : AbstractItems
     public override void UseVerb()
     {
         base.UseVerb();
-        nowTime += Time.deltaTime;
-        if (nowTime > 1)
-        {
-            nowTime = 0;
+        //获得随从
 
-            friends = skillMode.CalculateAgain(999, aim);
-            friends[0].CreateFloatWord(
-            skillMode.UseMode(aim, 3, friends[0])
-            ,FloatWordColor.heal,true);
-        }
+
+        //nowTime += Time.deltaTime;
+        //if (nowTime > 1)
+        //{
+        //    nowTime = 0;
+
+        //    friends = skillMode.CalculateAgain(999, aim);
+        //    friends[0].CreateFloatWord(
+        //    skillMode.UseMode(aim, 3, friends[0])
+        //    ,FloatWordColor.heal,true);
+        //}
     }
 
     public override void End()

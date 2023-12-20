@@ -47,7 +47,7 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
         }
     }
     /// <summary>释放一次所需能量</summary>
-    public int needCD;
+    public int needCD=3;
     /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）（已弃用）</summary>
     public float prepareTime,afterTime;
     /// <summary>特殊效果存储引用</summary>
@@ -61,10 +61,12 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
         character=this.GetComponent<AbstractCharacter>();
         if (character != null)
         {
+           
             character.OnEnergyFull += CdAdd;
         }
 
         wordKind = WordKindEnum.verb;
+
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots.Add(gameObject.AddComponent<Common>());
 
@@ -75,8 +77,10 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     public virtual void CdAdd()
     {
         CD++;
-        if(CD+1>=needCD) 
-        character.canUseSkills++;
+        //print(wordName+"'S CD：（cdadd）"+CD);
+
+        if (CD+1>=needCD) 
+            character.canUseSkills++;
     }
 
     /// <summary>
@@ -119,7 +123,11 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
             return true;
         }
         else
-            return false;
+        {
+            //print(wordName+"--CalculateCD false!CD:" + CD + "needcd:" + needCD);
+             return false;
+        }
+           
     }
 
     private void OnDestroy()
@@ -129,4 +137,6 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
             Destroy(buff);
         }
     }
+
+
 }

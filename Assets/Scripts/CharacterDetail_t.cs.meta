@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CharacterDetail_t.cs.meta
+guid: 43347b7382b6a46459dc685139fae4c0
+========
+guid: ba64bdb3e6bfad74b818a0d2b58eaa0c
+>>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454:Assets/Scripts/Common/BaseManager.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

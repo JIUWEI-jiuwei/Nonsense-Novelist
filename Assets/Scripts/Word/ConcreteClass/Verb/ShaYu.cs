@@ -1,20 +1,33 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/// <summary>
+/// 动词：沙浴
+/// </summary>
 class ShaYu : AbstractVerbs
 {
+    static public string s_description = "治疗10+100%<sprite name=\"san\">，消除所有负面状态";
+    static public string s_wordName = "沙浴";
     public override void Awake()
     {
         base.Awake();
         skillID = 4;
         wordName = "沙浴";
         bookName = BookNameEnum.ZooManual;
-        description = "自身获得“亢奋”";
-        skillMode = gameObject.AddComponent<SelfMode>();
-        skillEffectsTime = 10;
-        rarity = 2;
+<<<<<<< HEAD
+        description = "治疗10+100%<sprite name=\"san\">，消除所有负面状态";
+=======
+        description = "治疗10+100%意志，消除所有负面状态";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
+
+        skillMode = gameObject.AddComponent<CureMode>();
+
+        skillEffectsTime = Mathf.Infinity;
+        rarity = 1;
         needCD = 4;
     }
+
+
 
     /// <summary>
     /// 亢奋
@@ -23,8 +36,17 @@ class ShaYu : AbstractVerbs
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);
-        buffs.Add(gameObject.AddComponent<KangFen>());
-        buffs[0].maxTime = skillEffectsTime;
+        BasicAbility(useCharacter);
+    }
+
+
+    public override void BasicAbility(AbstractCharacter useCharacter)
+    {
+        //治疗10+100%意志
+        AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
+        aim.CreateFloatWord(
+        skillMode.UseMode(useCharacter, 10+ useCharacter.san*useCharacter.sanMul*1, aim)
+        , FloatWordColor.heal, true);
     }
 
     public override string UseText()

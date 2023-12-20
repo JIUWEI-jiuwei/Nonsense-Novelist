@@ -23,8 +23,15 @@ class UpPSYMode : AbstractSkillMode
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
+       
         AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.friend);
         CollectionHelper.OrderByDescending(a, p => p.allValue);
+        return a;
+    }
+    override public AbstractCharacter[] CalculateRandom(int attackDistance, AbstractCharacter character, bool _ignoreBoss)
+    {
+
+        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, _ignoreBoss);
         return a;
     }
 }

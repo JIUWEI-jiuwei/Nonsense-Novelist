@@ -2,31 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// buff：亢奋
+/// </summary>
 public class KangFen : AbstractBuff
 {
-    public float nowTime = 0;
+<<<<<<< HEAD
+    static public string s_description = "为缺少3能量及以上的动词提供1能量，消除自身";
+    static public string s_wordName = "亢奋";
+
+=======
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
     override protected void Awake()
     {
         base.Awake();
         buffName = "亢奋";
+        description = "为缺少3能量及以上的动词提供1能量，消除自身";
         book = BookNameEnum.ZooManual;
-        chara.atk += 5;
+
+        //缺少能量的补充
+
+
+        Destroy(this);
     }
 
-    override public void Update()
-    {
-        base.Update();
-        nowTime += Time.deltaTime;
-        if (nowTime > 1)//每秒5%恢复
-        {
-            nowTime= 0; 
-            chara.CreateFloatWord(0.05f * chara.maxHp, FloatWordColor.heal, false);
-            chara.hp += 0.05f * chara.maxHp;
-        }
-    }
-
+  
     private void OnDestroy()
     {
-        chara.atk -= 5;
+       
     }
 }

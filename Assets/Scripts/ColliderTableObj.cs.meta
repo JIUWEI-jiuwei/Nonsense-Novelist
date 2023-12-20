@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/ColliderTableObj.cs.meta
+guid: b67d2a044f163104b8a1a6e7953de63f
+========
+guid: 2e26a0a182a72704c8eb10793820909e
+>>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454:Assets/Scripts/Common/CameraController.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

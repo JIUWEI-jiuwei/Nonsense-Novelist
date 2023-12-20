@@ -1,19 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// 动词：枪击
+/// </summary>
 class GunShoot : AbstractVerbs
 {
+    static public string s_description = "造成3*<sprite name=\"atk\">的物理伤害";
+    static public string s_wordName = "枪击";
     public override void Awake()
     {
         base.Awake();
         skillID = 10;
         wordName = "枪击";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "使敌人受到中等物理伤害";
+<<<<<<< HEAD
+        description = "造成3*<sprite name=\"atk\">的物理伤害";
+=======
+        description = "造成3*攻击的物理伤害";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
+
         skillMode = gameObject.AddComponent<DamageMode>();
         (skillMode as DamageMode).isPhysics = true;
         skillMode.attackRange =  new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
+
         rarity = 1;
         needCD = 2;
 
@@ -27,9 +39,10 @@ class GunShoot : AbstractVerbs
 
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
+        //造成300%伤害的物理攻击
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         aim.CreateFloatWord(
-        skillMode.UseMode(useCharacter, useCharacter.atk * (1 - aim.def / (aim.def + 20)), aim)
+        skillMode.UseMode(useCharacter, 3*useCharacter.atk *useCharacter.atkMul* (1 - aim.def / (aim.def + 20)), aim)
         ,FloatWordColor.physics,true);
     }
     public override string UseText()

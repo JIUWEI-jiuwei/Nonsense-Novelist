@@ -53,7 +53,7 @@ class CharacterDetails : MonoBehaviour
         charaImage.sprite = Resources.Load<Sprite>("FirstStageLoad/" + mouseDown.abschara.wordName);
 
         //书本图片
-        bookImage.sprite = Resources.Load<Sprite>("FirstStage/Book/" +mouseDown.abschara.bookName.ToString());
+        bookImage.sprite = Resources.Load<Sprite>("WordImage/Book/" + mouseDown.abschara.bookName.ToString());
         //print(mouseDown.abschara.bookName.ToString());
 
         //角色身份（特性）左下角的短纸片

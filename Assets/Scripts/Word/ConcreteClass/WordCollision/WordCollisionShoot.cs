@@ -12,9 +12,13 @@ public class WordCollisionShoot : MonoBehaviour
     /// <summary>计时器 </summary>
     public float timer;
 
+
+    Collider2D collider;
     public virtual void Awake()
     {
-        
+        collider = this.gameObject.GetComponent<Collider2D>();
+        if(collider!=null)
+            collider.sharedMaterial = Resources.Load<PhysicsMaterial2D>("Other/word");
     }
 
     /// <summary>
@@ -23,17 +27,37 @@ public class WordCollisionShoot : MonoBehaviour
     /// <param name="collision"></param>
     public virtual  void OnTriggerEnter2D(Collider2D collision)
     {
+
+<<<<<<< HEAD
+        if (CharacterManager.instance.pause)
+            return;
+=======
+        
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
+
+
+
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
+<<<<<<< HEAD
+           
+                absWord = this.GetComponent<AbstractWord0>();
+           //
+=======
+
+
+
+
+
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
-                collision.gameObject.AddComponent(b.GetType());
-                character.skills.Add(b);
+                character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
                 Destroy(this.gameObject);
 
             }
@@ -41,12 +65,14 @@ public class WordCollisionShoot : MonoBehaviour
             {
                 AbstractAdjectives adj= collision.gameObject.AddComponent(absWord.GetType())as AbstractAdjectives;
                 adj.UseAdj(collision.gameObject.GetComponent<AbstractCharacter>());
+                print(this.gameObject.name);
                 Destroy(this.gameObject);
             }
             else if (absWord.wordKind == WordKindEnum.noun)
             {
                 AbstractItems noun= collision.gameObject.AddComponent(absWord.GetType())as AbstractItems;
                 noun.UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
+           
                 Destroy(this.gameObject);
             }
         }
@@ -59,6 +85,9 @@ public class WordCollisionShoot : MonoBehaviour
     /// <returns></returns>
     public virtual bool VanishTime(float time)
     {
+        if (CharacterManager.instance.pause)
+            return false;
+
         timer += Time.deltaTime;
         if (timer >= time)
         {

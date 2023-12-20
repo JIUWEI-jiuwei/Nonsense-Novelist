@@ -3,16 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 形容词：刻板的
+/// </summary>
 public class KeBan : AbstractAdjectives
 {
+    static public string s_description = "12s内无法攻击";
+    static public string s_wordName = "刻板的";
     public override void Awake()
     {
-        adjID = 4;
+        adjID = 3;
         wordName = "刻板的";
         bookName = BookNameEnum.ZooManual;
-        description = "无法攻击";
+        description = "12s内无法攻击";
         skillMode = gameObject.AddComponent<SelfMode>();
-        skillEffectsTime = 10;
+        skillEffectsTime = 12;
         rarity = 0;
         base.Awake();
     }

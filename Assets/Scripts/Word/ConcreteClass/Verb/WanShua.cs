@@ -1,21 +1,38 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// 动词：玩耍
+/// </summary>
 class WanShua : AbstractVerbs
 {
+    static public string s_description = "使友方<color=#dd7d0e>亢奋</color>，持续15s";
+    static public string s_wordName = "玩耍";
     public override void Awake()
     {
         base.Awake();
         skillID = 3;
         wordName = "玩耍";
         bookName = BookNameEnum.ZooManual;
-        description = "使友方获得“亢奋”";
+<<<<<<< HEAD
+        description = "使友方<color=#dd7d0e>亢奋</color>，持续15s";
+=======
+        description = "使友方亢奋，持续15s";
+>>>>>>> 66fe0047b38250f01931638095da1ca5d7de0454
+
         skillMode = gameObject.AddComponent<UpATKMode>();
-        skillEffectsTime = 7;
+
+        skillEffectsTime = 15;
         rarity = 1;
         needCD = 4;
     }
-
+    override public string[] DetailLable()
+    {
+        string[] _s = new string[1];
+        _s[0] = "KangFen";
+        return _s;
+    }
     /// <summary>
     /// 亢奋
     /// </summary>
