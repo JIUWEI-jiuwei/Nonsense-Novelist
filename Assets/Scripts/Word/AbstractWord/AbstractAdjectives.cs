@@ -25,7 +25,7 @@ abstract public class AbstractAdjectives : AbstractWord0
     public virtual void Awake()
     {
         wordKind = WordKindEnum.adj;
-        nowTime = skillEffectsTime;
+
         aim=GetComponent<AbstractCharacter>();
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots.Add(gameObject.AddComponent<Common>());
@@ -48,16 +48,25 @@ abstract public class AbstractAdjectives : AbstractWord0
     protected float nowTime;
     virtual protected void Update()
     {
-        nowTime-=Time.deltaTime;
+      
+        if (this.GetComponent<AbstractCharacter>() == null) return;
+        if (CharacterManager.instance.pause == true) return;
+     
         if (nowTime < 0)
             Destroy(this);
     }
+
+    virtual public void AddTime(float _time)
+    {
+        nowTime += _time;
+    }
+
     /// <summary>
     /// 相当于OnDestroy()
     /// </summary>
     virtual public void End()
     {
-
+       
     }
 
     private void OnDestroy()
@@ -68,6 +77,7 @@ abstract public class AbstractAdjectives : AbstractWord0
         }
         if (aim!=null)
         {
+            aim.CreateFloatWord("<s>" + this.wordName + "</s>", FloatWordColor.removeWord, false);
             End();
         }
     }

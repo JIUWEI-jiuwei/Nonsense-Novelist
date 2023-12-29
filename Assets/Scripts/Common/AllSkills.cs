@@ -108,8 +108,8 @@ public static class AllSkills
 
     /// <summary>测试词条</summary>
     public static List<Type> testList1 = new List<Type>();
-
-
+    public static List<Type> testList2 = new List<Type>();
+    public static List<Type> testList3 = new List<Type>();
     /// <summary>
     /// 静态构造函数
     /// </summary>
@@ -117,20 +117,20 @@ public static class AllSkills
     {       
         //添加动词词条
         list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),
-           typeof(CHOOHShoot) ,typeof(Shuai),typeof(QiChongShaDance),typeof(TongPinGongZhen),
+           typeof(CHOOHShoot_x) ,typeof(Shuai),typeof(QiChongShaDance),typeof(TongPinGongZhen),
         typeof(BaoZa), typeof(FangFuShu), typeof(GunShoot), typeof(Kiss),typeof(MianYiZengQiang),
         typeof(ShaYu), typeof(ToBigger), typeof(TuLingCeShi), typeof(WanShua), typeof(WenYiChuanBo)});
         //添加形容词词条
         list_adj.AddRange(new Type[] {  typeof(BuXiu), typeof(ChaFanWuXin), typeof(CuZhuang), typeof(HunFei),
            typeof(FengChan),typeof(FengLi) ,typeof(GuoMin),typeof(HaoZhan) ,typeof(HeWuRan),typeof(HunQianMengYing),
         typeof(JianRuPanShi),typeof(KeBan) ,typeof(LuanLun),typeof(LuoYingBinFen) ,typeof(QingXi),typeof(QuicklyGrowing),
-        typeof(RenZao),typeof(SanFaFeiLuoMeng) ,typeof(ShenHuanFeiYan),typeof(ShenYouHuanJing) ,typeof(XinShenJiDang),
+        typeof(RenZao),typeof(SanFaFeiLuoMeng_x) ,typeof(ShenHuanFeiYan),typeof(ShenYouHuanJing) ,typeof(XinShenJiDang),
             typeof(YouAnQuanGan),typeof(ZhongDu),});
         //添加名词词条
         list_noun.AddRange(new Type[] { typeof(WaiGuGe), typeof(JiShengChong), typeof(LengXiangWan), typeof(Nexus_6Arm),
             typeof(ZiShuiJIng) ,typeof(RiLunGuaZhui),typeof(BenJieShiDui),typeof(DuXian),
             typeof(ChaBei),typeof(HuYanShi) ,typeof(BaiShuijing) ,typeof(FuTouAxe),typeof(BoLiGuaZhui),
-            typeof(herusizhiyan),typeof(MeiGuiShiYing) ,typeof(BeiZhiRuDeJiYi),typeof(PaintBrush),typeof(QiGuaiShiXiang),
+            typeof(herusizhiyan),typeof(MeiGuiShiYing) ,typeof(BeiZhiRuDeJiYi),typeof(PaintBrush_x),typeof(QiGuaiShiXiang),
             typeof(HouZiDian),typeof(VolumeProduction) ,typeof(XianZhiHead),typeof(YiZhiWeiShiQi) });
         //全部
         list_all.AddRange(list_verb);
@@ -216,9 +216,9 @@ public static class AllSkills
         liuXingBXList_all.AddRange(liuXingBXList_noun);
 
         //蚂蚁帝国添加动词词条
-        maYiDiGuoList_verb.AddRange(new Type[] { typeof(CHOOHShoot),});
+        maYiDiGuoList_verb.AddRange(new Type[] { });
         //蚂蚁帝国添加形容词词条
-        maYiDiGuoList_adj.AddRange(new Type[] { typeof(SanFaFeiLuoMeng),typeof(HunFei),typeof(HaoZhan),});
+        maYiDiGuoList_adj.AddRange(new Type[] {typeof(HunFei),typeof(HaoZhan),});
         //蚂蚁帝国添加名词词条
         maYiDiGuoList_noun.AddRange(new Type[] { typeof(WaiGuGe),typeof(DuXian),});
         //蚂蚁帝国全部词条
@@ -229,7 +229,7 @@ public static class AllSkills
         //通用添加动词词条
         commonList_verb.AddRange(new Type[] { typeof(Shuai),typeof(HeartBroken),typeof(ToBigger),typeof(BaoZa),});
         //通用添加形容词词条
-        commonList_adj.AddRange(new Type[] { typeof(TuLingCeShi), typeof(WanShua),typeof(LuoYingBinFen),typeof(CuZhuang),
+        commonList_adj.AddRange(new Type[] {typeof(FengLi), typeof(QuicklyGrowing), typeof(LuoYingBinFen),typeof(CuZhuang),
             typeof(JianRuPanShi),typeof(ZhongDu),});
         //通用添加名词词条
         commonList_noun.AddRange(new Type[] { typeof(FuTouAxe),typeof(HouZiDian),typeof(QiGuaiShiXiang),typeof(BoLiGuaZhui),});
@@ -244,7 +244,25 @@ public static class AllSkills
 
 
         ///<summary>测试词条1</summary>
-        testList1.AddRange(new Type[] {typeof(BuryFlower), typeof(ChaBei) });
+        testList1.AddRange(new Type[] { /*typeof(DuXian) ,typeof(BenJieShiDui)*/typeof(FengChan) });
+
+        ///<summary>测试通过词条2</summary>///
+        testList2.AddRange(new Type[] { /*noun*/typeof(BaiShuijing) ,typeof(BeiZhiRuDeJiYi) ,typeof(BenJieShiDui), typeof(BoLiGuaZhui),typeof(ChaBei),
+        typeof(EXingZhongLiu),typeof(FuTouAxe),typeof(herusizhiyan),typeof(HouZiDian),typeof(HuYanShi),typeof(MeiGuiShiYing),typeof(Nexus_6Arm),
+        typeof(QiGuaiShiXiang),typeof(VolumeProduction),typeof(WaiGuGe),typeof(XianZhiHead),typeof(ZiShuiJIng),
+        /*adj*/typeof(ChaFanWuXin),typeof(CuZhuang),typeof(FengChan),typeof(FengLi),typeof(HaoZhan),typeof(HeWuRan),typeof(HunFei),
+        typeof(JianRuPanShi),typeof(KeBan),typeof(LuoYingBinFen),typeof(QingXi),typeof(QuicklyGrowing),typeof(RenZao),typeof(ShenHuanFeiYan),
+        typeof(ShenYouHuanJing),typeof(XinShenJiDang),typeof(ZhongDu),
+        /*verb*/});
+
+
+        ///<summary>有问题的词条3</summary>///
+        testList3.AddRange(new Type[] {
+            /*测试攻击随从*/ typeof(DuXian), typeof(JiShengChong) ,
+       typeof(CHOOHShoot_x),
+      /*测试负面状态的清楚*/
+           typeof(HunQianMengYing),typeof(LuanLun),
+        /*verb*/typeof(BaoZa),typeof(BuryFlower),typeof(Kiss),typeof(QiChongShaDance),typeof(TuLingCeShi),typeof(WenYiChuanBo)});
     }
 
     /// <summary>
@@ -254,19 +272,39 @@ public static class AllSkills
     public static Type CreateSkillWord()
     {
         //int number = UnityEngine.Random.Range(0, list_all.Count);
+
+
+        //while (testList3.Contains(list_all[number]))
+        //{
+        //    number = UnityEngine.Random.Range(0, list_all.Count);
+        //}
+
         //return list_all[number];
 
-        //测试用，指定某个卡牌↓
-        //return typeof(ShenHuanFeiYan);
 
-        //测试用，指定某种卡牌↓
 
-        int number = UnityEngine.Random.Range(0, testList1.Count);
-        return testList1[number];
+        ////测试用，指定某种卡牌↓
 
-        //正式
-        //int number = UnityEngine.Random.Range(0, GameMgr.instance.GetListLength());
-        //return GameMgr.instance.GetCombatStartList()[number];
+        //int _number = UnityEngine.Random.Range(0, testList1.Count);
+
+        //return testList1[_number];
+
+        //int _number = UnityEngine.Random.Range(0, list_all.Count);
+        //while (testList3.Contains(list_all[_number]))
+        //{
+        //    _number = UnityEngine.Random.Range(0, list_all.Count);
+        //}
+        //return list_all[_number];
+
+        ////正式
+
+        int number = UnityEngine.Random.Range(0, GameMgr.instance.GetCombatStartList().Count);
+        while (testList3.Contains(GameMgr.instance.GetCombatStartList()[number]))
+        {
+            number = UnityEngine.Random.Range(0, GameMgr.instance.GetCombatStartList().Count);
+        }
+
+        return GameMgr.instance.GetCombatStartList()[number];
     }
 
 }

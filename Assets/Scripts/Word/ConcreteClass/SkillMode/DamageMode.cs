@@ -15,7 +15,7 @@ class DamageMode : AbstractSkillMode
         skillModeID = 1;
         skillModeName = "伤害";
     }
-
+    Coroutine cor;
     /// <summary>
     /// 对目标实际影响
     /// </summary>
@@ -33,7 +33,7 @@ class DamageMode : AbstractSkillMode
             //    aimCharacter.teXiao.PlayTeXiao("BaoJi");
             //    AbstractBook.afterFightText += useCharacter.CriticalText(aimCharacter);
             //}
-
+           // print(useCharacter.wordName);
             if (aimCharacter.servants.Count > 0)
             {
                 
@@ -44,14 +44,17 @@ class DamageMode : AbstractSkillMode
             }
             else
             {
-                StartCoroutine(DelayAttack(aimCharacter, (int)value));
+              
+                if (cor != null) StopCoroutine(cor);
+                cor=StartCoroutine(DelayAttack(aimCharacter, (int)value));
                 //aimCharacter.hp -= (int)value;
             }
          
         }
         else//玩家使用（形容词）
         {
-            StartCoroutine(DelayAttack(aimCharacter, (int)value));
+            if (cor != null) StopCoroutine(cor);
+            cor = StartCoroutine(DelayAttack(aimCharacter, (int)value));
             //aimCharacter.hp -= (int)value;
         }
         return value;
@@ -59,7 +62,7 @@ class DamageMode : AbstractSkillMode
 
 
     #region 偷懒模拟子弹集中后再减血的效果，有空修改
-    WaitForSeconds delayAttack =new WaitForSeconds(0.5f); 
+    WaitForSeconds delayAttack =new WaitForSeconds(0.1f); 
     IEnumerator DelayAttack(AbstractCharacter _ac,int _value)
     {
         yield return delayAttack;

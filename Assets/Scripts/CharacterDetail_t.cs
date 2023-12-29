@@ -69,15 +69,19 @@ public class CharacterDetail_t : MonoBehaviour
 
         //panel1
         panel_state.GetComponentInChildren<Slider>().value = nowCharacter.hp/nowCharacter.maxHp;
-        panel_state.GetComponentsInChildren<Text>()[0].text = nowCharacter.hp.ToString() + "/" + nowCharacter.maxHp.ToString();
-        //panel_state.GetComponentsInChildren<Text>()[1].text = IntToString.SwitchATK(nowCharacter.atk);
-        panel_state.GetComponentsInChildren<Text>()[1].text = nowCharacter.atk.ToString();
-        // panel_state.GetComponentsInChildren<Text>()[2].text = IntToString.SwitchDEF(nowCharacter.def);
-        panel_state.GetComponentsInChildren<Text>()[2].text = nowCharacter.def.ToString();
-        //panel_state.GetComponentsInChildren<Text>()[3].text = IntToString.SwitchSAN(nowCharacter.san);
-        panel_state.GetComponentsInChildren<Text>()[3].text = nowCharacter.san.ToString();
-        //panel_state.GetComponentsInChildren<Text>()[4].text = IntToString.SwitchPSY(nowCharacter.psy);
-        panel_state.GetComponentsInChildren<Text>()[4].text = nowCharacter.psy.ToString();
+        panel_state.GetComponentsInChildren<Text>()[0].text = nowCharacter.hp.ToString() + "/" + (nowCharacter.maxHp* nowCharacter.maxHpMul).ToString();
+
+        panel_state.GetComponentsInChildren<Text>()[1].text = (nowCharacter.atk*nowCharacter.atkMul).ToString()+
+            " \n<color=#787878><size=25>( " + nowCharacter.atk.ToString() + " * "+(nowCharacter.atkMul*100).ToString()+ "% </size></color> )";
+       
+        panel_state.GetComponentsInChildren<Text>()[2].text = (nowCharacter.def * nowCharacter.defMul).ToString() +
+            " \n<color=#787878><size=25>( " + nowCharacter.def.ToString() + " * " + (nowCharacter.defMul * 100).ToString() + "%</size></color>  )";
+
+        panel_state.GetComponentsInChildren<Text>()[3].text = (nowCharacter.san * nowCharacter.sanMul).ToString() +
+            " \n<color=#787878><size=25>( " + nowCharacter.san.ToString() + " * " + (nowCharacter.sanMul * 100).ToString() + "%</size></color> )";
+
+        panel_state.GetComponentsInChildren<Text>()[4].text = (nowCharacter.psy * nowCharacter.psyMul).ToString() +
+      "\n<color=#787878><size=25> ( " + nowCharacter.psy.ToString() + " * " + (nowCharacter.psyMul * 100).ToString() + "%</size></color> )";
 
 
         foreach (var buff in nowCharacter.GetComponents<AbstractBuff>())
@@ -88,7 +92,7 @@ public class CharacterDetail_t : MonoBehaviour
           
                 obj.transform.parent = buffP;
                 obj.transform.localScale = Vector3.one;
-                Sprite buffSprite = Resources.Load<Sprite>("WordImage/Buffs/" + buff.name);
+                Sprite buffSprite = Resources.Load<Sprite>("WordImage/Buffs/" + buff.GetType().ToString());
                 if (buffSprite == null)
                     obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("WordImage/Buffs/Default");
                 else
@@ -144,6 +148,7 @@ public class CharacterDetail_t : MonoBehaviour
                          o.transform.localScale = Vector3.one * 0.6f;
                          o.transform.localPosition = new Vector3(i * energyOffset + energyOffsetWith, 0, 0);
                          o.GetComponent<Image>().color = (i < nowCharacter.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
+                         o.transform.GetChild(0).gameObject.SetActive((i < nowCharacter.skills[x].CD) ? true : false);
                      });
                  }
              });

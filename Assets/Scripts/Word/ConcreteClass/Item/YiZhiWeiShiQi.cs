@@ -32,14 +32,20 @@ class YiZhiWeiShiQi : AbstractItems
     float nowTime;
     AbstractSkillMode skillMode;
     AbstractCharacter[] friends;
+
+
+    bool hasAdd = false;
     public override void UseItem(AbstractCharacter chara)
     {
+
         base.UseItem(chara);
-        friends= skillMode.CalculateAgain(999, chara);
-        foreach (AbstractCharacter friend in friends)
-        {
-            friend.psy++;
-        }
+        if (hasAdd)
+            return;
+        if (chara == null)
+            print("chara=null");
+        //为角色增加一个随从
+        chara.AddServant("CS_YiZhiWeiShiQi");
+        hasAdd = true;
     }
 
     public override void UseVerb()

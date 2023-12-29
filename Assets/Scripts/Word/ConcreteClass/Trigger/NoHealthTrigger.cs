@@ -19,17 +19,37 @@ namespace AI
 
         public override bool Satisfy(MyState0 myState)
         {
+           
             if (myState.character.hp <= 0)
             {
-                if (myState.character.reLifes>0)//复活
+                
+                if (myState.character.reLifes > 0)//复活
                 {
                     myState.character.hp = myState.character.maxHp;
-                    myState.character.reLifes--;
-                    if (OnLive != null) OnLive();
+
+                    //删除relife效果
+                    if (myState.character.GetComponent<ReLife>() != null)
+                    {
+                        Destroy(myState.character.GetComponent<ReLife>());
+                        var _buffs = myState.character.GetComponents<AbstractBuff>();
+                        foreach (var _buff in _buffs)
+                        {
+                            if (_buff.isBad) Destroy(_buff);
+                        }
+                    }
+                    else
+                        myState.character.reLifes--;
+
+
+
+                    //if (OnLive != null) OnLive();
                     return false;
                 }
                 else//死亡
-                    return true;
+                { 
+                      return true;
+                }
+                  
             }
             else//hp>0
                 return false;

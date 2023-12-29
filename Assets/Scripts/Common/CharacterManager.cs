@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 /// <summary>
 /// 挂在父物体上.负责角色和situation的单例
 /// </summary>
 public class CharacterManager : MonoSingleton<CharacterManager>
 {
+    public GameObject endGame;
+
     public static GameObject father;
     /// <summary>当下全部角色</summary>
     private AbstractCharacter[] Charas;
-    public  AbstractCharacter[] charas
+    public AbstractCharacter[] charas
     {
         get
         {
@@ -23,7 +26,7 @@ public class CharacterManager : MonoSingleton<CharacterManager>
         }
     }
     /// <summary>左侧角色</summary>
-    public static List< AbstractCharacter> charas_left=new List<AbstractCharacter>();
+    public static List<AbstractCharacter> charas_left = new List<AbstractCharacter>();
     /// <summary>右侧角色</summary>
     public static List<AbstractCharacter> charas_right = new List<AbstractCharacter>();
 
@@ -33,8 +36,18 @@ public class CharacterManager : MonoSingleton<CharacterManager>
     public static Dictionary<float, Situation> situationDic = new Dictionary<float, Situation>();
 
 
+
+    [HideInInspector] public static SpriteRenderer[] spSituations = new SpriteRenderer[9];
+
     #region pauseSetting
 
+    public void EndGame()
+    {
+        Camera.main.GetComponent<CameraController>().SetCameraSizeTo(4);
+        Camera.main.GetComponent<CameraController>().SetCameraYTo(-1.01f);
+        Instantiate(endGame);
+        pause = true;
+    }
     private bool PAUSE;
     /// <summary>
     /// 手动设置设置。同时，发射器弃用禁用、子弹速度也会被同时设置。所有的角色都会脱离攻击状态
@@ -60,6 +73,7 @@ public class CharacterManager : MonoSingleton<CharacterManager>
     float[] wordAVtemp = new float[100];
     private void WordBallPause(bool _b)
     {
+
         if (_b)//暂停的时候
         {
             var obj = GameObject.Find("AfterShootTF").GetComponentsInChildren<Rigidbody2D>();
@@ -91,6 +105,9 @@ public class CharacterManager : MonoSingleton<CharacterManager>
         Charas = GetComponentsInChildren<AbstractCharacter>();
         father = this.gameObject;
         shooter = GameObject.Find("shooter").transform;
+
+
+
     }
 
 
@@ -108,15 +125,39 @@ public class CharacterManager : MonoSingleton<CharacterManager>
     {
         Situation[] _sits;
         _sits = GameObject.Find("AllCharacter").GetComponentsInChildren<Situation>();
-        print("初始化situation字典，共有：" + _sits.Length + "个");
-        foreach (var _sit in _sits)
+
+        for (int i = 0; i < _sits.Length; i++)
         {
-            if(!situationDic.ContainsKey(_sit.number))
-                situationDic.Add(_sit.number, _sit);
+            spSituations[i] = _sits[i].GetComponent<SpriteRenderer>();
+            if (!situationDic.ContainsKey(_sits[i].number))
+                situationDic.Add(_sits[i].number, _sits[i]);
+
         }
+
+
     }
 
-
+    Coroutine coroutineColor = null;
+    public void SetSituationColorClear(int _speed)
+    {
+        if (coroutineColor != null) StopCoroutine(coroutineColor);
+        coroutineColor = StartCoroutine(ColorClear(_speed));
+    }
+    WaitForFixedUpdate wait = new WaitForFixedUpdate();
+    IEnumerator ColorClear(int _speed)
+    {
+        int count = 0;
+        while(spSituations[0].color.a>0.05f&&count<120)
+        {
+       
+            yield return wait;
+            foreach (var _sp in spSituations)
+            {
+                _sp.color -= Color.white * 1 / 100 * _speed;
+            }
+            count++;
+        }
+    }
 
     /// <summary>
     /// 返回与输入的Situation相邻的situation的数值

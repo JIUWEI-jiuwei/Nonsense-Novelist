@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 ///<summary>
 ///“Ù–ßπ‹¿Ì∆˜
 ///</summary>
-class AudioManager : MonoBehaviour
+class AudioManager : MonoSingleton<AudioManager>
 {
     public AudioSource audioSource;
     public string currentScene;
@@ -15,9 +15,6 @@ class AudioManager : MonoBehaviour
     }
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == currentScene)
-        {
-            Destroy(audioSource);
-        }
+
     }
 }

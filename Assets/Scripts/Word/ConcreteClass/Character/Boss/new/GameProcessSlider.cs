@@ -36,8 +36,16 @@ public class GameProcessSlider : MonoBehaviour
     public GameObject bookCanvas;
     public GameObject characterCanvas;
 
+    [Header("结束页面的预制体")]
+    public GameObject endGame;
+
+    private Vector3 oriScale;
     private void Start()
     {
+
+        oriScale = this.transform.localScale;
+
+
         //其它设置
         bookCanvas.SetActive(false);
         characterCanvas.SetActive(true);
@@ -71,6 +79,8 @@ public class GameProcessSlider : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+        if (CharacterManager.instance.pause) return;
         if (!countTime)
             return;
 
@@ -88,14 +98,24 @@ public class GameProcessSlider : MonoBehaviour
         //如果进入阶段
         if (timeNow>time_stage[stageCount].time_count)
         {
-            CreateBookCanvas();
-            //CreateBoss(time_stage[stageCount].boss);
+            //demo的结算页面.临时写的，很草率
+            if (time_stage[stageCount].boss == null)
+            {
+                CharacterManager.instance.EndGame();
+            }
+            else
+            {
+
+                CreateBoss(time_stage[stageCount].boss);
+            }
+
 
             countTime = false;
             stageCount++;
         }
     }
 
+    #region boss
 
     /// <summary>
     /// 生成boss
@@ -103,12 +123,14 @@ public class GameProcessSlider : MonoBehaviour
     /// <param name="_boss"></param>
     void CreateBoss(GameObject _boss)
     {
-        print("生成boss");
+        this.transform.localScale = Vector3.zero;
+        //print("生成boss");
 
         //生成boss
         GameObject boss = Instantiate(_boss);
         boss.transform.SetParent(GameObject.Find("Circle5.5").transform);
         boss.transform.localPosition = Vector3.zero;
+      
 
         //生成调整
         boss.GetComponentInChildren<AI.MyState0>().enabled = true;
@@ -125,14 +147,24 @@ public class GameProcessSlider : MonoBehaviour
 
 
     }
+    public void BossDie()
+    {
+        this.transform.localScale = oriScale;
+        CreateBookCanvas();
+    }
 
+    #endregion
+
+
+    #region 抽取书本
     /// <summary>
     ///进入抽取书本页面
     /// </summary>
     void CreateBookCanvas()
-    {  
+    {
         //镜头拉远
-        Camera.main.GetComponent<CameraController>().SetCameraSizeTo(5);
+        Camera.main.GetComponent<CameraController>().SetCameraSizeTo(4);
+        Camera.main.GetComponent<CameraController>().SetCameraYTo(-1.01f);
         //游戏暂停
         CharacterManager.instance.pause = true;
         //生成面板
@@ -151,6 +183,8 @@ public class GameProcessSlider : MonoBehaviour
 
         GameObject.Find("UICanvas").GetComponentInChildren<CreateOneCharacter>().CreateNewCharacter(2);
     }
+
+
     /// <summary>
     /// 在createOneCharacter中执行
     /// </summary>
@@ -159,15 +193,9 @@ public class GameProcessSlider : MonoBehaviour
         countTime = true;
         CharacterManager.instance.pause = false;
     }
- 
-    void Update()
-    {
-        #region test
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            timeNow = time_stage[stageCount].time_count - 0.5f;
-            countTime = true;
-        }
+
     #endregion
-    }
+
+
+   
 }

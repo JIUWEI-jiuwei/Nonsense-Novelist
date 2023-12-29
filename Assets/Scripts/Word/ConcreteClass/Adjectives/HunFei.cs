@@ -35,13 +35,15 @@ public class HunFei : AbstractAdjectives
     {
         string[] _s = new string[2];
         _s[0] = "SanShe";
-        _s[1] = "SanShe";
+        _s[1] = "ChongLuan";
         return _s;
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
+        aimCharacter.gameObject.AddComponent<ChongLuan>()
+    .maxTime = skillEffectsTime;
         //BasicAbility(aimCharacter);
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)

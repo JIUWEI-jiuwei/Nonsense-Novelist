@@ -7,8 +7,15 @@ using UnityEngine.UI;
 
 class Boss_Huaiyizhuyi : AbstractCharacter
 {
+    [Header("生成后的大小")]
+    public float Scale;
+  
     private bool hasLowThanHalf = false;
-    override public void Awake()
+
+    private GameObject hpslider;
+    private GameObject[] skillText=new GameObject[3];
+    private GameProcessSlider gameProcess;
+override public void Awake()
     {
         base.Awake();
         characterID = 0;
@@ -16,7 +23,7 @@ class Boss_Huaiyizhuyi : AbstractCharacter
         bookName = BookNameEnum.allBooks;
         gender = GenderEnum.noGender;
         camp = CampEnum.stranger;
-        hp =maxHp  =250;
+        hp =maxHp  =30;
         atk = 10;
         def = 30;
         psy = 15;
@@ -26,21 +33,76 @@ class Boss_Huaiyizhuyi : AbstractCharacter
         roleName = "思潮";
         attackInterval = 2.2f;
          attackDistance = 200;
-        brief = "";
-        description = "";
+        brief = "暂无";
+        description = "暂无";
 
 
         situation = GameObject.Find("Circle5.5").GetComponentInChildren<Situation>();
         if (situation == null)
             print("situation5.5==null");
     }
+
+    
     private void Start()
     {
+        //调整自己的大小
+        transform.localScale = Vector3.one*Scale;
+
+
+        //将boss的血条和技能条移动到主界面来
+        Transform _cc = GameObject.Find("combatCanvas").transform;
+        hpslider = GetHpSlider().gameObject;
+        hpslider.transform.parent = _cc;
+        hpslider.transform.localScale = Vector3.one * 0.6f;
+        hpslider.transform.localPosition = Vector3.zero+new Vector3(-10,470,0);
+
+        skillText = GetSkillText();
+        for (int _st=0;_st<skillText.Length;_st++)
+        {
+            skillText[_st].transform.parent = _cc;
+            skillText[_st].transform.localScale = Vector3.one * 0.3f;
+            skillText[_st].transform.localPosition = Vector3.zero + new Vector3(-80+80*_st, 375, 0);
+        }
+        gameProcess = _cc.GetComponentInChildren<GameProcessSlider>();
+
+
+
         skillMode = gameObject.AddComponent<DamageMode>();
         
+        //增加半血检测
         myState.event_EveryZeroOne += IsHpLowThanHalf;
 
+        //增加自带技能
        this.AddVerb(gameObject.AddComponent<RenZhiGuHua>());
+
+        var _aims  = CharacterManager.instance.GetComponentsInChildren<AbstractCharacter>();
+        //夺取意志
+        //夺取场上每个敌人3点意志力，加在自己身上
+        foreach (var aim in _aims)
+        {
+            if(aim.transform.parent.parent.GetComponent<Situation>() != null)
+            { 
+                if ( aim.transform.parent.parent.GetComponent<Situation>().number!=5.5f)
+                {
+       
+                    if (aim.san >= 3)
+                    {
+                        record = aim.san;
+                        aim.san -= 3;
+                        record = record - aim.san;
+                        san += record;
+                    }
+                    else
+                    {    
+                        record = aim.san;
+                        aim.san =0;
+                        record = record - aim.san;
+                        san += record;
+                    } 
+                }
+            }
+           
+        }
     }
 
      AbstractSkillMode skillMode;
@@ -55,8 +117,8 @@ class Boss_Huaiyizhuyi : AbstractCharacter
             myState.event_EveryZeroOne -= IsHpLowThanHalf;
             return;
         }
-        print("IsHpLowThanHalf++Cheak");
-        if (hp <= (maxHp / 2))
+       
+        if (hp <= (maxHp/2 ))
         {
             print("IsHpLowThanHalf++trigger");
             hasLowThanHalf = true;
@@ -66,7 +128,16 @@ class Boss_Huaiyizhuyi : AbstractCharacter
 
         }
     }
+    private void OnDestroy()
+    {
 
+        gameProcess.BossDie();
+       Destroy( CharacterManager.instance.gameObject.GetComponentInChildren<CaiYi>());
+        Destroy(hpslider);
+        Destroy(skillText[0]);
+        Destroy(skillText[2]);
+        Destroy(skillText[1]);
+    }
     //public override bool AttackA()
     //{
     //    if (base.AttackA())

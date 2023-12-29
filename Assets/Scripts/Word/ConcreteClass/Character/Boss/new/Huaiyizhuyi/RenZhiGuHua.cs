@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RenZhiGuHua : AbstractVerbs
 {
+    static public string s_description = "随机让几个人在一定时间内有收益，并在收益结束时伤害施法者。";
+    static public string s_wordName = "认知固化";
 
     public override void Awake()
     {
@@ -17,7 +19,7 @@ public class RenZhiGuHua : AbstractVerbs
         rarity = 3;
         needCD = 4;
         attackDistance = 100;
-        print("renzhiguhua初始化");
+      
     }
 
     /// <summary>
@@ -27,7 +29,7 @@ public class RenZhiGuHua : AbstractVerbs
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);
-        print("renzhiguhua   UseVerb");
+      
 
         //随机_aimCount个施法目标
         int _aimCount = 3;
@@ -45,17 +47,19 @@ public class RenZhiGuHua : AbstractVerbs
                     number = Random.Range(0, _randomCharacter.Length);
                 }
                 _array.Add(number);
-                buffs.Add(_randomCharacter[_array[i]].gameObject.AddComponent<Renzhiguhua_buff>());
-                print("认知固化对：" + _randomCharacter[_array[i]].wordName+"执行"+i);
+                var _b = _randomCharacter[_array[i]].gameObject.AddComponent<Renzhiguhua_buff>();
+                buffs.Add(_b);
+                _b.maxTime = 10;
             }
         }
         else 
         { //场上角色小于三个时，全部赋予。
-            print("认知固化的目标数超出场上的角色数："+ _randomCharacter.Length);
+         
             for (int i = 0; i < _randomCharacter.Length; i++)
             {
-                buffs.Add(_randomCharacter[i].gameObject.AddComponent<Renzhiguhua_buff>());
-                print("认知固化对：" + _randomCharacter[i].wordName + "执行i");
+                var _b = _randomCharacter[i].gameObject.AddComponent<Renzhiguhua_buff>();
+                buffs.Add(_b);
+                _b.maxTime = 10;
             }
         }
     }

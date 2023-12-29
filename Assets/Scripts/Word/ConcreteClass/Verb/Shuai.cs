@@ -39,8 +39,9 @@ class Shuai : AbstractVerbs
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);
-        buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<Dizzy>());
-        buffs[0].maxTime = skillEffectsTime;
+        var _aim = skillMode.CalculateAgain(500, useCharacter)[0]; 
+         _aim.gameObject.AddComponent<Dizzy>().maxTime= skillEffectsTime;
+     
         BasicAbility(useCharacter);
     }
 

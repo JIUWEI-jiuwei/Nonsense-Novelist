@@ -10,6 +10,11 @@ public class AfterStart : MonoBehaviour
 {
     /// <summary>角色简要预制体（手动挂）</summary>
     private GameObject charaShortInstance;
+
+    //生成面板的大小。
+    private float scale = 1.8f / 1900;
+
+
     /// <summary>角色简要预制体克隆</summary>
     private GameObject charaShortP;
     private Transform charaShort;
@@ -42,6 +47,8 @@ public class AfterStart : MonoBehaviour
     //判断UI是否出界
     private RectTransform uiElement;
     private Camera mainCamera;
+
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -69,28 +76,7 @@ public class AfterStart : MonoBehaviour
     }
 
 
-    void WhenBuffCountChange(int _i)
-    {
-        for(int i=0;i<buffList.childCount;i++)
-        {
-            PoolMgr.GetInstance().PushObj(buffShortAdr, buffList.GetChild(i).gameObject);
-        }
-        foreach (var buff in abschara.GetComponents<AbstractBuff>())
-        {
-            //生成对应的
-            PoolMgr.GetInstance().GetObj(buffShortAdr, (obj) =>
-            {
-                obj.transform.parent = buffList;
-                obj.transform.localScale = Vector3.one;
-                buffSprite= Resources.Load<Sprite>("WordImage/Buffs/" + buff.name);
-                if (buffSprite == null)
-                    obj.GetComponent<Image>().sprite = buffSprite_default;
-                else
-                    obj.GetComponent<Image>().sprite = buffSprite;
-            });
-        }
-    }
-
+  
     Vector3 vector3_100 = new Vector3(1, 0, 0);
     private void OnMouseOver()
     {
@@ -104,12 +90,15 @@ public class AfterStart : MonoBehaviour
         {
             one = true;
             //显示角色简要信息(注意第二个参数对于UI)
-            charaShortP = Instantiate(charaShortInstance, this.transform.GetComponentInChildren<Canvas>().gameObject.transform);
-            charaShort = charaShortP.transform.GetChild(0);
+            charaShortP = Instantiate(charaShortInstance);
+            charaShortP.transform.localScale = Vector3.one* scale;
+            charaShortP.transform.parent = this.transform.GetComponentInChildren<Canvas>().gameObject.transform;
+            charaShortP.transform.localPosition = new Vector3(0,-900,0);
+            charaShort = charaShortP.transform.GetChild(2);
             uiElement = charaShort.gameObject.GetComponent<RectTransform>();
             if (IsUIOffscreen())
             {
-                charaShortP.transform.localPosition = vector3_100 * -3000;
+                charaShortP.transform.localPosition = vector3_100 * -6000;
             }
             else
             {
@@ -117,7 +106,7 @@ public class AfterStart : MonoBehaviour
             }
             DestoryEnergy();
             FunctionInis();
-
+            WhenBuffCountChange(0);
         }
     }
 
@@ -126,7 +115,36 @@ public class AfterStart : MonoBehaviour
     private Transform buffList;
     string energyAdr = "UI/energySingle";
     private float energyOffset = 60;//一行之间的每两个能量值中间的间隔大小
-    private float energyOffsetWith = 150;//第一个能量值在x轴上向右的位移
+    private float energyOffsetWith = 300;//第一个能量值在x轴上向右的位移
+
+
+
+    void WhenBuffCountChange(int _i)
+    {
+
+      
+        buffList = charaShort.transform.GetChild(5);
+        foreach (var _buff in buffList.GetComponentsInChildren<Image>())
+        {
+            PoolMgr.GetInstance().PushObj(buffShortAdr, _buff.gameObject);
+        }
+        var buff = abschara.GetComponents<AbstractBuff>();
+        for (int x = 0; x < Mathf.Min(buff.Length, 7); x++)
+        {
+            PoolMgr.GetInstance().GetObj(buffShortAdr, (obj) =>
+            {
+                
+                obj.transform.parent = buffList;
+                obj.transform.localScale = Vector3.one;
+                buffSprite = Resources.Load<Sprite>("WordImage/Buffs/" + buff[x].GetType().ToString());
+               
+                if (buffSprite == null)
+                    obj.GetComponent<Image>().sprite = buffSprite_default;
+                else
+                    obj.GetComponent<Image>().sprite = buffSprite;
+            });
+        }
+    }
 
 
     //在最开始和刷新后使用。内涵生成物体代码
@@ -140,22 +158,26 @@ void FunctionInis()
         abschara = GetComponent<AbstractCharacter>();
 
         //ATK1
-        charaShort.transform.GetChild(0).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
+        charaShort.transform.GetChild(0).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk* abschara.atkMul);
         //def4
-        charaShort.transform.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def);
+        charaShort.transform.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def * abschara.defMul);
         //san3
-        charaShort.transform.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san);
+        charaShort.transform.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san * abschara.sanMul);
         //psy2
-        charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);
+        charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy * abschara.psyMul);
 
 
         //获取角色的技能列表
         skillList = charaShort.transform.GetChild(4);
         if (abschara.skills.Count > 3) print(abschara.name + "技能数超过3个");
-       
-        skillList.GetChild(0).GetComponent<Text>().text = "";
-        skillList.GetChild(1).GetComponent<Text>().text = "";
-        skillList.GetChild(2).GetComponent<Text>().text = "";
+
+        skillList.GetComponentsInChildren<Text>()[0].text = "";
+        skillList.GetComponentsInChildren<Text>()[1].text = "";
+        skillList.GetComponentsInChildren<Text>()[2].text = "";
+        skillList.GetChild(0).GetComponent<RawImage>().color = Color.clear;
+        skillList.GetChild(2).GetComponent<RawImage>().color = Color.clear;
+        skillList.GetChild(1).GetComponent<RawImage>().color = Color.clear;
+
 
         //
         energy[0].Clear(); 
@@ -163,20 +185,20 @@ void FunctionInis()
         energy[2].Clear();
         for (int x = 0; x < abschara.skills.Count; x++)
         {
-
-            skillList.GetChild(x).GetComponent<Text>().text = abschara.skills[x].wordName;
-
             
+            skillList.GetComponentsInChildren<Text>()[x].text = abschara.skills[x].wordName;
+            skillList.GetChild(x).GetComponent<RawImage>().color = Color.white;
+
             for (int i = 0; i < abschara.skills[x].needCD; i++)
             {
                 PoolMgr.GetInstance().GetObj(energyAdr, (o) =>
                 {
-                    energy[x].Add(o);
-                    o.transform.parent = skillList.GetChild(x);
-                    o.transform.localScale = Vector3.one;
-                    o.transform.localPosition = new Vector3(i * energyOffset + energyOffsetWith, 0, 0);
-                    o.GetComponent<Image>().color = (i < abschara.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
-
+                energy[x].Add(o);
+                o.transform.parent = skillList.GetChild(x).GetChild(0);
+                o.transform.localScale = Vector3.one;
+                o.transform.localPosition = new Vector3(i * energyOffset + energyOffsetWith, 0, 0);
+                //o.GetComponent<Image>().color = (i < abschara.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
+                o.GetComponent<Image>().transform.GetChild(0).gameObject.SetActive((i < abschara.skills[x].CD) ? true : false);
 
                 });
 
@@ -184,22 +206,23 @@ void FunctionInis()
         }
        
 
-        //获取角色的状态列表（最多10个）
-        buffList = charaShort.transform.GetChild(5);
-        foreach (var buff in abschara.GetComponents<AbstractBuff>())
-        {
-            //生成对应的
-            PoolMgr.GetInstance().GetObj(buffShortAdr, (obj) =>
-            {
-                obj.transform.parent = buffList;
-                obj.transform.localScale = Vector3.one;
-                buffSprite = Resources.Load<Sprite>("WordImage/Buffs/" + buff.name);
-                if (buffSprite == null)
-                    obj.GetComponent<Image>().sprite = buffSprite_default;
-                else
-                    obj.GetComponent<Image>().sprite = buffSprite;
-            });
-        }
+        ////获取角色的状态列表
+        //buffList = charaShort.transform.GetChild(5);
+        //var buff = abschara.GetComponents<AbstractBuff>();
+        //for (int x = 0; x < Mathf.Min(buff.Length, 7); x++)
+        //{
+        //    //生成对应的
+        //    PoolMgr.GetInstance().GetObj(buffShortAdr, (obj) =>
+        //    {
+        //        obj.transform.parent = buffList;
+        //        obj.transform.localScale = Vector3.one;
+        //        buffSprite = Resources.Load<Sprite>("WordImage/Buffs/" + buff[x].name);
+        //        if (buffSprite == null)
+        //            obj.GetComponent<Image>().sprite = buffSprite_default;
+        //        else
+        //            obj.GetComponent<Image>().sprite = buffSprite;
+        //    });
+        //}
     }
 
 
@@ -210,15 +233,16 @@ void FunctionInis()
         if (abschara == null) print("absChara==null");
         if (charaShort == null) print("charaShort==null");
         //ATK1
-        charaShort.transform.GetChild(0).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk);
+        charaShort.transform.GetChild(0).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.atk * abschara.atkMul);
         //def4
-        charaShort.transform.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def);
+        charaShort.transform.GetChild(3).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.def * abschara.defMul);
         //san3
-        charaShort.transform.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san);
+        charaShort.transform.GetChild(2).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.san * abschara.sanMul);
         //psy2
-        charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy);
+        charaShort.transform.GetChild(1).GetComponentInChildren<Text>().text = IntToString.SwitchATK(abschara.psy * abschara.psyMul);
 
-     
+
+
         for (int x = 0; x < abschara.skills.Count; x++)
         {
        
@@ -227,7 +251,8 @@ void FunctionInis()
 
                 //o.GetComponent<Image>().color = (i < abschara.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
                 //energy[x][i].GetComponent<Image>().color = (i < abschara.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
-                skillList.GetChild(x).GetComponentsInChildren<Image>()[i].color = (i < abschara.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
+                skillList.GetChild(x).GetComponentsInChildren<Image>()[i].transform.GetChild(0).gameObject.
+                    SetActive((i < abschara.skills[x].CD) ? true : false); //= (i < abschara.skills[x].CD) ? colorHasEnergy : colorNoEnergy;
             }
         }
 

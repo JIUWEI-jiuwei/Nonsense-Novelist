@@ -2,22 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class ColliderTableObj : MonoBehaviour
 {
 
     WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
     Vector3 oriPos;
     Coroutine onlyCoroutine = null;
-    float speed = 15;
+    [Header("移动的速度（4）")]
+    public float speed = 4;
+    [Header("移动的距离大小(0.05f)")]
+    public float moveAmount = 0.05f;
     float timer = 0;
     private void Start()
     {
         oriPos = transform.position;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         timer = 0;
         if(onlyCoroutine!=null)
             StopCoroutine(onlyCoroutine);
@@ -31,7 +35,7 @@ public class ColliderTableObj : MonoBehaviour
         {
             yield return waitForFixedUpdate;
             timer += Time.deltaTime * speed;
-            transform.position = oriPos + Mathf.Sin(timer) *0.05f* new Vector3(0, 1, 0); ;
+            transform.position = oriPos + Mathf.Sin(timer) * moveAmount * new Vector3(0, 1, 0); ;
         }
   
     }

@@ -21,6 +21,7 @@ public class HuaBan: AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
         chara.psy -= 1;
     }
 }

@@ -22,6 +22,11 @@ class QiChongShaDance : AbstractVerbs
         rarity = 3;
         needCD=8;
         description = "被动：攻击额外造成20%的精神伤害；\n主动：<color=#dd7d0e>起舞</color>，攻击所有敌人，持续10s";
+        if (GetComponent<AbstractCharacter>() != null)
+        {   
+            GetComponent<AbstractCharacter>().event_AttackA += AddToAttackA;
+        }
+       
     }
 
 
@@ -36,10 +41,22 @@ class QiChongShaDance : AbstractVerbs
     {
        
         base.UseVerb(useCharacter);
+      
         buffs.Add(gameObject.AddComponent<QiWu>());
         buffs[0].maxTime = skillEffectsTime;
     }
+    void AddToAttackA()
+    {
+        
+    }
 
+    private void OnDestroy()
+    {
+        if (GetComponent<AbstractCharacter>() != null)
+        {
+            GetComponent<AbstractCharacter>().event_AttackA -= AddToAttackA;
+        }
+    }
     public override string UseText()
     {
         AbstractCharacter character = this.GetComponent<AbstractCharacter>();

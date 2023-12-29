@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 class QiGuaiShiXiang : AbstractItems
 {
-    static public string s_description = " < sprite name=\"psy\">+1";
+    static public string s_description = " <sprite name=\"psy\">+1";
     static public string s_wordName = "奇怪石像";
     public override void Awake()
     {
@@ -14,7 +14,7 @@ class QiGuaiShiXiang : AbstractItems
         itemID = 22;
         wordName = "奇怪石像";
         bookName = BookNameEnum.allBooks;
-        description = "< sprite name=\"psy\">+1";
+        description = "<sprite name=\"psy\">+1";
 
         VoiceEnum = MaterialVoiceEnum.Ceram;
 

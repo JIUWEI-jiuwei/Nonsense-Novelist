@@ -21,10 +21,11 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private float crtForce = 0;
     /// <summary>最小力</summary>
-    private float minForce = 0;
+    public float minForce = 0;
     /// <summary>最大力</summary>
-    private float maxForce = 200;
+    public float maxForce = 200;
     /// <summary>蓄力速度</summary>
+
     public float forceSpeed = 80;
     /// <summary>蓄力比值</summary>
     public float forceAmount=1;
@@ -79,7 +80,7 @@ public class Shoot : MonoBehaviour
        //bulletInstance.transform.localScale = Vector3.one;
         bulletInstance.transform.localEulerAngles = Vector3.zero;
         bulletInstance.transform.SetParent(bulletRoot);
-        //bulletInstance.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0);
+        bulletInstance.GetComponent<SpriteRenderer>().color -=  new Color(0, 0, 0, 1);
 
         //增加词条图像
 
@@ -101,8 +102,16 @@ public class Shoot : MonoBehaviour
         bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * crtForce* forceAmount);
         bulletInstance.transform.SetParent(afterShootTF);
         bulletInstance.GetComponent<Collider2D>().isTrigger = false;
-
+        bulletInstance.GetComponent<SpriteRenderer>().color +=new Color(0,0,0,1);
 
         ReadyWordBullet();
+        DestroyWordBullet();
+    }
+    private void DestroyWordBullet()
+    {
+        if (afterShootTF.childCount > 10)
+        {
+            Destroy(afterShootTF.GetChild(0).gameObject);
+        }
     }
 }

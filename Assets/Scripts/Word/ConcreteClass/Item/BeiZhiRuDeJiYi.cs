@@ -33,7 +33,7 @@ class BeiZhiRuDeJiYi : AbstractItems
         chara.psyMul -= 0.15f;
         chara.sanMul -= 0.15f;
         buffs.Add(chara.gameObject.AddComponent<GaiZao>());
-   
+        buffs[0].maxTime = Mathf.Infinity;
 
     }
 

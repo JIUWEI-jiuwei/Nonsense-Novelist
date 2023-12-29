@@ -27,9 +27,11 @@ public class YouAnQuanGan : AbstractAdjectives
         base.UseAdj(aimCharacter);
         BasicAbility(aimCharacter);
     }
+    
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         //恢复加8
+        this.GetComponent<AbstractCharacter>().cure += 8;
     }
 
     float time;
@@ -42,8 +44,9 @@ public class YouAnQuanGan : AbstractAdjectives
 
     public override void End()
     {
+        this.GetComponent<AbstractCharacter>().cure += 8;
         base.End();
-    
+        
     }
 
 }

@@ -30,6 +30,7 @@ class MianYiZengQiang : AbstractVerbs
     /// <param name="useCharacter">施法者</param>
     public override void UseVerb(AbstractCharacter useCharacter)
     {
+
         base.UseVerb(useCharacter);
         BasicAbility(useCharacter);
     }
@@ -41,6 +42,13 @@ class MianYiZengQiang : AbstractVerbs
         skillMode.UseMode(useCharacter, 40, aim)
         ,FloatWordColor.heal,true);
         aim.maxHp += 40;
+        aim.CreateFloatWord(40, FloatWordColor.healMax, false);
+
+        var _buffs = character.GetComponents<AbstractBuff>();
+        foreach (var _buff in _buffs)
+        {
+            if (_buff.isBad) Destroy(_buff);
+        }
     }
 
     public override string UseText()

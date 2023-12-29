@@ -19,7 +19,7 @@ public class CS_BenJieShiDui : ServantAbstract
         atk = 0;
         def = 20;
         psy = 10;
-        san = 0;
+        san = 10;
 
         //mainProperty.Add("防御", "肉T");
         //trait = gameObject.AddComponent<Pride>();
@@ -50,7 +50,7 @@ public class CS_BenJieShiDui : ServantAbstract
             myState.character.charaAnim.Play(AnimEnum.attack);
             //普通攻击目标为血量百分比最低的队友，恢复10血量（待定）
             myState.aim.CreateFloatWord(
-            attackA.UseMode(myState.character, 10, myState.aim)
+            attackA.UseMode(myState.character, san * sanMul * 1f, myState.aim)
             , FloatWordColor.heal, false);
             return true;
         }
@@ -58,7 +58,12 @@ public class CS_BenJieShiDui : ServantAbstract
         return false;
     }
 
-   
+    private void OnDestroy()
+    {
+        masterNow.DeleteServant(this.gameObject);
+        if (masterNow.GetComponent<BenJieShiDui>() != null)
+            Destroy(masterNow.GetComponent<BenJieShiDui>());
+    }
 
     public override string ShowText(AbstractCharacter otherChara)
     {

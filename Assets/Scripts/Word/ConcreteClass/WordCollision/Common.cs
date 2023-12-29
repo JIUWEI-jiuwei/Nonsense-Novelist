@@ -10,6 +10,8 @@ public class Common : WordCollisionShoot
     {
         //absWord = Shoot.abs;
     }
+
+
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (CharacterManager.instance.pause)

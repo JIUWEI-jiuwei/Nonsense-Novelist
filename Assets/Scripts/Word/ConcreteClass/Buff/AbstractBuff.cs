@@ -38,11 +38,15 @@ public class AbstractBuff : MonoBehaviour
 
     virtual public void Update()
     {
+        if (CharacterManager.instance.pause) return;
         maxTime -= Time.deltaTime;
         if(maxTime<0)
         {
             Destroy(this);
         }
     }
-
+    virtual public void OnDestroy()
+    {
+        chara.CreateFloatWord("<s>" + this.buffName + "</s>", FloatWordColor.removeWord, false);
+    }
 }

@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class CS_YiZhiWeiShiQi : ServantAbstract
 {
+    static public string s_description = "周期给队友提供“亢奋”";
+    static public string s_wordName = "随从：益智喂食器";
+
+    AbstractCharacter[] aims;
+    Coroutine coroutineAttack = null;
+
+
     override public void Awake()
     {
         base.Awake();
@@ -26,16 +33,62 @@ public class CS_YiZhiWeiShiQi : ServantAbstract
         brief = "周期给队友提供“亢奋”";
         description = "周期给队友提供“亢奋”";
 
+
+
+        Destroy(attackA);
+        attackA = gameObject.AddComponent<CureMode>();
+        if (coroutineAttack != null) StopCoroutine(coroutineAttack);
+        coroutineAttack = StartCoroutine(GiveBuffs());
+    }
+    WaitForSeconds wait = new WaitForSeconds(10);
+    IEnumerator GiveBuffs()
+    {
+        while (true)
+        {
+             yield return wait;
+            useBuff();
+        }
+      
+    }
+
+
+    public void useBuff()
+    {
+        print("useBuff");
+        //每10s，给一个队友提供15s的“亢奋”
+        //代替平A
+        if (myState.aim != null)
+        {
+            print("myState.aim != null"+myState.aim.wordName);
+            if (myState.character.aAttackAudio != null)
+            {
+                myState.character.source.clip = myState.character.aAttackAudio;
+                myState.character.source.Play();
+            }
+            myState.character.charaAnim.Play(AnimEnum.attack);
+            var buff=  myState.aim.gameObject.AddComponent<KangFen>();
+            buff.maxTime = 15;
+         
+        }
+        print("myState.aim ==== null");
+    }
+
+    public override bool AttackA()
+    {
+
+
+        return false;
     }
 
 
 
+    private void OnDestroy()
+    {
+        masterNow.DeleteServant(this.gameObject);
+        if (masterNow.GetComponent<CS_YiZhiWeiShiQi>() != null)
+            Destroy(masterNow.GetComponent<CS_YiZhiWeiShiQi>());
+    }
 
-
-
-
-
-  
 
     public override string ShowText(AbstractCharacter otherChara)
     {

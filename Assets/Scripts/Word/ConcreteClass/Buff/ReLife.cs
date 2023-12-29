@@ -21,5 +21,6 @@ public class ReLife : AbstractBuff
     private void OnDestroy()
     {
         chara.reLifes --;
+        base.OnDestroy();
     }
 }

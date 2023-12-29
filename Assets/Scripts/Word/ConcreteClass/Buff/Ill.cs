@@ -17,8 +17,9 @@ public class Ill : AbstractBuff
     {
         base.Awake();
         buffName = "患病";
-        description = "每秒受到2点物理伤害，连续患病30s后变得虚弱";
+        description = "每秒受到2点物理伤害，连续患病30s后变得<color=#dd7d0e>虚弱</color>";
         book = BookNameEnum.FluStudy;
+        damageMode = gameObject.AddComponent<DamageMode>();
         damageMode.attackRange=new SingleSelector();
         isBad = true;
         isAll = true;
@@ -58,6 +59,7 @@ public class Ill : AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
         StopAllCoroutines();
     }
 }

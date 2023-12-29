@@ -48,10 +48,11 @@ public class GuoMin : AbstractAdjectives,IChongNeng
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
-
-        buffs.Add(aimCharacter.gameObject.AddComponent<Dizzy>());
-        buffs[0].maxTime = skillEffectsTime + dizzyAdd;
         
+         aimCharacter.gameObject.AddComponent<Dizzy>().maxTime= skillEffectsTime + dizzyAdd;
+        //buffs.Add();
+        //_b.maxTime =9 /*skillEffectsTime + dizzyAdd*/;
+      
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {

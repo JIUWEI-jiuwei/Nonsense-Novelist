@@ -19,18 +19,23 @@ public class FuHuo : AbstractBuff
         isBad = true;
         isAll = true;
 
-        if (GameObject.Find("所有角色的父物体").GetComponentsInChildren<FuHuo>().Length == 1)
+       
+      AbstractCharacter character = GetComponent<AbstractCharacter>();
+        if(character!=null)
+        { 
+            if (GameObject.Find("AllCharacter").GetComponentsInChildren<FuHuo>().Length == 1)
             AbstractVerbs.OnAwake += FuHuoSkill;
 
-        AbstractCharacter character = GetComponent<AbstractCharacter>();
-        if(character.attackA.GetType()==typeof(DamageMode))
-        {
-            FuHuoMode newMode= gameObject.AddComponent<FuHuoMode>();
-            newMode.attackRange = character.attackA.attackRange;
-            Destroy(character.attackA);
-            character.attackA = newMode;
+            if(character.attackA.GetType()==typeof(DamageMode))
+            {
+                FuHuoMode newMode= gameObject.AddComponent<FuHuoMode>();
+                newMode.attackRange = character.attackA.attackRange;
+                Destroy(character.attackA);
+                character.attackA = newMode;
+            }
+            FuHuoSkill();
         }
-        FuHuoSkill();
+ 
     }
 
     private void FuHuoSkill()
@@ -50,9 +55,11 @@ public class FuHuo : AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
+        if (GetComponent<AbstractCharacter>() == null) return;
        if(this.GetComponents<FuHuo>().Length<=1)//只有自己
         {
-            if(GameObject.Find("所有角色的父物体").GetComponentsInChildren<FuHuo>().Length<=1)
+            if(GameObject.Find("AllCharacter").GetComponentsInChildren<FuHuo>().Length<=1)
                 AbstractVerbs.OnAwake -= FuHuoSkill;
 
             AbstractCharacter character = GetComponent<AbstractCharacter>();

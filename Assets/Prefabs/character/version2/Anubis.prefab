@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837959891525375965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.48, y: -4, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children: []
   m_Father: {fileID: 3837959891539934792}
@@ -170,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.483819, y: 1.2522349}
+  m_Offset: {x: 0.44025803, y: 0.32273996}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9857545, y: 10.98853}
+  m_Size: {x: 5.94028, y: 8.606803}
   m_EdgeRadius: 0
 --- !u!114 &2320014479563054447
 MonoBehaviour:
@@ -345,7 +345,7 @@ MonoBehaviour:
   aAttackAudio: {fileID: 0}
   walkAudio: {fileID: 0}
   teXiao: {fileID: 0}
-  bullet: {fileID: 7617887590883620401, guid: c53e15fe0150c9d428a6254f04e23faf, type: 3}
+  bullet: {fileID: 5396089893936509290, guid: 767f667755cd0c247aa64b5b5d83c016, type: 3}
   camp: 0
   roleName: 
   trait: {fileID: 0}
@@ -361,6 +361,10 @@ MonoBehaviour:
   maxSkillsCount: 3
   energy: 0
   attackA: {fileID: 0}
+  skillText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5796725402490811840
 GameObject:
   m_ObjectHideFlags: 0

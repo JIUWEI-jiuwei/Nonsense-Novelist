@@ -38,7 +38,7 @@ public class JiXingHuXi : AbstractVerbs
 
 
         //为这个施法目标增加患病的buff
-        HuanBing _hb = gameObject.AddComponent<HuanBing>();
+        HuanBing_x _hb = gameObject.AddComponent<HuanBing_x>();
         buffs.Add(_hb);
         _hb.maxTime = 9f;
         _hb.effectTime = 8f;

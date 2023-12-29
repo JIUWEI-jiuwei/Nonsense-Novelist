@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class ShiQing : AbstractBuff
 {
-    static public string s_description = "提升20%< sprite name=\"psy\">";
+    static public string s_description = "提升20%<sprite name=\"psy\">";
     static public string s_wordName = "诗情";
 
 
@@ -14,7 +14,7 @@ public class ShiQing : AbstractBuff
     {
         base.Awake();
         buffName = "诗情";
-        description = "提升20%< sprite name=\"psy\">";
+        description = "提升20%<sprite name=\"psy\">";
         book = BookNameEnum.HongLouMeng;
         chara.psyMul += 0.2f;
 
@@ -23,6 +23,7 @@ public class ShiQing : AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
         chara.psyMul -= 0.2f;
     }
 }

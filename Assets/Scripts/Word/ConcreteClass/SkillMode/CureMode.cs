@@ -15,6 +15,7 @@ class CureMode : AbstractSkillMode
     {
         if (value > 0)
         {
+           
             aimCharacter.hp += (int)value;
         }
         return value;

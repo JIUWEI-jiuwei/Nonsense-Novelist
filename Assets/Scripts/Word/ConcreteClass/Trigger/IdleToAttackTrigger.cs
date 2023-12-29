@@ -15,7 +15,7 @@ namespace AI
         }
         public override bool Satisfy(MyState0 myState)
         {
-
+            if (myState.character.hp <= 0) return false;
             if (CharacterManager.instance.pause)
             {
                 return false;

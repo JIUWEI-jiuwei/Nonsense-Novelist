@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,13 @@ using UnityEngine.UI;
 public class CreateOneCharacter : MonoBehaviour
 {
     /// <summary>（手动挂）角色预制体池</summary>
-    /// 
+    [Header("（手动挂）角色位置父物体")]
+    public Transform charaPos;
+    private List<Image> LightNowOpen = new List<Image>();
+
+    [Header("（手动挂）灯光父物体")]
+    public Transform lightP;
+
     [Header("（手动挂）角色预制体池")]
     public GameObject[] charaPrefabs;
     private List<int> array = new List<int>();
@@ -20,37 +27,16 @@ public class CreateOneCharacter : MonoBehaviour
     [Header("（手动挂）外围墙体")]
     public GameObject wallP;
     private bool needUpdate = true;
-  
 
-    private void Awake()
-    {
-        wallP.SetActive(false);
-        Camera.main.GetComponent<CameraController>().SetCameraSizeTo(5);
-        //初始生成四个角色
-        for (int i = 0; i < 4; i++)
-        {
-            int number = UnityEngine.Random.Range(0, charaPrefabs.Length);
-            while (array.Contains(number))//去重
-            {
-                number = UnityEngine.Random.Range(0, charaPrefabs.Length);
-            }
-            array.Add(number);
+    [Header("战前角色大小(22)")]
+    public float beforeScale=25;
 
-            GameObject chara = Instantiate(charaPrefabs[number]);
-            chara.transform.SetParent(this.transform.GetChild(i));
-            chara.transform.position = new Vector3(transform.GetChild(i).position.x, transform.GetChild(i).position.y + CharacterMouseDrag.offsetY, transform.GetChild(i).position.z);
-
-            SpriteRenderer _sr = chara.GetComponentInChildren<AI.MyState0>().GetComponent<SpriteRenderer>();
-            //角色的显示图层恢复正常
-            _sr.sortingLayerName = "UICanvas";
-            _sr.sortingOrder = 3;
-        }
-    }
     private void Start()
     {
         CharacterManager.instance.pause = true;
-
-
+        Camera.main.GetComponent<CameraController>().SetCameraSize(4);
+        Camera.main.GetComponent<CameraController>().SetCameraYTo(-1.01f);
+        CreateNewCharacter(4);
     }
     private void Update()
     {
@@ -71,11 +57,10 @@ public class CreateOneCharacter : MonoBehaviour
     ///// <summary>发射器(手动)</summary>
     //public GameObject shooter;
 
-   
-    
+
 
     /// <summary>
-    /// 开始战斗
+    /// 开始战斗（click）
     /// </summary>
     public void CombatStart()
     {
@@ -106,10 +91,79 @@ public class CreateOneCharacter : MonoBehaviour
         }
         else if (isTwoSides && isAllCharaUp)//成功开始
         {
-            //
+
+            BackAnim();
+        }
+
+    }
+
+
+    bool animTrigger = false;
+    Coroutine lightDisappear = null;
+    WaitForFixedUpdate waitD = new WaitForFixedUpdate();
+
+    /// <summary>
+    /// 开始执行外部的关闭动画。包括镜头移动
+    /// </summary>
+    private void BackAnim()
+    {
+
+        CharacterManager.instance.SetSituationColorClear(3);
+        animator = GetComponent<Animator>();
+        animator.SetBool("back", true);
+
+        animTrigger = true;
+
+        if (lightDisappear != null) StopCoroutine(lightDisappear);
+        lightDisappear = StartCoroutine(LightDisappear());
+
+    }
+    /// <summary>
+    ///缓慢的改变灯光的颜色
+    /// </summary>
+    IEnumerator LightDisappear()
+    {
+  
+        float _speed = 1f;
+        while(LightNowOpen[0].color.a > 0.1f)
+        {
+            yield return waitD;
+            foreach (var it in LightNowOpen)
+            {
+                it.color -= Color.white* _speed;
+            }
+        }
+      
+    }
+    /// <summary>
+    /// 外部Animation调用，用于改变镜头
+    /// </summary>
+    public void CameraChange()
+    {
+         Camera.main.GetComponent<CameraController>().SetCameraSizeTo(3.57f);
+        Camera.main.GetComponent<CameraController>().SetCameraYTo(-1.59f);
+    }
+   WaitForFixedUpdate wait = new WaitForFixedUpdate();
+    private Animator animator;
+
+    /// <summary>
+    /// 外部Animattion上调用；表示animation结束，游戏正式开始
+    /// </summary>
+     public void AnimFinish()
+    {
+        if (!animTrigger) return;
+        animator.SetBool("back", false);
+        animTrigger = false; StartGame();
+    }
+
+
+    /// <summary>
+    /// 彻底开始游戏
+    /// </summary>
+    private void StartGame()
+    {
+         //开启枪体
             wallP.SetActive(true);
-            //camera改变
-            Camera.main.GetComponent<CameraController>().SetCameraSizeTo(3.7f);
 
             //将UICanvas隐藏
             GameObject.Find("UICanvas").SetActive(false);
@@ -122,40 +176,45 @@ public class CreateOneCharacter : MonoBehaviour
             // 将所有站位颜色隐藏
             foreach (Situation it in Situation.allSituation)
             {
-                
-                it.GetComponent<SpriteRenderer>().material.color = Color.clear;
+            if (it.GetComponent<CircleCollider2D>() != null)
+                it.GetComponent<CircleCollider2D>().radius = 0.4f;
+            it.GetComponent<SpriteRenderer>().color = Color.clear;
             }
-            // 所有角色不可拖拽
-            foreach (AbstractCharacter it in CharacterManager.instance.charas)
+            foreach (var it in lightP.GetComponentsInChildren<Image>())
+            {
+                it.color = Color.clear;
+            }
+
+
+        // 所有角色不可拖拽
+        foreach (AbstractCharacter it in CharacterManager.instance.charas)
             {
                 //角色的显示图层恢复正常
                 it.charaAnim.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
-                it.charaAnim.GetComponent<SpriteRenderer>().sortingOrder = 2 /*+(int) it.charaAnim.transform.parent.GetComponent<Situation>().number*/;
-                // it.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
-                //it.GetComponent<SpriteRenderer>().sortingOrder = 2;
-
-                //
+            it.charaAnim.GetComponent<SpriteRenderer>().sortingOrder = 2;
                 it.charaAnim.GetComponent<AI.MyState0>().enabled = true;
                 it.GetComponent<AbstractCharacter>().enabled = true;
                 it.gameObject.AddComponent(typeof(AfterStart));
                 Destroy(it.GetComponent<CharacterMouseDrag>());
             }
-
             //恢复暂停
             CharacterManager.instance.pause = false;
-
-        }
-
     }
 
+
+
 /// <summary>
-/// 外部调用。生成count数量的角色。
+/// 外部和start调用。生成count数量的角色。
 /// </summary>
 /// <param name="count"></param>
     public void CreateNewCharacter(int count)
-    {
+    {        
+        //重置角色
+        text.color = Color.black;
+        text.text = "将角色拖拽放入战场，进行相互对抗";
+        //关闭墙体，避免拖拽判定失误
+        wallP.SetActive(false);
         //生成角色
-       
         for (int i = 0; i < count; i++)
         {
             int number = UnityEngine.Random.Range(0, charaPrefabs.Length);
@@ -166,8 +225,9 @@ public class CreateOneCharacter : MonoBehaviour
             array.Add(number);
 
             GameObject chara = Instantiate(charaPrefabs[number]);
-            chara.transform.SetParent(this.transform.GetChild(i));
-            chara.transform.position = new Vector3(transform.GetChild(i).position.x, transform.GetChild(i).position.y + CharacterMouseDrag.offsetY, transform.GetChild(i).position.z);
+            chara.transform.SetParent(charaPos.GetChild(i));
+            chara.transform.position = new Vector3(charaPos.GetChild(i).position.x, charaPos.GetChild(i).position.y + CharacterMouseDrag.offsetY, charaPos.GetChild(i).position.z);
+            chara.transform.localScale = Vector3.one * beforeScale;
 
             SpriteRenderer _sr = chara.GetComponentInChildren<AI.MyState0>().GetComponent<SpriteRenderer>();
             //角色的显示图层恢复正常
@@ -178,18 +238,36 @@ public class CreateOneCharacter : MonoBehaviour
         //打开实时更新器
         needUpdate = true;
 
-   
+        //把站位和对应灯光的颜色恢复
+        OpenColor();
+    }
 
-        //打开站位颜色
-        foreach (Situation it in Situation.allSituation)
+
+    /// <summary>
+    ///把站位和对应灯光的颜色恢复
+    /// </summary>
+    private void OpenColor()
+    {
+        LightNowOpen.Clear();
+        for (int X = 0; X < Situation.allSituation.Length; X++)
         {
-            if (it.GetComponentInChildren<AbstractCharacter>() == null)
+            //下面的代码要求灯光和站位的子物体顺序完全一致；且灯光也要保留5.5的那个
+            if (Situation.allSituation[X].GetComponentInChildren<AbstractCharacter>() == null)
             {
-                it.GetComponent<SpriteRenderer>().material.color = Color.white;
+                Situation.allSituation[X].GetComponent<SpriteRenderer>().color = Color.white;
+                if (Situation.allSituation[X].GetComponent<CircleCollider2D>()!=null)
+                    Situation.allSituation[X].GetComponent<CircleCollider2D>().radius = 1.4f;
+                lightP.GetChild(X).GetComponent<Image>().color = Color.white;
+                LightNowOpen.Add(lightP.GetChild(X).GetComponent<Image>());
             }
-            //it.GetComponent<SpriteRenderer>().material.color = Color.white;
+            else
+            {
+                Situation.allSituation[X].GetComponent<SpriteRenderer>().color = Color.clear;
+                if (Situation.allSituation[X].GetComponent<CircleCollider2D>() != null)
+                    Situation.allSituation[X].GetComponent<CircleCollider2D>().radius = 0.4f;
+                lightP.GetChild(X).GetComponent<Image>().color = Color.clear;
+            }
+
         }
-
-
     }
 }

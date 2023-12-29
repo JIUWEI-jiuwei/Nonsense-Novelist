@@ -40,7 +40,7 @@ public class ChuanBoCollision : WordCollisionShoot
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
             AbstractCharacter[] nearCharacter = CharacterManager.instance.GetNearBy_C(character.situation);
 
-
+            character.CreateFloatWord(absWord.wordName, FloatWordColor.getWord, false);
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
@@ -72,7 +72,8 @@ public class ChuanBoCollision : WordCollisionShoot
                     if (cha != null)
                     {
                         AbstractAdjectives _adj = cha.gameObject.AddComponent(absWord.GetType()) as AbstractAdjectives;
-                        adj.UseAdj(cha);
+                        
+                        _adj.UseAdj(cha);
                     }
                 }
 

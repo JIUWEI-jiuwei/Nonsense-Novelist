@@ -326,6 +326,17 @@ public class NewGame : MonoBehaviour
                         InsWords(AllSkills.humanList_verb, WordKindEnum.verb);
                 }
                 break;
+            case BookNameEnum.Salome:
+                {
+                    if (i == 1)
+                        InsWords(AllSkills.shaLeMeiList_adj, WordKindEnum.adj);
+                    else if (i == 2)
+                        InsWords(AllSkills.shaLeMeiList_noun, WordKindEnum.noun);
+                    else
+                        InsWords(AllSkills.shaLeMeiList_verb, WordKindEnum.verb);
+
+                }
+                break;
         }
     }
 
@@ -508,6 +519,7 @@ public class NewGame : MonoBehaviour
         GameMgr.instance.SetCombatStartList(null);
         GameMgr.instance.AddBookList(nowBook[0]);
         GameMgr.instance.AddBookList(nowBook[1]);
+        GameMgr.instance.AddCombatStartList(AllSkills.commonList_all);
     }
 
     #endregion

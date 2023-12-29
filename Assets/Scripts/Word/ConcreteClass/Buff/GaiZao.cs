@@ -29,6 +29,7 @@ public class GaiZao : AbstractBuff
         if (count >= 7)
         {
             chara.maxHp += 260;
+            chara.CreateFloatWord(250, FloatWordColor.healMax, false);
             chara.atk += 15;
             record = chara.san;
             if (record >= 0)
@@ -38,6 +39,7 @@ public class GaiZao : AbstractBuff
         else if (count >= 5)
         {   
             chara.maxHp += 130;
+            chara.CreateFloatWord(130, FloatWordColor.healMax, false);
             chara.atk += 5;
             record = chara.san;
             chara.san = record / 2;
@@ -45,7 +47,8 @@ public class GaiZao : AbstractBuff
         else if (count >= 3)
         {
             chara.maxHp += 60;
- 
+            chara.CreateFloatWord(60, FloatWordColor.healMax, false);
+
         }
         else 
         { }
@@ -54,6 +57,7 @@ public class GaiZao : AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
         count = GetComponents<GaiZao>().Length;
         if (count >= 7)
         {

@@ -43,6 +43,12 @@ class ShaYu : AbstractVerbs
         aim.CreateFloatWord(
         skillMode.UseMode(useCharacter, 10+ useCharacter.san*useCharacter.sanMul*1, aim)
         , FloatWordColor.heal, true);
+
+        var _buffs = character.GetComponents<AbstractBuff>();
+        foreach (var _buff in _buffs)
+        {
+            if (_buff.isBad) Destroy(_buff);
+        }
     }
 
     public override string UseText()

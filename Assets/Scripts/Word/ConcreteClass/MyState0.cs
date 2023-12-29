@@ -48,13 +48,14 @@ namespace AI
 
         public void FixedUpdate()
         {
-
             nowState.Action(this);
         }
         IEnumerator EveryZeroOne()
         {
             while (true)
             {
+
+
                 nowState.CheckTrigger(this);//更新状态
                 yield return new WaitForSeconds(0.1f);
                 if(event_EveryZeroOne!=null)
@@ -67,12 +68,13 @@ namespace AI
         AI.MyState0 masterState = null;
         IEnumerator Every1Seconds()
         {
+         
             sa = transform.parent.GetComponentInChildren<ServantAbstract>();
             if(sa!=null) masterState= sa.masterNow.GetComponentInChildren<MyState0>();
 
             while (true)
             {
-                
+                if (!CharacterManager.instance.pause)
                 aim = FindAim();//不断寻找更近的敌人
                 yield return new WaitForSeconds(1);
             }

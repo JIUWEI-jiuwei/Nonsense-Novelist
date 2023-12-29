@@ -9,7 +9,7 @@ using UnityEngine;
 public class Renzhiguhua_buff : AbstractBuff
 {
     float record;
-    float remaindTime = 5;//提升效果的维持时长
+    float remaindTime = 10;//提升效果的维持时长
     AbstractCharacter usingChara;
 
     float timePer = 0;
@@ -81,8 +81,8 @@ public class Renzhiguhua_buff : AbstractBuff
     /// </summary>
     public void AddEffect()
     {
-        print(usingChara.wordName + "的攻击与精神提升5%;");
+        //print(usingChara.wordName + "的攻击与精神提升5%;");
         usingChara.hp *= 1.05f;
-        usingChara. psy*= 1.05f;
+        usingChara. psyMul+= 0.05f;
     }
 }

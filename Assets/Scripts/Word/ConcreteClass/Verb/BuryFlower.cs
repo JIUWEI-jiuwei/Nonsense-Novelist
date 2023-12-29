@@ -43,6 +43,8 @@ class BuryFlower : AbstractVerbs
        
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<HuaBan>());
         buffs[0].maxTime = skillEffectsTime;
+
+
        
     }
 

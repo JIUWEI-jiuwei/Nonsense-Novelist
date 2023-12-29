@@ -21,6 +21,7 @@ using UnityEngine;
         trait=gameObject.AddComponent<Sentimental>();
         roleName = "思潮";
         attackInterval = 2.2f;
+        description = "暂无文案";
     }
     private void Start()
     {

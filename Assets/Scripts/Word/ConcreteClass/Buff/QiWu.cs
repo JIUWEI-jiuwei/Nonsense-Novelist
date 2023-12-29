@@ -24,5 +24,6 @@ public class QiWu : AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
     }
 }

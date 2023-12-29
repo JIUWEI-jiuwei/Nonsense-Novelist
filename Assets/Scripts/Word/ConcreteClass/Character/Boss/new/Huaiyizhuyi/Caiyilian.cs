@@ -23,8 +23,8 @@ public class Caiyilian : AbstractVerbs
         wordName = "猜疑链";
         bookName = BookNameEnum.HongLouMeng;
         description = "让被释放此技能的角色，不断攻击友方或敌方任意角色，持续5秒，伤害结果降低50%";
-        skillMode = gameObject.AddComponent<UpPSYMode>();
-        skillEffectsTime = Mathf.Infinity;
+        skillMode = gameObject.AddComponent<DamageMode>();
+        skillEffectsTime = 5;
         rarity = 3;
         needCD = 0;
     }
@@ -46,8 +46,9 @@ public class Caiyilian : AbstractVerbs
 
 
         //为这个施法目标增加CAIYI的buff
-        buffs.Add(_aim[0].gameObject.AddComponent<CaiYi>());
-        buffs[0].maxTime = skillEffectsTime;
+        var _b = _aim[0].gameObject.AddComponent<CaiYi>();
+        buffs.Add(_b);
+        _b.maxTime = skillEffectsTime;
 
         //打开只用一次的开关
         isUsed = true;

@@ -15,15 +15,16 @@ public class XuWu_YunSu : WordCollisionShoot
     Coroutine coroutineTimer=null;
 
     Color color = Color.blue;
+    List<string> charaName = new List<string>();
     public override void Awake()
     {
         base.Awake();
 
         color.a = 100;
-        this.GetComponent<SpriteRenderer>().color= color;
+        this.GetComponent<SpriteRenderer>().color+= new Color(color.r, color.g, color.b, 0); ;
 
 
-        this.gameObject.GetComponent<Collider2D>().sharedMaterial = Resources.Load<PhysicsMaterial2D>("Other/word_noF");
+        //this.gameObject.GetComponent<Collider2D>().sharedMaterial = Resources.Load<PhysicsMaterial2D>("Other/word_noF");
         this.gameObject.GetComponent<Collider2D>().isTrigger = true;
         rb = GetComponent<Rigidbody2D>();
 
@@ -52,7 +53,7 @@ public class XuWu_YunSu : WordCollisionShoot
 
 IEnumerator Timer()
 {
-    yield return new WaitForSeconds(10);
+    yield return new WaitForSeconds(6);
     Destroy(this.gameObject);
     print("虚无纸条摧毁");
         StopAllCoroutines();
@@ -74,13 +75,19 @@ IEnumerator Timer()
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
 
-            //给absWord赋值
-            //absWord = Shoot.abs;
-            print(absWord.wordName + "被虚无给了角色(这里有bug)" + character.name);
-
-            //判断该词条是形容词/动词/名词
-            //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
-            if (absWord.wordKind == WordKindEnum.verb)
+            if (charaName.Contains(character.wordName))
+            {
+            }
+            else
+            {
+                charaName.Add(character.wordName);
+                //给absWord赋值
+                //absWord = Shoot.abs;
+            
+                character.CreateFloatWord(absWord.wordName, FloatWordColor.getWord, false);
+                //判断该词条是形容词/动词/名词
+                //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
+                if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
                
@@ -102,6 +109,9 @@ IEnumerator Timer()
                 noun.UseItem(collision.gameObject.GetComponent<AbstractCharacter>());
                
             }
+
+            }
+
         }
 
     }

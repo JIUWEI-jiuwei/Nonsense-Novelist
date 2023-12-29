@@ -57,6 +57,8 @@ public class WordInformation : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
     {
         if (SceneManager.GetActiveScene().name == "ShootCombat")
             isCombatScene = true;
+
+
     }
     public void ChangeInformation(AbstractWord0 word)
     {

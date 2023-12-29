@@ -38,6 +38,7 @@ public class RenZao : AbstractAdjectives
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         aimCharacter.maxHp += 20;
+        aimCharacter.CreateFloatWord(20, FloatWordColor.healMax, false);
     }
 
     

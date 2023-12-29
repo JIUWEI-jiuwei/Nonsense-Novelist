@@ -23,9 +23,10 @@ class RiLunGuaZhui : AbstractItems
     {
         base.UseItem(chara);
         //生命上限+30，恢复+3
-
+        chara.cure += 3;
         chara.maxHp += 30;
-       
+        chara.CreateFloatWord(30, FloatWordColor.healMax, false);
+
     }
 
     public override void UseVerb()
@@ -38,5 +39,6 @@ class RiLunGuaZhui : AbstractItems
     {
         base.End();
         aim.maxHp -= 5;
+        aim.cure -= 3;
     }
 }

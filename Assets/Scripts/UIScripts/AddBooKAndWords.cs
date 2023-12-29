@@ -41,12 +41,34 @@ public class AddBooKAndWords : MonoBehaviour
     /// </summary>
     void GetBook()
     {
+        int[] ds= new int[3]{ 0,0,0};
+        book[0] = BookNameEnum.Salome;
+        book[1] = BookNameEnum.EgyptMyth;
+        book[2] = BookNameEnum.ZooManual;
         //获取没用的书
         //这里先随便简写
+        while (GameMgr.instance.HasBook(book[0]))
+        {
+            ds[0] = UnityEngine.Random.Range(2, System.Enum.GetNames(typeof(BookNameEnum)).Length);
+            book[0] = (BookNameEnum)int.Parse(ds[0].ToString()); 
+            while (GameMgr.instance.HasBook(book[1]) || (book[1]==book[0]))
+            {
+                ds[1] = UnityEngine.Random.Range(2, System.Enum.GetNames(typeof(BookNameEnum)).Length);
+                book[1] = (BookNameEnum)int.Parse(ds[1].ToString());
+                print(book[1] + "ds[1]=" + ds[1]);
 
-        book[0] = BookNameEnum.HongLouMeng;
-        book[1] = BookNameEnum.CrystalEnergy;
-        book[2] = BookNameEnum.ZooManual;
+                 while (GameMgr.instance.HasBook(book[2]) || (book[2] == book[0])|| (book[2] == book[1]))
+                 {
+                    ds[2] = UnityEngine.Random.Range(2, System.Enum.GetNames(typeof(BookNameEnum)).Length);
+                    book[2] = (BookNameEnum)int.Parse(ds[2].ToString());
+                    print(book[2] + "ds[2]=" + ds[2]);
+                    }
+            } 
+        }
+
+        print(book[0] + "ds[0]=====" + ds[0]);
+        print(book[2] + "ds[2]=====" + ds[2]);
+        print(book[1] + "ds[1]=====" + ds[1]);
         //刷新button的图样。
         chooseBooksParent.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("WordImage/Book/" + book[0].ToString());
         chooseBooksParent.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>("WordImage/Book/" + book[1].ToString());
@@ -135,7 +157,13 @@ public class AddBooKAndWords : MonoBehaviour
                     InsWords(AllSkills.humanList_verb, WordKindEnum.verb);
                 }
                 break;
-
+            case BookNameEnum.Salome:
+                {
+                    InsWords(AllSkills.shaLeMeiList_adj, WordKindEnum.adj);
+                    InsWords(AllSkills.shaLeMeiList_noun, WordKindEnum.noun);
+                    InsWords(AllSkills.shaLeMeiList_verb, WordKindEnum.verb);
+                }
+                break;
         }
 
 
@@ -223,8 +251,8 @@ public class AddBooKAndWords : MonoBehaviour
     /// 玩家在查看词条界面点击了按钮【确认】，回到游戏，界面消失，加入词条
     /// </summary>
     public void ClickYes()
-    { 
-    
+    {
+        GameMgr.instance.AddBookList(book[bookOriNumber]);
     }
 
     /// <summary>

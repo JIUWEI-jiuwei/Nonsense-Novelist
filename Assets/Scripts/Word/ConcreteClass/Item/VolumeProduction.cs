@@ -33,13 +33,14 @@ class VolumeProduction : AbstractItems
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
+        buffs.Add(gameObject.AddComponent<GaiZao>());
+        buffs[0].maxTime = Mathf.Infinity;
     }
 
     public override void UseVerb()
     {
         base.UseVerb();
-        buffs.Add(gameObject.AddComponent<GaiZao>());
-        buffs[0].maxTime = Mathf.Infinity;
+   
     }
 
     public override void End()

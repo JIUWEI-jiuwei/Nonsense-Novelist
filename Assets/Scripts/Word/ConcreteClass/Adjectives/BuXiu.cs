@@ -49,6 +49,8 @@ public class BuXiu : AbstractAdjectives
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         aimCharacter.maxHp += 60;
+        aim.CreateFloatWord(60, FloatWordColor.healMax, false);
+
     }
 
     

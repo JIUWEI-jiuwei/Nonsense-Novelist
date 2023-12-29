@@ -51,6 +51,7 @@ public class ZhongDu : AbstractAdjectives
     public override void End()
     {
         base.End();
+        
     }
 
 }

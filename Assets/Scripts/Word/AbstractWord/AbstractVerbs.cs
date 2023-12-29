@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// 抽象动词类（技能）
@@ -97,15 +93,17 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     virtual public void UseVerb(AbstractCharacter useCharacter)
     {
         isUsing = true;
-        CD = 0;
         stateInfo=useCharacter.charaAnim.anim.GetCurrentAnimatorStateInfo(0);
     }
-
+    public void CDZero()
+    {
+        CD = 0;
+    }
     private AnimatorStateInfo stateInfo;
 
     virtual public void FixedUpdate()
     {
-        if(isUsing && stateInfo.normalizedTime>= 0.9f )//播放完特效即为使用完毕
+        if(isUsing /*&& stateInfo.normalizedTime >= 0.9f*/)//播放完特效即为使用完毕
         {
             isUsing=false;
         }
@@ -117,6 +115,7 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     /// <returns>是否冷却完毕</returns>
     virtual public bool CalculateCD()
     {
+        if (needCD == 0) return false;
 
         if (CD >= needCD)
         {

@@ -39,10 +39,16 @@ public class CaiYi : AbstractBuff
 
     private void OnDestroy()
     {
-        //对目标传导此buff
+
+        if (chara.myState == null || chara.myState.aim== null) return;
+        //为这个施法目标增加CAIYI的buff
+        var _b = chara.myState.aim.gameObject.AddComponent<CaiYi>();
+        _b.maxTime = 10;
+    
 
         //随机目标开关关闭；结束效果时再关闭此开关
         chara.SetAimRandom(false);
+        chara.myState.SetUnchangeAim(null);
         //攻击恢复原装
         chara.atk = orgAtk;
     }

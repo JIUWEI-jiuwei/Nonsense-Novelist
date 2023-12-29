@@ -32,11 +32,31 @@ class JiShengChong : AbstractItems
         return _s;
     }
 
+    bool hasAdd = false;
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
         chara.def-=3;
+
+        if (hasAdd) return;
+        //为自身和所有随从，增加平A附加效果
+        var _acs = GetComponentsInChildren<AbstractCharacter>();
+        foreach (var _ac in _acs)
+        {
+            _ac.event_AttackA += AddToAttackA;
+        }
+        hasAdd = true;
     }
+
+    public void AddToAttackA()
+    {
+        var _ac = GetComponent<AbstractCharacter>();
+        //为攻击目标增加Buff
+        var buff = _ac.myState.aim.gameObject.AddComponent<Ill>();
+        buffs.Add(buff);
+        buff.maxTime = 12;
+    }
+
 
     public override void UseVerb()
     {

@@ -39,7 +39,11 @@ public class WordCollisionShoot : MonoBehaviour
 
            
                 absWord = this.GetComponent<AbstractWord0>();
-           //
+            if (absWord == null) return;
+
+
+
+            character.CreateFloatWord(absWord.wordName , FloatWordColor.getWord, false);
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
@@ -63,6 +67,9 @@ public class WordCollisionShoot : MonoBehaviour
            
                 Destroy(this.gameObject);
             }
+
+           
+     
         }
     }
 

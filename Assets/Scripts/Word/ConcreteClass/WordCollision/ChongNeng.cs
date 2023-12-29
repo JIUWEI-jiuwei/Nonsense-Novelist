@@ -17,7 +17,7 @@ public class ChongNeng : WordCollisionShoot
     public override void Awake()
     {
         base.Awake();
-        this.GetComponent<SpriteRenderer>().color = color;
+        this.GetComponent<SpriteRenderer>().color += new Color(color.r, color.g, color.b, 0); ;
         absWord = Shoot.abs;
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,7 +40,7 @@ public class ChongNeng : WordCollisionShoot
         if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
-
+            character.CreateFloatWord(absWord.wordName, FloatWordColor.getWord, false);
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)

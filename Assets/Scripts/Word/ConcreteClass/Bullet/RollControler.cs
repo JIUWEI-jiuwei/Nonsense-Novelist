@@ -19,16 +19,23 @@ public class RollControler : MonoBehaviour
 
             Vector2 dic1 = Vector2.down;
             Vector2 dic2 = transform.position - clickPos;
-
+            //这一段会让鼠标在发射器下方时，映射到上方
+            //var y = dic2.y;
+            //dic2.y = -Mathf.Abs(y);
             Vector3 v3 = Vector3.Cross(dic1, dic2);
 
             float angle = 0;
-            if (v3.z > 0)
-                angle = Vector3.Angle(dic1, dic2);
-            else
-                angle = 360 - Vector3.Angle(dic1, dic2);
+        if (v3.z > 0)
+        {
+            angle = Vector3.Angle(dic1, dic2); transform.eulerAngles = new Vector3(0, 0, /*angle*/ Mathf.Clamp (angle,0, 90));
+        }
+        else
+        {
+            angle = 360 - Vector3.Angle(dic1, dic2); transform.eulerAngles = new Vector3(0, 0, /*angle*/ Mathf.Clamp(angle, 260, 360));
+        }
+                
 
-            transform.eulerAngles = new Vector3(0, 0, angle);
+       
     }
 
 }

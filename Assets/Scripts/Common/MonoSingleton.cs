@@ -44,7 +44,12 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
         {
             m_Instance = this as T;
         }
-        DontDestroyOnLoad(m_Instance.gameObject);
+        else
+        {
+            if(m_Instance!=this)
+            { Destroy(this); }
+        }
+       // DontDestroyOnLoad(m_Instance.gameObject);
     }
 
     public virtual void Init() {  }

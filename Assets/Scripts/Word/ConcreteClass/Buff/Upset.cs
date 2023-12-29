@@ -17,13 +17,18 @@ public class Upset : AbstractBuff
         description = "停止普通攻击";
         book = BookNameEnum.allBooks;
         isBad = true;
-        state=GetComponent<AttackState>();
+        state=GetComponentInChildren<AttackState>();
+    
     }
 
     public override void Update()
     {
         base.Update();
         state.attackAtime = 0;//无法平A
+    }
+    private void OnDestroy()
+    {
+        base.OnDestroy();   
     }
 
 }

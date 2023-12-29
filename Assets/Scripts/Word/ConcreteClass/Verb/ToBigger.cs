@@ -34,6 +34,7 @@ class ToBigger : AbstractVerbs
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
         useCharacter.maxHp += 20;
+        useCharacter.CreateFloatWord(20, FloatWordColor.healMax, false);
     }
 
     public override string UseText()

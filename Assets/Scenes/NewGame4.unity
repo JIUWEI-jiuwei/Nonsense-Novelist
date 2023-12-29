@@ -7177,7 +7177,6 @@ GameObject:
   - component: {fileID: 1952062518}
   - component: {fileID: 1952062519}
   - component: {fileID: 1952062520}
-  - component: {fileID: 1952062521}
   m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
@@ -7583,20 +7582,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1952062521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952062515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c32ede0d79bb2c43926d646fe357043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 1952062520}
-  currentScene: Combat
 --- !u!1 &1958198247
 GameObject:
   m_ObjectHideFlags: 0
@@ -9125,6 +9110,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6391966969221692592}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: EnterNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 901299222}
+        m_TargetAssemblyTypeName: NewGame, Assembly-CSharp
+        m_MethodName: CombatStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -25,6 +25,7 @@ public class DianDao : AbstractBuff
 
     private void OnDestroy()
     {
+        base.OnDestroy();
         float record = chara.atk;
         chara.atk = chara.psy;
         chara.psy = record;

@@ -19,7 +19,7 @@ public class SanShe : WordCollisionShoot
     {
         base.Awake();
 
-        this.GetComponent<SpriteRenderer>().color = color;
+        this.GetComponent<SpriteRenderer>().color +=new Color( color.r,color.g,color.b,0);
 
     }
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -75,7 +75,8 @@ public class SanShe : WordCollisionShoot
                 clone.transform.SetParent(this.transform.parent);
                 if (num == 0)
                 {
-
+                    Destroy(clone.GetComponent<SanShe>());
+                    Destroy(clone.GetComponent<Common>());
                     clone.GetComponent<SpriteRenderer>().color =color + new Color(0.4f, 0.4f, 0.4f, 0);
 
                     clone.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, 60) * reflectionDirection;
@@ -83,6 +84,8 @@ public class SanShe : WordCollisionShoot
                 }
                 else if (num == 1)
                 {
+                    Destroy(clone.GetComponent<SanShe>());
+                    Destroy(clone.GetComponent<Common>());
                     clone.GetComponent<SpriteRenderer>().color = color- new Color(0.4f, 0.4f, 0.4f, 0);
                   
                     clone.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, -60) * reflectionDirection;

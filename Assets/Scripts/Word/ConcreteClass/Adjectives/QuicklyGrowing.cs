@@ -29,6 +29,7 @@ public class QuicklyGrowing : AbstractAdjectives
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         aimCharacter.hp += 30;
+        aimCharacter.CreateFloatWord(30, FloatWordColor.heal, false);
     }
 
     float time;
@@ -40,7 +41,7 @@ public class QuicklyGrowing : AbstractAdjectives
 
     public override void End()
     {
-        aim.hp -= 30;
+        //aim.hp -= 30;
         base.End();
     }
 

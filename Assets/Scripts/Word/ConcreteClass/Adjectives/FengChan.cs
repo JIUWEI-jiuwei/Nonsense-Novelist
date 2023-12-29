@@ -43,6 +43,7 @@ public class FengChan : AbstractAdjectives
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
         aimCharacter.maxHp += 30;
+        aimCharacter.CreateFloatWord(30, FloatWordColor.healMax, false);
 
     }
 

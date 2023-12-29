@@ -21,6 +21,7 @@ namespace AI
         }
         override public void Awake()
         {
+
             base.Awake();
             id = StateID.dead;
             triggers.Add(gameObject.AddComponent<ReLifeTrigger>());
@@ -28,12 +29,26 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
-            var _sa = this.transform.parent.GetComponent<ServantAbstract>();
-            //如果是随从，额外手续
-            if (_sa != null)
+    
+            AbstractCharacter myc = this.transform.parent.GetComponent<AbstractCharacter>();
+            bool lastOne = true;
+            if (this.transform.parent.GetComponent<AbstractCharacter>())
             {
-                _sa.masterNow.DeleteServant(_sa.gameObject);
+                  foreach (var _ac in CharacterManager.instance.GetComponentsInChildren<AbstractCharacter>())
+                {
+                    if ((_ac.camp == myc.camp)&& (_ac != myc))lastOne = false;
+                } 
             }
+
+
+            if (lastOne&&myc.camp!=CampEnum.stranger)
+            { CharacterManager.instance.EndGame(); }
+            //var _sa = this.transform.parent.GetComponent<ServantAbstract>();
+            ////如果是随从，额外手续
+            //if (_sa != null)
+            //{
+            //    _sa.masterNow.DeleteServant(_sa.gameObject);
+            //}
             //临时去掉了这个if
             //if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
             { 

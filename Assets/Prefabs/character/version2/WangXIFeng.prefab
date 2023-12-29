@@ -166,7 +166,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6070895, y: 0.76107097}
+  m_Offset: {x: 0.14216793, y: 1.0313482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -177,7 +177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.7421064, y: 9.051571}
+  m_Size: {x: 3.4892323, y: 8.271782}
   m_EdgeRadius: 0
 --- !u!114 &1692046513
 MonoBehaviour:
@@ -201,25 +201,29 @@ MonoBehaviour:
   wordCollisionShoots: []
   myState: {fileID: 0}
   characterID: 0
-  gender: 0
   source: {fileID: 0}
   aAttackAudio: {fileID: 8300000, guid: 7afe0acd1b012624eab2f7d57e49a27b, type: 3}
   walkAudio: {fileID: 8300000, guid: 336cc2b14d4b27641a1c4408bd39c99d, type: 3}
   teXiao: {fileID: 0}
-  bullet: {fileID: 3424991713766038287, guid: 9cfb782ead826aa4883ddaac0089618e, type: 3}
+  bullet: {fileID: 5396089893936509290, guid: 767f667755cd0c247aa64b5b5d83c016, type: 3}
   camp: 0
   roleName: 
+  gender: 0
   trait: {fileID: 0}
   criticalChance: 0
   multipleCriticalStrike: 0
-  attackInterval: 0
-  situation: {fileID: 0}
-  attackDistance: 0
-  charaAnim: {fileID: 0}
   dizzyTime: 0
   skills: []
   servants: []
   maxSkillsCount: 3
+  skillText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  attackInterval: 0
+  situation: {fileID: 0}
+  attackDistance: 0
+  charaAnim: {fileID: 0}
   energy: 0
   attackA: {fileID: 0}
 --- !u!82 &5361354823142773629
@@ -770,9 +774,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanTeXIao
       objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_Size.x
+      value: 12.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_Size.y
+      value: 11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734210, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3834
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3834
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3834
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalPosition.x
@@ -780,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0999997
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6051212354406734211, guid: 512bfb6a1cadbdb4891a2704d6878f23, type: 3}
       propertyPath: m_LocalPosition.z

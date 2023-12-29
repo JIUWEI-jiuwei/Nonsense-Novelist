@@ -49,8 +49,9 @@ class BaiShuijing: AbstractItems,IJiHuo
         }
         else
         {
-            chara.CreateFloatWord(20, FloatWordColor.heal, false);
+            chara.CreateFloatWord(20, FloatWordColor.healMax, false);
             chara.maxHp += 20;
+
         }
     }
 

@@ -36,7 +36,7 @@ public class ShenYouHuanJing : AbstractAdjectives
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
-
+    
         buffs.Add(aimCharacter.gameObject.AddComponent<DianDao>());
         buffs[0].maxTime = skillEffectsTime;
     }

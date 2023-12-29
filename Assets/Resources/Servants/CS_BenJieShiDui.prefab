@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723217449379156723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.76, y: -0.59, z: 0}
+  m_LocalScale: {x: 1.3618, y: 1.3618, z: 1.3618}
   m_Children: []
   m_Father: {fileID: 3837959891539934792}
   m_RootOrder: 4
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 626459831
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 96b66feb908b7be469bab0743829169a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe0aa5a00db465946bfb58ec8e7801bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723217449379156723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 01606da8a4de5374385e4372192aaf0c, type: 2}
   m_CullingMode: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 4668040044585450584}
   m_Layer: 8
   m_Name: CS_BenJieShiDui
-  m_TagString: character
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.3699187, y: -0.42455006}
+  m_Offset: {x: -0.026842594, y: -4.5112267}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -281,7 +281,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.441622, y: 9.48}
+  m_Size: {x: 4.836603, y: 0.81657267}
   m_EdgeRadius: 0
 --- !u!82 &7715683749898041194
 AudioSource:
@@ -401,7 +401,6 @@ MonoBehaviour:
   wordCollisionShoots: []
   myState: {fileID: 1531393132438752471}
   characterID: 0
-  gender: 0
   source: {fileID: 0}
   aAttackAudio: {fileID: 0}
   walkAudio: {fileID: 0}
@@ -409,17 +408,22 @@ MonoBehaviour:
   bullet: {fileID: 5396089893936509290, guid: 767f667755cd0c247aa64b5b5d83c016, type: 3}
   camp: 0
   roleName: 
+  gender: 0
   trait: {fileID: 0}
   criticalChance: 0
   multipleCriticalStrike: 2
-  attackInterval: 2.2
-  situation: {fileID: 0}
-  attackDistance: 99
-  charaAnim: {fileID: 0}
   dizzyTime: 0
   skills: []
   servants: []
   maxSkillsCount: 3
+  skillText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  attackInterval: 2.2
+  situation: {fileID: 0}
+  attackDistance: 99
+  charaAnim: {fileID: 0}
   energy: 0
   attackA: {fileID: 0}
   masterNow: {fileID: 0}

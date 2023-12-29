@@ -26,6 +26,9 @@ public class CharacterMouseDrag : MonoBehaviour
     private Color colorOnMouseExit = new Color((float)255 / 255, (float)255 / 255, (float)255 / 255, (float)255 / 255);
 
     private SpriteRenderer sr;
+
+    //角色战后大小
+    private float afterScale=0.28f;
     private void Start()
     {
         nowParentTF = transform.parent;
@@ -96,22 +99,27 @@ public class CharacterMouseDrag : MonoBehaviour
         {
            
 
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Situation"))
+            if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Situation"))&& (hit.collider.transform.childCount==0))
             {
+
+                var temp = lastParentTF;
                 //角色拖拽到站位上且位置校准
                 lastParentTF = nowParentTF;
                 nowParentTF = hit.transform;
                 this.transform.SetParent(nowParentTF);
+                 if(temp == null) this.transform.localScale = Vector3.one * afterScale;
+                
                 transform.position = new Vector3(nowParentTF.position.x, nowParentTF.position.y + offsetY, nowParentTF.position.z);
 
                 //隐藏/恢复站位颜色（透明度为0
-                nowParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = Color.clear;
+    
                 if (lastParentTF.gameObject.GetComponent<SpriteRenderer>())
-                    lastParentTF.gameObject.GetComponent<SpriteRenderer>().material.color = colorOnMouseOver;
+                    lastParentTF.gameObject.GetComponent<SpriteRenderer>().color = colorOnMouseExit;
+                nowParentTF.gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
 
 
-                AbstractCharacter c = this.GetComponent<AbstractCharacter>();
                 //根据站位给角色站位赋值
+                AbstractCharacter c = this.GetComponent<AbstractCharacter>();   
                 c.situation = hit.collider.gameObject.GetComponent<Situation>();
 
                 //根据站位给角色阵营赋值
@@ -120,7 +128,7 @@ public class CharacterMouseDrag : MonoBehaviour
                     //图片翻转方向
                     if (c.camp == CampEnum.right)
                     {
-                        this.GetComponent<AbstractCharacter>().turn();
+                        this.GetComponent<AbstractCharacter>().turn(); 
                     }
                     c.camp = CampEnum.left;
                     //去重
@@ -129,20 +137,25 @@ public class CharacterMouseDrag : MonoBehaviour
                         CharacterManager.charas_right.Remove(c);
                     }
                     //加入阵营
-                    CharacterManager.charas_left.Add(c);
+                    if (!CharacterManager.charas_left.Contains(c)) CharacterManager.charas_left.Add(c);
                 }
                 else
                 {
                     if (c.camp != CampEnum.right)
                     {
                         this.GetComponent<AbstractCharacter>().turn();
+             
                     }
                     c.camp = CampEnum.right;
                     if (CharacterManager.charas_left.Contains(c)) CharacterManager.charas_left.Remove(c);
-                    CharacterManager.charas_right.Add(c);
+                    if (!CharacterManager.charas_right.Contains(c)) CharacterManager.charas_right.Add(c);
                 }
             }
+            else//没有检测到站位
+            {
+                transform.position = new Vector3(nowParentTF.position.x, nowParentTF.position.y + offsetY, nowParentTF.position.z);
 
+            }
         }
         else//没有检测到站位
         {

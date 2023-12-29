@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 class Anubis : AbstractCharacter
 {
+    float hpadd = 0;
+    float timer = 0;
     override public void Awake()
     {
         base.Awake();
@@ -24,29 +26,34 @@ class Anubis : AbstractCharacter
         attackInterval = 2.2f;
         attackDistance = 200;
         brief = "";
-        description = "v";
+        description = "暂无文案";
 
-        StartCoroutine(RoleEffect());
     }
 
     /// <summary>
     /// 每10秒，恢复5%最大生命值
     /// </summary>
     /// <returns></returns>
-    IEnumerator RoleEffect()
+    void FixedUpdate()
     {
-        while (true)
+        if (CharacterManager.instance.pause) return;
+
+        timer += Time.deltaTime;
+
+
+        if (timer > 10)
         {
-            yield return new WaitForSeconds(10);
-            hp += (maxHp * 0.05f * maxHpMul);
+            timer = 0;
 
+            hpadd = (maxHp * 0.05f * maxHpMul);
+            hp += hpadd;
+            CreateFloatWord(hpadd, FloatWordColor.heal, false);
         }
+            
+        
     }
 
-    public void OnDestroy()
-    {
-        StopAllCoroutines();
-    }
+  
     public override string ShowText(AbstractCharacter otherChara)
     {
         if (otherChara != null)

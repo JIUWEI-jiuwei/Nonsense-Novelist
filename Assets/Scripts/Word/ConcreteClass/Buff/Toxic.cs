@@ -19,6 +19,7 @@ public class Toxic : AbstractBuff
         description = "每秒受到5点物理伤害";
         book = BookNameEnum.allBooks;
         //
+        damageMode = gameObject.AddComponent<DamageMode>();
         damageMode.attackRange=new SingleSelector();
         isBad = true;
     }
@@ -31,7 +32,7 @@ public class Toxic : AbstractBuff
         if(nowTime>1)
         {
             nowTime= 0;
-            damageMode.UseMode(useCharacter!=null?useCharacter:chara, 5* (1 - chara.def / (chara.def + 20)), chara);
+            damageMode.UseMode((useCharacter!=null?useCharacter:chara), 5* (1 - chara.def / (chara.def + 20)), chara);
         }
     }
 }

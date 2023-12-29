@@ -27,12 +27,13 @@ public class ShenHuanFeiYan : AbstractAdjectives
     {
         string[] _s = new string[2];
         _s[0] = "ChuanBoCollision";
-        _s[1] = "HuanBing";
+        _s[1] = "Ill";
         return _s;
     }
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
         base.UseAdj(aimCharacter);
+       
         ////中心得到传播
         //buffs.Add(aimCharacter.gameObject.AddComponent<ChuanBo>());
         ////相邻得到患病
@@ -42,7 +43,7 @@ public class ShenHuanFeiYan : AbstractAdjectives
         //    buffs.Add(n.gameObject.AddComponent<Ill>());
         //}
         ////中心得到患病
-        buffs.Add(aimCharacter.gameObject.AddComponent<HuanBing>());
+        buffs.Add(aimCharacter.gameObject.AddComponent<Ill>());
         buffs[0].maxTime = skillEffectsTime;
 
     }

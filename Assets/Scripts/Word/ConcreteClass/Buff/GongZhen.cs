@@ -20,16 +20,9 @@ public class GongZhen : AbstractBuff
         base.Awake();
         buffName = "共振";
         book = BookNameEnum.CrystalEnergy;
-        description = "场上每有4个“共振”，四维+1，生命上限+30";
+        description = "场上每有4个“共振”，四维+1，<sprite name=\"hp\">+30";
+   
 
-        count = GetComponents<GongZhen>().Length;
-        num = Mathf.FloorToInt(count / 4);
-        record = num;
-        chara.maxHp += 30 * num;
-        chara.def += 1 * num;
-        chara.san += 1 * num;
-        chara.psy += 1 * num;
-        chara.atk += 1 * num;
         //if (this.GetComponents<GongZhen>().Length == 1)
         //{
         //    num++;
@@ -39,20 +32,45 @@ public class GongZhen : AbstractBuff
         //{
         //    gz.NumChanged();
         //}
+        GZCountChange();
     }
-
-    //public void NumChanged()
-    //{
-    //    chara.atk += num - record;
-    //    chara.def += num - record;
-    //    chara.psy += num - record;
-    //    chara.san += num - record;
-    //    record = num;
-    //}
+    GameObject allCha;
+    GongZhen[] allGZ;
+    private void GZCountChange()
+    {
+        //每个共振增加、删除时，所有共振都执行一次数量检测+值变化
+        allCha = CharacterManager.instance.gameObject;
+        allGZ = allCha.GetComponentsInChildren<GongZhen>();
+        num = Mathf.FloorToInt(allGZ.Length / 4);
+       // print("现在场上有" + allGZ.Length + "个共振，也就是" + num + "的效果");
+        foreach (var _gz in allGZ)
+        {
+            _gz.NumChanged(num);
+        }
+    }
+    public void NumChanged(int _num)
+    {
+        num = _num;
+        if (Mathf.Abs(num - record) >= 1)
+        {
+           
+            chara.atk += (num - record);
+            chara.def += (num - record);
+            chara.psy += (num - record);
+            chara.san += (num - record);
+            chara.maxHp += (num - record) * 4;
+            chara.CreateFloatWord((num-record)*4, FloatWordColor.healMax, false);
+            record = num;
+        }
+       
+    }
 
 
     private void OnDestroy()
     {
+        base.OnDestroy();
+        if (GetComponent<AbstractCharacter>() == null) return;
+        GZCountChange();
         //chara.atk -= record;
         //chara.def -= record;
         //chara.psy -= record;

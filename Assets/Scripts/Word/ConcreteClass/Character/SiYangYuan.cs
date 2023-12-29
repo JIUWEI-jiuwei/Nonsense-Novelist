@@ -26,12 +26,13 @@ class SiYangYuan : AbstractCharacter
 
         Destroy(attackA);
         attackA = gameObject.AddComponent<CureMode>();
-        description = "这是饲养员，不过策划还什么都没有给我";
+        description = "暂无文案";
     }
 
     AbstractCharacter[] aims;
     public override bool AttackA()
     {//代替平A
+        if (hp <= 0) return false;
         if (myState.aim != null)
         {
             myState.character.CreateBullet(myState.aim.gameObject);
