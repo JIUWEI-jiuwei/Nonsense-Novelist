@@ -313,7 +313,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 14
     mosaicPosition: {x: 0, y: 0}
   - name: dizuo1
@@ -334,7 +334,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 10
     mosaicPosition: {x: 0, y: 0}
   - name: decoration
