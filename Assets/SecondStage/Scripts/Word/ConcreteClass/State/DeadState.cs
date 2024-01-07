@@ -17,11 +17,9 @@ namespace AI
                 uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
 
             }
-
         }
         override public void Awake()
         {
-
             base.Awake();
             id = StateID.dead;
             triggers.Add(gameObject.AddComponent<ReLifeTrigger>());
@@ -29,32 +27,9 @@ namespace AI
         }
         public override void Action(MyState0 myState)
         {
-    
-            AbstractCharacter myc = this.transform.parent.GetComponent<AbstractCharacter>();
-            bool lastOne = true;
-            if (this.transform.parent.GetComponent<AbstractCharacter>())
-            {
-                  foreach (var _ac in CharacterManager.instance.GetComponentsInChildren<AbstractCharacter>())
-                {
-                    if ((_ac.camp == myc.camp)&& (_ac != myc))lastOne = false;
-                } 
-            }
-
-
-            if (lastOne&&myc.camp!=CampEnum.stranger)
-            { CharacterManager.instance.EndGame(); }
-            //var _sa = this.transform.parent.GetComponent<ServantAbstract>();
-            ////如果是随从，额外手续
-            //if (_sa != null)
-            //{
-            //    _sa.masterNow.DeleteServant(_sa.gameObject);
-            //}
-            //临时去掉了这个if
-            //if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
-            { 
+            if (myState.character.charaAnim.IsEnd(AnimEnum.dead))
                 //播放完动画后销毁
-                Destroy(this.transform.parent.gameObject);
-            }
+                Destroy(this.gameObject);
         }
 
 
@@ -65,12 +40,12 @@ namespace AI
             AbstractBook.afterFightText += myState.character.DieText();
             
 
-            ////结束
-            //if (GameObject.Find("LeftAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1 || GameObject.Find("RightAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1)
-            //// if (myState.character.camp == CampEnum.friend)
-            //{
-            //    UIManager.LoseEnd();
-            //}
+            //结束
+            if (GameObject.Find("LeftAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1 || GameObject.Find("RightAll").GetComponentsInChildren<AbstractCharacter>().Length <= 1)
+            // if (myState.character.camp == CampEnum.friend)
+            {
+                UIManager.LoseEnd();
+            }
             /*
             if (myState.character.camp == CampEnum.enemy&& UIManager.enemyParentF[uIManager.transAndCamera.guanQiaNum].transform.childCount <= 1)
             {

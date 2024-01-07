@@ -1,5 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 抽象动词类（技能）
@@ -43,7 +47,7 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
         }
     }
     /// <summary>释放一次所需能量</summary>
-    public int needCD=3;
+    public int needCD;
     /// <summary>施法时长：前摇，后摇（已施法时间变量现场声明）（已弃用）</summary>
     public float prepareTime,afterTime;
     /// <summary>特殊效果存储引用</summary>
@@ -57,12 +61,10 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
         character=this.GetComponent<AbstractCharacter>();
         if (character != null)
         {
-           
             character.OnEnergyFull += CdAdd;
         }
 
         wordKind = WordKindEnum.verb;
-
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots.Add(gameObject.AddComponent<Common>());
 
@@ -73,10 +75,8 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     public virtual void CdAdd()
     {
         CD++;
-        //print(wordName+"'S CD：（cdadd）"+CD);
-
-        if (CD+1>=needCD) 
-            character.canUseSkills++;
+        if(CD+1>=needCD) 
+        character.canUseSkills++;
     }
 
     /// <summary>
@@ -93,17 +93,15 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     virtual public void UseVerb(AbstractCharacter useCharacter)
     {
         isUsing = true;
+        CD = 0;
         stateInfo=useCharacter.charaAnim.anim.GetCurrentAnimatorStateInfo(0);
     }
-    public void CDZero()
-    {
-        CD = 0;
-    }
+
     private AnimatorStateInfo stateInfo;
 
     virtual public void FixedUpdate()
     {
-        if(isUsing /*&& stateInfo.normalizedTime >= 0.9f*/)//播放完特效即为使用完毕
+        if(isUsing && stateInfo.normalizedTime>= 0.9f )//播放完特效即为使用完毕
         {
             isUsing=false;
         }
@@ -115,18 +113,13 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
     /// <returns>是否冷却完毕</returns>
     virtual public bool CalculateCD()
     {
-        if (needCD == 0) return false;
 
         if (CD >= needCD)
         {
             return true;
         }
         else
-        {
-            //print(wordName+"--CalculateCD false!CD:" + CD + "needcd:" + needCD);
-             return false;
-        }
-           
+            return false;
     }
 
     private void OnDestroy()
@@ -136,6 +129,4 @@ abstract public class AbstractVerbs : AbstractWord0 ,ICD
             Destroy(buff);
         }
     }
-
-
 }

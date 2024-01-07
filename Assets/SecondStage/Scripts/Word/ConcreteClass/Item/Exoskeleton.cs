@@ -3,30 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///名词：外骨骼
+///外骨骼
 /// </summary>
-class WaiGuGe : AbstractItems
+class Exoskeleton : AbstractItems
 {
-    static public string s_description = "<sprite name=\"def\">+5";
-    static public string s_wordName = "外骨骼";
     public override void Awake()
     {
         base.Awake();
-        itemID = 18;
+        itemID = 17;
         wordName = "外骨骼";
-
         bookName = BookNameEnum.PHXTwist;
-        description = "<sprite name=\"def\">+5";
-
+        description = "加3防御，加快攻速";
+        holdEnum = HoldEnum.clothes;
         VoiceEnum = MaterialVoiceEnum.Meat;
 
-        rarity = 0;
+        rarity = 1;
     }
 
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        chara.def += 5;
+        chara.def += 3;
+        chara.attackInterval -= 0.2f;
     }
 
     public override void UseVerb()
@@ -37,6 +35,7 @@ class WaiGuGe : AbstractItems
     public override void End()
     {
         base.End();
-        aim.def -= 5;
+        aim.def -= 3;
+        aim.attackInterval += 0.2f;
     }
 }

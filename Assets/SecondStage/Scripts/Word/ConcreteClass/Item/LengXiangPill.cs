@@ -2,62 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 名词：冷香丸
+/// 冷香丸
 /// </summary>
-class LengXiangWan : AbstractItems
+class LengXiangPill : AbstractItems
 {
-    static public string s_description = "恢复+3，获得时清除负面状态";
-    static public string s_wordName = "冷香丸";
     public override void Awake()
     {
         base.Awake();
         itemID = 2;
         wordName = "冷香丸";
         bookName = BookNameEnum.HongLouMeng;
-        rarity = 1;
-
+        description = "虚无，加1防御";
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
-
-        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
-            wordCollisionShoots[0] = gameObject.AddComponent<XuWu_YunSu>();
-
-        description = "恢复+3，获得时清除负面状态";
-
+        rarity = 1;
         nowTime = 0;
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+            wordCollisionShoots[0] = gameObject.AddComponent<XuWu>();
     }
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[1];
-        _s[0] = "XuWu_YunSu";
-        return _s;
-    }
-
-
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        chara.cure += 3;
-        //
-        var _buffs = GetComponents<AbstractBuff>();
-        foreach (var _buff in _buffs)
-        {
-            if (_buff.isBad) Destroy(_buff);
-        }
-        //清楚负面效果：
-
+        chara.def++;
     }
 
     float nowTime;
     public override void UseVerb()
     {
         base.UseVerb();
-        
+        nowTime += Time.deltaTime;
+        if (nowTime > 1)
+        {
+            nowTime = 0;
+            aim.CreateFloatWord(3, FloatWordColor.heal, false);
+            aim.hp += 3;
+        }
     }
 
     public override void End()
     {
         base.End();
-       aim.cure -= 3;
+        aim.def--;
     }
     public override string UseText()
     {

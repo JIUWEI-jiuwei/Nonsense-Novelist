@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// £¨ÆúÓÃ£©buff£º´«²¥
-/// </summary>
+
 public class ChuanBo: AbstractBuff
 {
     override protected void Awake()

@@ -2,35 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 名词：恶性肿瘤
+/// 恶性肿瘤
 /// </summary>
 class EXingZhongLiu : AbstractItems,IChongNeng
 {
-    static public string s_description = "每次弹射<sprite name=\"hpmax\">-5%";
-    static public string s_wordName = "恶性肿瘤";
+    public float maxHPAdd;
+    public float record;
     public override void Awake()
     {
         base.Awake();
-        itemID = 17;
+        itemID = 16;
         wordName = "恶性肿瘤";
         bookName = BookNameEnum.FluStudy;
-        description = "每次弹射<sprite name=\"hpmax\">-5%";
-
+        description = "充能：减5%生命上限";
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
-
         rarity = 1;
-
         if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
             wordCollisionShoots[0] = gameObject.AddComponent<ChongNeng>();
     }
-
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[1];
-        _s[0] = "ChongNeng";
-        return _s;
-    }
-    public float maxHPAdd;
 
     public void ChongNeng(int times)
     {
@@ -40,8 +30,8 @@ class EXingZhongLiu : AbstractItems,IChongNeng
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-
-        chara.maxHpMul -= maxHPAdd;
+        record = chara.maxHp * maxHPAdd;
+        chara.maxHp -= record;
     }
 
     public override void UseVerb()
@@ -51,8 +41,8 @@ class EXingZhongLiu : AbstractItems,IChongNeng
 
     public override void End()
     {
+        aim.maxHp += record;
         base.End();
-        aim.maxHpMul += maxHPAdd;
     }
 
     

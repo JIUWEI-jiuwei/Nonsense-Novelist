@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///名词：奇怪石像
+/// 奇怪石像
 /// </summary>
-class QiGuaiShiXiang : AbstractItems
+class StrangeStatue : AbstractItems
 {
-    static public string s_description = " <sprite name=\"psy\">+1";
-    static public string s_wordName = "奇怪石像";
     public override void Awake()
     {
         base.Awake();
-        itemID = 22;
+        itemID = 21;
         wordName = "奇怪石像";
-        bookName = BookNameEnum.allBooks;
-        description = "<sprite name=\"psy\">+1";
-
+        bookName = BookNameEnum.CrystalEnergy;
+        description = "加2精神";
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 0;
@@ -24,7 +22,7 @@ class QiGuaiShiXiang : AbstractItems
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        chara.psy += 1;
+        chara.psy += 2;
     }
 
     public override void UseVerb()
@@ -35,6 +33,6 @@ class QiGuaiShiXiang : AbstractItems
     public override void End()
     {
         base.End();
-        aim.psy -= 1;
+        aim.psy -= 2;
     }
 }

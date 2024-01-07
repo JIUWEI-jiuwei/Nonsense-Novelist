@@ -37,11 +37,9 @@ class MouseDown : MonoBehaviour
     public AudioSource audioSource;
     /// <summary>发射器</summary>
     public GameObject shoot;
-
+    
     private void Update()
     {
-        if (CharacterManager.instance.pause) return;
-        if (isShow) return;
         MouseDownView();
     }  
     /// <summary>
@@ -49,45 +47,34 @@ class MouseDown : MonoBehaviour
     /// </summary>
     private void MouseDownView()
     {
-        
         if (Input.GetMouseButtonDown(1))//按下右键
         {
-
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
             
-            if(hit.collider!=null&&hit.collider.gameObject.tag=="character"&& !isShow)
+            if(hit.collider!=null&&hit.collider.gameObject.tag=="character"&&isShow==false)
             {
                 //播放点击音效
                 //audioSource.Play();
 
                 //生成角色信息面板
                 a = Instantiate(characterDetailPrefab, otherCanvas.transform);
-
                 isShow = true;
                 
                 //获取点击角色的脚本信息
                 abschara = hit.collider.GetComponent<AbstractCharacter>();
-
-                a.GetComponentInChildren<CharacterDetail_t>().SetCharacter(hit.collider.gameObject);
-
-                //if (hit.collider.GetComponent<AbstractAdjectives>())
-                //{
-                //    absAdj = hit.collider.GetComponent<AbstractAdjectives>();
-                //}
-                //else if (hit.collider.GetComponent<AbstractVerbs>())
-                //{
-                //    absVerbs = hit.collider.GetComponent<AbstractVerbs>();
-                //}
-        
-                
-              
+                if (hit.collider.GetComponent<AbstractAdjectives>())
+                {
+                    absAdj = hit.collider.GetComponent<AbstractAdjectives>();
+                }
+                else if (hit.collider.GetComponent<AbstractVerbs>())
+                {
+                    absVerbs = hit.collider.GetComponent<AbstractVerbs>();
+                }
+                Time.timeScale = 0f;
+                //暂停发射
+                shoot.GetComponent<Shoot>().enabled = false;
             }
 
         }
-    }
-
-    public void CloseDetail()
-    {
-        isShow = false;
-    }
+    }    
 }

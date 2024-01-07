@@ -103,13 +103,6 @@ public static class AllSkills
 
     /// <summary>6个初始词条</summary>
     public static Type[] absWords = new Type[6];
-
-
-
-    /// <summary>测试词条</summary>
-    public static List<Type> testList1 = new List<Type>();
-    public static List<Type> testList2 = new List<Type>();
-    public static List<Type> testList3 = new List<Type>();
     /// <summary>
     /// 静态构造函数
     /// </summary>
@@ -117,21 +110,21 @@ public static class AllSkills
     {       
         //添加动词词条
         list_verb.AddRange(new Type[] { typeof(BuryFlower),  typeof(WritePoem) , typeof(HeartBroken),
-           typeof(CHOOHShoot_x) ,typeof(Shuai),typeof(QiChongShaDance),typeof(TongPinGongZhen),
+           typeof(CHOOHShoot) ,typeof(FallBadly),typeof(QiChongShaDance),typeof(TongPinGongZhen),
         typeof(BaoZa), typeof(FangFuShu), typeof(GunShoot), typeof(Kiss),typeof(MianYiZengQiang),
         typeof(ShaYu), typeof(ToBigger), typeof(TuLingCeShi), typeof(WanShua), typeof(WenYiChuanBo)});
         //添加形容词词条
         list_adj.AddRange(new Type[] {  typeof(BuXiu), typeof(ChaFanWuXin), typeof(CuZhuang), typeof(HunFei),
            typeof(FengChan),typeof(FengLi) ,typeof(GuoMin),typeof(HaoZhan) ,typeof(HeWuRan),typeof(HunQianMengYing),
         typeof(JianRuPanShi),typeof(KeBan) ,typeof(LuanLun),typeof(LuoYingBinFen) ,typeof(QingXi),typeof(QuicklyGrowing),
-        typeof(RenZao),typeof(SanFaFeiLuoMeng_x) ,typeof(ShenHuanFeiYan),typeof(ShenYouHuanJing) ,typeof(XinShenJiDang),
+        typeof(RenZao),typeof(SanFaFeiLuoMeng) ,typeof(ShenHuanFeiYan),typeof(ShenYouHuanJing) ,typeof(XinShenJiDang),
             typeof(YouAnQuanGan),typeof(ZhongDu),});
         //添加名词词条
-        list_noun.AddRange(new Type[] { typeof(WaiGuGe), typeof(JiShengChong), typeof(LengXiangWan), typeof(Nexus_6Arm),
-            typeof(ZiShuiJIng) ,typeof(RiLunGuaZhui),typeof(BenJieShiDui),typeof(DuXian),
-            typeof(ChaBei),typeof(HuYanShi) ,typeof(BaiShuijing) ,typeof(FuTouAxe),typeof(BoLiGuaZhui),
-            typeof(herusizhiyan),typeof(MeiGuiShiYing) ,typeof(BeiZhiRuDeJiYi),typeof(PaintBrush_x),typeof(QiGuaiShiXiang),
-            typeof(HouZiDian),typeof(VolumeProduction) ,typeof(XianZhiHead),typeof(YiZhiWeiShiQi) });
+        list_noun.AddRange(new Type[] { typeof(Exoskeleton), typeof(JiShengChong), typeof(LengXiangPill), typeof(Nexus_6Arm),
+            typeof(PurpleStone) ,typeof(RiLunGuaZhui),typeof(BenJieShiDui),typeof(DuXian),
+            typeof(TeaCup),typeof(TigerStone) ,typeof(WhiteStone) ,typeof(FuTouAxe),typeof(GlassPendant),
+            typeof(HorusEyes),typeof(MeiGuiShiYing) ,typeof(MemoryImplantion),typeof(PaintBrush),typeof(StrangeStatue),
+            typeof(ThickDictionary),typeof(VolumeProduction) ,typeof(XianZhiHead),typeof(YiZhiWeiShiQi) });
         //全部
         list_all.AddRange(list_verb);
         list_all.AddRange(list_adj);
@@ -143,7 +136,7 @@ public static class AllSkills
         //《红楼梦》添加形容词词条
         hlmList_adj.AddRange(new Type[] { typeof(ChaFanWuXin), typeof(ShenYouHuanJing)});
         //《红楼梦》添加名词词条
-        hlmList_noun.AddRange(new Type[] { typeof(ChaBei), typeof(LengXiangWan) });
+        hlmList_noun.AddRange(new Type[] { typeof(TeaCup), typeof(LengXiangPill) });
         //《红楼梦》全部词条
         hlmList_all.AddRange(hlmList_verb);
         hlmList_all.AddRange(hlmList_adj);
@@ -165,7 +158,7 @@ public static class AllSkills
         //仿生人添加形容词词条
         humanList_adj.AddRange(new Type[] { typeof(HeWuRan), typeof(RenZao) });
         //仿生人添加名词词条
-        humanList_noun.AddRange(new Type[] { typeof(Nexus_6Arm), typeof(VolumeProduction), typeof(BeiZhiRuDeJiYi) });
+        humanList_noun.AddRange(new Type[] { typeof(Nexus_6Arm), typeof(VolumeProduction), typeof(MemoryImplantion) });
         //仿生人全部词条
         humanList_all.AddRange(humanList_verb);
         humanList_all.AddRange(humanList_adj);
@@ -176,7 +169,7 @@ public static class AllSkills
         //水晶能量添加形容词词条
         crystalList_adj.AddRange(new Type[] { typeof(QingXi)});
         //水晶能量添加名词词条
-        crystalList_noun.AddRange(new Type[] { typeof(BaiShuijing), typeof(ZiShuiJIng), typeof(HuYanShi), typeof(MeiGuiShiYing) });
+        crystalList_noun.AddRange(new Type[] { typeof(WhiteStone), typeof(PurpleStone), typeof(TigerStone), typeof(MeiGuiShiYing) });
         //水晶能量全部词条
         crystalList_all.AddRange(crystalList_verb);
         crystalList_all.AddRange(crystalList_adj);
@@ -198,7 +191,7 @@ public static class AllSkills
         //埃及神话添加形容词词条
         aiJiShenHuaList_adj.AddRange(new Type[] { typeof(FengChan),typeof(BuXiu),});
         //埃及神话添加名词词条
-        aiJiShenHuaList_noun.AddRange(new Type[] { typeof(RiLunGuaZhui),typeof(herusizhiyan),});
+        aiJiShenHuaList_noun.AddRange(new Type[] { typeof(RiLunGuaZhui),typeof(HorusEyes),});
         //埃及神话全部词条
         aiJiShenHuaList_all.AddRange(aiJiShenHuaList_verb);
         aiJiShenHuaList_all.AddRange(aiJiShenHuaList_adj);
@@ -216,23 +209,23 @@ public static class AllSkills
         liuXingBXList_all.AddRange(liuXingBXList_noun);
 
         //蚂蚁帝国添加动词词条
-        maYiDiGuoList_verb.AddRange(new Type[] { });
+        maYiDiGuoList_verb.AddRange(new Type[] { typeof(CHOOHShoot),});
         //蚂蚁帝国添加形容词词条
-        maYiDiGuoList_adj.AddRange(new Type[] {typeof(HunFei),typeof(HaoZhan),});
+        maYiDiGuoList_adj.AddRange(new Type[] { typeof(SanFaFeiLuoMeng),typeof(HunFei),typeof(HaoZhan),});
         //蚂蚁帝国添加名词词条
-        maYiDiGuoList_noun.AddRange(new Type[] { typeof(WaiGuGe),typeof(DuXian),});
+        maYiDiGuoList_noun.AddRange(new Type[] { typeof(Exoskeleton),typeof(DuXian),});
         //蚂蚁帝国全部词条
         maYiDiGuoList_all.AddRange(maYiDiGuoList_verb);
         maYiDiGuoList_all.AddRange(maYiDiGuoList_adj);
         maYiDiGuoList_all.AddRange(maYiDiGuoList_noun);
 
         //通用添加动词词条
-        commonList_verb.AddRange(new Type[] { typeof(Shuai),typeof(HeartBroken),typeof(ToBigger),typeof(BaoZa),});
+        commonList_verb.AddRange(new Type[] { typeof(FallBadly),typeof(HeartBroken),typeof(ToBigger),typeof(BaoZa),});
         //通用添加形容词词条
-        commonList_adj.AddRange(new Type[] {typeof(FengLi), typeof(QuicklyGrowing), typeof(LuoYingBinFen),typeof(CuZhuang),
+        commonList_adj.AddRange(new Type[] { typeof(FengLi),typeof(QuicklyGrowing),typeof(LuoYingBinFen),typeof(CuZhuang),
             typeof(JianRuPanShi),typeof(ZhongDu),});
         //通用添加名词词条
-        commonList_noun.AddRange(new Type[] { typeof(FuTouAxe),typeof(HouZiDian),typeof(QiGuaiShiXiang),typeof(BoLiGuaZhui),});
+        commonList_noun.AddRange(new Type[] { typeof(FuTouAxe),typeof(ThickDictionary),typeof(StrangeStatue),typeof(GlassPendant),});
         //通用全部词条
         commonList_all.AddRange(commonList_verb);
         commonList_all.AddRange(commonList_adj);
@@ -241,28 +234,6 @@ public static class AllSkills
 
         /// <summary>战斗界面全部词条</summary>
         combatList_all.AddRange(shaLeMeiList_all);
-
-
-        ///<summary>测试词条1</summary>
-        testList1.AddRange(new Type[] { /*typeof(DuXian) ,typeof(BenJieShiDui)*/typeof(FengChan) });
-
-        ///<summary>测试通过词条2</summary>///
-        testList2.AddRange(new Type[] { /*noun*/typeof(BaiShuijing) ,typeof(BeiZhiRuDeJiYi) ,typeof(BenJieShiDui), typeof(BoLiGuaZhui),typeof(ChaBei),
-        typeof(EXingZhongLiu),typeof(FuTouAxe),typeof(herusizhiyan),typeof(HouZiDian),typeof(HuYanShi),typeof(MeiGuiShiYing),typeof(Nexus_6Arm),
-        typeof(QiGuaiShiXiang),typeof(VolumeProduction),typeof(WaiGuGe),typeof(XianZhiHead),typeof(ZiShuiJIng),
-        /*adj*/typeof(ChaFanWuXin),typeof(CuZhuang),typeof(FengChan),typeof(FengLi),typeof(HaoZhan),typeof(HeWuRan),typeof(HunFei),
-        typeof(JianRuPanShi),typeof(KeBan),typeof(LuoYingBinFen),typeof(QingXi),typeof(QuicklyGrowing),typeof(RenZao),typeof(ShenHuanFeiYan),
-        typeof(ShenYouHuanJing),typeof(XinShenJiDang),typeof(ZhongDu),
-        /*verb*/});
-
-
-        ///<summary>有问题的词条3</summary>///
-        testList3.AddRange(new Type[] {
-            /*测试攻击随从*/ typeof(DuXian), typeof(JiShengChong) ,
-       typeof(CHOOHShoot_x),
-      /*测试负面状态的清楚*/
-           typeof(HunQianMengYing),typeof(LuanLun),
-        /*verb*/typeof(BaoZa),typeof(BuryFlower),typeof(Kiss),typeof(QiChongShaDance),typeof(TuLingCeShi),typeof(WenYiChuanBo)});
     }
 
     /// <summary>
@@ -271,40 +242,8 @@ public static class AllSkills
     /// <returns></returns>
     public static Type CreateSkillWord()
     {
-        //int number = UnityEngine.Random.Range(0, list_all.Count);
-
-
-        //while (testList3.Contains(list_all[number]))
-        //{
-        //    number = UnityEngine.Random.Range(0, list_all.Count);
-        //}
-
-        //return list_all[number];
-
-
-
-        ////测试用，指定某种卡牌↓
-
-        //int _number = UnityEngine.Random.Range(0, testList1.Count);
-
-        //return testList1[_number];
-
-        //int _number = UnityEngine.Random.Range(0, list_all.Count);
-        //while (testList3.Contains(list_all[_number]))
-        //{
-        //    _number = UnityEngine.Random.Range(0, list_all.Count);
-        //}
-        //return list_all[_number];
-
-        ////正式
-
-        int number = UnityEngine.Random.Range(0, GameMgr.instance.GetCombatStartList().Count);
-        while (testList3.Contains(GameMgr.instance.GetCombatStartList()[number]))
-        {
-            number = UnityEngine.Random.Range(0, GameMgr.instance.GetCombatStartList().Count);
-        }
-
-        return GameMgr.instance.GetCombatStartList()[number];
+        int number = UnityEngine.Random.Range(0, list_all.Count);
+        return list_all[number];
     }
 
 }

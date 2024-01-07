@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-///弃用：虚无
+/// 虚无
 /// </summary>
-public class XuWu_x : WordCollisionShoot
+public class XuWu : WordCollisionShoot
 {
     public override void Awake()
     {
@@ -37,13 +37,14 @@ public class XuWu_x : WordCollisionShoot
             AbstractCharacter character = collision.gameObject.GetComponent<AbstractCharacter>();
             
             //给absWord赋值
-           // absWord = Shoot.abs;
+            absWord = Shoot.abs;
             //判断该词条是形容词/动词/名词
             //先把absWord脚本挂在角色身上，然后调用角色身上的useAdj
             if (absWord.wordKind == WordKindEnum.verb)
             {
                 AbstractVerbs b = this.GetComponent<AbstractVerbs>();
-                character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
+                collision.gameObject.AddComponent(b.GetType());
+                character.skills.Add(b);
 
             }
             else if (absWord.wordKind == WordKindEnum.adj)

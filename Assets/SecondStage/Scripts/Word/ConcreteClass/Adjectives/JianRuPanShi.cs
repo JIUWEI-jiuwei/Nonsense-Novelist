@@ -3,19 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 形容词：坚如磐石的
-/// </summary>
 public class JianRuPanShi : AbstractAdjectives
 {
-    static public string s_description = "<sprite name=\"def\">+12，持续10s";
-    static public string s_wordName = "坚如磐石的";
     public override void Awake()
     {
-        adjID = 23;
+        adjID = 19;
         wordName = "坚如磐石的";
         bookName = BookNameEnum.allBooks;
-        description = "<sprite name=\"def\">+12，持续10s";
+        description = "获得防御";
         skillMode = gameObject.AddComponent<UpDEFMode>();
         skillEffectsTime = 10;
         rarity = 0;
@@ -29,7 +24,7 @@ public class JianRuPanShi : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.def += 12;
+        aimCharacter.def += 10;
     }
 
     
@@ -37,7 +32,7 @@ public class JianRuPanShi : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.def -= 12;
+        aim.def -= 10;
     }
 
 }

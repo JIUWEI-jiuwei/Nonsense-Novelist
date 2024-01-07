@@ -2,34 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 名词：茶杯
+/// 茶杯
 /// </summary>
-class ChaBei : AbstractItems
+class TeaCup : AbstractItems
 {
-    static public string s_description = "精神+2";
-    static public string s_wordName = "茶杯";
-
     public override void Awake()
     {
         base.Awake();
-
         itemID = 1;
         wordName = "茶杯";
         bookName = BookNameEnum.HongLouMeng;
-        rarity = 0;
-
+        description = "加2精神";
         VoiceEnum = MaterialVoiceEnum.Ceram;
-
-        description = "<sprite name=\"psy\">+2";
-     
+        rarity = 0;
     }
 
     public override void UseItem(AbstractCharacter chara)
     {
-        base.UseItem(chara);  
+        base.UseItem(chara);
         chara.psy += 2;
-     
-   
     }
 
     public override void UseVerb()

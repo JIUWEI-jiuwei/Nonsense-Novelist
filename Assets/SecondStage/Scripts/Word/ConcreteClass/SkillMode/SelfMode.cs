@@ -21,10 +21,4 @@ class SelfMode : AbstractSkillMode
     {
         return new AbstractCharacter[] { character };
     }
-    override public AbstractCharacter[] CalculateRandom(int attackDistance, AbstractCharacter character,bool _ignoreBoss)
-    {
-
-        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, _ignoreBoss);
-        return a;
-    }
 }

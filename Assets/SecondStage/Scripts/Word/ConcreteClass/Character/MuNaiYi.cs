@@ -31,7 +31,7 @@ class MuNaiYi : AbstractCharacter
 
     private void Start()
     {
-        NoHealthTrigger noHealthTrigger= GetComponentInChildren<NoHealthTrigger>();
+        NoHealthTrigger noHealthTrigger= GetComponent<NoHealthTrigger>();
         noHealthTrigger.OnLive += OnLive;
     }
 

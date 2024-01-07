@@ -7,11 +7,10 @@ public enum BookNameEnum
 {
     /// <summary>全书籍 </summary>
     allBooks = 0,
-  
-    /// <summary>女巫学徒 </summary>
-    StudentOfWitch = 1,
     /// <summary>红楼梦 </summary>
-    HongLouMeng = 2,
+    HongLouMeng = 1,
+    /// <summary>女巫学徒 </summary>
+    StudentOfWitch = 2,
     /// <summary>动物园丰容手册</summary>
     ZooManual = 3,
     /// <summary>埃及神话 </summary>

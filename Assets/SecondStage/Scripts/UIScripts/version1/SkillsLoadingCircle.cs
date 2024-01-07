@@ -17,19 +17,14 @@ class SkillsLoadingCircle : MonoBehaviour
     private List<GameObject> skillUIbar = new List<GameObject>();
     /// <summary>获取该角色 </summary>
     private AbstractCharacter charaComponent;
-    [Tooltip("手动设置，不设的话默认HP")]
     /// <summary>条位置 </summary>
-    public Transform barPoint;
-    //
+    private Transform barPoint;
     private int count;
 
     public void Start()
     {
         charaComponent = gameObject.GetComponent<AbstractCharacter>();
-
-        if(barPoint==null)
-            barPoint = gameObject.transform.Find("HP");
-
+        barPoint = gameObject.transform.GetChild(2);
         for(int i = 0; i < barPoint.childCount; i++)
         {
             verbLoadingPoints[i] = barPoint.GetChild(i);

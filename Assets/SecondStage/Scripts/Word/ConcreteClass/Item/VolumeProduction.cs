@@ -6,15 +6,13 @@ using UnityEngine;
 /// </summary>
 class VolumeProduction : AbstractItems
 {
-    static public string s_description = "散射，获得<color=#dd7d0e>改造</color>";
-    static public string s_wordName = "量产改装件";
     public override void Awake()
     {
         base.Awake();
         itemID = 14;
         wordName = "量产改装件";
         bookName = BookNameEnum.ElectronicGoal;
-        description = "散射，获得<color=#dd7d0e>改造</color>";
+        description = "散射，获得改造";
         holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
@@ -23,24 +21,17 @@ class VolumeProduction : AbstractItems
             wordCollisionShoots[0] = gameObject.AddComponent<SanShe>();
 
     }
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[2];
-        _s[0] = "SanShe";
-        _s[1] = "GaiZao";
-        return _s;
-    }
+
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        buffs.Add(gameObject.AddComponent<GaiZao>());
-        buffs[0].maxTime = Mathf.Infinity;
     }
 
     public override void UseVerb()
     {
         base.UseVerb();
-   
+        buffs.Add(gameObject.AddComponent<GaiZao>());
+        buffs[0].maxTime = Mathf.Infinity;
     }
 
     public override void End()

@@ -1,26 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 动词：变大
-/// </summary>
 class ToBigger : AbstractVerbs
 {
-    static public string s_description = "<sprite name=\"hpmax\">+20";
-    static public string s_wordName = "变大";
     public override void Awake()
     {
         base.Awake();
         skillID = 16;
         wordName = "变大";
         bookName = BookNameEnum.allBooks;
-        description = " <sprite name=\"hpmax\">+20";
-       // nickname.Add( "刺痛");
-
+        description = "自身增加生命上限";
+        nickname.Add( "刺痛");
         skillMode = gameObject.AddComponent<SelfMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = Mathf.Infinity;
-
         rarity = 1;
         needCD=3;
     }
@@ -34,7 +27,6 @@ class ToBigger : AbstractVerbs
     public override void BasicAbility(AbstractCharacter useCharacter)
     {
         useCharacter.maxHp += 20;
-        useCharacter.CreateFloatWord(20, FloatWordColor.healMax, false);
     }
 
     public override string UseText()

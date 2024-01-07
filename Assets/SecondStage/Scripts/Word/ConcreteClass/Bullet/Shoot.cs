@@ -21,14 +21,11 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private float crtForce = 0;
     /// <summary>最小力</summary>
-    public float minForce = 0;
+    private float minForce = 0;
     /// <summary>最大力</summary>
-    public float maxForce = 200;
+    private float maxForce = 200;
     /// <summary>蓄力速度</summary>
-
     public float forceSpeed = 80;
-    /// <summary>蓄力比值</summary>
-    public float forceAmount=1;
     /// <summary>有无发射</summary>
     private bool fired = false;
     /// <summary>蓄力Slider</summary>
@@ -68,7 +65,6 @@ public class Shoot : MonoBehaviour
     }
     /// <summary>
     /// 下一个词条小球准备
-    ///点击start后，在CreateOneCharacter 中调用一次
     /// </summary>
     public void ReadyWordBullet()
     {
@@ -77,18 +73,17 @@ public class Shoot : MonoBehaviour
         //预制体相关
         bulletInstance.transform.SetParent(gang);
         bulletInstance.transform.localPosition = Vector3.zero;
-       //bulletInstance.transform.localScale = Vector3.one;
+        bulletInstance.transform.localScale = Vector3.one;
         bulletInstance.transform.localEulerAngles = Vector3.zero;
         bulletInstance.transform.SetParent(bulletRoot);
-        bulletInstance.GetComponent<SpriteRenderer>().color -=  new Color(0, 0, 0, 1);
 
         //增加词条图像
 
         //给小球增加词条属性
 
-        abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord=bulletInstance.AddComponent(AllSkills.CreateSkillWord()) as AbstractWord0;
-        foreach (var _col in (bulletInstance.GetComponentsInChildren<WordCollisionShoot>()))
-            _col.absWord = abs;
+        abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord= bulletInstance.AddComponent(AllSkills.CreateSkillWord()) as AbstractWord0;
+        //abs = GameObject.Find("WordCollisionShoot").GetComponent<WordCollisionShoot>().absWord = bulletInstance.AddComponent(typeof( FengChan)) as AbstractWord0;
+
         information.ChangeInformation(abs);
     }
     /// <summary>
@@ -99,19 +94,11 @@ public class Shoot : MonoBehaviour
         fired = true; // 设置开火状态为已开火
 
         //给词条添加一个初始的力
-        bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * crtForce* forceAmount);
+        bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.up * crtForce);
         bulletInstance.transform.SetParent(afterShootTF);
         bulletInstance.GetComponent<Collider2D>().isTrigger = false;
-        bulletInstance.GetComponent<SpriteRenderer>().color +=new Color(0,0,0,1);
+
 
         ReadyWordBullet();
-        DestroyWordBullet();
-    }
-    private void DestroyWordBullet()
-    {
-        if (afterShootTF.childCount > 10)
-        {
-            Destroy(afterShootTF.GetChild(0).gameObject);
-        }
     }
 }

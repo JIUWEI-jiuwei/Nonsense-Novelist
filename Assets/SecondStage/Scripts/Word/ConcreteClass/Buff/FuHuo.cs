@@ -2,40 +2,28 @@ using AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// buff：俘获
-/// </summary>
+
 public class FuHuo : AbstractBuff
 {
-    static public string s_description = "优先攻击友方，期间伤害减半，结束后恢复";
-    static public string s_wordName = "俘获";
     override protected void Awake()
     {
         base.Awake();
         buffName = "俘获";
-        description = "优先攻击友方，期间伤害减半，结束后恢复";
         book = BookNameEnum.Salome;
         upup = 1;
-        isBad = true;
-        isAll = true;
 
-       
-      AbstractCharacter character = GetComponent<AbstractCharacter>();
-        if(character!=null)
-        { 
-            if (GameObject.Find("AllCharacter").GetComponentsInChildren<FuHuo>().Length == 1)
-            AbstractVerbs.OnAwake += FuHuoSkill;
+        if (GameObject.Find("所有角色的父物体").GetComponentsInChildren<FuHuo>().Length == 1)
+        AbstractVerbs.OnAwake += FuHuoSkill;
 
-            if(character.attackA.GetType()==typeof(DamageMode))
-            {
-                FuHuoMode newMode= gameObject.AddComponent<FuHuoMode>();
-                newMode.attackRange = character.attackA.attackRange;
-                Destroy(character.attackA);
-                character.attackA = newMode;
-            }
-            FuHuoSkill();
+        AbstractCharacter character = GetComponent<AbstractCharacter>();
+        if(character.attackA.GetType()==typeof(DamageMode))
+        {
+            FuHuoMode newMode= gameObject.AddComponent<FuHuoMode>();
+            newMode.attackRange = character.attackA.attackRange;
+            Destroy(character.attackA);
+            character.attackA = newMode;
         }
- 
+        FuHuoSkill();
     }
 
     private void FuHuoSkill()
@@ -55,11 +43,9 @@ public class FuHuo : AbstractBuff
 
     private void OnDestroy()
     {
-        base.OnDestroy();
-        if (GetComponent<AbstractCharacter>() == null) return;
        if(this.GetComponents<FuHuo>().Length<=1)//只有自己
         {
-            if(GameObject.Find("AllCharacter").GetComponentsInChildren<FuHuo>().Length<=1)
+            if(GameObject.Find("所有角色的父物体").GetComponentsInChildren<FuHuo>().Length<=1)
                 AbstractVerbs.OnAwake -= FuHuoSkill;
 
             AbstractCharacter character = GetComponent<AbstractCharacter>();
@@ -120,14 +106,7 @@ class FuHuoMode : AbstractSkillMode
     /// <returns></returns>
     override public AbstractCharacter[] CalculateAgain(int attackDistance, AbstractCharacter character)
     {
-        
         AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, NeedCampEnum.friend);//优先攻击友方，期间伤害减半，结束后恢复
-        return a;
-    }
-    override public AbstractCharacter[] CalculateRandom(int attackDistance, AbstractCharacter character, bool _ignoreBoss)
-    {
-
-        AbstractCharacter[] a = attackRange.CaculateRange(attackDistance, character.situation, _ignoreBoss);
         return a;
     }
 }

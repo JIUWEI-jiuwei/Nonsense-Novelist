@@ -2,28 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 名词：荷鲁斯之眼
+/// 荷鲁斯之眼
 /// </summary>
-class herusizhiyan : AbstractItems
+class HorusEyes : AbstractItems
 {
-    static public string s_description = "<sprite name=\"atk\">+4";
-    static public string s_wordName = "荷鲁斯之眼";
     public override void Awake()
     {
         base.Awake();
-
-        itemID = 7;
-
+        itemID = 6;
         wordName = "荷鲁斯之眼";
         bookName = BookNameEnum.EgyptMyth;
-        description = "<sprite name=\"atk\">+4";
+        description = "加5攻击";
+        holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;
     }
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        chara.atk += 4;
+        chara.atk += 5;
     }
 
     public override void UseVerb()
@@ -35,6 +32,6 @@ class herusizhiyan : AbstractItems
     public override void End()
     {
         base.End();
-        aim.atk -= 4;
+        aim.atk -= 5;
     }
 }

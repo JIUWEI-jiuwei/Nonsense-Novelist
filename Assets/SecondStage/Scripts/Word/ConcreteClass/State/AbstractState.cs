@@ -43,8 +43,6 @@ namespace AI
             {
                 if(triggers[i].Satisfy(myState))
                 {
-                    
-                    print("map[triggers[i].id="+(map[triggers[i].id]).ToString());
                     myState.ChangeActiveState(map[triggers[i].id]);
                 }
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 画笔
 /// </summary>
-class PaintBrush_x : AbstractItems
+class PaintBrush : AbstractItems
 {
     public override void Awake()
     {

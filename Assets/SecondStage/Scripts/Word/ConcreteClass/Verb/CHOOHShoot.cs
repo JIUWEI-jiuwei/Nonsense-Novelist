@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-///（废弃） 动词：乙酸喷射
-/// </summary>
-class CHOOHShoot_x : AbstractVerbs
+class CHOOHShoot : AbstractVerbs
 {
     public override void Awake()
     {

@@ -6,27 +6,21 @@ using UnityEngine;
 /// </summary>
 class RiLunGuaZhui : AbstractItems
 {
-    static public string s_description = "<sprite name=\"hpmax\">+30，恢复+3";
-    static public string s_wordName = "日轮挂坠";
     public override void Awake()
     {
         base.Awake();
-        itemID = 6;
-
+        itemID = 5;
         wordName = "日轮挂坠";
         bookName = BookNameEnum.EgyptMyth;
-        description = "<sprite name=\"hpmax\">+30，恢复+3";
+        description = "加5精神";
+        holdEnum = HoldEnum.handSingle; 
         VoiceEnum = MaterialVoiceEnum.Ceram;
         rarity = 2;
     }
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        //生命上限+30，恢复+3
-        chara.cure += 3;
-        chara.maxHp += 30;
-        chara.CreateFloatWord(30, FloatWordColor.healMax, false);
-
+        chara.psy += 5;
     }
 
     public override void UseVerb()
@@ -38,7 +32,6 @@ class RiLunGuaZhui : AbstractItems
     public override void End()
     {
         base.End();
-        aim.maxHp -= 5;
-        aim.cure -= 3;
+        aim.psy -= 5;
     }
 }

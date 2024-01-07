@@ -4,18 +4,16 @@ using UnityEngine;
 /// <summary>
 /// 厚字典
 /// </summary>
-class HouZiDian : AbstractItems
+class ThickDictionary : AbstractItems
 {
-    static public string s_description = "<sprite name=\"def\">+3";
-    static public string s_wordName = "厚字典";
     public override void Awake()
     {
         base.Awake();
-        itemID = 21;
+        itemID = 20;
         wordName = "厚字典";
-        bookName = BookNameEnum.allBooks;
-        description = "<sprite name=\"def\">+3";
-
+        bookName = BookNameEnum.CrystalEnergy;
+        description = "加2防御";
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.Ceram;
 
         rarity = 0;
@@ -24,7 +22,7 @@ class HouZiDian : AbstractItems
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        chara.def += 3;
+        chara.def += 2;
 
     }
 
@@ -36,6 +34,6 @@ class HouZiDian : AbstractItems
     public override void End()
     {
         base.End();
-        aim.def -= 3;
+        aim.def -= 2;
     }
 }

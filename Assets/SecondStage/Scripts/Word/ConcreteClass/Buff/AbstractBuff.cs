@@ -13,11 +13,7 @@ public class AbstractBuff : MonoBehaviour
     public int upup=999;
     protected AbstractCharacter chara;
     public float maxTime=0.5f;
-    public string description;
-    public bool isBad = false;
-    public bool isAll = false;
-       static public string s_description = "";
-    static public string s_wordName = "";
+
     protected virtual void Awake()
     {
         chara = GetComponent<AbstractCharacter>();
@@ -38,15 +34,11 @@ public class AbstractBuff : MonoBehaviour
 
     virtual public void Update()
     {
-        if (CharacterManager.instance.pause) return;
         maxTime -= Time.deltaTime;
         if(maxTime<0)
         {
             Destroy(this);
         }
     }
-    virtual public void OnDestroy()
-    {
-        chara.CreateFloatWord("<s>" + this.buffName + "</s>", FloatWordColor.removeWord, false);
-    }
+
 }

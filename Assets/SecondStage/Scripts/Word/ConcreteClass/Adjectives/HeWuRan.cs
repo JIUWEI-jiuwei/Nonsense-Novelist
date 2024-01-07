@@ -3,37 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 形容词：核污染的
-/// </summary>
 public class HeWuRan : AbstractAdjectives
 {
-    static public string s_description = "<color=#dd7d0e>中毒</color>，持续10s";
-    static public string s_wordName = "核污染的";
     public override void Awake()
-    {  
-        base.Awake();
-        adjID = 11;
-        wordName = "核污染的";
-        bookName = BookNameEnum.ElectronicGoal;
-        description = "<color=#dd7d0e>中毒</color>，持续10s";
-
-        skillMode = gameObject.AddComponent<DamageMode>();
-
-        skillEffectsTime = 10;
-        rarity = 1;
-      
-        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
-            wordCollisionShoots[0]=gameObject.AddComponent<ChuanBoCollision>();
-    }
-
-
-    override public string[] DetailLable()
     {
-        string[] _s = new string[2];
-        _s[0] = "ChuanBoCollision";
-        _s[1] = "Toxic";
-        return _s;
+        adjID = 5;
+        wordName = "核污染的";
+        bookName = BookNameEnum.EgyptMyth;
+        description = "获得中毒";
+        skillMode = gameObject.AddComponent<DamageMode>();
+        skillEffectsTime = 3;
+        rarity = 1;
+        base.Awake();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision")) 
+            wordCollisionShoots[0]=gameObject.AddComponent<SanShe>();
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)

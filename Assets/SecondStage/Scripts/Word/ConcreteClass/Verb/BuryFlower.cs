@@ -2,36 +2,22 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /// <summary>
-/// 动词：葬花
+/// 葬花
 /// </summary>
 class BuryFlower : AbstractVerbs
 {
-    static public string s_description = "被动：普通攻击使对方获得<color=#dd7d0e>花瓣</color>;" +
-        "\n主动：收回所有<color=#dd7d0e>花瓣</color>，并造成<color=#dd7d0e>花瓣</color>数 * 30 % <sprite name=\"psy\">的伤害";
-    static public string s_wordName = "葬花";
-
     public override void Awake()
     {
         base.Awake();
         skillID = 2;
         wordName = "葬花";
         bookName = BookNameEnum.HongLouMeng;
-        description = "被动：普通攻击使对方获得<color=#dd7d0e>花瓣</color>;\n主动：收回所有<color=#dd7d0e>花瓣</color>，并造成<color=#dd7d0e>花瓣</color>数 * 30 % <sprite name=\"psy\">的伤害";
-        skillMode = gameObject.AddComponent<SelfMode>();
-        skillEffectsTime = 10;
+        description = "自身获得“花瓣”";
+        skillMode = gameObject.AddComponent<UpPSYMode>();
+        skillEffectsTime = Mathf.Infinity;
         rarity = 3;
-        needCD = 6;
+        needCD = 2;
     }
-
-
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[1];
-        _s[0] = "HuaBan";
-        return _s;
-    }
-
-
 
     /// <summary>
     /// 花瓣
@@ -40,12 +26,8 @@ class BuryFlower : AbstractVerbs
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);
-       
         buffs.Add(skillMode.CalculateAgain(attackDistance, useCharacter)[0].gameObject.AddComponent<HuaBan>());
         buffs[0].maxTime = skillEffectsTime;
-
-
-       
     }
 
     public override string UseText()

@@ -3,20 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 形容词：丰产的
-/// </summary>
 public class FengChan : AbstractAdjectives
 {
-    static public string s_description = " < sprite name=\"hpmax\">+30";
-    static public string s_wordName = "丰产的";
     public override void Awake()
     {
         
-        adjID = 6;
+        adjID = 9;
         wordName = "丰产的";
         bookName = BookNameEnum.EgyptMyth;
-        description = "<sprite name=\"hpmax\">+30";
+        description = "散射，获得生命上限";
         skillMode = gameObject.AddComponent<CureMode>();
         skillEffectsTime = Mathf.Infinity;
         rarity = 1;
@@ -28,12 +23,6 @@ public class FengChan : AbstractAdjectives
 
         }
     }
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[1];
-        _s[0] = "SanShe";
-        return _s;
-    }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
     {
@@ -42,8 +31,7 @@ public class FengChan : AbstractAdjectives
     }
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        aimCharacter.maxHp += 30;
-        aimCharacter.CreateFloatWord(30, FloatWordColor.healMax, false);
+        aimCharacter.maxHp += 10;
 
     }
 
@@ -52,7 +40,7 @@ public class FengChan : AbstractAdjectives
     public override void End()
     {
         base.End();
-        aim.maxHp -= 30;
+        aim.maxHp -= 10;
     }
 
 }

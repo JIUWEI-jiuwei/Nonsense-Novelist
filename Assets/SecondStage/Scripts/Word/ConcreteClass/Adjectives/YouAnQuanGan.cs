@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class YouAnQuanGan : AbstractAdjectives
 {
-    static public string s_description = "恢复+8，持续20s";
-    static public string s_wordName = "有安全感的";
-
     public override void Awake()
     {
-        adjID = 4;
+        adjID = 8;
         wordName = "有安全感的";
         bookName = BookNameEnum.ZooManual;
-        description = "恢复+8，持续20s";
+        description = "恢复生命";
         skillMode = gameObject.AddComponent<SelfMode>();
-        skillEffectsTime = 20;
+        skillEffectsTime = Mathf.Infinity;
         rarity = 1;
-
+        time = skillEffectsTime;
         base.Awake();
+        if (this.gameObject.layer == LayerMask.NameToLayer("WordCollision"))
+        {
+            wordCollisionShoots[0]=gameObject.AddComponent<YunSu>();
 
+        }
     }
 
     public override void UseAdj(AbstractCharacter aimCharacter)
@@ -27,11 +28,9 @@ public class YouAnQuanGan : AbstractAdjectives
         base.UseAdj(aimCharacter);
         BasicAbility(aimCharacter);
     }
-    
     public override void BasicAbility(AbstractCharacter aimCharacter)
     {
-        //恢复加8
-        this.GetComponent<AbstractCharacter>().cure += 8;
+        
     }
 
     float time;
@@ -39,14 +38,21 @@ public class YouAnQuanGan : AbstractAdjectives
     protected override void Update()
     {
         base.Update();
-      
+        if(nowTime<time)
+        {
+            time--;
+            if (aim != null)
+            {
+                aim.CreateFloatWord(5, FloatWordColor.heal, true);
+                aim.hp += 5;
+            }
+        }
     }
 
     public override void End()
     {
-        this.GetComponent<AbstractCharacter>().cure += 8;
         base.End();
-        
+        aim.reLifes--;
     }
 
 }

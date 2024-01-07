@@ -2,35 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 动词：同频共振
+/// 同频共振
 /// </summary>
 class TongPinGongZhen: AbstractVerbs
 {
-    static public string s_description = "使友方获得<color=#dd7d0e>共振</color>，持续30s";
-    static public string s_wordName = "同频共振";
     public override void Awake()
     {
         base.Awake();
         skillID = 8;
         wordName = "同频共振";
         bookName = BookNameEnum.CrystalEnergy;
-        description = "使友方获得<color=#dd7d0e>共振</color>，持续30s";
-
+        description = "使队友获得“共振”";
         skillMode = gameObject.AddComponent<UpATKMode>();
         skillMode.attackRange = new SingleSelector();
         skillEffectsTime = 30;
-
         rarity = 2;
         needCD=2;
 
     }
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[1];
-        _s[0] = "GongZhen";
-        return _s;
-    }
 
+    /// <summary>
+    /// 让所有友军回复5点SP
+    /// </summary>
+    /// <param name="useCharacter">施法者</param>
     public override void UseVerb(AbstractCharacter useCharacter)
     {
         base.UseVerb(useCharacter);

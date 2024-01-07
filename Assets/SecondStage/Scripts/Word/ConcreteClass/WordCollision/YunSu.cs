@@ -15,11 +15,8 @@ public class YunSu : WordCollisionShoot
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (CharacterManager.instance.pause)
-            return;
         //¸øabsWord¸³Öµ
-        //absWord = Shoot.abs;
+        absWord = Shoot.abs;
         base.OnTriggerEnter2D(collision);
     }
 }

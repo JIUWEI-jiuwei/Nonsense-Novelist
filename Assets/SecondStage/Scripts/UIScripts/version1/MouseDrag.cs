@@ -104,9 +104,10 @@ class MouseDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandle
 
                     //if(CanUseVerb(character, b))//如果能够使用到角色身上
                     //{
-                    //character.AddVerb(collision.gameObject.AddComponent(b.GetType()) as AbstractVerbs);
-                    //character.realSkills = character.GetComponents<AbstractVerbs>();
-                    Destroy(this.gameObject);
+                        hit.collider.gameObject.AddComponent(b.GetType());
+                        character.skills.Add(b);
+                        //character.realSkills = character.GetComponents<AbstractVerbs>();
+                        Destroy(this.gameObject);
                     //}
                    //     else//不能
                    // {

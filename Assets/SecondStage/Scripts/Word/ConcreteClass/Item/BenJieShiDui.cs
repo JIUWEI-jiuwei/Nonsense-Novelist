@@ -2,46 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 名词：本杰士堆
+/// 服药
 /// </summary>
 class BenJieShiDui : AbstractItems
 {
-    static public string s_description = "获得本杰士堆，被破坏后名词消失";
-    static public string s_wordName = "本杰士堆";
     public override void Awake()
     {
         base.Awake();
-        itemID = 4;
+        itemID = 3;
         wordName = "本杰士堆";
         bookName = BookNameEnum.ZooManual;
-        description = "获得<color=#dd7d0e>本杰士堆</color>，被破坏后名词消失";//随从
-        rarity = 2;
-
+        description = "使队友获得亢奋";
+        holdEnum = HoldEnum.handSingle;
         VoiceEnum = MaterialVoiceEnum.materialNull;
-   
+        rarity = 2;
 
         nowTime = 0;
         skillMode = new CureMode();
     }
-    override public string[] DetailLable()
-    {
-        string[] _s = new string[1];
-        _s[0] = "CS_BenJieShiDui";
-        return _s;
-    }
-
-    bool hasAdd=false;
-
     public override void UseItem(AbstractCharacter chara)
     {
         base.UseItem(chara);
-        if (hasAdd)
-            return;
-        if (chara == null)
-            print("chara=null");
-        //为角色增加一个随从
-        chara.AddServant("CS_BenJieShiDui");
-        hasAdd = true;
     }
 
     float nowTime;
@@ -50,20 +31,15 @@ class BenJieShiDui : AbstractItems
     public override void UseVerb()
     {
         base.UseVerb();
-        //获得随从
+        nowTime += Time.deltaTime;
+        if (nowTime > 10)
+        {
+            nowTime = 0;
+            friends = skillMode.CalculateAgain(999, aim);
 
-
-
-
-        //nowTime += Time.deltaTime;
-        //if (nowTime > 10)
-        //{
-        //    nowTime = 0;
-        //    friends = skillMode.CalculateAgain(999, aim);
-
-        //    buffs.Add(friends[Random.Range(0, friends.Length)].gameObject.AddComponent<KangFen>());
-        //    buffs[0].maxTime = 10;
-        //}
+            buffs.Add(friends[Random.Range(0, friends.Length)].gameObject.AddComponent<KangFen>());
+            buffs[0].maxTime = 10;
+        }
     }
 
     public override void End()
