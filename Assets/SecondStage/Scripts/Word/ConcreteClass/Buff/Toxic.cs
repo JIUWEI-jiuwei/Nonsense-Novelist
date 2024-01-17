@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Toxic : AbstractBuff
 {
-    /// <summary>Íâ²¿¸³ÖµÊ¹ÓÃÕß</summary>
+    /// <summary>å¤–éƒ¨èµ‹å€¼ä½¿ç”¨è€…</summary>
     public AbstractCharacter useCharacter;
     float nowTime;
     DamageMode damageMode;
     override protected void Awake()
     {
         base.Awake();
-        buffName = "ÖÐ¶¾";
+        buffName = "ä¸­æ¯’";
         book = BookNameEnum.allBooks;
         damageMode.attackRange=new SingleSelector();
         upup = 1;
@@ -25,7 +25,7 @@ public class Toxic : AbstractBuff
         if(nowTime>1)
         {
             nowTime= 0;
-            damageMode.UseMode(useCharacter!=null?useCharacter:chara, 10 * (1 - chara.san / (chara.san + 20)), chara);
+            damageMode.UseMode(useCharacter!=null?useCharacter:chara, 10 * (1 - chara.san / (chara.san + 5)), chara);
         }
     }
 }

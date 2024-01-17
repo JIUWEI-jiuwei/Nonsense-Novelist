@@ -31,7 +31,7 @@ class Kiss : AbstractVerbs
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         aim.CreateFloatWord(
-        skillMode.UseMode(useCharacter, useCharacter.psy * 2 * (1 - aim.san / (aim.san + 20)), aim)
+        skillMode.UseMode(useCharacter, useCharacter.psy * 2 * (1 - aim.san / (aim.san + 5)), aim)
         ,FloatWordColor.psychic,true);
     }
     public override string UseText()

@@ -261,7 +261,7 @@ abstract public class AbstractCharacter : AbstractWord0
             }
             myState.character.charaAnim.Play(AnimEnum.attack);
             myState.aim.CreateFloatWord(
-                attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 20)), myState.aim)
+                attackA.UseMode(myState.character, myState.character.atk * (1 - myState.aim.def / (myState.aim.def + 5)), myState.aim)
                 ,FloatWordColor.physics,false);
             return true;
         }

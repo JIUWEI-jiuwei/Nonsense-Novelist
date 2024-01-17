@@ -32,7 +32,7 @@ class CHOOHShoot : AbstractVerbs
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         aim.CreateFloatWord(
-        skillMode.UseMode(useCharacter, useCharacter.atk*0.25f * (1 - aim.def / (aim.def + 20)), aim)
+        skillMode.UseMode(useCharacter, useCharacter.atk*0.25f * (1 - aim.def / (aim.def + 5)), aim)
         ,FloatWordColor.physics,true);
     }
 

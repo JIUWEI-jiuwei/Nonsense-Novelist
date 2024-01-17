@@ -45,7 +45,7 @@ class ShuiShou : AbstractCharacter
             {//普通攻击为对所有敌人造成攻击力10%的伤害，附带攻击特效
                 myState.character.CreateBullet(aim.gameObject);
                aim.CreateFloatWord(
-                   attackA.UseMode(myState.character, myState.character.atk * 0.1f * (1 - myState.aim.def / (myState.aim.def + 20)), aim)
+                   attackA.UseMode(myState.character, myState.character.atk * 0.1f * (1 - myState.aim.def / (myState.aim.def + 5)), aim)
                    ,FloatWordColor.physics,true);
             }
             return true;

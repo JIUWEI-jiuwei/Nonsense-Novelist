@@ -30,7 +30,7 @@ class TuLingCeShi : AbstractVerbs
     {
         AbstractCharacter aim = skillMode.CalculateAgain(attackDistance, useCharacter)[0];
         aim.CreateFloatWord(
-        skillMode.UseMode(useCharacter, (aim.atk - aim.psy) * 10 * (1 - aim.san / (aim.san + 20)), aim)
+        skillMode.UseMode(useCharacter, (aim.atk - aim.psy) * 10 * (1 - aim.san / (aim.san + 5)), aim)
         ,FloatWordColor.psychic,true);
     }
     public override string UseText()
